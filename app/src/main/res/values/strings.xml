@@ -1,0 +1,134 @@
+<resources>
+    <!-- This is the package name -->
+    <string name="app_name">LLScript MultiTool</string>
+
+    <!-- This is the name displayed when browsing available script package -->
+    <string name="browse_name">MultiTool</string>
+
+    <!-- This is the name of the script once loaded in the launcher (visible in the script editor and the script menus) -->
+    <string name="script_name">MultiTool</string>
+
+    <!-- preferences -->
+    <string name="preference_scriptName">scriptName</string>
+
+
+    <!-- main activity -->
+    <string name="title_activity_main">LLScript: Multitool</string>
+
+    <string name="MainDescription">This is a script for Lightning launcher. You need it installed in order to use this app.</string>
+
+    <string name="text_install">
+        How to load it: Go to lightning launcher, open the menu, click scripts/load a script and choose this script.
+        \n
+        \nHow to update it: Repeat the same procces. If the name is the same it will be override.
+    </string>
+
+    <string name="text_noLauncherFound">Warning: Lightning Launcher is not detected in your device.</string>
+    <string name="button_noLauncherFound">Open Play Store</string>
+
+    <string name="text_repositoryImporter">\nOptional:\nThe repository importer app has been detected on your device.\nYou can click here to import/update the script automatically.</string>
+    <string name="button_repositoryImporter">Import</string>
+    <string name="button_repositoryImporter_importing">Importing… (takes too long? click to try again)</string>
+    <string name="button_repositoryImporter_importOk">Done. (Click to import again)</string>
+    <string name="button_repositoryImporter_importError">Error. Click to try again</string>
+
+    <string name="text_nameOfScript">Write here the name of the script. This will be the one when importing.</string>
+    <string name="hint_nameOfScript">Name of the script</string>
+
+    <string name="button_goToHelp">Open Help page</string>
+    <string name="button_showScriptCode">Show script code</string>
+
+    <string name="button_wikiPage">Wiki page</string>
+    <string name="button_googlePlus">Google+ community</string>
+    <string name="button_email">email</string>
+
+    <string name="link_wiki">http://www.pierrox.net/android/applications/lightning_launcher/wiki/doku.php?id=script_multitool</string>
+    <string name="link_googlePlus">https://plus.google.com/communities/109017480579703391739</string>
+    <string name="link_email_scheme">mailto</string>
+    <string name="link_email_adress">zt31w4r0m@gmail.com</string>
+    <string name="link_email_subject">LLScript Multitool</string>
+    <string name="link_email_chooser">Send email…</string>
+
+
+
+    <!-- Multi activity -->
+    <string name="action_main">Back to main page</string>
+    <string name="imageDescription_divider">divider</string>
+
+
+
+    <!--Code activity-->
+    <string name="title_activity_code">Code</string>
+    <string name="button_copyToClipboard">Copy to clipboard</string>
+    <string name="error_noResourceFound">Error: can\'t show script.</string>
+    <string name="toast_copiedToClipboard">Copied to clipboard</string>
+    <string name="toast_noCopiedToClipboard">There was an error trying to copy to clipboard</string>
+
+
+
+    <!--Help activity-->
+    <string name="title_activity_help">Help</string>
+    <string name="text_help_overview">Overview:</string>
+    <string name="text_help_overviewDescription">This script is a multifunctional tool to do or show a lot of stuff</string>
+    <string name="text_help_howToUse">How to use it:</string>
+    <string name="text_help_howToUseDescription">Simply run it from anywhere. There are different options depending on the context</string>
+    <string name="text_help_features">Features:</string>
+    <string name="text_help_featuresDescription">
+        - Show Event related parameters\n
+        - Show Container related parameters\n
+        - Show Item related parameters\n
+        - Show Icons and images for an item\n
+        - Attach/Detach all Items\n
+        - Resize all detached items\n
+        - Delete all Items\n
+        - Move (a) specific page(s) to another position. This can be used to change the home page by selecting all items\n
+        - Export Scripts\n
+        - Import Script\n
+        - Autoformat Script\n
+        - Search in Scripts\n
+        - Reset Tags\n
+        - Reset Tool © by trianguloY\n
+        - save all Layout changes\n
+        - Reset the recent apps list\n
+    </string>
+    <string name="title_scriptManager">Lightning Script Manager</string>
+    <string name="pref_id">id</string>
+    <string name="pref_version">version</string>
+    <string name="extra_scripts">scripts</string>
+    <string name="menu_addGroup">Add Group</string>
+    <string name="menu_rename">Rename</string>
+    <string name="menu_delete">Delete</string>
+    <string name="menu_move">Move to Group</string>
+    <string name="menu_edit">Edit</string>
+    <string name="text_extraInfo">Extra information</string>
+    <string name="text_links">Links. Any problem? Feel free to contact me.</string>
+    <string name="menu_backup">Backup</string>
+    <string name="menu_format">Format</string>
+    <string name="menu_restore">Restore</string>
+    <string name="menu_settings">Settings</string>
+    <string name="pref_directory">directory</string>
+    <string name="menu_search">Search</string>
+    <string name="message_pleaseWait">Please wait…</string>
+    <string name="title_format">Format</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="message_done">Done!</string>
+    <string name="text_defaultScriptGroup">Unsorted Scripts</string>
+    <string name="text_scriptTitle">ScriptManager</string>
+    <string name="title_search">Search for (Regex)</string>
+    <string name="button_ok">OK</string>
+    <string name="text_matches_lines">Matches (lines):\n</string>
+    <string name="title_matches">Matches</string>
+    <string name="title_create">Create a new Group</string>
+    <string name="title_rename">"Rename "</string>
+    <string name="text_group">Group</string>
+    <string name="text_script">Script</string>
+    <string name="text_backupSuccessful">" scripts successfully backed up"</string>
+    <string name="text_backupFailed">"Failed to backup "</string>
+    <string name="text_scripts">" scripts"</string>
+    <string name="title_selectGroup">Select group</string>
+    <string name="title_delete">Delete</string>
+    <string name="message_deletePart1">"Do you want to delete "</string>
+    <string name="message_deletePart2">" item(s)?"</string>
+    <string name="title_chooseName">Choose name</string>
+    <string name="message_overwrite">Script does already exist. Overwrite?</string>
+</resources>

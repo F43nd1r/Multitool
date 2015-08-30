@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+        <Preference android:title="Backup Directory" android:key="@string/pref_directory"/>
+</PreferenceScreen>
