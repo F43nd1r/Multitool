@@ -144,7 +144,7 @@ class FormatTask extends AsyncTask<List<ScriptItem>, FormatTask.Progress, Void> 
                 script.setCode(builder.toString()); //set the text to the script
                 Transfer transfer = new Transfer(Transfer.SET_CODE);
                 transfer.script = script;
-                ScriptManager.runScript(context, PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), ScriptUtils.GSON.toJson(transfer));
+                ScriptManager.runScript(context, PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), ScriptUtils.GSON.toJson(transfer), true);
             }
         }
         return null;

@@ -123,7 +123,7 @@ final class ScriptUtils {
         if (item instanceof Script) {
             Transfer transfer = new Transfer(Transfer.RENAME);
             transfer.script = (Script) item;
-            ScriptManager.runScript(context, PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer));
+            ScriptManager.runScript(context, PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer), true);
         }
         adapter.deselectAll();
         adapter.notifyDataSetChanged();
@@ -266,7 +266,7 @@ final class ScriptUtils {
     private static void deleteScript(Context context, Script delete) {
         Transfer transfer = new Transfer(Transfer.DELETE);
         transfer.script = delete;
-        ScriptManager.runScript(context, PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer));
+        ScriptManager.runScript(context, PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer), true);
     }
 
     private static boolean prepareGroupForDelete(List<ScriptGroup> items, ScriptGroup delete) {
@@ -372,7 +372,7 @@ final class ScriptUtils {
     private static void restore(final Context context,Script script) {
         Transfer transfer = new Transfer(Transfer.RESTORE);
         transfer.script = script;
-        ScriptManager.runScript(context, PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer));
+        ScriptManager.runScript(context, PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer), true);
     }
 
 

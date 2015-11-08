@@ -48,7 +48,6 @@ other[1].push("Save changes");
 other[1].push("Delete recent app history");
 items.push(info);
 items.push(itemUtils);
-items.push(scriptUtils);
 items.push(other);
 
 

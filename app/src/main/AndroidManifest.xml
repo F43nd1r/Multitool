@@ -51,7 +51,8 @@
         </activity>
 
         <activity android:name=".scriptmanager.ScriptManagerActivity"
-                  android:label="@string/title_scriptManager">
+                  android:label="@string/title_scriptManager"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

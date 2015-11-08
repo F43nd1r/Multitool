@@ -44,9 +44,8 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
         super.onCreate(savedInstanceState);
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         fileManager = new FileManager(this);
-        onNewIntent(getIntent());
         listView = new ExpandableListView(this);
-        setContentView(listView);
+        onNewIntent(getIntent());
         listView.setDrawSelectorOnTop(true);
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -129,26 +128,33 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
             }
             adapter = new ScriptListAdapter(this, items, listView);
             listView.setAdapter(adapter);
+            setContentView(listView);
         } else {
             int id = sharedPref.getInt(getString(R.string.pref_id), -1);
-            if (BuildConfig.DEBUG || id == -1 || sharedPref.getInt(getString(R.string.pref_version), 0) != BuildConfig.VERSION_CODE) {
-                try {
-                    ScriptManager.loadScript(this, R.raw.scriptmanager, getString(R.string.text_scriptTitle), 0, true, new ScriptManager.Listener() {
-                        @Override
-                        public void OnLoadFinished(int i) {
-                            sharedPref.edit().putInt(getString(R.string.pref_id), i).putInt(getString(R.string.pref_version), BuildConfig.VERSION_CODE).apply();
-                            ScriptManager.runScript(ScriptManagerActivity.this, i, null);
-                        }
-                    });
-                    overridePendingTransition(0,0);
-                } catch (IOException e) {
-                    throw new FileManager.FatalFileException(e);
-                }
-            } else {
-                ScriptManager.runScript(this, id, null);
-            }
-            items = fileManager.read();
+            loadFromLauncher(id);
         }
+    }
+
+    private void loadFromLauncher(int id){
+        if (BuildConfig.DEBUG || id == -1 || sharedPref.getInt(getString(R.string.pref_version), 0) != BuildConfig.VERSION_CODE) {
+            try {
+                ScriptManager.loadScript(this, R.raw.scriptmanager, getString(R.string.text_scriptTitle), 0, true, new ScriptManager.Listener() {
+                    @Override
+                    public void OnLoadFinished(int i) {
+                        sharedPref.edit().putInt(getString(R.string.pref_id), i).putInt(getString(R.string.pref_version), BuildConfig.VERSION_CODE).apply();
+                        ScriptManager.runScript(ScriptManagerActivity.this, i, null, true);
+                    }
+                });
+                overridePendingTransition(0,0);
+            } catch (IOException e) {
+                throw new FileManager.FatalFileException(e);
+            }
+        } else {
+            ScriptManager.runScript(this, id, null, true);
+        }
+        items = fileManager.read();
+        setContentView(R.layout.activity_loading);
+
     }
 
     private boolean checkIfStillExisting(Script item) {
@@ -320,5 +326,10 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
                 ScriptUtils.restoreFromFile(this, items, uri);
             }
         }
+    }
+
+    public void onReloadButton(View ignored){
+        sharedPref.edit().putInt(getString(R.string.pref_id),-1).apply();
+        loadFromLauncher(-1);
     }
 }
