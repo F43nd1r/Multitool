@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import com.app.lukas.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.multitool.BuildConfig;
@@ -181,6 +182,10 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if(scripts == null){
+            Toast.makeText(this, R.string.toast_menuDisabled, Toast.LENGTH_SHORT).show();
+            return true;
+        }
         switch (item.getItemId()) {
             case R.id.action_add_group:
                 ScriptUtils.createGroupDialog(this,items,adapter);

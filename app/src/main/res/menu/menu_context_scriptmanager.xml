@@ -4,29 +4,29 @@
     <item
         android:id="@+id/action_edit"
         android:icon="@drawable/ic_edit"
-        app:showAsAction="ifRoom"
-        android:title="@string/menu_edit"/>
+        android:title="@string/menu_edit"
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/action_rename"
         android:icon="@drawable/ic_rename"
-        app:showAsAction="ifRoom"
-        android:title="@string/menu_rename"/>
+        android:title="@string/menu_rename"
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/action_move_to_group"
         android:icon="@drawable/ic_move"
-        app:showAsAction="ifRoom"
-        android:title="@string/menu_move"/>
+        android:title="@string/menu_move"
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/action_backup"
-        app:showAsAction="never"
-        android:title="@string/menu_backup"/>
+        android:title="@string/menu_backup"
+        app:showAsAction="never"/>
     <item
         android:id="@+id/action_format"
-        app:showAsAction="ifRoom"
-        android:title="@string/menu_format"/>
+        android:title="@string/menu_format"
+        app:showAsAction="never"/>
     <item
         android:id="@+id/action_delete"
         android:icon="@drawable/ic_delete"
-        app:showAsAction="ifRoom"
-        android:title="@string/menu_delete"/>
+        android:title="@string/menu_delete"
+        app:showAsAction="ifRoom"/>
 </menu>
