@@ -17,6 +17,11 @@
         android:title="@string/menu_move"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/action_delete"
+        android:icon="@drawable/ic_delete"
+        android:title="@string/menu_delete"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/action_backup"
         android:title="@string/menu_backup"
         app:showAsAction="never"/>
@@ -24,9 +29,4 @@
         android:id="@+id/action_format"
         android:title="@string/menu_format"
         app:showAsAction="never"/>
-    <item
-        android:id="@+id/action_delete"
-        android:icon="@drawable/ic_delete"
-        android:title="@string/menu_delete"
-        app:showAsAction="ifRoom"/>
 </menu>

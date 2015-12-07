@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.app.lukas.scriptlib.ScriptManager;
+import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 
 
 public class MainActivity extends AppCompatActivity {

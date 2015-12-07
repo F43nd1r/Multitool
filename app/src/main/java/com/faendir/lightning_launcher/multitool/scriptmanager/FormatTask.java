@@ -8,8 +8,8 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
-import com.app.lukas.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -156,11 +156,16 @@ class FormatTask extends AsyncTask<List<ScriptItem>, FormatTask.Progress, Void> 
 
     private boolean endsWithCaseOrReturn(StringBuilder builder) {
         int length = builder.length();
-        for (int i = CASE.length()-1; i>=0;i++){
-            if(builder.charAt(length - (CASE.length()-i)) != CASE.charAt(i))return false;
-        }
-        for (int i = RETURN.length()-1; i>=0;i++){
-            if(builder.charAt(length - (RETURN.length()-i)) != RETURN.charAt(i))return false;
+        if (length >= CASE.length()) {
+            for (int i = CASE.length() - 1; i >= 0; i++) {
+                if (builder.charAt(length - (CASE.length() - i)) != CASE.charAt(i)) return false;
+            }
+            if (length >= RETURN.length()) {
+                for (int i = RETURN.length() - 1; i >= 0; i++) {
+                    if (builder.charAt(length - (RETURN.length() - i)) != RETURN.charAt(i))
+                        return false;
+                }
+            }
         }
         return true;
     }

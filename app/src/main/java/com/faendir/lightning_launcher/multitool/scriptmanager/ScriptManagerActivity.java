@@ -16,9 +16,9 @@ import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
-import com.app.lukas.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
 import java.io.IOException;
@@ -137,7 +137,7 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
     }
 
     private void loadFromLauncher(int id){
-        if (BuildConfig.DEBUG || id == -1 || sharedPref.getInt(getString(R.string.pref_version), 0) != BuildConfig.VERSION_CODE) {
+        if (/*BuildConfig.DEBUG ||*/ id == -1 || sharedPref.getInt(getString(R.string.pref_version), 0) != BuildConfig.VERSION_CODE) {
             try {
                 ScriptManager.loadScript(this, R.raw.scriptmanager, getString(R.string.text_scriptTitle), 0, true, new ScriptManager.Listener() {
                     @Override

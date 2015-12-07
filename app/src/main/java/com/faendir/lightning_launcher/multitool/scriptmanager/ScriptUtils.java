@@ -9,9 +9,9 @@ import android.preference.PreferenceManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.app.lukas.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.multitool.Constants;
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.google.gson.Gson;
 
 import java.io.File;
