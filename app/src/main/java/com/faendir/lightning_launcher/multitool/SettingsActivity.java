@@ -1,4 +1,4 @@
-package com.faendir.lightning_launcher.multitool.scriptmanager;
+package com.faendir.lightning_launcher.multitool;
 
 import android.content.ClipData;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.scriptmanager.PrefsFragment;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
 import java.io.File;

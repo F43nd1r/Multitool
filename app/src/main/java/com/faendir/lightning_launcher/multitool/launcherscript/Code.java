@@ -1,8 +1,7 @@
-package com.faendir.lightning_launcher.multitool;
+package com.faendir.lightning_launcher.multitool.launcherscript;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -10,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.faendir.lightning_launcher.multitool.R;
 
 
 public class Code extends AppCompatActivity {
@@ -43,11 +44,6 @@ public class Code extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_main) {
             finish();
-            return true;
-        }else if(id == R.id.action_goToHelp) {
-            finish();
-            Intent intent = new Intent(this, Help.class);
-            startActivity(intent);
             return true;
         }
 

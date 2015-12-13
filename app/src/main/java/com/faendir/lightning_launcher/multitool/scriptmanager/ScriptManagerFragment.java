@@ -1,5 +1,7 @@
 package com.faendir.lightning_launcher.multitool.scriptmanager;
 
+import android.app.Activity;
+import android.app.Fragment;
 import android.content.ClipData;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,17 +9,24 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.ActionMode;
+import android.support.v7.view.ActionMode;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ExpandableListView;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.SettingsActivity;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
@@ -30,7 +39,7 @@ import java.util.List;
  * Created by Lukas on 22.08.2015.
  * Main activity of ScriptManager
  */
-public class ScriptManagerActivity extends AppCompatActivity implements ActionMode.Callback {
+public class ScriptManagerFragment extends Fragment implements ActionMode.Callback {
 
     private SharedPreferences sharedPref;
     private FileManager fileManager;
@@ -39,14 +48,14 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
     private ScriptListAdapter adapter;
     private ActionMode mode;
     private ExpandableListView listView;
+    private FrameLayout layout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        fileManager = new FileManager(this);
-        listView = new ExpandableListView(this);
-        onNewIntent(getIntent());
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        fileManager = new FileManager(getActivity());
+        listView = new ExpandableListView(getActivity());
         listView.setDrawSelectorOnTop(true);
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -79,6 +88,22 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
                 return false;
             }
         });
+        setHasOptionsMenu(true);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        layout = new FrameLayout(getActivity());
+        //noinspection ConstantConditions
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.title_scriptManager);
+        return layout;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        onNewIntent(getActivity().getIntent());
     }
 
     private void toggleItem(long packedPos) {
@@ -88,7 +113,7 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
     private void selectItem(long packedPos, boolean select) {
         adapter.select(packedPos, select);
         if (adapter.getSelectedPackedPosition().size() > 0 && mode == null) {
-            mode = startActionMode(this);
+            mode = ((AppCompatActivity) getActivity()).startSupportActionMode(this);
         } else if (adapter.getSelectedPackedPosition().size() > 0) {
             mode.invalidate();
         } else if (mode != null) {
@@ -98,9 +123,7 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
 
     }
 
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
+    public void onNewIntent(Intent intent) {
         if (intent.hasExtra(getString(R.string.extra_scripts))) {
             String scriptStrings = intent.getStringExtra(getString(R.string.extra_scripts));
             scripts = Arrays.asList(ScriptUtils.GSON.fromJson(scriptStrings, Script[].class));
@@ -127,34 +150,47 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
                     def.add(s);
                 }
             }
-            adapter = new ScriptListAdapter(this, items, listView);
+            adapter = new ScriptListAdapter(getActivity(), items, listView);
             listView.setAdapter(adapter);
-            setContentView(listView);
+            layout.removeAllViews();
+            layout.addView(listView);
         } else {
             int id = sharedPref.getInt(getString(R.string.pref_id), -1);
             loadFromLauncher(id);
         }
     }
 
-    private void loadFromLauncher(int id){
-        if (/*BuildConfig.DEBUG ||*/ id == -1 || sharedPref.getInt(getString(R.string.pref_version), 0) != BuildConfig.VERSION_CODE) {
+    private void loadFromLauncher(int id) {
+        ScriptManager.enableDebug();
+        if (id == -1 || sharedPref.getInt(getString(R.string.pref_version), 0) != BuildConfig.VERSION_CODE) {
             try {
-                ScriptManager.loadScript(this, R.raw.scriptmanager, getString(R.string.text_scriptTitle), 0, true, new ScriptManager.Listener() {
+                // preload strings, because they can't be loaded anymore, if the fragment is detached
+                final String idString = getString(R.string.pref_id);
+                final String versionString = getString(R.string.pref_version);
+                ScriptManager.loadScript(getActivity(), R.raw.scriptmanager, getString(R.string.text_scriptTitle), 0, true, new ScriptManager.Listener() {
                     @Override
                     public void OnLoadFinished(int i) {
-                        sharedPref.edit().putInt(getString(R.string.pref_id), i).putInt(getString(R.string.pref_version), BuildConfig.VERSION_CODE).apply();
-                        ScriptManager.runScript(ScriptManagerActivity.this, i, null, true);
+                        sharedPref.edit().putInt(idString, i).putInt(versionString, BuildConfig.VERSION_CODE).apply();
+                        Log.d("ID", "" + i);
+                        try {
+                            ScriptManager.runScript(getActivity(), i, null, true);
+                        }
+                        catch (Throwable t){
+                            t.printStackTrace();
+                        }
                     }
                 });
-                overridePendingTransition(0,0);
+                getActivity().overridePendingTransition(0, 0);
             } catch (IOException e) {
                 throw new FileManager.FatalFileException(e);
             }
         } else {
-            ScriptManager.runScript(this, id, null, true);
+            Log.d("ID", "" + id);
+            ScriptManager.runScript(getActivity(), id, null, true);
         }
         items = fileManager.read();
-        setContentView(R.layout.activity_loading);
+        layout.removeAllViews();
+        LayoutInflater.from(getActivity()).inflate(R.layout.fragment_loading, layout);
 
     }
 
@@ -169,32 +205,28 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         if (items != null) fileManager.write(items);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_scriptmanager, menu);
-        return true;
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_scriptmanager, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(scripts == null){
-            Toast.makeText(this, R.string.toast_menuDisabled, Toast.LENGTH_SHORT).show();
+        if (scripts == null) {
+            Toast.makeText(getActivity(), R.string.toast_menuDisabled, Toast.LENGTH_SHORT).show();
             return true;
         }
         switch (item.getItemId()) {
             case R.id.action_add_group:
-                ScriptUtils.createGroupDialog(this,items,adapter);
-                break;
-            case R.id.action_settings:
-                startActivity(new Intent(this, SettingsActivity.class));
+                ScriptUtils.createGroupDialog(getActivity(), items, adapter);
                 break;
             case R.id.action_restore:
-                Intent intent = new Intent(this, FilePickerActivity.class);
+                Intent intent = new Intent(getActivity(), FilePickerActivity.class);
                 intent.putExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false);
                 intent.putExtra(FilePickerActivity.EXTRA_ALLOW_CREATE_DIR, false);
                 intent.putExtra(FilePickerActivity.EXTRA_MODE, FilePickerActivity.MODE_FILE);
@@ -202,7 +234,7 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
                 startActivityForResult(intent, 0);
                 break;
             case R.id.action_search:
-                ScriptUtils.searchDialog(this,items);
+                ScriptUtils.searchDialog(getActivity(), items);
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -271,22 +303,22 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
         }
         switch (item.getItemId()) {
             case R.id.action_rename:
-                ScriptUtils.renameDialog(this, adapter, selectedItems.get(0));
+                ScriptUtils.renameDialog(getActivity(), adapter, selectedItems.get(0));
                 break;
             case R.id.action_delete:
-                ScriptUtils.deleteDialog(this,items,adapter,selectedItems);
+                ScriptUtils.deleteDialog(getActivity(), items, adapter, selectedItems);
                 break;
             case R.id.action_move_to_group:
-                ScriptUtils.moveDialog(this, items, adapter, selectedItems);
+                ScriptUtils.moveDialog(getActivity(), items, adapter, selectedItems);
                 break;
             case R.id.action_edit:
-                ScriptUtils.editScript(this, adapter, (Script) selectedItems.get(0));
+                ScriptUtils.editScript(getActivity(), adapter, (Script) selectedItems.get(0));
                 break;
             case R.id.action_backup:
-                ScriptUtils.backup(this, adapter, selectedItems);
+                ScriptUtils.backup(getActivity(), adapter, selectedItems);
                 break;
             case R.id.action_format:
-                ScriptUtils.format(this, adapter, selectedItems);
+                ScriptUtils.format(getActivity(), adapter, selectedItems);
                 break;
         }
         return true;
@@ -300,8 +332,8 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
             if (data.getBooleanExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false)) {
                 // For JellyBean and above
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -310,7 +342,7 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
                     if (clip != null) {
                         for (int i = 0; i < clip.getItemCount(); i++) {
                             Uri uri = clip.getItemAt(i).getUri();
-                            ScriptUtils.restoreFromFile(this, items, uri);
+                            ScriptUtils.restoreFromFile(getActivity(), items, uri);
                         }
                     }
                     // For Ice Cream Sandwich
@@ -321,20 +353,20 @@ public class ScriptManagerActivity extends AppCompatActivity implements ActionMo
                     if (paths != null) {
                         for (String path : paths) {
                             Uri uri = Uri.parse(path);
-                            ScriptUtils.restoreFromFile(this, items, uri);
+                            ScriptUtils.restoreFromFile(getActivity(), items, uri);
                         }
                     }
                 }
 
             } else {
                 Uri uri = data.getData();
-                ScriptUtils.restoreFromFile(this, items, uri);
+                ScriptUtils.restoreFromFile(getActivity(), items, uri);
             }
         }
     }
 
-    public void onReloadButton(View ignored){
-        sharedPref.edit().putInt(getString(R.string.pref_id),-1).apply();
+    public void onReloadButton() {
+        sharedPref.edit().putInt(getString(R.string.pref_id), -1).apply();
         loadFromLauncher(-1);
     }
 }

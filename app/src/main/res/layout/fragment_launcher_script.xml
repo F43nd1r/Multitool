@@ -1,0 +1,168 @@
+<ScrollView
+    android:id="@+id/scrollView4"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:gravity="top"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/MainDescription"/>
+
+        <LinearLayout
+            android:id="@+id/view_noLauncher"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#39ff0000"
+            android:baselineAligned="false"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/text_noLauncherFound"/>
+
+            <Button
+                android:id="@+id/button_noLauncher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:onClick="onButtonClick"
+                android:padding="5dp"
+                android:text="@string/button_noLauncherFound"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/view_yesLauncher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="false"
+                android:background="@android:color/background_light"
+                android:clickable="false"
+                android:contentDescription="@string/imageDescription_divider"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/text_install"/>
+
+            <LinearLayout
+                android:id="@+id/view_repositoryImporter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:baselineAligned="false"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/text_repositoryImporter"/>
+
+                <Button
+                    android:id="@+id/button_import"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:onClick="onButtonClick"
+                    android:padding="5dp"
+                    android:text="@string/button_repositoryImporter"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="false"
+                android:background="@android:color/background_light"
+                android:clickable="false"
+                android:contentDescription="@string/imageDescription_divider"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/text_nameOfScript"/>
+
+            <EditText
+                android:id="@+id/main_scriptName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:editable="true"
+                android:hint="@string/hint_nameOfScript"
+                android:inputType="text"
+                android:singleLine="true"
+                android:text="@string/script_name"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="false"
+            android:background="@android:color/background_light"
+            android:clickable="false"
+            android:contentDescription="@string/imageDescription_divider"/>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_extraInfo"/>
+
+        <Button
+            android:id="@+id/button_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onButtonClick"
+            android:padding="5dp"
+            android:text="@string/button_showScriptCode"/>
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="false"
+            android:background="@android:color/background_light"
+            android:clickable="false"
+            android:contentDescription="@string/imageDescription_divider"/>
+
+    </LinearLayout>
+</ScrollView>

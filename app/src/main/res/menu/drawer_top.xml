@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:title="@string/title_launcherScript"
+              android:id="@+id/nav_launcher_script"/>
+        <item android:title="@string/title_scriptManager"
+              android:id="@+id/nav_script_manager"/>
+    </group>
+
+    <item android:title="@string/title_links">
+        <menu>
+            <item android:title="@string/play_store"
+                  android:id="@+id/nav_play_store"/>
+            <item android:title="@string/google_community"
+                  android:id="@+id/nav_community"/>
+            <item android:title="@string/email"
+                  android:id="@+id/nav_email"/>
+        </menu>
+    </item>
+
+</menu>

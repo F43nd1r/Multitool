@@ -9,7 +9,8 @@ import android.preference.PreferenceManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.faendir.lightning_launcher.multitool.Constants;
+import com.faendir.lightning_launcher.multitool.SettingsActivity;
+import com.faendir.lightning_launcher.multitool.launcherscript.Constants;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.google.gson.Gson;
@@ -295,7 +296,6 @@ final class ScriptUtils {
                     reader.read(buffer);
                     restoreDialog(context,items, new String(buffer), file.getName());
 
-                } catch (IOException e) {
                 } finally {
                     if (reader != null) reader.close();
                 }

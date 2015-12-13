@@ -1,9 +1,11 @@
-package com.faendir.lightning_launcher.multitool;
+package com.faendir.lightning_launcher.multitool.launcherscript;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+
+import com.faendir.lightning_launcher.multitool.R;
 
 public class LauncherLoad extends AppCompatActivity {
     @Override

@@ -12,18 +12,15 @@
     <string name="preference_scriptName">scriptName</string>
 
 
-    <!-- main activity -->
-    <string name="title_activity_main">LLScript: Multitool</string>
-
     <string name="MainDescription">This is a script for Lightning launcher. You need it installed in order to use this app.</string>
 
     <string name="text_install">
         How to load it: Go to lightning launcher, open the menu, click scripts/load a script and choose this script.
         \n
-        \nHow to update it: Repeat the same procces. If the name is the same it will be override.
+        \nHow to update it: Repeat the same process. If the name is the same it will be overwritten.
     </string>
 
-    <string name="text_noLauncherFound">Warning: Lightning Launcher is not detected in your device.</string>
+    <string name="text_noLauncherFound">Warning: Lightning Launcher was not found on your device.</string>
     <string name="button_noLauncherFound">Open Play Store</string>
 
     <string name="text_repositoryImporter">\nOptional:\nThe repository importer app has been detected on your device.\nYou can click here to import/update the script automatically.</string>
@@ -32,10 +29,9 @@
     <string name="button_repositoryImporter_importOk">Done. (Click to import again)</string>
     <string name="button_repositoryImporter_importError">Error. Click to try again</string>
 
-    <string name="text_nameOfScript">Write here the name of the script. This will be the one when importing.</string>
+    <string name="text_nameOfScript">If you want to, you can choose a custom name here:</string>
     <string name="hint_nameOfScript">Name of the script</string>
 
-    <string name="button_goToHelp">Open Help page</string>
     <string name="button_showScriptCode">Show script code</string>
 
     <string name="button_wikiPage">Wiki page</string>
@@ -49,13 +45,9 @@
     <string name="link_email_subject">LLScript Multitool</string>
     <string name="link_email_chooser">Send email…</string>
 
-
-
     <!-- Multi activity -->
     <string name="action_main">Back to main page</string>
     <string name="imageDescription_divider">divider</string>
-
-
 
     <!--Code activity-->
     <string name="title_activity_code">Code</string>
@@ -65,33 +57,7 @@
     <string name="toast_noCopiedToClipboard">There was an error trying to copy to clipboard</string>
 
 
-
-    <!--Help activity-->
-    <string name="title_activity_help">Help</string>
-    <string name="text_help_overview">Overview:</string>
-    <string name="text_help_overviewDescription">This script is a multifunctional tool to do or show a lot of stuff</string>
-    <string name="text_help_howToUse">How to use it:</string>
-    <string name="text_help_howToUseDescription">Simply run it from anywhere. There are different options depending on the context</string>
-    <string name="text_help_features">Features:</string>
-    <string name="text_help_featuresDescription">
-        - Show Event related parameters\n
-        - Show Container related parameters\n
-        - Show Item related parameters\n
-        - Show Icons and images for an item\n
-        - Attach/Detach all Items\n
-        - Resize all detached items\n
-        - Delete all Items\n
-        - Move (a) specific page(s) to another position. This can be used to change the home page by selecting all items\n
-        - Export Scripts\n
-        - Import Script\n
-        - Autoformat Script\n
-        - Search in Scripts\n
-        - Reset Tags\n
-        - Reset Tool © by trianguloY\n
-        - save all Layout changes\n
-        - Reset the recent apps list\n
-    </string>
-    <string name="title_scriptManager">Lightning Script Manager</string>
+    <string name="title_scriptManager">Script Manager</string>
     <string name="pref_id">id</string>
     <string name="pref_version">version</string>
     <string name="extra_scripts">scripts</string>
@@ -101,7 +67,7 @@
     <string name="menu_move">Move to Group</string>
     <string name="menu_edit">Edit</string>
     <string name="text_extraInfo">Extra information</string>
-    <string name="text_links">Links. Any problem? Feel free to contact me.</string>
+    <string name="text_links">Any problem? Feel free to contact me.</string>
     <string name="menu_backup">Backup</string>
     <string name="menu_format">Format</string>
     <string name="menu_restore">Restore</string>
@@ -133,4 +99,14 @@
     <string name="message_overwrite">Script does already exist. Overwrite?</string>
     <string name="text_loading">The app is loading data from the launcher.\n Please wait.\n\nIf you see this message for more than 1 Minute please click the button below.</string>
     <string name="toast_menuDisabled">Please wait until all data is loaded</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_launcherScript">Launcher Script</string>
+    <string name="reload_script">Reload Script</string>
+    <string name="pref_lastFragment">lastFragment</string>
+    <string name="title_links">Links</string>
+    <string name="play_store">Play Store</string>
+    <string name="google_community">Google + Community</string>
+    <string name="email">Email</string>
 </resources>

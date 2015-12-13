@@ -1,5 +1,5 @@
 var intent = new Intent("android.intent.action.View");
-intent.setClassName("com.faendir.lightning_launcher.multitool","com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerActivity");
+intent.setClassName("com.faendir.lightning_launcher.multitool","com.faendir.lightning_launcher.multitool.MainActivity");
 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK + Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 var s = LL.getAllScriptMatching(Script.FLAG_ALL);
 var list = [];
@@ -40,3 +40,4 @@ if(data != null && data != ""){
     }
 }
 LL.startActivity(intent);
+Toast.makeText(LL.getContext(),"Run",Toast.LENGTH_SHORT).show();

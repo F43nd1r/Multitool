@@ -1,16 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.faendir.lightning_launcher.multitool">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_multitool"
         android:label="@string/app_name"
-        android:theme="@style/Theme">
-
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:name=".MultiTool">
         <activity
-            android:name=".LauncherLoad"
+            android:name=".launcherscript.LauncherLoad"
             android:exported="true"
             android:icon="@drawable/ic_multitool"
             android:label="@string/browse_name">
@@ -18,61 +20,39 @@
                 <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE"/>
             </intent-filter>
         </activity>
-
-
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-
-
-        <activity
-            android:name=".Help"
-            android:label="@string/title_activity_help"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.faendir.lightning_launcher.multitool.MainActivity"/>
-        </activity>
-
-
-        <activity
-            android:name=".Code"
+            android:name=".launcherscript.Code"
             android:label="@string/title_activity_code"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.faendir.lightning_launcher.multitool.MainActivity"/>
+                android:value=".MainActivity"/>
         </activity>
-
-        <activity android:name=".scriptmanager.ScriptManagerActivity"
-                  android:label="@string/title_scriptManager"
-            android:launchMode="singleInstance">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-        <activity android:name=".scriptmanager.SettingsActivity"
-                  android:parentActivityName=".scriptmanager.ScriptManagerActivity"
-                  android:label="@string/menu_settings"/>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/menu_settings"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name="com.nononsenseapps.filepicker.FilePickerActivity"
             android:label="@string/app_name"
             android:theme="@style/FilePickerTheme">
             <intent-filter>
-                <action android:name="android.intent.action.GET_CONTENT" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.GET_CONTENT"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-
-
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/browse_name"
+            android:launchMode="singleInstance"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

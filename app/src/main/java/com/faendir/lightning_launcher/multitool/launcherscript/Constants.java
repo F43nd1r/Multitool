@@ -1,4 +1,4 @@
-package com.faendir.lightning_launcher.multitool;
+package com.faendir.lightning_launcher.multitool.launcherscript;
 
 public final class Constants {
     private Constants(){}

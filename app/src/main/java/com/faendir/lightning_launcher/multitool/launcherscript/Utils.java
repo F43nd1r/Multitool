@@ -1,4 +1,4 @@
-package com.faendir.lightning_launcher.multitool;
+package com.faendir.lightning_launcher.multitool.launcherscript;
 
 import android.content.Context;
 
@@ -9,10 +9,11 @@ import java.io.InputStream;
  * Utilities
  */
 final class Utils {
-    private Utils(){}
+    private Utils() {
+    }
 
     //returns a string with the resource specified
-    static String getStringFromResource(int resourceId, Context context, String errorString){
+    static String getStringFromResource(int resourceId, Context context, String errorString) {
 
         try {
             InputStream stream = context.getResources().openRawResource(resourceId);

@@ -14,8 +14,4 @@
         android:id="@+id/action_search"
         app:showAsAction="never"
         android:title="@string/menu_search"/>
-    <item
-        android:id="@+id/action_settings"
-        app:showAsAction="never"
-        android:title="@string/menu_settings"/>
 </menu>

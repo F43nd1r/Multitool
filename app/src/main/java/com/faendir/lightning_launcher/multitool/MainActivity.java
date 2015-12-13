@@ -1,193 +1,137 @@
 package com.faendir.lightning_launcher.multitool;
 
-import android.content.Context;
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.faendir.lightning_launcher.scriptlib.ScriptManager;
+import com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment;
+import com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment;
 
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
-public class MainActivity extends AppCompatActivity {
-
-    private TextView nameTextView;
-    private SharedPreferences shareprefs;
-
-    private Button importButton;
+    private Fragment currentFragment;
+    private SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //populate
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
 
-
-        checkLauncher();
-        checkImporter();
-
-        //prepare variables
-        nameTextView = (TextView) findViewById(R.id.main_scriptName);
-        importButton = (Button) findViewById(R.id.import_button);
-        shareprefs = PreferenceManager.getDefaultSharedPreferences(this);
-
-
-        //set name text
-        nameTextView.setText(
-                shareprefs.getString(
-                        getString(R.string.preference_scriptName),
-                        getString(R.string.script_name)
-                )
-        );
-
-
-    }
-
-    //checks if the importer app is installed
-    private boolean checkImporter() {
-        if(isPackageInstalled("com.trianguloy.llscript.repository", this)){
-            findViewById (R.id.view_repositoryImporter).setVisibility(View.VISIBLE);
-            return true;
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        NavigationView navigationView2 = (NavigationView) findViewById(R.id.nav_view2);
+        navigationView2.setNavigationItemSelectedListener(this);
+        onNewIntent(getIntent());
+        int load = R.id.nav_launcher_script;
+        if (sharedPref.contains(getString(R.string.pref_lastFragment))) {
+            load = getResources().getIdentifier(sharedPref.getString(getString(R.string.pref_lastFragment), null), "id", getPackageName());
         }
-        return false;
-    }
-
-    //checks if lightning launcher is installed and shows the alert view
-    private void checkLauncher() {
-        if (!isPackageInstalled("net.pierrox.lightning_launcher_extreme", this)
-                &&
-                !isPackageInstalled("net.pierrox.lightning_launcher", this)
-                ) {
-            findViewById (R.id.view_noLauncher).setVisibility(View.VISIBLE);
-            findViewById(R.id.view_yesLauncher).setVisibility(View.GONE);
-                }
+        switchTo(load);
     }
 
     @Override
-    public void onPause(){
-        super.onPause();
-        saveName();
-    }
-
-    private void saveName() {
-        //save the name preference
-        shareprefs.edit().putString(getString(R.string.preference_scriptName),nameTextView.getText().toString()).apply();
-    }
-
-
-
-
-
-    //onClick button
-    public void openHelpPage(View view){
-        Intent intent = new Intent(this, Help.class);
-        startActivity(intent);
-    }
-
-    //onClick button
-    public void showScriptCode(View view){
-        Intent intent = new Intent(this, Code.class);
-        startActivity(intent);
-    }
-
-    //onClick button
-    public void openPlayStore(View view){
-        final String appPackageName = "net.pierrox.lightning_launcher";
-        try {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-        } catch (android.content.ActivityNotFoundException anfe) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
     }
 
-    //onClick button
-    public void openLink(View view){
-
-        Intent intent=null;
-
-        switch (view.getId()){
-            case R.id.wiki:
-                intent=new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.link_wiki)));
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        switch (item.getItemId()) {
+            case R.id.nav_launcher_script:
+            case R.id.nav_script_manager:
+                switchTo(item.getItemId());
                 break;
-            case R.id.googleplus:
-                intent=new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.link_googlePlus)));
-                break;
-            case R.id.email:
+            case R.id.nav_email: {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                         getString(R.string.link_email_scheme), getString(R.string.link_email_adress), null));
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.link_email_subject));
-                intent= Intent.createChooser(emailIntent, getString(R.string.link_email_chooser));
+                Intent intent = Intent.createChooser(emailIntent, getString(R.string.link_email_chooser));
+                startActivity(intent);
+                finish();
+                break;
+            }
+            case R.id.nav_play_store: {
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
+                } catch (android.content.ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName())));
+                }
+                finish();
+                break;
+            }
+            case R.id.nav_community: {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.link_googlePlus)));
+                startActivity(intent);
+                finish();
+                break;
+            }
+            case R.id.nav_settings:{
+                startActivity(new Intent(this, SettingsActivity.class));
+                break;
+            }
+        }
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    private void switchTo(int id) {
+        if (currentFragment!=null && sharedPref.getString(getString(R.string.pref_lastFragment), "").equals(getResources().getResourceName(id))) {
+            return;
+        }
+        switch (id) {
+            case R.id.nav_script_manager:
+                currentFragment = new ScriptManagerFragment();
+                getFragmentManager().beginTransaction().replace(R.id.content_frame, currentFragment).commit();
+                break;
+            case R.id.nav_launcher_script:
+                currentFragment = new LauncherScriptFragment();
+                getFragmentManager().beginTransaction().replace(R.id.content_frame, currentFragment).commit();
                 break;
         }
+        sharedPref.edit().putString(getString(R.string.pref_lastFragment), getResources().getResourceName(id)).apply();
+    }
 
-        if (intent != null) {
-            startActivity(intent);
-        } else {
-            Log.d("Error", "no intent");
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (currentFragment instanceof ScriptManagerFragment) {
+            ((ScriptManagerFragment) currentFragment).onNewIntent(intent);
         }
     }
 
-    //onClick button
-    public void importFromApp(View view){
-        saveName();
-        changeText(getString(R.string.button_repositoryImporter_importing));
-
-        //Lukas API
-        ScriptManager.loadScript(
-                this,
-                Utils.getStringFromResource(R.raw.multitool, this, getString(R.string.error_noResourceFound)),
-                nameTextView.getText().toString(),
-                Constants.FLAG_APP_MENU + Constants.FLAG_ITEM_MENU,
-                new managerListener()
-        );
-    }
-
-
-
-
-
-
-    private boolean isPackageInstalled(String packageName, Context context) {
-        PackageManager pm = context.getPackageManager();
-        try {
-            pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
+    public void onButtonClick(View v) {
+        if (currentFragment instanceof ScriptManagerFragment) {
+            ((ScriptManagerFragment) currentFragment).onReloadButton();
+        } else if (currentFragment instanceof LauncherScriptFragment) {
+            ((LauncherScriptFragment) currentFragment).onButtonClick(v);
         }
     }
-
-    private void changeText(String newText){
-        importButton.setText(newText);
-    }
-
-
-
-
-
-
-
-
-    private class managerListener extends ScriptManager.Listener{
-        @Override
-        public void OnLoadFinished(int i) {
-            changeText(getString(R.string.button_repositoryImporter_importOk));
-        }
-
-        @Override
-        public void OnError() {
-            changeText(getString(R.string.button_repositoryImporter_importError));
-        }
-    }
-
-
 }
