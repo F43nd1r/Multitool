@@ -1,5 +1,6 @@
 package com.faendir.lightning_launcher.multitool.scriptmanager;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,9 +10,9 @@ import android.preference.PreferenceManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.SettingsActivity;
 import com.faendir.lightning_launcher.multitool.launcherscript.Constants;
-import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.google.gson.Gson;
 
@@ -131,15 +132,33 @@ final class ScriptUtils {
     }
 
     public static void format(Context context, ScriptListAdapter adapter, final List<ScriptItem> selectedItems) {
-        //noinspection unchecked
-        new FormatTask(context).execute(selectedItems);
+        new FormatTask(context).execute(selectedItems.toArray(new ScriptItem[selectedItems.size()]));
         adapter.deselectAll();
         adapter.notifyDataSetChanged();
+        Toast.makeText(context, R.string.message_done, Toast.LENGTH_SHORT).show();
     }
 
-    public static void backup(Context context, ScriptListAdapter adapter, List<ScriptItem> selectedItems) {
-        File dir = new File(PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.pref_directory), SettingsActivity.DEFAULT_BACKUP_PATH));
-        dir.mkdirs();
+    public static void backup(final Context context, final ScriptListAdapter adapter, List<ScriptItem> selectedItems) {
+        final List<ScriptItem> selectedItemsFinal = new ArrayList<>(selectedItems);
+        final File dir = new File(PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.pref_directory), SettingsActivity.DEFAULT_BACKUP_PATH));
+        if ((!dir.mkdirs() && !dir.isDirectory()) || !dir.canWrite()) {
+            PermissionActivity.checkForPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE, new PermissionActivity.PermissionCallback() {
+                @Override
+                public void handlePermissionResult(boolean isGranted) {
+                    if (isGranted && (dir.mkdirs() || dir.isDirectory()) && dir.canWrite()) {
+                        backup0(context, adapter, dir, selectedItemsFinal);
+                    } else {
+                        Toast.makeText(context, R.string.toast_failedDirWrite, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        } else {
+            backup0(context, adapter, dir, selectedItemsFinal);
+        }
+    }
+
+    private static void backup0(Context context, ScriptListAdapter adapter, File dir, List<ScriptItem> selectedItems) {
+        String text = "";
         int success = 0;
         for (ScriptItem item : selectedItems) {
             if (item instanceof Script) {
@@ -148,12 +167,13 @@ final class ScriptUtils {
                 try {
                     FileWriter writer = null;
                     try {
+                        //noinspection ResultOfMethodCallIgnored
                         file.createNewFile();
                         String prefix = FLAGS;
                         if ((script.getFlags() >> 1 & 1) == 1) prefix += APP;
                         if ((script.getFlags() >> 2 & 1) == 1) prefix += ITEM;
                         if ((script.getFlags() >> 3 & 1) == 1) prefix += CUSTOM;
-                        prefix += " "+NAME + script.getName() + "\n";
+                        prefix += " " + NAME + script.getName() + "\n";
                         writer = new FileWriter(file);
                         writer.write(prefix + script.getCode());
                         writer.flush();
@@ -166,7 +186,6 @@ final class ScriptUtils {
                 }
             }
         }
-        String text = "";
         if (success > 0) {
             text += success + context.getString(R.string.text_backupSuccessful);
             if (success < selectedItems.size()) {
@@ -285,8 +304,8 @@ final class ScriptUtils {
         return true;
     }
 
-    public static void restoreFromFile(final Context context, final List<ScriptGroup> items, Uri uri) {
-        File file = new File(uri.getEncodedPath());
+    public static void restoreFromFile(Context context, List<ScriptGroup> items, Uri uri) {
+        File file = new File(uri.getPath());
         if (file.exists() && file.canRead()) {
             try {
                 FileReader reader = null;
@@ -294,7 +313,7 @@ final class ScriptUtils {
                     reader = new FileReader(file);
                     char[] buffer = new char[(int) file.length()];
                     reader.read(buffer);
-                    restoreDialog(context,items, new String(buffer), file.getName());
+                    restoreDialog(context, items, new String(buffer), file.getName());
 
                 } finally {
                     if (reader != null) reader.close();
@@ -302,6 +321,8 @@ final class ScriptUtils {
             } catch (IOException e) {
                 throw new FileManager.FatalFileException(e);
             }
+        } else {
+            Toast.makeText(context, context.getString(R.string.toast_failedLoad) + uri.getPath(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -369,7 +390,7 @@ final class ScriptUtils {
         restore(context, script);
     }
 
-    private static void restore(final Context context,Script script) {
+    private static void restore(final Context context, Script script) {
         Transfer transfer = new Transfer(Transfer.RESTORE);
         transfer.script = script;
         ScriptManager.runScript(context, PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer), true);

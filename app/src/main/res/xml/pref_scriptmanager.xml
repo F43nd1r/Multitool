@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="Script Manager">
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="@string/pref_enableAcra"
+        android:title="@string/title_enableAcra"/>
+    <PreferenceCategory android:title="@string/title_backup">
         <Preference
             android:key="@string/pref_directory"
-            android:title="Backup Directory"/>
+            android:title="@string/title_backupDir"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Format">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/pref_spaces"
+            android:title="Insert spaces around operators"/>
     </PreferenceCategory>
 </PreferenceScreen>

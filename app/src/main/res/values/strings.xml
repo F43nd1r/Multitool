@@ -34,11 +34,6 @@
 
     <string name="button_showScriptCode">Show script code</string>
 
-    <string name="button_wikiPage">Wiki page</string>
-    <string name="button_googlePlus">Google+ community</string>
-    <string name="button_email">email</string>
-
-    <string name="link_wiki">http://www.pierrox.net/android/applications/lightning_launcher/wiki/doku.php?id=script_multitool</string>
     <string name="link_googlePlus">https://plus.google.com/communities/109017480579703391739</string>
     <string name="link_email_scheme">mailto</string>
     <string name="link_email_adress">zt31w4r0m@gmail.com</string>
@@ -67,7 +62,6 @@
     <string name="menu_move">Move to Group</string>
     <string name="menu_edit">Edit</string>
     <string name="text_extraInfo">Extra information</string>
-    <string name="text_links">Any problem? Feel free to contact me.</string>
     <string name="menu_backup">Backup</string>
     <string name="menu_format">Format</string>
     <string name="menu_restore">Restore</string>
@@ -109,4 +103,13 @@
     <string name="play_store">Play Store</string>
     <string name="google_community">Google + Community</string>
     <string name="email">Email</string>
+
+    <string name="title_enableAcra">Enable Acra</string>
+    <string name="pref_enableAcra">acra.enable</string>
+    <string name="key_listView">listView</string>
+    <string name="toast_failedLoad">"Failed to load file "</string>
+    <string name="toast_failedDirWrite">Failed to access directory. Please choose an accessible backup location</string>
+    <string name="title_backupDir">Backup Directory</string>
+    <string name="title_backup">Backup</string>
+    <string name="pref_spaces">spaces</string>
 </resources>

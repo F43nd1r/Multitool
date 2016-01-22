@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
@@ -56,6 +57,9 @@ public class SettingsActivity extends AppCompatActivity {
                 return true;
             }
         });
+        if (!BuildConfig.DEBUG) {
+            removeDebugOptions();
+        }
     }
 
     @Override
@@ -96,5 +100,12 @@ public class SettingsActivity extends AppCompatActivity {
         sharedPref.edit().putString(getString(R.string.pref_directory), path.getEncodedPath()).apply();
         Preference dir = fragment.findPreference(getString(R.string.pref_directory));
         dir.setSummary(path.getEncodedPath());
+    }
+
+    private void removeDebugOptions() {
+        //remove enable acra preference
+        CheckBoxPreference acraPref = (CheckBoxPreference) fragment.findPreference(getString(R.string.pref_enableAcra));
+        acraPref.setChecked(true);
+        fragment.getPreferenceScreen().removePreference(acraPref);
     }
 }

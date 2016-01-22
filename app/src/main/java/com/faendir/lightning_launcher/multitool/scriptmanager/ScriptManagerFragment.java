@@ -8,11 +8,12 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
+import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.FrameLayout;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.BuildConfig;
@@ -49,6 +51,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     private ActionMode mode;
     private ExpandableListView listView;
     private FrameLayout layout;
+    private Parcelable listViewState;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
         fileManager = new FileManager(getActivity());
         listView = new ExpandableListView(getActivity());
         listView.setDrawSelectorOnTop(true);
+        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -88,7 +92,16 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
                 return false;
             }
         });
+        if (savedInstanceState != null && savedInstanceState.containsKey(getString(R.string.key_listView))) {
+            listView.onRestoreInstanceState(savedInstanceState.getParcelable(getString(R.string.key_listView)));
+        }
         setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putParcelable(getString(R.string.key_listView), listView.onSaveInstanceState());
+        super.onSaveInstanceState(outState);
     }
 
     @Nullable
@@ -161,7 +174,6 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     }
 
     private void loadFromLauncher(int id) {
-        ScriptManager.enableDebug();
         if (id == -1 || sharedPref.getInt(getString(R.string.pref_version), 0) != BuildConfig.VERSION_CODE) {
             try {
                 // preload strings, because they can't be loaded anymore, if the fragment is detached
@@ -169,13 +181,11 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
                 final String versionString = getString(R.string.pref_version);
                 ScriptManager.loadScript(getActivity(), R.raw.scriptmanager, getString(R.string.text_scriptTitle), 0, true, new ScriptManager.Listener() {
                     @Override
-                    public void OnLoadFinished(int i) {
+                    public void onLoadFinished(int i) {
                         sharedPref.edit().putInt(idString, i).putInt(versionString, BuildConfig.VERSION_CODE).apply();
-                        Log.d("ID", "" + i);
                         try {
                             ScriptManager.runScript(getActivity(), i, null, true);
-                        }
-                        catch (Throwable t){
+                        } catch (Throwable t) {
                             t.printStackTrace();
                         }
                     }
@@ -185,7 +195,6 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
                 throw new FileManager.FatalFileException(e);
             }
         } else {
-            Log.d("ID", "" + id);
             ScriptManager.runScript(getActivity(), id, null, true);
         }
         items = fileManager.read();
@@ -208,6 +217,14 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     public void onPause() {
         super.onPause();
         if (items != null) fileManager.write(items);
+        listViewState = listView.onSaveInstanceState();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (listViewState != null) listView.onRestoreInstanceState(listViewState);
+        if (mode != null) mode.invalidate();
     }
 
     @Override
@@ -249,6 +266,10 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
         return true;
     }
 
+    @IntDef({NONE, ONE_SCRIPT, ONE_GROUP, ONLY_GROUPS, ONLY_SCRIPTS, BOTH})
+    @interface SelectionMode {
+    }
+
     private static final int NONE = -1;
     private static final int ONE_SCRIPT = 0;
     private static final int ONE_GROUP = 1;
@@ -259,6 +280,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     @Override
     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
         int selectionMode = getSelectionMode();
+        if (selectionMode == NONE) mode.finish();
         menu.findItem(R.id.action_rename).setVisible(selectionMode == ONE_GROUP || selectionMode == ONE_SCRIPT);
         menu.findItem(R.id.action_delete).setVisible(true);
         menu.findItem(R.id.action_move_to_group).setVisible(selectionMode == ONLY_SCRIPTS || selectionMode == ONE_SCRIPT);
@@ -268,6 +290,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
         return true;
     }
 
+    @SelectionMode
     private int getSelectionMode() {
         int selectionMode = NONE;
         List<Long> checked = adapter.getSelectedPackedPosition();
@@ -345,7 +368,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
                             ScriptUtils.restoreFromFile(getActivity(), items, uri);
                         }
                     }
-                    // For Ice Cream Sandwich
+                    // For ICS
                 } else {
                     ArrayList<String> paths = data.getStringArrayListExtra
                             (FilePickerActivity.EXTRA_PATHS);

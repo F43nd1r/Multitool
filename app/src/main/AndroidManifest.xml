@@ -3,6 +3,7 @@
           package="com.faendir.lightning_launcher.multitool">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -53,6 +54,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".scriptmanager.PermissionActivity"
+                  android:theme="@style/Theme.Transparent" />
     </application>
 
 </manifest>

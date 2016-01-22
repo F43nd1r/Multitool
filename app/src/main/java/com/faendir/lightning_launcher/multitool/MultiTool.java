@@ -8,11 +8,12 @@ import org.acra.sender.HttpSender;
 
 /**
  * Created by Lukas on 13.12.2015.
+ * Main Application class
  */
 @ReportsCrashes(
         httpMethod = HttpSender.Method.PUT,
         reportType = HttpSender.Type.JSON,
-        formUri = "http://acra-c56dce.smileupps.com/acra-multitool/_design/acra-storage/_update/report",
+        formUri = "https://faendir.smileupps.com/acra-multitool/_design/acra-storage/_update/report",
         formUriBasicAuthLogin = "multitool",
         formUriBasicAuthPassword = "mtR3p0rt"
 )

@@ -166,7 +166,7 @@ function itemData(){
 
 function intentData(){
     it=LL.getEvent().getItem();
-	if(it==null)text("No Intent found.","Error 1");
+	if(it==null || item.getType()!="Shortcut")text("No Intent found.","Error 1");
 	else text("Intent: "+it.getIntent()+"\nExtras: "+it.getIntent().getExtras(),"Intent Information");
 }
 
@@ -421,6 +421,7 @@ function resetTool(){
 	        }
 	    }
 	});
+	builder.show();
 }
 
 function saveLayout(){

@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        NavigationView navigationView2 = (NavigationView) findViewById(R.id.nav_view2);
-        navigationView2.setNavigationItemSelectedListener(this);
         onNewIntent(getIntent());
         int load = R.id.nav_launcher_script;
         if (sharedPref.contains(getString(R.string.pref_lastFragment))) {

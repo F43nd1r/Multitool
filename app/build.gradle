@@ -6,14 +6,14 @@ android {
 
     defaultConfig {
         applicationId "com.faendir.lightning_launcher.multitool"
-        minSdkVersion 14
+        minSdkVersion 11
         targetSdkVersion 23
-        versionCode 22
-        versionName "2.3.7"
+        versionCode 24
+        versionName "2.5"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug{
@@ -25,7 +25,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.faendir.lightninglauncher:scriptlib:1.6.4'
+    compile 'com.faendir.lightninglauncher:scriptlib:1.6.6'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile 'com.android.support:support-annotations:23.1.1'

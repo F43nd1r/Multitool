@@ -36,8 +36,6 @@ if(data != null && data != ""){
             var script = LL.getScriptById(transfer.script.id);
             if(script!=null) script.setText(transfer.script.code);
             break;
-
     }
 }
 LL.startActivity(intent);
-Toast.makeText(LL.getContext(),"Run",Toast.LENGTH_SHORT).show();

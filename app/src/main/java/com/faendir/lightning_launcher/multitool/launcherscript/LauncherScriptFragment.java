@@ -58,12 +58,10 @@ public class LauncherScriptFragment extends Fragment {
     }
 
     //checks if the importer app is installed
-    private boolean checkImporter() {
+    private void checkImporter() {
         if (isPackageInstalled("com.trianguloy.llscript.repository", getActivity())) {
             layout.findViewById(R.id.view_repositoryImporter).setVisibility(View.VISIBLE);
-            return true;
         }
-        return false;
     }
 
     //checks if lightning launcher is installed and shows the alert view
@@ -141,12 +139,12 @@ public class LauncherScriptFragment extends Fragment {
 
     private class managerListener extends ScriptManager.Listener {
         @Override
-        public void OnLoadFinished(int i) {
+        public void onLoadFinished(int i) {
             changeText(getString(R.string.button_repositoryImporter_importOk));
         }
 
         @Override
-        public void OnError() {
+        public void onError() {
             changeText(getString(R.string.button_repositoryImporter_importError));
         }
     }
