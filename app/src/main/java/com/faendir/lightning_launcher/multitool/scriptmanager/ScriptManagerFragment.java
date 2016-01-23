@@ -35,6 +35,7 @@ import com.nononsenseapps.filepicker.FilePickerActivity;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -151,8 +152,9 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
             }
             ScriptGroup def = null;
             for (ScriptGroup i : items) {
-                for (Script s : i) {
-                    if (!checkIfStillExisting(s)) i.remove(s);
+                for (Iterator<Script> it = i.iterator();it.hasNext();) {
+                    Script s = it.next();
+                    if (!checkIfStillExisting(s)) it.remove();
                     else existing.add(s);
                 }
                 if (!i.allowsDelete()) def = i;

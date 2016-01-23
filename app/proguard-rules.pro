@@ -15,7 +15,7 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
--keepattributes Signature
+-keepattributes Signature, LineNumberTable
 
 -keep class com.faendir.lightning_launcher.multitool.scripting.** {*;}
 -keep class com.faendir.lightning_launcher.multitool.scriptmanager.** {*;}
