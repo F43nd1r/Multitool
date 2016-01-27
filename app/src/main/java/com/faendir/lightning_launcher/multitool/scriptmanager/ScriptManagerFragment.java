@@ -29,6 +29,8 @@ import android.widget.Toast;
 import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.SettingsActivity;
+import com.faendir.lightning_launcher.multitool.util.FileManager;
+import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
@@ -45,7 +47,7 @@ import java.util.List;
 public class ScriptManagerFragment extends Fragment implements ActionMode.Callback {
 
     private SharedPreferences sharedPref;
-    private FileManager fileManager;
+    private FileManager<ScriptGroup> fileManager;
     private List<Script> scripts;
     private List<ScriptGroup> items;
     private ScriptListAdapter adapter;
@@ -58,7 +60,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        fileManager = new FileManager(getActivity());
+        fileManager = FileManagerFactory.createScriptFileManager(getActivity());
         listView = new ExpandableListView(getActivity());
         listView.setDrawSelectorOnTop(true);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
@@ -152,7 +154,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
             }
             ScriptGroup def = null;
             for (ScriptGroup i : items) {
-                for (Iterator<Script> it = i.iterator();it.hasNext();) {
+                for (Iterator<Script> it = i.iterator(); it.hasNext(); ) {
                     Script s = it.next();
                     if (!checkIfStillExisting(s)) it.remove();
                     else existing.add(s);

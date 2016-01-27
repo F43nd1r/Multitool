@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.faendir.lightning_launcher.multitool.gesture.GestureFragment;
 import com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment;
 import com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment;
 
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.nav_launcher_script:
             case R.id.nav_script_manager:
+            case R.id.nav_gesture:
                 switchTo(item.getItemId());
                 break;
             case R.id.nav_email: {
@@ -90,7 +92,7 @@ public class MainActivity extends AppCompatActivity
                 finish();
                 break;
             }
-            case R.id.nav_settings:{
+            case R.id.nav_settings: {
                 startActivity(new Intent(this, SettingsActivity.class));
                 break;
             }
@@ -101,19 +103,23 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void switchTo(int id) {
-        if (currentFragment!=null && sharedPref.getString(getString(R.string.pref_lastFragment), "").equals(getResources().getResourceName(id))) {
+        if (currentFragment != null && sharedPref.getString(getString(R.string.pref_lastFragment), "").equals(getResources().getResourceName(id))) {
             return;
         }
         switch (id) {
             case R.id.nav_script_manager:
                 currentFragment = new ScriptManagerFragment();
-                getFragmentManager().beginTransaction().replace(R.id.content_frame, currentFragment).commit();
                 break;
             case R.id.nav_launcher_script:
                 currentFragment = new LauncherScriptFragment();
-                getFragmentManager().beginTransaction().replace(R.id.content_frame, currentFragment).commit();
                 break;
+            case R.id.nav_gesture:
+                currentFragment = new GestureFragment();
+                break;
+            default:
+                throw new IllegalArgumentException("Illegal id " + id);
         }
+        getFragmentManager().beginTransaction().replace(R.id.content_frame, currentFragment).commit();
         sharedPref.edit().putString(getString(R.string.pref_lastFragment), getResources().getResourceName(id)).apply();
     }
 

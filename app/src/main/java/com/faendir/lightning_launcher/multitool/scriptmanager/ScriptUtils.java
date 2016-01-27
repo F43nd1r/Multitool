@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.SettingsActivity;
 import com.faendir.lightning_launcher.multitool.launcherscript.Constants;
+import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.google.gson.Gson;
 

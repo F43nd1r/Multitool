@@ -112,4 +112,11 @@
     <string name="title_backupDir">Backup Directory</string>
     <string name="title_backup">Backup</string>
     <string name="pref_spaces">spaces</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_gestureLauncher">Gesture Launcher</string>
+    <string name="add_gesture">Add Gesture</string>
+    <string name="title_activity_gesture">GestureActivity</string>
+    <string name="title_activity_intent_chooser">IntentChooser</string>
 </resources>

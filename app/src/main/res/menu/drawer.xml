@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single"
-        android:id="@+id/group1">
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_launcher_script"
             android:title="@string/title_launcherScript"/>
         <item
             android:id="@+id/nav_script_manager"
             android:title="@string/title_scriptManager"/>
+        <item
+            android:id="@+id/nav_gesture"
+            android:title="@string/title_gestureLauncher"/>
     </group>
 
 
-    <group android:checkableBehavior="none"
-        android:id="@+id/group2">
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="none">
         <item android:title="@string/title_links">
             <menu>
                 <item
@@ -28,8 +33,9 @@
             </menu>
         </item>
     </group>
-    <group android:checkableBehavior="none"
-        android:id="@+id/group3">
+    <group
+        android:id="@+id/group3"
+        android:checkableBehavior="none">
         <item
             android:id="@+id/nav_settings"
             android:title="@string/menu_settings"/>

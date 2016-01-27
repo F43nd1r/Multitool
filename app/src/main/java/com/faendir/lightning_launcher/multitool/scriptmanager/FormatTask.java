@@ -30,7 +30,7 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
             "+", "+=", "-", "-=", "*", "*=", "/", "/=", "%", "%=",
             "~", "&", "|", "^", "<<", ">>", ">>>",
             "&&", "||", "?", ":");
-    private static final List<String> IGNORE = Arrays.asList("/*", "*/", "//");
+    private static final List<String> IGNORE = Arrays.asList("/*", "*/", "//", "++", "--");
     private static final List<Character> SEPARATORS = Arrays.asList(',', ';');
 
     private final Context context;
@@ -180,7 +180,7 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
             String withLast = builder.charAt(length - opLength - 1) + operator;
             String withNext = operator + next;
             if (length >= opLength && builder.substring(length - opLength).equals(operator) && !OPERATORS.contains(withLast)) {
-                if (!OPERATORS.contains(withNext) && !IGNORE.contains(withNext) && !IGNORE.contains(withLast)) {
+                if (!OPERATORS.contains(withNext) && !IGNORE.contains(withNext) && !IGNORE.contains(withLast) && !caseBeforeLast(builder)) {
                     builder.insert(length - opLength, ' ').append(' ');
                 }
                 break;
@@ -188,20 +188,38 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
         }
     }
 
+    private boolean caseBeforeLast(StringBuilder builder) {
+        int length = builder.length();
+        if (length >= CASE.length() + 1) {
+            for (int i = CASE.length() - 1; i >= 0; i--) {
+                if (builder.charAt(length - (CASE.length() - i + 1)) != CASE.charAt(i))
+                    return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
     private boolean endsWithCaseOrReturn(StringBuilder builder) {
         int length = builder.length();
         if (length >= CASE.length()) {
+            boolean isCase = true;
             for (int i = CASE.length() - 1; i >= 0; i--) {
-                if (builder.charAt(length - (CASE.length() - i)) != CASE.charAt(i)) return false;
+                if (builder.charAt(length - (CASE.length() - i)) != CASE.charAt(i)) {
+                    isCase = false;
+                    break;
+                }
             }
+            if (isCase) return true;
             if (length >= RETURN.length()) {
                 for (int i = RETURN.length() - 1; i >= 0; i--) {
                     if (builder.charAt(length - (RETURN.length() - i)) != RETURN.charAt(i))
                         return false;
                 }
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     private void indentLine(Deque<Integer> switchLevel, int x, String t, int i, StringBuilder builder) {

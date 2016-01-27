@@ -1,9 +1,10 @@
-package com.faendir.lightning_launcher.multitool.scriptmanager;
+package com.faendir.lightning_launcher.multitool.util;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.google.gson.JsonSyntaxException;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,37 +12,50 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Type;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by Lukas on 04.08.2015.
- * Caches Pages on the filesystem, manages loading and unloading
+ * Manages I/O
  */
-class FileManager {
+public class FileManager<T> {
 
-    private static final Type TYPE = new TypeToken<List<ScriptGroup>>() {
-    }.getType();
-
+    private final Class<T[]> clazz;
     private final File file;
     private final Gson gson;
 
-    public FileManager(Context context) {
+    FileManager(Context context, String filename, Class<T[]> clazz) {
         File directory = context.getFilesDir();
-        file = new File(directory, "storage");
+        file = new File(directory, filename);
         gson = new Gson();
+        this.clazz = clazz;
     }
 
-    public List<ScriptGroup> read() {
-        if (!file.exists()) return null;
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    @SuppressLint("SetWorldReadable")
+    public void allowGlobalRead() {
         try {
-            return gson.fromJson(new FileReader(file), TYPE);
-        } catch (FileNotFoundException e) {
-            throw new FatalFileException(e);
+            if (!file.exists()) file.createNewFile();
+            file.setReadable(true, false);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public void write(List<ScriptGroup> items) {
+    public List<T> read() {
+        if (!file.exists()) return null;
+        try {
+            T[] array = gson.fromJson(new FileReader(file), clazz);
+            if (array == null) return null;
+            return Arrays.asList(array);
+        } catch (FileNotFoundException | JsonSyntaxException e) {
+            return null;
+        }
+    }
+
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    public void write(List<T> items) {
         try {
             BufferedWriter writer = null;
             try {
@@ -49,9 +63,9 @@ class FileManager {
                     file.createNewFile();
                 }
                 writer = new BufferedWriter(new FileWriter(file));
-                gson.toJson(items, TYPE, writer);
+                gson.toJson(items.toArray(), clazz, writer);
                 writer.flush();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 throw new FatalFileException(e);
             } finally {
                 if (writer != null) {
