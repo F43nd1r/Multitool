@@ -16,6 +16,7 @@ import com.faendir.lightning_launcher.multitool.R;
 
 public class GestureActivity extends AppCompatActivity implements GestureOverlayView.OnGesturePerformedListener, View.OnClickListener {
 
+    private GestureInfo info;
     private Gesture gesture;
     private Button chooseAction;
     private EditText label;
@@ -39,6 +40,30 @@ public class GestureActivity extends AppCompatActivity implements GestureOverlay
         chooseAction.setOnClickListener(this);
         findViewById(R.id.button_confirm).setOnClickListener(this);
         label = (EditText) findViewById(R.id.editText_name);
+        onNewIntent(getIntent());
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (intent.hasExtra(GESTURE)) {
+            info = intent.getParcelableExtra(GESTURE);
+            gestureView.post(new Runnable() {
+                @Override
+                public void run() {
+                    gestureView.setGesture(info.getGesture(GestureActivity.this));
+                }
+            });
+            label.setText(info.getText());
+            action = info.getIntent();
+            PackageManager pm = getPackageManager();
+            try {
+                String label = pm.getActivityInfo(info.getIntent().getComponent(), 0).loadLabel(pm).toString();
+                chooseAction.setText(label);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -78,15 +103,22 @@ public class GestureActivity extends AppCompatActivity implements GestureOverlay
 
     private void confirm() {
         gesture = gestureView.getGesture();
-        if (action == null) {
+        if (action == null && info == null) {
             Toast.makeText(this, "You have to choose an action", Toast.LENGTH_SHORT).show();
-        } else if (gesture == null) {
+        } else if (gesture == null && info == null) {
             Toast.makeText(this, "Please draw a gesture first", Toast.LENGTH_SHORT).show();
-        } else if (label.getText().length() == 0) {
+        } else if (label.getText().length() == 0 && info == null) {
             Toast.makeText(this, "The label can't be empty", Toast.LENGTH_SHORT).show();
         } else {
-            Intent data = new Intent();
-            data.putExtra(GESTURE, new com.faendir.lightning_launcher.multitool.gesture.Gesture(gesture, action, label.getText().toString()));
+            Intent data = getIntent();
+            if (info == null) {
+                info = new GestureInfo(action, label.getText().toString());
+            } else {
+                info.setIntent(action);
+                info.setLabel(label.getText().toString());
+            }
+            info.setGesture(this, gesture);
+            data.putExtra(GESTURE, info);
             setResult(RESULT_OK, data);
             finish();
         }

@@ -1,7 +1,6 @@
 package com.faendir.lightning_launcher.multitool.scriptmanager;
 
 import android.content.Context;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,15 +23,7 @@ import java.util.Set;
  */
 class ScriptListAdapter extends BaseExpandableListAdapter {
 
-    private static final int SELECTION_COLOR;
-
-    static {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            SELECTION_COLOR = android.R.color.holo_blue_dark;
-        } else {
-            SELECTION_COLOR = R.color.selector;
-        }
-    }
+    private static final int SELECTION_COLOR = R.color.selector;
 
     private static final int RESOURCE_GROUP = android.R.layout.simple_expandable_list_item_1;
     private static final int RESOURCE_CHILD = android.R.layout.simple_expandable_list_item_1;

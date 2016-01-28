@@ -2,7 +2,7 @@ package com.faendir.lightning_launcher.multitool.util;
 
 import android.content.Context;
 
-import com.faendir.lightning_launcher.multitool.gesture.Gesture;
+import com.faendir.lightning_launcher.multitool.gesture.GestureInfo;
 import com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup;
 
 /**
@@ -16,7 +16,7 @@ public final class FileManagerFactory {
         return new FileManager<>(context, "storage", ScriptGroup[].class);
     }
 
-    public static FileManager<Gesture> createGestureFileManager(Context context){
-        return new FileManager<>(context, "gestures", Gesture[].class);
+    public static FileManager<GestureInfo> createGestureFileManager(Context context){
+        return new FileManager<>(context, "gestures", GestureInfo[].class);
     }
 }

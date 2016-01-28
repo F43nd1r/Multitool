@@ -34,13 +34,17 @@ public class FileManager<T> {
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @SuppressLint("SetWorldReadable")
-    public void allowGlobalRead() {
+    public static void allowGlobalRead(File file) {
         try {
             if (!file.exists()) file.createNewFile();
             file.setReadable(true, false);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void allowGlobalRead() {
+        allowGlobalRead(file);
     }
 
     public List<T> read() {

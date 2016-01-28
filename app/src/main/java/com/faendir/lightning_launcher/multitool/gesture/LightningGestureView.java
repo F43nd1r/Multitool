@@ -2,7 +2,7 @@ package com.faendir.lightning_launcher.multitool.gesture;
 
 import android.content.Context;
 import android.content.Intent;
-import android.gesture.GestureLibrary;
+import android.gesture.Gesture;
 import android.gesture.GestureOverlayView;
 import android.gesture.Prediction;
 import android.os.Build;
@@ -20,9 +20,9 @@ import java.util.List;
  * Created by Lukas on 26.01.2016.
  */
 public class LightningGestureView extends GestureOverlayView implements GestureOverlayView.OnGesturePerformedListener {
-    private FileManager<Gesture> fileManager;
-    private GestureLibrary library;
-    private List<Gesture> gestures;
+    private FileManager<GestureInfo> fileManager;
+    private android.gesture.GestureLibrary library;
+    private List<GestureInfo> gestureInfos;
 
     public LightningGestureView(Context context) {
         super(context);
@@ -33,10 +33,10 @@ public class LightningGestureView extends GestureOverlayView implements GestureO
         setUncertainGestureColor(color);
         setEventsInterceptionEnabled(true);
         fileManager = FileManagerFactory.createGestureFileManager(context);
-        gestures = fileManager.read();
-        library = new TempLibrary();
-        for (int i = 0; i < gestures.size(); i++) {
-            library.addGesture(String.valueOf(i), gestures.get(i).getGesture());
+        gestureInfos = fileManager.read();
+        library = SingletonGestureLibrary.getGlobal(context);
+        for (int i = 0; i < gestureInfos.size(); i++) {
+            library.addGesture(String.valueOf(i), gestureInfos.get(i).getGesture(context));
         }
         post(new Runnable() {
             @Override
@@ -53,12 +53,12 @@ public class LightningGestureView extends GestureOverlayView implements GestureO
     }
 
     @Override
-    public void onGesturePerformed(GestureOverlayView overlay, android.gesture.Gesture gesture) {
+    public void onGesturePerformed(GestureOverlayView overlay, Gesture gesture) {
         Toast.makeText(getContext(), "Got gesture", Toast.LENGTH_SHORT).show();
         ArrayList<Prediction> list = library.recognize(gesture);
         if (list.size() != 0 && list.get(0).score >= 1.0) {
             try {
-                Intent intent = gestures.get(Integer.parseInt(list.get(0).name)).getIntent();
+                Intent intent = gestureInfos.get(Integer.parseInt(list.get(0).name)).getIntent();
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getContext().startActivity(intent);
             } catch (Exception e) {
