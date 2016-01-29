@@ -2,6 +2,7 @@ package com.faendir.lightning_launcher.multitool.gesture;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,10 +33,10 @@ import java.util.List;
 public class GestureFragment extends Fragment implements ListView.MultiChoiceModeListener, AdapterView.OnItemClickListener {
 
     private static final int ADD = 1;
-    private static final int EDIT = 2;
-    private static final String INDEX = "index";
+    static final int EDIT = 2;
+    static final String INDEX = "index";
 
-    private ImageListAdapter adapter;
+    private ImageListAdapter<GestureInfo> adapter;
     private FileManager<GestureInfo> fileManager;
     private ListView listView;
 
@@ -55,11 +56,13 @@ public class GestureFragment extends Fragment implements ListView.MultiChoiceMod
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.title_gestureLauncher);
         listView = new ListView(getActivity());
         List<GestureInfo> gestureInfos = fileManager.read();
-        adapter = new ImageListAdapter(getActivity(), gestureInfos);
+        if (gestureInfos == null) gestureInfos = new ArrayList<>();
+        adapter = new ImageListAdapter<>(getActivity(), gestureInfos);
         listView.setAdapter(adapter);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         listView.setMultiChoiceModeListener(this);
         listView.setOnItemClickListener(this);
+        listView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         TextView empty = (TextView) inflater.inflate(R.layout.textview_empty_gestures_list, listView, false);
         listView.setEmptyView(empty);
         layout.addView(listView);
@@ -79,6 +82,13 @@ public class GestureFragment extends Fragment implements ListView.MultiChoiceMod
             case R.id.action_add_gesture:
                 startActivityForResult(new Intent(getActivity(), GestureActivity.class), ADD);
                 return true;
+            case R.id.action_help:
+                new AlertDialog.Builder(getActivity())
+                        .setTitle("Help")
+                        .setMessage("You can add a Gesture view to Lightning by long press -> Scripts -> Gesture Launcher.\n" +
+                                "If a gesture you draw onto this view is recognized as one of this list, the specified action will be executed.")
+                        .setPositiveButton(R.string.button_ok, null)
+                        .show();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -92,7 +102,7 @@ public class GestureFragment extends Fragment implements ListView.MultiChoiceMod
                     GestureInfo gestureInfo = data.getParcelableExtra(GestureActivity.GESTURE);
                     adapter.add(gestureInfo);
                     adapter.notifyDataSetChanged();
-                    updateSavedGestures();
+                    GestureUtils.updateSavedGestures(adapter, fileManager);
                     break;
                 }
                 case EDIT: {
@@ -102,21 +112,13 @@ public class GestureFragment extends Fragment implements ListView.MultiChoiceMod
                         adapter.remove(adapter.getItem(position));
                         adapter.insert(gestureInfo, position);
                         adapter.notifyDataSetChanged();
-                        updateSavedGestures();
+                        GestureUtils.updateSavedGestures(adapter, fileManager);
                     }
                 }
                 default:
                     super.onActivityResult(requestCode, resultCode, data);
             }
         }
-    }
-
-    private void updateSavedGestures() {
-        ArrayList<GestureInfo> gestureInfos = new ArrayList<>();
-        for (int i = 0; i < adapter.getCount(); i++) {
-            gestureInfos.add((GestureInfo) adapter.getItem(i));
-        }
-        fileManager.write(gestureInfos);
     }
 
     @Override
@@ -127,23 +129,29 @@ public class GestureFragment extends Fragment implements ListView.MultiChoiceMod
 
     @Override
     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+        //if (listView.getCheckedItemCount() == 0) mode.finish();
         return true;
     }
 
     @Override
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+        ArrayList<GestureInfo> selected = new ArrayList<>();
+        SparseBooleanArray array = listView.getCheckedItemPositions();
+        for (int i = 0; i < array.size(); i++) {
+            if (array.valueAt(i)) {
+                selected.add(adapter.getItem(array.keyAt(i)));
+            }
+        }
         switch (item.getItemId()) {
             case R.id.action_edit:
-                SparseBooleanArray array = listView.getCheckedItemPositions();
-                for (int i = 0; i < array.size(); i++) {
-                    if (array.valueAt(i)) {
-                        Intent intent = new Intent(getActivity(), GestureActivity.class);
-                        intent.putExtra(GestureActivity.GESTURE, (GestureInfo) adapter.getItem(array.keyAt(i)));
-                        intent.putExtra(INDEX, array.keyAt(i));
-                        startActivityForResult(intent, EDIT);
-                    }
-                }
+                GestureUtils.edit(getActivity(), selected.get(0), adapter);
+                break;
+            case R.id.action_delete:
+                GestureUtils.deleteDialog(getActivity(), selected, adapter, fileManager);
         }
+        listView.clearChoices();
+        adapter.clearSelection();
+        mode.finish();
         return true;
     }
 

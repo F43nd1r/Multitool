@@ -119,4 +119,7 @@
     <string name="add_gesture">Add Gesture</string>
     <string name="title_activity_gesture">GestureActivity</string>
     <string name="title_activity_intent_chooser">IntentChooser</string>
+    <string name="title_error">Error</string>
+    <string name="error_securityException">Please uninstall and reinstall this application.</string>
+    <string name="action_help">Help</string>
 </resources>

@@ -1,9 +1,7 @@
-package com.faendir.lightning_launcher.multitool.scriptmanager;
+package com.faendir.lightning_launcher.multitool;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
-
-import com.faendir.lightning_launcher.multitool.R;
 
 /**
  * Created by Lukas on 29.08.2015.

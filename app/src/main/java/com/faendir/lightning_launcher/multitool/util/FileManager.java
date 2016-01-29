@@ -2,6 +2,8 @@ package com.faendir.lightning_launcher.multitool.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -12,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -47,19 +50,20 @@ public class FileManager<T> {
         allowGlobalRead(file);
     }
 
+    @Nullable
     public List<T> read() {
         if (!file.exists()) return null;
         try {
             T[] array = gson.fromJson(new FileReader(file), clazz);
             if (array == null) return null;
-            return Arrays.asList(array);
+            return new ArrayList<>(Arrays.asList(array));
         } catch (FileNotFoundException | JsonSyntaxException e) {
             return null;
         }
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    public void write(List<T> items) {
+    public void write(@NonNull List<T> items) {
         try {
             BufferedWriter writer = null;
             try {

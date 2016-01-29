@@ -1,6 +1,7 @@
 package com.faendir.lightning_launcher.multitool.gesture;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,6 @@ import android.widget.TextView;
 
 import com.faendir.lightning_launcher.multitool.R;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -19,19 +19,19 @@ import java.util.Set;
 /**
  * Created by Lukas on 26.01.2016.
  */
-public class ImageListAdapter extends ArrayAdapter<ImageText> {
+public class ImageListAdapter<T extends ImageText> extends ArrayAdapter<T> {
     private static final int RESOURCE = R.layout.list_item_app;
 
     private final Context context;
     private final Set<Integer> selected;
 
-    public <T extends ImageText> ImageListAdapter(Context context, List<T> list) {
-        super(context, RESOURCE, list != null ? new ArrayList<ImageText>(list) : new ArrayList<ImageText>());
+    public ImageListAdapter(Context context,@NonNull List<T> list) {
+        super(context, RESOURCE, list);
         this.context = context;
         selected = new HashSet<>();
     }
 
-    public ImageListAdapter(Context context, ImageText[] objects) {
+    public ImageListAdapter(Context context, T[] objects) {
         this(context, Arrays.asList(objects));
     }
 
@@ -60,5 +60,9 @@ public class ImageListAdapter extends ArrayAdapter<ImageText> {
 
     public boolean isSelected(int position){
         return selected.contains(position);
+    }
+
+    public void clearSelection(){
+        selected.clear();
     }
 }

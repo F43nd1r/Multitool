@@ -18,6 +18,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.scriptlib.ErrorCode;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 
 
@@ -144,7 +145,7 @@ public class LauncherScriptFragment extends Fragment {
         }
 
         @Override
-        public void onError() {
+        public void onError(ErrorCode errorCode) {
             changeText(getString(R.string.button_repositoryImporter_importError));
         }
     }

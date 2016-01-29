@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        onNewIntent(getIntent());
         int load = R.id.nav_launcher_script;
         if (sharedPref.contains(getString(R.string.pref_lastFragment))) {
             load = getResources().getIdentifier(sharedPref.getString(getString(R.string.pref_lastFragment), null), "id", getPackageName());
@@ -126,6 +125,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+        setIntent(intent);
         if (currentFragment instanceof ScriptManagerFragment) {
             ((ScriptManagerFragment) currentFragment).onNewIntent(intent);
         }

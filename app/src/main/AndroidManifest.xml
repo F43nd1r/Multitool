@@ -15,7 +15,6 @@
         <activity
             android:name=".launcherscript.LauncherLoad"
             android:exported="true"
-            android:icon="@drawable/ic_multitool"
             android:label="@string/browse_name">
             <intent-filter>
                 <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE"/>
@@ -46,7 +45,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/browse_name"
-            android:launchMode="singleInstance"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
@@ -75,6 +74,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.faendir.lightning_launcher.multitool.gesture.GestureActivity"/>
+        </activity>
+        <activity
+            android:name=".gesture.LoadGesture"
+            android:exported="true"
+            android:label="@string/title_gestureLauncher">
+            <intent-filter>
+                <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE"/>
+            </intent-filter>
         </activity>
     </application>
 

@@ -13,7 +13,6 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.faendir.lightning_launcher.multitool.scriptmanager.PrefsFragment;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
 import java.io.File;
