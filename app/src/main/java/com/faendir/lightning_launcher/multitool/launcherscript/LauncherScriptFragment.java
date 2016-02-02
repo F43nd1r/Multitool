@@ -21,6 +21,8 @@ import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.scriptlib.ErrorCode;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 
+import java.io.IOException;
+
 
 public class LauncherScriptFragment extends Fragment {
 
@@ -109,13 +111,17 @@ public class LauncherScriptFragment extends Fragment {
                 changeText(getString(R.string.button_repositoryImporter_importing));
 
                 //Lukas API
-                ScriptManager.loadScript(
-                        getActivity(),
-                        Utils.getStringFromResource(R.raw.multitool, getActivity(), getString(R.string.error_noResourceFound)),
-                        nameTextView.getText().toString(),
-                        Constants.FLAG_APP_MENU + Constants.FLAG_ITEM_MENU,
-                        new managerListener()
-                );
+                try {
+                    ScriptManager.loadScript(
+                            getActivity(),
+                            R.raw.multitool,
+                            nameTextView.getText().toString(),
+                            Constants.FLAG_APP_MENU + Constants.FLAG_ITEM_MENU,
+                            new managerListener()
+                    );
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
             }
 

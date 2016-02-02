@@ -180,7 +180,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     }
 
     private void loadFromLauncher(int id) {
-        if (BuildConfig.DEBUG || id == -1 || sharedPref.getInt(getString(R.string.pref_version), 0) != BuildConfig.VERSION_CODE) {
+        if (id == -1 || sharedPref.getInt(getString(R.string.pref_version), 0) != BuildConfig.VERSION_CODE) {
             try {
                 // preload strings, because they can't be loaded anymore, if the fragment is detached
                 final String idString = getString(R.string.pref_id);
