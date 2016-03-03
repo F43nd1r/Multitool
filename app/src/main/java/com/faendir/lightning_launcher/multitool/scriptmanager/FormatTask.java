@@ -171,15 +171,16 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
     }
 
     private void checkOperators(StringBuilder builder, char next) {
-        int length = builder.length();
-        if (builder.substring(length - 2).equals("==")) {
+        final int length = builder.length();
+        if (length >= 2 && builder.substring(length - 2).equals("==")) {
             builder.charAt(length - 1);
         }
         for (String operator : OPERATORS) {
-            int opLength = operator.length();
+            final int opLength = operator.length();
+            if (length < opLength + 1) continue;
             String withLast = builder.charAt(length - opLength - 1) + operator;
             String withNext = operator + next;
-            if (length >= opLength && builder.substring(length - opLength).equals(operator) && !OPERATORS.contains(withLast)) {
+            if (builder.substring(length - opLength).equals(operator) && !OPERATORS.contains(withLast)) {
                 if (!OPERATORS.contains(withNext) && !IGNORE.contains(withNext) && !IGNORE.contains(withLast) && !caseBeforeLast(builder)) {
                     builder.insert(length - opLength, ' ').append(' ');
                 }

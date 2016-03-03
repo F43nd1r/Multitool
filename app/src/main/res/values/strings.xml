@@ -122,4 +122,5 @@
     <string name="title_error">Error</string>
     <string name="error_securityException">Please uninstall and reinstall this application.</string>
     <string name="action_help">Help</string>
+    <string name="text_noGestures">No gestures found. To create a new gesture, press the \'Add\' Button.</string>
 </resources>

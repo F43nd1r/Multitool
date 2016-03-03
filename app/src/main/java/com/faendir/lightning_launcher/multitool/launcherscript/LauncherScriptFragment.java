@@ -20,8 +20,7 @@ import android.widget.TextView;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.scriptlib.ErrorCode;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
-
-import java.io.IOException;
+import com.trianguloy.llscript.repository.aidl.Script;
 
 
 public class LauncherScriptFragment extends Fragment {
@@ -56,7 +55,7 @@ public class LauncherScriptFragment extends Fragment {
                 )
         );
         //noinspection ConstantConditions
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.title_launcherScript);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.title_launcherScript);
         return layout;
     }
 
@@ -97,7 +96,7 @@ public class LauncherScriptFragment extends Fragment {
                 startActivity(intent);
                 break;
             }
-            case R.id.button_noLauncher:{
+            case R.id.button_noLauncher: {
                 final String appPackageName = "net.pierrox.lightning_launcher";
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
@@ -106,22 +105,17 @@ public class LauncherScriptFragment extends Fragment {
                 }
                 break;
             }
-            case R.id.button_import:{
+            case R.id.button_import: {
                 saveName();
                 changeText(getString(R.string.button_repositoryImporter_importing));
 
-                //Lukas API
-                try {
-                    ScriptManager.loadScript(
-                            getActivity(),
-                            R.raw.multitool,
-                            nameTextView.getText().toString(),
-                            Constants.FLAG_APP_MENU + Constants.FLAG_ITEM_MENU,
-                            new managerListener()
-                    );
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                ScriptManager.loadScript(getActivity(),
+                        new Script(getActivity(),
+                                R.raw.multitool,
+                                nameTextView.getText().toString(),
+                                Constants.FLAG_APP_MENU + Constants.FLAG_ITEM_MENU),
+                        new managerListener()
+                );
                 break;
             }
 
@@ -152,7 +146,9 @@ public class LauncherScriptFragment extends Fragment {
 
         @Override
         public void onError(ErrorCode errorCode) {
-            changeText(getString(R.string.button_repositoryImporter_importError));
+            if (isAdded()) {
+                changeText(getString(R.string.button_repositoryImporter_importError));
+            }
         }
     }
 

@@ -8,8 +8,8 @@ android {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 11
         targetSdkVersion 23
-        versionCode 26
-        versionName "2.6b"
+        versionCode 27
+        versionName "2.6"
     }
     buildTypes {
         release {
@@ -22,20 +22,13 @@ android {
         }
     }
 }
-repositories{
-    flatDir {
-        dirs 'libs'
-    }
-}
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.faendir.lightninglauncher:scriptlib:1.7.1_rev2'
-    //compile(name:'scriptlib-debug',ext:'aar')
-    //compile(name:'aidl_library-debug',ext:'aar')
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:design:23.1.1'
-    compile 'com.android.support:support-annotations:23.1.1'
-    compile 'com.google.code.gson:gson:2.5'
-    compile 'com.nononsenseapps:filepicker:2.5.0'
-    compile 'ch.acra:acra:4.7.0'
+    compile 'com.faendir.lightninglauncher:scriptlib:1.7.2'
+    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile 'com.android.support:design:23.2.0'
+    compile 'com.android.support:support-annotations:23.2.0'
+    compile 'com.google.code.gson:gson:2.6.1'
+    compile 'com.nononsenseapps:filepicker:2.5.1'
+    compile 'ch.acra:acra:4.8.2'
 }

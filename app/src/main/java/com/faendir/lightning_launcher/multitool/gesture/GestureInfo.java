@@ -95,8 +95,7 @@ public class GestureInfo implements Parcelable, ImageText {
     }
 
     private void checkValid() {
-        if (!valid)
-            throw new IllegalStateException("Cannot access gesture after it has been removed");
+        //if (!valid) throw new IllegalStateException("Cannot access gesture after it has been removed");
     }
 
     public boolean hasUuid(UUID uuid) {
