@@ -1,6 +1,7 @@
+/app/unused.txt
+/app/seeds.txt
+/app/class_files.txt
 .gradle
-.DS_Store
-/build
 gradle/
 local.properties
 .idea/*
