@@ -113,7 +113,7 @@ public class LauncherScriptFragment extends Fragment {
                         new Script(getActivity(),
                                 R.raw.multitool,
                                 nameTextView.getText().toString(),
-                                Constants.FLAG_APP_MENU + Constants.FLAG_ITEM_MENU),
+                                Script.FLAG_APP_MENU + Script.FLAG_ITEM_MENU),
                         new managerListener()
                 );
                 break;
@@ -141,7 +141,9 @@ public class LauncherScriptFragment extends Fragment {
     private class managerListener extends ScriptManager.Listener {
         @Override
         public void onLoadFinished(int i) {
-            changeText(getString(R.string.button_repositoryImporter_importOk));
+            if(isAdded()) {
+                changeText(getString(R.string.button_repositoryImporter_importOk));
+            }
         }
 
         @Override
