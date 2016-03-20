@@ -68,7 +68,7 @@ public class IntentChooser extends AppCompatActivity implements AdapterView.OnIt
             @Override
             protected void onPostExecute(IntentInfo[] infos) {
                 ListView listView = (ListView) findViewById(R.id.apps_list);
-                listView.setAdapter(new ImageListAdapter(IntentChooser.this, infos));
+                listView.setAdapter(new ImageListAdapter<>(IntentChooser.this, infos));
                 listView.setVisibility(View.VISIBLE);
                 listView.setOnItemClickListener(IntentChooser.this);
                 findViewById(R.id.apps_progressBar).setVisibility(View.GONE);
@@ -100,7 +100,7 @@ public class IntentChooser extends AppCompatActivity implements AdapterView.OnIt
             @Override
             protected void onPostExecute(IntentInfo[] infos) {
                 ListView listView = (ListView) findViewById(R.id.shortcuts_list);
-                listView.setAdapter(new ImageListAdapter(IntentChooser.this, infos));
+                listView.setAdapter(new ImageListAdapter<>(IntentChooser.this, infos));
                 listView.setVisibility(View.VISIBLE);
                 listView.setOnItemClickListener(IntentChooser.this);
                 findViewById(R.id.shortcuts_progressBar).setVisibility(View.GONE);

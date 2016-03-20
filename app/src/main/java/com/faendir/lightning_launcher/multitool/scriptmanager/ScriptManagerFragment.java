@@ -36,7 +36,6 @@ import com.faendir.lightning_launcher.scriptlib.ErrorCode;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -181,35 +180,32 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
 
     private void loadFromLauncher(int id) {
         if (id == -1 || sharedPref.getInt(getString(R.string.pref_version), 0) != BuildConfig.VERSION_CODE) {
-            try {
-                // preload strings, because they can't be loaded anymore, if the fragment is detached
-                final String idString = getString(R.string.pref_id);
-                final String versionString = getString(R.string.pref_version);
-                ScriptManager.loadScript(getActivity(), R.raw.scriptmanager, getString(R.string.text_scriptTitle), 0, true, new ScriptManager.Listener() {
-                    @Override
-                    public void onError(ErrorCode errorCode) {
-                        if (errorCode == ErrorCode.SECURITY_EXCEPTION) {
-                            new AlertDialog.Builder(getActivity())
-                                    .setTitle(R.string.title_error)
-                                    .setMessage(R.string.error_securityException)
-                                    .setPositiveButton(R.string.button_ok, null)
-                                    .show();
+            // preload strings, because they can't be loaded anymore, if the fragment is detached
+            final String idString = getString(R.string.pref_id);
+            final String versionString = getString(R.string.pref_version);
+            ScriptManager.loadScript(getActivity(), new com.trianguloy.llscript.repository.aidl.Script(getActivity(), R.raw.scriptmanager, getString(R.string.text_scriptTitle), 0),
+                    new ScriptManager.Listener() {
+                        @Override
+                        public void onError(ErrorCode errorCode) {
+                            if (errorCode == ErrorCode.SECURITY_EXCEPTION) {
+                                new AlertDialog.Builder(getActivity())
+                                        .setTitle(R.string.title_error)
+                                        .setMessage(R.string.error_securityException)
+                                        .setPositiveButton(R.string.button_ok, null)
+                                        .show();
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onLoadFinished(int i) {
-                        sharedPref.edit().putInt(idString, i).putInt(versionString, BuildConfig.VERSION_CODE).apply();
-                        try {
-                            ScriptManager.runScript(getActivity(), i, null, true);
-                        } catch (Throwable t) {
-                            t.printStackTrace();
+                        @Override
+                        public void onLoadFinished(int i) {
+                            sharedPref.edit().putInt(idString, i).putInt(versionString, BuildConfig.VERSION_CODE).apply();
+                            try {
+                                ScriptManager.runScript(getActivity(), i, null, true);
+                            } catch (Throwable t) {
+                                t.printStackTrace();
+                            }
                         }
-                    }
-                });
-            } catch (IOException e) {
-                throw new FileManager.FatalFileException(e);
-            }
+                    }, true);
         } else {
             ScriptManager.runScript(getActivity(), id, null, true);
         }
