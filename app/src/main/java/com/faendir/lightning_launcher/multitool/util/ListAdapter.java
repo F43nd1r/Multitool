@@ -1,4 +1,4 @@
-package com.faendir.lightning_launcher.multitool.gesture;
+package com.faendir.lightning_launcher.multitool.util;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -19,29 +19,35 @@ import java.util.Set;
 /**
  * Created by Lukas on 26.01.2016.
  */
-public class ImageListAdapter<T extends ImageText> extends ArrayAdapter<T> {
+public class ListAdapter<T extends Text> extends ArrayAdapter<T> {
     private static final int RESOURCE = R.layout.list_item_app;
 
     private final Context context;
     private final Set<Integer> selected;
 
-    public ImageListAdapter(Context context,@NonNull List<T> list) {
+    public ListAdapter(Context context, @NonNull List<T> list) {
         super(context, RESOURCE, list);
         this.context = context;
         selected = new HashSet<>();
     }
 
-    public ImageListAdapter(Context context, T[] objects) {
+    public ListAdapter(Context context, T[] objects) {
         this(context, Arrays.asList(objects));
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v = convertView;
-        if (convertView == null) v = LayoutInflater.from(context).inflate(RESOURCE, parent, false);
-        ImageText imageText = getItem(position);
-        ((TextView) v.findViewById(R.id.txt)).setText(imageText.getText());
-        ((ImageView) v.findViewById(R.id.img)).setImageDrawable(imageText.getImage(context));
+        ViewGroup v = (ViewGroup) convertView;
+        if (convertView == null)
+            v = (ViewGroup) LayoutInflater.from(context).inflate(RESOURCE, parent, false);
+        Text item = getItem(position);
+        ((TextView) v.findViewById(R.id.txt)).setText(item.getText());
+        View img = v.findViewById(R.id.img);
+        if (item instanceof ImageText) {
+            ((ImageView) img).setImageDrawable(((ImageText) item).getImage(context));
+        } else if (img != null) {
+            v.removeView(img);
+        }
         if (isSelected(position)) {
             v.setBackgroundColor(context.getResources().getColor(R.color.selector));
         } else {
@@ -58,11 +64,11 @@ public class ImageListAdapter<T extends ImageText> extends ArrayAdapter<T> {
         }
     }
 
-    public boolean isSelected(int position){
+    public boolean isSelected(int position) {
         return selected.contains(position);
     }
 
-    public void clearSelection(){
+    public void clearSelection() {
         selected.clear();
     }
 }

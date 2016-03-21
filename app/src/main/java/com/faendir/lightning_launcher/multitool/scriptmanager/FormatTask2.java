@@ -11,7 +11,7 @@ import java.util.Map;
  * Created by Lukas on 22.01.2016.
  * Will replace FormatTask in the future, not ready yet.
  */
-public class FormatTask2 extends FormatTask {
+class FormatTask2 extends FormatTask {
     private static final String ONE_LINE_COMMENT = "//";
     private static final char LINE_BREAK_CHAR = '\n';
     private static final String LINE_BREAK = String.valueOf(LINE_BREAK_CHAR);

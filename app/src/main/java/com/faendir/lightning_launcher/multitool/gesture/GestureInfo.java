@@ -13,6 +13,7 @@ import android.os.ParcelUuid;
 import android.os.Parcelable;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.util.ImageText;
 
 import java.util.List;
 import java.util.UUID;

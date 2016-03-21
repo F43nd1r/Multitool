@@ -34,12 +34,14 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        assert drawer != null;
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        assert navigationView != null;
         navigationView.setNavigationItemSelectedListener(this);
         int load = R.id.nav_launcher_script;
         if (sharedPref.contains(getString(R.string.pref_lastFragment))) {
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        assert drawer != null;
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -65,6 +68,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_launcher_script:
             case R.id.nav_script_manager:
             case R.id.nav_gesture:
+            //case R.id.nav_view_creator:
                 switchTo(item.getItemId());
                 break;
             case R.id.nav_email: {
@@ -97,6 +101,7 @@ public class MainActivity extends AppCompatActivity
             }
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        assert drawer != null;
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -115,6 +120,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_gesture:
                 currentFragment = new GestureFragment();
                 break;
+            /*case R.id.nav_view_creator:
+                currentFragment = new ViewCreatorFragment();
+                break;*/
             default:
                 throw new IllegalArgumentException("Illegal id " + id);
         }

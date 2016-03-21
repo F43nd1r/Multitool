@@ -327,6 +327,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     @Override
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
         List<Long> selection = adapter.getSelectedPackedPosition();
+        if (selection.size() == 0) return false;
         List<ScriptItem> selectedItems = new ArrayList<>();
         for (Long l : selection) {
             int type = ExpandableListView.getPackedPositionType(l);

@@ -172,9 +172,6 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
 
     private void checkOperators(StringBuilder builder, char next) {
         final int length = builder.length();
-        if (length >= 2 && builder.substring(length - 2).equals("==")) {
-            builder.charAt(length - 1);
-        }
         for (String operator : OPERATORS) {
             final int opLength = operator.length();
             if (length < opLength + 1) continue;

@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TabHost;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.util.ListAdapter;
 
 import java.util.List;
 
@@ -60,7 +61,7 @@ public class IntentChooser extends AppCompatActivity implements AdapterView.OnIt
                     Intent launchIntent = new Intent(Intent.ACTION_MAIN);
                     launchIntent.addCategory(Intent.CATEGORY_LAUNCHER);
                     launchIntent.setComponent(name);
-                    infos[i] = new IntentInfo(launchIntent, info.loadIcon(pm), info.loadLabel(pm).toString(), false);
+                    infos[i] = new IntentInfo(launchIntent, new ResolveInfoDrawableProvider(pm, info), info.loadLabel(pm).toString(), false);
                 }
                 return infos;
             }
@@ -68,7 +69,7 @@ public class IntentChooser extends AppCompatActivity implements AdapterView.OnIt
             @Override
             protected void onPostExecute(IntentInfo[] infos) {
                 ListView listView = (ListView) findViewById(R.id.apps_list);
-                listView.setAdapter(new ImageListAdapter<>(IntentChooser.this, infos));
+                listView.setAdapter(new ListAdapter<>(IntentChooser.this, infos));
                 listView.setVisibility(View.VISIBLE);
                 listView.setOnItemClickListener(IntentChooser.this);
                 findViewById(R.id.apps_progressBar).setVisibility(View.GONE);
@@ -92,7 +93,7 @@ public class IntentChooser extends AppCompatActivity implements AdapterView.OnIt
                     Intent launchIntent = new Intent(Intent.ACTION_MAIN);
                     launchIntent.addCategory(Intent.CATEGORY_LAUNCHER);
                     launchIntent.setComponent(name);
-                    infos[i] = new IntentInfo(launchIntent, info.loadIcon(pm), info.loadLabel(pm).toString(), true);
+                    infos[i] = new IntentInfo(launchIntent, new ResolveInfoDrawableProvider(pm, info), info.loadLabel(pm).toString(), true);
                 }
                 return infos;
             }
@@ -100,7 +101,7 @@ public class IntentChooser extends AppCompatActivity implements AdapterView.OnIt
             @Override
             protected void onPostExecute(IntentInfo[] infos) {
                 ListView listView = (ListView) findViewById(R.id.shortcuts_list);
-                listView.setAdapter(new ImageListAdapter<>(IntentChooser.this, infos));
+                listView.setAdapter(new ListAdapter<>(IntentChooser.this, infos));
                 listView.setVisibility(View.VISIBLE);
                 listView.setOnItemClickListener(IntentChooser.this);
                 findViewById(R.id.shortcuts_progressBar).setVisibility(View.GONE);

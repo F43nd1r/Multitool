@@ -8,6 +8,7 @@ import android.content.Intent;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
+import com.faendir.lightning_launcher.multitool.util.ListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ final class GestureUtils {
     private GestureUtils() {
     }
 
-    static void deleteDialog(final Context context, final List<GestureInfo> selected, final ImageListAdapter<GestureInfo> adapter, final FileManager<GestureInfo> fileManager) {
+    static void deleteDialog(final Context context, final List<GestureInfo> selected, final ListAdapter<GestureInfo> adapter, final FileManager<GestureInfo> fileManager) {
         new AlertDialog.Builder(context)
                 .setTitle(R.string.title_delete)
                 .setMessage(context.getString(R.string.message_deletePart1) + selected.size() + context.getString(R.string.message_deletePart2))
@@ -32,7 +33,7 @@ final class GestureUtils {
                 .show();
     }
 
-    private static void delete(Context context, List<GestureInfo> selected, ImageListAdapter<GestureInfo> adapter, FileManager<GestureInfo> fileManager) {
+    private static void delete(Context context, List<GestureInfo> selected, ListAdapter<GestureInfo> adapter, FileManager<GestureInfo> fileManager) {
         for (GestureInfo info : selected) {
             info.removeGesture(context);
             adapter.remove(info);
@@ -40,7 +41,7 @@ final class GestureUtils {
         updateSavedGestures(adapter, fileManager);
     }
 
-    static void edit(Activity context, GestureInfo selected, ImageListAdapter<GestureInfo> adapter){
+    static void edit(Activity context, GestureInfo selected, ListAdapter<GestureInfo> adapter){
         Intent intent = new Intent(context, GestureActivity.class);
         intent.putExtra(GestureActivity.GESTURE, selected);
         intent.putExtra(GestureFragment.INDEX, adapter.getPosition(selected));
@@ -48,7 +49,7 @@ final class GestureUtils {
 
     }
 
-    static void updateSavedGestures(ImageListAdapter<GestureInfo> adapter, FileManager<GestureInfo> fileManager) {
+    static void updateSavedGestures(ListAdapter<GestureInfo> adapter, FileManager<GestureInfo> fileManager) {
         ArrayList<GestureInfo> gestureInfos = new ArrayList<>();
         for (int i = 0; i < adapter.getCount(); i++) {
             gestureInfos.add(adapter.getItem(i));

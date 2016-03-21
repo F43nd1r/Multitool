@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
+import com.faendir.lightning_launcher.multitool.util.ListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ public class GestureFragment extends Fragment implements ListView.MultiChoiceMod
     static final int EDIT = 2;
     static final String INDEX = "index";
 
-    private ImageListAdapter<GestureInfo> adapter;
+    private ListAdapter<GestureInfo> adapter;
     private FileManager<GestureInfo> fileManager;
     private ListView listView;
 
@@ -57,7 +58,7 @@ public class GestureFragment extends Fragment implements ListView.MultiChoiceMod
         listView = new ListView(getActivity());
         List<GestureInfo> gestureInfos = fileManager.read();
         if (gestureInfos == null) gestureInfos = new ArrayList<>();
-        adapter = new ImageListAdapter<>(getActivity(), gestureInfos);
+        adapter = new ListAdapter<>(getActivity(), gestureInfos);
         listView.setAdapter(adapter);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         listView.setMultiChoiceModeListener(this);
