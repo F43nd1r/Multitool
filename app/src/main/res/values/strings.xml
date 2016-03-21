@@ -115,7 +115,7 @@
 
     <string name="title_gestureLauncher">Gesture Launcher</string>
     <string name="add_gesture">Add Gesture</string>
-    <string name="title_activity_gesture">GestureActivity</string>
+    <string name="title_activity_gesture">Gesture Editor</string>
     <string name="title_activity_intent_chooser">IntentChooser</string>
     <string name="title_error">Error</string>
     <string name="error_securityException">Please uninstall and reinstall this application.</string>

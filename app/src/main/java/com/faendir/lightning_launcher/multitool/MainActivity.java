@@ -18,6 +18,7 @@ import android.view.View;
 import com.faendir.lightning_launcher.multitool.gesture.GestureFragment;
 import com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment;
 import com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment;
+import com.faendir.lightning_launcher.multitool.viewcreator.ViewCreatorFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_launcher_script:
             case R.id.nav_script_manager:
             case R.id.nav_gesture:
-            //case R.id.nav_view_creator:
+            case R.id.nav_view_creator:
                 switchTo(item.getItemId());
                 break;
             case R.id.nav_email: {
@@ -120,9 +121,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_gesture:
                 currentFragment = new GestureFragment();
                 break;
-            /*case R.id.nav_view_creator:
+            case R.id.nav_view_creator:
                 currentFragment = new ViewCreatorFragment();
-                break;*/
+                break;
             default:
                 throw new IllegalArgumentException("Illegal id " + id);
         }
