@@ -23,3 +23,5 @@
 -keep public interface org.acra.** {*;}
 -keep class sun.misc.Unsafe { *; }
 -keep class com.faendir.lightning_launcher.scriptlib.** {*;}
+-keep class android.support.design.widget.** { *; }
+-keep interface android.support.design.widget.** { *; }
