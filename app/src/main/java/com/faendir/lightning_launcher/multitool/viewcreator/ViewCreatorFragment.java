@@ -39,5 +39,4 @@ public class ViewCreatorFragment extends Fragment {
         listView.setAdapter(adapter);
         return listView;
     }
-
 }

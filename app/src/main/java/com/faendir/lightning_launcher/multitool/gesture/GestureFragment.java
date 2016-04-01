@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
@@ -53,8 +52,6 @@ public class GestureFragment extends Fragment implements ListView.MultiChoiceMod
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         LinearLayout layout = new LinearLayout(getActivity());
-        //noinspection ConstantConditions
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.title_gestureLauncher);
         listView = new ListView(getActivity());
         List<GestureInfo> gestureInfos = fileManager.read();
         if (gestureInfos == null) gestureInfos = new ArrayList<>();

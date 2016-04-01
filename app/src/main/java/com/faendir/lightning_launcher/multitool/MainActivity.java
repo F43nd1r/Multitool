@@ -82,6 +82,10 @@ public class MainActivity extends AppCompatActivity {
         EventBus.getDefault().post(new ClickEvent(v.getId()));
     }
 
+    public NavigationView getNavigationView(){
+        return (NavigationView) findViewById(R.id.nav_view);
+    }
+
     @Subscribe
     public void onLeaveRequest(LeaveApplicationRequest request) {
         finish();
