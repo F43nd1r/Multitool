@@ -42,7 +42,7 @@ final class ScriptUtils {
     private static final String NAME = "Name:  ";
 
 
-    public static void searchDialog(final Context context, final List<ScriptGroup> items) {
+    public static void searchDialog(final Context context, final ListManager listManager) {
         final EditText editText = new EditText(context);
         new AlertDialog.Builder(context)
                 .setTitle(R.string.title_search)
@@ -51,7 +51,7 @@ final class ScriptUtils {
                 .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        search(context, items, editText.getText().toString());
+                        search(context, listManager.getItems(), editText.getText().toString());
                     }
                 })
                 .show();
@@ -85,7 +85,7 @@ final class ScriptUtils {
                 .show();
     }
 
-    public static void createGroupDialog(Context context, final List<ScriptGroup> items, final ScriptListAdapter adapter) {
+    public static void createGroupDialog(Context context, final ListManager listManager) {
         final EditText text = new EditText(context);
         new AlertDialog.Builder(context)
                 .setTitle(R.string.title_create)
@@ -93,19 +93,14 @@ final class ScriptUtils {
                 .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        createGroup(items, adapter, text.getText().toString());
+                        listManager.createGroup(text.getText().toString());
                     }
                 })
                 .setNegativeButton(R.string.button_cancel, null)
                 .show();
     }
 
-    private static void createGroup(List<ScriptGroup> items, ScriptListAdapter adapter, String name) {
-        items.add(new ScriptGroup(name, true));
-        adapter.notifyDataSetChanged();
-    }
-
-    public static void renameDialog(final Context context, final ScriptListAdapter adapter, final ScriptItem item) {
+    public static void renameDialog(final Context context, final ListManager listManager, final ScriptItem item) {
         final EditText text = new EditText(context);
         text.setText(item.getName());
         new AlertDialog.Builder(context)
@@ -114,32 +109,29 @@ final class ScriptUtils {
                 .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        renameItem(context, adapter, item, text.getText().toString());
+                        renameItem(context, listManager, item, text.getText().toString());
                     }
                 })
                 .setNegativeButton(R.string.button_cancel, null)
                 .show();
     }
 
-    private static void renameItem(Context context, ScriptListAdapter adapter, ScriptItem item, String name) {
+    private static void renameItem(Context context, ListManager listManager, ScriptItem item, String name) {
         item.setName(name);
         if (item instanceof Script) {
             Transfer transfer = new Transfer(Transfer.RENAME);
             transfer.script = (Script) item;
             ScriptManager.runScript(context, PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer), true);
         }
-        adapter.deselectAll();
-        adapter.notifyDataSetChanged();
+        listManager.deselectAll();
     }
 
-    public static void format(Context context, ScriptListAdapter adapter, final List<ScriptItem> selectedItems) {
+    public static void format(Context context, ListManager listManager, final List<ScriptItem> selectedItems) {
         new FormatTask(context).execute(selectedItems.toArray(new ScriptItem[selectedItems.size()]));
-        adapter.deselectAll();
-        adapter.notifyDataSetChanged();
-        Toast.makeText(context, R.string.message_done, Toast.LENGTH_SHORT).show();
+        listManager.deselectAll();
     }
 
-    public static void backup(final Context context, final ScriptListAdapter adapter, List<ScriptItem> selectedItems) {
+    public static void backup(final Context context, final ListManager listManager, List<ScriptItem> selectedItems) {
         final List<ScriptItem> selectedItemsFinal = new ArrayList<>(selectedItems);
         final File dir = new File(PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.pref_directory), SettingsActivity.DEFAULT_BACKUP_PATH));
         if ((!dir.mkdirs() && !dir.isDirectory()) || !dir.canWrite()) {
@@ -147,18 +139,18 @@ final class ScriptUtils {
                 @Override
                 public void handlePermissionResult(boolean isGranted) {
                     if (isGranted && (dir.mkdirs() || dir.isDirectory()) && dir.canWrite()) {
-                        backup0(context, adapter, dir, selectedItemsFinal);
+                        backup0(context, listManager, dir, selectedItemsFinal);
                     } else {
                         Toast.makeText(context, R.string.toast_failedDirWrite, Toast.LENGTH_SHORT).show();
                     }
                 }
             });
         } else {
-            backup0(context, adapter, dir, selectedItemsFinal);
+            backup0(context, listManager, dir, selectedItemsFinal);
         }
     }
 
-    private static void backup0(Context context, ScriptListAdapter adapter, File dir, List<ScriptItem> selectedItems) {
+    private static void backup0(Context context, ListManager listManager, File dir, List<ScriptItem> selectedItems) {
         String text = "";
         int success = 0;
         for (ScriptItem item : selectedItems) {
@@ -197,22 +189,20 @@ final class ScriptUtils {
             text += context.getString(R.string.text_backupFailed) + (selectedItems.size() - success) + context.getString(R.string.text_scripts);
         }
         Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
-        adapter.deselectAll();
-        adapter.notifyDataSetChanged();
+        listManager.deselectAll();
     }
 
-    public static void editScript(Context context, ScriptListAdapter adapter, Script script) {
+    public static void editScript(Context context, ListManager listManager, Script script) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setClassName("net.pierrox.lightning_launcher_extreme", "net.pierrox.lightning_launcher.activities.ScriptEditor");
         intent.putExtra("i", script.getId());
         ScriptManager.sendIntentToLauncher(context, intent);
-        adapter.deselectAll();
-        adapter.notifyDataSetChanged();
+        listManager.deselectAll();
     }
 
-    public static void moveDialog(Context context, final List<ScriptGroup> items, final ScriptListAdapter adapter, final List<ScriptItem> selectedItems) {
+    public static void moveDialog(Context context, final ListManager listManager, final List<ScriptItem> selectedItems) {
         ArrayList<String> names = new ArrayList<>();
-        for (ScriptGroup group : items) {
+        for (ScriptGroup group : listManager.getItems()) {
             names.add(group.getName());
         }
         new AlertDialog.Builder(context)
@@ -220,7 +210,7 @@ final class ScriptUtils {
                 .setSingleChoiceItems(names.toArray(new String[names.size()]), -1, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        move(items, adapter, selectedItems, items.get(which));
+                        move(listManager, selectedItems, listManager.getItems().get(which));
                         dialog.dismiss();
                     }
                 })
@@ -228,84 +218,36 @@ final class ScriptUtils {
                 .show();
     }
 
-    private static void move(final List<ScriptGroup> items, ScriptListAdapter adapter, List<ScriptItem> selectedItems, ScriptGroup moveTo) {
-        for (ScriptItem item : selectedItems) {
-            if (item instanceof Script) {
-                loop:
-                for (ScriptGroup group : items) {
-                    for (Script script : group) {
-                        if (script.equals(item)) {
-                            moveTo.add(script);
-                            group.remove(script);
-                            break loop;
-                        }
-                    }
-                }
-            }
-        }
-        adapter.deselectAll();
-        adapter.notifyDataSetChanged();
+    private static void move(final ListManager listManager, List<ScriptItem> selectedItems, ScriptGroup moveTo) {
+        listManager.move(selectedItems, moveTo);
+        listManager.deselectAll();
     }
 
-    public static void deleteDialog(final Context context, final List<ScriptGroup> items, final ScriptListAdapter adapter, final List<ScriptItem> selectedItems) {
+    public static void deleteDialog(final Context context, final ListManager listManager, final List<ScriptItem> selectedItems) {
         new AlertDialog.Builder(context)
                 .setTitle(R.string.title_delete)
                 .setMessage(context.getString(R.string.message_deletePart1) + selectedItems.size() + context.getString(R.string.message_deletePart2))
                 .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        deleteItems(context, items, adapter, selectedItems);
+                        deleteItems(listManager, selectedItems);
                     }
                 }).setNegativeButton(R.string.button_cancel, null)
                 .show();
     }
 
-    private static void deleteItems(Context context, final List<ScriptGroup> items, final ScriptListAdapter adapter, List<ScriptItem> selectedItems) {
-        for (ScriptItem item : selectedItems) {
-            loop:
-            for (ScriptGroup group : items) {
-                if (group.equals(item)) {
-                    if (prepareGroupForDelete(items, group)) {
-                        items.remove(group);
-                    }
-                    break;
-                } else {
-                    for (Script script : group) {
-                        if (script.equals(item)) {
-                            deleteScript(context, script);
-                            group.remove(script);
-                            break loop;
-                        }
-                    }
-                }
-            }
-        }
-        adapter.deselectAll();
-        adapter.notifyDataSetChanged();
+    private static void deleteItems(final ListManager listManager, List<ScriptItem> selectedItems) {
+        listManager.delete(selectedItems);
+        listManager.deselectAll();
     }
 
-    private static void deleteScript(Context context, Script delete) {
+    public static void deleteScript(Context context, Script delete) {
         Transfer transfer = new Transfer(Transfer.DELETE);
         transfer.script = delete;
         ScriptManager.runScript(context, PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer), true);
     }
 
-    private static boolean prepareGroupForDelete(List<ScriptGroup> items, ScriptGroup delete) {
-        if (!delete.allowsDelete()) return false;
-        ScriptGroup def = null;
-        for (ScriptGroup s : items) {
-            if (!s.allowsDelete()) {
-                def = s;
-            }
-        }
-        assert def != null;
-        for (Script item : delete) {
-            def.add(item);
-        }
-        return true;
-    }
-
-    public static void restoreFromFile(Context context, List<ScriptGroup> items, Uri uri) {
+    public static void restoreFromFile(Context context, ListManager listManager, Uri uri) {
         File file = new File(uri.getPath());
         if (file.exists() && file.canRead()) {
             try {
@@ -314,7 +256,7 @@ final class ScriptUtils {
                     reader = new FileReader(file);
                     char[] buffer = new char[(int) file.length()];
                     reader.read(buffer);
-                    restoreDialog(context, items, new String(buffer), file.getName());
+                    restoreDialog(context, listManager, new String(buffer), file.getName());
 
                 } finally {
                     if (reader != null) reader.close();
@@ -327,7 +269,7 @@ final class ScriptUtils {
         }
     }
 
-    private static void restoreDialog(final Context context, final List<ScriptGroup> items, String s, String filename) {
+    private static void restoreDialog(final Context context, final ListManager listManager, String s, String filename) {
         int endOfFirstLine = s.indexOf('\n');
         if (endOfFirstLine == -1) endOfFirstLine = s.length();
         String l = s.substring(0, endOfFirstLine);
@@ -359,36 +301,33 @@ final class ScriptUtils {
                 .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        prepareRestore(context, items, finalS, editText.getText().toString(), finalFlags);
+                        prepareRestore(context, listManager, finalS, editText.getText().toString(), finalFlags);
                     }
                 })
                 .setNegativeButton(R.string.button_cancel, null)
                 .show();
     }
 
-    private static void prepareRestore(final Context context, final List<ScriptGroup> items, String code, String name, int flags) {
+    private static void prepareRestore(final Context context, final ListManager listManager, String code, String name, int flags) {
         final Script script = new Script();
         script.setName(name);
         script.setFlags(flags);
         script.setCode(code);
-        for (ScriptGroup group : items) {
-            for (Script s : group) {
-                if (s.equals(script)) {
-                    new AlertDialog.Builder(context)
-                            .setMessage(R.string.message_overwrite)
-                            .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    restore(context, script);
-                                }
-                            })
-                            .setNegativeButton(R.string.button_cancel, null)
-                            .show();
-                    return;
-                }
-            }
+        if (listManager.exists(script)) {
+            new AlertDialog.Builder(context)
+                    .setMessage(R.string.message_overwrite)
+                    .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            restore(context, script);
+                        }
+                    })
+                    .setNegativeButton(R.string.button_cancel, null)
+                    .show();
+        } else {
+            restore(context, script);
         }
-        restore(context, script);
+
     }
 
     private static void restore(final Context context, Script script) {

@@ -18,9 +18,12 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.scriptlib.ErrorCode;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.trianguloy.llscript.repository.aidl.Script;
+
+import org.greenrobot.eventbus.Subscribe;
 
 
 public class LauncherScriptFragment extends Fragment {
@@ -89,8 +92,9 @@ public class LauncherScriptFragment extends Fragment {
     }
 
 
-    public void onButtonClick(View v) {
-        switch (v.getId()) {
+    @Subscribe
+    public void onButtonClick(ClickEvent event) {
+        switch (event.getId()) {
             case R.id.button_code: {
                 Intent intent = new Intent(getActivity(), Code.class);
                 startActivity(intent);
