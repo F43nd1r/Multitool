@@ -13,7 +13,6 @@ import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
 import com.faendir.lightning_launcher.multitool.gesture.GestureFragment;
 import com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment;
 import com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment;
-import com.faendir.lightning_launcher.multitool.viewcreator.ViewCreatorFragment;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -48,9 +47,6 @@ public class FragmentManager {
                 break;
             case R.id.nav_gesture:
                 currentFragment = new GestureFragment();
-                break;
-            case R.id.nav_view_creator:
-                currentFragment = new ViewCreatorFragment();
                 break;
             default:
                 throw new IllegalArgumentException("Illegal id " + request.getId());

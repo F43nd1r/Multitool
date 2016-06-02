@@ -22,6 +22,7 @@ import com.faendir.lightning_launcher.scriptlib.ErrorCode;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.trianguloy.llscript.repository.aidl.Script;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 
@@ -138,6 +139,17 @@ public class LauncherScriptFragment extends Fragment {
         importButton.setText(newText);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
 
     private class managerListener extends ScriptManager.Listener {
         @Override

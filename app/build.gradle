@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '23.0.2'
+    buildToolsVersion '23.0.3'
 
     defaultConfig {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 11
         targetSdkVersion 23
-        versionCode 28
-        versionName "2.6.1"
+        versionCode 29
+        versionName "2.6.2"
     }
     buildTypes {
         release {
@@ -24,10 +24,11 @@ android {
 }
 
 dependencies {
-    compile 'com.faendir.lightninglauncher:scriptlib:1.7.3'
-    compile 'com.android.support:appcompat-v7:23.2.1'
-    compile 'com.android.support:design:23.2.1'
-    compile 'com.android.support:support-annotations:23.2.1'
+    def supportVersion = "23.4.0"
+    compile 'com.faendir.lightninglauncher:scriptlib:1.7.5'
+    compile "com.android.support:appcompat-v7:$supportVersion"
+    compile "com.android.support:design:$supportVersion"
+    compile "com.android.support:support-annotations:$supportVersion"
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.nononsenseapps:filepicker:2.5.2'
     compile 'ch.acra:acra:4.8.5'

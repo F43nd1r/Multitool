@@ -34,7 +34,6 @@ public class DrawerManager implements NavigationView.OnNavigationItemSelectedLis
             case R.id.nav_launcher_script:
             case R.id.nav_script_manager:
             case R.id.nav_gesture:
-            case R.id.nav_view_creator:
                 EventBus.getDefault().post(new SwitchFragmentRequest(item.getItemId(), item.getTitle().toString()));
                 break;
             case R.id.nav_email: {

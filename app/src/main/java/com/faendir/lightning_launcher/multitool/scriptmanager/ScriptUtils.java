@@ -196,7 +196,7 @@ final class ScriptUtils {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setClassName("net.pierrox.lightning_launcher_extreme", "net.pierrox.lightning_launcher.activities.ScriptEditor");
         intent.putExtra("i", script.getId());
-        ScriptManager.sendIntentToLauncher(context, intent);
+       context.startActivity(intent);
         listManager.deselectAll();
     }
 
