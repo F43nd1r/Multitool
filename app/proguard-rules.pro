@@ -15,7 +15,7 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
--keepattributes Signature, LineNumberTable, SourceFile
+-keepattributes Signature, LineNumberTable, SourceFile, *Annotation*
 
 -keep class com.faendir.lightning_launcher.multitool.scripting.** {*;}
 -keep class com.faendir.lightning_launcher.multitool.scriptmanager.** {*;}
@@ -25,3 +25,7 @@
 -keep class com.faendir.lightning_launcher.scriptlib.** {*;}
 -keep class android.support.design.widget.** { *; }
 -keep interface android.support.design.widget.** { *; }
+-keepclassmembers class ** {
+     @org.greenrobot.eventbus.Subscribe <methods>;
+ }
+ -keep enum org.greenrobot.eventbus.ThreadMode { *; }
