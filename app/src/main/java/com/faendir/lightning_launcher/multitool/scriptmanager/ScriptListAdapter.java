@@ -9,6 +9,7 @@ import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.ToStringBuilder;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -158,5 +159,10 @@ class ScriptListAdapter extends BaseExpandableListAdapter {
 
     public List<Long> getSelectedPackedPosition() {
         return Arrays.asList(checked.toArray(new Long[checked.size()]));
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this).append("items", items).append("checked", checked).build();
     }
 }

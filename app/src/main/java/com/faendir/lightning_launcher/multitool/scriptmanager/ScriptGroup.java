@@ -2,6 +2,8 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 
 import android.support.annotation.NonNull;
 
+import com.faendir.lightning_launcher.multitool.ToStringBuilder;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -11,13 +13,13 @@ import java.util.List;
  * Created by Lukas on 22.08.2015.
  * Represents a Group of Scripts
  */
-public class ScriptGroup  implements Comparable<ScriptGroup>, ScriptItem, Iterable<Script>{
+public class ScriptGroup implements Comparable<ScriptGroup>, ScriptItem, Iterable<Script> {
 
     private String name;
     private final boolean allowDelete;
     private final List<Script> items;
 
-    public ScriptGroup(String name, boolean allowDelete){
+    public ScriptGroup(String name, boolean allowDelete) {
         this.name = name;
         this.allowDelete = allowDelete;
         items = new ArrayList<>();
@@ -82,5 +84,10 @@ public class ScriptGroup  implements Comparable<ScriptGroup>, ScriptItem, Iterab
     @Override
     public Iterator<Script> iterator() {
         return items.iterator();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(getName()).append("items", items).build();
     }
 }

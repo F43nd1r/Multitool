@@ -35,6 +35,7 @@ import com.faendir.lightning_launcher.scriptlib.ErrorCode;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
+import org.acra.ACRA;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
@@ -196,6 +197,12 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     @Override
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
         List<ScriptItem> selectedItems = listManager.getSelectedItems();
+        if(selectedItems.isEmpty()){
+            ACRA.getErrorReporter().putCustomData("listManager",listManager.toString());
+            ACRA.getErrorReporter().putCustomData("enableMenu", String.valueOf(enableMenu));
+            ACRA.getErrorReporter().handleSilentException(new IllegalStateException("No selected items"));
+            return false;
+        }
         switch (item.getItemId()) {
             case R.id.action_rename:
                 ScriptUtils.renameDialog(getActivity(), listManager, selectedItems.get(0));

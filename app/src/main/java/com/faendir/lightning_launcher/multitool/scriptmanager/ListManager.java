@@ -13,6 +13,7 @@ import android.widget.ExpandableListView;
 import android.widget.ListView;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.ToStringBuilder;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 
 import java.util.ArrayList;
@@ -85,12 +86,12 @@ public class ListManager {
         }
     }
 
-    public void deselectAll(){
+    public void deselectAll() {
         adapter.deselectAll();
         adapter.notifyDataSetChanged();
     }
 
-    public void delete(List<ScriptItem> delete){
+    public void delete(List<ScriptItem> delete) {
         for (ScriptItem item : delete) {
             loop:
             for (ScriptGroup group : items) {
@@ -129,7 +130,7 @@ public class ListManager {
         }
     }
 
-    private boolean prepareGroupForDelete( ScriptGroup delete) {
+    private boolean prepareGroupForDelete(ScriptGroup delete) {
         if (!delete.allowsDelete()) return false;
         ScriptGroup def = null;
         for (ScriptGroup s : items) {
@@ -289,5 +290,10 @@ public class ListManager {
         boolean onGroupClick(long packedPos);
 
         boolean onGroupLongClick(long packedPos);
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this).append("adapter", adapter).append("listViewState", listViewState).build();
     }
 }
