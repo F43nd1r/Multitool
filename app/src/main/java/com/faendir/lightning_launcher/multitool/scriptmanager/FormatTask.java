@@ -33,12 +33,14 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
     private static final List<String> IGNORE = Arrays.asList("/*", "*/", "//", "++", "--");
     private static final List<Character> SEPARATORS = Arrays.asList(',', ';');
 
+    private final ScriptManager scriptManager;
     private final Context context;
     private ProgressDialog dialog;
     private boolean checkOperators;
 
-    public FormatTask(Context context) {
+    public FormatTask(ScriptManager scriptManager, Context context) {
         super();
+        this.scriptManager = scriptManager;
         this.context = context;
     }
 
@@ -81,7 +83,7 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
                 script.setCode(code); //set the text to the script
                 Transfer transfer = new Transfer(Transfer.SET_CODE);
                 transfer.script = script;
-                ScriptManager.runScript(context, PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), ScriptUtils.GSON.toJson(transfer), true);
+                scriptManager.runScript(PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), ScriptUtils.GSON.toJson(transfer), true);
             }
         }
         return null;

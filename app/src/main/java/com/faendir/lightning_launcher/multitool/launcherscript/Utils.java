@@ -1,6 +1,7 @@
 package com.faendir.lightning_launcher.multitool.launcherscript;
 
 import android.content.Context;
+import android.support.annotation.RawRes;
 
 import java.io.InputStream;
 
@@ -13,7 +14,7 @@ final class Utils {
     }
 
     //returns a string with the resource specified
-    static String getStringFromResource(int resourceId, Context context, String errorString) {
+    static String getStringFromResource(@RawRes int resourceId, Context context, String errorString) {
 
         try {
             InputStream stream = context.getResources().openRawResource(resourceId);

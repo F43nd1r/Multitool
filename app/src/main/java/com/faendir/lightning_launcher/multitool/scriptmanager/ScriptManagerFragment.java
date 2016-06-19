@@ -1,7 +1,6 @@
 package com.faendir.lightning_launcher.multitool.scriptmanager;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.ClipData;
 import android.content.Intent;
@@ -26,13 +25,11 @@ import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.SettingsActivity;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.multitool.event.IntentEvent;
-import com.faendir.lightning_launcher.multitool.event.ScriptLoadFailedEvent;
-import com.faendir.lightning_launcher.multitool.event.ScriptLoadFinishedEvent;
 import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
-import com.faendir.lightning_launcher.scriptlib.ErrorCode;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
+import com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterException;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
 import org.acra.ACRA;
@@ -54,13 +51,22 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     private boolean enableMenu;
     private FrameLayout layout;
     private ListManager listManager;
+    private ScriptManager scriptManager;
+    private boolean stopAutoLoad = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        scriptManager = new ScriptManager(getActivity());
+        try {
+            scriptManager.bind();
+        } catch (RepositoryImporterException e) {
+            e.printStackTrace();
+            stopAutoLoad = true;
+        }
         sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         fileManager = FileManagerFactory.createScriptFileManager(getActivity());
-        listManager = new ListManager(getActivity(), this);
+        listManager = new ListManager(scriptManager, getActivity(), this);
         listManager.restoreFrom(savedInstanceState);
         setHasOptionsMenu(true);
         enableMenu = false;
@@ -151,7 +157,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
                     if (clip != null) {
                         for (int i = 0; i < clip.getItemCount(); i++) {
                             Uri uri = clip.getItemAt(i).getUri();
-                            ScriptUtils.restoreFromFile(getActivity(), listManager, uri);
+                            ScriptUtils.restoreFromFile(scriptManager, getActivity(), listManager, uri);
                         }
                     }
                     // For ICS
@@ -162,14 +168,14 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
                     if (paths != null) {
                         for (String path : paths) {
                             Uri uri = Uri.parse(path);
-                            ScriptUtils.restoreFromFile(getActivity(), listManager, uri);
+                            ScriptUtils.restoreFromFile(scriptManager, getActivity(), listManager, uri);
                         }
                     }
                 }
 
             } else {
                 Uri uri = data.getData();
-                ScriptUtils.restoreFromFile(getActivity(), listManager, uri);
+                ScriptUtils.restoreFromFile(scriptManager, getActivity(), listManager, uri);
             }
         }
     }
@@ -197,15 +203,15 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     @Override
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
         List<ScriptItem> selectedItems = listManager.getSelectedItems();
-        if(selectedItems.isEmpty()){
-            ACRA.getErrorReporter().putCustomData("listManager",listManager.toString());
+        if (selectedItems.isEmpty()) {
+            ACRA.getErrorReporter().putCustomData("listManager", listManager.toString());
             ACRA.getErrorReporter().putCustomData("enableMenu", String.valueOf(enableMenu));
             ACRA.getErrorReporter().handleSilentException(new IllegalStateException("No selected items"));
             return false;
         }
         switch (item.getItemId()) {
             case R.id.action_rename:
-                ScriptUtils.renameDialog(getActivity(), listManager, selectedItems.get(0));
+                ScriptUtils.renameDialog(scriptManager, getActivity(), listManager, selectedItems.get(0));
                 break;
             case R.id.action_delete:
                 ScriptUtils.deleteDialog(getActivity(), listManager, selectedItems);
@@ -220,7 +226,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
                 ScriptUtils.backup(getActivity(), listManager, selectedItems);
                 break;
             case R.id.action_format:
-                ScriptUtils.format(getActivity(), listManager, selectedItems);
+                ScriptUtils.format(scriptManager, getActivity(), listManager, selectedItems);
                 break;
         }
         return true;
@@ -263,13 +269,20 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
         return true;
     }
 
-    private void loadFromLauncher(int id) {
-        if (id == -1 || sharedPref.getInt(getString(R.string.pref_version), 0) != BuildConfig.VERSION_CODE) {
-            ScriptManager.loadScript(getActivity(), new com.trianguloy.llscript.repository.aidl.Script(getActivity(), R.raw.scriptmanager, getString(R.string.text_scriptTitle), 0),
-                    new ScriptLoadListener(), true);
-        } else {
-            ScriptManager.runScript(getActivity(), id, null, true);
-        }
+    private void loadFromLauncher(final int id) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int scriptId;
+                if (id == -1 || sharedPref.getInt(getString(R.string.pref_version), 0) != BuildConfig.VERSION_CODE) {
+                    scriptId = scriptManager.loadScript(new com.trianguloy.llscript.repository.aidl.Script(getActivity(), R.raw.scriptmanager, getString(R.string.text_scriptTitle), 0), true);
+                    sharedPref.edit().putInt(getString(R.string.pref_id), scriptId).putInt(getString(R.string.pref_version), BuildConfig.VERSION_CODE).apply();
+                } else {
+                    scriptId = id;
+                }
+                scriptManager.runScript(scriptId, null, true);
+            }
+        }).start();
         layout.removeAllViews();
         LayoutInflater.from(getActivity()).inflate(R.layout.fragment_loading, layout);
 
@@ -283,31 +296,10 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
             listManager.updateFrom(scripts);
             listManager.setAsContentOf(layout);
             enableMenu = true;
-        } else {
+        } else if (!stopAutoLoad) {
             int id = sharedPref.getInt(getString(R.string.pref_id), -1);
             loadFromLauncher(id);
             listManager.restoreFrom(fileManager);
-        }
-    }
-
-    @Subscribe
-    public void onScriptLoadFinished(ScriptLoadFinishedEvent event) {
-        sharedPref.edit().putInt(getString(R.string.pref_id), event.getId()).putInt(getString(R.string.pref_version), BuildConfig.VERSION_CODE).apply();
-        try {
-            ScriptManager.runScript(getActivity(), event.getId(), null, true);
-        } catch (Throwable t) {
-            t.printStackTrace();
-        }
-    }
-
-    @Subscribe
-    public void onScriptLoadFailed(ScriptLoadFailedEvent event) {
-        if (event.getErrorCode() == ErrorCode.SECURITY_EXCEPTION) {
-            new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.title_error)
-                    .setMessage(R.string.error_securityException)
-                    .setPositiveButton(R.string.button_ok, null)
-                    .show();
         }
     }
 

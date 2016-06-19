@@ -18,8 +18,8 @@ import android.widget.TextView;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
-import com.faendir.lightning_launcher.scriptlib.ErrorCode;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
+import com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterException;
 import com.trianguloy.llscript.repository.aidl.Script;
 
 import org.greenrobot.eventbus.EventBus;
@@ -110,14 +110,34 @@ public class LauncherScriptFragment extends Fragment {
             case R.id.button_import: {
                 saveName();
                 changeText(getString(R.string.button_repositoryImporter_importing));
-
-                ScriptManager.loadScript(getActivity(),
-                        new Script(getActivity(),
-                                R.raw.multitool,
-                                nameTextView.getText().toString(),
-                                Script.FLAG_APP_MENU + Script.FLAG_ITEM_MENU),
-                        new managerListener()
-                );
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ScriptManager scriptManager = new ScriptManager(getActivity());
+                        try {
+                            scriptManager.bind();
+                            scriptManager.loadScript(new Script(getActivity(),
+                                    R.raw.multitool,
+                                    nameTextView.getText().toString(),
+                                    Script.FLAG_APP_MENU + Script.FLAG_ITEM_MENU));
+                            scriptManager.unbind();
+                            getActivity().runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    changeText(getString(R.string.button_repositoryImporter_importOk));
+                                }
+                            });
+                        } catch (RepositoryImporterException e) {
+                            e.printStackTrace();
+                            getActivity().runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    changeText(getString(R.string.button_repositoryImporter_importError));
+                                }
+                            });
+                        }
+                    }
+                }).start();
                 break;
             }
 
@@ -149,22 +169,6 @@ public class LauncherScriptFragment extends Fragment {
     public void onStop() {
         super.onStop();
         EventBus.getDefault().unregister(this);
-    }
-
-    private class managerListener extends ScriptManager.Listener {
-        @Override
-        public void onLoadFinished(int i) {
-            if(isAdded()) {
-                changeText(getString(R.string.button_repositoryImporter_importOk));
-            }
-        }
-
-        @Override
-        public void onError(ErrorCode errorCode) {
-            if (isAdded()) {
-                changeText(getString(R.string.button_repositoryImporter_importError));
-            }
-        }
     }
 
 

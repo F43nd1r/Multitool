@@ -15,6 +15,7 @@ import android.widget.ListView;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.ToStringBuilder;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
+import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -25,13 +26,16 @@ import java.util.List;
  */
 public class ListManager {
 
+    @NonNull
+    private final ScriptManager scriptManager;
     private final Context context;
     private final ExpandableListView listView;
     private ScriptListAdapter adapter;
     private List<ScriptGroup> items;
     private Parcelable listViewState;
 
-    public ListManager(@NonNull Context context, final ClickListener listener) {
+    public ListManager(@NonNull ScriptManager scriptManager, @NonNull Context context, final ClickListener listener) {
+        this.scriptManager = scriptManager;
         this.context = context;
         listView = new ExpandableListView(context);
         listView.setDrawSelectorOnTop(true);
@@ -91,26 +95,31 @@ public class ListManager {
         adapter.notifyDataSetChanged();
     }
 
-    public void delete(List<ScriptItem> delete) {
-        for (ScriptItem item : delete) {
-            loop:
-            for (ScriptGroup group : items) {
-                if (group.equals(item)) {
-                    if (prepareGroupForDelete(group)) {
-                        items.remove(group);
-                    }
-                    break;
-                } else {
-                    for (Script script : group) {
-                        if (script.equals(item)) {
-                            ScriptUtils.deleteScript(context, script);
-                            group.remove(script);
-                            break loop;
+    public void delete(final List<ScriptItem> delete) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (ScriptItem item : delete) {
+                    loop:
+                    for (ScriptGroup group : items) {
+                        if (group.equals(item)) {
+                            if (prepareGroupForDelete(group)) {
+                                items.remove(group);
+                            }
+                            break;
+                        } else {
+                            for (Script script : group) {
+                                if (script.equals(item)) {
+                                    ScriptUtils.deleteScript(scriptManager, context, script);
+                                    group.remove(script);
+                                    break loop;
+                                }
+                            }
                         }
                     }
                 }
             }
-        }
+        }).start();
     }
 
     public void move(List<ScriptItem> selectedItems, ScriptGroup moveTo) {

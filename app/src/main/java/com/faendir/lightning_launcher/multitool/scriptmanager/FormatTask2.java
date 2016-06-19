@@ -2,6 +2,8 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 
 import android.content.Context;
 
+import com.faendir.lightning_launcher.scriptlib.ScriptManager;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
@@ -37,8 +39,8 @@ class FormatTask2 extends FormatTask {
         START_END_MAP.put(APOSTROPHE, APOSTROPHE);
     }
 
-    public FormatTask2(Context context) {
-        super(context);
+    public FormatTask2(ScriptManager scriptManager, Context context) {
+        super(scriptManager, context);
     }
 
     @Override

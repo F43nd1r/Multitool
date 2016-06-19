@@ -100,7 +100,7 @@ final class ScriptUtils {
                 .show();
     }
 
-    public static void renameDialog(final Context context, final ListManager listManager, final ScriptItem item) {
+    public static void renameDialog(final ScriptManager scriptManager, final Context context, final ListManager listManager, final ScriptItem item) {
         final EditText text = new EditText(context);
         text.setText(item.getName());
         new AlertDialog.Builder(context)
@@ -109,25 +109,30 @@ final class ScriptUtils {
                 .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        renameItem(context, listManager, item, text.getText().toString());
+                        renameItem(scriptManager, context, listManager, item, text.getText().toString());
                     }
                 })
                 .setNegativeButton(R.string.button_cancel, null)
                 .show();
     }
 
-    private static void renameItem(Context context, ListManager listManager, ScriptItem item, String name) {
+    private static void renameItem(final ScriptManager scriptManager, final Context context, ListManager listManager, ScriptItem item, String name) {
         item.setName(name);
         if (item instanceof Script) {
-            Transfer transfer = new Transfer(Transfer.RENAME);
+            final Transfer transfer = new Transfer(Transfer.RENAME);
             transfer.script = (Script) item;
-            ScriptManager.runScript(context, PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer), true);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    scriptManager.runScript(PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer), true);
+                }
+            }).start();
         }
         listManager.deselectAll();
     }
 
-    public static void format(Context context, ListManager listManager, final List<ScriptItem> selectedItems) {
-        new FormatTask(context).execute(selectedItems.toArray(new ScriptItem[selectedItems.size()]));
+    public static void format(ScriptManager scriptManager, Context context, ListManager listManager, final List<ScriptItem> selectedItems) {
+        new FormatTask(scriptManager, context).execute(selectedItems.toArray(new ScriptItem[selectedItems.size()]));
         listManager.deselectAll();
     }
 
@@ -196,7 +201,7 @@ final class ScriptUtils {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setClassName("net.pierrox.lightning_launcher_extreme", "net.pierrox.lightning_launcher.activities.ScriptEditor");
         intent.putExtra("i", script.getId());
-       context.startActivity(intent);
+        context.startActivity(intent);
         listManager.deselectAll();
     }
 
@@ -241,13 +246,18 @@ final class ScriptUtils {
         listManager.deselectAll();
     }
 
-    public static void deleteScript(Context context, Script delete) {
-        Transfer transfer = new Transfer(Transfer.DELETE);
+    public static void deleteScript(final ScriptManager scriptManager, final Context context, Script delete) {
+        final Transfer transfer = new Transfer(Transfer.DELETE);
         transfer.script = delete;
-        ScriptManager.runScript(context, PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer), true);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                scriptManager.runScript(PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer), true);
+            }
+        }).start();
     }
 
-    public static void restoreFromFile(Context context, ListManager listManager, Uri uri) {
+    public static void restoreFromFile(ScriptManager scriptManager,Context context, ListManager listManager, Uri uri) {
         File file = new File(uri.getPath());
         if (file.exists() && file.canRead()) {
             try {
@@ -256,7 +266,7 @@ final class ScriptUtils {
                     reader = new FileReader(file);
                     char[] buffer = new char[(int) file.length()];
                     reader.read(buffer);
-                    restoreDialog(context, listManager, new String(buffer), file.getName());
+                    restoreDialog(scriptManager, context, listManager, new String(buffer), file.getName());
 
                 } finally {
                     if (reader != null) reader.close();
@@ -269,7 +279,7 @@ final class ScriptUtils {
         }
     }
 
-    private static void restoreDialog(final Context context, final ListManager listManager, String s, String filename) {
+    private static void restoreDialog(final ScriptManager scriptManager, final Context context, final ListManager listManager, String s, String filename) {
         int endOfFirstLine = s.indexOf('\n');
         if (endOfFirstLine == -1) endOfFirstLine = s.length();
         String l = s.substring(0, endOfFirstLine);
@@ -301,14 +311,14 @@ final class ScriptUtils {
                 .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        prepareRestore(context, listManager, finalS, editText.getText().toString(), finalFlags);
+                        prepareRestore(scriptManager, context, listManager, finalS, editText.getText().toString(), finalFlags);
                     }
                 })
                 .setNegativeButton(R.string.button_cancel, null)
                 .show();
     }
 
-    private static void prepareRestore(final Context context, final ListManager listManager, String code, String name, int flags) {
+    private static void prepareRestore(final ScriptManager scriptManager, final Context context, final ListManager listManager, String code, String name, int flags) {
         final Script script = new Script();
         script.setName(name);
         script.setFlags(flags);
@@ -319,21 +329,26 @@ final class ScriptUtils {
                     .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            restore(context, script);
+                            restore(scriptManager, context, script);
                         }
                     })
                     .setNegativeButton(R.string.button_cancel, null)
                     .show();
         } else {
-            restore(context, script);
+            restore(scriptManager, context, script);
         }
 
     }
 
-    private static void restore(final Context context, Script script) {
-        Transfer transfer = new Transfer(Transfer.RESTORE);
+    private static void restore(final ScriptManager scriptManager, final Context context, Script script) {
+        final Transfer transfer = new Transfer(Transfer.RESTORE);
         transfer.script = script;
-        ScriptManager.runScript(context, PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer), true);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                scriptManager.runScript(PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer), true);
+            }
+        }).start();
     }
 
 

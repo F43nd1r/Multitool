@@ -21,8 +21,6 @@ import java.util.List;
 
 public class IntentChooser extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    IntentInfo info;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,6 +99,7 @@ public class IntentChooser extends AppCompatActivity implements AdapterView.OnIt
             @Override
             protected void onPostExecute(IntentInfo[] infos) {
                 ListView listView = (ListView) findViewById(R.id.shortcuts_list);
+                assert listView != null;
                 listView.setAdapter(new ListAdapter<>(IntentChooser.this, infos));
                 listView.setVisibility(View.VISIBLE);
                 listView.setOnItemClickListener(IntentChooser.this);
@@ -116,7 +115,6 @@ public class IntentChooser extends AppCompatActivity implements AdapterView.OnIt
 
     private void handleSelection(IntentInfo info) {
         if (info.isIndirect()) {
-            this.info = info;
             startActivityForResult(info.getIntent(), 0);
         } else {
             setResult(RESULT_OK, info.getIntent());
