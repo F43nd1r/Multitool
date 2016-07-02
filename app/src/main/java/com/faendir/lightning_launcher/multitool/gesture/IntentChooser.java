@@ -13,9 +13,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.ListAdapter;
+
+import org.acra.ACRA;
 
 import java.util.List;
 
@@ -116,17 +119,30 @@ public class IntentChooser extends AppCompatActivity implements AdapterView.OnIt
     private void handleSelection(IntentInfo info) {
         if (info.isIndirect()) {
             startActivityForResult(info.getIntent(), 0);
-        } else {
+        } else if(info.getIntent() != null){
             setResult(RESULT_OK, info.getIntent());
             finish();
+        } else {
+            nullIntent();
+            ACRA.getErrorReporter().handleSilentException(new NullPointerException(info.getText()+" intent was null"));
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            setResult(RESULT_OK, (Intent) data.getParcelableExtra(Intent.EXTRA_SHORTCUT_INTENT));
-            finish();
+            Intent intent = data.getParcelableExtra(Intent.EXTRA_SHORTCUT_INTENT);
+            if(intent != null) {
+                setResult(RESULT_OK, intent);
+                finish();
+            }else {
+                nullIntent();
+                ACRA.getErrorReporter().handleSilentException(new NullPointerException("Shortcut intent was null"));
+            }
         }
+    }
+
+    private void nullIntent(){
+        Toast.makeText(this, "Failed to load action info", Toast.LENGTH_SHORT).show();
     }
 }
