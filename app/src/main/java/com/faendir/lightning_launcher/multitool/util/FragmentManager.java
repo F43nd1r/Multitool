@@ -12,6 +12,7 @@ import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
 import com.faendir.lightning_launcher.multitool.gesture.GestureFragment;
 import com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment;
+import com.faendir.lightning_launcher.multitool.music.MusicFragment;
 import com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment;
 
 import org.greenrobot.eventbus.EventBus;
@@ -47,6 +48,9 @@ public class FragmentManager {
                 break;
             case R.id.nav_gesture:
                 currentFragment = new GestureFragment();
+                break;
+            case R.id.nav_music:
+                currentFragment = new MusicFragment();
                 break;
             default:
                 throw new IllegalArgumentException("Illegal id " + request.getId());

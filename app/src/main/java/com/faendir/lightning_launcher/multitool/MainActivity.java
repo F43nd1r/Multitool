@@ -1,6 +1,7 @@
 package com.faendir.lightning_launcher.multitool;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -46,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         assert navigationView != null;
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP){
+            navigationView.getMenu().removeItem(R.id.nav_music);
+        }
         drawerManager = new DrawerManager(this, drawer);
         navigationView.setNavigationItemSelectedListener(drawerManager);
         fragmentManager = new FragmentManager(this);

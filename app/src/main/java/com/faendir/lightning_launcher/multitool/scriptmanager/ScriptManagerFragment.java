@@ -98,6 +98,9 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     @Override
     public void onStop() {
         EventBus.getDefault().unregister(this);
+        if(!stopAutoLoad){
+            scriptManager.unbind();
+        }
         super.onStop();
     }
 

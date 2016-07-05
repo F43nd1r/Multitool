@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.faendir.lightning_launcher.multitool">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.faendir.lightning_launcher.multitool">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".MultiTool"
@@ -11,35 +12,38 @@
         android:icon="@drawable/ic_multitool"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
             android:name=".launcherscript.LauncherLoad"
             android:exported="true"
             android:label="@string/browse_name">
             <intent-filter>
-                <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE"/>
+                <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE" />
             </intent-filter>
         </activity>
         <activity
             android:name=".launcherscript.Code"
             android:label="@string/title_activity_code"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/menu_settings"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity"
+            tools:ignore="UnusedAttribute" />
         <activity
             android:name="com.nononsenseapps.filepicker.FilePickerActivity"
             android:label="@string/app_name"
             android:theme="@style/FilePickerTheme">
             <intent-filter>
-                <action android:name="android.intent.action.GET_CONTENT"/>
+                <action android:name="android.intent.action.GET_CONTENT" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
@@ -49,40 +53,59 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".scriptmanager.PermissionActivity"
-            android:theme="@style/Theme.Transparent"/>
+            android:theme="@style/Theme.Transparent" />
         <activity
             android:name=".gesture.GestureActivity"
             android:label="@string/title_activity_gesture"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.faendir.lightning_launcher.multitool.MainActivity"/>
+                android:value="com.faendir.lightning_launcher.multitool.MainActivity" />
         </activity>
         <activity
             android:name=".gesture.IntentChooser"
             android:label="@string/title_activity_intent_chooser"
             android:parentActivityName=".gesture.GestureActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.faendir.lightning_launcher.multitool.gesture.GestureActivity"/>
+                android:value="com.faendir.lightning_launcher.multitool.gesture.GestureActivity" />
         </activity>
         <activity
             android:name=".gesture.LoadGesture"
             android:exported="true"
             android:label="@string/title_gestureLauncher">
             <intent-filter>
-                <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE"/>
+                <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".music.OpenNotificationListenerSettingsActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/AppTheme.Dialog.Alert"
+            android:label="@string/title_listener"/>
+
+        <service
+            android:name=".music.DummyNotificationListener"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".music.MusicManager"
+            android:exported="true"
+            tools:ignore="ExportedService" />
     </application>
 
 </manifest>

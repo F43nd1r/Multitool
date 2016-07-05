@@ -121,4 +121,9 @@
     <string name="error_securityException">Please uninstall and reinstall this application.</string>
     <string name="action_help">Help</string>
     <string name="text_noGestures">No gestures found. To create a new gesture, press the \'Add\' Button.</string>
+    <string name="title_musicWidget">Music widget</string>
+    <string name="title_listener">Notification Listener</string>
+    <string name="text_listener">This requires the notification listener to be enabled. Do you want to enable it now?</string>
+    <string name="currently_playing">Currently Playing</string>
+    <string name="button_addMusic">Add to current Desktop</string>
 </resources>

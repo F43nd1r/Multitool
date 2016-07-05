@@ -8,8 +8,8 @@ android {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 11
         targetSdkVersion 24
-        versionCode 31
-        versionName "2.6.4"
+        versionCode 33
+        versionName "2.6.5-beta"
     }
     buildTypes {
         release {
@@ -33,4 +33,5 @@ dependencies {
     compile 'com.nononsenseapps:filepicker:2.5.2'
     compile 'ch.acra:acra:4.8.5'
     compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha3'
 }
