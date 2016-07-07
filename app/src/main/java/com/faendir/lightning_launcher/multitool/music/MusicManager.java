@@ -122,7 +122,10 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
                 }
                 controller.registerCallback(callback);
                 controllers.put(controller, callback);
-                callback.onPlaybackStateChanged(controller.getPlaybackState());
+                PlaybackState state = controller.getPlaybackState();
+                if (state != null) {
+                    callback.onPlaybackStateChanged(state);
+                }
                 callback.onMetadataChanged(controller.getMetadata());
             }
         }
@@ -214,14 +217,16 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
                     }
                     hasRequestedAlbumArt = true;
                 }
-                switch (playbackState.getState()) {
-                    case STATE_PLAYING:
-                    case STATE_FAST_FORWARDING:
-                    case STATE_SKIPPING_TO_PREVIOUS:
-                    case STATE_SKIPPING_TO_NEXT:
-                    case STATE_SKIPPING_TO_QUEUE_ITEM:
-                        push();
-                        break;
+                if(playbackState != null) {
+                    switch (playbackState.getState()) {
+                        case STATE_PLAYING:
+                        case STATE_FAST_FORWARDING:
+                        case STATE_SKIPPING_TO_PREVIOUS:
+                        case STATE_SKIPPING_TO_NEXT:
+                        case STATE_SKIPPING_TO_QUEUE_ITEM:
+                            push();
+                            break;
+                    }
                 }
             }
         }

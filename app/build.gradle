@@ -8,8 +8,8 @@ android {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 11
         targetSdkVersion 24
-        versionCode 34
-        versionName "2.6.5-beta2"
+        versionCode 35
+        versionName "2.7-beta3"
     }
     buildTypes {
         release {
@@ -29,9 +29,9 @@ dependencies {
     compile "com.android.support:appcompat-v7:$supportVersion"
     compile "com.android.support:design:$supportVersion"
     compile "com.android.support:support-annotations:$supportVersion"
-    compile 'com.google.code.gson:gson:2.6.2'
-    compile 'com.nononsenseapps:filepicker:2.5.2'
-    compile 'ch.acra:acra:4.8.5'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.nononsenseapps:filepicker:3.0.0'
+    compile 'ch.acra:acra:4.9.0'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha3'
 }
