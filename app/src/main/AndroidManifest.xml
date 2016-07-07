@@ -89,11 +89,6 @@
                 <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".music.OpenNotificationListenerSettingsActivity"
-            android:excludeFromRecents="true"
-            android:theme="@style/AppTheme.Dialog.Alert"
-            android:label="@string/title_listener"/>
 
         <service
             android:name=".music.DummyNotificationListener"

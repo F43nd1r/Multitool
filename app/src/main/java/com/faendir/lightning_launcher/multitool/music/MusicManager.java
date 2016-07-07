@@ -18,11 +18,15 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
+import android.os.ResultReceiver;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
+
+import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.scriptlib.DialogActivity;
 
 import java.io.FileNotFoundException;
 import java.lang.ref.WeakReference;
@@ -142,9 +146,16 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         String flat = Settings.Secure.getString(getContentResolver(), "enabled_notification_listeners");
         final boolean enabled = flat != null && flat.contains(notificationListener.flattenToString());
         if (!enabled) {
-            Intent intent = new Intent(this, OpenNotificationListenerSettingsActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+            new DialogActivity.Builder(this, R.style.AppTheme_Dialog_Alert)
+                    .setTitle(R.string.title_listener)
+                    .setTitle(R.string.text_listener)
+                    .setButtons(android.R.string.yes, android.R.string.no, new ResultReceiver(new Handler()) {
+                        @Override
+                        protected void onReceiveResult(int resultCode, Bundle resultData) {
+                            super.onReceiveResult(resultCode, resultData);
+                        }
+                    })
+                    .show();
             return;
         }
         if (listeners.isEmpty()) {
@@ -216,9 +227,13 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         }
 
         private void push() {
-            updateCurrentInfo(bitmap, metadata.getString(METADATA_KEY_TITLE),
-                    metadata.getString(METADATA_KEY_ALBUM),
-                    metadata.getString(METADATA_KEY_ARTIST));
+            if (metadata == null) {
+                updateCurrentInfo(bitmap, null, null, null);
+            } else {
+                updateCurrentInfo(bitmap, metadata.getString(METADATA_KEY_TITLE),
+                        metadata.getString(METADATA_KEY_ALBUM),
+                        metadata.getString(METADATA_KEY_ARTIST));
+            }
         }
 
         void recycle() {

@@ -8,8 +8,8 @@ android {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 11
         targetSdkVersion 24
-        versionCode 33
-        versionName "2.6.5-beta"
+        versionCode 34
+        versionName "2.6.5-beta2"
     }
     buildTypes {
         release {
@@ -25,7 +25,7 @@ android {
 
 dependencies {
     def supportVersion = "24.0.0"
-    compile 'com.faendir.lightninglauncher:scriptlib:2.0-beta1'
+    compile 'com.faendir.lightninglauncher:scriptlib:2.0-beta2'
     compile "com.android.support:appcompat-v7:$supportVersion"
     compile "com.android.support:design:$supportVersion"
     compile "com.android.support:support-annotations:$supportVersion"
