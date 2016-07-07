@@ -26,6 +26,8 @@
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
         <item name="android:textColorPrimary">@color/accent</item>
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:background">?android:colorBackground</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

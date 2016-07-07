@@ -1,5 +1,6 @@
 package com.faendir.lightning_launcher.multitool.music;
 
+import android.app.AlertDialog;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
@@ -151,11 +152,16 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         if (!enabled) {
             new DialogActivity.Builder(this, R.style.AppTheme_Dialog_Alert)
                     .setTitle(R.string.title_listener)
-                    .setTitle(R.string.text_listener)
+                    .setMessage(R.string.text_listener)
                     .setButtons(android.R.string.yes, android.R.string.no, new ResultReceiver(new Handler()) {
                         @Override
                         protected void onReceiveResult(int resultCode, Bundle resultData) {
                             super.onReceiveResult(resultCode, resultData);
+                            if(resultCode == AlertDialog.BUTTON_POSITIVE){
+                                Intent intent = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                            }
                         }
                     })
                     .show();

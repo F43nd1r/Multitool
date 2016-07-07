@@ -38,6 +38,7 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
     private MusicManager.BinderWrapper binder;
     private ServiceConnection connection;
     private boolean isBound;
+    private boolean calledAtLeastOnce = true;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,7 +83,10 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
                     } catch (InterruptedException ignored) {
                     }
                 }
-                binder.registerListener(MusicFragment.this);
+                if(calledAtLeastOnce) {
+                    calledAtLeastOnce = false;
+                    binder.registerListener(MusicFragment.this);
+                }
             }
         }).start();
     }
@@ -117,6 +121,7 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
         this.title.setText(title);
         this.album.setText(album);
         this.artist.setText(artist);
+        calledAtLeastOnce = true;
     }
 
     @Subscribe
