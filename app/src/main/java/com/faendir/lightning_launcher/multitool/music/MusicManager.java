@@ -29,7 +29,6 @@ import android.util.Log;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.scriptlib.DialogActivity;
 
-import java.io.FileNotFoundException;
 import java.lang.ref.WeakReference;
 import java.util.Collections;
 import java.util.HashMap;
@@ -39,16 +38,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static android.media.MediaMetadata.METADATA_KEY_ALBUM;
-import static android.media.MediaMetadata.METADATA_KEY_ALBUM_ART;
-import static android.media.MediaMetadata.METADATA_KEY_ALBUM_ART_URI;
-import static android.media.MediaMetadata.METADATA_KEY_ARTIST;
-import static android.media.MediaMetadata.METADATA_KEY_TITLE;
-import static android.media.session.PlaybackState.STATE_FAST_FORWARDING;
-import static android.media.session.PlaybackState.STATE_PLAYING;
-import static android.media.session.PlaybackState.STATE_SKIPPING_TO_NEXT;
-import static android.media.session.PlaybackState.STATE_SKIPPING_TO_PREVIOUS;
-import static android.media.session.PlaybackState.STATE_SKIPPING_TO_QUEUE_ITEM;
+import static android.media.MediaMetadata.*;
+import static android.media.session.PlaybackState.*;
 
 /**
  * Created by Lukas on 03.07.2016.
@@ -157,7 +148,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
                         @Override
                         protected void onReceiveResult(int resultCode, Bundle resultData) {
                             super.onReceiveResult(resultCode, resultData);
-                            if(resultCode == AlertDialog.BUTTON_POSITIVE){
+                            if (resultCode == AlertDialog.BUTTON_POSITIVE) {
                                 Intent intent = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
@@ -207,23 +198,14 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         private void update() {
             if (metadata != null) {
                 if (!hasRequestedAlbumArt || bitmap == null) {
-                    Bitmap bmp = metadata.getBitmap(METADATA_KEY_ALBUM_ART);
-                    if (bmp == null) {
-                        String uri = metadata.getString(METADATA_KEY_ALBUM_ART_URI);
-                        if (uri != null) {
-                            try {
-                                bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(Uri.parse(uri)));
-                            } catch (FileNotFoundException ignored) {
-                            }
-                        }
-                    }
+                    Bitmap bmp = loadBitmapForKeys(METADATA_KEY_ALBUM_ART, METADATA_KEY_ALBUM_ART_URI, METADATA_KEY_ART, METADATA_KEY_ART_URI);
                     if (bmp != null) {
                         if (bitmap != null && bitmap != bmp) bitmap.recycle();
                         bitmap = bmp;
                     }
                     hasRequestedAlbumArt = true;
                 }
-                if(playbackState != null) {
+                if (playbackState != null) {
                     switch (playbackState.getState()) {
                         case STATE_PLAYING:
                         case STATE_FAST_FORWARDING:
@@ -235,6 +217,26 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
                     }
                 }
             }
+        }
+
+        @Nullable
+        private Bitmap loadBitmapForKeys(@NonNull String... keys) {
+            Bitmap bmp = null;
+            for (String key : keys) {
+                try {
+                    if (key.endsWith("URI")) {
+                        String uri = metadata.getString(key);
+                        if (uri != null) {
+                            bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(Uri.parse(uri)));
+                        }
+                    } else {
+                        bmp = metadata.getBitmap(key);
+                    }
+                } catch (Exception ignored) {
+                }
+                if (bmp != null) break;
+            }
+            return bmp;
         }
 
         private void push() {
