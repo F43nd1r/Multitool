@@ -128,4 +128,5 @@
     <string name="button_addMusic">Add to current Desktop</string>
     <string name="title_defaultMusicPlayer">Default Music Player</string>
     <string name="button_choose">Choose</string>
+    <string name="pref_musicDefault">musicDefaultUri</string>
 </resources>

@@ -5,9 +5,6 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaMetadata;
@@ -23,6 +20,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.os.ResultReceiver;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -149,21 +147,16 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
 
     private void startDefaultPlayerWithKeyCode(int keyCode) {
         try {
-            String packageName = "com.spotify.music";
-            Intent intent = new Intent(Intent.ACTION_MEDIA_BUTTON);
-            intent.setPackage(packageName);
-            PackageManager packageManager = getPackageManager();
-            List<ResolveInfo> infos = packageManager.queryBroadcastReceivers(intent, 0);
-            if (!infos.isEmpty()) {
-                ActivityInfo info = infos.get(0).activityInfo;
-                intent.setClassName(info.packageName, info.name);
+            String uri = PreferenceManager.getDefaultSharedPreferences(this).getString(getString(R.string.pref_musicDefault), null);
+            if (uri != null) {
+                Intent intent = Intent.parseUri(uri, 0);
                 KeyEvent event = new KeyEvent(KeyEvent.ACTION_UP, keyCode);
                 intent.putExtra(Intent.EXTRA_KEY_EVENT, event);
                 sendBroadcast(intent);
             }
         } catch (Exception e) {
-            e.printStackTrace();
             ACRA.getErrorReporter().handleSilentException(e);
+            e.printStackTrace();
         }
     }
 

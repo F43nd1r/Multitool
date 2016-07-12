@@ -5,15 +5,20 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +32,11 @@ import com.trianguloy.llscript.repository.aidl.Script;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.net.URISyntaxException;
+import java.util.List;
+
+import static android.app.Activity.RESULT_OK;
+
 /**
  * Created by Lukas on 03.07.2016.
  */
@@ -36,13 +46,17 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
     private TextView title;
     private TextView album;
     private TextView artist;
+    private Button choose;
     private MusicManager.BinderWrapper binder;
     private ServiceConnection connection;
     private boolean isBound;
     private boolean calledAtLeastOnce = true;
+    private SharedPreferences sharedPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         isBound = true;
         connection = new ServiceConnection() {
             @Override
@@ -57,7 +71,6 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
             }
         };
         getActivity().bindService(new Intent(getActivity(), MusicManager.class), connection, Context.BIND_AUTO_CREATE);
-        super.onCreate(savedInstanceState);
     }
 
     @Nullable
@@ -68,7 +81,24 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
         title = (TextView) v.findViewById(R.id.text_title);
         album = (TextView) v.findViewById(R.id.text_album);
         artist = (TextView) v.findViewById(R.id.text_artist);
+        choose = (Button) v.findViewById(R.id.button_chooseDefault);
+        setUriToButton();
         return v;
+    }
+
+    private void setUriToButton() {
+        String uri = sharedPref.getString(getString(R.string.pref_musicDefault), null);
+        if (uri != null) {
+            PackageManager pm = getActivity().getPackageManager();
+            try {
+                List<ResolveInfo> list = pm.queryBroadcastReceivers(Intent.parseUri(uri, 0), 0);
+                if (!list.isEmpty()) {
+                    choose.setText(list.get(0).loadLabel(pm));
+                }
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -123,6 +153,18 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
         this.album.setText(album);
         this.artist.setText(artist);
         calledAtLeastOnce = true;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            sharedPref.edit()
+                    .putString(getString(R.string.pref_musicDefault),
+                            ((Intent) data.getParcelableExtra(Intent.EXTRA_INTENT)).toUri(0))
+                    .apply();
+            setUriToButton();
+        }
     }
 
     @Subscribe
