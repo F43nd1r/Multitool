@@ -23,20 +23,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".launcherscript.Code"
-            android:label="@string/title_activity_code"
-            android:parentActivityName=".MainActivity"
-            tools:ignore="UnusedAttribute">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/menu_settings"
-            android:parentActivityName=".MainActivity"
-            tools:ignore="UnusedAttribute" />
-        <activity
             android:name="com.nononsenseapps.filepicker.FilePickerActivity"
             android:label="@string/app_name"
             android:theme="@style/FilePickerTheme">
@@ -59,12 +45,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".scriptmanager.PermissionActivity"
-            android:theme="@style/Theme.Transparent" />
-        <activity
             android:name=".gesture.GestureActivity"
             android:label="@string/title_activity_gesture"
-            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="UnusedAttribute">
             <meta-data
@@ -72,9 +54,8 @@
                 android:value="com.faendir.lightning_launcher.multitool.MainActivity" />
         </activity>
         <activity
-            android:name=".gesture.IntentChooser"
+            android:name=".util.IntentChooser"
             android:label="@string/title_activity_intent_chooser"
-            android:parentActivityName=".gesture.GestureActivity"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="UnusedAttribute">
             <meta-data

@@ -1,4 +1,4 @@
-package com.faendir.lightning_launcher.multitool.gesture;
+package com.faendir.lightning_launcher.multitool.util;
 
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;

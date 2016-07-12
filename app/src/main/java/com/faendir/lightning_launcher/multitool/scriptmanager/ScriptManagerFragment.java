@@ -21,8 +21,8 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.BuildConfig;
+import com.faendir.lightning_launcher.multitool.PrefsFragment;
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.SettingsActivity;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.multitool.event.IntentEvent;
 import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
@@ -137,7 +137,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
                 intent.putExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false);
                 intent.putExtra(FilePickerActivity.EXTRA_ALLOW_CREATE_DIR, false);
                 intent.putExtra(FilePickerActivity.EXTRA_MODE, FilePickerActivity.MODE_FILE);
-                intent.putExtra(FilePickerActivity.EXTRA_START_PATH, sharedPref.getString(getString(R.string.pref_directory), SettingsActivity.DEFAULT_BACKUP_PATH));
+                intent.putExtra(FilePickerActivity.EXTRA_START_PATH, sharedPref.getString(getString(R.string.pref_directory), PrefsFragment.DEFAULT_BACKUP_PATH));
                 startActivityForResult(intent, 0);
                 break;
             case R.id.action_search:

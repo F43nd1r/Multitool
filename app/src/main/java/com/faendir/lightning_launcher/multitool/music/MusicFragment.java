@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
+import com.faendir.lightning_launcher.multitool.util.IntentChooser;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterException;
 import com.trianguloy.llscript.repository.aidl.Script;
@@ -77,13 +78,13 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                while (binder == null){
+                while (binder == null) {
                     try {
                         Thread.sleep(50);
                     } catch (InterruptedException ignored) {
                     }
                 }
-                if(calledAtLeastOnce) {
+                if (calledAtLeastOnce) {
                     calledAtLeastOnce = false;
                     binder.registerListener(MusicFragment.this);
                 }
@@ -126,21 +127,26 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
 
     @Subscribe
     public void onClick(ClickEvent event) {
-        if (event.getId() == R.id.button_addMusic) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    ScriptManager scriptManager = new ScriptManager(getActivity());
-                    try {
-                        scriptManager.bind();
-                        int id = scriptManager.loadScript(new Script(getActivity(), R.raw.music_setup, "multitool_createMusic", 0), true);
-                        scriptManager.runScript(id, null, false);
-                        scriptManager.unbind();
-                    } catch (RepositoryImporterException e) {
-                        e.printStackTrace();
+        switch (event.getId()) {
+            case R.id.button_addMusic:
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ScriptManager scriptManager = new ScriptManager(getActivity());
+                        try {
+                            scriptManager.bind();
+                            int id = scriptManager.loadScript(new Script(getActivity(), R.raw.music_setup, "multitool_createMusic", 0), true);
+                            scriptManager.runScript(id, null, false);
+                            scriptManager.unbind();
+                        } catch (RepositoryImporterException e) {
+                            e.printStackTrace();
+                        }
                     }
-                }
-            }).start();
+                }).start();
+                break;
+            case R.id.button_chooseDefault:
+                startActivityForResult(IntentChooser.showAppsWithMatchingReceiver(getActivity(), new Intent(Intent.ACTION_MEDIA_BUTTON)), 0);
+                break;
         }
     }
 }

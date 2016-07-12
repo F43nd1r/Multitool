@@ -4,11 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,42 +13,37 @@ import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.multitool.event.IntentEvent;
 import com.faendir.lightning_launcher.multitool.event.LeaveApplicationRequest;
 import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
+import com.faendir.lightning_launcher.multitool.util.BaseActivity;
 import com.faendir.lightning_launcher.multitool.util.DrawerManager;
 import com.faendir.lightning_launcher.multitool.util.FragmentManager;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private FragmentManager fragmentManager;
     private DrawerManager drawerManager;
     private ActionMode actionMode;
 
+    public MainActivity() {
+        super(R.layout.content_main, R.menu.drawer);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         onNewIntent(getIntent());
+        fragmentManager = new FragmentManager(this);
+    }
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        assert drawer != null;
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        assert navigationView != null;
+    @Override
+    protected void initNavView(NavigationView navigationView) {
         if(Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP){
             navigationView.getMenu().removeItem(R.id.nav_music);
         }
-        drawerManager = new DrawerManager(this, drawer);
+        drawerManager = new DrawerManager(this, getLayout());
         navigationView.setNavigationItemSelectedListener(drawerManager);
-        fragmentManager = new FragmentManager(this);
     }
 
     @Override

@@ -10,12 +10,13 @@ import android.preference.PreferenceManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.faendir.lightning_launcher.multitool.PrefsFragment;
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.SettingsActivity;
 import com.faendir.lightning_launcher.multitool.launcherscript.Constants;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.google.gson.Gson;
+import com.faendir.lightning_launcher.scriptlib.PermissionActivity;
 
 import java.io.File;
 import java.io.FileReader;
@@ -138,7 +139,7 @@ final class ScriptUtils {
 
     public static void backup(final Context context, final ListManager listManager, List<ScriptItem> selectedItems) {
         final List<ScriptItem> selectedItemsFinal = new ArrayList<>(selectedItems);
-        final File dir = new File(PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.pref_directory), SettingsActivity.DEFAULT_BACKUP_PATH));
+        final File dir = new File(PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.pref_directory), PrefsFragment.DEFAULT_BACKUP_PATH));
         if ((!dir.mkdirs() && !dir.isDirectory()) || !dir.canWrite()) {
             PermissionActivity.checkForPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE, new PermissionActivity.PermissionCallback() {
                 @Override

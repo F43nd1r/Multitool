@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
 import com.faendir.lightning_launcher.multitool.MainActivity;
+import com.faendir.lightning_launcher.multitool.PrefsFragment;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
 import com.faendir.lightning_launcher.multitool.gesture.GestureFragment;
@@ -51,6 +52,9 @@ public class FragmentManager {
                 break;
             case R.id.nav_music:
                 currentFragment = new MusicFragment();
+                break;
+            case R.id.nav_settings:
+                currentFragment = new PrefsFragment();
                 break;
             default:
                 throw new IllegalArgumentException("Illegal id " + request.getId());

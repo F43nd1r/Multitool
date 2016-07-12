@@ -116,7 +116,7 @@
     <string name="title_gestureLauncher">Gesture Launcher</string>
     <string name="add_gesture">Add Gesture</string>
     <string name="title_activity_gesture">Gesture Editor</string>
-    <string name="title_activity_intent_chooser">IntentChooser</string>
+    <string name="title_activity_intent_chooser">Choose Action</string>
     <string name="title_error">Error</string>
     <string name="error_securityException">Please uninstall and reinstall this application.</string>
     <string name="action_help">Help</string>
@@ -126,4 +126,6 @@
     <string name="text_listener">This requires the notification listener to be enabled. Do you want to enable it now?</string>
     <string name="currently_playing">Currently Playing</string>
     <string name="button_addMusic">Add to current Desktop</string>
+    <string name="title_defaultMusicPlayer">Default Music Player</string>
+    <string name="button_choose">Choose</string>
 </resources>

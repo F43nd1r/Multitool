@@ -5,6 +5,9 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaMetadata;
@@ -25,11 +28,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
+import android.view.KeyEvent;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.scriptlib.DialogActivity;
 
+import org.acra.ACRA;
+import org.apache.commons.collections4.BidiMap;
+import org.apache.commons.collections4.bidimap.DualHashBidiMap;
+
 import java.lang.ref.WeakReference;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -51,7 +60,13 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
     private static final int ACTION_UNREGISTER = 2;
     private static final int ACTION_REGISTER_MESSENGER = 3;
     private static final int ACTION_UNREGISTER_MESSENGER = 4;
-    private final Map<MediaController, Callback> controllers;
+    private static final int ACTION_PLAY_PAUSE = 5;
+    private static final int ACTION_NEXT = 6;
+    private static final int ACTION_PREVIOUS = 7;
+    private static final List<Integer> PLAYING_STATES = Arrays.asList(
+            STATE_PLAYING, STATE_FAST_FORWARDING, STATE_SKIPPING_TO_NEXT,
+            STATE_SKIPPING_TO_PREVIOUS, STATE_SKIPPING_TO_QUEUE_ITEM);
+    private final BidiMap<MediaController, Callback> controllers;
     private final Set<Listener> listeners;
     private MediaSessionManager mediaSessionManager;
     private ComponentName notificationListener;
@@ -60,11 +75,13 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
     private String album;
     private String artist;
     private final Messenger messenger;
+    private WeakReference<MediaController> currentController;
 
     public MusicManager() {
-        controllers = new HashMap<>();
+        controllers = new DualHashBidiMap<>();
         listeners = new HashSet<>();
         messenger = new Messenger(new LocalHandler(this));
+        currentController = new WeakReference<>(null);
     }
 
     @Override
@@ -78,7 +95,8 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         notificationListener = new ComponentName(this, DummyNotificationListener.class);
     }
 
-    private void updateCurrentInfo(Bitmap albumArt, String title, String album, String artist) {
+    private void updateCurrentInfo(MediaController controller, Bitmap albumArt, String title, String album, String artist) {
+        this.currentController = new WeakReference<>(controller);
         if (albumArt != null && albumArt.isRecycled()) albumArt = null;
         this.albumArt = albumArt;
         this.title = title;
@@ -126,6 +144,26 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         }
         for (Callback callback : removed.values()) {
             callback.recycle();
+        }
+    }
+
+    private void startDefaultPlayerWithKeyCode(int keyCode) {
+        try {
+            String packageName = "com.spotify.music";
+            Intent intent = new Intent(Intent.ACTION_MEDIA_BUTTON);
+            intent.setPackage(packageName);
+            PackageManager packageManager = getPackageManager();
+            List<ResolveInfo> infos = packageManager.queryBroadcastReceivers(intent, 0);
+            if (!infos.isEmpty()) {
+                ActivityInfo info = infos.get(0).activityInfo;
+                intent.setClassName(info.packageName, info.name);
+                KeyEvent event = new KeyEvent(KeyEvent.ACTION_UP, keyCode);
+                intent.putExtra(Intent.EXTRA_KEY_EVENT, event);
+                sendBroadcast(intent);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            ACRA.getErrorReporter().handleSilentException(e);
         }
     }
 
@@ -205,16 +243,8 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
                     }
                     hasRequestedAlbumArt = true;
                 }
-                if (playbackState != null) {
-                    switch (playbackState.getState()) {
-                        case STATE_PLAYING:
-                        case STATE_FAST_FORWARDING:
-                        case STATE_SKIPPING_TO_PREVIOUS:
-                        case STATE_SKIPPING_TO_NEXT:
-                        case STATE_SKIPPING_TO_QUEUE_ITEM:
-                            push();
-                            break;
-                    }
+                if ((playbackState != null && PLAYING_STATES.contains(playbackState.getState())) || currentController == null) {
+                    push();
                 }
             }
         }
@@ -241,9 +271,9 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
 
         private void push() {
             if (metadata == null) {
-                updateCurrentInfo(bitmap, null, null, null);
+                updateCurrentInfo(controllers.getKey(this), bitmap, null, null, null);
             } else {
-                updateCurrentInfo(bitmap, metadata.getString(METADATA_KEY_TITLE),
+                updateCurrentInfo(controllers.getKey(this), bitmap, metadata.getString(METADATA_KEY_TITLE),
                         metadata.getString(METADATA_KEY_ALBUM),
                         metadata.getString(METADATA_KEY_ARTIST));
             }
@@ -266,6 +296,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         @Override
         public void handleMessage(Message msg) {
             if (musicManager.get() != null) {
+                MediaController controller = musicManager.get().currentController.get();
                 switch (msg.what) {
                     case ACTION_REGISTER_MESSENGER:
                         if (msg.replyTo != null) {
@@ -295,7 +326,32 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
                             musicManager.get().unregisterListener((Listener) msg.obj);
                         }
                         break;
-
+                    case ACTION_PLAY_PAUSE:
+                        if (controller != null) {
+                            PlaybackState state = controller.getPlaybackState();
+                            if (state != null && PLAYING_STATES.contains(state.getState())) {
+                                controller.getTransportControls().pause();
+                            } else {
+                                controller.getTransportControls().play();
+                            }
+                        } else {
+                            musicManager.get().startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_PLAY);
+                        }
+                        break;
+                    case ACTION_NEXT:
+                        if (controller != null) {
+                            controller.getTransportControls().skipToNext();
+                        } else {
+                            musicManager.get().startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_NEXT);
+                        }
+                        break;
+                    case ACTION_PREVIOUS:
+                        if (controller != null) {
+                            controller.getTransportControls().skipToPrevious();
+                        } else {
+                            musicManager.get().startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+                        }
+                        break;
                 }
             }
             super.handleMessage(msg);

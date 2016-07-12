@@ -93,11 +93,6 @@ public class LauncherScriptFragment extends Fragment {
     @Subscribe
     public void onButtonClick(ClickEvent event) {
         switch (event.getId()) {
-            case R.id.button_code: {
-                Intent intent = new Intent(getActivity(), Code.class);
-                startActivity(intent);
-                break;
-            }
             case R.id.button_noLauncher: {
                 final String appPackageName = "net.pierrox.lightning_launcher";
                 try {

@@ -5,16 +5,16 @@ import android.content.pm.PackageManager;
 import android.gesture.Gesture;
 import android.gesture.GestureOverlayView;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.util.BaseActivity;
+import com.faendir.lightning_launcher.multitool.util.IntentChooser;
 
-public class GestureActivity extends AppCompatActivity implements GestureOverlayView.OnGesturePerformedListener, View.OnClickListener {
+public class GestureActivity extends BaseActivity implements GestureOverlayView.OnGesturePerformedListener, View.OnClickListener {
 
     private GestureInfo info;
     private Gesture gesture;
@@ -25,12 +25,13 @@ public class GestureActivity extends AppCompatActivity implements GestureOverlay
 
     public static final String GESTURE = "gesture";
 
+    public GestureActivity() {
+        super(R.layout.content_gesture);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gesture);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         gestureView = (GestureOverlayView) findViewById(R.id.gesture_view);
         gestureView.setFadeEnabled(true);
@@ -76,7 +77,7 @@ public class GestureActivity extends AppCompatActivity implements GestureOverlay
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_choose_action:
-                startActivityForResult(new Intent(this, IntentChooser.class), 0);
+                startActivityForResult(IntentChooser.showAllAppsAndShortcuts(this), 0);
                 break;
             case R.id.button_confirm:
                 confirm();
@@ -87,16 +88,11 @@ public class GestureActivity extends AppCompatActivity implements GestureOverlay
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            action = data;
-            PackageManager pm = getPackageManager();
-            try {
-                String label = pm.getActivityInfo(data.getComponent(), 0).loadLabel(pm).toString();
-                chooseAction.setText(label);
-                if (this.label.getText().length() == 0) {
-                    this.label.setText(label);
-                }
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
+            action = data.getParcelableExtra(Intent.EXTRA_INTENT);
+            String label = data.getStringExtra(Intent.EXTRA_TITLE);
+            chooseAction.setText(label);
+            if (this.label.getText().length() == 0) {
+                this.label.setText(label);
             }
         }
     }

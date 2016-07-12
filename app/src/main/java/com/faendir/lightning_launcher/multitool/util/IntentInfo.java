@@ -1,18 +1,16 @@
-package com.faendir.lightning_launcher.multitool.gesture;
+package com.faendir.lightning_launcher.multitool.util;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 
-import com.faendir.lightning_launcher.multitool.util.ImageText;
-
-import java.lang.ref.WeakReference;
+import java.lang.ref.SoftReference;
 
 /**
  * Created by Lukas on 26.01.2016.
  */
 public class IntentInfo implements ImageText {
-    private WeakReference<Drawable> icon;
+    private SoftReference<Drawable> icon;
     private DrawableProvider provider;
     private final Intent intent;
     private final String title;
@@ -27,9 +25,9 @@ public class IntentInfo implements ImageText {
     }
 
     public Drawable getImage(Context context) {
-        if (icon == null) {
+        if (icon == null || icon.get() == null) {
             Drawable drawable = provider.getDrawable();
-            icon = new WeakReference<>(drawable);
+            icon = new SoftReference<>(drawable);
             return drawable;
         } else{
             return icon.get();

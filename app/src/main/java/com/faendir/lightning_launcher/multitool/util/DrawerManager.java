@@ -10,7 +10,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.SettingsActivity;
 import com.faendir.lightning_launcher.multitool.event.LeaveApplicationRequest;
 import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
 
@@ -35,6 +34,7 @@ public class DrawerManager implements NavigationView.OnNavigationItemSelectedLis
             case R.id.nav_script_manager:
             case R.id.nav_gesture:
             case R.id.nav_music:
+            case R.id.nav_settings:
                 EventBus.getDefault().post(new SwitchFragmentRequest(item.getItemId(), item.getTitle().toString()));
                 break;
             case R.id.nav_email: {
@@ -59,10 +59,6 @@ public class DrawerManager implements NavigationView.OnNavigationItemSelectedLis
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(context.getString(R.string.link_googlePlus)));
                 context.startActivity(intent);
                 EventBus.getDefault().post(new LeaveApplicationRequest());
-                break;
-            }
-            case R.id.nav_settings: {
-                context.startActivity(new Intent(context, SettingsActivity.class));
                 break;
             }
         }

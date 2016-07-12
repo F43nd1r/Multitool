@@ -1,4 +1,4 @@
-package com.faendir.lightning_launcher.multitool.gesture;
+package com.faendir.lightning_launcher.multitool.util;
 
 import android.graphics.drawable.Drawable;
 
