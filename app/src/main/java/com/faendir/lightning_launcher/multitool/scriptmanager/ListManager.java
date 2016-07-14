@@ -2,6 +2,7 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Parcelable;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
@@ -110,7 +111,7 @@ public class ListManager {
                         } else {
                             for (Script script : group) {
                                 if (script.equals(item)) {
-                                    ScriptUtils.deleteScript(scriptManager, context, script);
+                                    ScriptUtils.deleteScript(scriptManager, ListManager.this, script);
                                     group.remove(script);
                                     break loop;
                                 }
@@ -219,9 +220,15 @@ public class ListManager {
         listViewState = listView.onSaveInstanceState();
     }
 
-    public void setAsContentOf(ViewGroup group) {
-        group.removeAllViews();
-        group.addView(listView);
+    public void setAsContentOf(final ViewGroup group) {
+        new Handler(context.getMainLooper())
+                .post(new Runnable() {
+                    @Override
+                    public void run() {
+                        group.removeAllViews();
+                        group.addView(listView);
+                    }
+                });
     }
 
     public void createGroup(String name) {

@@ -77,7 +77,9 @@ public class GestureActivity extends BaseActivity implements GestureOverlayView.
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_choose_action:
-                startActivityForResult(IntentChooser.showAllAppsAndShortcuts(this), 0);
+                new IntentChooser.Builder(this)
+                        .enableShortcuts()
+                        .startForResult(0);
                 break;
             case R.id.button_confirm:
                 confirm();

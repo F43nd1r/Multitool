@@ -23,6 +23,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -110,14 +111,14 @@ final class ScriptUtils {
                 .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        renameItem(scriptManager, context, listManager, item, text.getText().toString());
+                        renameItem(scriptManager, listManager, item, text.getText().toString());
                     }
                 })
                 .setNegativeButton(R.string.button_cancel, null)
                 .show();
     }
 
-    private static void renameItem(final ScriptManager scriptManager, final Context context, ListManager listManager, ScriptItem item, String name) {
+    private static void renameItem(final ScriptManager scriptManager, final ListManager listManager, ScriptItem item, String name) {
         item.setName(name);
         if (item instanceof Script) {
             final Transfer transfer = new Transfer(Transfer.RENAME);
@@ -125,7 +126,11 @@ final class ScriptUtils {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    scriptManager.runScript(PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer), true);
+                    String result = scriptManager.runScriptForResult(R.raw.scriptmanager, GSON.toJson(transfer));
+                    if (result != null) {
+                        List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
+                        listManager.updateFrom(scripts);
+                    }
                 }
             }).start();
         }
@@ -133,7 +138,7 @@ final class ScriptUtils {
     }
 
     public static void format(ScriptManager scriptManager, Context context, ListManager listManager, final List<ScriptItem> selectedItems) {
-        new FormatTask(scriptManager, context).execute(selectedItems.toArray(new ScriptItem[selectedItems.size()]));
+        new FormatTask(scriptManager, context, listManager).execute(selectedItems.toArray(new ScriptItem[selectedItems.size()]));
         listManager.deselectAll();
     }
 
@@ -247,18 +252,22 @@ final class ScriptUtils {
         listManager.deselectAll();
     }
 
-    public static void deleteScript(final ScriptManager scriptManager, final Context context, Script delete) {
+    public static void deleteScript(final ScriptManager scriptManager, final ListManager listManager, Script delete) {
         final Transfer transfer = new Transfer(Transfer.DELETE);
         transfer.script = delete;
         new Thread(new Runnable() {
             @Override
             public void run() {
-                scriptManager.runScript(PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer), true);
+                String result = scriptManager.runScriptForResult(R.raw.scriptmanager, GSON.toJson(transfer));
+                if (result != null) {
+                    List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
+                    listManager.updateFrom(scripts);
+                }
             }
         }).start();
     }
 
-    public static void restoreFromFile(ScriptManager scriptManager,Context context, ListManager listManager, Uri uri) {
+    public static void restoreFromFile(ScriptManager scriptManager, Context context, ListManager listManager, Uri uri) {
         File file = new File(uri.getPath());
         if (file.exists() && file.canRead()) {
             try {
@@ -330,24 +339,28 @@ final class ScriptUtils {
                     .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            restore(scriptManager, context, script);
+                            restore(scriptManager, listManager, script);
                         }
                     })
                     .setNegativeButton(R.string.button_cancel, null)
                     .show();
         } else {
-            restore(scriptManager, context, script);
+            restore(scriptManager, listManager, script);
         }
 
     }
 
-    private static void restore(final ScriptManager scriptManager, final Context context, Script script) {
+    private static void restore(final ScriptManager scriptManager, final ListManager listManager, Script script) {
         final Transfer transfer = new Transfer(Transfer.RESTORE);
         transfer.script = script;
         new Thread(new Runnable() {
             @Override
             public void run() {
-                scriptManager.runScript(PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), GSON.toJson(transfer), true);
+                String result = scriptManager.runScriptForResult(R.raw.scriptmanager, GSON.toJson(transfer));
+                if (result != null) {
+                    List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
+                    listManager.updateFrom(scripts);
+                }
             }
         }).start();
     }

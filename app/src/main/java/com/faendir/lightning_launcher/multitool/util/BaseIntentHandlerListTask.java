@@ -19,18 +19,20 @@ public abstract class BaseIntentHandlerListTask extends AsyncTask<Void, Void, Li
     private final PackageManager pm;
     private final Intent intent;
     private final boolean isIndirect;
-    private final boolean loadReceiver;
+    private final IntentChooser.IntentTarget target;
+    private final boolean useApplicationLabel;
 
-    public BaseIntentHandlerListTask(PackageManager packageManager, Intent intent, boolean isIndirect, boolean loadReceiver) {
+    public BaseIntentHandlerListTask(PackageManager packageManager, Intent intent, boolean isIndirect, IntentChooser.IntentTarget target, boolean useApplicationLabel) {
         this.pm = packageManager;
         this.intent = intent;
         this.isIndirect = isIndirect;
-        this.loadReceiver = loadReceiver;
+        this.target = target;
+        this.useApplicationLabel = useApplicationLabel;
     }
 
     @Override
     protected final List<IntentInfo> doInBackground(Void... params) {
-        List<ResolveInfo> resolveInfos = loadReceiver ? pm.queryBroadcastReceivers(intent, 0) : pm.queryIntentActivities(intent, 0);
+        List<ResolveInfo> resolveInfos = queryInfos();
         List<IntentInfo> infos = new ArrayList<>();
         for (int i = 0; i < resolveInfos.size(); i++) {
             ResolveInfo info = resolveInfos.get(i);
@@ -39,7 +41,7 @@ public abstract class BaseIntentHandlerListTask extends AsyncTask<Void, Void, Li
                     activity.name);
             Intent launchIntent = new Intent(intent);
             launchIntent.setComponent(name);
-            IntentInfo intentInfo = new IntentInfo(launchIntent, new ResolveInfoDrawableProvider(pm, info), info.loadLabel(pm).toString(), isIndirect);
+            IntentInfo intentInfo = new IntentInfo(launchIntent, new ResolveInfoDrawableProvider(pm, info), getLabel(info), isIndirect);
             boolean found = false;
             for (IntentInfo x : infos) {
                 if (x.getIntent().getComponent().getPackageName().equals(intentInfo.getIntent().getComponent().getPackageName())
@@ -53,5 +55,20 @@ public abstract class BaseIntentHandlerListTask extends AsyncTask<Void, Void, Li
             }
         }
         return infos;
+    }
+
+    private List<ResolveInfo> queryInfos() {
+        switch (target) {
+            case ACTIVITY:
+                return pm.queryIntentActivities(intent, 0);
+            case BROADCAST_RECEIVER:
+                return pm.queryBroadcastReceivers(intent, 0);
+            default:
+                return new ArrayList<>();
+        }
+    }
+
+    private String getLabel(ResolveInfo info) {
+        return (useApplicationLabel ? pm.getApplicationLabel(info.activityInfo.applicationInfo) : info.loadLabel(pm)).toString();
     }
 }

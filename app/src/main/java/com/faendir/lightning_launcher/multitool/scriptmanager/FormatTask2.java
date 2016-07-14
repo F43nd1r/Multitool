@@ -39,8 +39,8 @@ class FormatTask2 extends FormatTask {
         START_END_MAP.put(APOSTROPHE, APOSTROPHE);
     }
 
-    public FormatTask2(ScriptManager scriptManager, Context context) {
-        super(scriptManager, context);
+    public FormatTask2(ScriptManager scriptManager, Context context, ListManager listManager) {
+        super(scriptManager, context, listManager);
     }
 
     @Override

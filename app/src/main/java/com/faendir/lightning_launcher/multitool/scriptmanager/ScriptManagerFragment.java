@@ -20,11 +20,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.PrefsFragment;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
-import com.faendir.lightning_launcher.multitool.event.IntentEvent;
 import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
@@ -89,16 +87,14 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     public void onStart() {
         super.onStart();
         EventBus.getDefault().register(this);
-        IntentEvent event = EventBus.getDefault().getStickyEvent(IntentEvent.class);
-        if (event != null) {
-            onNewIntent(event);
-        }
+        listManager.restoreFrom(fileManager);
+        loadFromLauncher();
     }
 
     @Override
     public void onStop() {
         EventBus.getDefault().unregister(this);
-        if(!stopAutoLoad){
+        if (!stopAutoLoad) {
             scriptManager.unbind();
         }
         super.onStop();
@@ -272,37 +268,24 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
         return true;
     }
 
-    private void loadFromLauncher(final int id) {
+    private void loadFromLauncher() {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                int scriptId;
-                if (id == -1 || sharedPref.getInt(getString(R.string.pref_version), 0) != BuildConfig.VERSION_CODE) {
-                    scriptId = scriptManager.loadScript(new com.trianguloy.llscript.repository.aidl.Script(getActivity(), R.raw.scriptmanager, getString(R.string.text_scriptTitle), 0), true);
-                    sharedPref.edit().putInt(getString(R.string.pref_id), scriptId).putInt(getString(R.string.pref_version), BuildConfig.VERSION_CODE).apply();
-                } else {
-                    scriptId = id;
-                }
-                scriptManager.runScript(scriptId, null, true);
+                String result = scriptManager.runScriptForResult(R.raw.scriptmanager, null);
+                handleScriptResult(result);
             }
         }).start();
         layout.removeAllViews();
         LayoutInflater.from(getActivity()).inflate(R.layout.fragment_loading, layout);
-
     }
 
-    @Subscribe
-    public void onNewIntent(IntentEvent intentEvent) {
-        if (intentEvent.getIntent().hasExtra(getString(R.string.extra_scripts))) {
-            String scriptStrings = intentEvent.getIntent().getStringExtra(getString(R.string.extra_scripts));
-            List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(scriptStrings, Script[].class));
+    private void handleScriptResult(@Nullable String result){
+        if(result != null){
+            List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
             listManager.updateFrom(scripts);
             listManager.setAsContentOf(layout);
             enableMenu = true;
-        } else if (!stopAutoLoad) {
-            int id = sharedPref.getInt(getString(R.string.pref_id), -1);
-            loadFromLauncher(id);
-            listManager.restoreFrom(fileManager);
         }
     }
 
@@ -310,7 +293,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     public void onReloadButton(ClickEvent event) {
         if (event.getId() == R.id.button_reload) {
             sharedPref.edit().putInt(getString(R.string.pref_id), -1).apply();
-            loadFromLauncher(-1);
+            loadFromLauncher();
         }
     }
 }

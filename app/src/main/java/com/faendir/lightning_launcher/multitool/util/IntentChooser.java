@@ -1,6 +1,6 @@
 package com.faendir.lightning_launcher.multitool.util;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,29 +22,17 @@ public class IntentChooser extends BaseActivity implements AdapterView.OnItemCli
         super(R.layout.content_intent_chooser);
     }
 
-    public static Intent showAllAppsAndShortcuts(Context context) {
-        return new Intent(context, IntentChooser.class);
-    }
-
-    public static Intent showAppsWithMatchingReceiver(Context context, Intent intent) {
-        Intent result = new Intent(context, IntentChooser.class);
-        result.putExtra(Intent.EXTRA_INTENT, intent);
-        return result;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         TabHost host = (TabHost) findViewById(R.id.tabHost);
-        if (getIntent().hasExtra(Intent.EXTRA_INTENT)) {
-            ViewGroup parent = (ViewGroup) host.getParent();
-            parent.removeView(host);
-            View apps = host.findViewById(R.id.apps);
-            ((ViewGroup) apps.getParent()).removeView(apps);
-            parent.addView(apps);
-            loadApps((Intent) getIntent().getParcelableExtra(Intent.EXTRA_INTENT), true);
-        } else {
+        Intent i = getIntent();
+        boolean enableShortcuts = i.getBooleanExtra(getString(R.string.key_shortcuts), false);
+        boolean useAppInfo = i.getBooleanExtra(getString(R.string.key_appInfo), false);
+        Intent intent = i.getParcelableExtra(Intent.EXTRA_INTENT);
+        IntentTarget target = (IntentTarget) i.getSerializableExtra(getString(R.string.key_target));
+        if (enableShortcuts) {
             host.setup();
             TabHost.TabSpec apps = host.newTabSpec("Apps");
             apps.setContent(R.id.apps);
@@ -54,15 +42,19 @@ public class IntentChooser extends BaseActivity implements AdapterView.OnItemCli
             shortcuts.setContent(R.id.shortcuts);
             shortcuts.setIndicator("Shortcuts");
             host.addTab(shortcuts);
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_LAUNCHER);
-            loadApps(intent, false);
             loadShortcuts();
+        } else {
+            ViewGroup parent = (ViewGroup) host.getParent();
+            parent.removeView(host);
+            View apps = host.findViewById(R.id.apps);
+            ((ViewGroup) apps.getParent()).removeView(apps);
+            parent.addView(apps);
         }
+        loadApps(intent, target, useAppInfo);
     }
 
-    private void loadApps(Intent intent, boolean loadReceiver) {
-        new BaseIntentHandlerListTask(getPackageManager(), intent, false, loadReceiver) {
+    private void loadApps(Intent intent, IntentTarget target, boolean useApplication) {
+        new BaseIntentHandlerListTask(getPackageManager(), intent, false, target, useApplication) {
             @Override
             protected void onPostExecute(List<IntentInfo> infos) {
                 View root = findViewById(R.id.apps);
@@ -76,7 +68,7 @@ public class IntentChooser extends BaseActivity implements AdapterView.OnItemCli
     }
 
     private void loadShortcuts() {
-        new BaseIntentHandlerListTask(getPackageManager(), new Intent(Intent.ACTION_CREATE_SHORTCUT), true, false) {
+        new BaseIntentHandlerListTask(getPackageManager(), new Intent(Intent.ACTION_CREATE_SHORTCUT), true, IntentTarget.ACTIVITY, false) {
             @Override
             protected void onPostExecute(List<IntentInfo> infos) {
                 View root = findViewById(R.id.shortcuts);
@@ -129,5 +121,50 @@ public class IntentChooser extends BaseActivity implements AdapterView.OnItemCli
 
     private void nullIntent() {
         Toast.makeText(this, "Failed to load action info", Toast.LENGTH_SHORT).show();
+    }
+
+    public enum IntentTarget {
+        ACTIVITY,
+        BROADCAST_RECEIVER
+    }
+
+    public static class Builder {
+        private final Activity context;
+        private final Intent intent;
+
+        public Builder(Activity context) {
+            this.context = context;
+            intent = new Intent(context, IntentChooser.class);
+            setDefaults();
+        }
+
+        protected void setDefaults() {
+            intent.putExtra(context.getString(R.string.key_shortcuts), false);
+            intent.putExtra(context.getString(R.string.key_appInfo), false);
+            Intent i = new Intent(Intent.ACTION_MAIN);
+            i.addCategory(Intent.CATEGORY_LAUNCHER);
+            intent.putExtra(Intent.EXTRA_INTENT, i);
+            intent.putExtra(context.getString(R.string.key_target), IntentTarget.ACTIVITY);
+        }
+
+        public Builder enableShortcuts() {
+            intent.putExtra(context.getString(R.string.key_shortcuts), true);
+            return this;
+        }
+
+        public Builder useIntent(Intent i, IntentTarget target) {
+            intent.putExtra(Intent.EXTRA_INTENT, i);
+            intent.putExtra(context.getString(R.string.key_target), target);
+            return this;
+        }
+
+        public Builder useApplicationInfo() {
+            intent.putExtra(context.getString(R.string.key_appInfo), true);
+            return this;
+        }
+
+        public void startForResult(int requestCode) {
+            context.startActivityForResult(intent, requestCode);
+        }
     }
 }

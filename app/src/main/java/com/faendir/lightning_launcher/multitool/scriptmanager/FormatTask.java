@@ -20,7 +20,7 @@ import java.util.List;
  * Created by Lukas on 29.08.2015.
  * Formats the given scripts
  */
-class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
+class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, String> {
 
     private static final String SWITCH = "switch(";
     private static final String CASE = "case";
@@ -35,13 +35,15 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
 
     private final ScriptManager scriptManager;
     private final Context context;
+    private final ListManager listManager;
     private ProgressDialog dialog;
     private boolean checkOperators;
 
-    public FormatTask(ScriptManager scriptManager, Context context) {
+    public FormatTask(ScriptManager scriptManager, Context context, ListManager listManager) {
         super();
         this.scriptManager = scriptManager;
         this.context = context;
+        this.listManager = listManager;
     }
 
 
@@ -73,7 +75,7 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
     }
 
     @Override
-    protected Void doInBackground(ScriptItem... params) {
+    protected String doInBackground(ScriptItem... params) {
         for (ScriptItem item : params) {
             if (item instanceof Script) {
                 Script script = (Script) item;
@@ -83,7 +85,7 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
                 script.setCode(code); //set the text to the script
                 Transfer transfer = new Transfer(Transfer.SET_CODE);
                 transfer.script = script;
-                scriptManager.runScript(PreferenceManager.getDefaultSharedPreferences(context).getInt(context.getString(R.string.pref_id), -1), ScriptUtils.GSON.toJson(transfer), true);
+                String result = scriptManager.runScriptForResult(R.raw.scriptmanager,  ScriptUtils.GSON.toJson(transfer));
             }
         }
         return null;
@@ -230,8 +232,11 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
     }
 
     @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
+    protected void onPostExecute(String result) {
+        if (result != null) {
+            List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
+            listManager.updateFrom(scripts);
+        }
         dialog.dismiss();
         Toast.makeText(context, R.string.message_done, Toast.LENGTH_SHORT).show();
     }

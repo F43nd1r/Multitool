@@ -187,7 +187,10 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
                 }).start();
                 break;
             case R.id.button_chooseDefault:
-                startActivityForResult(IntentChooser.showAppsWithMatchingReceiver(getActivity(), new Intent(Intent.ACTION_MEDIA_BUTTON)), 0);
+                new IntentChooser.Builder(getActivity())
+                        .useApplicationInfo()
+                        .useIntent(new Intent(Intent.ACTION_MEDIA_BUTTON), IntentChooser.IntentTarget.BROADCAST_RECEIVER)
+                        .startForResult(0);
                 break;
         }
     }
