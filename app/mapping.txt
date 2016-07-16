@@ -20730,7 +20730,7 @@ com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress -> ae
     207:207:java.lang.String getTitle() -> d
     211:211:java.lang.Integer getProgress() -> e
     215:215:java.lang.Integer getMax() -> f
-com.faendir.lightning_launcher.multitool.PrefsFragment -> com.faendir.lightning_launcher.multitool.PrefsFragment:
+com.faendir.lightning_launcher.multitool.settings.PrefsFragment -> com.faendir.lightning_launcher.multitool.settings.PrefsFragment:
     12:12:void <init>() -> <init>
     17:19:void onCreate(android.os.Bundle) -> onCreate
 com.faendir.lightning_launcher.multitool.scriptmanager.Script -> com.faendir.lightning_launcher.multitool.scriptmanager.Script:

@@ -82,6 +82,7 @@
             android:name=".music.MusicManager"
             android:exported="true"
             tools:ignore="ExportedService" />
+        <service android:name=".backup.BackupService"/>
     </application>
 
 </manifest>

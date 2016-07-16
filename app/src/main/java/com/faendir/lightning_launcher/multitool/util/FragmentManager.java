@@ -8,7 +8,7 @@ import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
 import com.faendir.lightning_launcher.multitool.MainActivity;
-import com.faendir.lightning_launcher.multitool.PrefsFragment;
+import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
 import com.faendir.lightning_launcher.multitool.gesture.GestureFragment;

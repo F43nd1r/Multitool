@@ -10,7 +10,7 @@ import android.preference.PreferenceManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.faendir.lightning_launcher.multitool.PrefsFragment;
+import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.launcherscript.Constants;
 import com.faendir.lightning_launcher.multitool.util.FileManager;

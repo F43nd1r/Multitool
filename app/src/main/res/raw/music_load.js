@@ -24,7 +24,7 @@ var item = panel.getItemByName("albumart");
 var img = LL.createImage(albumArt.getWidth(),albumArt.getHeight());
 img.draw().drawBitmap(albumArt,0,0,null);
 //albumArt.recycle();
-item.setBoxBackground(img,"nsf",true);
+item.setBoxBackground(img,"nsf",false);
 }
 LL.getVariables().edit().setString("title",title).setString("album",album).setString("artist",artist).commit();
 }catch(e){
