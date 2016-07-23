@@ -67,8 +67,8 @@ public class PrefsFragment extends PreferenceFragment {
                 if (shouldEnable) {
                     AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
                     Calendar calendar = Calendar.getInstance();
-                    calendar.set(Calendar.MINUTE, TimePreference.getMinute(time));
-                    calendar.set(Calendar.HOUR, TimePreference.getHour(time));
+                    //calendar.set(Calendar.MINUTE, BackupTimePreference.getMinute(time));
+                    //calendar.set(Calendar.HOUR, BackupTimePreference.getHour(time));
                     if (calendar.before(Calendar.getInstance())) {
                         calendar.add(Calendar.DATE, 1);
                     }
@@ -79,7 +79,8 @@ public class PrefsFragment extends PreferenceFragment {
             }
         };
         listener.addPreferenceForSummary(getString(R.string.key_backupInterval), backupChanged, false);
-        listener.addPreference(getString(R.string.key_enableBackup), backupChanged, true);
+        listener.addPreference(getString(R.string.key_backupTime), backupChanged, false);
+        listener.addPreference(getString(R.string.key_enableBackup), backupChanged, false);
         if (!BuildConfig.DEBUG) {
             removeDebugOptions();
         }

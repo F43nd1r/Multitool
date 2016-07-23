@@ -25,7 +25,7 @@
             android:entries="@array/backup_intervalEntries"
             android:entryValues="@array/backup_intervalValues"
             android:defaultValue="1"/>
-        <com.faendir.lightning_launcher.multitool.settings.TimePreference
+        <com.faendir.lightning_launcher.multitool.settings.BackupTimePreference
             android:key="@string/key_backupTime"
             android:title="Execution time"/>
     </PreferenceCategory>
