@@ -11,26 +11,19 @@ import android.widget.Button;
 import android.widget.TimePicker;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
+import com.faendir.lightning_launcher.multitool.backup.BackupTime;
+import com.faendir.lightning_launcher.multitool.backup.BackupUtils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class BackupTimePreference extends DialogPreference implements View.OnClickListener {
-    private static final BackupTime DEFAULT = new BackupTime(0, 0, Collections.singletonList(Calendar.SUNDAY));
-    private static final Gson GSON = new Gson();
-    private BackupTime backupTime = DEFAULT;
+    private BackupTime backupTime = BackupUtils.getBackupTime(null);
     private Map<Button, Integer> map;
     private TimePicker picker;
-
-    public static BackupTime getBackupTime(String s) {
-        return GSON.fromJson(s, BackupTime.class);
-    }
 
     public BackupTimePreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -80,7 +73,7 @@ public class BackupTimePreference extends DialogPreference implements View.OnCli
                 if (entry.getKey().isSelected()) days.add(entry.getValue());
             }
             backupTime = new BackupTime(picker.getCurrentHour(), picker.getCurrentMinute(), days);
-            String time = GSON.toJson(backupTime);
+            String time = BackupUtils.toString(backupTime);
 
             if (callChangeListener(time)) {
                 persistString(time);
@@ -95,7 +88,7 @@ public class BackupTimePreference extends DialogPreference implements View.OnCli
 
     @Override
     protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-        String time;
+        String time = null;
 
         if (restoreValue) {
             if (defaultValue == null) {
@@ -103,16 +96,8 @@ public class BackupTimePreference extends DialogPreference implements View.OnCli
             } else {
                 time = getPersistedString(defaultValue.toString());
             }
-            if (time != null) {
-                try {
-                    backupTime = getBackupTime(time);
-                } catch (JsonSyntaxException ignored) {
-                }
-            }
         }
-        if (backupTime == null) {
-            backupTime = DEFAULT;
-        }
+        backupTime = BackupUtils.getBackupTime(time);
     }
 
     @Override
@@ -120,27 +105,4 @@ public class BackupTimePreference extends DialogPreference implements View.OnCli
         view.setSelected(!view.isSelected());
     }
 
-    public static class BackupTime {
-        private final int hour;
-        private final int minute;
-        private final List<Integer> days;
-
-        public BackupTime(int hour, int minute, List<Integer> days) {
-            this.hour = hour;
-            this.minute = minute;
-            this.days = days;
-        }
-
-        public int getHour() {
-            return hour;
-        }
-
-        public int getMinute() {
-            return minute;
-        }
-
-        public List<Integer> getDays() {
-            return days;
-        }
-    }
 }

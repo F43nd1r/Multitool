@@ -133,18 +133,5 @@
     <string name="key_appInfo">applicationInfo</string>
     <string name="key_target">target</string>
     <string name="key_enableBackup">backup.enable</string>
-    <string name="key_backupInterval">backup.interval</string>
     <string name="key_backupTime">backup.time</string>
-    <string-array name="backup_intervalEntries">
-        <item>Daily</item>
-        <item>Every two days</item>
-        <item>Every five days</item>
-        <item>Weekly</item>
-    </string-array>
-    <string-array name="backup_intervalValues">
-        <item>1</item>
-        <item>2</item>
-        <item>5</item>
-        <item>7</item>
-    </string-array>
 </resources>

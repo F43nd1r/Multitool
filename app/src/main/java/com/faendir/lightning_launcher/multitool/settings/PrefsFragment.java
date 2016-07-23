@@ -1,10 +1,7 @@
 package com.faendir.lightning_launcher.multitool.settings;
 
 import android.app.Activity;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.ClipData;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -18,12 +15,11 @@ import android.preference.PreferenceManager;
 
 import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.backup.BackupService;
+import com.faendir.lightning_launcher.multitool.backup.BackupUtils;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 /**
  * Created by Lukas on 29.08.2015.
@@ -60,25 +56,9 @@ public class PrefsFragment extends PreferenceFragment {
         Runnable backupChanged = new Runnable() {
             @Override
             public void run() {
-                boolean shouldEnable = sharedPref.getBoolean(getString(R.string.key_enableBackup), false);
-                int intervalDays = Integer.parseInt(sharedPref.getString(getString(R.string.key_backupInterval), "1"));
-                String time = sharedPref.getString(getString(R.string.key_backupTime), "00:00");
-                PendingIntent intent = PendingIntent.getService(getActivity(), 0, new Intent(getActivity(), BackupService.class), PendingIntent.FLAG_UPDATE_CURRENT);
-                if (shouldEnable) {
-                    AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-                    Calendar calendar = Calendar.getInstance();
-                    //calendar.set(Calendar.MINUTE, BackupTimePreference.getMinute(time));
-                    //calendar.set(Calendar.HOUR, BackupTimePreference.getHour(time));
-                    if (calendar.before(Calendar.getInstance())) {
-                        calendar.add(Calendar.DATE, 1);
-                    }
-                    alarmManager.setInexactRepeating(AlarmManager.RTC, calendar.getTimeInMillis(), intervalDays * AlarmManager.INTERVAL_DAY, intent);
-                } else {
-                    intent.cancel();
-                }
+                BackupUtils.scheduleNext(getActivity());
             }
         };
-        listener.addPreferenceForSummary(getString(R.string.key_backupInterval), backupChanged, false);
         listener.addPreference(getString(R.string.key_backupTime), backupChanged, false);
         listener.addPreference(getString(R.string.key_enableBackup), backupChanged, false);
         if (!BuildConfig.DEBUG) {

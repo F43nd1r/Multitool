@@ -19,12 +19,6 @@
             android:key="@string/key_enableBackup"
             android:title="Enable automatic Backup"
             android:defaultValue="false"/>
-        <ListPreference
-            android:key="@string/key_backupInterval"
-            android:title="Interval"
-            android:entries="@array/backup_intervalEntries"
-            android:entryValues="@array/backup_intervalValues"
-            android:defaultValue="1"/>
         <com.faendir.lightning_launcher.multitool.settings.BackupTimePreference
             android:key="@string/key_backupTime"
             android:title="Execution time"/>

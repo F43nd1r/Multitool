@@ -14,6 +14,7 @@ import com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterExce
 public class BackupService extends IntentService {
     public BackupService() {
         super(BackupService.class.getName());
+        setIntentRedelivery(true);
     }
 
     @Override
@@ -26,5 +27,6 @@ public class BackupService extends IntentService {
         } catch (RepositoryImporterException e) {
             e.printStackTrace();
         }
+        BackupUtils.scheduleNext(this);
     }
 }
