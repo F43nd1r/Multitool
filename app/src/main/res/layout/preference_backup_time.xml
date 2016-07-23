@@ -1,80 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                               xmlns:tools="http://schemas.android.com/tools"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <Button
-        android:text="Mo"
-        app:layout_widthPercent="10%"
-        app:layout_aspectRatio="100%"
-        app:layout_marginPercent="2.14%"
         android:id="@+id/buttonMonday"
-        android:background="@drawable/round_button"/>
-    <Button
-        android:text="Tu"
-        app:layout_widthPercent="10%"
+        android:background="@drawable/round_button"
+        android:text="@string/button_monday"
         app:layout_aspectRatio="100%"
         app:layout_marginPercent="2.14%"
-        android:id="@+id/buttonTuesday"
-        android:background="@drawable/round_button"
-        android:layout_toEndOf="@id/buttonMonday"
-        android:layout_toRightOf="@id/buttonMonday"/>
-    <Button
-        android:text="We"
-        app:layout_widthPercent="10%"
-        app:layout_aspectRatio="100%"
-        app:layout_marginPercent="2.14%"
-        android:id="@+id/buttonWednesday"
-        android:background="@drawable/round_button"
-        android:layout_toEndOf="@id/buttonTuesday"
-        android:layout_toRightOf="@id/buttonTuesday"/>
-    <Button
-        android:text="Th"
-        app:layout_widthPercent="10%"
-        app:layout_aspectRatio="100%"
-        app:layout_marginPercent="2.14%"
-        android:id="@+id/buttonThursday"
-        android:background="@drawable/round_button"
-        android:layout_toEndOf="@id/buttonWednesday"
-        android:layout_toRightOf="@id/buttonWednesday"/>
+        app:layout_widthPercent="10%"/>
 
     <Button
-        android:text="Fr"
-        app:layout_widthPercent="10%"
+        android:id="@+id/buttonTuesday"
+        android:layout_toEndOf="@id/buttonMonday"
+        android:layout_toRightOf="@id/buttonMonday"
+        android:background="@drawable/round_button"
+        android:text="@string/button_tuesday"
         app:layout_aspectRatio="100%"
         app:layout_marginPercent="2.14%"
-        android:id="@+id/buttonFriday"
+        app:layout_widthPercent="10%"/>
+
+    <Button
+        android:id="@+id/buttonWednesday"
+        android:layout_toEndOf="@id/buttonTuesday"
+        android:layout_toRightOf="@id/buttonTuesday"
         android:background="@drawable/round_button"
+        android:text="@string/button_wednesday"
+        app:layout_aspectRatio="100%"
+        app:layout_marginPercent="2.14%"
+        app:layout_widthPercent="10%"/>
+
+    <Button
+        android:id="@+id/buttonThursday"
+        android:layout_toEndOf="@id/buttonWednesday"
+        android:layout_toRightOf="@id/buttonWednesday"
+        android:background="@drawable/round_button"
+        android:text="@string/button_thursday"
+        app:layout_aspectRatio="100%"
+        app:layout_marginPercent="2.14%"
+        app:layout_widthPercent="10%"/>
+
+    <Button
+        android:id="@+id/buttonFriday"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@id/buttonThursday"
-        android:layout_toRightOf="@id/buttonThursday"/>
-
-    <Button
-        android:text="Sa"
-        app:layout_widthPercent="10%"
+        android:layout_toRightOf="@id/buttonThursday"
+        android:background="@drawable/round_button"
+        android:text="@string/button_friday"
         app:layout_aspectRatio="100%"
         app:layout_marginPercent="2.14%"
+        app:layout_widthPercent="10%"/>
+
+    <Button
         android:id="@+id/buttonSaturday"
-        android:background="@drawable/round_button"
         android:layout_toEndOf="@id/buttonFriday"
-        android:layout_toRightOf="@id/buttonFriday"/>
-
-    <Button
-        android:text="Su"
-        app:layout_widthPercent="10%"
+        android:layout_toRightOf="@id/buttonFriday"
+        android:background="@drawable/round_button"
+        android:text="@string/button_saturday"
         app:layout_aspectRatio="100%"
         app:layout_marginPercent="2.14%"
-        android:id="@+id/buttonSunday"
-        android:background="@drawable/round_button"
-        android:layout_toEndOf="@id/buttonSaturday"
-        android:layout_toRightOf="@id/buttonSaturday"/>
+        app:layout_widthPercent="10%"/>
 
-    <TimePicker android:id="@+id/timePicker"
-                android:layout_below="@id/buttonMonday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:numbersBackgroundColor="#ff000000"/>
+    <Button
+        android:id="@+id/buttonSunday"
+        android:layout_toEndOf="@id/buttonSaturday"
+        android:layout_toRightOf="@id/buttonSaturday"
+        android:background="@drawable/round_button"
+        android:text="@string/button_sunday"
+        app:layout_aspectRatio="100%"
+        app:layout_marginPercent="2.14%"
+        app:layout_widthPercent="10%"/>
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonMonday"/>
 </android.support.percent.PercentRelativeLayout>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:id="@+id/constraintLayout"
@@ -8,88 +8,72 @@
                                              android:orientation="vertical"
                                              tools:targetApi="lollipop">
 
-    <ImageView
-        android:id="@+id/image_album"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:foregroundGravity="center"
-        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"/>
-
-    <TextView
-        android:id="@+id/text_title"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:textAlignment="center"
-        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/image_album"/>
-
-    <TextView
-        android:id="@+id/text_album"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:textAlignment="center"
-        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/text_title"/>
-
-    <TextView
-        android:id="@+id/text_artist"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:textAlignment="center"
-        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/text_album"/>
 
     <Button
         android:id="@+id/button_addMusic"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onButtonClick"
         android:text="@string/button_addMusic"
         android:textAlignment="center"
-        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"/>
+        android:gravity="center"/>
 
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="0dp"
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:text="@string/currently_playing"
+        android:gravity="center"
+        android:text="@string/title_defaultMusicPlayer"
         android:textAlignment="center"
         android:textStyle="normal|bold"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/button_chooseDefault"
-        tools:textSize="18sp"/>
+        tools:textSize="18sp"
+        android:layout_below="@id/button_addMusic"/>
 
     <Button
         android:id="@+id/button_chooseDefault"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onButtonClick"
         android:text="@string/button_choose"
         android:textAlignment="center"
-        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"/>
+        android:gravity="center"
+        android:layout_below="@id/textView5"/>
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="0dp"
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:gravity="start"
-        android:text="@string/title_defaultMusicPlayer"
-        android:textAlignment="viewStart"
+        android:text="@string/currently_playing"
+        android:textAlignment="center"
         android:textStyle="normal|bold"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/button_addMusic"
-        tools:textSize="18sp"/>
-</android.support.constraint.ConstraintLayout>
+        tools:textSize="18sp"
+        android:layout_below="@id/button_chooseDefault"/>
+
+    <ImageView
+        android:id="@+id/image_album"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:foregroundGravity="center"
+        android:layout_below="@id/textView6"/>
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:textAlignment="center"
+        android:layout_below="@id/image_album"/>
+
+    <TextView
+        android:id="@+id/text_album"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:textAlignment="center"
+        android:layout_below="@id/text_title"/>
+
+    <TextView
+        android:id="@+id/text_artist"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:textAlignment="center"
+        android:layout_below="@id/text_album"/>
+</RelativeLayout>

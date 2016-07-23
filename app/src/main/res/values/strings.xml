@@ -134,4 +134,11 @@
     <string name="key_target">target</string>
     <string name="key_enableBackup">backup.enable</string>
     <string name="key_backupTime">backup.time</string>
+    <string name="button_monday">Mo</string>
+    <string name="button_tuesday">Tu</string>
+    <string name="button_wednesday">We</string>
+    <string name="button_thursday">Th</string>
+    <string name="button_friday">Fr</string>
+    <string name="button_saturday">Sa</string>
+    <string name="button_sunday">Su</string>
 </resources>
