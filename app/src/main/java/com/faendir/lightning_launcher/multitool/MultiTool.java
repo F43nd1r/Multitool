@@ -1,6 +1,7 @@
 package com.faendir.lightning_launcher.multitool;
 
 import android.app.Application;
+import android.content.Context;
 
 import org.acra.ACRA;
 import org.acra.annotation.ReportsCrashes;
@@ -19,8 +20,8 @@ import org.acra.sender.HttpSender;
 )
 public class MultiTool extends Application {
     @Override
-    public void onCreate() {
-        super.onCreate();
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
         ACRA.init(this);
     }
 }

@@ -13,19 +13,19 @@
         android:id="@+id/button_choose_action"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Choose Action"/>
+        android:text="@string/button_chooseAction"/>
 
     <EditText
         android:id="@+id/editText_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter name..."/>
+        android:hint="@string/edit_enterName"/>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Draw here:"/>
+        android:text="@string/text_drawHere"/>
 
     <android.gesture.GestureOverlayView
         android:id="@+id/gesture_view"
@@ -39,6 +39,6 @@
         android:id="@+id/button_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Confirm"/>
+        android:text="@string/button_confirm"/>
 
 </LinearLayout>

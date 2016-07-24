@@ -58,7 +58,7 @@ class PreferenceListener implements SharedPreferences.OnSharedPreferenceChangeLi
      *
      * @param key the preference identifier
      */
-    public void addPreferenceForSummary(String key) {
+    private void addPreferenceForSummary(String key) {
         addPreference(key, true, null, false);
     }
 

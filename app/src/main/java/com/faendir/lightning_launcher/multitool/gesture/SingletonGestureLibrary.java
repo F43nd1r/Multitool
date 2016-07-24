@@ -11,7 +11,7 @@ import java.io.File;
 /**
  * Created by Lukas on 26.01.2016.
  */
-public final class SingletonGestureLibrary {
+final class SingletonGestureLibrary {
     private SingletonGestureLibrary() {
     }
 

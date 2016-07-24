@@ -19,7 +19,7 @@ import com.faendir.lightning_launcher.multitool.R;
  * Created by Lukas on 12.07.2016.
  */
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
     private final int layoutRes;
     private final int menuRes;
     private DrawerLayout layout;

@@ -138,7 +138,7 @@ public class IntentChooser extends BaseActivity implements AdapterView.OnItemCli
             setDefaults();
         }
 
-        protected void setDefaults() {
+        void setDefaults() {
             intent.putExtra(context.getString(R.string.key_shortcuts), false);
             intent.putExtra(context.getString(R.string.key_appInfo), false);
             Intent i = new Intent(Intent.ACTION_MAIN);

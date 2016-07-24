@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * Created by Lukas on 01.04.2016.
  */
-public class ListManager {
+class ListManager {
 
     @NonNull
     private final ScriptManager scriptManager;
@@ -259,8 +259,8 @@ public class ListManager {
     public static final int ONE_SCRIPT = 0;
     public static final int ONE_GROUP = 1;
     public static final int ONLY_SCRIPTS = 2;
-    public static final int ONLY_GROUPS = 3;
-    public static final int BOTH = 4;
+    private static final int ONLY_GROUPS = 3;
+    private static final int BOTH = 4;
 
     @SelectionMode
     public int getSelectionMode() {

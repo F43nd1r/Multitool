@@ -133,11 +133,6 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
-
-    @Override
     public void onDestroy() {
         if (isBound) {
             getActivity().unbindService(connection);

@@ -1,6 +1,5 @@
 package com.faendir.lightning_launcher.multitool;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -10,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
-import com.faendir.lightning_launcher.multitool.event.IntentEvent;
 import com.faendir.lightning_launcher.multitool.event.LeaveApplicationRequest;
 import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
 import com.faendir.lightning_launcher.multitool.util.BaseActivity;
@@ -66,11 +64,6 @@ public class MainActivity extends BaseActivity {
         if (!drawerManager.closeDrawer()) {
             super.onBackPressed();
         }
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        EventBus.getDefault().postSticky(new IntentEvent(intent));
     }
 
     public void onButtonClick(View v) {

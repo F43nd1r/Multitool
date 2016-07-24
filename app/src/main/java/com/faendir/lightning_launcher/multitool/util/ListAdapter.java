@@ -35,13 +35,16 @@ public class ListAdapter<T extends Text> extends ArrayAdapter<T> {
         this(context, Arrays.asList(objects));
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         ViewGroup v = (ViewGroup) convertView;
         if (convertView == null)
             v = (ViewGroup) LayoutInflater.from(context).inflate(RESOURCE, parent, false);
         Text item = getItem(position);
-        ((TextView) v.findViewById(R.id.txt)).setText(item.getText());
+        if (item != null) {
+            ((TextView) v.findViewById(R.id.txt)).setText(item.getText());
+        }
         View img = v.findViewById(R.id.img);
         if (item instanceof ImageText) {
             ((ImageView) img).setImageDrawable(((ImageText) item).getImage(context));

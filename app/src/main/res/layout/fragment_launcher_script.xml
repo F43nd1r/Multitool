@@ -42,7 +42,6 @@
                 android:id="@+id/button_noLauncher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"
                 android:onClick="onButtonClick"
                 android:padding="5dp"
                 android:text="@string/button_noLauncherFound"/>
@@ -92,7 +91,6 @@
                     android:id="@+id/button_import"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
                     android:onClick="onButtonClick"
                     android:padding="5dp"
                     android:text="@string/button_repositoryImporter"/>
@@ -123,8 +121,8 @@
                 android:layout_margin="5dp"
                 android:hint="@string/hint_nameOfScript"
                 android:inputType="text"
-                android:singleLine="true"
-                android:text="@string/script_name"/>
+                android:text="@string/script_name"
+                android:maxLines="1"/>
         </LinearLayout>
 
         <ImageView

@@ -32,8 +32,6 @@
     <string name="text_nameOfScript">If you want to, you can choose a custom name here:</string>
     <string name="hint_nameOfScript">Name of the script</string>
 
-    <string name="button_showScriptCode">Show script code</string>
-
     <string name="link_googlePlus">https://plus.google.com/communities/109017480579703391739</string>
     <string name="link_email_scheme">mailto</string>
     <string name="link_email_adress">support@faendir.com</string>
@@ -41,27 +39,16 @@
     <string name="link_email_chooser">Send email…</string>
 
     <!-- Multi activity -->
-    <string name="action_main">Back to main page</string>
     <string name="imageDescription_divider">divider</string>
-
-    <!--Code activity-->
-    <string name="title_activity_code">Code</string>
-    <string name="button_copyToClipboard">Copy to clipboard</string>
-    <string name="error_noResourceFound">Error: can\'t show script.</string>
-    <string name="toast_copiedToClipboard">Copied to clipboard</string>
-    <string name="toast_noCopiedToClipboard">There was an error trying to copy to clipboard</string>
 
 
     <string name="title_scriptManager">Script Manager</string>
     <string name="pref_id">id</string>
-    <string name="pref_version">version</string>
-    <string name="extra_scripts">scripts</string>
     <string name="menu_addGroup">Add Group</string>
     <string name="menu_rename">Rename</string>
     <string name="menu_delete">Delete</string>
     <string name="menu_move">Move to Group</string>
     <string name="menu_edit">Edit</string>
-    <string name="text_extraInfo">Extra information</string>
     <string name="menu_backup">Backup</string>
     <string name="menu_format">Format</string>
     <string name="menu_restore">Restore</string>
@@ -73,7 +60,6 @@
     <string name="button_cancel">Cancel</string>
     <string name="message_done">Done!</string>
     <string name="text_defaultScriptGroup">Unsorted Scripts</string>
-    <string name="text_scriptTitle">ScriptManager</string>
     <string name="title_search">Search for (Regex)</string>
     <string name="button_ok">OK</string>
     <string name="text_matches_lines">Matches (lines):\n</string>
@@ -110,15 +96,12 @@
     <string name="toast_failedLoad">"Failed to load file "</string>
     <string name="toast_failedDirWrite">Failed to access directory. Please choose an accessible backup location</string>
     <string name="title_backupDir">Backup Directory</string>
-    <string name="title_backup">Backup</string>
     <string name="pref_spaces">spaces</string>
 
     <string name="title_gestureLauncher">Gesture Launcher</string>
     <string name="add_gesture">Add Gesture</string>
     <string name="title_activity_gesture">Gesture Editor</string>
     <string name="title_activity_intent_chooser">Choose Action</string>
-    <string name="title_error">Error</string>
-    <string name="error_securityException">Please uninstall and reinstall this application.</string>
     <string name="action_help">Help</string>
     <string name="text_noGestures">No gestures found. To create a new gesture, press the \'Add\' Button.</string>
     <string name="title_musicWidget">Music widget</string>
@@ -141,4 +124,8 @@
     <string name="button_friday">Fr</string>
     <string name="button_saturday">Sa</string>
     <string name="button_sunday">Su</string>
+    <string name="button_chooseAction">Choose Action</string>
+    <string name="edit_enterName">Enter name...</string>
+    <string name="text_drawHere">Draw here:</string>
+    <string name="button_confirm">Confirm</string>
 </resources>

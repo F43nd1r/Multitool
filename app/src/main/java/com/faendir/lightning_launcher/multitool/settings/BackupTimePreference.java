@@ -1,5 +1,6 @@
 package com.faendir.lightning_launcher.multitool.settings;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.preference.DialogPreference;
@@ -34,7 +35,7 @@ public class BackupTimePreference extends DialogPreference implements View.OnCli
 
     @Override
     protected View onCreateDialogView() {
-        View root = LayoutInflater.from(getContext()).inflate(R.layout.preference_backup_time, null);
+        @SuppressLint("InflateParams") View root = LayoutInflater.from(getContext()).inflate(R.layout.preference_backup_time, null);
         map = new HashMap<>();
         map.put((Button) root.findViewById(R.id.buttonMonday), Calendar.MONDAY);
         map.put((Button) root.findViewById(R.id.buttonTuesday), Calendar.TUESDAY);

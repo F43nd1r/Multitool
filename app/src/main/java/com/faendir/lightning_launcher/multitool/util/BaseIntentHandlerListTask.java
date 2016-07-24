@@ -14,7 +14,7 @@ import java.util.List;
  * Created by Lukas on 12.07.2016.
  */
 
-public abstract class BaseIntentHandlerListTask extends AsyncTask<Void, Void, List<IntentInfo>> {
+abstract class BaseIntentHandlerListTask extends AsyncTask<Void, Void, List<IntentInfo>> {
 
     private final PackageManager pm;
     private final Intent intent;

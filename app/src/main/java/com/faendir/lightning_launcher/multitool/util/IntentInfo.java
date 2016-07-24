@@ -11,7 +11,7 @@ import java.lang.ref.SoftReference;
  */
 public class IntentInfo implements ImageText {
     private SoftReference<Drawable> icon;
-    private DrawableProvider provider;
+    private final DrawableProvider provider;
     private final Intent intent;
     private final String title;
     private final boolean isIndirect;

@@ -15,12 +15,13 @@
                 android:summary="Inserts spaces around operators"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="Lightning Auto Backup">
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="@string/key_enableBackup"
             android:title="Enable automatic Backup"
             android:defaultValue="false"/>
         <com.faendir.lightning_launcher.multitool.settings.BackupTimePreference
             android:key="@string/key_backupTime"
-            android:title="Execution time"/>
+            android:title="Execution time"
+            android:dependency="@string/key_enableBackup"/>
     </PreferenceCategory>
 </PreferenceScreen>
