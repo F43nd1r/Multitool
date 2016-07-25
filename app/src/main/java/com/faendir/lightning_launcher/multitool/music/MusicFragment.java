@@ -26,7 +26,7 @@ import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.multitool.util.IntentChooser;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
-import com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterException;
+import com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader;
 import com.trianguloy.llscript.repository.aidl.Script;
 
 import org.greenrobot.eventbus.EventBus;
@@ -166,20 +166,9 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
     public void onClick(ClickEvent event) {
         switch (event.getId()) {
             case R.id.button_addMusic:
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        ScriptManager scriptManager = new ScriptManager(getActivity());
-                        try {
-                            scriptManager.bind();
-                            int id = scriptManager.loadScript(new Script(getActivity(), R.raw.music_setup, "multitool_createMusic", 0), true);
-                            scriptManager.runScript(id, null, false);
-                            scriptManager.unbind();
-                        } catch (RepositoryImporterException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }).start();
+                new ScriptManager(getActivity()).getAsyncExecutorService()
+                        .add(new ScriptLoader(new Script(getActivity(), R.raw.music_setup, "multitool_createMusic", 0)).setRunScript(true))
+                        .start();
                 break;
             case R.id.button_chooseDefault:
                 new IntentChooser.Builder(getActivity())

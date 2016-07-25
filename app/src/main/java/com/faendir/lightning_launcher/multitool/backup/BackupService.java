@@ -5,7 +5,7 @@ import android.content.Intent;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
-import com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterException;
+import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
 
 /**
  * Created by Lukas on 16.07.2016.
@@ -19,14 +19,9 @@ public class BackupService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        ScriptManager scriptManager = new ScriptManager(this);
-        try {
-            scriptManager.bind();
-            scriptManager.runScriptForResult(R.raw.backup, null);
-            scriptManager.unbind();
-        } catch (RepositoryImporterException e) {
-            e.printStackTrace();
-        }
+        new ScriptManager(this).getAsyncExecutorService()
+                .add(new DirectScriptExecutor(R.raw.backup))
+                .start();
         BackupUtils.scheduleNext(this);
     }
 }

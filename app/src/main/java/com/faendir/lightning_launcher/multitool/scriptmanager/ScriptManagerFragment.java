@@ -20,10 +20,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
+import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
@@ -285,8 +285,8 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
         LayoutInflater.from(getActivity()).inflate(R.layout.fragment_loading, layout);
     }
 
-    private void handleScriptResult(@Nullable String result){
-        if(result != null){
+    private void handleScriptResult(@Nullable String result) {
+        if (result != null) {
             List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
             listManager.updateFrom(scripts);
             listManager.setAsContentOf(layout);
