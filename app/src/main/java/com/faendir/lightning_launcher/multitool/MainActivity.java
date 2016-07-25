@@ -49,7 +49,9 @@ public class MainActivity extends BaseActivity {
         super.onStart();
         EventBus.getDefault().register(this);
         EventBus.getDefault().register(fragmentManager);
-        fragmentManager.loadLastFragment();
+        if(!fragmentManager.loadLastFragment()){
+            drawerManager.openDrawer();
+        }
     }
 
     @Override

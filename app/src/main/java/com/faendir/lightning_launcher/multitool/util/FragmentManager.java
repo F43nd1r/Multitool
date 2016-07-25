@@ -68,14 +68,15 @@ public class FragmentManager {
 
     }
 
-    public void loadLastFragment() {
-        int load = R.id.nav_launcher_script;
+    public boolean loadLastFragment() {
         if (sharedPref.contains(context.getString(R.string.pref_lastFragment))) {
-            load = context.getResources().getIdentifier(sharedPref.getString(context.getString(R.string.pref_lastFragment), null), "id", context.getPackageName());
+            int load = context.getResources().getIdentifier(sharedPref.getString(context.getString(R.string.pref_lastFragment), null), "id", context.getPackageName());
+            NavigationView navView = context.getNavigationView();
+            MenuItem item = navView.getMenu().findItem(load);
+            String title = item != null ? item.getTitle().toString() : context.getString(R.string.title_launcherScript);
+            EventBus.getDefault().post(new SwitchFragmentRequest(load, title));
+            return true;
         }
-        NavigationView navView = context.getNavigationView();
-        MenuItem item = navView.getMenu().findItem(load);
-        String title = item != null ? item.getTitle().toString() : context.getString(R.string.title_launcherScript);
-        EventBus.getDefault().post(new SwitchFragmentRequest(load, title));
+        return false;
     }
 }

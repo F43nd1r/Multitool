@@ -74,4 +74,13 @@ public class DrawerManager implements NavigationView.OnNavigationItemSelectedLis
             return false;
         }
     }
+
+    public boolean openDrawer() {
+        if (!drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.openDrawer(GravityCompat.START);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
