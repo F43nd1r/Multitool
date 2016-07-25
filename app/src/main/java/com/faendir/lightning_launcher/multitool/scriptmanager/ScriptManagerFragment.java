@@ -56,12 +56,17 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         scriptManager = new ScriptManager(getActivity());
-        try {
-            scriptManager.bind();
-        } catch (RepositoryImporterException e) {
-            e.printStackTrace();
-            stopAutoLoad = true;
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    scriptManager.bind();
+                } catch (RepositoryImporterException e) {
+                    e.printStackTrace();
+                    stopAutoLoad = true;
+                }
+            }
+        }).start();
         sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         fileManager = FileManagerFactory.createScriptFileManager(getActivity());
         listManager = new ListManager(scriptManager, getActivity(), this);
