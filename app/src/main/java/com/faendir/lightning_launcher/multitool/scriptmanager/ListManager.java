@@ -14,7 +14,7 @@ import android.widget.ExpandableListView;
 import android.widget.ListView;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.ToStringBuilder;
+import com.faendir.lightning_launcher.multitool.util.ToStringBuilder;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 

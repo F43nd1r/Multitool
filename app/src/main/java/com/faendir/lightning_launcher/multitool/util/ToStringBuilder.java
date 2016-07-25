@@ -1,4 +1,4 @@
-package com.faendir.lightning_launcher.multitool;
+package com.faendir.lightning_launcher.multitool.util;
 
 import java.util.Arrays;
 import java.util.Collection;

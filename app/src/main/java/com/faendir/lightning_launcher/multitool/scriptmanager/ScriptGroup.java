@@ -2,7 +2,7 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 
 import android.support.annotation.NonNull;
 
-import com.faendir.lightning_launcher.multitool.ToStringBuilder;
+import com.faendir.lightning_launcher.multitool.util.ToStringBuilder;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -9,7 +9,7 @@ import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.ToStringBuilder;
+import com.faendir.lightning_launcher.multitool.util.ToStringBuilder;
 
 import java.util.Arrays;
 import java.util.Collections;

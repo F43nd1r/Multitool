@@ -2,11 +2,16 @@ package com.faendir.lightning_launcher.multitool.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -14,6 +19,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,7 +37,7 @@ public class FileManager<T> {
     FileManager(Context context, String filename, Class<T[]> clazz) {
         File directory = context.getFilesDir();
         file = new File(directory, filename);
-        gson = new Gson();
+        gson = new GsonBuilder().registerTypeAdapter(Intent.class, new IntentTypeAdapter()).create();
         this.clazz = clazz;
     }
 
@@ -89,6 +95,38 @@ public class FileManager<T> {
     public static class FatalFileException extends RuntimeException {
         public FatalFileException(Exception e) {
             super(e);
+        }
+    }
+
+    private static class IntentTypeAdapter extends TypeAdapter<Intent> {
+        private static final String URI = "uri";
+
+        @Override
+        public void write(JsonWriter out, Intent value) throws IOException {
+            out.beginObject();
+            out.name(URI);
+            if (value == null) {
+                out.nullValue();
+            } else {
+                out.value(value.toUri(0));
+            }
+            out.endObject();
+        }
+
+        @Override
+        public Intent read(JsonReader in) throws IOException {
+            Intent intent = null;
+            in.beginObject();
+            while (in.hasNext()) {
+                if (URI.equals(in.nextName())) {
+                    try {
+                        intent = Intent.parseUri(in.nextString(), 0);
+                    } catch (URISyntaxException ignored) {
+                    }
+                }
+            }
+            in.endObject();
+            return intent;
         }
     }
 }
