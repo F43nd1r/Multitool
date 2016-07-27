@@ -6,7 +6,9 @@ import com.faendir.lightning_launcher.multitool.gesture.GestureInfo;
 import com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup;
 
 /**
- * Created by Lukas on 27.01.2016.
+ * Created on 27.01.2016.
+ *
+ * @author F43nd1r
  */
 public final class FileManagerFactory {
     private FileManagerFactory() {

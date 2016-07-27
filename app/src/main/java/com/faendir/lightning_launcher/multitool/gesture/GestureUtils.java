@@ -14,7 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Lukas on 28.01.2016.
+ * Created on 28.01.2016.
+ *
+ * @author F43nd1r
  */
 final class GestureUtils {
     private GestureUtils() {

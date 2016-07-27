@@ -16,7 +16,9 @@ import android.view.ViewGroup;
 import com.faendir.lightning_launcher.multitool.R;
 
 /**
- * Created by Lukas on 12.07.2016.
+ * Created on 12.07.2016.
+ *
+ * @author F43nd1r
  */
 
 public abstract class BaseActivity extends AppCompatActivity {

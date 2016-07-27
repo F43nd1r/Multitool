@@ -5,7 +5,9 @@ import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 
 /**
- * Created by Lukas on 21.03.2016.
+ * Created on 21.03.2016.
+ *
+ * @author F43nd1r
  */
 public class ResolveInfoDrawableProvider implements DrawableProvider {
 

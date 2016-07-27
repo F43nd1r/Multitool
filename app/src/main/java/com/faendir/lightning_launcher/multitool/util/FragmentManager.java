@@ -20,7 +20,9 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 /**
- * Created by Lukas on 01.04.2016.
+ * Created on 01.04.2016.
+ *
+ * @author F43nd1r
  */
 public class FragmentManager {
     private final MainActivity context;

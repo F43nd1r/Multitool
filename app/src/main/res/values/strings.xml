@@ -125,7 +125,7 @@
     <string name="button_saturday">Sa</string>
     <string name="button_sunday">Su</string>
     <string name="button_chooseAction">Choose Action</string>
-    <string name="edit_enterName">Enter name...</string>
+    <string name="edit_enterName">Enter name…</string>
     <string name="text_drawHere">Draw here:</string>
     <string name="button_confirm">Confirm</string>
 </resources>

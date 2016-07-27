@@ -17,7 +17,9 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by Lukas on 26.01.2016.
+ * Created on 26.01.2016.
+ *
+ * @author F43nd1r
  */
 public class ListAdapter<T extends Text> extends ArrayAdapter<T> {
     private static final int RESOURCE = R.layout.list_item_app;

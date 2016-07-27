@@ -7,7 +7,9 @@ import android.graphics.drawable.Drawable;
 import java.lang.ref.SoftReference;
 
 /**
- * Created by Lukas on 26.01.2016.
+ * Created on 26.01.2016.
+ *
+ * @author F43nd1r
  */
 public class IntentInfo implements ImageText {
     private SoftReference<Drawable> icon;

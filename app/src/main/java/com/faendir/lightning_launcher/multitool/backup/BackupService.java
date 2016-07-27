@@ -8,7 +8,9 @@ import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
 
 /**
- * Created by Lukas on 16.07.2016.
+ * Created on 16.07.2016.
+ *
+ * @author F43nd1r
  */
 
 public class BackupService extends IntentService {

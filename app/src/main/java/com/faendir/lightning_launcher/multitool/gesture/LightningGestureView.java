@@ -16,7 +16,9 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by Lukas on 26.01.2016.
+ * Created on 26.01.2016.
+ *
+ * @author F43nd1r
  */
 public class LightningGestureView extends GestureOverlayView implements GestureOverlayView.OnGesturePerformedListener {
 

@@ -9,7 +9,9 @@ import com.faendir.lightning_launcher.multitool.util.FileManager;
 import java.io.File;
 
 /**
- * Created by Lukas on 26.01.2016.
+ * Created on 26.01.2016.
+ *
+ * @author F43nd1r
  */
 final class SingletonGestureLibrary {
     private SingletonGestureLibrary() {

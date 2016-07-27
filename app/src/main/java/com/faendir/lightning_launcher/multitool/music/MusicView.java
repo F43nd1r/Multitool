@@ -5,7 +5,9 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 
 /**
- * Created by Lukas on 03.07.2016.
+ * Created on 03.07.2016.
+ *
+ * @author F43nd1r
  */
 
 public class MusicView extends ImageView {

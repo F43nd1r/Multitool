@@ -38,7 +38,9 @@ import java.util.List;
 import static android.app.Activity.RESULT_OK;
 
 /**
- * Created by Lukas on 03.07.2016.
+ * Created on 03.07.2016.
+ *
+ * @author F43nd1r
  */
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class MusicFragment extends Fragment implements MusicManager.Listener {

@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Lukas on 12.07.2016.
+ * Created on 12.07.2016.
+ *
+ * @author F43nd1r
  */
 
 abstract class BaseIntentHandlerListTask extends AsyncTask<Void, Void, List<IntentInfo>> {

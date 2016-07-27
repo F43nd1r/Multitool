@@ -5,7 +5,9 @@ import android.service.notification.NotificationListenerService;
 import android.support.annotation.RequiresApi;
 
 /**
- * Created by Lukas on 03.07.2016.
+ * Created on 03.07.2016.
+ *
+ * @author F43nd1r
  */
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

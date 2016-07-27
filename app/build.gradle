@@ -8,8 +8,8 @@ android {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 11
         targetSdkVersion 24
-        versionCode 40
-        versionName "2.7-beta8"
+        versionCode 41
+        versionName "2.7"
     }
     buildTypes {
         release {

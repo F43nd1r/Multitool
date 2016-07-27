@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.Collection;
 
 /**
- * Created by Lukas on 08.06.2016.
+ * Created on 08.06.2016.
+ *
+ * @author F43nd1r
  */
 public class ToStringBuilder {
 

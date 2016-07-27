@@ -23,7 +23,9 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by Lukas on 01.04.2016.
+ * Created on 01.04.2016.
+ *
+ * @author F43nd1r
  */
 class ListManager {
 
