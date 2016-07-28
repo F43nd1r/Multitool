@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.scriptlib.AsyncExecutorService;
+import com.faendir.lightning_launcher.scriptlib.ResultCallback;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterException;
 import com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader;
@@ -123,7 +124,7 @@ public class LauncherScriptFragment extends Fragment {
                         .add(new ScriptLoader(new Script(getActivity(),
                                 R.raw.multitool,
                                 nameTextView.getText().toString(),
-                                Script.FLAG_APP_MENU + Script.FLAG_ITEM_MENU)), new AsyncExecutorService.ResultCallback<Integer>() {
+                                Script.FLAG_APP_MENU + Script.FLAG_ITEM_MENU)), new ResultCallback<Integer>() {
                             @Override
                             public void onResult(Integer result) {
                                 getActivity().runOnUiThread(new Runnable() {

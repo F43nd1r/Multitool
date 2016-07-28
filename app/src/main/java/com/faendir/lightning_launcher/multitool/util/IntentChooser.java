@@ -34,13 +34,13 @@ public class IntentChooser extends BaseActivity implements AdapterView.OnItemCli
         IntentTarget target = (IntentTarget) i.getSerializableExtra(getString(R.string.key_target));
         if (enableShortcuts) {
             host.setup();
-            TabHost.TabSpec apps = host.newTabSpec("Apps");
+            TabHost.TabSpec apps = host.newTabSpec("a");
             apps.setContent(R.id.apps);
-            apps.setIndicator("Apps");
+            apps.setIndicator(getString(R.string.title_apps));
             host.addTab(apps);
-            TabHost.TabSpec shortcuts = host.newTabSpec("Shortcuts");
+            TabHost.TabSpec shortcuts = host.newTabSpec("s");
             shortcuts.setContent(R.id.shortcuts);
-            shortcuts.setIndicator("Shortcuts");
+            shortcuts.setIndicator(getString(R.string.title_shortcuts));
             host.addTab(shortcuts);
             loadShortcuts();
         } else {
@@ -120,7 +120,7 @@ public class IntentChooser extends BaseActivity implements AdapterView.OnItemCli
     }
 
     private void nullIntent() {
-        Toast.makeText(this, "Failed to load action info", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.toast_cantLoadAction, Toast.LENGTH_SHORT).show();
     }
 
     public enum IntentTarget {

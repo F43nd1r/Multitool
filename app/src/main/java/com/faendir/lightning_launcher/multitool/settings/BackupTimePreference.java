@@ -29,8 +29,8 @@ public class BackupTimePreference extends DialogPreference implements View.OnCli
     public BackupTimePreference(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        setPositiveButtonText("Set");
-        setNegativeButtonText("Cancel");
+        setPositiveButtonText(R.string.button_set);
+        setNegativeButtonText(R.string.button_cancel);
     }
 
     @Override

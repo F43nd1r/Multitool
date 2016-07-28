@@ -128,4 +128,13 @@
     <string name="edit_enterName">Enter name…</string>
     <string name="text_drawHere">Draw here:</string>
     <string name="button_confirm">Confirm</string>
+    <string name="button_set">Set</string>
+    <string name="toast_noAction">You have to choose an action</string>
+    <string name="toast_noGesture">Please draw a gesture first</string>
+    <string name="toast_noLabel">The label can\'t be empty</string>
+    <string name="title_help">Help</string>
+    <string name="message_help"><![CDATA[You can add a Gesture view to Lightning by long press -> Scripts -> Gesture Launcher.\nIf a gesture you draw onto this view is recognized as one of this list, the specified action will be executed.]]></string>
+    <string name="title_apps">Apps</string>
+    <string name="title_shortcuts">Shortcuts</string>
+    <string name="toast_cantLoadAction">Failed to load action info</string>
 </resources>

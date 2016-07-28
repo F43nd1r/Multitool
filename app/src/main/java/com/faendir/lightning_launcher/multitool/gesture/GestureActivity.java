@@ -102,11 +102,11 @@ public class GestureActivity extends BaseActivity implements GestureOverlayView.
     private void confirm() {
         gesture = gestureView.getGesture();
         if (action == null && info == null) {
-            Toast.makeText(this, "You have to choose an action", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.toast_noAction, Toast.LENGTH_SHORT).show();
         } else if (gesture == null && info == null) {
-            Toast.makeText(this, "Please draw a gesture first", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.toast_noGesture, Toast.LENGTH_SHORT).show();
         } else if (label.getText().length() == 0 && info == null) {
-            Toast.makeText(this, "The label can't be empty", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.toast_noLabel, Toast.LENGTH_SHORT).show();
         } else {
             Intent data = getIntent();
             if (info == null) {

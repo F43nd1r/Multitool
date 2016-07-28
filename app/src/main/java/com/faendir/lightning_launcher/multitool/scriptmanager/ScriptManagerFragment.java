@@ -26,8 +26,10 @@ import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
 import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
+import com.faendir.lightning_launcher.scriptlib.ResultCallback;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterException;
+import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
 import org.acra.ACRA;
@@ -274,10 +276,9 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     }
 
     private void loadFromLauncher() {
-        new Thread(new Runnable() {
+        scriptManager.getAsyncExecutorService().add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data",null), new ResultCallback<String>() {
             @Override
-            public void run() {
-                String result = scriptManager.runScriptForResult(R.raw.scriptmanager, null);
+            public void onResult(String result) {
                 handleScriptResult(result);
             }
         }).start();

@@ -82,9 +82,8 @@ public class GestureFragment extends Fragment implements ListView.MultiChoiceMod
                 return true;
             case R.id.action_help:
                 new AlertDialog.Builder(getActivity())
-                        .setTitle("Help")
-                        .setMessage("You can add a Gesture view to Lightning by long press -> Scripts -> Gesture Launcher.\n" +
-                                "If a gesture you draw onto this view is recognized as one of this list, the specified action will be executed.")
+                        .setTitle(R.string.title_help)
+                        .setMessage(R.string.message_help)
                         .setPositiveButton(R.string.button_ok, null)
                         .show();
             default:
