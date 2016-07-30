@@ -238,7 +238,8 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
                     }
                     hasRequestedAlbumArt = true;
                 }
-                if ((playbackState != null && PLAYING_STATES.contains(playbackState.getState())) || currentController == null) {
+                if ((playbackState != null && PLAYING_STATES.contains(playbackState.getState()))
+                        || currentController == null || currentController.get() == null || currentController.get().equals(controllers.getKey(this))) {
                     push();
                 }
             }

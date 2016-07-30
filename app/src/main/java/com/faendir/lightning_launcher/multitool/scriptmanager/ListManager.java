@@ -7,20 +7,23 @@ import android.os.Parcelable;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.view.View;
+import android.support.v7.view.ActionMode;
+import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.util.ToStringBuilder;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
+import com.faendir.lightning_launcher.multitool.util.ToStringBuilder;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import eu.davidea.flexibleadapter.FlexibleAdapter;
+import eu.davidea.flexibleadapter.common.SmoothScrollLinearLayoutManager;
+import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
 
 /**
  * Created on 01.04.2016.
@@ -32,39 +35,31 @@ class ListManager {
     @NonNull
     private final ScriptManager scriptManager;
     private final Context context;
-    private final ExpandableListView listView;
+    private final RecyclerView recyclerView;
     private ScriptListAdapter adapter;
     private List<ScriptGroup> items;
     private Parcelable listViewState;
 
-    public ListManager(@NonNull ScriptManager scriptManager, @NonNull Context context, final ClickListener listener) {
+    public ListManager(@NonNull ScriptManager scriptManager, @NonNull final Context context, final ActionMode.Callback callback) {
         this.scriptManager = scriptManager;
         this.context = context;
-        listView = new ExpandableListView(context);
-        listView.setDrawSelectorOnTop(true);
-        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                if (ExpandableListView.getPackedPositionType(id) == ExpandableListView.PACKED_POSITION_TYPE_CHILD) {
-                    return listener.onChildLongClick(id);
-                } else {
-                    return listener.onGroupLongClick(id);
-                }
-            }
-        });
-        listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                return listener.onChildClick(id);
-            }
-        });
-        listView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                return listener.onGroupClick(id);
-            }
-        });
+        recyclerView = new RecyclerView(context);
+        recyclerView.setLayoutManager(new SmoothScrollLinearLayoutManager(context));
+        Script s = new Script();
+        s.setName("TestScript");
+        ArrayList<AbstractFlexibleItem> testList = new ArrayList<>();
+        ScriptGroupLayoutItem groupLayoutItem = new ScriptGroupLayoutItem(new ScriptGroup("TestGroup",true));
+        ScriptLayoutItem scriptLayoutItem = new ScriptLayoutItem(groupLayoutItem,s);
+        groupLayoutItem.addSubItem(scriptLayoutItem);
+        testList.add(groupLayoutItem);
+        FlexibleAdapter<AbstractFlexibleItem> flexibleAdapter = new FlexibleAdapter<>(testList);
+        flexibleAdapter.expandItemsAtStartUp()
+                .setAutoScrollOnExpand(true)
+                .setAutoCollapseOnExpand(false)
+                .setAnimationOnScrolling(true)
+                .setAnimationOnReverseScrolling(true);
+        recyclerView.setAdapter(flexibleAdapter);
+        items = new ArrayList<>();
     }
 
     public void toggleItem(long packedPos) {
@@ -85,12 +80,12 @@ class ListManager {
     }
 
     public void deselectChildren(long packedGroupPos) {
-        int groupPosition = listView.getFlatListPosition(packedGroupPos);
+        /*int groupPosition = listView.getFlatListPosition(packedGroupPos);
         if (listView.isGroupExpanded(groupPosition)) {
             for (int i = adapter.getChildrenCount(groupPosition) - 1; i >= 0; i--) {
                 selectItem(ExpandableListView.getPackedPositionForChild(groupPosition, i), false);
             }
-        }
+        }*/
     }
 
     public void deselectAll() {
@@ -159,8 +154,7 @@ class ListManager {
 
     public void updateFrom(@NonNull List<Script> scripts) {
         ArrayList<Script> existing = new ArrayList<>();
-        if (items == null) {
-            items = new ArrayList<>();
+        if (items.isEmpty()) {
             ScriptGroup def = new ScriptGroup(context.getString(R.string.text_defaultScriptGroup), false);
             items.add(def);
             for (Script s : scripts) {
@@ -181,9 +175,9 @@ class ListManager {
             if (!existing.contains(s)) {
                 def.add(s);
             }
-        }
+        }/*
         adapter = new ScriptListAdapter(context, items, listView);
-        listView.setAdapter(adapter);
+        listView.setAdapter(adapter);*/
     }
 
     private boolean checkIfStillExisting(List<Script> scripts, Script item) {
@@ -198,16 +192,20 @@ class ListManager {
 
     public void restoreFrom(@Nullable Bundle savedInstanceState) {
         if (savedInstanceState != null && savedInstanceState.containsKey(context.getString(R.string.key_listView))) {
-            listView.onRestoreInstanceState(savedInstanceState.getParcelable(context.getString(R.string.key_listView)));
+//            /**/listView.onRestoreInstanceState(savedInstanceState.getParcelable(context.getString(R.string.key_listView)));
         }
     }
 
     public void saveTo(@NonNull Bundle bundle) {
-        bundle.putParcelable(context.getString(R.string.key_listView), listView.onSaveInstanceState());
+//        bundle.putParcelable(context.getString(R.string.key_listView), listView.onSaveInstanceState());
     }
 
     public void restoreFrom(FileManager<ScriptGroup> fileManager) {
-        items = fileManager.read();
+        List<ScriptGroup> i = fileManager.read();
+        if (i != null) {
+            items.clear();
+            items.addAll(i);
+        }
     }
 
     public void saveTo(FileManager<ScriptGroup> fileManager) {
@@ -215,12 +213,12 @@ class ListManager {
     }
 
     public void restore() {
-        if (listViewState != null) listView.onRestoreInstanceState(listViewState);
+//        if (listViewState != null) listView.onRestoreInstanceState(listViewState);
     }
 
     public void save() {
-        listViewState = listView.onSaveInstanceState();
-    }
+//        listViewState = listView.onSaveInstanceState();
+  }
 
     public void setAsContentOf(final ViewGroup group) {
         new Handler(context.getMainLooper())
@@ -228,7 +226,7 @@ class ListManager {
                     @Override
                     public void run() {
                         group.removeAllViews();
-                        group.addView(listView);
+                        group.addView(recyclerView);
                     }
                 });
     }
