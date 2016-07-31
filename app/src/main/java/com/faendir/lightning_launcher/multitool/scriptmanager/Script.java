@@ -1,16 +1,37 @@
 package com.faendir.lightning_launcher.multitool.scriptmanager;
 
+import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.faendir.lightning_launcher.multitool.R;
+
+import java.util.List;
+
+import eu.davidea.flexibleadapter.FlexibleAdapter;
+import eu.davidea.flexibleadapter.items.AbstractSectionableItem;
+import eu.davidea.flexibleadapter.utils.DrawableUtils;
+import eu.davidea.viewholders.FlexibleViewHolder;
 
 /**
  * Created by Lukas on 22.08.2015.
  * Represents a script
  */
-public class Script implements Comparable<Script>, ScriptItem{
+public class Script extends AbstractSectionableItem<Script.ViewHolder, ScriptGroup> implements Comparable<Script>, ScriptItem<Script.ViewHolder> {
     private int id;
     private String name;
     private String code;
     private int flags;
+
+    public Script() {
+        super(null);
+        setSelectable(true);
+        setDraggable(true);
+    }
 
     public int getId() {
         return id;
@@ -67,10 +88,50 @@ public class Script implements Comparable<Script>, ScriptItem{
         return flags;
     }
 
-    public void fillFrom(Script script){
+    public void fillFrom(Script script) {
         setName(script.getName());
         setId(script.getId());
         setCode(script.getCode());
         setFlags(script.getFlags());
+    }
+
+    @Override
+    public int getLayoutRes() {
+        return android.R.layout.simple_list_item_1;
+    }
+
+    @Override
+    public ViewHolder createViewHolder(FlexibleAdapter adapter, LayoutInflater inflater, ViewGroup parent) {
+        return new ViewHolder(inflater.inflate(getLayoutRes(), parent, false), adapter);
+    }
+
+    @Override
+    public void bindViewHolder(FlexibleAdapter adapter, ViewHolder holder, int position, List payloads) {
+        holder.getTextView().setText(getName());
+        Context context = holder.getTextView().getContext();
+        TypedArray a = context.obtainStyledAttributes(new int[]{R.attr.colorControlHighlight});
+        int rippleColor = a.getColor(0, context.getResources().getColor(R.color.primary));
+        int normalColor = context.getResources().getColor(android.R.color.transparent);
+        int pressedColor = context.getResources().getColor(R.color.accent);
+        a.recycle();
+        DrawableUtils.setBackground(holder.getTextView(), DrawableUtils.getSelectableBackgroundCompat(rippleColor, normalColor, pressedColor));
+    }
+
+    public static class ViewHolder extends FlexibleViewHolder {
+        private final TextView textView;
+
+        public ViewHolder(View view, FlexibleAdapter adapter) {
+            super(view, adapter);
+            textView = (TextView) view.findViewById(android.R.id.text1);
+        }
+
+        public TextView getTextView() {
+            return textView;
+        }
+
+        @Override
+        public boolean isDraggable() {
+            return super.isDraggable();
+        }
     }
 }

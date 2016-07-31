@@ -134,12 +134,12 @@ final class ScriptUtils {
                 }
             }).start();
         }
-        listManager.deselectAll();
+        /*listManager.deselectAll();*/
     }
 
     public static void format(ScriptManager scriptManager, Context context, ListManager listManager, final List<ScriptItem> selectedItems) {
         new FormatTask(scriptManager, context, listManager).execute(selectedItems.toArray(new ScriptItem[selectedItems.size()]));
-        listManager.deselectAll();
+        /*listManager.deselectAll();*/
     }
 
     public static void backup(final Context context, final ListManager listManager, List<ScriptItem> selectedItems) {
@@ -200,7 +200,7 @@ final class ScriptUtils {
             text += context.getString(R.string.text_backupFailed) + (selectedItems.size() - success) + context.getString(R.string.text_scripts);
         }
         Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
-        listManager.deselectAll();
+        /*listManager.deselectAll();*/
     }
 
     public static void editScript(Context context, ListManager listManager, Script script) {
@@ -208,7 +208,7 @@ final class ScriptUtils {
         intent.setClassName("net.pierrox.lightning_launcher_extreme", "net.pierrox.lightning_launcher.activities.ScriptEditor");
         intent.putExtra("i", script.getId());
         context.startActivity(intent);
-        listManager.deselectAll();
+        /*listManager.deselectAll();*/
     }
 
     public static void moveDialog(Context context, final ListManager listManager, final List<ScriptItem> selectedItems) {
@@ -231,7 +231,7 @@ final class ScriptUtils {
 
     private static void move(final ListManager listManager, List<ScriptItem> selectedItems, ScriptGroup moveTo) {
         listManager.move(selectedItems, moveTo);
-        listManager.deselectAll();
+        /*listManager.deselectAll();*/
     }
 
     public static void deleteDialog(final Context context, final ListManager listManager, final List<ScriptItem> selectedItems) {
@@ -249,7 +249,7 @@ final class ScriptUtils {
 
     private static void deleteItems(final ListManager listManager, List<ScriptItem> selectedItems) {
         listManager.delete(selectedItems);
-        listManager.deselectAll();
+        /*listManager.deselectAll();*/
     }
 
     public static void deleteScript(final ScriptManager scriptManager, final ListManager listManager, Script delete) {

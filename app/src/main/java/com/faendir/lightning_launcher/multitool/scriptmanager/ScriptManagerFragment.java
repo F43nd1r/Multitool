@@ -10,7 +10,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
-import android.support.v7.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,7 +21,6 @@ import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
-import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
 import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
@@ -32,7 +30,6 @@ import com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterExce
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
-import org.acra.ACRA;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
@@ -44,7 +41,7 @@ import java.util.List;
  * Created by Lukas on 22.08.2015.
  * Main activity of ScriptManager
  */
-public class ScriptManagerFragment extends Fragment implements ActionMode.Callback, ListManager.ClickListener {
+public class ScriptManagerFragment extends Fragment {
 
     private SharedPreferences sharedPref;
     private FileManager<ScriptGroup> fileManager;
@@ -71,7 +68,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
         }).start();
         sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         fileManager = FileManagerFactory.createScriptFileManager(getActivity());
-        listManager = new ListManager(scriptManager, getActivity(), this);
+        listManager = new ListManager(scriptManager, getActivity());
         listManager.restoreFrom(savedInstanceState);
         setHasOptionsMenu(true);
         enableMenu = false;
@@ -110,14 +107,12 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     @Override
     public void onPause() {
         listManager.saveTo(fileManager);
-        listManager.save();
         super.onPause();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        listManager.restore();
     }
 
     @Override
@@ -186,7 +181,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
         }
     }
 
-    @Override
+    /*@Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
         mode.getMenuInflater().inflate(R.menu.menu_context_scriptmanager, menu);
         onPrepareActionMode(mode, menu);
@@ -240,40 +235,8 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
 
     @Override
     public void onDestroyActionMode(ActionMode mode) {
-        listManager.deselectAll();
-    }
-
-    @Override
-    public boolean onChildClick(long packedPos) {
-        listManager.toggleItem(packedPos);
-        EventBus.getDefault().post(new UpdateActionModeRequest(this, listManager.hasSelection()));
-        return true;
-    }
-
-    @Override
-    public boolean onChildLongClick(long packedPos) {
-        return onChildClick(packedPos);
-    }
-
-    @Override
-    public boolean onGroupClick(long packedPos) {
-        boolean handled = false;
-        if (listManager.isSelected(packedPos)) {
-            listManager.toggleItem(packedPos);
-            handled = true;
-        } else {
-            listManager.deselectChildren(packedPos);
-        }
-        EventBus.getDefault().post(new UpdateActionModeRequest(this, listManager.hasSelection()));
-        return handled;
-    }
-
-    @Override
-    public boolean onGroupLongClick(long packedPos) {
-        listManager.toggleItem(packedPos);
-        EventBus.getDefault().post(new UpdateActionModeRequest(this, listManager.hasSelection()));
-        return true;
-    }
+        *//*listManager.deselectAll();*//*
+    }*/
 
     private void loadFromLauncher() {
         scriptManager.getAsyncExecutorService().add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data",null), new ResultCallback<String>() {

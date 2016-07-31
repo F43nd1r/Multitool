@@ -1,7 +1,14 @@
 package com.faendir.lightning_launcher.multitool.scriptmanager;
 
+import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.ToStringBuilder;
 
 import java.util.ArrayList;
@@ -9,20 +16,30 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import eu.davidea.flexibleadapter.FlexibleAdapter;
+import eu.davidea.flexibleadapter.items.AbstractExpandableHeaderItem;
+import eu.davidea.flexibleadapter.utils.DrawableUtils;
+import eu.davidea.viewholders.ExpandableViewHolder;
+
 /**
  * Created by Lukas on 22.08.2015.
  * Represents a Group of Scripts
  */
-public class ScriptGroup implements Comparable<ScriptGroup>, ScriptItem, Iterable<Script> {
+public class ScriptGroup extends AbstractExpandableHeaderItem<ScriptGroup.ViewHolder, Script> implements Comparable<ScriptGroup>, ScriptItem<ScriptGroup.ViewHolder>, Iterable<Script> {
 
     private String name;
-    private final boolean allowDelete;
-    private final List<Script> items;
+    private boolean allowDelete;
+
+    private ScriptGroup(){
+        setSelectable(true);
+        setEnabled(true);
+        if(!hasSubItems())setSubItems(new ArrayList<Script>());
+    }
 
     public ScriptGroup(String name, boolean allowDelete) {
+        this();
         this.name = name;
         this.allowDelete = allowDelete;
-        items = new ArrayList<>();
     }
 
     @Override
@@ -43,7 +60,6 @@ public class ScriptGroup implements Comparable<ScriptGroup>, ScriptItem, Iterabl
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
 
         ScriptGroup listItems = (ScriptGroup) o;
 
@@ -65,29 +81,65 @@ public class ScriptGroup implements Comparable<ScriptGroup>, ScriptItem, Iterabl
     }
 
     public int size() {
-        return items.size();
+        return getSubItemsCount();
     }
 
     public Script get(int index) {
-        return items.get(index);
+        return getSubItem(index);
     }
 
     public void add(Script s) {
-        items.add(s);
-        Collections.sort(items);
+        s.setHeader(this);
+        addSubItem(s);
+        Collections.sort(getSubItems());
     }
 
     public boolean remove(Script s) {
-        return items.remove(s);
+        return removeSubItem(s);
     }
 
     @Override
     public Iterator<Script> iterator() {
-        return items.iterator();
+        return getSubItems().iterator();
     }
 
     @Override
     public String toString() {
-        return new ToStringBuilder(getName()).append("items", items).build();
+        return new ToStringBuilder(getName()).append("items", getSubItems()).build();
+    }
+
+    @Override
+    public int getLayoutRes() {
+        return android.R.layout.simple_expandable_list_item_1;
+    }
+
+    @Override
+    public ViewHolder createViewHolder(FlexibleAdapter adapter, LayoutInflater inflater, ViewGroup parent) {
+        return new ViewHolder(inflater.inflate(getLayoutRes(), parent, false), adapter);
+    }
+
+    @Override
+    public void bindViewHolder(FlexibleAdapter adapter, ViewHolder holder, int position, List payloads) {
+        holder.getTextView().setText(getName());
+        Context context = holder.getTextView().getContext();
+        TypedArray a = context.obtainStyledAttributes(new int[]{R.attr.colorControlHighlight});
+        int rippleColor = a.getColor(0, context.getResources().getColor(R.color.primary));
+        int normalColor = context.getResources().getColor(android.R.color.transparent);
+        int pressedColor = context.getResources().getColor(R.color.accent);
+        a.recycle();
+        DrawableUtils.setBackground(holder.getTextView(), DrawableUtils.getSelectableBackgroundCompat(rippleColor, normalColor, pressedColor));
+    }
+
+    public static class ViewHolder extends ExpandableViewHolder {
+        private final TextView textView;
+
+        public ViewHolder(View view, FlexibleAdapter adapter) {
+            super(view, adapter);
+            textView = (TextView) view.findViewById(android.R.id.text1);
+        }
+
+        public TextView getTextView() {
+            return textView;
+        }
     }
 }

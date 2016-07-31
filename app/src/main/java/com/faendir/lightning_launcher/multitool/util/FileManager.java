@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
@@ -24,6 +26,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import eu.davidea.flexibleadapter.items.AbstractExpandableItem;
+
 /**
  * Created by Lukas on 04.08.2015.
  * Manages I/O
@@ -37,7 +41,10 @@ public class FileManager<T> {
     FileManager(Context context, String filename, Class<T[]> clazz) {
         File directory = context.getFilesDir();
         file = new File(directory, filename);
-        gson = new GsonBuilder().registerTypeAdapter(Intent.class, new IntentTypeAdapter()).create();
+        gson = new GsonBuilder()
+                .registerTypeAdapter(Intent.class, new IntentTypeAdapter())
+                .addSerializationExclusionStrategy(new ExcludeRecursiveHeaderStrategy())
+                .create();
         this.clazz = clazz;
     }
 
@@ -127,6 +134,18 @@ public class FileManager<T> {
             }
             in.endObject();
             return intent;
+        }
+    }
+
+    private static class ExcludeRecursiveHeaderStrategy implements ExclusionStrategy{
+        @Override
+        public boolean shouldSkipField(FieldAttributes f) {
+            return AbstractExpandableItem.class.equals(f.getDeclaringClass());
+        }
+
+        @Override
+        public boolean shouldSkipClass(Class<?> clazz) {
+            return AbstractExpandableItem.class.equals(clazz);
         }
     }
 }
