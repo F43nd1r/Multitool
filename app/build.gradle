@@ -29,7 +29,7 @@ android {
 
 dependencies {
     def supportVersion = "24.1.1"
-    compile 'com.faendir.lightninglauncher:scriptlib:2.1-RC3'
+    compile 'com.faendir.lightninglauncher:scriptlib:2.1-RC4'
     compile "com.android.support:appcompat-v7:$supportVersion"
     compile "com.android.support:design:$supportVersion"
     compile "com.android.support:support-annotations:$supportVersion"

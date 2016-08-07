@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import eu.davidea.flexibleadapter.items.AbstractExpandableItem;
+import eu.davidea.flexibleadapter.items.AbstractSectionableItem;
 
 /**
  * Created by Lukas on 04.08.2015.
@@ -140,12 +140,12 @@ public class FileManager<T> {
     private static class ExcludeRecursiveHeaderStrategy implements ExclusionStrategy{
         @Override
         public boolean shouldSkipField(FieldAttributes f) {
-            return AbstractExpandableItem.class.equals(f.getDeclaringClass());
+            return AbstractSectionableItem.class.equals(f.getDeclaringClass()) && "header".equals(f.getName());
         }
 
         @Override
         public boolean shouldSkipClass(Class<?> clazz) {
-            return AbstractExpandableItem.class.equals(clazz);
+            return false;
         }
     }
 }

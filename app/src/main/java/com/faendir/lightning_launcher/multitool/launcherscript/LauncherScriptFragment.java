@@ -127,12 +127,14 @@ public class LauncherScriptFragment extends Fragment {
                                 Script.FLAG_APP_MENU + Script.FLAG_ITEM_MENU)), new ResultCallback<Integer>() {
                             @Override
                             public void onResult(Integer result) {
-                                getActivity().runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        changeText(getString(R.string.button_repositoryImporter_importOk));
-                                    }
-                                });
+                                if(isAdded()) {
+                                    getActivity().runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            changeText(getString(R.string.button_repositoryImporter_importOk));
+                                        }
+                                    });
+                                }
                             }
                         })
                         .start();

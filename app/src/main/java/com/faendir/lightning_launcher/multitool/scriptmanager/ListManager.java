@@ -68,7 +68,7 @@ class ListManager implements ActionMode.Callback {
                         updateActionMode();
                     }
                 })
-                .expandItemsAtStartUp()
+//                .expandItemsAtStartUp()
                 .setAutoScrollOnExpand(true)
                 .setAutoCollapseOnExpand(false)
                 .setAnimationOnScrolling(true)

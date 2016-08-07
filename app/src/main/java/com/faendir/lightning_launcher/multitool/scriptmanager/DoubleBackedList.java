@@ -22,22 +22,21 @@ public class DoubleBackedList implements List<ScriptGroup> {
     private final List<ScriptGroup> list;
     private final FlexibleAdapter<ScriptItem> adapter;
 
-    public DoubleBackedList(List<ScriptGroup> list, final FlexibleAdapter<ScriptItem> adapter) {
+    public DoubleBackedList(final List<ScriptGroup> list, final FlexibleAdapter<ScriptItem> adapter) {
         this.list = list;
         //noinspection unchecked
         this.adapter = adapter;
         adapter.initializeListeners(new FlexibleAdapter.OnItemMoveListener() {
-            ScriptItem t;
+            private ScriptItem t;
 
             @Override
             public void onActionStateChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
             }
 
             @Override
-            public boolean shouldMoveItem(int i, int i1) {
-                t = adapter.getItem(i);
-                Log.d("pos", i + " " + i1);
-                return !adapter.getExpandableOf(i).equals(adapter.getExpandableOf(i1));
+            public boolean shouldMoveItem(int from, int to) {
+                t = adapter.getItem(from);
+                return !adapter.getExpandableOf(from).equals(adapter.getExpandableOf(from > to ? to - 1 : to));
             }
 
             @Override
@@ -45,8 +44,10 @@ public class DoubleBackedList implements List<ScriptGroup> {
                 Log.d("move", fromPosition + " " + toPosition);
                 if (t instanceof Script) {
                     Script move = (Script) t;
-                    ScriptGroup fromGroup = (ScriptGroup) adapter.getExpandableOf(fromPosition);
-                    ScriptGroup toGroup = (ScriptGroup) adapter.getExpandableOf(toPosition);
+                    ScriptGroup fromGroup = move.getHeader();
+                    int index = list.indexOf(fromGroup) + (fromPosition < toPosition ? 1 : -1);
+                    if (index < 0 || index >= list.size()) return;
+                    ScriptGroup toGroup = list.get(index);
                     fromGroup.remove(move);
                     toGroup.add(move);
                 }
@@ -59,6 +60,7 @@ public class DoubleBackedList implements List<ScriptGroup> {
             for (Script s : g) {
                 s.setHeader(g);
             }
+            g.setExpanded(false);
         }
     }
 
@@ -67,6 +69,7 @@ public class DoubleBackedList implements List<ScriptGroup> {
             for (Script s : g) {
                 s.setHeader(g);
             }
+            g.setExpanded(false);
         }
     }
 
