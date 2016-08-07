@@ -28,7 +28,6 @@ import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
 import com.faendir.lightning_launcher.scriptlib.ResultCallback;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
-import com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterException;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
@@ -61,11 +60,12 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    scriptManager.bind();
-                } catch (RepositoryImporterException e) {
-                    e.printStackTrace();
-                    stopAutoLoad = true;
+                switch (scriptManager.bind()) {
+                    case OK:
+                        break;
+                    default:
+                        stopAutoLoad = true;
+                        break;
                 }
             }
         }).start();
@@ -276,7 +276,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     }
 
     private void loadFromLauncher() {
-        scriptManager.getAsyncExecutorService().add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data",null), new ResultCallback<String>() {
+        scriptManager.getAsyncExecutorService().add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", null), new ResultCallback<String>() {
             @Override
             public void onResult(String result) {
                 handleScriptResult(result);
