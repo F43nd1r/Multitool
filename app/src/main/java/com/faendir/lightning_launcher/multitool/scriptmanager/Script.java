@@ -2,16 +2,19 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 
 import android.support.annotation.NonNull;
 
+import com.faendir.omniadapter.Leaf;
+
 /**
  * Created by Lukas on 22.08.2015.
  * Represents a script
  */
-public class Script implements Comparable<Script>, ScriptItem{
+public class Script extends Leaf implements Comparable<Script>, ScriptItem {
     private int id;
     private String name;
     private String code;
     private int flags;
 
+    @Override
     public int getId() {
         return id;
     }

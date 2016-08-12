@@ -1,22 +1,32 @@
 package com.faendir.lightning_launcher.multitool.scriptmanager;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.os.Handler;
-import android.os.Parcelable;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.support.v7.view.ActionMode;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ExpandableListView;
-import android.widget.ListView;
+import android.widget.TextView;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.util.ToStringBuilder;
+import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
+import com.faendir.lightning_launcher.multitool.util.ToStringBuilder;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
+import com.faendir.omniadapter.Action;
+import com.faendir.omniadapter.BaseOmniController;
+import com.faendir.omniadapter.DeepObservableList;
+import com.faendir.omniadapter.OmniAdapter;
+import com.faendir.omniadapter.OmniBuilder;
+import com.faendir.omniadapter.SelectionListener;
+
+import org.acra.ACRA;
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -27,75 +37,42 @@ import java.util.List;
  *
  * @author F43nd1r
  */
-class ListManager {
+class ListManager extends BaseOmniController<ScriptItem> implements ActionMode.Callback, SelectionListener<ScriptItem> {
 
     @NonNull
     private final ScriptManager scriptManager;
     private final Context context;
-    private final ExpandableListView listView;
-    private ScriptListAdapter adapter;
-    private List<ScriptGroup> items;
-    private Parcelable listViewState;
+    private final RecyclerView listView;
+    private OmniAdapter<ScriptItem> adapter;
+    private DeepObservableList<ScriptGroup> items;
 
-    public ListManager(@NonNull ScriptManager scriptManager, @NonNull Context context, final ClickListener listener) {
+    public ListManager(@NonNull ScriptManager scriptManager, @NonNull Context context) {
         this.scriptManager = scriptManager;
         this.context = context;
-        listView = new ExpandableListView(context);
-        listView.setDrawSelectorOnTop(true);
-        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                if (ExpandableListView.getPackedPositionType(id) == ExpandableListView.PACKED_POSITION_TYPE_CHILD) {
-                    return listener.onChildLongClick(id);
-                } else {
-                    return listener.onGroupLongClick(id);
-                }
-            }
-        });
-        listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                return listener.onChildClick(id);
-            }
-        });
-        listView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                return listener.onGroupClick(id);
-            }
-        });
+        listView = new RecyclerView(context);
+        listView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        items = new DeepObservableList<>();
+        adapter = new OmniBuilder<>(context, items, this)
+                .setClick(new Action.Click(Action.SELECT)
+                        .setDefaultCompositeAction(Action.EXPAND))
+                .setLongClick(new Action.LongClick(Action.DRAG)
+                        .setDefaultCompositeAction(Action.SELECT))
+                .setExpandUntilLevelOnStartup(1)
+                .addSelectionListener(this)
+                .build();
+        listView.setAdapter(adapter);
     }
 
-    public void toggleItem(long packedPos) {
-        selectItem(packedPos, !isSelected(packedPos));
-    }
-
-    private void selectItem(long packedPos, boolean select) {
-        adapter.select(packedPos, select);
-        adapter.notifyDataSetChanged();
-    }
-
-    public boolean hasSelection() {
-        return adapter.getSelectedPackedPosition().size() > 0;
-    }
-
-    public boolean isSelected(long packedPos) {
-        return adapter.isSelected(packedPos);
-    }
-
-    public void deselectChildren(long packedGroupPos) {
-        int groupPosition = listView.getFlatListPosition(packedGroupPos);
-        if (listView.isGroupExpanded(groupPosition)) {
-            for (int i = adapter.getChildrenCount(groupPosition) - 1; i >= 0; i--) {
-                selectItem(ExpandableListView.getPackedPositionForChild(groupPosition, i), false);
-            }
-        }
+    private void fireUpdateActionMode() {
+        EventBus.getDefault().post(new UpdateActionModeRequest(this, !adapter.getSelection().isEmpty()));
     }
 
     public void deselectAll() {
-        adapter.deselectAll();
-        adapter.notifyDataSetChanged();
+        adapter.clearSelection();
+    }
+
+    public void changed(ScriptItem s){
+        adapter.notifyItemUpdated(s);
     }
 
     public void delete(final List<ScriptItem> delete) {
@@ -125,23 +102,6 @@ class ListManager {
         }).start();
     }
 
-    public void move(List<ScriptItem> selectedItems, ScriptGroup moveTo) {
-        for (ScriptItem item : selectedItems) {
-            if (item instanceof Script) {
-                loop:
-                for (ScriptGroup group : items) {
-                    for (Script script : group) {
-                        if (script.equals(item)) {
-                            moveTo.add(script);
-                            group.remove(script);
-                            break loop;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     private boolean prepareGroupForDelete(ScriptGroup delete) {
         if (!delete.allowsDelete()) return false;
         ScriptGroup def = null;
@@ -159,8 +119,7 @@ class ListManager {
 
     public void updateFrom(@NonNull List<Script> scripts) {
         ArrayList<Script> existing = new ArrayList<>();
-        if (items == null) {
-            items = new ArrayList<>();
+        if (items.isEmpty()) {
             ScriptGroup def = new ScriptGroup(context.getString(R.string.text_defaultScriptGroup), false);
             items.add(def);
             for (Script s : scripts) {
@@ -175,6 +134,7 @@ class ListManager {
                 else existing.add(s);
             }
             if (!i.allowsDelete()) def = i;
+            i.getState().setExpanded(true);
         }
         assert def != null;
         for (Script s : scripts) {
@@ -182,8 +142,6 @@ class ListManager {
                 def.add(s);
             }
         }
-        adapter = new ScriptListAdapter(context, items, listView);
-        listView.setAdapter(adapter);
     }
 
     private boolean checkIfStillExisting(List<Script> scripts, Script item) {
@@ -196,30 +154,18 @@ class ListManager {
         return true;
     }
 
-    public void restoreFrom(@Nullable Bundle savedInstanceState) {
-        if (savedInstanceState != null && savedInstanceState.containsKey(context.getString(R.string.key_listView))) {
-            listView.onRestoreInstanceState(savedInstanceState.getParcelable(context.getString(R.string.key_listView)));
-        }
-    }
-
-    public void saveTo(@NonNull Bundle bundle) {
-        bundle.putParcelable(context.getString(R.string.key_listView), listView.onSaveInstanceState());
-    }
-
     public void restoreFrom(FileManager<ScriptGroup> fileManager) {
-        items = fileManager.read();
+        List<ScriptGroup> i = fileManager.read();
+        if (i != null) {
+            items.clear();
+            items.addAll(i);
+        }
+        adapter.notifyDataSetChanged();
+        fireUpdateActionMode();
     }
 
     public void saveTo(FileManager<ScriptGroup> fileManager) {
         if (items != null) fileManager.write(items);
-    }
-
-    public void restore() {
-        if (listViewState != null) listView.onRestoreInstanceState(listViewState);
-    }
-
-    public void save() {
-        listViewState = listView.onSaveInstanceState();
     }
 
     public void setAsContentOf(final ViewGroup group) {
@@ -253,6 +199,78 @@ class ListManager {
         return false;
     }
 
+    @Override
+    public View createView(ViewGroup parent, int level) {
+        return LayoutInflater.from(context).inflate(level == 0 ? R.layout.list_group : R.layout.list_item_script, parent, false);
+    }
+
+    @Override
+    public void bindView(View view, ScriptItem item, int level) {
+        ((TextView) view).setText(item.getName());
+    }
+
+    @Override
+    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+        mode.getMenuInflater().inflate(R.menu.menu_context_scriptmanager, menu);
+        onPrepareActionMode(mode, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+        int selectionMode = getSelectionMode();
+        if (selectionMode == ListManager.NONE) mode.finish();
+        menu.findItem(R.id.action_rename).setVisible(selectionMode == ListManager.ONE_GROUP || selectionMode == ListManager.ONE_SCRIPT);
+        menu.findItem(R.id.action_delete).setVisible(true);
+        menu.findItem(R.id.action_edit).setVisible(selectionMode == ListManager.ONE_SCRIPT);
+        menu.findItem(R.id.action_backup).setVisible(selectionMode == ListManager.ONLY_SCRIPTS || selectionMode == ListManager.ONE_SCRIPT);
+        menu.findItem(R.id.action_format).setVisible(selectionMode == ListManager.ONLY_SCRIPTS || selectionMode == ListManager.ONE_SCRIPT);
+        return true;
+    }
+
+    @Override
+    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+        List<ScriptItem> selectedItems = getSelectedItems();
+        if (selectedItems.isEmpty()) {
+            ACRA.getErrorReporter().putCustomData("listManager", toString());
+            ACRA.getErrorReporter().handleSilentException(new IllegalStateException("No selected items"));
+            return false;
+        }
+        switch (item.getItemId()) {
+            case R.id.action_rename:
+                ScriptUtils.renameDialog(scriptManager, context, this, selectedItems.get(0));
+                break;
+            case R.id.action_delete:
+                ScriptUtils.deleteDialog(context, this, selectedItems);
+                break;
+            case R.id.action_edit:
+                ScriptUtils.editScript(context, this, (Script) selectedItems.get(0));
+                break;
+            case R.id.action_backup:
+                ScriptUtils.backup(context, this, selectedItems);
+                break;
+            case R.id.action_format:
+                ScriptUtils.format(scriptManager, context, this, selectedItems);
+                break;
+        }
+        return true;
+    }
+
+    @Override
+    public void onDestroyActionMode(ActionMode mode) {
+        deselectAll();
+    }
+
+    @Override
+    public void onSelectionChanged(List<ScriptItem> selected) {
+        fireUpdateActionMode();
+    }
+
+    @Override
+    public void onSelectionCleared() {
+        fireUpdateActionMode();
+    }
+
     @IntDef({NONE, ONE_SCRIPT, ONE_GROUP, ONLY_GROUPS, ONLY_SCRIPTS, BOTH})
     @interface SelectionMode {
     }
@@ -266,52 +284,24 @@ class ListManager {
 
     @SelectionMode
     public int getSelectionMode() {
-        int selectionMode = NONE;
-        List<Long> checked = adapter.getSelectedPackedPosition();
-        if (checked.size() == 1) {
-            int type = ExpandableListView.getPackedPositionType(checked.get(0));
-            selectionMode = type == ExpandableListView.PACKED_POSITION_TYPE_GROUP ? ONE_GROUP : ONE_SCRIPT;
-        } else {
-            for (long position : checked) {
-                int type = ExpandableListView.getPackedPositionType(position);
-                boolean isGroup = type == ExpandableListView.PACKED_POSITION_TYPE_GROUP;
-                if (selectionMode == NONE) {
-                    selectionMode = isGroup ? ONLY_GROUPS : ONLY_SCRIPTS;
-                } else if ((selectionMode == ONLY_GROUPS && !isGroup) || (selectionMode == ONLY_SCRIPTS && isGroup)) {
-                    selectionMode = BOTH;
-                    break;
-                }
-            }
-        }
-        return selectionMode;
+        //noinspection unchecked
+        List<ScriptGroup> selectedScriptGroups = (List<ScriptGroup>) adapter.getSelectionByLevel(0);
+        //noinspection unchecked
+        List<Script> selectedScripts = (List<Script>) adapter.getSelectionByLevel(1);
+        boolean noScripts = selectedScripts.isEmpty();
+        return selectedScriptGroups.isEmpty() ? noScripts ? NONE
+                : selectedScripts.size() == 1 ? ONE_SCRIPT : ONLY_SCRIPTS
+                : selectedScriptGroups.size() == 1 ? noScripts ? ONE_GROUP : BOTH
+                : noScripts ? ONLY_GROUPS : BOTH;
     }
 
     public List<ScriptItem> getSelectedItems() {
-        List<Long> selection = adapter.getSelectedPackedPosition();
-        List<ScriptItem> selectedItems = new ArrayList<>();
-        for (Long l : selection) {
-            int type = ExpandableListView.getPackedPositionType(l);
-            if (type == ExpandableListView.PACKED_POSITION_TYPE_GROUP) {
-                selectedItems.add(items.get(ExpandableListView.getPackedPositionGroup(l)));
-            } else {
-                selectedItems.add(items.get(ExpandableListView.getPackedPositionGroup(l)).get(ExpandableListView.getPackedPositionChild(l)));
-            }
-        }
-        return selectedItems;
-    }
-
-    public interface ClickListener {
-        boolean onChildClick(long packedPos);
-
-        boolean onChildLongClick(long packedPos);
-
-        boolean onGroupClick(long packedPos);
-
-        boolean onGroupLongClick(long packedPos);
+        //noinspection unchecked
+        return (List<ScriptItem>) adapter.getSelection();
     }
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("adapter", adapter).append("listViewState", listViewState).build();
+        return new ToStringBuilder(this).append("adapter", adapter).build();
     }
 }

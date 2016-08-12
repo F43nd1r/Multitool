@@ -134,6 +134,7 @@ final class ScriptUtils {
                 }
             }).start();
         }
+        listManager.changed(item);
         listManager.deselectAll();
     }
 
@@ -208,29 +209,6 @@ final class ScriptUtils {
         intent.setClassName("net.pierrox.lightning_launcher_extreme", "net.pierrox.lightning_launcher.activities.ScriptEditor");
         intent.putExtra("i", script.getId());
         context.startActivity(intent);
-        listManager.deselectAll();
-    }
-
-    public static void moveDialog(Context context, final ListManager listManager, final List<ScriptItem> selectedItems) {
-        ArrayList<String> names = new ArrayList<>();
-        for (ScriptGroup group : listManager.getItems()) {
-            names.add(group.getName());
-        }
-        new AlertDialog.Builder(context)
-                .setTitle(R.string.title_selectGroup)
-                .setSingleChoiceItems(names.toArray(new String[names.size()]), -1, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        move(listManager, selectedItems, listManager.getItems().get(which));
-                        dialog.dismiss();
-                    }
-                })
-                .setNegativeButton(R.string.button_cancel, null)
-                .show();
-    }
-
-    private static void move(final ListManager listManager, List<ScriptItem> selectedItems, ScriptGroup moveTo) {
-        listManager.move(selectedItems, moveTo);
         listManager.deselectAll();
     }
 

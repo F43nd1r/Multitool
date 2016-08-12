@@ -10,7 +10,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
-import android.support.v7.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,7 +21,6 @@ import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
-import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
 import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
@@ -31,7 +29,6 @@ import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
-import org.acra.ACRA;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
@@ -43,7 +40,7 @@ import java.util.List;
  * Created by Lukas on 22.08.2015.
  * Main activity of ScriptManager
  */
-public class ScriptManagerFragment extends Fragment implements ActionMode.Callback, ListManager.ClickListener {
+public class ScriptManagerFragment extends Fragment {
 
     private SharedPreferences sharedPref;
     private FileManager<ScriptGroup> fileManager;
@@ -57,6 +54,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         scriptManager = new ScriptManager(getActivity());
+        scriptManager.enableDebug();
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -71,16 +69,9 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
         }).start();
         sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         fileManager = FileManagerFactory.createScriptFileManager(getActivity());
-        listManager = new ListManager(scriptManager, getActivity(), this);
-        listManager.restoreFrom(savedInstanceState);
+        listManager = new ListManager(scriptManager, getActivity());
         setHasOptionsMenu(true);
         enableMenu = false;
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        listManager.saveTo(outState);
     }
 
     @Nullable
@@ -110,14 +101,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     @Override
     public void onPause() {
         listManager.saveTo(fileManager);
-        listManager.save();
         super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        listManager.restore();
     }
 
     @Override
@@ -186,97 +170,8 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
         }
     }
 
-    @Override
-    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-        mode.getMenuInflater().inflate(R.menu.menu_context_scriptmanager, menu);
-        onPrepareActionMode(mode, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-        int selectionMode = listManager.getSelectionMode();
-        if (selectionMode == ListManager.NONE) mode.finish();
-        menu.findItem(R.id.action_rename).setVisible(selectionMode == ListManager.ONE_GROUP || selectionMode == ListManager.ONE_SCRIPT);
-        menu.findItem(R.id.action_delete).setVisible(true);
-        menu.findItem(R.id.action_move_to_group).setVisible(selectionMode == ListManager.ONLY_SCRIPTS || selectionMode == ListManager.ONE_SCRIPT);
-        menu.findItem(R.id.action_edit).setVisible(selectionMode == ListManager.ONE_SCRIPT);
-        menu.findItem(R.id.action_backup).setVisible(selectionMode == ListManager.ONLY_SCRIPTS || selectionMode == ListManager.ONE_SCRIPT);
-        menu.findItem(R.id.action_format).setVisible(selectionMode == ListManager.ONLY_SCRIPTS || selectionMode == ListManager.ONE_SCRIPT);
-        return true;
-    }
-
-    @Override
-    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-        List<ScriptItem> selectedItems = listManager.getSelectedItems();
-        if (selectedItems.isEmpty()) {
-            ACRA.getErrorReporter().putCustomData("listManager", listManager.toString());
-            ACRA.getErrorReporter().putCustomData("enableMenu", String.valueOf(enableMenu));
-            ACRA.getErrorReporter().handleSilentException(new IllegalStateException("No selected items"));
-            return false;
-        }
-        switch (item.getItemId()) {
-            case R.id.action_rename:
-                ScriptUtils.renameDialog(scriptManager, getActivity(), listManager, selectedItems.get(0));
-                break;
-            case R.id.action_delete:
-                ScriptUtils.deleteDialog(getActivity(), listManager, selectedItems);
-                break;
-            case R.id.action_move_to_group:
-                ScriptUtils.moveDialog(getActivity(), listManager, selectedItems);
-                break;
-            case R.id.action_edit:
-                ScriptUtils.editScript(getActivity(), listManager, (Script) selectedItems.get(0));
-                break;
-            case R.id.action_backup:
-                ScriptUtils.backup(getActivity(), listManager, selectedItems);
-                break;
-            case R.id.action_format:
-                ScriptUtils.format(scriptManager, getActivity(), listManager, selectedItems);
-                break;
-        }
-        return true;
-    }
-
-    @Override
-    public void onDestroyActionMode(ActionMode mode) {
-        listManager.deselectAll();
-    }
-
-    @Override
-    public boolean onChildClick(long packedPos) {
-        listManager.toggleItem(packedPos);
-        EventBus.getDefault().post(new UpdateActionModeRequest(this, listManager.hasSelection()));
-        return true;
-    }
-
-    @Override
-    public boolean onChildLongClick(long packedPos) {
-        return onChildClick(packedPos);
-    }
-
-    @Override
-    public boolean onGroupClick(long packedPos) {
-        boolean handled = false;
-        if (listManager.isSelected(packedPos)) {
-            listManager.toggleItem(packedPos);
-            handled = true;
-        } else {
-            listManager.deselectChildren(packedPos);
-        }
-        EventBus.getDefault().post(new UpdateActionModeRequest(this, listManager.hasSelection()));
-        return handled;
-    }
-
-    @Override
-    public boolean onGroupLongClick(long packedPos) {
-        listManager.toggleItem(packedPos);
-        EventBus.getDefault().post(new UpdateActionModeRequest(this, listManager.hasSelection()));
-        return true;
-    }
-
     private void loadFromLauncher() {
-        scriptManager.getAsyncExecutorService().add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", null), new ResultCallback<String>() {
+        scriptManager.getAsyncExecutorService().setKeepAliveAfterwards(true).add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", null), new ResultCallback<String>() {
             @Override
             public void onResult(String result) {
                 handleScriptResult(result);

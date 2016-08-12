@@ -3,26 +3,26 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 import android.support.annotation.NonNull;
 
 import com.faendir.lightning_launcher.multitool.util.ToStringBuilder;
+import com.faendir.omniadapter.Composite;
+import com.faendir.omniadapter.DeepObservableList;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * Created by Lukas on 22.08.2015.
  * Represents a Group of Scripts
  */
-public class ScriptGroup implements Comparable<ScriptGroup>, ScriptItem, Iterable<Script> {
+public class ScriptGroup extends Composite<Script> implements Comparable<ScriptGroup>, ScriptItem, Iterable<Script>, DeepObservableList.Listener {
 
     private String name;
     private final boolean allowDelete;
-    private final List<Script> items;
+    private boolean sorted;
 
     public ScriptGroup(String name, boolean allowDelete) {
         this.name = name;
         this.allowDelete = allowDelete;
-        items = new ArrayList<>();
+        this.addListener(this);
+        sorted = false;
     }
 
     @Override
@@ -64,30 +64,20 @@ public class ScriptGroup implements Comparable<ScriptGroup>, ScriptItem, Iterabl
         return getName().toLowerCase().compareTo(another.getName().toLowerCase());
     }
 
-    public int size() {
-        return items.size();
-    }
-
-    public Script get(int index) {
-        return items.get(index);
-    }
-
-    public void add(Script s) {
-        items.add(s);
-        Collections.sort(items);
-    }
-
-    public boolean remove(Script s) {
-        return items.remove(s);
-    }
-
-    @Override
-    public Iterator<Script> iterator() {
-        return items.iterator();
-    }
-
     @Override
     public String toString() {
-        return new ToStringBuilder(getName()).append("items", items).build();
+        return new ToStringBuilder(getName()).append("items", toArray()).build();
+    }
+
+    @Override
+    public void onListChanged() {
+        if (!sorted) {
+            beginBatchedUpdates();
+            Collections.sort(this);
+            endBatchedUpdates();
+            sorted = true;
+        } else {
+            sorted = false;
+        }
     }
 }

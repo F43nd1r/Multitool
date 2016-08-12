@@ -19,13 +19,15 @@
 
 -keep class com.faendir.lightning_launcher.multitool.scripting.** {*;}
 -keep class com.faendir.lightning_launcher.multitool.scriptmanager.** {*;}
+-keep class com.faendir.lightning_launcher.multitool.gesture.** {*;}
+-keep class com.faendir.lightning_launcher.multitool.MusicManager {*;}
+-keep class com.faendir.lightning_launcher.scriptlib.** {*;}
 -keep public class org.acra.** {*;}
 -keep public interface org.acra.** {*;}
 -keep class sun.misc.Unsafe { *; }
--keep class com.faendir.lightning_launcher.scriptlib.** {*;}
 -keep class android.support.design.widget.** { *; }
 -keep interface android.support.design.widget.** { *; }
 -keepclassmembers class ** {
-     @org.greenrobot.eventbus.Subscribe <methods>;
- }
- -keep enum org.greenrobot.eventbus.ThreadMode { *; }
+    @org.greenrobot.eventbus.Subscribe <methods>;
+}
+-keep enum org.greenrobot.eventbus.ThreadMode { *; }

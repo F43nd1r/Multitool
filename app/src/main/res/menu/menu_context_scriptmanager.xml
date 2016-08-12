@@ -7,11 +7,6 @@
         android:title="@string/menu_edit"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/action_move_to_group"
-        android:icon="@drawable/ic_move_up_down_white"
-        android:title="@string/menu_move"
-        app:showAsAction="ifRoom"/>
-    <item
         android:id="@+id/action_rename"
         android:icon="@drawable/ic_edit_white"
         android:title="@string/menu_rename"

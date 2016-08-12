@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.internal.bind.ScriptGroupTypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
@@ -37,7 +38,10 @@ public class FileManager<T> {
     FileManager(Context context, String filename, Class<T[]> clazz) {
         File directory = context.getFilesDir();
         file = new File(directory, filename);
-        gson = new GsonBuilder().registerTypeAdapter(Intent.class, new IntentTypeAdapter()).create();
+        gson = new GsonBuilder()
+                .registerTypeAdapter(Intent.class, new IntentTypeAdapter())
+                .registerTypeAdapterFactory(ScriptGroupTypeAdapter.FACTORY)
+                .create();
         this.clazz = clazz;
     }
 
@@ -129,4 +133,5 @@ public class FileManager<T> {
             return intent;
         }
     }
+
 }
