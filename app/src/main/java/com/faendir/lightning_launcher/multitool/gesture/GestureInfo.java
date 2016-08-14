@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.ParcelUuid;
 import android.os.Parcelable;
+import android.support.annotation.Nullable;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.ImageText;
@@ -29,9 +30,8 @@ public class GestureInfo implements Parcelable, ImageText {
     private String label;
     private transient BitmapDrawable drawable;
     private final ParcelUuid uuid;
-    private boolean valid;
 
-    public GestureInfo(Intent intent, String label) {
+    GestureInfo(Intent intent, String label) {
         this(intent, label, null);
     }
 
@@ -43,11 +43,10 @@ public class GestureInfo implements Parcelable, ImageText {
         } else {
             this.uuid = uuid;
         }
-        this.valid = true;
     }
 
-    public Gesture getGesture(Context context) {
-        checkValid();
+    @Nullable
+    Gesture getGesture(Context context) {
         if (gesture == null) {
             List<Gesture> gestures = SingletonGestureLibrary.getGlobal(context).getGestures(uuid.toString());
             if (gestures != null && gestures.size() > 0) {
@@ -57,8 +56,7 @@ public class GestureInfo implements Parcelable, ImageText {
         return gesture;
     }
 
-    public void setGesture(Context context, Gesture gesture) {
-        checkValid();
+    void setGesture(Context context, Gesture gesture) {
         this.gesture = gesture;
         GestureLibrary library = SingletonGestureLibrary.getGlobal(context);
         String uuid = this.uuid.toString();
@@ -70,50 +68,42 @@ public class GestureInfo implements Parcelable, ImageText {
         }
     }
 
-    public void removeGesture(Context context) {
-        checkValid();
+    void removeGesture(Context context) {
         GestureLibrary library = SingletonGestureLibrary.getGlobal(context);
         library.removeGesture(uuid.toString(), getGesture(context));
-        valid = false;
     }
 
     public Intent getIntent() {
-        checkValid();
         return intent;
     }
 
     public void setIntent(Intent intent) {
-        checkValid();
         this.intent = intent;
     }
 
     public String getText() {
-        checkValid();
         return label;
     }
 
     public void setLabel(String label) {
-        checkValid();
         this.label = label;
     }
 
-    private void checkValid() {
-        //if (!valid) throw new IllegalStateException("Cannot access gesture after it has been removed");
-    }
-
-    public boolean hasUuid(UUID uuid) {
-        checkValid();
+    boolean hasUuid(UUID uuid) {
         return this.uuid.getUuid().equals(uuid);
     }
 
     @Override
     public Drawable getImage(Context context) {
-        checkValid();
         if (drawable == null) {
             int iconSize = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getLauncherLargeIconSize();
+            //noinspection deprecation
             int color = context.getResources().getColor(R.color.accent);
-            Bitmap bitmap = getGesture(context).toBitmap(iconSize, iconSize, iconSize / 20, color);
-            drawable = new BitmapDrawable(context.getResources(), bitmap);
+            Gesture gesture = getGesture(context);
+            if(gesture != null) {
+                Bitmap bitmap = gesture.toBitmap(iconSize, iconSize, iconSize / 20, color);
+                drawable = new BitmapDrawable(context.getResources(), bitmap);
+            }
         }
         return drawable;
     }
@@ -125,12 +115,10 @@ public class GestureInfo implements Parcelable, ImageText {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        checkValid();
         dest.writeParcelable(intent, flags);
         dest.writeParcelable(gesture, flags);
         dest.writeString(label);
         dest.writeParcelable(uuid, flags);
-        dest.writeByte((byte) (valid ? 1 : 0));
     }
 
     public static final Creator<GestureInfo> CREATOR = new Creator<GestureInfo>() {
@@ -141,11 +129,9 @@ public class GestureInfo implements Parcelable, ImageText {
             Gesture gesture = source.readParcelable(loader);
             String label = source.readString();
             ParcelUuid uuid = source.readParcelable(loader);
-            boolean valid = source.readByte() != 0;
             GestureInfo info = new GestureInfo(intent, label, uuid);
             //set directly as we don't have a context and we know it is already in the database
             info.gesture = gesture;
-            info.valid = valid;
             return info;
         }
 

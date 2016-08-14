@@ -1,12 +1,13 @@
 package com.google.gson.internal.bind;
 
-import com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.internal.$Gson$Types;
+import com.google.gson.internal.ConstructorConstructor;
 import com.google.gson.internal.Excluder;
+import com.google.gson.internal.ObjectConstructor;
 import com.google.gson.internal.Primitives;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -25,32 +27,27 @@ import java.util.Map;
  *
  * @author F43nd1r
  */
-public class ScriptGroupTypeAdapter extends TypeAdapter<ScriptGroup> {
-    public static TypeAdapterFactory FACTORY = new TypeAdapterFactory() {
-        @Override
-        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (type.getRawType() == ScriptGroup.class) {
-                //noinspection unchecked
-                return (TypeAdapter<T>) new ScriptGroupTypeAdapter(gson, (TypeToken<ScriptGroup>) type);
-            }
-            return null;
-        }
-    };
-    private final TypeAdapter<ScriptGroup> arrayDelegate;
+public class CollectionReflectiveTypeAdapter<T extends Collection> extends TypeAdapter<T> {
+    private static final String ELEMENTS_NAME = "com#faendir#collectionReflectiveTypeAdapter#items";
+    private final TypeAdapter<T> arrayDelegate;
     private final Gson gson;
+    private final TypeToken<T> type;
+    private final ObjectConstructor<T> constructor;
     private final Map<String, ReflectiveTypeAdapterFactory.BoundField> boundFields;
 
-    private ScriptGroupTypeAdapter(Gson gson, TypeToken<ScriptGroup> type) {
+    private CollectionReflectiveTypeAdapter(Gson gson, TypeToken<T> type, TypeAdapter<T> delegate, ObjectConstructor<T> constructor) {
         this.gson = gson;
-        arrayDelegate = gson.getDelegateAdapter(FACTORY, type);
+        this.type = type;
+        this.constructor = constructor;
+        arrayDelegate = delegate;
         boundFields = getBoundFields();
     }
 
     @Override
-    public void write(JsonWriter out, ScriptGroup value) throws IOException {
+    public void write(JsonWriter out, T value) throws IOException {
         out.beginObject();
         try {
-            out.name("items");
+            out.name(ELEMENTS_NAME);
             arrayDelegate.write(out, value);
             for (ReflectiveTypeAdapterFactory.BoundField boundField : boundFields.values()) {
                 if (boundField.writeField(value)) {
@@ -65,19 +62,20 @@ public class ScriptGroupTypeAdapter extends TypeAdapter<ScriptGroup> {
     }
 
     @Override
-    public ScriptGroup read(JsonReader in) throws IOException {
+    public T read(JsonReader in) throws IOException {
         if (in.peek() == JsonToken.NULL) {
             in.nextNull();
             return null;
         }
 
-        ScriptGroup instance= new ScriptGroup(null, false);
+        T instance = constructor.construct();
 
         try {
             in.beginObject();
             while (in.hasNext()) {
                 String name = in.nextName();
-                if ("items".equals(name)) {
+                if (ELEMENTS_NAME.equals(name)) {
+                    //noinspection unchecked
                     instance.addAll(arrayDelegate.read(in));
                     continue;
                 }
@@ -98,8 +96,8 @@ public class ScriptGroupTypeAdapter extends TypeAdapter<ScriptGroup> {
     }
 
     private Map<String, ReflectiveTypeAdapterFactory.BoundField> getBoundFields() {
-        Class<?> raw = ScriptGroup.class;
-        TypeToken<?> type = TypeToken.get(raw);
+        TypeToken<?> type = this.type;
+        Class<?> raw = type.getRawType();
         Map<String, ReflectiveTypeAdapterFactory.BoundField> result = new LinkedHashMap<>();
 
         Type declaredType = type.getType();
@@ -161,5 +159,34 @@ public class ScriptGroupTypeAdapter extends TypeAdapter<ScriptGroup> {
                 return fieldValue != value; // avoid recursion for example for Throwable.cause
             }
         };
+    }
+
+    public static class Factory<T extends Collection> implements TypeAdapterFactory {
+
+        private final Class<? super T> clazz;
+
+        public Factory() {
+            this(Collection.class);
+        }
+
+        public Factory(Class<? super T> clazz) {
+            this.clazz = clazz;
+        }
+
+        @Override
+        public <P> TypeAdapter<P> create(Gson gson, TypeToken<P> type) {
+            if (clazz.isAssignableFrom(type.getRawType())) {
+                try {
+                    Field field = Gson.class.getField("constructorConstructor");
+                    field.setAccessible(true);
+                    ConstructorConstructor constructorConstructor = (ConstructorConstructor) field.get(gson);
+                    //noinspection unchecked
+                    return (TypeAdapter<P>) new CollectionReflectiveTypeAdapter(gson, type, gson.getDelegateAdapter(this, type), constructorConstructor.get(type));
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
     }
 }
