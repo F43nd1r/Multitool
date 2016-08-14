@@ -64,7 +64,7 @@ class ScriptListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return items.get(groupPosition).size();
+        return items.get(groupPosition).getChildren().size();
     }
 
     @Override
@@ -74,7 +74,7 @@ class ScriptListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return items.get(groupPosition).get(childPosition);
+        return items.get(groupPosition).getChildren().get(childPosition);
     }
 
     @Override
@@ -128,7 +128,7 @@ class ScriptListAdapter extends BaseExpandableListAdapter {
         if (groupPosition < getGroupCount() && childPosition < getChildrenCount(groupPosition)) {
             TextView text = (TextView) v.findViewById(android.R.id.text1);
             if (text != null) {
-                text.setText(items.get(groupPosition).get(childPosition).getName());
+                text.setText(items.get(groupPosition).getChildren().get(childPosition).getName());
             }
         }
         if (checked.contains(ExpandableListView.getPackedPositionForChild(groupPosition, childPosition))) {

@@ -19,11 +19,10 @@ import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.ToStringBuilder;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.omniadapter.Action;
-import com.faendir.omniadapter.BaseOmniController;
+import com.faendir.omniadapter.ChangeInformation;
 import com.faendir.omniadapter.DeepObservableList;
 import com.faendir.omniadapter.OmniAdapter;
 import com.faendir.omniadapter.OmniBuilder;
-import com.faendir.omniadapter.SelectionListener;
 
 import org.acra.ACRA;
 import org.greenrobot.eventbus.EventBus;
@@ -37,7 +36,7 @@ import java.util.List;
  *
  * @author F43nd1r
  */
-class ListManager extends BaseOmniController<ScriptItem> implements ActionMode.Callback, SelectionListener<ScriptItem> {
+class ListManager extends OmniAdapter.BaseController<ScriptItem> implements ActionMode.Callback, OmniAdapter.SelectionListener<ScriptItem>, OmniAdapter.UndoListener<ScriptItem> {
 
     @NonNull
     private final ScriptManager scriptManager;
@@ -59,8 +58,9 @@ class ListManager extends BaseOmniController<ScriptItem> implements ActionMode.C
                         .setDefaultCompositeAction(Action.SELECT))
                 .setExpandUntilLevelOnStartup(1)
                 .addSelectionListener(this)
-                .build();
-        listView.setAdapter(adapter);
+                .enableUndoForAction(Action.REMOVE, R.string.text_itemRemoved)
+                .addUndoListener(this)
+                .attach(listView);
     }
 
     private void fireUpdateActionMode() {
@@ -90,8 +90,7 @@ class ListManager extends BaseOmniController<ScriptItem> implements ActionMode.C
                         } else {
                             for (Script script : group) {
                                 if (script.equals(item)) {
-                                    ScriptUtils.deleteScript(scriptManager, ListManager.this, script);
-                                    group.remove(script);
+                                    group.getChildren().remove(script);
                                     break loop;
                                 }
                             }
@@ -112,7 +111,7 @@ class ListManager extends BaseOmniController<ScriptItem> implements ActionMode.C
         }
         assert def != null;
         for (Script item : delete) {
-            def.add(item);
+            def.getChildren().add(item);
         }
         return true;
     }
@@ -123,7 +122,7 @@ class ListManager extends BaseOmniController<ScriptItem> implements ActionMode.C
             ScriptGroup def = new ScriptGroup(context.getString(R.string.text_defaultScriptGroup), false);
             items.add(def);
             for (Script s : scripts) {
-                def.add(s);
+                def.getChildren().add(s);
             }
         }
         ScriptGroup def = null;
@@ -139,7 +138,7 @@ class ListManager extends BaseOmniController<ScriptItem> implements ActionMode.C
         assert def != null;
         for (Script s : scripts) {
             if (!existing.contains(s)) {
-                def.add(s);
+                def.getChildren().add(s);
             }
         }
     }
@@ -160,7 +159,7 @@ class ListManager extends BaseOmniController<ScriptItem> implements ActionMode.C
             items.clear();
             items.addAll(i);
         }
-        adapter.notifyDataSetChanged();
+        adapter.notifyDataSetUpdated();
         fireUpdateActionMode();
     }
 
@@ -181,7 +180,7 @@ class ListManager extends BaseOmniController<ScriptItem> implements ActionMode.C
 
     public void createGroup(String name) {
         items.add(new ScriptGroup(name, true));
-        adapter.notifyDataSetChanged();
+        adapter.notifyDataSetUpdated();
     }
 
     public List<ScriptGroup> getItems() {
@@ -241,7 +240,8 @@ class ListManager extends BaseOmniController<ScriptItem> implements ActionMode.C
                 ScriptUtils.renameDialog(scriptManager, context, this, selectedItems.get(0));
                 break;
             case R.id.action_delete:
-                ScriptUtils.deleteDialog(context, this, selectedItems);
+                delete(selectedItems);
+                deselectAll();
                 break;
             case R.id.action_edit:
                 ScriptUtils.editScript(context, this, (Script) selectedItems.get(0));
@@ -269,6 +269,19 @@ class ListManager extends BaseOmniController<ScriptItem> implements ActionMode.C
     @Override
     public void onSelectionCleared() {
         fireUpdateActionMode();
+    }
+
+    @Override
+    public void onActionPersisted(List<ChangeInformation<ScriptItem>> changes) {
+        for (ChangeInformation<ScriptItem> change: changes){
+            if(change.getType() == ChangeInformation.Type.REMOVE && change.getComponent() instanceof Script) {
+                ScriptUtils.deleteScript(scriptManager, ListManager.this, (Script) change.getComponent());
+            }
+        }
+    }
+
+    @Override
+    public void onActionReverted(List<ChangeInformation<ScriptItem>> changes) {
     }
 
     @IntDef({NONE, ONE_SCRIPT, ONE_GROUP, ONLY_GROUPS, ONLY_SCRIPTS, BOTH})

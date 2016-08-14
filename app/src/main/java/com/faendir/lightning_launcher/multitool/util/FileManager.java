@@ -6,18 +6,14 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonSyntaxException;
 import com.google.gson.TypeAdapter;
-import com.google.gson.internal.bind.CollectionReflectiveTypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -41,7 +37,6 @@ public class FileManager<T> {
         file = new File(directory, filename);
         gson = new GsonBuilder()
                 .registerTypeAdapter(Intent.class, new IntentTypeAdapter())
-                .registerTypeAdapterFactory(new CollectionReflectiveTypeAdapter.Factory<>(ScriptGroup.class))
                 .create();
         this.clazz = clazz;
     }
@@ -68,7 +63,7 @@ public class FileManager<T> {
             T[] array = gson.fromJson(new FileReader(file), clazz);
             if (array == null) return null;
             return new ArrayList<>(Arrays.asList(array));
-        } catch (FileNotFoundException | JsonSyntaxException e) {
+        } catch (Throwable e) {
             return null;
         }
     }

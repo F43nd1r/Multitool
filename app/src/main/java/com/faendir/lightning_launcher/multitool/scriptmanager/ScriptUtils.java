@@ -212,24 +212,6 @@ final class ScriptUtils {
         listManager.deselectAll();
     }
 
-    public static void deleteDialog(final Context context, final ListManager listManager, final List<ScriptItem> selectedItems) {
-        new AlertDialog.Builder(context)
-                .setTitle(R.string.title_delete)
-                .setMessage(context.getString(R.string.message_deletePart1) + selectedItems.size() + context.getString(R.string.message_deletePart2))
-                .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        deleteItems(listManager, selectedItems);
-                    }
-                }).setNegativeButton(R.string.button_cancel, null)
-                .show();
-    }
-
-    private static void deleteItems(final ListManager listManager, List<ScriptItem> selectedItems) {
-        listManager.delete(selectedItems);
-        listManager.deselectAll();
-    }
-
     public static void deleteScript(final ScriptManager scriptManager, final ListManager listManager, Script delete) {
         final Transfer transfer = new Transfer(Transfer.DELETE);
         transfer.script = delete;

@@ -137,4 +137,5 @@
     <string name="title_apps">Apps</string>
     <string name="title_shortcuts">Shortcuts</string>
     <string name="toast_cantLoadAction">Failed to load action info</string>
+    <string name="text_itemRemoved">Item removed</string>
 </resources>

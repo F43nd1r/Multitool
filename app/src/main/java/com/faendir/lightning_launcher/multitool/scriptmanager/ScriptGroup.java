@@ -3,25 +3,28 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 import android.support.annotation.NonNull;
 
 import com.faendir.lightning_launcher.multitool.util.ToStringBuilder;
+import com.faendir.omniadapter.ChangeInformation;
 import com.faendir.omniadapter.Composite;
 import com.faendir.omniadapter.DeepObservableList;
 
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by Lukas on 22.08.2015.
  * Represents a Group of Scripts
  */
-public class ScriptGroup extends Composite<Script> implements Comparable<ScriptGroup>, ScriptItem, Iterable<Script>, DeepObservableList.Listener {
+public class ScriptGroup extends Composite<Script> implements Comparable<ScriptGroup>, ScriptItem, Iterable<Script>, DeepObservableList.Listener<ScriptItem> {
 
     private String name;
     private final boolean allowDelete;
-    private boolean sorted;
+    private transient boolean sorted;
 
     public ScriptGroup(String name, boolean allowDelete) {
         this.name = name;
         this.allowDelete = allowDelete;
-        this.addListener(this);
+        getChildren().addListener(this);
         sorted = false;
     }
 
@@ -66,18 +69,23 @@ public class ScriptGroup extends Composite<Script> implements Comparable<ScriptG
 
     @Override
     public String toString() {
-        return new ToStringBuilder(getName()).append("items", toArray()).build();
+        return new ToStringBuilder(getName()).append("items", getChildren().toArray()).build();
     }
 
     @Override
-    public void onListChanged() {
+    public void onListChanged(List<ChangeInformation<ScriptItem>> changeInfo) {
         if (!sorted) {
-            beginBatchedUpdates();
-            Collections.sort(this);
-            endBatchedUpdates();
             sorted = true;
+            getChildren().beginBatchedUpdates();
+            Collections.sort(getChildren());
+            getChildren().endBatchedUpdates();
         } else {
             sorted = false;
         }
+    }
+
+    @Override
+    public Iterator<Script> iterator() {
+        return getChildren().iterator();
     }
 }
