@@ -56,6 +56,7 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
                         .setDefaultCompositeAction(Action.EXPAND))
                 .setLongClick(new Action.LongClick(Action.DRAG)
                         .setDefaultCompositeAction(Action.SELECT))
+                .setSwipeToRight(new Action.Swipe(Action.REMOVE))
                 .setExpandUntilLevelOnStartup(1)
                 .addSelectionListener(this)
                 .enableUndoForAction(Action.REMOVE, R.string.text_itemRemoved)
