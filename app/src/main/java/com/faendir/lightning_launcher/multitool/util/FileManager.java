@@ -6,9 +6,12 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
@@ -37,6 +40,7 @@ public class FileManager<T> {
         file = new File(directory, filename);
         gson = new GsonBuilder()
                 .registerTypeAdapter(Intent.class, new IntentTypeAdapter())
+                .registerTypeAdapterFactory(ScriptGroupTypeAdapter.FACTORY)
                 .create();
         this.clazz = clazz;
     }
@@ -127,6 +131,36 @@ public class FileManager<T> {
             }
             in.endObject();
             return intent;
+        }
+    }
+
+    private static class ScriptGroupTypeAdapter extends TypeAdapter<ScriptGroup>{
+        public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() {
+            @Override
+            public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+                if(type.getRawType() == ScriptGroup.class){
+                    //noinspection unchecked
+                    return (TypeAdapter<T>) new ScriptGroupTypeAdapter((TypeAdapter<ScriptGroup>) gson.getDelegateAdapter(this, type));
+                }
+                return null;
+            }
+        };
+        private final TypeAdapter<ScriptGroup> delegate;
+
+        private ScriptGroupTypeAdapter(TypeAdapter<ScriptGroup> delegate){
+            this.delegate = delegate;
+        }
+
+        @Override
+        public void write(JsonWriter out, ScriptGroup value) throws IOException {
+            delegate.write(out, value);
+        }
+
+        @Override
+        public ScriptGroup read(JsonReader in) throws IOException {
+            ScriptGroup value = delegate.read(in);
+            value.getChildren().addListener(value);
+            return value;
         }
     }
 

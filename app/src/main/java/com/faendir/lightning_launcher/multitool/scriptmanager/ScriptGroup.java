@@ -18,14 +18,14 @@ import java.util.List;
 public class ScriptGroup extends Composite<Script> implements Comparable<ScriptGroup>, ScriptItem, Iterable<Script>, DeepObservableList.Listener<ScriptItem> {
 
     private String name;
-    private final boolean allowDelete;
-    private transient boolean sorted;
+    private boolean allowDelete;
+    private transient boolean sorting;
 
     public ScriptGroup(String name, boolean allowDelete) {
+        getChildren().addListener(this);
+        sorting = false;
         this.name = name;
         this.allowDelete = allowDelete;
-        getChildren().addListener(this);
-        sorted = false;
     }
 
     @Override
@@ -74,13 +74,12 @@ public class ScriptGroup extends Composite<Script> implements Comparable<ScriptG
 
     @Override
     public void onListChanged(List<ChangeInformation<ScriptItem>> changeInfo) {
-        if (!sorted) {
-            sorted = true;
+        if (!sorting) {
+            sorting = true;
             getChildren().beginBatchedUpdates();
             Collections.sort(getChildren());
             getChildren().endBatchedUpdates();
-        } else {
-            sorted = false;
+            sorting = false;
         }
     }
 
