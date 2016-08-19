@@ -74,25 +74,24 @@ public class FileManager<T> {
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public void write(@NonNull List<T> items) {
+        BufferedWriter writer = null;
         try {
-            BufferedWriter writer = null;
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            writer = new BufferedWriter(new FileWriter(file));
+            gson.toJson(items.toArray(), clazz, writer);
+            writer.flush();
+        } catch (Exception e) {
+            throw new FatalFileException(e);
+        } finally {
             try {
-                if (!file.exists()) {
-                    file.createNewFile();
-                }
-                writer = new BufferedWriter(new FileWriter(file));
-                gson.toJson(items.toArray(), clazz, writer);
-                writer.flush();
-            } catch (Exception e) {
-                throw new FatalFileException(e);
-            } finally {
                 if (writer != null) {
                     writer.close();
                 }
-
+            } catch (IOException ignored) {
             }
-        } catch (IOException e) {
-            throw new FatalFileException(e);
+
         }
     }
 
@@ -134,11 +133,11 @@ public class FileManager<T> {
         }
     }
 
-    private static class ScriptGroupTypeAdapter extends TypeAdapter<ScriptGroup>{
-        public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() {
+    private static class ScriptGroupTypeAdapter extends TypeAdapter<ScriptGroup> {
+        static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() {
             @Override
             public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-                if(type.getRawType() == ScriptGroup.class){
+                if (type.getRawType() == ScriptGroup.class) {
                     //noinspection unchecked
                     return (TypeAdapter<T>) new ScriptGroupTypeAdapter((TypeAdapter<ScriptGroup>) gson.getDelegateAdapter(this, type));
                 }
@@ -147,7 +146,7 @@ public class FileManager<T> {
         };
         private final TypeAdapter<ScriptGroup> delegate;
 
-        private ScriptGroupTypeAdapter(TypeAdapter<ScriptGroup> delegate){
+        private ScriptGroupTypeAdapter(TypeAdapter<ScriptGroup> delegate) {
             this.delegate = delegate;
         }
 
@@ -159,6 +158,7 @@ public class FileManager<T> {
         @Override
         public ScriptGroup read(JsonReader in) throws IOException {
             ScriptGroup value = delegate.read(in);
+            value.getChildren().removeListener(value);
             value.getChildren().addListener(value);
             return value;
         }

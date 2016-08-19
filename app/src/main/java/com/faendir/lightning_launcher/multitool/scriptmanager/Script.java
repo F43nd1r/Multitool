@@ -2,7 +2,8 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 
 import android.support.annotation.NonNull;
 
-import com.faendir.omniadapter.Leaf;
+import com.faendir.omniadapter.model.Leaf;
+
 
 /**
  * Created by Lukas on 22.08.2015.

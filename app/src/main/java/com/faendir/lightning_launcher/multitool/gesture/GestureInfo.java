@@ -45,6 +45,10 @@ public class GestureInfo implements Parcelable, ImageText {
         }
     }
 
+    boolean isInvalid(){
+        return intent == null || uuid == null;
+    }
+
     @Nullable
     Gesture getGesture(Context context) {
         if (gesture == null) {

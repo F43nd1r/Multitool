@@ -19,10 +19,10 @@ import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.ToStringBuilder;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.omniadapter.Action;
-import com.faendir.omniadapter.ChangeInformation;
 import com.faendir.omniadapter.DeepObservableList;
 import com.faendir.omniadapter.OmniAdapter;
 import com.faendir.omniadapter.OmniBuilder;
+import com.faendir.omniadapter.model.ChangeInformation;
 
 import org.acra.ACRA;
 import org.greenrobot.eventbus.EventBus;
@@ -273,16 +273,16 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
     }
 
     @Override
-    public void onActionPersisted(List<ChangeInformation<ScriptItem>> changes) {
+    public void onActionPersisted(List<? extends ChangeInformation<ScriptItem>> changes) {
         for (ChangeInformation<ScriptItem> change: changes){
-            if(change.getType() == ChangeInformation.Type.REMOVE && change.getComponent() instanceof Script) {
+            if(change instanceof ChangeInformation.Remove && change.getComponent() instanceof Script) {
                 ScriptUtils.deleteScript(scriptManager, ListManager.this, (Script) change.getComponent());
             }
         }
     }
 
     @Override
-    public void onActionReverted(List<ChangeInformation<ScriptItem>> changes) {
+    public void onActionReverted(List<? extends ChangeInformation<ScriptItem>> changes) {
     }
 
     @IntDef({NONE, ONE_SCRIPT, ONE_GROUP, ONLY_GROUPS, ONLY_SCRIPTS, BOTH})
@@ -298,10 +298,8 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
 
     @SelectionMode
     public int getSelectionMode() {
-        //noinspection unchecked
-        List<ScriptGroup> selectedScriptGroups = (List<ScriptGroup>) adapter.getSelectionByLevel(0);
-        //noinspection unchecked
-        List<Script> selectedScripts = (List<Script>) adapter.getSelectionByLevel(1);
+        List<ScriptItem> selectedScriptGroups = adapter.getSelectionByLevel(0);
+        List<ScriptItem> selectedScripts = adapter.getSelectionByLevel(1);
         boolean noScripts = selectedScripts.isEmpty();
         return selectedScriptGroups.isEmpty() ? noScripts ? NONE
                 : selectedScripts.size() == 1 ? ONE_SCRIPT : ONLY_SCRIPTS
@@ -310,8 +308,7 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
     }
 
     public List<ScriptItem> getSelectedItems() {
-        //noinspection unchecked
-        return (List<ScriptItem>) adapter.getSelection();
+        return adapter.getSelection();
     }
 
     @Override

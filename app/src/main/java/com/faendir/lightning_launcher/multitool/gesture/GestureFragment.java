@@ -25,6 +25,7 @@ import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
 import com.faendir.lightning_launcher.multitool.util.ListAdapter;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -55,6 +56,11 @@ public class GestureFragment extends Fragment implements ListView.MultiChoiceMod
         listView = new ListView(getActivity());
         List<GestureInfo> gestureInfos = fileManager.read();
         if (gestureInfos == null) gestureInfos = new ArrayList<>();
+        for (Iterator<GestureInfo> iterator = gestureInfos.iterator(); iterator.hasNext(); ) {
+            if (iterator.next().isInvalid()) {
+                iterator.remove();
+            }
+        }
         adapter = new ListAdapter<>(getActivity(), gestureInfos);
         listView.setAdapter(adapter);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);

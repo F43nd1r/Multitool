@@ -3,9 +3,9 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 import android.support.annotation.NonNull;
 
 import com.faendir.lightning_launcher.multitool.util.ToStringBuilder;
-import com.faendir.omniadapter.ChangeInformation;
-import com.faendir.omniadapter.Composite;
 import com.faendir.omniadapter.DeepObservableList;
+import com.faendir.omniadapter.model.ChangeInformation;
+import com.faendir.omniadapter.model.Composite;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -74,13 +74,7 @@ public class ScriptGroup extends Composite<Script> implements Comparable<ScriptG
 
     @Override
     public void onListChanged(List<ChangeInformation<ScriptItem>> changeInfo) {
-        if (!sorting) {
-            sorting = true;
-            getChildren().beginBatchedUpdates();
-            Collections.sort(getChildren());
-            getChildren().endBatchedUpdates();
-            sorting = false;
-        }
+        Collections.sort(getChildren());
     }
 
     @Override
