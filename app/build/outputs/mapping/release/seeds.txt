@@ -9334,6 +9334,7 @@ com.faendir.omniadapter.R$attr: int backgroundStacked
 com.faendir.omniadapter.R$attr: int backgroundTint
 com.faendir.omniadapter.R$attr: int backgroundTintMode
 com.faendir.omniadapter.R$attr: int barLength
+com.faendir.omniadapter.R$attr: int behavior_autoHide
 com.faendir.omniadapter.R$attr: int behavior_hideable
 com.faendir.omniadapter.R$attr: int behavior_overlapTop
 com.faendir.omniadapter.R$attr: int behavior_peekHeight
@@ -9444,6 +9445,8 @@ com.faendir.omniadapter.R$attr: int layout_anchorGravity
 com.faendir.omniadapter.R$attr: int layout_behavior
 com.faendir.omniadapter.R$attr: int layout_collapseMode
 com.faendir.omniadapter.R$attr: int layout_collapseParallaxMultiplier
+com.faendir.omniadapter.R$attr: int layout_dodgeInsetEdges
+com.faendir.omniadapter.R$attr: int layout_insetEdge
 com.faendir.omniadapter.R$attr: int layout_keyline
 com.faendir.omniadapter.R$attr: int layout_scrollFlags
 com.faendir.omniadapter.R$attr: int layout_scrollInterpolator
@@ -9474,6 +9477,11 @@ com.faendir.omniadapter.R$attr: int paddingStart
 com.faendir.omniadapter.R$attr: int panelBackground
 com.faendir.omniadapter.R$attr: int panelMenuListTheme
 com.faendir.omniadapter.R$attr: int panelMenuListWidth
+com.faendir.omniadapter.R$attr: int passwordToggleContentDescription
+com.faendir.omniadapter.R$attr: int passwordToggleDrawable
+com.faendir.omniadapter.R$attr: int passwordToggleEnabled
+com.faendir.omniadapter.R$attr: int passwordToggleTint
+com.faendir.omniadapter.R$attr: int passwordToggleTintMode
 com.faendir.omniadapter.R$attr: int popupMenuStyle
 com.faendir.omniadapter.R$attr: int popupTheme
 com.faendir.omniadapter.R$attr: int popupWindowStyle
@@ -9629,6 +9637,7 @@ com.faendir.omniadapter.R$color: int bright_foreground_material_dark
 com.faendir.omniadapter.R$color: int bright_foreground_material_light
 com.faendir.omniadapter.R$color: int button_material_dark
 com.faendir.omniadapter.R$color: int button_material_light
+com.faendir.omniadapter.R$color: int design_error
 com.faendir.omniadapter.R$color: int design_fab_shadow_end_color
 com.faendir.omniadapter.R$color: int design_fab_shadow_mid_color
 com.faendir.omniadapter.R$color: int design_fab_shadow_start_color
@@ -9639,6 +9648,7 @@ com.faendir.omniadapter.R$color: int design_fab_stroke_top_outer_color
 com.faendir.omniadapter.R$color: int design_snackbar_background_color
 com.faendir.omniadapter.R$color: int design_textinput_error_color_dark
 com.faendir.omniadapter.R$color: int design_textinput_error_color_light
+com.faendir.omniadapter.R$color: int design_tint_password_toggle
 com.faendir.omniadapter.R$color: int dim_foreground_disabled_material_dark
 com.faendir.omniadapter.R$color: int dim_foreground_disabled_material_light
 com.faendir.omniadapter.R$color: int dim_foreground_material_dark
@@ -9686,6 +9696,7 @@ com.faendir.omniadapter.R$dimen: int abc_action_bar_content_inset_with_nav
 com.faendir.omniadapter.R$dimen: int abc_action_bar_default_height_material
 com.faendir.omniadapter.R$dimen: int abc_action_bar_default_padding_end_material
 com.faendir.omniadapter.R$dimen: int abc_action_bar_default_padding_start_material
+com.faendir.omniadapter.R$dimen: int abc_action_bar_elevation_material
 com.faendir.omniadapter.R$dimen: int abc_action_bar_icon_vertical_padding_material
 com.faendir.omniadapter.R$dimen: int abc_action_bar_overflow_padding_end_material
 com.faendir.omniadapter.R$dimen: int abc_action_bar_overflow_padding_start_material
@@ -9753,7 +9764,14 @@ com.faendir.omniadapter.R$dimen: int abc_text_size_subtitle_material_toolbar
 com.faendir.omniadapter.R$dimen: int abc_text_size_title_material
 com.faendir.omniadapter.R$dimen: int abc_text_size_title_material_toolbar
 com.faendir.omniadapter.R$dimen: int design_appbar_elevation
+com.faendir.omniadapter.R$dimen: int design_bottom_navigation_active_item_max_width
+com.faendir.omniadapter.R$dimen: int design_bottom_navigation_active_text_size
+com.faendir.omniadapter.R$dimen: int design_bottom_navigation_height
+com.faendir.omniadapter.R$dimen: int design_bottom_navigation_item_max_width
+com.faendir.omniadapter.R$dimen: int design_bottom_navigation_margin
+com.faendir.omniadapter.R$dimen: int design_bottom_navigation_text_size
 com.faendir.omniadapter.R$dimen: int design_bottom_sheet_modal_elevation
+com.faendir.omniadapter.R$dimen: int design_bottom_sheet_peek_height_min
 com.faendir.omniadapter.R$dimen: int design_fab_border_width
 com.faendir.omniadapter.R$dimen: int design_fab_elevation
 com.faendir.omniadapter.R$dimen: int design_fab_image_size
@@ -9862,13 +9880,19 @@ com.faendir.omniadapter.R$drawable: int abc_switch_track_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_tab_indicator_material
 com.faendir.omniadapter.R$drawable: int abc_tab_indicator_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_text_cursor_material
+com.faendir.omniadapter.R$drawable: int abc_text_select_handle_left_mtrl_alpha
+com.faendir.omniadapter.R$drawable: int abc_text_select_handle_middle_mtrl_alpha
+com.faendir.omniadapter.R$drawable: int abc_text_select_handle_right_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_textfield_activated_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_textfield_default_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_textfield_search_activated_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_textfield_search_default_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_textfield_search_material
+com.faendir.omniadapter.R$drawable: int abc_vector_test
 com.faendir.omniadapter.R$drawable: int design_fab_background
+com.faendir.omniadapter.R$drawable: int design_ic_visibility
 com.faendir.omniadapter.R$drawable: int design_snackbar_background
+com.faendir.omniadapter.R$drawable: int navigation_empty_icon
 com.faendir.omniadapter.R$drawable: int notification_template_icon_bg
 com.faendir.omniadapter.R$id: int action0
 com.faendir.omniadapter.R$id: int action_bar
@@ -9888,6 +9912,7 @@ com.faendir.omniadapter.R$id: int action_mode_close_button
 com.faendir.omniadapter.R$id: int activity_chooser_view_content
 com.faendir.omniadapter.R$id: int add
 com.faendir.omniadapter.R$id: int alertTitle
+com.faendir.omniadapter.R$id: int all
 com.faendir.omniadapter.R$id: int always
 com.faendir.omniadapter.R$id: int auto
 com.faendir.omniadapter.R$id: int beginning
@@ -9989,6 +10014,7 @@ com.faendir.omniadapter.R$id: int tabMode
 com.faendir.omniadapter.R$id: int text
 com.faendir.omniadapter.R$id: int text2
 com.faendir.omniadapter.R$id: int textSpacerNoButtons
+com.faendir.omniadapter.R$id: int text_input_password_toggle
 com.faendir.omniadapter.R$id: int time
 com.faendir.omniadapter.R$id: int title
 com.faendir.omniadapter.R$id: int title_template
@@ -10002,6 +10028,7 @@ com.faendir.omniadapter.R$id: int withText
 com.faendir.omniadapter.R$id: int wrap_content
 com.faendir.omniadapter.R$integer: int abc_config_activityDefaultDur
 com.faendir.omniadapter.R$integer: int abc_config_activityShortDur
+com.faendir.omniadapter.R$integer: int app_bar_elevation_anim_duration
 com.faendir.omniadapter.R$integer: int bottom_sheet_slide_duration
 com.faendir.omniadapter.R$integer: int cancel_button_image_alpha
 com.faendir.omniadapter.R$integer: int design_snackbar_text_max_lines
@@ -10044,6 +10071,7 @@ com.faendir.omniadapter.R$layout: int design_navigation_item_separator
 com.faendir.omniadapter.R$layout: int design_navigation_item_subheader
 com.faendir.omniadapter.R$layout: int design_navigation_menu
 com.faendir.omniadapter.R$layout: int design_navigation_menu_item
+com.faendir.omniadapter.R$layout: int design_text_input_password_icon
 com.faendir.omniadapter.R$layout: int notification_media_action
 com.faendir.omniadapter.R$layout: int notification_media_cancel_action
 com.faendir.omniadapter.R$layout: int notification_template_big_media
@@ -10090,6 +10118,7 @@ com.faendir.omniadapter.R$string: int abc_toolbar_collapse_description
 com.faendir.omniadapter.R$string: int appbar_scrolling_view_behavior
 com.faendir.omniadapter.R$string: int bottom_sheet_behavior
 com.faendir.omniadapter.R$string: int character_counter_pattern
+com.faendir.omniadapter.R$string: int search_menu_title
 com.faendir.omniadapter.R$string: int status_bar_notification_info_overflow
 com.faendir.omniadapter.R$style: int AlertDialog_AppCompat
 com.faendir.omniadapter.R$style: int AlertDialog_AppCompat_Light
@@ -10685,6 +10714,8 @@ com.faendir.omniadapter.R$styleable: int CoordinatorLayout_Layout_android_layout
 com.faendir.omniadapter.R$styleable: int CoordinatorLayout_Layout_layout_anchor
 com.faendir.omniadapter.R$styleable: int CoordinatorLayout_Layout_layout_anchorGravity
 com.faendir.omniadapter.R$styleable: int CoordinatorLayout_Layout_layout_behavior
+com.faendir.omniadapter.R$styleable: int CoordinatorLayout_Layout_layout_dodgeInsetEdges
+com.faendir.omniadapter.R$styleable: int CoordinatorLayout_Layout_layout_insetEdge
 com.faendir.omniadapter.R$styleable: int CoordinatorLayout_Layout_layout_keyline
 com.faendir.omniadapter.R$styleable: int CoordinatorLayout_keylines
 com.faendir.omniadapter.R$styleable: int CoordinatorLayout_statusBarBackground
@@ -10702,6 +10733,8 @@ com.faendir.omniadapter.R$styleable: int DrawerArrowToggle_gapBetweenBars
 com.faendir.omniadapter.R$styleable: int DrawerArrowToggle_spinBars
 com.faendir.omniadapter.R$styleable: int DrawerArrowToggle_thickness
 com.faendir.omniadapter.R$styleable: int[] FloatingActionButton
+com.faendir.omniadapter.R$styleable: int[] FloatingActionButton_Behavior_Layout
+com.faendir.omniadapter.R$styleable: int FloatingActionButton_Behavior_Layout_behavior_autoHide
 com.faendir.omniadapter.R$styleable: int FloatingActionButton_backgroundTint
 com.faendir.omniadapter.R$styleable: int FloatingActionButton_backgroundTintMode
 com.faendir.omniadapter.R$styleable: int FloatingActionButton_borderWidth
@@ -10881,6 +10914,11 @@ com.faendir.omniadapter.R$styleable: int TextInputLayout_errorTextAppearance
 com.faendir.omniadapter.R$styleable: int TextInputLayout_hintAnimationEnabled
 com.faendir.omniadapter.R$styleable: int TextInputLayout_hintEnabled
 com.faendir.omniadapter.R$styleable: int TextInputLayout_hintTextAppearance
+com.faendir.omniadapter.R$styleable: int TextInputLayout_passwordToggleContentDescription
+com.faendir.omniadapter.R$styleable: int TextInputLayout_passwordToggleDrawable
+com.faendir.omniadapter.R$styleable: int TextInputLayout_passwordToggleEnabled
+com.faendir.omniadapter.R$styleable: int TextInputLayout_passwordToggleTint
+com.faendir.omniadapter.R$styleable: int TextInputLayout_passwordToggleTintMode
 com.faendir.omniadapter.R$styleable: int[] Toolbar
 com.faendir.omniadapter.R$styleable: int Toolbar_android_gravity
 com.faendir.omniadapter.R$styleable: int Toolbar_android_minHeight
@@ -10925,6 +10963,7 @@ com.faendir.omniadapter.R$styleable: int View_android_theme
 com.faendir.omniadapter.R$styleable: int View_paddingEnd
 com.faendir.omniadapter.R$styleable: int View_paddingStart
 com.faendir.omniadapter.R$styleable: int View_theme
+com.faendir.omniadapter.model.Composite
 com.faendir.omniadapter.model.Composite: java.util.UUID uuid
 com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.model.Composite$State state
 com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.DeepObservableList children
@@ -10935,6 +10974,7 @@ com.faendir.omniadapter.model.Composite: int getId()
 com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.model.Composite$State getState()
 com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.DeepObservableList getChildren()
 com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.model.Component$State getState()
+com.faendir.omniadapter.model.Leaf
 com.faendir.omniadapter.model.Leaf: java.util.UUID uuid
 com.faendir.omniadapter.model.Leaf: com.faendir.omniadapter.model.Component$State state
 com.faendir.omniadapter.model.Leaf: Leaf()

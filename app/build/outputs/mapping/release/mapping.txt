@@ -18685,8 +18685,8 @@ com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader -> com.faendir.li
     46:47:com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunData(java.lang.String) -> setRunData
     53:57:java.lang.Integer execute(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> execute
     15:15:java.lang.Object execute(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> execute
-com.faendir.omniadapter.Action -> com.faendir.a.a:
-com.faendir.omniadapter.Action$BaseAction -> com.faendir.a.a$a:
+com.faendir.omniadapter.Action -> com.faendir.omniadapter.a:
+com.faendir.omniadapter.Action$BaseAction -> com.faendir.omniadapter.a$a:
     com.faendir.omniadapter.Action$BaseAction$Listener listener -> a
     int defaultAction -> b
     int defaultCompositeAction -> c
@@ -18696,49 +18696,49 @@ com.faendir.omniadapter.Action$BaseAction -> com.faendir.a.a$a:
     75:76:com.faendir.omniadapter.Action$BaseAction setDefaultCompositeAction(int) -> a
     98:113:int resolve(com.faendir.omniadapter.model.Component,int) -> a
     118:118:com.faendir.omniadapter.Action$BaseAction$Listener getListener() -> a
-com.faendir.omniadapter.Action$BaseAction$Listener -> com.faendir.a.a$a$a:
+com.faendir.omniadapter.Action$BaseAction$Listener -> com.faendir.omniadapter.a$a$a:
     boolean allowTrigger(com.faendir.omniadapter.model.Component,int) -> a
     void onTrigger(com.faendir.omniadapter.model.Component,int) -> b
-com.faendir.omniadapter.Action$Click -> com.faendir.a.a$b:
+com.faendir.omniadapter.Action$Click -> com.faendir.omniadapter.a$b:
     132:133:void <init>(int) -> <init>
     136:149:void <init>(int,com.faendir.omniadapter.Action$Click$Listener) -> <init>
     153:153:com.faendir.omniadapter.Action$Click setDefaultCompositeAction(int) -> b
     129:129:com.faendir.omniadapter.Action$BaseAction setDefaultCompositeAction(int) -> a
-com.faendir.omniadapter.Action$Click$1 -> com.faendir.a.b:
+com.faendir.omniadapter.Action$Click$1 -> com.faendir.omniadapter.b:
     com.faendir.omniadapter.Action$Click$Listener val$listener -> a
     136:136:void <init>(com.faendir.omniadapter.Action$Click$Listener) -> <init>
     139:139:boolean allowTrigger(com.faendir.omniadapter.model.Component,int) -> a
     144:147:void onTrigger(com.faendir.omniadapter.model.Component,int) -> b
-com.faendir.omniadapter.Action$Click$Listener -> com.faendir.a.a$b$a:
+com.faendir.omniadapter.Action$Click$Listener -> com.faendir.omniadapter.a$b$a:
     boolean allowClick(com.faendir.omniadapter.model.Component,int) -> a
     void onClick(com.faendir.omniadapter.model.Component,int) -> onClick
-com.faendir.omniadapter.Action$LongClick -> com.faendir.a.a$c:
+com.faendir.omniadapter.Action$LongClick -> com.faendir.omniadapter.a$c:
     186:187:void <init>(int) -> <init>
     190:203:void <init>(int,com.faendir.omniadapter.Action$LongClick$Listener) -> <init>
     207:207:com.faendir.omniadapter.Action$LongClick setDefaultCompositeAction(int) -> b
     183:183:com.faendir.omniadapter.Action$BaseAction setDefaultCompositeAction(int) -> a
-com.faendir.omniadapter.Action$LongClick$1 -> com.faendir.a.c:
+com.faendir.omniadapter.Action$LongClick$1 -> com.faendir.omniadapter.c:
     com.faendir.omniadapter.Action$LongClick$Listener val$listener -> a
     190:190:void <init>(com.faendir.omniadapter.Action$LongClick$Listener) -> <init>
     193:193:boolean allowTrigger(com.faendir.omniadapter.model.Component,int) -> a
     198:201:void onTrigger(com.faendir.omniadapter.model.Component,int) -> b
-com.faendir.omniadapter.Action$LongClick$Listener -> com.faendir.a.a$c$a:
+com.faendir.omniadapter.Action$LongClick$Listener -> com.faendir.omniadapter.a$c$a:
     boolean allowLongClick(com.faendir.omniadapter.model.Component,int) -> a
     void onLongClick(com.faendir.omniadapter.model.Component,int) -> b
-com.faendir.omniadapter.Action$Swipe -> com.faendir.a.a$d:
+com.faendir.omniadapter.Action$Swipe -> com.faendir.omniadapter.a$d:
     240:241:void <init>(int) -> <init>
     244:257:void <init>(int,com.faendir.omniadapter.Action$Swipe$Listener) -> <init>
     261:261:com.faendir.omniadapter.Action$Swipe setDefaultCompositeAction(int) -> b
     237:237:com.faendir.omniadapter.Action$BaseAction setDefaultCompositeAction(int) -> a
-com.faendir.omniadapter.Action$Swipe$1 -> com.faendir.a.d:
+com.faendir.omniadapter.Action$Swipe$1 -> com.faendir.omniadapter.d:
     com.faendir.omniadapter.Action$Swipe$Listener val$listener -> a
     244:244:void <init>(com.faendir.omniadapter.Action$Swipe$Listener) -> <init>
     247:247:boolean allowTrigger(com.faendir.omniadapter.model.Component,int) -> a
     252:255:void onTrigger(com.faendir.omniadapter.model.Component,int) -> b
-com.faendir.omniadapter.Action$Swipe$Listener -> com.faendir.a.a$d$a:
+com.faendir.omniadapter.Action$Swipe$Listener -> com.faendir.omniadapter.a$d$a:
     boolean allowSwipe(com.faendir.omniadapter.model.Component,int) -> a
     void onSwipe(com.faendir.omniadapter.model.Component,int) -> b
-com.faendir.omniadapter.ComponentViewHolder -> com.faendir.a.e:
+com.faendir.omniadapter.ComponentViewHolder -> com.faendir.omniadapter.e:
     android.view.View view -> l
     com.faendir.omniadapter.model.Component component -> m
     com.faendir.omniadapter.ComponentViewHolder$Listener listener -> n
@@ -18754,12 +18754,12 @@ com.faendir.omniadapter.ComponentViewHolder -> com.faendir.a.e:
     76:79:void onExpansionToggled(boolean) -> c
     97:97:android.view.View getView() -> A
     101:101:int getLevel() -> B
-com.faendir.omniadapter.ComponentViewHolder$Listener -> com.faendir.a.e$a:
+com.faendir.omniadapter.ComponentViewHolder$Listener -> com.faendir.omniadapter.e$a:
     void onClick(com.faendir.omniadapter.ComponentViewHolder) -> onClick
     boolean onLongClick(com.faendir.omniadapter.ComponentViewHolder) -> a
     void onExpansionToggled(com.faendir.omniadapter.ComponentViewHolder) -> b
     void onSelectionToggled(com.faendir.omniadapter.ComponentViewHolder) -> c
-com.faendir.omniadapter.DeepObservableList -> com.faendir.a.f:
+com.faendir.omniadapter.DeepObservableList -> com.faendir.omniadapter.f:
     java.util.List delegate -> a
     java.util.List listeners -> b
     com.faendir.omniadapter.DeepObservableList$ChildListener childListener -> c
@@ -18820,18 +18820,18 @@ com.faendir.omniadapter.DeepObservableList -> com.faendir.a.f:
     23:23:java.util.List access$800(com.faendir.omniadapter.DeepObservableList) -> c
     23:23:void access$900(com.faendir.omniadapter.DeepObservableList,com.faendir.omniadapter.model.Component) -> a
     23:23:void access$1000(com.faendir.omniadapter.DeepObservableList,com.faendir.omniadapter.model.Component) -> b
-com.faendir.omniadapter.DeepObservableList$1 -> com.faendir.a.g:
+com.faendir.omniadapter.DeepObservableList$1 -> com.faendir.omniadapter.g:
     com.faendir.omniadapter.DeepObservableList this$0 -> a
     151:151:void <init>(com.faendir.omniadapter.DeepObservableList) -> <init>
     154:156:void run() -> run
-com.faendir.omniadapter.DeepObservableList$ChildListener -> com.faendir.a.f$a:
+com.faendir.omniadapter.DeepObservableList$ChildListener -> com.faendir.omniadapter.f$a:
     com.faendir.omniadapter.DeepObservableList this$0 -> a
     388:388:void <init>(com.faendir.omniadapter.DeepObservableList) -> <init>
     391:393:void onListChanged(java.util.List) -> onListChanged
     388:388:void <init>(com.faendir.omniadapter.DeepObservableList,com.faendir.omniadapter.DeepObservableList$1) -> <init>
-com.faendir.omniadapter.DeepObservableList$ComponentVisitor -> com.faendir.a.f$b:
+com.faendir.omniadapter.DeepObservableList$ComponentVisitor -> com.faendir.omniadapter.f$b:
     void visit(java.lang.Object,int) -> a
-com.faendir.omniadapter.DeepObservableList$IteratorImpl -> com.faendir.a.f$c:
+com.faendir.omniadapter.DeepObservableList$IteratorImpl -> com.faendir.omniadapter.f$c:
     java.util.ListIterator delegate -> b
     com.faendir.omniadapter.model.Component current -> c
     com.faendir.omniadapter.DeepObservableList this$0 -> a
@@ -18852,40 +18852,40 @@ com.faendir.omniadapter.DeepObservableList$IteratorImpl -> com.faendir.a.f$c:
     404:404:java.lang.Object next() -> next
     404:404:void <init>(com.faendir.omniadapter.DeepObservableList,com.faendir.omniadapter.DeepObservableList$1) -> <init>
     404:404:void <init>(com.faendir.omniadapter.DeepObservableList,int,com.faendir.omniadapter.DeepObservableList$1) -> <init>
-com.faendir.omniadapter.DeepObservableList$Listener -> com.faendir.a.f$d:
+com.faendir.omniadapter.DeepObservableList$Listener -> com.faendir.omniadapter.f$d:
     void onListChanged(java.util.List) -> onListChanged
-com.faendir.omniadapter.DeepObservableList$NoFilter -> com.faendir.a.f$e:
+com.faendir.omniadapter.DeepObservableList$NoFilter -> com.faendir.omniadapter.f$e:
     396:396:void <init>() -> <init>
     400:400:boolean accept(com.faendir.omniadapter.model.Component) -> a
     396:396:void <init>(com.faendir.omniadapter.DeepObservableList$1) -> <init>
-com.faendir.omniadapter.DeepObservableList$VisibleFilter -> com.faendir.a.f$f:
+com.faendir.omniadapter.DeepObservableList$VisibleFilter -> com.faendir.omniadapter.f$f:
     boolean accept(com.faendir.omniadapter.model.Component) -> a
-com.faendir.omniadapter.OmniAdapter -> com.faendir.a.h:
+com.faendir.omniadapter.OmniAdapter -> com.faendir.omniadapter.h:
     void clearSelection() -> b
     java.util.List getSelection() -> c
     java.util.List getSelectionByLevel(int) -> c
     void notifyItemUpdated(com.faendir.omniadapter.model.Component) -> a
     void notifyDataSetUpdated() -> a_
-com.faendir.omniadapter.OmniAdapter$BaseController -> com.faendir.a.h$a:
+com.faendir.omniadapter.OmniAdapter$BaseController -> com.faendir.omniadapter.h$a:
     71:71:void <init>() -> <init>
     75:75:boolean isExpandable(com.faendir.omniadapter.model.Component) -> isExpandable
     80:80:boolean shouldMove(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.DeepObservableList,int,com.faendir.omniadapter.DeepObservableList,int) -> shouldMove
     85:85:boolean isSelectable(com.faendir.omniadapter.model.Component) -> isSelectable
     90:90:boolean shouldSwipe(com.faendir.omniadapter.model.Component,int) -> shouldSwipe
-com.faendir.omniadapter.OmniAdapter$Controller -> com.faendir.a.h$b:
+com.faendir.omniadapter.OmniAdapter$Controller -> com.faendir.omniadapter.h$b:
     android.view.View createView(android.view.ViewGroup,int) -> createView
     void bindView(android.view.View,com.faendir.omniadapter.model.Component,int) -> bindView
     boolean isExpandable(com.faendir.omniadapter.model.Component) -> isExpandable
     boolean shouldMove(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.DeepObservableList,int,com.faendir.omniadapter.DeepObservableList,int) -> shouldMove
     boolean isSelectable(com.faendir.omniadapter.model.Component) -> isSelectable
     boolean shouldSwipe(com.faendir.omniadapter.model.Component,int) -> shouldSwipe
-com.faendir.omniadapter.OmniAdapter$SelectionListener -> com.faendir.a.h$c:
+com.faendir.omniadapter.OmniAdapter$SelectionListener -> com.faendir.omniadapter.h$c:
     void onSelectionChanged(java.util.List) -> onSelectionChanged
     void onSelectionCleared() -> onSelectionCleared
-com.faendir.omniadapter.OmniAdapter$UndoListener -> com.faendir.a.h$d:
+com.faendir.omniadapter.OmniAdapter$UndoListener -> com.faendir.omniadapter.h$d:
     void onActionPersisted(java.util.List) -> onActionPersisted
     void onActionReverted(java.util.List) -> onActionReverted
-com.faendir.omniadapter.OmniAdapterImpl -> com.faendir.a.i:
+com.faendir.omniadapter.OmniAdapterImpl -> com.faendir.omniadapter.i:
     com.faendir.omniadapter.DeepObservableList basis -> a
     com.faendir.omniadapter.OmniAdapter$Controller controller -> b
     android.support.v7.widget.helper.ItemTouchHelper touchHelper -> c
@@ -18956,24 +18956,24 @@ com.faendir.omniadapter.OmniAdapterImpl -> com.faendir.a.i:
     37:37:android.support.design.widget.Snackbar access$1602(com.faendir.omniadapter.OmniAdapterImpl,android.support.design.widget.Snackbar) -> a
     37:37:org.apache.commons.lang3.event.EventListenerSupport access$1700(com.faendir.omniadapter.OmniAdapterImpl) -> i
     37:37:android.support.design.widget.Snackbar access$1600(com.faendir.omniadapter.OmniAdapterImpl) -> j
-com.faendir.omniadapter.OmniAdapterImpl$1 -> com.faendir.a.j:
+com.faendir.omniadapter.OmniAdapterImpl$1 -> com.faendir.omniadapter.j:
     com.faendir.omniadapter.OmniAdapterImpl this$0 -> a
     168:168:void <init>(com.faendir.omniadapter.OmniAdapterImpl) -> <init>
     171:172:void onScrollStateChanged(android.support.v7.widget.RecyclerView,int) -> a
-com.faendir.omniadapter.OmniAdapterImpl$2 -> com.faendir.a.k:
+com.faendir.omniadapter.OmniAdapterImpl$2 -> com.faendir.omniadapter.k:
     java.util.List val$list -> a
     com.faendir.omniadapter.OmniAdapterImpl this$0 -> b
     186:186:void <init>(com.faendir.omniadapter.OmniAdapterImpl,java.util.List) -> <init>
     189:192:void visit(com.faendir.omniadapter.model.Component,int) -> a
     186:186:void visit(java.lang.Object,int) -> a
-com.faendir.omniadapter.OmniAdapterImpl$3 -> com.faendir.a.l:
+com.faendir.omniadapter.OmniAdapterImpl$3 -> com.faendir.omniadapter.l:
     int val$l -> a
     java.util.List val$list -> b
     com.faendir.omniadapter.OmniAdapterImpl this$0 -> c
     201:201:void <init>(com.faendir.omniadapter.OmniAdapterImpl,int,java.util.List) -> <init>
     204:207:void visit(com.faendir.omniadapter.model.Component,int) -> a
     201:201:void visit(java.lang.Object,int) -> a
-com.faendir.omniadapter.OmniAdapterImpl$4 -> com.faendir.a.m:
+com.faendir.omniadapter.OmniAdapterImpl$4 -> com.faendir.omniadapter.m:
     com.faendir.omniadapter.Action$BaseAction val$action -> a
     com.faendir.omniadapter.model.Component val$component -> b
     int val$actionId -> c
@@ -18981,15 +18981,15 @@ com.faendir.omniadapter.OmniAdapterImpl$4 -> com.faendir.a.m:
     com.faendir.omniadapter.OmniAdapterImpl this$0 -> e
     226:226:void <init>(com.faendir.omniadapter.OmniAdapterImpl,com.faendir.omniadapter.Action$BaseAction,com.faendir.omniadapter.model.Component,int,com.faendir.omniadapter.ComponentViewHolder) -> <init>
     229:256:void run() -> run
-com.faendir.omniadapter.OmniAdapterImpl$4$1 -> com.faendir.a.n:
+com.faendir.omniadapter.OmniAdapterImpl$4$1 -> com.faendir.omniadapter.n:
     com.faendir.omniadapter.OmniAdapterImpl$4 this$1 -> a
     233:233:void <init>(com.faendir.omniadapter.OmniAdapterImpl$4) -> <init>
     236:254:void run() -> run
-com.faendir.omniadapter.OmniAdapterImpl$5 -> com.faendir.a.o:
+com.faendir.omniadapter.OmniAdapterImpl$5 -> com.faendir.omniadapter.o:
     com.faendir.omniadapter.OmniAdapterImpl this$0 -> a
     264:264:void <init>(com.faendir.omniadapter.OmniAdapterImpl) -> <init>
     267:313:void run() -> run
-com.faendir.omniadapter.OmniAdapterImpl$SnackbarListener -> com.faendir.a.i$a:
+com.faendir.omniadapter.OmniAdapterImpl$SnackbarListener -> com.faendir.omniadapter.i$a:
     java.util.List changes -> b
     boolean reverted -> c
     com.faendir.omniadapter.OmniAdapterImpl this$0 -> a
@@ -18997,7 +18997,7 @@ com.faendir.omniadapter.OmniAdapterImpl$SnackbarListener -> com.faendir.a.i$a:
     535:553:void onClick(android.view.View) -> onClick
     557:564:void onDismissed(android.support.design.widget.Snackbar,int) -> onDismissed
     523:523:void <init>(com.faendir.omniadapter.OmniAdapterImpl,java.util.List,com.faendir.omniadapter.OmniAdapterImpl$1) -> <init>
-com.faendir.omniadapter.OmniAdapterImpl$TouchCallback -> com.faendir.a.i$b:
+com.faendir.omniadapter.OmniAdapterImpl$TouchCallback -> com.faendir.omniadapter.i$b:
     com.faendir.omniadapter.OmniAdapterImpl this$0 -> a
     444:444:void <init>(com.faendir.omniadapter.OmniAdapterImpl) -> <init>
     448:450:int getDragDirs(android.support.v7.widget.RecyclerView,com.faendir.omniadapter.ComponentViewHolder) -> a
@@ -19013,7 +19013,7 @@ com.faendir.omniadapter.OmniAdapterImpl$TouchCallback -> com.faendir.a.i$b:
     444:444:int getDragDirs(android.support.v7.widget.RecyclerView,android.support.v7.widget.RecyclerView$ViewHolder) -> b
     444:444:int getSwipeDirs(android.support.v7.widget.RecyclerView,android.support.v7.widget.RecyclerView$ViewHolder) -> c
     444:444:void <init>(com.faendir.omniadapter.OmniAdapterImpl,com.faendir.omniadapter.OmniAdapterImpl$1) -> <init>
-com.faendir.omniadapter.OmniBuilder -> com.faendir.a.p:
+com.faendir.omniadapter.OmniBuilder -> com.faendir.omniadapter.p:
     android.content.Context context -> a
     com.faendir.omniadapter.DeepObservableList dataSource -> b
     com.faendir.omniadapter.OmniAdapter$Controller controller -> c
@@ -19043,8 +19043,8 @@ com.faendir.omniadapter.OmniBuilder -> com.faendir.a.p:
     146:147:com.faendir.omniadapter.OmniBuilder enableUndoForAction(int,java.lang.String) -> a
     160:161:com.faendir.omniadapter.OmniBuilder addUndoListener(com.faendir.omniadapter.OmniAdapter$UndoListener) -> a
     175:181:com.faendir.omniadapter.OmniAdapter attach(android.support.v7.widget.RecyclerView) -> a
-com.faendir.omniadapter.R -> com.faendir.a.q:
-com.faendir.omniadapter.R$attr -> com.faendir.a.q$a:
+com.faendir.omniadapter.R -> com.faendir.omniadapter.q:
+com.faendir.omniadapter.R$attr -> com.faendir.omniadapter.q$a:
     int actionBarDivider -> actionBarDivider
     int actionBarItemBackground -> actionBarItemBackground
     int actionBarPopupTheme -> actionBarPopupTheme
@@ -19094,6 +19094,7 @@ com.faendir.omniadapter.R$attr -> com.faendir.a.q$a:
     int backgroundTint -> backgroundTint
     int backgroundTintMode -> backgroundTintMode
     int barLength -> barLength
+    int behavior_autoHide -> behavior_autoHide
     int behavior_hideable -> behavior_hideable
     int behavior_overlapTop -> behavior_overlapTop
     int behavior_peekHeight -> behavior_peekHeight
@@ -19204,6 +19205,8 @@ com.faendir.omniadapter.R$attr -> com.faendir.a.q$a:
     int layout_behavior -> layout_behavior
     int layout_collapseMode -> layout_collapseMode
     int layout_collapseParallaxMultiplier -> layout_collapseParallaxMultiplier
+    int layout_dodgeInsetEdges -> layout_dodgeInsetEdges
+    int layout_insetEdge -> layout_insetEdge
     int layout_keyline -> layout_keyline
     int layout_scrollFlags -> layout_scrollFlags
     int layout_scrollInterpolator -> layout_scrollInterpolator
@@ -19234,6 +19237,11 @@ com.faendir.omniadapter.R$attr -> com.faendir.a.q$a:
     int panelBackground -> panelBackground
     int panelMenuListTheme -> panelMenuListTheme
     int panelMenuListWidth -> panelMenuListWidth
+    int passwordToggleContentDescription -> passwordToggleContentDescription
+    int passwordToggleDrawable -> passwordToggleDrawable
+    int passwordToggleEnabled -> passwordToggleEnabled
+    int passwordToggleTint -> passwordToggleTint
+    int passwordToggleTintMode -> passwordToggleTintMode
     int popupMenuStyle -> popupMenuStyle
     int popupTheme -> popupTheme
     int popupWindowStyle -> popupWindowStyle
@@ -19348,7 +19356,7 @@ com.faendir.omniadapter.R$attr -> com.faendir.a.q$a:
     int windowMinWidthMajor -> windowMinWidthMajor
     int windowMinWidthMinor -> windowMinWidthMinor
     int windowNoTitle -> windowNoTitle
-com.faendir.omniadapter.TypedItemTouchHelperCallback -> com.faendir.a.r:
+com.faendir.omniadapter.TypedItemTouchHelperCallback -> com.faendir.omniadapter.r:
     com.faendir.omniadapter.TypedItemTouchHelperCallback$Wrapper wrapper -> a
     20:22:void <init>() -> <init>
     33:33:int getSwipeDirs(android.support.v7.widget.RecyclerView,android.support.v7.widget.RecyclerView$ViewHolder) -> c
@@ -19374,8 +19382,8 @@ com.faendir.omniadapter.TypedItemTouchHelperCallback -> com.faendir.a.r:
     109:109:long getAnimationDuration(android.support.v7.widget.RecyclerView,int,float,float) -> a
     113:113:int interpolateOutOfBoundsScroll(android.support.v7.widget.RecyclerView,int,int,int,long) -> a
     117:117:android.support.v7.widget.helper.ItemTouchHelper$Callback asCallback() -> d
-com.faendir.omniadapter.TypedItemTouchHelperCallback$1 -> com.faendir.a.s:
-com.faendir.omniadapter.TypedItemTouchHelperCallback$Wrapper -> com.faendir.a.r$a:
+com.faendir.omniadapter.TypedItemTouchHelperCallback$1 -> com.faendir.omniadapter.s:
+com.faendir.omniadapter.TypedItemTouchHelperCallback$Wrapper -> com.faendir.omniadapter.r$a:
     com.faendir.omniadapter.TypedItemTouchHelperCallback delegate -> a
     124:126:void <init>(com.faendir.omniadapter.TypedItemTouchHelperCallback) -> <init>
     140:140:int getSwipeDirs(android.support.v7.widget.RecyclerView,android.support.v7.widget.RecyclerView$ViewHolder) -> d
@@ -19441,7 +19449,7 @@ com.faendir.omniadapter.TypedItemTouchHelperCallback$Wrapper -> com.faendir.a.r$
     120:120:void access$2000(com.faendir.omniadapter.TypedItemTouchHelperCallback$Wrapper,android.graphics.Canvas,android.support.v7.widget.RecyclerView,android.support.v7.widget.RecyclerView$ViewHolder,float,float,int,boolean) -> b
     120:120:long access$2100(com.faendir.omniadapter.TypedItemTouchHelperCallback$Wrapper,android.support.v7.widget.RecyclerView,int,float,float) -> a
     120:120:int access$2200(com.faendir.omniadapter.TypedItemTouchHelperCallback$Wrapper,android.support.v7.widget.RecyclerView,int,int,int,long) -> a
-com.faendir.omniadapter.Utils -> com.faendir.a.t:
+com.faendir.omniadapter.Utils -> com.faendir.omniadapter.t:
     39:58:void setDrawable(android.view.View,int,int) -> a
     61:70:void applyInset(android.view.View,int,boolean) -> a
     73:81:int findLevel(com.faendir.omniadapter.DeepObservableList,com.faendir.omniadapter.model.Component) -> a
@@ -19451,17 +19459,17 @@ com.faendir.omniadapter.Utils -> com.faendir.a.t:
     123:123:org.apache.commons.lang3.event.EventListenerSupport createGenericEventListenerSupport(java.lang.Class) -> a
     128:132:org.apache.commons.lang3.event.EventListenerSupport createGenericEventListenerSupport(java.lang.Class,java.util.List) -> a
     137:166:java.util.Collection compileChanges(java.util.List) -> a
-com.faendir.omniadapter.Utils$1 -> com.faendir.a.u:
+com.faendir.omniadapter.Utils$1 -> com.faendir.omniadapter.u:
     int val$expandUntilLevel -> a
     com.faendir.omniadapter.OmniAdapter$Controller val$controller -> b
     99:99:void <init>(int,com.faendir.omniadapter.OmniAdapter$Controller) -> <init>
     102:105:void visit(com.faendir.omniadapter.model.Component,int) -> a
     99:99:void visit(java.lang.Object,int) -> a
-com.faendir.omniadapter.Utils$2 -> com.faendir.a.v:
+com.faendir.omniadapter.Utils$2 -> com.faendir.omniadapter.v:
     111:111:void <init>() -> <init>
     114:115:void visit(com.faendir.omniadapter.model.Component,int) -> a
     111:111:void visit(java.lang.Object,int) -> a
-com.faendir.omniadapter.model.ChangeInformation -> com.faendir.a.a.a:
+com.faendir.omniadapter.model.ChangeInformation -> com.faendir.omniadapter.model.a:
     int counter -> a
     com.faendir.omniadapter.model.Component component -> b
     int creationIndex -> c
@@ -19471,18 +19479,18 @@ com.faendir.omniadapter.model.ChangeInformation -> com.faendir.a.a.a:
     12:12:int compareTo(java.lang.Object) -> compareTo
     12:12:void <init>(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.model.ChangeInformation$1) -> <init>
     13:13:void <clinit>() -> <clinit>
-com.faendir.omniadapter.model.ChangeInformation$1 -> com.faendir.a.a.b:
-com.faendir.omniadapter.model.ChangeInformation$Add -> com.faendir.a.a.a$a:
+com.faendir.omniadapter.model.ChangeInformation$1 -> com.faendir.omniadapter.model.b:
+com.faendir.omniadapter.model.ChangeInformation$Add -> com.faendir.omniadapter.model.a$a:
     com.faendir.omniadapter.DeepObservableList newParent -> a
     73:75:void <init>(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.DeepObservableList) -> <init>
     79:79:com.faendir.omniadapter.DeepObservableList getNewParent() -> b
     67:67:int compareTo(java.lang.Object) -> compareTo
-com.faendir.omniadapter.model.ChangeInformation$IAdd -> com.faendir.a.a.a$b:
+com.faendir.omniadapter.model.ChangeInformation$IAdd -> com.faendir.omniadapter.model.a$b:
     com.faendir.omniadapter.DeepObservableList getNewParent() -> b
-com.faendir.omniadapter.model.ChangeInformation$IRemove -> com.faendir.a.a.a$c:
+com.faendir.omniadapter.model.ChangeInformation$IRemove -> com.faendir.omniadapter.model.a$c:
     com.faendir.omniadapter.DeepObservableList getFormerParent() -> b_
     int getFormerPosition() -> c
-com.faendir.omniadapter.model.ChangeInformation$Move -> com.faendir.a.a.a$d:
+com.faendir.omniadapter.model.ChangeInformation$Move -> com.faendir.omniadapter.model.a$d:
     com.faendir.omniadapter.model.ChangeInformation$IAdd add -> a
     com.faendir.omniadapter.model.ChangeInformation$IRemove remove -> b
     88:91:void <init>(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.DeepObservableList,int,com.faendir.omniadapter.DeepObservableList) -> <init>
@@ -19490,17 +19498,17 @@ com.faendir.omniadapter.model.ChangeInformation$Move -> com.faendir.a.a.a$d:
     100:100:com.faendir.omniadapter.DeepObservableList getFormerParent() -> b_
     105:105:int getFormerPosition() -> c
     83:83:int compareTo(java.lang.Object) -> compareTo
-com.faendir.omniadapter.model.ChangeInformation$Remove -> com.faendir.a.a.a$e:
+com.faendir.omniadapter.model.ChangeInformation$Remove -> com.faendir.omniadapter.model.a$e:
     com.faendir.omniadapter.DeepObservableList formerParent -> a
     int formerPosition -> b
     52:55:void <init>(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.DeepObservableList,int) -> <init>
     59:59:com.faendir.omniadapter.DeepObservableList getFormerParent() -> b_
     63:63:int getFormerPosition() -> c
     46:46:int compareTo(java.lang.Object) -> compareTo
-com.faendir.omniadapter.model.Component -> com.faendir.a.a.c:
+com.faendir.omniadapter.model.Component -> com.faendir.omniadapter.model.c:
     int getId() -> getId
     com.faendir.omniadapter.model.Component$State getState() -> getState
-com.faendir.omniadapter.model.Component$State -> com.faendir.a.a.c$a:
+com.faendir.omniadapter.model.Component$State -> com.faendir.omniadapter.model.c$a:
     boolean selected -> a
     boolean enabled -> b
     com.faendir.omniadapter.model.Component$State$Listener listener -> c
@@ -19511,9 +19519,9 @@ com.faendir.omniadapter.model.Component$State -> com.faendir.a.a.c$a:
     44:44:com.faendir.omniadapter.model.Component$State$Listener getListener() -> b
     48:51:void removeListener(com.faendir.omniadapter.model.Component$State$Listener) -> b
     54:54:boolean isEnabled() -> c
-com.faendir.omniadapter.model.Component$State$Listener -> com.faendir.a.a.c$a$a:
+com.faendir.omniadapter.model.Component$State$Listener -> com.faendir.omniadapter.model.c$a$a:
     void onSelectionToggled(boolean) -> b
-com.faendir.omniadapter.model.Composite -> com.faendir.a.a.d:
+com.faendir.omniadapter.model.Composite -> com.faendir.omniadapter.model.Composite:
     java.util.UUID uuid -> uuid
     com.faendir.omniadapter.model.Composite$State state -> state
     com.faendir.omniadapter.DeepObservableList children -> children
@@ -19524,14 +19532,14 @@ com.faendir.omniadapter.model.Composite -> com.faendir.a.a.d:
     50:50:com.faendir.omniadapter.model.Composite$State getState() -> getState
     54:54:com.faendir.omniadapter.DeepObservableList getChildren() -> getChildren
     15:15:com.faendir.omniadapter.model.Component$State getState() -> getState
-com.faendir.omniadapter.model.Composite$State -> com.faendir.a.a.d$a:
+com.faendir.omniadapter.model.Composite$State -> com.faendir.omniadapter.model.Composite$a:
     boolean expanded -> a
     59:61:void <init>() -> <init>
     64:64:boolean isExpanded() -> d
     68:73:void setExpanded(boolean) -> b
-com.faendir.omniadapter.model.Composite$State$Listener -> com.faendir.a.a.d$a$a:
+com.faendir.omniadapter.model.Composite$State$Listener -> com.faendir.omniadapter.model.Composite$a$a:
     void onExpansionToggled(boolean) -> c
-com.faendir.omniadapter.model.Leaf -> com.faendir.a.a.e:
+com.faendir.omniadapter.model.Leaf -> com.faendir.omniadapter.model.Leaf:
     java.util.UUID uuid -> uuid
     com.faendir.omniadapter.model.Component$State state -> state
     17:20:void <init>() -> <init>
@@ -19539,7 +19547,7 @@ com.faendir.omniadapter.model.Leaf -> com.faendir.a.a.e:
     35:35:int hashCode() -> hashCode
     40:40:int getId() -> getId
     46:46:com.faendir.omniadapter.model.Component$State getState() -> getState
-com.faendir.omniadapter.model.SelectionMode -> com.faendir.a.a.f:
+com.faendir.omniadapter.model.SelectionMode -> com.faendir.omniadapter.model.d:
     com.faendir.omniadapter.model.SelectionMode SINGLE -> a
     com.faendir.omniadapter.model.SelectionMode MULTI -> b
     com.faendir.omniadapter.model.SelectionMode[] $VALUES -> c
