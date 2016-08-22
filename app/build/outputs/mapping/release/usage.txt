@@ -4859,8 +4859,6 @@ com.faendir.omniadapter.Action$UndoableAction
 com.faendir.omniadapter.ActionModeHelper
 com.faendir.omniadapter.ActionModeHelper$1
 com.faendir.omniadapter.BuildConfig
-com.faendir.omniadapter.ComponentViewHolder:
-    83:84:public void onEnabledToggled(boolean)
 com.faendir.omniadapter.DeepObservableList:
     33:33:public static com.faendir.omniadapter.DeepObservableList copyOf(java.util.Collection)
     45:45:public static com.faendir.omniadapter.DeepObservableList wrap(java.util.List)
@@ -4922,10 +4920,6 @@ com.faendir.omniadapter.TypedItemTouchHelperCallback$Wrapper:
     120:120:static synthetic void access$200(com.faendir.omniadapter.TypedItemTouchHelperCallback$Wrapper,int)
 com.faendir.omniadapter.Utils:
     36:36:Utils()
-com.faendir.omniadapter.model.Component$State:
-    58:63:public void setEnabled(boolean)
-com.faendir.omniadapter.model.Component$State$Listener:
-    public abstract void onEnabledToggled(boolean)
 com.google.gson.DefaultDateTypeAdapter:
     54:55:DefaultDateTypeAdapter(int)
 com.google.gson.FieldAttributes:

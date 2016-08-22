@@ -10963,6 +10963,17 @@ com.faendir.omniadapter.R$styleable: int View_android_theme
 com.faendir.omniadapter.R$styleable: int View_paddingEnd
 com.faendir.omniadapter.R$styleable: int View_paddingStart
 com.faendir.omniadapter.R$styleable: int View_theme
+com.faendir.omniadapter.model.Component$State: boolean selected
+com.faendir.omniadapter.model.Component$State: boolean enabled
+com.faendir.omniadapter.model.Component$State: com.faendir.omniadapter.model.Component$State$Listener listener
+com.faendir.omniadapter.model.Component$State: Component$State()
+com.faendir.omniadapter.model.Component$State: boolean isSelected()
+com.faendir.omniadapter.model.Component$State: void setSelected(boolean)
+com.faendir.omniadapter.model.Component$State: void setListener(com.faendir.omniadapter.model.Component$State$Listener)
+com.faendir.omniadapter.model.Component$State: com.faendir.omniadapter.model.Component$State$Listener getListener()
+com.faendir.omniadapter.model.Component$State: void removeListener(com.faendir.omniadapter.model.Component$State$Listener)
+com.faendir.omniadapter.model.Component$State: boolean isEnabled()
+com.faendir.omniadapter.model.Component$State: void setEnabled(boolean)
 com.faendir.omniadapter.model.Composite
 com.faendir.omniadapter.model.Composite: java.util.UUID uuid
 com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.model.Composite$State state
@@ -10974,6 +10985,11 @@ com.faendir.omniadapter.model.Composite: int getId()
 com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.model.Composite$State getState()
 com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.DeepObservableList getChildren()
 com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.model.Component$State getState()
+com.faendir.omniadapter.model.Composite$State
+com.faendir.omniadapter.model.Composite$State: boolean expanded
+com.faendir.omniadapter.model.Composite$State: Composite$State()
+com.faendir.omniadapter.model.Composite$State: boolean isExpanded()
+com.faendir.omniadapter.model.Composite$State: void setExpanded(boolean)
 com.faendir.omniadapter.model.Leaf
 com.faendir.omniadapter.model.Leaf: java.util.UUID uuid
 com.faendir.omniadapter.model.Leaf: com.faendir.omniadapter.model.Component$State state
