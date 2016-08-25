@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion '24'
+    buildToolsVersion '24.0.2'
 
     defaultConfig {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 11
         targetSdkVersion 24
-        versionCode 48
-        versionName "2.8.4"
+        versionCode 49
+        versionName "2.8.5"
     }
     buildTypes {
         release {
@@ -29,8 +29,8 @@ android {
 
 dependencies {
     def supportVersion = "24.2.0"
-    compile ('com.faendir.lightninglauncher:scriptlib:2.2-SNAPSHOT'){
-        changing = true
+    compile ('com.faendir.lightninglauncher:scriptlib:2.2'){
+        changing = false
     }
     compile ('com.faendir:omniadapter:0.3-SNAPSHOT'){
         changing = true

@@ -17746,10 +17746,10 @@ com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment$2
     118:119:void run() -> run
 com.faendir.lightning_launcher.multitool.music.DummyNotificationListener -> com.faendir.lightning_launcher.multitool.music.DummyNotificationListener:
     15:15:void <init>() -> <init>
-    18:19:void onNotificationPosted(android.service.notification.StatusBarNotification) -> onNotificationPosted
-    23:24:void onNotificationPosted(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap) -> onNotificationPosted
-    28:29:void onNotificationRemoved(android.service.notification.StatusBarNotification) -> onNotificationRemoved
-    33:34:void onNotificationRemoved(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap) -> onNotificationRemoved
+    18:18:void onNotificationPosted(android.service.notification.StatusBarNotification) -> onNotificationPosted
+    22:22:void onNotificationPosted(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap) -> onNotificationPosted
+    26:26:void onNotificationRemoved(android.service.notification.StatusBarNotification) -> onNotificationRemoved
+    30:30:void onNotificationRemoved(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap) -> onNotificationRemoved
 com.faendir.lightning_launcher.multitool.music.MusicFragment -> com.faendir.lightning_launcher.multitool.music.a:
     android.widget.ImageView albumArt -> a
     android.widget.TextView title -> b
@@ -18553,20 +18553,20 @@ com.faendir.lightning_launcher.scriptlib.ScriptManager -> com.faendir.lightning_
     32:35:void <init>(android.content.Context) -> <init>
     40:43:com.faendir.lightning_launcher.scriptlib.BindResult bind() -> bind
     47:49:void unbind() -> unbind
-    61:61:int loadScript(com.trianguloy.llscript.repository.aidl.Script) -> loadScript
-    73:74:int loadScript(com.trianguloy.llscript.repository.aidl.Script,boolean) -> loadScript
-    85:86:void runScript(int,java.lang.String) -> runScript
-    97:99:void runScript(int,java.lang.String,boolean) -> runScript
-    109:110:java.lang.String runScriptForResult(java.lang.String) -> runScriptForResult
-    122:122:java.lang.String runScriptForResult(int,java.lang.String) -> runScriptForResult
-    133:133:java.lang.String runScriptForResult(int,java.util.Map) -> runScriptForResult
-    145:147:void runAction(int,java.lang.String,boolean) -> runAction
-    151:151:java.lang.Object execute(com.faendir.lightning_launcher.scriptlib.executor.Executor) -> execute
-    155:155:com.faendir.lightning_launcher.scriptlib.AsyncExecutorService getAsyncExecutorService() -> getAsyncExecutorService
-    162:163:void enableDebug() -> enableDebug
-    166:166:com.faendir.lightning_launcher.scriptlib.ResponseManager getResponseManager() -> getResponseManager
-    170:172:void setResponseManager(com.faendir.lightning_launcher.scriptlib.ResponseManager) -> setResponseManager
-    180:183:void replaceLogger(com.faendir.lightning_launcher.scriptlib.Logger) -> replaceLogger
+    63:63:int loadScript(com.trianguloy.llscript.repository.aidl.Script) -> loadScript
+    77:78:int loadScript(com.trianguloy.llscript.repository.aidl.Script,boolean) -> loadScript
+    91:92:void runScript(int,java.lang.String) -> runScript
+    105:107:void runScript(int,java.lang.String,boolean) -> runScript
+    119:120:java.lang.String runScriptForResult(java.lang.String) -> runScriptForResult
+    135:135:java.lang.String runScriptForResult(int,java.lang.String) -> runScriptForResult
+    149:149:java.lang.String runScriptForResult(int,java.util.Map) -> runScriptForResult
+    163:165:void runAction(int,java.lang.String,boolean) -> runAction
+    169:169:java.lang.Object execute(com.faendir.lightning_launcher.scriptlib.executor.Executor) -> execute
+    173:173:com.faendir.lightning_launcher.scriptlib.AsyncExecutorService getAsyncExecutorService() -> getAsyncExecutorService
+    180:181:void enableDebug() -> enableDebug
+    184:184:com.faendir.lightning_launcher.scriptlib.ResponseManager getResponseManager() -> getResponseManager
+    188:190:void setResponseManager(com.faendir.lightning_launcher.scriptlib.ResponseManager) -> setResponseManager
+    198:201:void replaceLogger(com.faendir.lightning_launcher.scriptlib.Logger) -> replaceLogger
     28:28:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.scriptlib.ServiceManager -> com.faendir.lightning_launcher.scriptlib.ServiceManager:
     java.lang.String INTENT -> INTENT
@@ -18584,10 +18584,10 @@ com.faendir.lightning_launcher.scriptlib.ServiceManager -> com.faendir.lightning
     166:180:com.trianguloy.llscript.repository.aidl.ILightningService getService() -> getService
     237:259:int loadScript(com.trianguloy.llscript.repository.aidl.Script,boolean) -> loadScript
     263:270:void runScript(int,java.lang.String,boolean) -> runScript
-    302:320:java.lang.String runScriptForResult(java.lang.String) -> runScriptForResult
-    325:329:void runAction(int,java.lang.String,boolean) -> runAction
-    332:333:void setResponseManager(com.faendir.lightning_launcher.scriptlib.ResponseManager) -> setResponseManager
-    336:336:android.content.Context getContext() -> getContext
+    302:319:java.lang.String runScriptForResult(java.lang.String) -> runScriptForResult
+    324:328:void runAction(int,java.lang.String,boolean) -> runAction
+    331:332:void setResponseManager(com.faendir.lightning_launcher.scriptlib.ResponseManager) -> setResponseManager
+    335:335:android.content.Context getContext() -> getContext
     34:34:android.content.pm.ServiceInfo access$100(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> access$100
     34:34:com.faendir.lightning_launcher.scriptlib.ServiceManager$ImporterConnection access$200(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> access$200
     34:34:android.content.Context access$300(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> access$300

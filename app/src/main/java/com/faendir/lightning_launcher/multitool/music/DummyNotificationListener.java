@@ -15,21 +15,17 @@ import android.support.annotation.RequiresApi;
 public class DummyNotificationListener extends NotificationListenerService {
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
-        super.onNotificationPosted(sbn);
     }
 
     @Override
     public void onNotificationPosted(StatusBarNotification sbn, RankingMap rankingMap) {
-        super.onNotificationPosted(sbn, rankingMap);
     }
 
     @Override
     public void onNotificationRemoved(StatusBarNotification sbn) {
-        super.onNotificationRemoved(sbn);
     }
 
     @Override
     public void onNotificationRemoved(StatusBarNotification sbn, RankingMap rankingMap) {
-        super.onNotificationRemoved(sbn, rankingMap);
     }
 }
