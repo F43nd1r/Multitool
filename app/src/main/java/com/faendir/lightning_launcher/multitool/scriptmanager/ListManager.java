@@ -221,7 +221,7 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
         int selectionMode = getSelectionMode();
         if (selectionMode == ListManager.NONE) mode.finish();
         menu.findItem(R.id.action_rename).setVisible(selectionMode == ListManager.ONE_GROUP || selectionMode == ListManager.ONE_SCRIPT);
-        menu.findItem(R.id.action_delete).setVisible(true);
+        //menu.findItem(R.id.action_delete).setVisible(true);
         menu.findItem(R.id.action_edit).setVisible(selectionMode == ListManager.ONE_SCRIPT);
         menu.findItem(R.id.action_backup).setVisible(selectionMode == ListManager.ONLY_SCRIPTS || selectionMode == ListManager.ONE_SCRIPT);
         menu.findItem(R.id.action_format).setVisible(selectionMode == ListManager.ONLY_SCRIPTS || selectionMode == ListManager.ONE_SCRIPT);

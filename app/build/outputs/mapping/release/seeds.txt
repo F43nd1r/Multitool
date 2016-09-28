@@ -611,9 +611,12 @@ android.support.design.R$drawable: int abc_switch_track_mtrl_alpha
 android.support.design.R$drawable: int abc_tab_indicator_material
 android.support.design.R$drawable: int abc_tab_indicator_mtrl_alpha
 android.support.design.R$drawable: int abc_text_cursor_material
-android.support.design.R$drawable: int abc_text_select_handle_left_mtrl_alpha
-android.support.design.R$drawable: int abc_text_select_handle_middle_mtrl_alpha
-android.support.design.R$drawable: int abc_text_select_handle_right_mtrl_alpha
+android.support.design.R$drawable: int abc_text_select_handle_left_mtrl_dark
+android.support.design.R$drawable: int abc_text_select_handle_left_mtrl_light
+android.support.design.R$drawable: int abc_text_select_handle_middle_mtrl_dark
+android.support.design.R$drawable: int abc_text_select_handle_middle_mtrl_light
+android.support.design.R$drawable: int abc_text_select_handle_right_mtrl_dark
+android.support.design.R$drawable: int abc_text_select_handle_right_mtrl_light
 android.support.design.R$drawable: int abc_textfield_activated_mtrl_alpha
 android.support.design.R$drawable: int abc_textfield_default_mtrl_alpha
 android.support.design.R$drawable: int abc_textfield_search_activated_mtrl_alpha
@@ -1731,9 +1734,6 @@ android.support.design.internal.ScrimInsetsFrameLayout: void draw(android.graphi
 android.support.design.internal.ScrimInsetsFrameLayout: void onAttachedToWindow()
 android.support.design.internal.ScrimInsetsFrameLayout: void onDetachedFromWindow()
 android.support.design.internal.ScrimInsetsFrameLayout: void onInsetsChanged(android.support.v4.view.WindowInsetsCompat)
-android.support.design.internal.ScrimInsetsFrameLayout: android.graphics.Rect access$000(android.support.design.internal.ScrimInsetsFrameLayout)
-android.support.design.internal.ScrimInsetsFrameLayout: android.graphics.Rect access$002(android.support.design.internal.ScrimInsetsFrameLayout,android.graphics.Rect)
-android.support.design.internal.ScrimInsetsFrameLayout: android.graphics.drawable.Drawable access$100(android.support.design.internal.ScrimInsetsFrameLayout)
 android.support.design.widget.AnimationUtils
 android.support.design.widget.AnimationUtils: android.view.animation.Interpolator LINEAR_INTERPOLATOR
 android.support.design.widget.AnimationUtils: android.view.animation.Interpolator FAST_OUT_SLOW_IN_INTERPOLATOR
@@ -1803,16 +1803,6 @@ android.support.design.widget.AppBarLayout: android.widget.LinearLayout$LayoutPa
 android.support.design.widget.AppBarLayout: android.view.ViewGroup$LayoutParams generateDefaultLayoutParams()
 android.support.design.widget.AppBarLayout: android.view.ViewGroup$LayoutParams generateLayoutParams(android.view.ViewGroup$LayoutParams)
 android.support.design.widget.AppBarLayout: android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet)
-android.support.design.widget.AppBarLayout: android.support.v4.view.WindowInsetsCompat access$000(android.support.design.widget.AppBarLayout,android.support.v4.view.WindowInsetsCompat)
-android.support.design.widget.AppBarLayout: boolean access$200(android.support.design.widget.AppBarLayout)
-android.support.design.widget.AppBarLayout: int access$300(android.support.design.widget.AppBarLayout)
-android.support.design.widget.AppBarLayout: int access$400(android.support.design.widget.AppBarLayout)
-android.support.design.widget.AppBarLayout: int access$500(android.support.design.widget.AppBarLayout)
-android.support.design.widget.AppBarLayout: int access$600(android.support.design.widget.AppBarLayout)
-android.support.design.widget.AppBarLayout: void access$700(android.support.design.widget.AppBarLayout)
-android.support.design.widget.AppBarLayout: void access$800(android.support.design.widget.AppBarLayout,int)
-android.support.design.widget.AppBarLayout: boolean access$900(android.support.design.widget.AppBarLayout)
-android.support.design.widget.AppBarLayout: boolean access$1000(android.support.design.widget.AppBarLayout,boolean)
 android.support.design.widget.AppBarLayout$1
 android.support.design.widget.AppBarLayout$1: android.support.design.widget.AppBarLayout this$0
 android.support.design.widget.AppBarLayout$1: AppBarLayout$1(android.support.design.widget.AppBarLayout)
@@ -1875,7 +1865,7 @@ android.support.design.widget.AppBarLayout$Behavior: void onNestedScroll(android
 android.support.design.widget.AppBarLayout$Behavior: void onStopNestedScroll(android.support.design.widget.CoordinatorLayout,android.view.View,android.view.View)
 android.support.design.widget.AppBarLayout$Behavior: boolean onStartNestedScroll(android.support.design.widget.CoordinatorLayout,android.view.View,android.view.View,android.view.View,int)
 android.support.design.widget.AppBarLayout$Behavior: boolean onMeasureChild(android.support.design.widget.CoordinatorLayout,android.view.View,int,int,int,int)
-android.support.design.widget.AppBarLayout$Behavior: int access$1100(android.support.design.widget.AppBarLayout$Behavior)
+android.support.design.widget.AppBarLayout$Behavior: int access$000(android.support.design.widget.AppBarLayout$Behavior)
 android.support.design.widget.AppBarLayout$Behavior$1
 android.support.design.widget.AppBarLayout$Behavior$1: android.support.design.widget.CoordinatorLayout val$coordinatorLayout
 android.support.design.widget.AppBarLayout$Behavior$1: android.support.design.widget.AppBarLayout val$child
@@ -1923,7 +1913,6 @@ android.support.design.widget.AppBarLayout$LayoutParams: int getScrollFlags()
 android.support.design.widget.AppBarLayout$LayoutParams: void setScrollInterpolator(android.view.animation.Interpolator)
 android.support.design.widget.AppBarLayout$LayoutParams: android.view.animation.Interpolator getScrollInterpolator()
 android.support.design.widget.AppBarLayout$LayoutParams: boolean isCollapsible()
-android.support.design.widget.AppBarLayout$LayoutParams: boolean access$100(android.support.design.widget.AppBarLayout$LayoutParams)
 android.support.design.widget.AppBarLayout$LayoutParams$ScrollFlags
 android.support.design.widget.AppBarLayout$OnOffsetChangedListener
 android.support.design.widget.AppBarLayout$OnOffsetChangedListener: void onOffsetChanged(android.support.design.widget.AppBarLayout,int)
@@ -2004,20 +1993,6 @@ android.support.design.widget.BottomSheetBehavior: float getYVelocity()
 android.support.design.widget.BottomSheetBehavior: void startSettlingAnimation(android.view.View,int)
 android.support.design.widget.BottomSheetBehavior: void dispatchOnSlide(int)
 android.support.design.widget.BottomSheetBehavior: android.support.design.widget.BottomSheetBehavior from(android.view.View)
-android.support.design.widget.BottomSheetBehavior: void access$000(android.support.design.widget.BottomSheetBehavior,android.view.View,int)
-android.support.design.widget.BottomSheetBehavior: int access$100(android.support.design.widget.BottomSheetBehavior)
-android.support.design.widget.BottomSheetBehavior: boolean access$200(android.support.design.widget.BottomSheetBehavior)
-android.support.design.widget.BottomSheetBehavior: int access$300(android.support.design.widget.BottomSheetBehavior)
-android.support.design.widget.BottomSheetBehavior: java.lang.ref.WeakReference access$400(android.support.design.widget.BottomSheetBehavior)
-android.support.design.widget.BottomSheetBehavior: java.lang.ref.WeakReference access$500(android.support.design.widget.BottomSheetBehavior)
-android.support.design.widget.BottomSheetBehavior: void access$600(android.support.design.widget.BottomSheetBehavior,int)
-android.support.design.widget.BottomSheetBehavior: void access$700(android.support.design.widget.BottomSheetBehavior,int)
-android.support.design.widget.BottomSheetBehavior: int access$800(android.support.design.widget.BottomSheetBehavior)
-android.support.design.widget.BottomSheetBehavior: boolean access$900(android.support.design.widget.BottomSheetBehavior)
-android.support.design.widget.BottomSheetBehavior: boolean access$1000(android.support.design.widget.BottomSheetBehavior,android.view.View,float)
-android.support.design.widget.BottomSheetBehavior: int access$1100(android.support.design.widget.BottomSheetBehavior)
-android.support.design.widget.BottomSheetBehavior: int access$1200(android.support.design.widget.BottomSheetBehavior)
-android.support.design.widget.BottomSheetBehavior: android.support.v4.widget.ViewDragHelper access$1300(android.support.design.widget.BottomSheetBehavior)
 android.support.design.widget.BottomSheetBehavior$1
 android.support.design.widget.BottomSheetBehavior$1: android.view.View val$child
 android.support.design.widget.BottomSheetBehavior$1: int val$state
@@ -2077,8 +2052,6 @@ android.support.design.widget.BottomSheetDialog: void setCanceledOnTouchOutside(
 android.support.design.widget.BottomSheetDialog: android.view.View wrapInBottomSheet(int,android.view.View,android.view.ViewGroup$LayoutParams)
 android.support.design.widget.BottomSheetDialog: boolean shouldWindowCloseOnTouchOutside()
 android.support.design.widget.BottomSheetDialog: int getThemeResId(android.content.Context,int)
-android.support.design.widget.BottomSheetDialog: boolean access$000(android.support.design.widget.BottomSheetDialog)
-android.support.design.widget.BottomSheetDialog: boolean access$100(android.support.design.widget.BottomSheetDialog)
 android.support.design.widget.BottomSheetDialog$1
 android.support.design.widget.BottomSheetDialog$1: android.support.design.widget.BottomSheetDialog this$0
 android.support.design.widget.BottomSheetDialog$1: BottomSheetDialog$1(android.support.design.widget.BottomSheetDialog)
@@ -2335,13 +2308,6 @@ android.support.design.widget.CollapsingToolbarLayout: android.view.ViewGroup$La
 android.support.design.widget.CollapsingToolbarLayout: android.widget.FrameLayout$LayoutParams generateDefaultLayoutParams()
 android.support.design.widget.CollapsingToolbarLayout: android.view.ViewGroup$LayoutParams generateDefaultLayoutParams()
 android.support.design.widget.CollapsingToolbarLayout: android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet)
-android.support.design.widget.CollapsingToolbarLayout: android.support.v4.view.WindowInsetsCompat access$000(android.support.design.widget.CollapsingToolbarLayout,android.support.v4.view.WindowInsetsCompat)
-android.support.design.widget.CollapsingToolbarLayout: void access$200(android.support.design.widget.CollapsingToolbarLayout,int)
-android.support.design.widget.CollapsingToolbarLayout: int access$302(android.support.design.widget.CollapsingToolbarLayout,int)
-android.support.design.widget.CollapsingToolbarLayout: android.support.v4.view.WindowInsetsCompat access$400(android.support.design.widget.CollapsingToolbarLayout)
-android.support.design.widget.CollapsingToolbarLayout: android.support.design.widget.ViewOffsetHelper access$500(android.view.View)
-android.support.design.widget.CollapsingToolbarLayout: android.graphics.drawable.Drawable access$600(android.support.design.widget.CollapsingToolbarLayout)
-android.support.design.widget.CollapsingToolbarLayout: android.support.design.widget.CollapsingTextHelper access$700(android.support.design.widget.CollapsingToolbarLayout)
 android.support.design.widget.CollapsingToolbarLayout$1
 android.support.design.widget.CollapsingToolbarLayout$1: android.support.design.widget.CollapsingToolbarLayout this$0
 android.support.design.widget.CollapsingToolbarLayout$1: CollapsingToolbarLayout$1(android.support.design.widget.CollapsingToolbarLayout)
@@ -2371,7 +2337,6 @@ android.support.design.widget.CollapsingToolbarLayout$OffsetUpdateListener
 android.support.design.widget.CollapsingToolbarLayout$OffsetUpdateListener: android.support.design.widget.CollapsingToolbarLayout this$0
 android.support.design.widget.CollapsingToolbarLayout$OffsetUpdateListener: CollapsingToolbarLayout$OffsetUpdateListener(android.support.design.widget.CollapsingToolbarLayout)
 android.support.design.widget.CollapsingToolbarLayout$OffsetUpdateListener: void onOffsetChanged(android.support.design.widget.AppBarLayout,int)
-android.support.design.widget.CollapsingToolbarLayout$OffsetUpdateListener: CollapsingToolbarLayout$OffsetUpdateListener(android.support.design.widget.CollapsingToolbarLayout,android.support.design.widget.CollapsingToolbarLayout$1)
 android.support.design.widget.CoordinatorLayout
 android.support.design.widget.CoordinatorLayout: java.lang.String TAG
 android.support.design.widget.CoordinatorLayout: java.lang.String WIDGET_PACKAGE_NAME
@@ -2431,7 +2396,7 @@ android.support.design.widget.CoordinatorLayout: void requestDisallowInterceptTo
 android.support.design.widget.CoordinatorLayout: int getKeyline(int)
 android.support.design.widget.CoordinatorLayout: android.support.design.widget.CoordinatorLayout$Behavior parseBehavior(android.content.Context,android.util.AttributeSet,java.lang.String)
 android.support.design.widget.CoordinatorLayout: android.support.design.widget.CoordinatorLayout$LayoutParams getResolvedLayoutParams(android.view.View)
-android.support.design.widget.CoordinatorLayout: void prepareChildren(boolean)
+android.support.design.widget.CoordinatorLayout: void prepareChildren()
 android.support.design.widget.CoordinatorLayout: void getDescendantRect(android.view.View,android.graphics.Rect)
 android.support.design.widget.CoordinatorLayout: int getSuggestedMinimumWidth()
 android.support.design.widget.CoordinatorLayout: int getSuggestedMinimumHeight()
@@ -2489,7 +2454,6 @@ android.support.design.widget.CoordinatorLayout: void setupForInsets()
 android.support.design.widget.CoordinatorLayout: android.view.ViewGroup$LayoutParams generateDefaultLayoutParams()
 android.support.design.widget.CoordinatorLayout: android.view.ViewGroup$LayoutParams generateLayoutParams(android.view.ViewGroup$LayoutParams)
 android.support.design.widget.CoordinatorLayout: android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet)
-android.support.design.widget.CoordinatorLayout: android.view.ViewGroup$OnHierarchyChangeListener access$300(android.support.design.widget.CoordinatorLayout)
 android.support.design.widget.CoordinatorLayout: void <clinit>()
 android.support.design.widget.CoordinatorLayout$1
 android.support.design.widget.CoordinatorLayout$1: android.support.design.widget.CoordinatorLayout this$0
@@ -2533,7 +2497,6 @@ android.support.design.widget.CoordinatorLayout$HierarchyChangeListener: android
 android.support.design.widget.CoordinatorLayout$HierarchyChangeListener: CoordinatorLayout$HierarchyChangeListener(android.support.design.widget.CoordinatorLayout)
 android.support.design.widget.CoordinatorLayout$HierarchyChangeListener: void onChildViewAdded(android.view.View,android.view.View)
 android.support.design.widget.CoordinatorLayout$HierarchyChangeListener: void onChildViewRemoved(android.view.View,android.view.View)
-android.support.design.widget.CoordinatorLayout$HierarchyChangeListener: CoordinatorLayout$HierarchyChangeListener(android.support.design.widget.CoordinatorLayout,android.support.design.widget.CoordinatorLayout$1)
 android.support.design.widget.CoordinatorLayout$LayoutParams
 android.support.design.widget.CoordinatorLayout$LayoutParams: android.support.design.widget.CoordinatorLayout$Behavior mBehavior
 android.support.design.widget.CoordinatorLayout$LayoutParams: boolean mBehaviorResolved
@@ -2579,10 +2542,6 @@ android.support.design.widget.CoordinatorLayout$LayoutParams: android.view.View 
 android.support.design.widget.CoordinatorLayout$LayoutParams: void resolveAnchorView(android.view.View,android.support.design.widget.CoordinatorLayout)
 android.support.design.widget.CoordinatorLayout$LayoutParams: boolean verifyAnchorView(android.view.View,android.support.design.widget.CoordinatorLayout)
 android.support.design.widget.CoordinatorLayout$LayoutParams: boolean shouldDodge(android.view.View,int)
-android.support.design.widget.CoordinatorLayout$LayoutParams: int access$100(android.support.design.widget.CoordinatorLayout$LayoutParams)
-android.support.design.widget.CoordinatorLayout$LayoutParams: int access$200(android.support.design.widget.CoordinatorLayout$LayoutParams)
-android.support.design.widget.CoordinatorLayout$LayoutParams: int access$102(android.support.design.widget.CoordinatorLayout$LayoutParams,int)
-android.support.design.widget.CoordinatorLayout$LayoutParams: int access$202(android.support.design.widget.CoordinatorLayout$LayoutParams,int)
 android.support.design.widget.CoordinatorLayout$OnPreDrawListener
 android.support.design.widget.CoordinatorLayout$OnPreDrawListener: android.support.design.widget.CoordinatorLayout this$0
 android.support.design.widget.CoordinatorLayout$OnPreDrawListener: CoordinatorLayout$OnPreDrawListener(android.support.design.widget.CoordinatorLayout)
@@ -2686,13 +2645,7 @@ android.support.design.widget.FloatingActionButton: void setCompatElevation(floa
 android.support.design.widget.FloatingActionButton: android.support.design.widget.FloatingActionButtonImpl getImpl()
 android.support.design.widget.FloatingActionButton: android.support.design.widget.FloatingActionButtonImpl createImpl()
 android.support.design.widget.FloatingActionButton: void setVisibility(int)
-android.support.design.widget.FloatingActionButton: void access$000(android.support.design.widget.FloatingActionButton,android.support.design.widget.FloatingActionButton$OnVisibilityChangedListener,boolean)
-android.support.design.widget.FloatingActionButton: void access$100(android.support.design.widget.FloatingActionButton,android.support.design.widget.FloatingActionButton$OnVisibilityChangedListener,boolean)
-android.support.design.widget.FloatingActionButton: android.graphics.Rect access$200(android.support.design.widget.FloatingActionButton)
-android.support.design.widget.FloatingActionButton: int access$400(android.support.design.widget.FloatingActionButton)
-android.support.design.widget.FloatingActionButton: int access$500(android.support.design.widget.FloatingActionButton)
-android.support.design.widget.FloatingActionButton: void access$601(android.support.design.widget.FloatingActionButton,android.graphics.drawable.Drawable)
-android.support.design.widget.FloatingActionButton: boolean access$700(android.support.design.widget.FloatingActionButton)
+android.support.design.widget.FloatingActionButton: void access$001(android.support.design.widget.FloatingActionButton,android.graphics.drawable.Drawable)
 android.support.design.widget.FloatingActionButton$1
 android.support.design.widget.FloatingActionButton$1: android.support.design.widget.FloatingActionButton$OnVisibilityChangedListener val$listener
 android.support.design.widget.FloatingActionButton$1: android.support.design.widget.FloatingActionButton this$0
@@ -2732,7 +2685,6 @@ android.support.design.widget.FloatingActionButton$ShadowDelegateImpl: float get
 android.support.design.widget.FloatingActionButton$ShadowDelegateImpl: void setShadowPadding(int,int,int,int)
 android.support.design.widget.FloatingActionButton$ShadowDelegateImpl: void setBackgroundDrawable(android.graphics.drawable.Drawable)
 android.support.design.widget.FloatingActionButton$ShadowDelegateImpl: boolean isCompatPaddingEnabled()
-android.support.design.widget.FloatingActionButton$ShadowDelegateImpl: FloatingActionButton$ShadowDelegateImpl(android.support.design.widget.FloatingActionButton,android.support.design.widget.FloatingActionButton$1)
 android.support.design.widget.FloatingActionButton$Size
 android.support.design.widget.FloatingActionButtonGingerbread
 android.support.design.widget.FloatingActionButtonGingerbread: android.support.design.widget.StateListAnimator mStateListAnimator
@@ -2767,17 +2719,14 @@ android.support.design.widget.FloatingActionButtonGingerbread$DisabledElevationA
 android.support.design.widget.FloatingActionButtonGingerbread$DisabledElevationAnimation: android.support.design.widget.FloatingActionButtonGingerbread this$0
 android.support.design.widget.FloatingActionButtonGingerbread$DisabledElevationAnimation: FloatingActionButtonGingerbread$DisabledElevationAnimation(android.support.design.widget.FloatingActionButtonGingerbread)
 android.support.design.widget.FloatingActionButtonGingerbread$DisabledElevationAnimation: float getTargetShadowSize()
-android.support.design.widget.FloatingActionButtonGingerbread$DisabledElevationAnimation: FloatingActionButtonGingerbread$DisabledElevationAnimation(android.support.design.widget.FloatingActionButtonGingerbread,android.support.design.widget.FloatingActionButtonGingerbread$1)
 android.support.design.widget.FloatingActionButtonGingerbread$ElevateToTranslationZAnimation
 android.support.design.widget.FloatingActionButtonGingerbread$ElevateToTranslationZAnimation: android.support.design.widget.FloatingActionButtonGingerbread this$0
 android.support.design.widget.FloatingActionButtonGingerbread$ElevateToTranslationZAnimation: FloatingActionButtonGingerbread$ElevateToTranslationZAnimation(android.support.design.widget.FloatingActionButtonGingerbread)
 android.support.design.widget.FloatingActionButtonGingerbread$ElevateToTranslationZAnimation: float getTargetShadowSize()
-android.support.design.widget.FloatingActionButtonGingerbread$ElevateToTranslationZAnimation: FloatingActionButtonGingerbread$ElevateToTranslationZAnimation(android.support.design.widget.FloatingActionButtonGingerbread,android.support.design.widget.FloatingActionButtonGingerbread$1)
 android.support.design.widget.FloatingActionButtonGingerbread$ResetElevationAnimation
 android.support.design.widget.FloatingActionButtonGingerbread$ResetElevationAnimation: android.support.design.widget.FloatingActionButtonGingerbread this$0
 android.support.design.widget.FloatingActionButtonGingerbread$ResetElevationAnimation: FloatingActionButtonGingerbread$ResetElevationAnimation(android.support.design.widget.FloatingActionButtonGingerbread)
 android.support.design.widget.FloatingActionButtonGingerbread$ResetElevationAnimation: float getTargetShadowSize()
-android.support.design.widget.FloatingActionButtonGingerbread$ResetElevationAnimation: FloatingActionButtonGingerbread$ResetElevationAnimation(android.support.design.widget.FloatingActionButtonGingerbread,android.support.design.widget.FloatingActionButtonGingerbread$1)
 android.support.design.widget.FloatingActionButtonGingerbread$ShadowAnimatorImpl
 android.support.design.widget.FloatingActionButtonGingerbread$ShadowAnimatorImpl: boolean mValidValues
 android.support.design.widget.FloatingActionButtonGingerbread$ShadowAnimatorImpl: float mShadowSizeStart
@@ -2910,7 +2859,6 @@ android.support.design.widget.HeaderBehavior: boolean canDragView(android.view.V
 android.support.design.widget.HeaderBehavior: int getMaxDragOffset(android.view.View)
 android.support.design.widget.HeaderBehavior: int getScrollRangeForDragFling(android.view.View)
 android.support.design.widget.HeaderBehavior: void ensureVelocityTracker()
-android.support.design.widget.HeaderBehavior: android.support.v4.widget.ScrollerCompat access$000(android.support.design.widget.HeaderBehavior)
 android.support.design.widget.HeaderBehavior$FlingRunnable
 android.support.design.widget.HeaderBehavior$FlingRunnable: android.support.design.widget.CoordinatorLayout mParent
 android.support.design.widget.HeaderBehavior$FlingRunnable: android.view.View mLayout
@@ -2973,7 +2921,6 @@ android.support.design.widget.NavigationView: void setCheckedItem(int)
 android.support.design.widget.NavigationView: void setItemTextAppearance(int)
 android.support.design.widget.NavigationView: android.view.MenuInflater getMenuInflater()
 android.support.design.widget.NavigationView: android.content.res.ColorStateList createDefaultColorStateList(int)
-android.support.design.widget.NavigationView: android.support.design.widget.NavigationView$OnNavigationItemSelectedListener access$000(android.support.design.widget.NavigationView)
 android.support.design.widget.NavigationView: void <clinit>()
 android.support.design.widget.NavigationView$1
 android.support.design.widget.NavigationView$1: android.support.design.widget.NavigationView this$0
@@ -3088,14 +3035,6 @@ android.support.design.widget.Snackbar: void hideView(int)
 android.support.design.widget.Snackbar: void onViewShown()
 android.support.design.widget.Snackbar: void onViewHidden(int)
 android.support.design.widget.Snackbar: boolean shouldAnimate()
-android.support.design.widget.Snackbar: void access$000(android.support.design.widget.Snackbar,int)
-android.support.design.widget.Snackbar: android.os.Handler access$100()
-android.support.design.widget.Snackbar: android.support.design.widget.SnackbarManager$Callback access$200(android.support.design.widget.Snackbar)
-android.support.design.widget.Snackbar: void access$300(android.support.design.widget.Snackbar,int)
-android.support.design.widget.Snackbar: android.support.design.widget.Snackbar$SnackbarLayout access$400(android.support.design.widget.Snackbar)
-android.support.design.widget.Snackbar: boolean access$500(android.support.design.widget.Snackbar)
-android.support.design.widget.Snackbar: void access$600(android.support.design.widget.Snackbar)
-android.support.design.widget.Snackbar: void access$700(android.support.design.widget.Snackbar)
 android.support.design.widget.Snackbar: void <clinit>()
 android.support.design.widget.Snackbar$1
 android.support.design.widget.Snackbar$1: Snackbar$1()
@@ -3225,7 +3164,6 @@ android.support.design.widget.SnackbarManager: boolean isCurrentSnackbarLocked(a
 android.support.design.widget.SnackbarManager: boolean isNextSnackbarLocked(android.support.design.widget.SnackbarManager$Callback)
 android.support.design.widget.SnackbarManager: void scheduleTimeoutLocked(android.support.design.widget.SnackbarManager$SnackbarRecord)
 android.support.design.widget.SnackbarManager: void handleTimeout(android.support.design.widget.SnackbarManager$SnackbarRecord)
-android.support.design.widget.SnackbarManager: void access$000(android.support.design.widget.SnackbarManager,android.support.design.widget.SnackbarManager$SnackbarRecord)
 android.support.design.widget.SnackbarManager$1
 android.support.design.widget.SnackbarManager$1: android.support.design.widget.SnackbarManager this$0
 android.support.design.widget.SnackbarManager$1: SnackbarManager$1(android.support.design.widget.SnackbarManager)
@@ -3238,9 +3176,6 @@ android.support.design.widget.SnackbarManager$SnackbarRecord: java.lang.ref.Weak
 android.support.design.widget.SnackbarManager$SnackbarRecord: int duration
 android.support.design.widget.SnackbarManager$SnackbarRecord: SnackbarManager$SnackbarRecord(int,android.support.design.widget.SnackbarManager$Callback)
 android.support.design.widget.SnackbarManager$SnackbarRecord: boolean isSnackbar(android.support.design.widget.SnackbarManager$Callback)
-android.support.design.widget.SnackbarManager$SnackbarRecord: int access$102(android.support.design.widget.SnackbarManager$SnackbarRecord,int)
-android.support.design.widget.SnackbarManager$SnackbarRecord: java.lang.ref.WeakReference access$200(android.support.design.widget.SnackbarManager$SnackbarRecord)
-android.support.design.widget.SnackbarManager$SnackbarRecord: int access$100(android.support.design.widget.SnackbarManager$SnackbarRecord)
 android.support.design.widget.StateListAnimator
 android.support.design.widget.StateListAnimator: java.util.ArrayList mTuples
 android.support.design.widget.StateListAnimator: android.support.design.widget.StateListAnimator$Tuple mLastMatch
@@ -3252,8 +3187,6 @@ android.support.design.widget.StateListAnimator: void setState(int[])
 android.support.design.widget.StateListAnimator: void start(android.support.design.widget.StateListAnimator$Tuple)
 android.support.design.widget.StateListAnimator: void cancel()
 android.support.design.widget.StateListAnimator: void jumpToCurrentState()
-android.support.design.widget.StateListAnimator: android.support.design.widget.ValueAnimatorCompat access$000(android.support.design.widget.StateListAnimator)
-android.support.design.widget.StateListAnimator: android.support.design.widget.ValueAnimatorCompat access$002(android.support.design.widget.StateListAnimator,android.support.design.widget.ValueAnimatorCompat)
 android.support.design.widget.StateListAnimator$1
 android.support.design.widget.StateListAnimator$1: android.support.design.widget.StateListAnimator this$0
 android.support.design.widget.StateListAnimator$1: StateListAnimator$1(android.support.design.widget.StateListAnimator)
@@ -3262,7 +3195,6 @@ android.support.design.widget.StateListAnimator$Tuple
 android.support.design.widget.StateListAnimator$Tuple: int[] mSpecs
 android.support.design.widget.StateListAnimator$Tuple: android.support.design.widget.ValueAnimatorCompat mAnimator
 android.support.design.widget.StateListAnimator$Tuple: StateListAnimator$Tuple(int[],android.support.design.widget.ValueAnimatorCompat)
-android.support.design.widget.StateListAnimator$Tuple: StateListAnimator$Tuple(int[],android.support.design.widget.ValueAnimatorCompat,android.support.design.widget.StateListAnimator$1)
 android.support.design.widget.SwipeDismissBehavior
 android.support.design.widget.SwipeDismissBehavior: int STATE_IDLE
 android.support.design.widget.SwipeDismissBehavior: int STATE_DRAGGING
@@ -3298,14 +3230,6 @@ android.support.design.widget.SwipeDismissBehavior: float clamp(float,float,floa
 android.support.design.widget.SwipeDismissBehavior: int clamp(int,int,int)
 android.support.design.widget.SwipeDismissBehavior: int getDragState()
 android.support.design.widget.SwipeDismissBehavior: float fraction(float,float,float)
-android.support.design.widget.SwipeDismissBehavior: android.support.design.widget.SwipeDismissBehavior$OnDismissListener access$000(android.support.design.widget.SwipeDismissBehavior)
-android.support.design.widget.SwipeDismissBehavior: android.support.v4.widget.ViewDragHelper access$100(android.support.design.widget.SwipeDismissBehavior)
-android.support.design.widget.SwipeDismissBehavior: int access$200(android.support.design.widget.SwipeDismissBehavior)
-android.support.design.widget.SwipeDismissBehavior: float access$300(android.support.design.widget.SwipeDismissBehavior)
-android.support.design.widget.SwipeDismissBehavior: int access$400(int,int,int)
-android.support.design.widget.SwipeDismissBehavior: float access$500(android.support.design.widget.SwipeDismissBehavior)
-android.support.design.widget.SwipeDismissBehavior: float access$600(android.support.design.widget.SwipeDismissBehavior)
-android.support.design.widget.SwipeDismissBehavior: float access$700(float,float,float)
 android.support.design.widget.SwipeDismissBehavior$1
 android.support.design.widget.SwipeDismissBehavior$1: int INVALID_POINTER_ID
 android.support.design.widget.SwipeDismissBehavior$1: int mOriginalCapturedViewLeft
@@ -3451,26 +3375,6 @@ android.support.design.widget.TabLayout: int getTabMinWidth()
 android.support.design.widget.TabLayout: android.widget.FrameLayout$LayoutParams generateLayoutParams(android.util.AttributeSet)
 android.support.design.widget.TabLayout: int getTabMaxWidth()
 android.support.design.widget.TabLayout: android.view.ViewGroup$LayoutParams generateLayoutParams(android.util.AttributeSet)
-android.support.design.widget.TabLayout: int access$1000(android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout: int access$1100(android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout: int access$1200(android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout: int access$1300(android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout: int access$1400(android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout: int access$1500(android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout: int access$1600(android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout: float access$1700(android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout: float access$1800(android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout: int access$1900(android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout: int access$2000(android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout: android.content.res.ColorStateList access$2100(android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout: int access$2200(android.support.design.widget.TabLayout,int)
-android.support.design.widget.TabLayout: int access$2300(android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout: int access$2302(android.support.design.widget.TabLayout,int)
-android.support.design.widget.TabLayout: void access$2400(android.support.design.widget.TabLayout,boolean)
-android.support.design.widget.TabLayout: void access$2800(android.support.design.widget.TabLayout,int,float,boolean,boolean)
-android.support.design.widget.TabLayout: void access$2900(android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout: android.support.v4.view.ViewPager access$3000(android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout: void access$3100(android.support.design.widget.TabLayout,android.support.v4.view.PagerAdapter,boolean)
 android.support.design.widget.TabLayout: void <clinit>()
 android.support.design.widget.TabLayout$1
 android.support.design.widget.TabLayout$1: android.support.design.widget.TabLayout this$0
@@ -3482,7 +3386,6 @@ android.support.design.widget.TabLayout$AdapterChangeListener: android.support.d
 android.support.design.widget.TabLayout$AdapterChangeListener: TabLayout$AdapterChangeListener(android.support.design.widget.TabLayout)
 android.support.design.widget.TabLayout$AdapterChangeListener: void onAdapterChanged(android.support.v4.view.ViewPager,android.support.v4.view.PagerAdapter,android.support.v4.view.PagerAdapter)
 android.support.design.widget.TabLayout$AdapterChangeListener: void setAutoRefresh(boolean)
-android.support.design.widget.TabLayout$AdapterChangeListener: TabLayout$AdapterChangeListener(android.support.design.widget.TabLayout,android.support.design.widget.TabLayout$1)
 android.support.design.widget.TabLayout$Mode
 android.support.design.widget.TabLayout$OnTabSelectedListener
 android.support.design.widget.TabLayout$OnTabSelectedListener: void onTabSelected(android.support.design.widget.TabLayout$Tab)
@@ -3493,7 +3396,6 @@ android.support.design.widget.TabLayout$PagerAdapterObserver: android.support.de
 android.support.design.widget.TabLayout$PagerAdapterObserver: TabLayout$PagerAdapterObserver(android.support.design.widget.TabLayout)
 android.support.design.widget.TabLayout$PagerAdapterObserver: void onChanged()
 android.support.design.widget.TabLayout$PagerAdapterObserver: void onInvalidated()
-android.support.design.widget.TabLayout$PagerAdapterObserver: TabLayout$PagerAdapterObserver(android.support.design.widget.TabLayout,android.support.design.widget.TabLayout$1)
 android.support.design.widget.TabLayout$SlidingTabStrip
 android.support.design.widget.TabLayout$SlidingTabStrip: int mSelectedIndicatorHeight
 android.support.design.widget.TabLayout$SlidingTabStrip: android.graphics.Paint mSelectedIndicatorPaint
@@ -3515,9 +3417,6 @@ android.support.design.widget.TabLayout$SlidingTabStrip: void updateIndicatorPos
 android.support.design.widget.TabLayout$SlidingTabStrip: void setIndicatorPosition(int,int)
 android.support.design.widget.TabLayout$SlidingTabStrip: void animateIndicatorToPosition(int,int)
 android.support.design.widget.TabLayout$SlidingTabStrip: void draw(android.graphics.Canvas)
-android.support.design.widget.TabLayout$SlidingTabStrip: void access$2500(android.support.design.widget.TabLayout$SlidingTabStrip,int,int)
-android.support.design.widget.TabLayout$SlidingTabStrip: int access$2602(android.support.design.widget.TabLayout$SlidingTabStrip,int)
-android.support.design.widget.TabLayout$SlidingTabStrip: float access$2702(android.support.design.widget.TabLayout$SlidingTabStrip,float)
 android.support.design.widget.TabLayout$SlidingTabStrip$1
 android.support.design.widget.TabLayout$SlidingTabStrip$1: int val$startLeft
 android.support.design.widget.TabLayout$SlidingTabStrip$1: int val$targetLeft
@@ -3562,13 +3461,6 @@ android.support.design.widget.TabLayout$Tab: android.support.design.widget.TabLa
 android.support.design.widget.TabLayout$Tab: java.lang.CharSequence getContentDescription()
 android.support.design.widget.TabLayout$Tab: void updateView()
 android.support.design.widget.TabLayout$Tab: void reset()
-android.support.design.widget.TabLayout$Tab: android.support.design.widget.TabLayout access$000(android.support.design.widget.TabLayout$Tab)
-android.support.design.widget.TabLayout$Tab: TabLayout$Tab(android.support.design.widget.TabLayout$1)
-android.support.design.widget.TabLayout$Tab: android.support.design.widget.TabLayout access$002(android.support.design.widget.TabLayout$Tab,android.support.design.widget.TabLayout)
-android.support.design.widget.TabLayout$Tab: android.support.design.widget.TabLayout$TabView access$202(android.support.design.widget.TabLayout$Tab,android.support.design.widget.TabLayout$TabView)
-android.support.design.widget.TabLayout$Tab: void access$300(android.support.design.widget.TabLayout$Tab)
-android.support.design.widget.TabLayout$Tab: void access$700(android.support.design.widget.TabLayout$Tab)
-android.support.design.widget.TabLayout$Tab: android.support.design.widget.TabLayout$TabView access$200(android.support.design.widget.TabLayout$Tab)
 android.support.design.widget.TabLayout$TabGravity
 android.support.design.widget.TabLayout$TabLayoutOnPageChangeListener
 android.support.design.widget.TabLayout$TabLayoutOnPageChangeListener: java.lang.ref.WeakReference mTabLayoutRef
@@ -3579,7 +3471,6 @@ android.support.design.widget.TabLayout$TabLayoutOnPageChangeListener: void onPa
 android.support.design.widget.TabLayout$TabLayoutOnPageChangeListener: void onPageScrolled(int,float,int)
 android.support.design.widget.TabLayout$TabLayoutOnPageChangeListener: void onPageSelected(int)
 android.support.design.widget.TabLayout$TabLayoutOnPageChangeListener: void reset()
-android.support.design.widget.TabLayout$TabLayoutOnPageChangeListener: void access$400(android.support.design.widget.TabLayout$TabLayoutOnPageChangeListener)
 android.support.design.widget.TabLayout$TabView
 android.support.design.widget.TabLayout$TabView: android.support.design.widget.TabLayout$Tab mTab
 android.support.design.widget.TabLayout$TabView: android.widget.TextView mTextView
@@ -3602,8 +3493,6 @@ android.support.design.widget.TabLayout$TabView: void updateTextAndIcon(android.
 android.support.design.widget.TabLayout$TabView: boolean onLongClick(android.view.View)
 android.support.design.widget.TabLayout$TabView: android.support.design.widget.TabLayout$Tab getTab()
 android.support.design.widget.TabLayout$TabView: float approximateLineWidth(android.text.Layout,int,float)
-android.support.design.widget.TabLayout$TabView: void access$800(android.support.design.widget.TabLayout$TabView,android.support.design.widget.TabLayout$Tab)
-android.support.design.widget.TabLayout$TabView: void access$900(android.support.design.widget.TabLayout$TabView)
 android.support.design.widget.TabLayout$ViewPagerOnTabSelectedListener
 android.support.design.widget.TabLayout$ViewPagerOnTabSelectedListener: android.support.v4.view.ViewPager mViewPager
 android.support.design.widget.TabLayout$ViewPagerOnTabSelectedListener: TabLayout$ViewPagerOnTabSelectedListener(android.support.v4.view.ViewPager)
@@ -3644,6 +3533,7 @@ android.support.design.widget.TextInputLayout: java.lang.CharSequence mPasswordT
 android.support.design.widget.TextInputLayout: android.support.design.widget.CheckableImageButton mPasswordToggleView
 android.support.design.widget.TextInputLayout: boolean mPasswordToggledVisible
 android.support.design.widget.TextInputLayout: android.graphics.drawable.Drawable mPasswordToggleDummyDrawable
+android.support.design.widget.TextInputLayout: android.graphics.drawable.Drawable mOriginalEditTextEndDrawable
 android.support.design.widget.TextInputLayout: android.content.res.ColorStateList mPasswordToggleTintList
 android.support.design.widget.TextInputLayout: boolean mHasPasswordToggleTintList
 android.support.design.widget.TextInputLayout: android.graphics.PorterDuff$Mode mPasswordToggleTintMode
@@ -3717,13 +3607,6 @@ android.support.design.widget.TextInputLayout: void expandHint(boolean)
 android.support.design.widget.TextInputLayout: void animateToExpansionFraction(float)
 android.support.design.widget.TextInputLayout: boolean isHintExpanded()
 android.support.design.widget.TextInputLayout: boolean arrayContains(int[],int)
-android.support.design.widget.TextInputLayout: void access$100(android.support.design.widget.TextInputLayout,boolean)
-android.support.design.widget.TextInputLayout: boolean access$200(android.support.design.widget.TextInputLayout)
-android.support.design.widget.TextInputLayout: void access$300(android.support.design.widget.TextInputLayout,int)
-android.support.design.widget.TextInputLayout: android.widget.TextView access$400(android.support.design.widget.TextInputLayout)
-android.support.design.widget.TextInputLayout: void access$500(android.support.design.widget.TextInputLayout)
-android.support.design.widget.TextInputLayout: android.support.design.widget.CollapsingTextHelper access$600(android.support.design.widget.TextInputLayout)
-android.support.design.widget.TextInputLayout: android.widget.EditText access$700(android.support.design.widget.TextInputLayout)
 android.support.design.widget.TextInputLayout$1
 android.support.design.widget.TextInputLayout$1: android.support.design.widget.TextInputLayout this$0
 android.support.design.widget.TextInputLayout$1: TextInputLayout$1(android.support.design.widget.TextInputLayout)
@@ -3767,7 +3650,6 @@ android.support.design.widget.TextInputLayout$TextInputAccessibilityDelegate: Te
 android.support.design.widget.TextInputLayout$TextInputAccessibilityDelegate: void onInitializeAccessibilityEvent(android.view.View,android.view.accessibility.AccessibilityEvent)
 android.support.design.widget.TextInputLayout$TextInputAccessibilityDelegate: void onPopulateAccessibilityEvent(android.view.View,android.view.accessibility.AccessibilityEvent)
 android.support.design.widget.TextInputLayout$TextInputAccessibilityDelegate: void onInitializeAccessibilityNodeInfo(android.view.View,android.support.v4.view.accessibility.AccessibilityNodeInfoCompat)
-android.support.design.widget.TextInputLayout$TextInputAccessibilityDelegate: TextInputLayout$TextInputAccessibilityDelegate(android.support.design.widget.TextInputLayout,android.support.design.widget.TextInputLayout$1)
 android.support.design.widget.ThemeUtils
 android.support.design.widget.ThemeUtils: int[] APPCOMPAT_CHECK_ATTRS
 android.support.design.widget.ThemeUtils: ThemeUtils()
@@ -3912,17 +3794,14 @@ android.support.design.widget.ViewGroupUtils: ViewGroupUtils()
 android.support.design.widget.ViewGroupUtils: void offsetDescendantRect(android.view.ViewGroup,android.view.View,android.graphics.Rect)
 android.support.design.widget.ViewGroupUtils: void getDescendantRect(android.view.ViewGroup,android.view.View,android.graphics.Rect)
 android.support.design.widget.ViewGroupUtils: void <clinit>()
-android.support.design.widget.ViewGroupUtils$1
 android.support.design.widget.ViewGroupUtils$ViewGroupUtilsImpl
 android.support.design.widget.ViewGroupUtils$ViewGroupUtilsImpl: void offsetDescendantRect(android.view.ViewGroup,android.view.View,android.graphics.Rect)
 android.support.design.widget.ViewGroupUtils$ViewGroupUtilsImplBase
 android.support.design.widget.ViewGroupUtils$ViewGroupUtilsImplBase: ViewGroupUtils$ViewGroupUtilsImplBase()
 android.support.design.widget.ViewGroupUtils$ViewGroupUtilsImplBase: void offsetDescendantRect(android.view.ViewGroup,android.view.View,android.graphics.Rect)
-android.support.design.widget.ViewGroupUtils$ViewGroupUtilsImplBase: ViewGroupUtils$ViewGroupUtilsImplBase(android.support.design.widget.ViewGroupUtils$1)
 android.support.design.widget.ViewGroupUtils$ViewGroupUtilsImplHoneycomb
 android.support.design.widget.ViewGroupUtils$ViewGroupUtilsImplHoneycomb: ViewGroupUtils$ViewGroupUtilsImplHoneycomb()
 android.support.design.widget.ViewGroupUtils$ViewGroupUtilsImplHoneycomb: void offsetDescendantRect(android.view.ViewGroup,android.view.View,android.graphics.Rect)
-android.support.design.widget.ViewGroupUtils$ViewGroupUtilsImplHoneycomb: ViewGroupUtils$ViewGroupUtilsImplHoneycomb(android.support.design.widget.ViewGroupUtils$1)
 android.support.design.widget.ViewGroupUtilsHoneycomb
 android.support.design.widget.ViewGroupUtilsHoneycomb: java.lang.ThreadLocal sMatrix
 android.support.design.widget.ViewGroupUtilsHoneycomb: java.lang.ThreadLocal sRectF
@@ -4339,7 +4218,6 @@ android.support.v4.app.FragmentActivity: void startActivityForResult(android.con
 android.support.v4.app.FragmentActivity: android.view.View onCreateView(android.view.View,java.lang.String,android.content.Context,android.util.AttributeSet)
 android.support.v4.app.FragmentActivity: void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int)
 android.support.v4.app.FragmentActivity: android.view.View onCreateView(java.lang.String,android.content.Context,android.util.AttributeSet)
-android.support.v4.app.FragmentActivity: void access$000(android.support.v4.app.FragmentActivity,android.support.v4.app.Fragment,java.lang.String[],int)
 android.support.v4.app.FragmentManagerState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.FragmentState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.FragmentTabHost: FragmentTabHost(android.content.Context)
@@ -5063,9 +4941,12 @@ android.support.v7.appcompat.R$drawable: int abc_switch_track_mtrl_alpha
 android.support.v7.appcompat.R$drawable: int abc_tab_indicator_material
 android.support.v7.appcompat.R$drawable: int abc_tab_indicator_mtrl_alpha
 android.support.v7.appcompat.R$drawable: int abc_text_cursor_material
-android.support.v7.appcompat.R$drawable: int abc_text_select_handle_left_mtrl_alpha
-android.support.v7.appcompat.R$drawable: int abc_text_select_handle_middle_mtrl_alpha
-android.support.v7.appcompat.R$drawable: int abc_text_select_handle_right_mtrl_alpha
+android.support.v7.appcompat.R$drawable: int abc_text_select_handle_left_mtrl_dark
+android.support.v7.appcompat.R$drawable: int abc_text_select_handle_left_mtrl_light
+android.support.v7.appcompat.R$drawable: int abc_text_select_handle_middle_mtrl_dark
+android.support.v7.appcompat.R$drawable: int abc_text_select_handle_middle_mtrl_light
+android.support.v7.appcompat.R$drawable: int abc_text_select_handle_right_mtrl_dark
+android.support.v7.appcompat.R$drawable: int abc_text_select_handle_right_mtrl_light
 android.support.v7.appcompat.R$drawable: int abc_textfield_activated_mtrl_alpha
 android.support.v7.appcompat.R$drawable: int abc_textfield_default_mtrl_alpha
 android.support.v7.appcompat.R$drawable: int abc_textfield_search_activated_mtrl_alpha
@@ -7124,9 +7005,12 @@ com.faendir.lightning_launcher.multitool.R$drawable: int abc_switch_track_mtrl_a
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_tab_indicator_material
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_tab_indicator_mtrl_alpha
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_text_cursor_material
-com.faendir.lightning_launcher.multitool.R$drawable: int abc_text_select_handle_left_mtrl_alpha
-com.faendir.lightning_launcher.multitool.R$drawable: int abc_text_select_handle_middle_mtrl_alpha
-com.faendir.lightning_launcher.multitool.R$drawable: int abc_text_select_handle_right_mtrl_alpha
+com.faendir.lightning_launcher.multitool.R$drawable: int abc_text_select_handle_left_mtrl_dark
+com.faendir.lightning_launcher.multitool.R$drawable: int abc_text_select_handle_left_mtrl_light
+com.faendir.lightning_launcher.multitool.R$drawable: int abc_text_select_handle_middle_mtrl_dark
+com.faendir.lightning_launcher.multitool.R$drawable: int abc_text_select_handle_middle_mtrl_light
+com.faendir.lightning_launcher.multitool.R$drawable: int abc_text_select_handle_right_mtrl_dark
+com.faendir.lightning_launcher.multitool.R$drawable: int abc_text_select_handle_right_mtrl_light
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_textfield_activated_mtrl_alpha
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_textfield_default_mtrl_alpha
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_textfield_search_activated_mtrl_alpha
@@ -9880,9 +9764,6 @@ com.faendir.omniadapter.R$drawable: int abc_switch_track_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_tab_indicator_material
 com.faendir.omniadapter.R$drawable: int abc_tab_indicator_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_text_cursor_material
-com.faendir.omniadapter.R$drawable: int abc_text_select_handle_left_mtrl_alpha
-com.faendir.omniadapter.R$drawable: int abc_text_select_handle_middle_mtrl_alpha
-com.faendir.omniadapter.R$drawable: int abc_text_select_handle_right_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_textfield_activated_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_textfield_default_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_textfield_search_activated_mtrl_alpha

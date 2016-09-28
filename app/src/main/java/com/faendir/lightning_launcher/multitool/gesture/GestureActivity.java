@@ -32,6 +32,7 @@ public class GestureActivity extends BaseActivity implements GestureOverlayView.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         gestureView = (GestureOverlayView) findViewById(R.id.gesture_view);
         gestureView.setFadeEnabled(true);
@@ -58,12 +59,9 @@ public class GestureActivity extends BaseActivity implements GestureOverlayView.
             label.setText(info.getText());
             action = info.getIntent();
             PackageManager pm = getPackageManager();
-            try {
-                String label = pm.getActivityInfo(info.getIntent().getComponent(), 0).loadLabel(pm).toString();
-                chooseAction.setText(label);
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-            }
+
+            String label = pm.resolveActivity(info.getIntent(), 0).activityInfo.loadLabel(pm).toString();
+            chooseAction.setText(label);
         }
     }
 
