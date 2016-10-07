@@ -27,8 +27,10 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.billing.BaseBillingManager;
 import com.faendir.lightning_launcher.scriptlib.DialogActivity;
 
 import org.acra.ACRA;
@@ -44,6 +46,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import static android.media.MediaMetadata.*;
 import static android.media.session.PlaybackState.*;
@@ -165,9 +168,26 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        startService(new Intent(this, MusicManager.class));
-        Log.d("MusicManager", "Bind");
-        return messenger.getBinder();
+        final AtomicBoolean isAllowed = new AtomicBoolean(false);
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                isAllowed.set(new BaseBillingManager(MusicManager.this).isBoughtOrTrial(R.string.title_musicWidget));
+            }
+        });
+        t.start();
+        try {
+            t.join();
+        } catch (InterruptedException ignored) {
+        }
+        if(isAllowed.get()) {
+            startService(new Intent(this, MusicManager.class));
+            Log.d("MusicManager", "Bind");
+            return messenger.getBinder();
+        }else {
+            Toast.makeText(this, "No active trial or purchase found.\nMusic widgets disabled.", Toast.LENGTH_LONG).show();
+            return null;
+        }
     }
 
     private void registerListener(Listener listener) {

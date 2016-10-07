@@ -6,10 +6,10 @@ android {
 
     defaultConfig {
         applicationId "com.faendir.lightning_launcher.multitool"
-        minSdkVersion 11
+        minSdkVersion 14
         targetSdkVersion 24
-        versionCode 50
-        versionName "2.8.6"
+        versionCode 52
+        versionName "2.8.7-alpha"
     }
     buildTypes {
         release {
@@ -29,10 +29,10 @@ android {
 
 dependencies {
     def supportVersion = "24.2.1"
-    compile ('com.faendir.lightninglauncher:scriptlib:2.2'){
+    compile('com.faendir.lightninglauncher:scriptlib:2.2') {
         changing = false
     }
-    compile ('com.faendir:omniadapter:0.3-SNAPSHOT'){
+    compile('com.faendir:omniadapter:0.3-SNAPSHOT') {
         changing = true
     }
     compile "com.android.support:appcompat-v7:$supportVersion"
@@ -43,4 +43,7 @@ dependencies {
     compile 'ch.acra:acra:4.9.0'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'org.apache.commons:commons-collections4:4.1'
+    compile 'com.anjlab.android.iab.v3:library:1.0.32'
+    compile 'com.android.support:support-v4:24.2.1'
+    compile 'com.mikepenz:materialdrawer:5.6.0'
 }

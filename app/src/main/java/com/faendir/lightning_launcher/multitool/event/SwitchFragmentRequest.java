@@ -1,6 +1,6 @@
 package com.faendir.lightning_launcher.multitool.event;
 
-import android.support.annotation.IdRes;
+import android.support.annotation.StringRes;
 
 /**
  * Created on 01.04.2016.
@@ -8,21 +8,15 @@ import android.support.annotation.IdRes;
  * @author F43nd1r
  */
 public class SwitchFragmentRequest {
-    @IdRes
+    @StringRes
     private final int id;
-    private final String title;
 
-    public SwitchFragmentRequest(@IdRes int id, String title) {
+    public SwitchFragmentRequest(@StringRes int id) {
         this.id = id;
-        this.title = title;
     }
 
-    @IdRes
+    @StringRes
     public int getId() {
         return id;
-    }
-
-    public String getTitle() {
-        return title;
     }
 }

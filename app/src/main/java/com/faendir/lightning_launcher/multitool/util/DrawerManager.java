@@ -4,14 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.view.MenuItem;
+import android.view.View;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.event.LeaveApplicationRequest;
 import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -20,57 +18,19 @@ import org.greenrobot.eventbus.EventBus;
  *
  * @author F43nd1r
  */
-public class DrawerManager implements NavigationView.OnNavigationItemSelectedListener {
+public class DrawerManager implements Drawer.OnDrawerItemClickListener {
     private final Context context;
-    private final DrawerLayout drawerLayout;
+    private final Drawer drawer;
 
-    public DrawerManager(@NonNull Context context, @NonNull DrawerLayout drawerLayout) {
+    public DrawerManager(@NonNull Context context, Drawer drawer) {
         this.context = context;
-        this.drawerLayout = drawerLayout;
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_launcher_script:
-            case R.id.nav_script_manager:
-            case R.id.nav_gesture:
-            case R.id.nav_music:
-            case R.id.nav_settings:
-                EventBus.getDefault().post(new SwitchFragmentRequest(item.getItemId(), item.getTitle().toString()));
-                break;
-            case R.id.nav_email: {
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                        context.getString(R.string.link_email_scheme), context.getString(R.string.link_email_adress), null));
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.link_email_subject));
-                Intent intent = Intent.createChooser(emailIntent, context.getString(R.string.link_email_chooser));
-                context.startActivity(intent);
-                EventBus.getDefault().post(new LeaveApplicationRequest());
-                break;
-            }
-            case R.id.nav_play_store: {
-                try {
-                    context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + context.getPackageName())));
-                } catch (android.content.ActivityNotFoundException e) {
-                    context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + context.getPackageName())));
-                }
-                EventBus.getDefault().post(new LeaveApplicationRequest());
-                break;
-            }
-            case R.id.nav_community: {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(context.getString(R.string.link_googlePlus)));
-                context.startActivity(intent);
-                EventBus.getDefault().post(new LeaveApplicationRequest());
-                break;
-            }
-        }
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
+        this.drawer = drawer;
+        drawer.setOnDrawerItemClickListener(this);
     }
 
     public boolean closeDrawer() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
+        if (drawer.isDrawerOpen()) {
+            drawer.closeDrawer();
             return true;
         } else {
             return false;
@@ -78,11 +38,46 @@ public class DrawerManager implements NavigationView.OnNavigationItemSelectedLis
     }
 
     public boolean openDrawer() {
-        if (!drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.openDrawer(GravityCompat.START);
+        if (!drawer.isDrawerOpen()) {
+            drawer.openDrawer();
             return true;
         } else {
             return false;
         }
+    }
+
+    @Override
+    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+        switch ((int) drawerItem.getIdentifier()) {
+            case R.string.title_launcherScript:
+            case R.string.title_scriptManager:
+            case R.string.title_gestureLauncher:
+            case R.string.title_musicWidget:
+            case R.string.title_settings:
+                EventBus.getDefault().post(new SwitchFragmentRequest((int) drawerItem.getIdentifier()));
+                return false;
+            case R.string.email: {
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                        context.getString(R.string.link_email_scheme), context.getString(R.string.link_email_adress), null));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.link_email_subject));
+                Intent intent = Intent.createChooser(emailIntent, context.getString(R.string.link_email_chooser));
+                context.startActivity(intent);
+                break;
+            }
+            case R.string.play_store: {
+                try {
+                    context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + context.getPackageName())));
+                } catch (android.content.ActivityNotFoundException e) {
+                    context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + context.getPackageName())));
+                }
+                break;
+            }
+            case R.string.google_community: {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(context.getString(R.string.link_googlePlus)));
+                context.startActivity(intent);
+                break;
+            }
+        }
+        return true;
     }
 }
