@@ -33,6 +33,7 @@ public class FragmentManager {
     private final BillingManager billingManager;
     private final Drawer drawer;
     private Fragment currentFragment;
+    private int lastId;
 
     public FragmentManager(MainActivity context, BillingManager billingManager, Drawer drawer) {
         this.context = context;
@@ -47,51 +48,59 @@ public class FragmentManager {
         String name;
         try {
             name = context.getResources().getResourceName(request.getId());
-        }catch (Resources.NotFoundException e){
+        } catch (Resources.NotFoundException e) {
             name = "none";
         }
         if (currentFragment != null && sharedPref.getString(context.getString(R.string.pref_lastFragment), "").equals(name)) {
             return;
         }
         if (!billingManager.isBoughtOrTrial(request.getId())) {
-            billingManager.showDialog();
-        }
-        final String finalName = name;
-        context.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                switch (request.getId()) {
-                    case R.string.title_scriptManager:
-                        currentFragment = new ScriptManagerFragment();
-                        break;
-                    case R.string.title_launcherScript:
-                        currentFragment = new LauncherScriptFragment();
-                        break;
-                    case R.string.title_gestureLauncher:
-                        currentFragment = new GestureFragment();
-                        break;
-                    case R.string.title_musicWidget:
-                        currentFragment = new MusicFragment();
-                        break;
-                    case R.string.title_settings:
-                        currentFragment = new PrefsFragment();
-                        break;
-                    default:
-                        manager.beginTransaction().remove(currentFragment).commit();
-                        currentFragment = null;
-                        drawer.openDrawer();
+            context.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    billingManager.showDialog();
+                    drawer.setSelection(lastId);
                 }
-                if (currentFragment != null) {
-                    manager.beginTransaction().replace(R.id.content_frame, currentFragment).commit();
-                    sharedPref.edit().putString(context.getString(R.string.pref_lastFragment), finalName).apply();
-                    ActionBar toolbar = context.getSupportActionBar();
-                    if (toolbar != null) {
-                        toolbar.setTitle(context.getString(request.getId()));
+            });
+        } else {
+            final String finalName = name;
+            context.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    switch (request.getId()) {
+                        case R.string.title_scriptManager:
+                            currentFragment = new ScriptManagerFragment();
+                            break;
+                        case R.string.title_launcherScript:
+                            currentFragment = new LauncherScriptFragment();
+                            break;
+                        case R.string.title_gestureLauncher:
+                            currentFragment = new GestureFragment();
+                            break;
+                        case R.string.title_musicWidget:
+                            currentFragment = new MusicFragment();
+                            break;
+                        case R.string.title_settings:
+                            currentFragment = new PrefsFragment();
+                            break;
+                        default:
+                            manager.beginTransaction().remove(currentFragment).commit();
+                            currentFragment = null;
+                            drawer.openDrawer();
                     }
-                    drawer.setSelection(request.getId());
+                    if (currentFragment != null) {
+                        manager.beginTransaction().replace(R.id.content_frame, currentFragment).commit();
+                        sharedPref.edit().putString(context.getString(R.string.pref_lastFragment), finalName).apply();
+                        lastId = request.getId();
+                        ActionBar toolbar = context.getSupportActionBar();
+                        if (toolbar != null) {
+                            toolbar.setTitle(context.getString(request.getId()));
+                        }
+                        drawer.setSelection(request.getId());
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     public boolean loadLastFragment() {

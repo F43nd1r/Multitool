@@ -138,4 +138,17 @@
     <string name="title_shortcuts">Shortcuts</string>
     <string name="toast_cantLoadAction">Failed to load action info</string>
     <string name="text_itemRemoved">Item removed</string>
+    <string name="pref_coverMode">coverFillMode</string>
+    <string-array name="list_coverMode">
+        <item>Overscale</item>
+        <item>Underscale</item>
+        <item>Stretch</item>
+    </string-array>
+    <string-array name="listCoverModeKeys">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string name="default_coverMode">0</string>
+    <string name="title_coverMode">Cover scale mode</string>
 </resources>

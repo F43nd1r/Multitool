@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="ScriptManager">
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="@string/pref_enableAcra"
+        android:title="@string/title_enableAcra"/>
+    <PreferenceCategory android:title="@string/title_scriptManager">
+        <Preference
+            android:key="@string/pref_directory"
+            android:title="@string/title_backupDir"/>
         <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="@string/pref_enableAcra"
-            android:title="@string/title_enableAcra"/>
-            <Preference
-                android:key="@string/pref_directory"
-                android:title="@string/title_backupDir"/>
-            <CheckBoxPreference
-                android:defaultValue="true"
-                android:key="@string/pref_spaces"
-                android:title="Format : Spaces"
-                android:summary="Inserts spaces around operators"/>
+            android:defaultValue="true"
+            android:key="@string/pref_spaces"
+            android:summary="Inserts spaces around operators"
+            android:title="Format : Spaces"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/title_musicWidget">
+        <ListPreference
+            android:key="@string/pref_coverMode"
+            android:title="@string/title_coverMode"
+            android:entries="@array/list_coverMode"
+            android:entryValues="@array/listCoverModeKeys"
+            android:defaultValue="@string/default_coverMode"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="Lightning Auto Backup">
         <SwitchPreference
+            android:defaultValue="false"
             android:key="@string/key_enableBackup"
-            android:title="Enable automatic Backup"
-            android:defaultValue="false"/>
+            android:title="Enable automatic Backup"/>
         <com.faendir.lightning_launcher.multitool.settings.BackupTimePreference
+            android:dependency="@string/key_enableBackup"
             android:key="@string/key_backupTime"
-            android:title="Execution time"
-            android:dependency="@string/key_enableBackup"/>
+            android:title="Execution time"/>
     </PreferenceCategory>
 </PreferenceScreen>

@@ -317,7 +317,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
                 switch (msg.what) {
                     case ACTION_REGISTER_MESSENGER:
                         if (msg.replyTo != null) {
-                            musicManager.get().registerListener(new MessengerListener(msg.replyTo));
+                            musicManager.get().registerListener(new MessengerListener(msg.replyTo, musicManager.get()));
                         }
                         break;
                     case ACTION_UNREGISTER_MESSENGER:
@@ -377,9 +377,11 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
 
     private static class MessengerListener implements Listener {
         private final Messenger messenger;
+        private final Context context;
 
-        private MessengerListener(Messenger messenger) {
+        private MessengerListener(Messenger messenger, Context context) {
             this.messenger = messenger;
+            this.context = context;
         }
 
         @Override
@@ -391,6 +393,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
             data.putString("title", title);
             data.putString("album", album);
             data.putString("artist", artist);
+            data.putInt("coverMode", Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.pref_coverMode), "0")));
             Message message = Message.obtain();
             message.setData(data);
             try {

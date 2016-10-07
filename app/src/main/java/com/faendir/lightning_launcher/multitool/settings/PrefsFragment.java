@@ -61,6 +61,7 @@ public class PrefsFragment extends PreferenceFragment {
         };
         listener.addPreference(getString(R.string.key_backupTime), backupChanged, false);
         listener.addPreference(getString(R.string.key_enableBackup), backupChanged, false);
+        listener.addPreferenceForSummary(getString(R.string.pref_coverMode));
         if (!BuildConfig.DEBUG) {
             removeDebugOptions();
         }

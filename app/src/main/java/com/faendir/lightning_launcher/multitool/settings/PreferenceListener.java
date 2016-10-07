@@ -19,7 +19,7 @@ class PreferenceListener implements SharedPreferences.OnSharedPreferenceChangeLi
     private final Map<String, Wrapper> map;
     private final PreferenceScreen screen;
 
-    public PreferenceListener(PreferenceScreen screen) {
+    PreferenceListener(PreferenceScreen screen) {
         this.screen = screen;
         map = new HashMap<>();
     }
@@ -49,7 +49,7 @@ class PreferenceListener implements SharedPreferences.OnSharedPreferenceChangeLi
      *
      * @param preference the preference
      */
-    public void addPreferenceForSummary(@NonNull Preference preference) {
+    void addPreferenceForSummary(@NonNull Preference preference) {
         addPreferenceForSummary(preference.getKey());
     }
 
@@ -58,7 +58,7 @@ class PreferenceListener implements SharedPreferences.OnSharedPreferenceChangeLi
      *
      * @param key the preference identifier
      */
-    private void addPreferenceForSummary(String key) {
+    void addPreferenceForSummary(String key) {
         addPreference(key, true, null, false);
     }
 
@@ -69,7 +69,7 @@ class PreferenceListener implements SharedPreferences.OnSharedPreferenceChangeLi
      * @param action     the action
      * @param runOnAdd   if the action should be run once instantly
      */
-    public void addPreference(@NonNull Preference preference, Runnable action, boolean runOnAdd) {
+    void addPreference(@NonNull Preference preference, Runnable action, boolean runOnAdd) {
         addPreference(preference.getKey(), action, runOnAdd);
     }
 
@@ -80,7 +80,7 @@ class PreferenceListener implements SharedPreferences.OnSharedPreferenceChangeLi
      * @param action   the action
      * @param runOnAdd if the action should be run once instantly
      */
-    public void addPreference(String key, Runnable action, boolean runOnAdd) {
+    void addPreference(String key, Runnable action, boolean runOnAdd) {
         addPreference(key, false, action, runOnAdd);
     }
 
@@ -91,7 +91,7 @@ class PreferenceListener implements SharedPreferences.OnSharedPreferenceChangeLi
      * @param action     the action
      * @param runOnAdd   if the action should be run once instantly
      */
-    public void addPreferenceForSummary(@NonNull Preference preference, Runnable action, boolean runOnAdd) {
+    void addPreferenceForSummary(@NonNull Preference preference, Runnable action, boolean runOnAdd) {
         addPreference(preference.getKey(), true, action, runOnAdd);
     }
 
@@ -102,7 +102,7 @@ class PreferenceListener implements SharedPreferences.OnSharedPreferenceChangeLi
      * @param action   the action
      * @param runOnAdd if the action should be run once instantly
      */
-    public void addPreferenceForSummary(String key, Runnable action, boolean runOnAdd) {
+    void addPreferenceForSummary(String key, Runnable action, boolean runOnAdd) {
         addPreference(key, true, action, runOnAdd);
     }
 
@@ -126,7 +126,7 @@ class PreferenceListener implements SharedPreferences.OnSharedPreferenceChangeLi
         final boolean setSummaryToValue;
         final Runnable action;
 
-        public Wrapper(Runnable action, boolean setSummaryToValue) {
+        private Wrapper(Runnable action, boolean setSummaryToValue) {
             this.action = action;
             this.setSummaryToValue = setSummaryToValue;
         }

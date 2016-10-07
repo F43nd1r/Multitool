@@ -7,9 +7,6 @@ import android.provider.Settings;
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.TransactionDetails;
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,16 +14,25 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author F43nd1r
  * @since 07.10.2016
  */
-public class BaseBillingManager implements BillingProcessor.IBillingHandler{
+public class BaseBillingManager implements BillingProcessor.IBillingHandler {
+    enum TrialState {
+        NOT_STARTED,
+        ONGOING,
+        EXPIRED
+    }
+
     static final String MUSIC_WIDGET = "music_widget";
     static final int SEVEN_DAYS_IN_SECONDS = 60 * 60 * 24 * 7;
     private final Context context;
     private final BillingProcessor billingProcessor;
+    private final Map<String, Long> expiration;
 
     public BaseBillingManager(Context context) {
         billingProcessor = new BillingProcessor(context, "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr" +
@@ -36,6 +42,7 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler{
                 "qy1221c566scH3otwsT7gK5d+peK4nmx4hJacYFJUuVHqjkEgcVW9AuNtigzb7aSmumZSSVH4N4cnH7dCz4g" +
                 "ffU1hwIDAQAB", this);
         this.context = context;
+        expiration = new HashMap<>();
     }
 
     @Override
@@ -50,7 +57,6 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler{
 
     @Override
     public void onBillingError(int errorCode, Throwable error) {
-        reset();
     }
 
     @Override
@@ -71,15 +77,32 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler{
 
     public boolean isBoughtOrTrial(long id) {
         if (id == R.string.title_musicWidget) {
-            return billingProcessor.isPurchased(MUSIC_WIDGET) || isTrial(MUSIC_WIDGET);
+            return billingProcessor.isPurchased(MUSIC_WIDGET) || isTrial(MUSIC_WIDGET) == TrialState.ONGOING;
         } else {
             return true;
         }
     }
 
-    private boolean isTrial(String productId) {
-        int time = networkRequest(productId, 0);
-        return time != -1 && time < SEVEN_DAYS_IN_SECONDS;
+    protected TrialState isTrial(String productId) {
+        long expires;
+        if (expiration.containsKey(productId)) {
+            expires = expiration.get(productId);
+        } else {
+            int time = networkRequest(productId, 0);
+            if (time == -1) {
+                expires = -1;
+            } else {
+                expires = System.currentTimeMillis() / 1000 + SEVEN_DAYS_IN_SECONDS - time;
+            }
+            expiration.put(productId, expires);
+        }
+        if (expires == -1) {
+            return TrialState.NOT_STARTED;
+        } else if (System.currentTimeMillis() / 1000 < expires) {
+            return TrialState.ONGOING;
+        } else {
+            return TrialState.EXPIRED;
+        }
     }
 
     @SuppressLint("HardwareIds")
@@ -102,9 +125,5 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler{
         } catch (IOException | NumberFormatException e) {
             return -1;
         }
-    }
-
-    void reset() {
-        EventBus.getDefault().post(new SwitchFragmentRequest(0));
     }
 }

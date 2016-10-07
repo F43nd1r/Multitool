@@ -4,11 +4,16 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.UiThread;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.anjlab.android.iab.v3.TransactionDetails;
+import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.PurchaseRequest;
+import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 /**
@@ -16,7 +21,7 @@ import org.greenrobot.eventbus.Subscribe;
  * @since 29.09.2016
  */
 
-public class BillingManager extends BaseBillingManager  {
+public class BillingManager extends BaseBillingManager {
     private final Activity context;
     private volatile boolean ready = false;
 
@@ -38,47 +43,38 @@ public class BillingManager extends BaseBillingManager  {
         }
     }
 
+    @Override
+    public void onProductPurchased(String productId, TransactionDetails details) {
+        super.onProductPurchased(productId, details);
+        EventBus.getDefault().post(new SwitchFragmentRequest(R.string.title_musicWidget));
+    }
+
+    @UiThread
     public void showDialog() {
-        context.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                AlertDialog dialog = new AlertDialog.Builder(context)
-                        .setMessage("Music widget is a paid feature. You can either start a 7-day Trial or buy it.")
-                        .setPositiveButton("Buy", new DialogInterface.OnClickListener() {
+        AlertDialog dialog = new AlertDialog.Builder(context)
+                .setMessage("Music widget is a paid feature. You can either start a 7-day Trial or buy it.")
+                .setPositiveButton("Buy", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        buy(MUSIC_WIDGET);
+                    }
+                })
+                .setNeutralButton("Trial", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        new Thread(new Runnable() {
                             @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                buy(MUSIC_WIDGET);
+                            public void run() {
+                                startTrial(MUSIC_WIDGET);
                             }
-                        })
-                        .setNeutralButton("Trial", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                new Thread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        startTrial(MUSIC_WIDGET);
-                                    }
-                                }).start();
-                            }
-                        })
-                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        })
-                        .setOnCancelListener(new DialogInterface.OnCancelListener() {
-                            @Override
-                            public void onCancel(DialogInterface dialog) {
-                                reset();
-                            }
-                        })
-                        .setCancelable(false)
-                        .create();
-                dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-                dialog.show();
-            }
-        });
+                        }).start();
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .setCancelable(false)
+                .create();
+        dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        dialog.show();
     }
 
     @Subscribe
@@ -99,13 +95,12 @@ public class BillingManager extends BaseBillingManager  {
     }
 
     private void startTrial(String productId) {
-        int time = networkRequest(productId, 0);
-        if (time >= SEVEN_DAYS_IN_SECONDS) {
+        TrialState state = isTrial(productId);
+        if (state == TrialState.EXPIRED) {
             context.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     Toast.makeText(context, "You've already used your Trial period.", Toast.LENGTH_LONG).show();
-                    reset();
                 }
             });
         } else {
@@ -115,9 +110,10 @@ public class BillingManager extends BaseBillingManager  {
                     @Override
                     public void run() {
                         Toast.makeText(context, "Sorry, something went wrong.", Toast.LENGTH_LONG).show();
-                        reset();
                     }
                 });
+            }else {
+                EventBus.getDefault().post(new SwitchFragmentRequest(R.string.title_musicWidget));
             }
         }
 
