@@ -151,4 +151,5 @@
     </string-array>
     <string name="default_coverMode">0</string>
     <string name="title_coverMode">Cover scale mode</string>
+    <string name="button_updateMusic">Try to update existing widgets</string>
 </resources>

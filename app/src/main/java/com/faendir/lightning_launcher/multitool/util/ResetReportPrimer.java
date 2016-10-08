@@ -16,6 +16,10 @@ import org.acra.builder.ReportPrimer;
  */
 
 public class ResetReportPrimer implements ReportPrimer {
+
+    public ResetReportPrimer(){
+    }
+
     @Override
     public void primeReport(Context context, ReportBuilder builder) {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);

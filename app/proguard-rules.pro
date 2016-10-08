@@ -21,6 +21,7 @@
 -keep class com.faendir.lightning_launcher.multitool.scriptmanager.** {*;}
 -keep class com.faendir.lightning_launcher.multitool.gesture.** {*;}
 -keep class com.faendir.lightning_launcher.multitool.MusicManager {*;}
+-keep class com.faendir.lightning_launcher.multitool.util.ResetReportPrimer {*;}
 -keep class com.faendir.lightning_launcher.scriptlib.** {*;}
 -keep public class org.acra.** {*;}
 -keep public interface org.acra.** {*;}

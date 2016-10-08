@@ -19,7 +19,8 @@ import org.acra.sender.HttpSender;
         formUri = "https://faendir.smileupps.com/acra-multitool/_design/acra-storage/_update/report",
         formUriBasicAuthLogin = "multitool",
         formUriBasicAuthPassword = "mtR3p0rt",
-        reportPrimerClass = ResetReportPrimer.class
+        reportPrimerClass = ResetReportPrimer.class,
+        buildConfigClass = BuildConfig.class
 )
 public class MultiTool extends Application {
     @Override

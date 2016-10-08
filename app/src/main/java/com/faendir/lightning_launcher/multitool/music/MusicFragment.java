@@ -26,6 +26,7 @@ import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.multitool.util.IntentChooser;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
+import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
 import com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader;
 import com.trianguloy.llscript.repository.aidl.Script;
 
@@ -170,6 +171,11 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
             case R.id.button_addMusic:
                 new ScriptManager(getActivity()).getAsyncExecutorService()
                         .add(new ScriptLoader(new Script(getActivity(), R.raw.music_setup, "multitool_createMusic", 0)).setRunScript(true))
+                        .start();
+                break;
+            case R.id.button_updateMusic:
+                new ScriptManager(getActivity()).getAsyncExecutorService()
+                        .add(new DirectScriptExecutor(R.raw.music_update))
                         .start();
                 break;
             case R.id.button_chooseDefault:

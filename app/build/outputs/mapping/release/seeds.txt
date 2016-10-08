@@ -7518,6 +7518,7 @@ com.faendir.lightning_launcher.multitool.R$id: int button_negative
 com.faendir.lightning_launcher.multitool.R$id: int button_noLauncher
 com.faendir.lightning_launcher.multitool.R$id: int button_positive
 com.faendir.lightning_launcher.multitool.R$id: int button_reload
+com.faendir.lightning_launcher.multitool.R$id: int button_updateMusic
 com.faendir.lightning_launcher.multitool.R$id: int cancel_action
 com.faendir.lightning_launcher.multitool.R$id: int center
 com.faendir.lightning_launcher.multitool.R$id: int center_horizontal
@@ -7844,6 +7845,7 @@ com.faendir.lightning_launcher.multitool.R$raw: int music_load
 com.faendir.lightning_launcher.multitool.R$raw: int music_pause
 com.faendir.lightning_launcher.multitool.R$raw: int music_resume
 com.faendir.lightning_launcher.multitool.R$raw: int music_setup
+com.faendir.lightning_launcher.multitool.R$raw: int music_update
 com.faendir.lightning_launcher.multitool.R$raw: int scriptmanager
 com.faendir.lightning_launcher.multitool.R$string: int MainDescription
 com.faendir.lightning_launcher.multitool.R$string: int abc_action_bar_home_description
@@ -7901,6 +7903,7 @@ com.faendir.lightning_launcher.multitool.R$string: int button_set
 com.faendir.lightning_launcher.multitool.R$string: int button_sunday
 com.faendir.lightning_launcher.multitool.R$string: int button_thursday
 com.faendir.lightning_launcher.multitool.R$string: int button_tuesday
+com.faendir.lightning_launcher.multitool.R$string: int button_updateMusic
 com.faendir.lightning_launcher.multitool.R$string: int button_wednesday
 com.faendir.lightning_launcher.multitool.R$string: int character_counter_pattern
 com.faendir.lightning_launcher.multitool.R$string: int currently_playing
@@ -9433,6 +9436,9 @@ com.faendir.lightning_launcher.multitool.util.IntentChooser
 com.faendir.lightning_launcher.multitool.util.IntentChooser: IntentChooser()
 com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget: com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget[] values()
 com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget: com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget valueOf(java.lang.String)
+com.faendir.lightning_launcher.multitool.util.ResetReportPrimer
+com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: ResetReportPrimer()
+com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: void primeReport(android.content.Context,org.acra.builder.ReportBuilder)
 com.faendir.lightning_launcher.scriptlib.Action
 com.faendir.lightning_launcher.scriptlib.Action: int UNSET
 com.faendir.lightning_launcher.scriptlib.Action: int NOTHING

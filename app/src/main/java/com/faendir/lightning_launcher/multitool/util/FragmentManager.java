@@ -84,8 +84,10 @@ public class FragmentManager {
                             currentFragment = new PrefsFragment();
                             break;
                         default:
-                            manager.beginTransaction().remove(currentFragment).commit();
-                            currentFragment = null;
+                            if (currentFragment != null) {
+                                manager.beginTransaction().remove(currentFragment).commit();
+                                currentFragment = null;
+                            }
                             drawer.openDrawer();
                     }
                     if (currentFragment != null) {

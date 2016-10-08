@@ -4784,7 +4784,14 @@ com.anjlab.android.iab.v3.Security:
     40:40:Security()
 com.anjlab.android.iab.v3.SkuDetails
 com.anjlab.android.iab.v3.SkuDetails$1
-com.faendir.lightning_launcher.multitool.BuildConfig
+com.faendir.lightning_launcher.multitool.BuildConfig:
+    public static final boolean DEBUG
+    public static final java.lang.String APPLICATION_ID
+    public static final java.lang.String BUILD_TYPE
+    public static final java.lang.String FLAVOR
+    public static final int VERSION_CODE
+    public static final java.lang.String VERSION_NAME
+    6:6:public BuildConfig()
 com.faendir.lightning_launcher.multitool.R
 com.faendir.lightning_launcher.multitool.R$anim
 com.faendir.lightning_launcher.multitool.R$array
@@ -4835,8 +4842,6 @@ com.faendir.lightning_launcher.multitool.util.FileManagerFactory:
 com.faendir.lightning_launcher.multitool.util.ListAdapter:
     private static final int RESOURCE
     37:38:public ListAdapter(android.content.Context,com.faendir.lightning_launcher.multitool.util.Text[])
-com.faendir.lightning_launcher.multitool.util.ResetReportPrimer:
-    18:18:public ResetReportPrimer()
 com.faendir.omniadapter.Action:
     public static final int NONE
     public static final int SELECT
