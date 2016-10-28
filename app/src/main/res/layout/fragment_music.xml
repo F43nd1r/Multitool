@@ -9,50 +9,19 @@
 
 
     <Button
-        android:id="@+id/button_addMusic"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:onClick="onButtonClick"
-        android:text="@string/button_addMusic"
-        android:textAlignment="center"/>
-
-    <Button
         android:id="@+id/button_updateMusic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button_addMusic"
         android:gravity="center"
         android:onClick="onButtonClick"
         android:text="@string/button_updateMusic"
         android:textAlignment="center"/>
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@id/button_updateMusic"
-        android:gravity="center"
-        android:text="@string/title_defaultMusicPlayer"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        tools:textSize="18sp"/>
-
-    <Button
-        android:id="@+id/button_chooseDefault"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textView5"
-        android:gravity="center"
-        android:onClick="onButtonClick"
-        android:text="@string/button_choose"
-        android:textAlignment="center"/>
-
-    <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:layout_below="@id/button_chooseDefault"
+        android:layout_below="@id/button_updateMusic"
         android:text="@string/currently_playing"
         android:textAlignment="center"
         android:textStyle="normal|bold"

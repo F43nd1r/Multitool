@@ -9,6 +9,7 @@
           android:paddingStart="30dp"
           android:paddingRight="30dp"
           android:paddingEnd="30dp"
-          android:textSize="16sp">
+          android:textSize="16sp"
+          android:textIsSelectable="true">
 
 </TextView>

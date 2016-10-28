@@ -16,6 +16,7 @@
             android:layout_toEndOf="@+id/img"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:textIsSelectable="true"/>
 
 </RelativeLayout>

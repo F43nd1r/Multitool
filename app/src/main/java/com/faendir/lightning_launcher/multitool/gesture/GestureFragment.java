@@ -89,7 +89,7 @@ public class GestureFragment extends Fragment implements ListView.MultiChoiceMod
             case R.id.action_help:
                 new AlertDialog.Builder(getActivity())
                         .setTitle(R.string.title_help)
-                        .setMessage(R.string.message_help)
+                        .setMessage(R.string.message_helpGesture)
                         .setPositiveButton(R.string.button_ok, null)
                         .show();
             default:

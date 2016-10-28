@@ -1,6 +1,7 @@
 package com.faendir.lightning_launcher.multitool.util;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -130,10 +131,20 @@ public class IntentChooser extends BaseActivity implements AdapterView.OnItemCli
 
     public static class Builder {
         private final Activity context;
+        private final Fragment fragment;
         private final Intent intent;
 
         public Builder(Activity context) {
+            this(context, null);
+        }
+
+        public Builder(Fragment fragment) {
+            this(fragment.getActivity(), fragment);
+        }
+
+        private Builder(Activity context, Fragment fragment) {
             this.context = context;
+            this.fragment = fragment;
             intent = new Intent(context, IntentChooser.class);
             setDefaults();
         }
@@ -164,7 +175,11 @@ public class IntentChooser extends BaseActivity implements AdapterView.OnItemCli
         }
 
         public void startForResult(int requestCode) {
-            context.startActivityForResult(intent, requestCode);
+            if (fragment != null) {
+                fragment.startActivityForResult(intent, requestCode);
+            } else {
+                context.startActivityForResult(intent, requestCode);
+            }
         }
     }
 }

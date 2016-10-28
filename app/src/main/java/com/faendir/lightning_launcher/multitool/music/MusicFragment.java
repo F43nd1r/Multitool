@@ -1,42 +1,33 @@
 package com.faendir.lightning_launcher.multitool.music;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
-import com.faendir.lightning_launcher.multitool.util.IntentChooser;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
-import com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader;
-import com.trianguloy.llscript.repository.aidl.Script;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-
-import java.net.URISyntaxException;
-import java.util.List;
-
-import static android.app.Activity.RESULT_OK;
 
 /**
  * Created on 03.07.2016.
@@ -49,17 +40,15 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
     private TextView title;
     private TextView album;
     private TextView artist;
-    private Button choose;
     private MusicManager.BinderWrapper binder;
     private ServiceConnection connection;
     private boolean isBound;
     private boolean calledAtLeastOnce = true;
-    private SharedPreferences sharedPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        setHasOptionsMenu(true);
         isBound = true;
         connection = new ServiceConnection() {
             @Override
@@ -84,23 +73,26 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
         title = (TextView) v.findViewById(R.id.text_title);
         album = (TextView) v.findViewById(R.id.text_album);
         artist = (TextView) v.findViewById(R.id.text_artist);
-        choose = (Button) v.findViewById(R.id.button_chooseDefault);
-        setUriToButton();
         return v;
     }
 
-    private void setUriToButton() {
-        String uri = sharedPref.getString(getString(R.string.pref_musicDefault), null);
-        if (uri != null) {
-            PackageManager pm = getActivity().getPackageManager();
-            try {
-                List<ResolveInfo> list = pm.queryBroadcastReceivers(Intent.parseUri(uri, 0), 0);
-                if (!list.isEmpty()) {
-                    choose.setText(list.get(0).loadLabel(pm));
-                }
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
-            }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_music_widget, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_help:
+                new AlertDialog.Builder(getActivity())
+                        .setTitle(R.string.title_help)
+                        .setMessage(R.string.message_helpMusic)
+                        .setPositiveButton(R.string.button_ok, null)
+                        .show();
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -131,7 +123,6 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
         if (binder != null) {
             binder.unregisterListener(this);
         }
-        //albumArt.setImageResource(android.R.color.transparent);
         super.onPause();
     }
 
@@ -153,36 +144,13 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
         calledAtLeastOnce = true;
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            sharedPref.edit()
-                    .putString(getString(R.string.pref_musicDefault),
-                            ((Intent) data.getParcelableExtra(Intent.EXTRA_INTENT)).toUri(0))
-                    .apply();
-            setUriToButton();
-        }
-    }
-
     @Subscribe
     public void onClick(ClickEvent event) {
         switch (event.getId()) {
-            case R.id.button_addMusic:
-                new ScriptManager(getActivity()).getAsyncExecutorService()
-                        .add(new ScriptLoader(new Script(getActivity(), R.raw.music_setup, "multitool_createMusic", 0)).setRunScript(true))
-                        .start();
-                break;
             case R.id.button_updateMusic:
                 new ScriptManager(getActivity()).getAsyncExecutorService()
                         .add(new DirectScriptExecutor(R.raw.music_update))
                         .start();
-                break;
-            case R.id.button_chooseDefault:
-                new IntentChooser.Builder(getActivity())
-                        .useApplicationInfo()
-                        .useIntent(new Intent(Intent.ACTION_MEDIA_BUTTON), IntentChooser.IntentTarget.BROADCAST_RECEIVER)
-                        .startForResult(0);
                 break;
         }
     }

@@ -107,7 +107,7 @@ public class FragmentManager {
 
     public boolean loadLastFragment() {
         if (sharedPref.contains(context.getString(R.string.pref_lastFragment))) {
-            int load = context.getResources().getIdentifier(sharedPref.getString(context.getString(R.string.pref_lastFragment), null), "id", context.getPackageName());
+            int load = context.getResources().getIdentifier(sharedPref.getString(context.getString(R.string.pref_lastFragment), ""), "id", context.getPackageName());
             EventBus.getDefault().post(new SwitchFragmentRequest(load));
             return true;
         }

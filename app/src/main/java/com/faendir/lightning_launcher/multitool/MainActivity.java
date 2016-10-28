@@ -9,7 +9,6 @@ import android.view.View;
 
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
-import com.faendir.lightning_launcher.multitool.event.LeaveApplicationRequest;
 import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
 import com.faendir.lightning_launcher.multitool.util.BaseActivity;
 import com.faendir.lightning_launcher.multitool.util.DrawerManager;
@@ -69,7 +68,6 @@ public class MainActivity extends BaseActivity {
         super.onStart();
         EventBus.getDefault().register(this);
         EventBus.getDefault().register(fragmentManager);
-        EventBus.getDefault().register(billingManager);
         if (!fragmentManager.loadLastFragment()) {
             drawerManager.openDrawer();
         }
@@ -79,7 +77,6 @@ public class MainActivity extends BaseActivity {
     protected void onStop() {
         EventBus.getDefault().unregister(this);
         EventBus.getDefault().unregister(fragmentManager);
-        EventBus.getDefault().unregister(billingManager);
         super.onStop();
     }
 
@@ -107,11 +104,6 @@ public class MainActivity extends BaseActivity {
 
     public void onButtonClick(View v) {
         EventBus.getDefault().post(new ClickEvent(v.getId()));
-    }
-
-    @Subscribe
-    public void onLeaveRequest(LeaveApplicationRequest request) {
-        finish();
     }
 
     @Subscribe

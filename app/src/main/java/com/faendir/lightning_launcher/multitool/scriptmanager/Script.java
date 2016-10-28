@@ -59,7 +59,7 @@ public class Script extends Leaf implements Comparable<Script>, ScriptItem {
         return getName().toLowerCase().compareTo(another.getName().toLowerCase());
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         this.id = id;
     }
 

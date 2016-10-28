@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.faendir.lightning_launcher.multitool.R;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -31,10 +30,6 @@ public class ListAdapter<T extends Text> extends ArrayAdapter<T> {
         super(context, RESOURCE, list);
         this.context = context;
         selected = new HashSet<>();
-    }
-
-    public ListAdapter(Context context, T[] objects) {
-        this(context, Arrays.asList(objects));
     }
 
     @NonNull

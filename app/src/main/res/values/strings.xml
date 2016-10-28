@@ -47,7 +47,6 @@
     <string name="menu_addGroup">Add Group</string>
     <string name="menu_rename">Rename</string>
     <string name="menu_delete">Delete</string>
-    <string name="menu_move">Move to Group</string>
     <string name="menu_edit">Edit</string>
     <string name="menu_backup">Backup</string>
     <string name="menu_format">Beautify</string>
@@ -71,7 +70,6 @@
     <string name="text_backupSuccessful">" scripts successfully backed up"</string>
     <string name="text_backupFailed">"Failed to backup "</string>
     <string name="text_scripts">" scripts"</string>
-    <string name="title_selectGroup">Select group</string>
     <string name="title_delete">Delete</string>
     <string name="message_deletePart1">"Do you want to delete "</string>
     <string name="message_deletePart2">" item(s)?"</string>
@@ -79,9 +77,6 @@
     <string name="message_overwrite">Script does already exist. Overwrite?</string>
     <string name="text_loading">The app is loading data from the launcher.\n Please wait.\n\nIf you see this message for more than 1 Minute please click the button below.</string>
     <string name="toast_menuDisabled">Please wait until all data is loaded</string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_launcherScript">Launcher Script</string>
     <string name="reload_script">Reload Script</string>
     <string name="pref_lastFragment">lastFragment</string>
@@ -92,7 +87,6 @@
 
     <string name="title_enableAcra">Enable Acra</string>
     <string name="pref_enableAcra">acra.enable</string>
-    <string name="key_listView">listView</string>
     <string name="toast_failedLoad">"Failed to load file "</string>
     <string name="toast_failedDirWrite">Failed to access directory. Please choose an accessible backup location</string>
     <string name="title_backupDir">Backup Directory</string>
@@ -106,11 +100,8 @@
     <string name="text_noGestures">No gestures found. To create a new gesture, press the “Add” Button.</string>
     <string name="title_musicWidget">Music widget</string>
     <string name="title_listener">Notification Listener</string>
-    <string name="text_listener">This requires the notification listener to be enabled. Do you want to enable it now?</string>
+    <string name="text_listener">Music Widget requires the notification listener to be enabled. Do you want to enable it now?</string>
     <string name="currently_playing">Currently Playing</string>
-    <string name="button_addMusic">Add to current Desktop</string>
-    <string name="title_defaultMusicPlayer">Default Music Player</string>
-    <string name="button_choose">Choose</string>
     <string name="pref_musicDefault">musicDefaultUri</string>
     <string name="key_shortcuts">shortcuts</string>
     <string name="key_appInfo">applicationInfo</string>
@@ -133,7 +124,8 @@
     <string name="toast_noGesture">Please draw a gesture first</string>
     <string name="toast_noLabel">The label can\'t be empty</string>
     <string name="title_help">Help</string>
-    <string name="message_help"><![CDATA[You can add a Gesture view to Lightning by long press -> Scripts -> Gesture Launcher.\nIf a gesture you draw onto this view is recognized as one of this list, the specified action will be executed.]]></string>
+    <string name="message_helpGesture">You can add a Gesture view inside Lightning: Menu → + → Plugins → Gesture Launcher.\nIf a gesture you draw onto this view is recognized as one of this list, the specified action will be executed.</string>
+    <string name="message_helpMusic">You can add a Music Widget inside Lightning: Menu → + → Plugins → Music Widget</string>
     <string name="title_apps">Apps</string>
     <string name="title_shortcuts">Shortcuts</string>
     <string name="toast_cantLoadAction">Failed to load action info</string>

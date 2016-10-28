@@ -42,8 +42,8 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
     private final ScriptManager scriptManager;
     private final Context context;
     private final RecyclerView listView;
-    private OmniAdapter<ScriptItem> adapter;
-    private DeepObservableList<ScriptGroup> items;
+    private final OmniAdapter<ScriptItem> adapter;
+    private final DeepObservableList<ScriptGroup> items;
 
     public ListManager(@NonNull ScriptManager scriptManager, @NonNull Context context) {
         this.scriptManager = scriptManager;
@@ -76,7 +76,7 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
         adapter.notifyItemUpdated(s);
     }
 
-    public void delete(final List<ScriptItem> delete) {
+    private void delete(final List<ScriptItem> delete) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -289,15 +289,15 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
     @interface SelectionMode {
     }
 
-    public static final int NONE = -1;
-    public static final int ONE_SCRIPT = 0;
-    public static final int ONE_GROUP = 1;
-    public static final int ONLY_SCRIPTS = 2;
+    private static final int NONE = -1;
+    private static final int ONE_SCRIPT = 0;
+    private static final int ONE_GROUP = 1;
+    private static final int ONLY_SCRIPTS = 2;
     private static final int ONLY_GROUPS = 3;
     private static final int BOTH = 4;
 
     @SelectionMode
-    public int getSelectionMode() {
+    private int getSelectionMode() {
         List<ScriptItem> selectedScriptGroups = adapter.getSelectionByLevel(0);
         List<ScriptItem> selectedScripts = adapter.getSelectionByLevel(1);
         boolean noScripts = selectedScripts.isEmpty();
@@ -307,7 +307,7 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
                 : noScripts ? ONLY_GROUPS : BOTH;
     }
 
-    public List<ScriptItem> getSelectedItems() {
+    private List<ScriptItem> getSelectedItems() {
         return adapter.getSelection();
     }
 

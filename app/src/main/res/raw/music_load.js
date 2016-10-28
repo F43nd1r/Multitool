@@ -1,13 +1,14 @@
-LL.bindClass("android.content.ServiceConnection");
-LL.bindClass("android.os.Messenger");
-LL.bindClass("android.os.Message");
-LL.bindClass("android.os.Handler");
-LL.bindClass("java.lang.Exception");
-LL.bindClass("android.graphics.Rect");
+bindClass("android.content.ServiceConnection");
+bindClass("android.os.Messenger");
+bindClass("android.os.Message");
+bindClass("android.os.Handler");
+bindClass("java.lang.Exception");
+bindClass("android.graphics.Rect");
 
-var c = LL.getContext();
-var data = LL.getEvent().getData();
-var currentScript = LL.getCurrentScript();
+var s = getActiveScreen();
+var c = s.getContext();
+var data = getEvent().getData();
+var currentScript = getCurrentScript();
 if (data != null && data != "") {
     currentScript.setTag(data);
 }
@@ -21,7 +22,7 @@ var h = new JavaAdapter(Handler, {
             var artist = bundle.getString("artist");
             var mode = bundle.getInt("coverMode");
             if (albumArt != null) {
-                var panel = LL.getContainerById(currentScript.getTag());
+                var panel = s.getContainerById(currentScript.getTag());
                 var item = panel.getItemByName("albumart");
                 var wi = item.getWidth();
                 var hi = item.getHeight();
@@ -60,12 +61,12 @@ var h = new JavaAdapter(Handler, {
                         dest = new Rect(0, 0, wi, hi);
                         break;
                 }
-                var img = LL.createImage(wi, hi);
+                var img = Image.createImage(wi, hi);
                 img.draw().drawBitmap(albumArt, src, dest, null);
                 //albumArt.recycle();
                 item.setBoxBackground(img, "nsf", false);
             }
-            LL.getVariables().edit().setString("title", title).setString("album", album).setString("artist", artist).commit();
+            getVariables().edit().setString("title", title).setString("album", album).setString("artist", artist).commit();
         } catch (e) {
             new Exception(e).printStackTrace();
         }

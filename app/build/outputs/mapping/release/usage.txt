@@ -937,16 +937,13 @@ android.support.v4.content.ContextCompat:
     257:261:public static java.io.File[] getExternalFilesDirs(android.content.Context,java.lang.String)
     310:314:public static java.io.File[] getExternalCacheDirs(android.content.Context)
     319:327:private static varargs java.io.File buildPath(java.io.File,java.lang.String[])
-    443:448:public static final java.io.File getNoBackupFilesDir(android.content.Context)
     468:473:public static java.io.File getCodeCacheDir(android.content.Context)
-    478:488:private static synchronized java.io.File createFilesDir(java.io.File)
     523:526:public static android.content.Context createDeviceProtectedStorageContext(android.content.Context)
     538:538:public static android.content.Context createDeviceEncryptedStorageContext(android.content.Context)
     548:551:public static boolean isDeviceProtectedStorage(android.content.Context)
     562:562:public static boolean isDeviceEncryptedStorage(android.content.Context)
 android.support.v4.content.ContextCompatApi21:
     24:24:ContextCompatApi21()
-    30:30:public static java.io.File getNoBackupFilesDir(android.content.Context)
     34:34:public static java.io.File getCodeCacheDir(android.content.Context)
 android.support.v4.content.ContextCompatApi23:
     25:25:ContextCompatApi23()
@@ -1114,10 +1111,20 @@ android.support.v4.graphics.drawable.RoundedBitmapDrawable
 android.support.v4.graphics.drawable.RoundedBitmapDrawable21
 android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
 android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory$DefaultRoundedBitmapDrawable
-android.support.v4.hardware.display.DisplayManagerCompat
-android.support.v4.hardware.display.DisplayManagerCompat$JellybeanMr1Impl
-android.support.v4.hardware.display.DisplayManagerCompat$LegacyImpl
-android.support.v4.hardware.display.DisplayManagerJellybeanMr1
+android.support.v4.hardware.display.DisplayManagerCompat:
+    public static final java.lang.String DISPLAY_CATEGORY_PRESENTATION
+    public abstract android.view.Display getDisplay(int)
+    public abstract android.view.Display[] getDisplays(java.lang.String)
+android.support.v4.hardware.display.DisplayManagerCompat$JellybeanMr1Impl:
+    141:141:public android.view.Display getDisplay(int)
+    151:151:public android.view.Display[] getDisplays(java.lang.String)
+android.support.v4.hardware.display.DisplayManagerCompat$LegacyImpl:
+    114:118:public android.view.Display getDisplay(int)
+    128:128:public android.view.Display[] getDisplays(java.lang.String)
+android.support.v4.hardware.display.DisplayManagerJellybeanMr1:
+    22:22:DisplayManagerJellybeanMr1()
+    28:28:public static android.view.Display getDisplay(java.lang.Object,int)
+    36:36:public static android.view.Display[] getDisplays(java.lang.Object,java.lang.String)
 android.support.v4.hardware.fingerprint.FingerprintManagerCompat
 android.support.v4.hardware.fingerprint.FingerprintManagerCompat$Api23FingerprintManagerCompatImpl
 android.support.v4.hardware.fingerprint.FingerprintManagerCompat$Api23FingerprintManagerCompatImpl$1
@@ -2215,6 +2222,9 @@ android.support.v4.view.ViewPager:
     public static final int SCROLL_STATE_IDLE
     public static final int SCROLL_STATE_DRAGGING
     public static final int SCROLL_STATE_SETTLING
+    157:395:public ViewPager(android.content.Context)
+    157:400:public ViewPager(android.content.Context,android.util.AttributeSet)
+    403:477:void initViewPager()
     746:749:public void clearOnPageChangeListeners()
     764:776:public void setPageTransformer(boolean,android.support.v4.view.ViewPager$PageTransformer)
     811:813:android.support.v4.view.ViewPager$OnPageChangeListener setInternalPageChangeListener(android.support.v4.view.ViewPager$OnPageChangeListener)
@@ -2223,6 +2233,9 @@ android.support.v4.view.ViewPager:
     2543:2566:public void endFakeDrag()
     2576:2618:public void fakeDragBy(float)
     2630:2630:public boolean isFakeDragging()
+android.support.v4.view.ViewPager$3
+android.support.v4.view.ViewPager$4
+android.support.v4.view.ViewPager$MyAccessibilityDelegate
 android.support.v4.view.ViewPager$SimpleOnPageChangeListener
 android.support.v4.view.ViewParentCompat:
     218:218:private ViewParentCompat()
@@ -4156,16 +4169,31 @@ android.support.v7.widget.ActivityChooserModel:
     588:597:public void setActivitySorter(android.support.v7.widget.ActivityChooserModel$ActivitySorter)
     613:623:public void setHistoryMaxSize(int)
     631:633:public int getHistoryMaxSize()
+    642:645:public int getHistorySize()
 android.support.v7.widget.ActivityChooserModel$ActivityChooserModelClient
 android.support.v7.widget.ActivityChooserModel$DefaultSorter
 android.support.v7.widget.ActivityChooserView:
     private static final java.lang.String LOG_TAG
+    private final android.graphics.drawable.Drawable mActivityChooserContentBackground
+    private final android.widget.ImageView mDefaultActivityButtonImage
+    191:192:public ActivityChooserView(android.content.Context)
+    201:202:public ActivityChooserView(android.content.Context,android.util.AttributeSet)
+    125:276:public ActivityChooserView(android.content.Context,android.util.AttributeSet,int)
+    521:549:void updateAppearance()
+android.support.v7.widget.ActivityChooserView$1
+android.support.v7.widget.ActivityChooserView$2
+android.support.v7.widget.ActivityChooserView$3
+android.support.v7.widget.ActivityChooserView$4
 android.support.v7.widget.ActivityChooserView$ActivityChooserViewAdapter:
     public static final int MAX_ACTIVITY_COUNT_UNLIMITED
     public static final int MAX_ACTIVITY_COUNT_DEFAULT
     private static final int ITEM_VIEW_TYPE_ACTIVITY
     private static final int ITEM_VIEW_TYPE_FOOTER
     private static final int ITEM_VIEW_TYPE_COUNT
+    659:668:ActivityChooserView$ActivityChooserViewAdapter(android.support.v7.widget.ActivityChooserView)
+    817:817:public int getHistorySize()
+android.support.v7.widget.ActivityChooserView$Callbacks:
+    557:558:ActivityChooserView$Callbacks(android.support.v7.widget.ActivityChooserView)
 android.support.v7.widget.AdapterHelper:
     static final int POSITION_TYPE_INVISIBLE
     static final int POSITION_TYPE_NEW_OR_LAID_OUT
@@ -4178,6 +4206,12 @@ android.support.v7.widget.AdapterHelper$UpdateOp:
     static final int UPDATE
     static final int MOVE
     static final int POOL_SIZE
+android.support.v7.widget.AppCompatButton:
+    53:54:public AppCompatButton(android.content.Context)
+android.support.v7.widget.AppCompatCheckBox:
+    49:50:public AppCompatCheckBox(android.content.Context)
+android.support.v7.widget.AppCompatCheckedTextView:
+    40:41:public AppCompatCheckedTextView(android.content.Context)
 android.support.v7.widget.AppCompatCompoundButtonHelper$DirectSetButtonDrawableInterface
 android.support.v7.widget.AppCompatDrawableManager:
     private static final java.lang.String TAG
@@ -4185,9 +4219,17 @@ android.support.v7.widget.AppCompatDrawableManager:
     private static final java.lang.String SKIP_DRAWABLE_TAG
     private static final java.lang.String PLATFORM_VD_CLAZZ
     496:499:private void removeDelegate(java.lang.String,android.support.v7.widget.AppCompatDrawableManager$InflateDelegate)
+android.support.v7.widget.AppCompatMultiAutoCompleteTextView:
+    57:58:public AppCompatMultiAutoCompleteTextView(android.content.Context)
 android.support.v7.widget.AppCompatPopupWindow:
     private static final java.lang.String TAG
     163:166:public boolean getSupportOverlapAnchor()
+android.support.v7.widget.AppCompatRadioButton:
+    49:50:public AppCompatRadioButton(android.content.Context)
+android.support.v7.widget.AppCompatRatingBar:
+    37:38:public AppCompatRatingBar(android.content.Context)
+android.support.v7.widget.AppCompatSeekBar:
+    36:37:public AppCompatSeekBar(android.content.Context)
 android.support.v7.widget.AppCompatSeekBarHelper:
     96:96:android.graphics.drawable.Drawable getTickMark()
     100:104:void setTickMarkTintList(android.content.res.ColorStateList)
@@ -4200,6 +4242,7 @@ android.support.v7.widget.AppCompatSpinner:
     private static final int MODE_DIALOG
     private static final int MODE_DROPDOWN
     private static final int MODE_THEME
+    106:107:public AppCompatSpinner(android.content.Context)
     121:122:public AppCompatSpinner(android.content.Context,int)
 android.support.v7.widget.ButtonBarLayout:
     private static final int ALLOW_STACKING_MIN_HEIGHT_DP
@@ -4367,6 +4410,8 @@ android.support.v7.widget.ListPopupWindow$1
 android.support.v7.widget.ListViewCompat:
     public static final int INVALID_POSITION
     public static final int NO_POSITION
+    61:62:public ListViewCompat(android.content.Context)
+    65:66:public ListViewCompat(android.content.Context,android.util.AttributeSet)
     157:184:public int lookForSelectablePosition(int,boolean)
 android.support.v7.widget.MenuPopupWindow:
     private static final java.lang.String TAG
@@ -4529,22 +4574,74 @@ android.support.v7.widget.ScrollbarHelper:
     23:23:ScrollbarHelper()
 android.support.v7.widget.ScrollingTabContainerView:
     private static final java.lang.String TAG
+    protected android.support.v4.view.ViewPropertyAnimatorCompat mVisibilityAnim
+    protected final android.support.v7.widget.ScrollingTabContainerView$VisibilityAnimListener mVisAnimListener
     private static final int FADE_DURATION
+    71:89:public ScrollingTabContainerView(android.content.Context)
+    200:206:private android.support.v7.widget.LinearLayoutCompat createTabLayout()
     231:253:public void animateToVisibility(int)
     306:318:public void addTab(android.support.v7.app.ActionBar$Tab,boolean)
     321:333:public void addTab(android.support.v7.app.ActionBar$Tab,int,boolean)
     336:343:public void updateTab(int)
     346:353:public void removeTabAt(int)
     356:363:public void removeAllTabs()
-android.support.v7.widget.ScrollingTabContainerView$VisibilityAnimListener:
-    597:599:public android.support.v7.widget.ScrollingTabContainerView$VisibilityAnimListener withFinalVisibility(android.support.v4.view.ViewPropertyAnimatorCompat,int)
+android.support.v7.widget.ScrollingTabContainerView$VisibilityAnimListener
 android.support.v7.widget.SearchView:
     static final boolean DBG
     static final java.lang.String LOG_TAG
     private static final java.lang.String IME_OPTION_NO_MICROPHONE
+    private final android.view.View mSearchPlate
+    private final android.view.View mDropDownAnchor
+    private java.lang.CharSequence mOldQueryText
+    private final android.view.View$OnClickListener mOnClickListener
+    android.view.View$OnKeyListener mTextKeyListener
+    private final android.widget.TextView$OnEditorActionListener mOnEditorActionListener
+    private final android.widget.AdapterView$OnItemClickListener mOnItemClickListener
+    private final android.widget.AdapterView$OnItemSelectedListener mOnItemSelectedListener
+    private android.text.TextWatcher mTextWatcher
+    285:286:public SearchView(android.content.Context)
+    289:290:public SearchView(android.content.Context,android.util.AttributeSet)
+    134:1751:public SearchView(android.content.Context,android.util.AttributeSet,int)
+    402:409:private void addOnLayoutChangeListenerToDropDownAnchorSDK11()
+    412:419:private void addOnLayoutChangeListenerToDropDownAnchorBase()
     688:688:public boolean isIconfiedByDefault()
     738:738:public boolean isSubmitButtonEnabled()
     768:768:public boolean isQueryRefinementEnabled()
+    980:991:void updateFocusedState()
+    1089:1128:boolean onSuggestionsKey(android.view.View,int,android.view.KeyEvent)
+    1220:1231:void onTextChanged(java.lang.CharSequence)
+    1282:1301:void onVoiceClicked()
+    1406:1427:void adjustDropDownSizeAndPosition()
+    1430:1437:boolean onItemClicked(int,int,java.lang.String)
+    1441:1446:boolean onItemSelected(int)
+    1486:1506:private void rewriteQueryFromSuggestion(int)
+    1519:1529:private boolean launchSuggestion(int,int,java.lang.String)
+    1536:1546:private void launchIntent(android.content.Intent)
+    1609:1613:private android.content.Intent createVoiceWebSearchIntent(android.content.Intent,android.app.SearchableInfo)
+    1624:1679:private android.content.Intent createVoiceAppSearchIntent(android.content.Intent,android.app.SearchableInfo)
+    1698:1734:private android.content.Intent createIntentFromSuggestion(android.database.Cursor,int,java.lang.String)
+android.support.v7.widget.SearchView$1
+android.support.v7.widget.SearchView$10
+android.support.v7.widget.SearchView$11
+android.support.v7.widget.SearchView$12
+android.support.v7.widget.SearchView$2
+android.support.v7.widget.SearchView$3
+android.support.v7.widget.SearchView$4
+android.support.v7.widget.SearchView$5
+android.support.v7.widget.SearchView$6
+android.support.v7.widget.SearchView$7
+android.support.v7.widget.SearchView$8
+android.support.v7.widget.SearchView$9
+android.support.v7.widget.SearchView$AutoCompleteTextViewReflector:
+    2069:2079:void showSoftInputUnchecked(android.view.inputmethod.InputMethodManager,android.view.View,int)
+android.support.v7.widget.SearchView$OnQueryTextListener:
+    public abstract boolean onQueryTextChange(java.lang.String)
+android.support.v7.widget.SearchView$OnSuggestionListener:
+    public abstract boolean onSuggestionSelect(int)
+    public abstract boolean onSuggestionClick(int)
+android.support.v7.widget.SearchView$SearchAutoComplete:
+    1905:1905:private boolean isEmpty()
+    1865:1865:static synthetic boolean access$000(android.support.v7.widget.SearchView$SearchAutoComplete)
 android.support.v7.widget.ShareActionProvider
 android.support.v7.widget.ShareActionProvider$OnShareTargetSelectedListener
 android.support.v7.widget.ShareActionProvider$ShareActivityChooserModelPolicy
@@ -4792,6 +4889,20 @@ com.faendir.lightning_launcher.multitool.BuildConfig:
     public static final int VERSION_CODE
     public static final java.lang.String VERSION_NAME
     6:6:public BuildConfig()
+com.faendir.lightning_launcher.multitool.Loader:
+    private static final java.lang.String PKG
+    private static final java.lang.String LAUNCHER_SCRIPT
+    private static final java.lang.String GESTURE_LAUNCHER
+    private static final java.lang.String MUSIC_WIDGET
+    public static final int FLAG_APP_MENU
+    public static final int FLAG_ITEM_MENU
+    public static final int FLAG_CUSTOM_MENU
+    private static final java.lang.String INTENT_EXTRA_SCRIPT_ID
+    private static final java.lang.String INTENT_EXTRA_SCRIPT_FLAGS
+    private static final java.lang.String INTENT_EXTRA_SCRIPT_NAME
+    private static final java.lang.String INTENT_EXTRA_EXECUTE_ON_LOAD
+    private static final java.lang.String INTENT_EXTRA_DELETE_AFTER_EXECUTION
+    private static final java.lang.String INTENT_EXTRA_SCRIPT_PACKAGE
 com.faendir.lightning_launcher.multitool.R
 com.faendir.lightning_launcher.multitool.R$anim
 com.faendir.lightning_launcher.multitool.R$array
@@ -4815,13 +4926,6 @@ com.faendir.lightning_launcher.multitool.backup.BackupUtils:
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager:
     static final java.lang.String MUSIC_WIDGET
     static final int SEVEN_DAYS_IN_SECONDS
-    71:71:public static boolean isIabServiceAvailable(android.content.Context)
-com.faendir.lightning_launcher.multitool.event.LeaveApplicationRequest:
-    8:8:public LeaveApplicationRequest()
-com.faendir.lightning_launcher.multitool.event.PurchaseEvent
-com.faendir.lightning_launcher.multitool.event.PurchaseRequest:
-    11:13:public PurchaseRequest(java.lang.String)
-com.faendir.lightning_launcher.multitool.launcherscript.Constants
 com.faendir.lightning_launcher.multitool.music.MusicManager:
     private static final int ACTION_REGISTER
     private static final int ACTION_UNREGISTER
@@ -4830,18 +4934,18 @@ com.faendir.lightning_launcher.multitool.music.MusicManager:
     private static final int ACTION_PLAY_PAUSE
     private static final int ACTION_NEXT
     private static final int ACTION_PREVIOUS
-com.faendir.lightning_launcher.multitool.music.MusicView
 com.faendir.lightning_launcher.multitool.settings.PreferenceListener:
-    73:74:void addPreference(android.preference.Preference,java.lang.Runnable,boolean)
     95:96:void addPreferenceForSummary(android.preference.Preference,java.lang.Runnable,boolean)
     106:107:void addPreferenceForSummary(java.lang.String,java.lang.Runnable,boolean)
+com.faendir.lightning_launcher.multitool.settings.PrefsFragment:
+    private static final int REQUEST_DIRECTORY
+    private static final int REQUEST_INTENT
 com.faendir.lightning_launcher.multitool.util.FileManager$IntentTypeAdapter:
     private static final java.lang.String URI
 com.faendir.lightning_launcher.multitool.util.FileManagerFactory:
     15:16:private FileManagerFactory()
 com.faendir.lightning_launcher.multitool.util.ListAdapter:
     private static final int RESOURCE
-    37:38:public ListAdapter(android.content.Context,com.faendir.lightning_launcher.multitool.util.Text[])
 com.faendir.omniadapter.Action:
     public static final int NONE
     public static final int SELECT

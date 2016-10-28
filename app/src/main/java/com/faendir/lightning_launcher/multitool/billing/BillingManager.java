@@ -10,11 +10,9 @@ import android.widget.Toast;
 
 import com.anjlab.android.iab.v3.TransactionDetails;
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.event.PurchaseRequest;
 import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 /**
  * @author F43nd1r
@@ -75,11 +73,6 @@ public class BillingManager extends BaseBillingManager {
                 .create();
         dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         dialog.show();
-    }
-
-    @Subscribe
-    public void onPurchaseRequest(PurchaseRequest purchaseRequest) {
-        buy(purchaseRequest.getProductId());
     }
 
     private void buy(String productId) {

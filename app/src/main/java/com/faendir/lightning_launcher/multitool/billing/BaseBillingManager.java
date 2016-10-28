@@ -67,10 +67,6 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
         return billingProcessor;
     }
 
-    public static boolean isIabServiceAvailable(Context context) {
-        return BillingProcessor.isIabServiceAvailable(context);
-    }
-
     public void release() {
         billingProcessor.release();
     }

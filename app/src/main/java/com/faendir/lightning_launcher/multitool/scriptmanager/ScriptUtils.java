@@ -10,13 +10,15 @@ import android.preference.PreferenceManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
+import com.faendir.lightning_launcher.multitool.Loader;
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.launcherscript.Constants;
+import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
-import com.faendir.lightning_launcher.scriptlib.ScriptManager;
-import com.google.gson.Gson;
 import com.faendir.lightning_launcher.scriptlib.PermissionActivity;
+import com.faendir.lightning_launcher.scriptlib.ResultCallback;
+import com.faendir.lightning_launcher.scriptlib.ScriptManager;
+import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
+import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.FileReader;
@@ -123,16 +125,17 @@ final class ScriptUtils {
         if (item instanceof Script) {
             final Transfer transfer = new Transfer(Transfer.RENAME);
             transfer.script = (Script) item;
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    String result = scriptManager.runScriptForResult(R.raw.scriptmanager, GSON.toJson(transfer));
-                    if (result != null) {
-                        List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
-                        listManager.updateFrom(scripts);
-                    }
-                }
-            }).start();
+            scriptManager.getAsyncExecutorService()
+                    .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", GSON.toJson(transfer)), new ResultCallback<String>() {
+                        @Override
+                        public void onResult(String result) {
+                            if (result != null) {
+                                List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
+                                listManager.updateFrom(scripts);
+                            }
+                        }
+                    })
+                    .start();
         }
         listManager.changed(item);
         listManager.deselectAll();
@@ -215,16 +218,17 @@ final class ScriptUtils {
     public static void deleteScript(final ScriptManager scriptManager, final ListManager listManager, Script delete) {
         final Transfer transfer = new Transfer(Transfer.DELETE);
         transfer.script = delete;
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String result = scriptManager.runScriptForResult(R.raw.scriptmanager, GSON.toJson(transfer));
-                if (result != null) {
-                    List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
-                    listManager.updateFrom(scripts);
-                }
-            }
-        }).start();
+        scriptManager.getAsyncExecutorService()
+                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", GSON.toJson(transfer)), new ResultCallback<String>() {
+                    @Override
+                    public void onResult(String result) {
+                        if (result != null) {
+                            List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
+                            listManager.updateFrom(scripts);
+                        }
+                    }
+                })
+                .start();
     }
 
     public static void restoreFromFile(ScriptManager scriptManager, Context context, ListManager listManager, Uri uri) {
@@ -255,9 +259,9 @@ final class ScriptUtils {
         String l = s.substring(0, endOfFirstLine);
         int flags = 0;
         if (l.contains(FLAGS)) { //check if file contains flag settings
-            if (l.contains(APP)) flags += Constants.FLAG_APP_MENU;
-            if (l.contains(ITEM)) flags += Constants.FLAG_ITEM_MENU;
-            if (l.contains(CUSTOM)) flags += Constants.FLAG_CUSTOM_MENU;
+            if (l.contains(APP)) flags += Loader.FLAG_APP_MENU;
+            if (l.contains(ITEM)) flags += Loader.FLAG_ITEM_MENU;
+            if (l.contains(CUSTOM)) flags += Loader.FLAG_CUSTOM_MENU;
             s = s.substring(endOfFirstLine + 1);
         }
         String nameFromFile = "";
@@ -313,16 +317,17 @@ final class ScriptUtils {
     private static void restore(final ScriptManager scriptManager, final ListManager listManager, Script script) {
         final Transfer transfer = new Transfer(Transfer.RESTORE);
         transfer.script = script;
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String result = scriptManager.runScriptForResult(R.raw.scriptmanager, GSON.toJson(transfer));
-                if (result != null) {
-                    List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
-                    listManager.updateFrom(scripts);
-                }
-            }
-        }).start();
+        scriptManager.getAsyncExecutorService()
+                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", GSON.toJson(transfer)), new ResultCallback<String>() {
+                    @Override
+                    public void onResult(String result) {
+                        if (result != null) {
+                            List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
+                            listManager.updateFrom(scripts);
+                        }
+                    }
+                })
+                .start();
     }
 
 

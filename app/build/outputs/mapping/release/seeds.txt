@@ -3861,9 +3861,6 @@ android.support.design.widget.VisibilityAwareImageButton: VisibilityAwareImageBu
 android.support.design.widget.VisibilityAwareImageButton: void setVisibility(int)
 android.support.design.widget.VisibilityAwareImageButton: void internalSetVisibility(int,boolean)
 android.support.design.widget.VisibilityAwareImageButton: int getUserSetVisibility()
-android.support.percent.PercentFrameLayout: PercentFrameLayout(android.content.Context)
-android.support.percent.PercentFrameLayout: PercentFrameLayout(android.content.Context,android.util.AttributeSet)
-android.support.percent.PercentFrameLayout: PercentFrameLayout(android.content.Context,android.util.AttributeSet,int)
 android.support.percent.PercentRelativeLayout
 android.support.percent.PercentRelativeLayout: PercentRelativeLayout(android.content.Context)
 android.support.percent.PercentRelativeLayout: PercentRelativeLayout(android.content.Context,android.util.AttributeSet)
@@ -4220,8 +4217,6 @@ android.support.v4.app.FragmentActivity: void startIntentSenderForResult(android
 android.support.v4.app.FragmentActivity: android.view.View onCreateView(java.lang.String,android.content.Context,android.util.AttributeSet)
 android.support.v4.app.FragmentManagerState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.FragmentState: android.os.Parcelable$Creator CREATOR
-android.support.v4.app.FragmentTabHost: FragmentTabHost(android.content.Context)
-android.support.v4.app.FragmentTabHost: FragmentTabHost(android.content.Context,android.util.AttributeSet)
 android.support.v4.app.FragmentTabHost: void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener)
 android.support.v4.app.FragmentTabHost$SavedState: android.os.Parcelable$Creator CREATOR
 android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status[] values()
@@ -4264,8 +4259,6 @@ android.support.v4.view.AccessibilityDelegateCompat: boolean onRequestSendAccess
 android.support.v4.view.AccessibilityDelegateCompat: android.support.v4.view.accessibility.AccessibilityNodeProviderCompat getAccessibilityNodeProvider(android.view.View)
 android.support.v4.view.AccessibilityDelegateCompat: boolean performAccessibilityAction(android.view.View,int,android.os.Bundle)
 android.support.v4.view.AccessibilityDelegateCompat: void <clinit>()
-android.support.v4.view.PagerTabStrip: PagerTabStrip(android.content.Context)
-android.support.v4.view.PagerTabStrip: PagerTabStrip(android.content.Context,android.util.AttributeSet)
 android.support.v4.view.PagerTabStrip: void setTabIndicatorColor(int)
 android.support.v4.view.PagerTabStrip: void setTabIndicatorColorResource(int)
 android.support.v4.view.PagerTabStrip: int getTabIndicatorColor()
@@ -4279,16 +4272,12 @@ android.support.v4.view.PagerTabStrip: int getMinHeight()
 android.support.v4.view.PagerTabStrip$1: void onClick(android.view.View)
 android.support.v4.view.PagerTabStrip$2: void onClick(android.view.View)
 android.support.v4.view.PagerTitleStrip: void setSingleLineAllCaps(android.widget.TextView)
-android.support.v4.view.PagerTitleStrip: PagerTitleStrip(android.content.Context)
-android.support.v4.view.PagerTitleStrip: PagerTitleStrip(android.content.Context,android.util.AttributeSet)
 android.support.v4.view.PagerTitleStrip: void setTextSpacing(int)
 android.support.v4.view.PagerTitleStrip: int getTextSpacing()
 android.support.v4.view.PagerTitleStrip: void setNonPrimaryAlpha(float)
 android.support.v4.view.PagerTitleStrip: void setTextColor(int)
 android.support.v4.view.PagerTitleStrip: void setGravity(int)
 android.support.v4.view.PagerTitleStrip: int getMinHeight()
-android.support.v4.view.ViewPager: ViewPager(android.content.Context)
-android.support.v4.view.ViewPager: ViewPager(android.content.Context,android.util.AttributeSet)
 android.support.v4.view.ViewPager: void setScrollState(int)
 android.support.v4.view.ViewPager: void setAdapter(android.support.v4.view.PagerAdapter)
 android.support.v4.view.ViewPager: android.support.v4.view.PagerAdapter getAdapter()
@@ -4309,8 +4298,6 @@ android.support.v4.view.ViewPropertyAnimatorListenerAdapter: ViewPropertyAnimato
 android.support.v4.view.ViewPropertyAnimatorListenerAdapter: void onAnimationStart(android.view.View)
 android.support.v4.view.ViewPropertyAnimatorListenerAdapter: void onAnimationEnd(android.view.View)
 android.support.v4.view.ViewPropertyAnimatorListenerAdapter: void onAnimationCancel(android.view.View)
-android.support.v4.widget.ContentLoadingProgressBar: ContentLoadingProgressBar(android.content.Context)
-android.support.v4.widget.ContentLoadingProgressBar: ContentLoadingProgressBar(android.content.Context,android.util.AttributeSet)
 android.support.v4.widget.DrawerLayout
 android.support.v4.widget.DrawerLayout: DrawerLayout(android.content.Context)
 android.support.v4.widget.DrawerLayout: DrawerLayout(android.content.Context,android.util.AttributeSet)
@@ -4340,10 +4327,6 @@ android.support.v4.widget.NestedScrollView: void setSmoothScrollingEnabled(boole
 android.support.v4.widget.NestedScrollView: float getVerticalScrollFactorCompat()
 android.support.v4.widget.NestedScrollView: int getScrollRange()
 android.support.v4.widget.NestedScrollView$SavedState: android.os.Parcelable$Creator CREATOR
-android.support.v4.widget.SearchViewCompatIcs$MySearchView: SearchViewCompatIcs$MySearchView(android.content.Context)
-android.support.v4.widget.SlidingPaneLayout: SlidingPaneLayout(android.content.Context)
-android.support.v4.widget.SlidingPaneLayout: SlidingPaneLayout(android.content.Context,android.util.AttributeSet)
-android.support.v4.widget.SlidingPaneLayout: SlidingPaneLayout(android.content.Context,android.util.AttributeSet,int)
 android.support.v4.widget.SlidingPaneLayout: void setParallaxDistance(int)
 android.support.v4.widget.SlidingPaneLayout: int getParallaxDistance()
 android.support.v4.widget.SlidingPaneLayout: void setSliderFadeColor(int)
@@ -4365,8 +4348,6 @@ android.support.v4.widget.Space: Space(android.content.Context)
 android.support.v4.widget.SwipeRefreshLayout: void setEnabled(boolean)
 android.support.v4.widget.SwipeRefreshLayout: void setColorViewAlpha(int)
 android.support.v4.widget.SwipeRefreshLayout: void setSize(int)
-android.support.v4.widget.SwipeRefreshLayout: SwipeRefreshLayout(android.content.Context)
-android.support.v4.widget.SwipeRefreshLayout: SwipeRefreshLayout(android.content.Context,android.util.AttributeSet)
 android.support.v4.widget.SwipeRefreshLayout: void setOnRefreshListener(android.support.v4.widget.SwipeRefreshLayout$OnRefreshListener)
 android.support.v4.widget.SwipeRefreshLayout: void setRefreshing(boolean)
 android.support.v4.widget.SwipeRefreshLayout: void setAnimationProgress(float)
@@ -5959,9 +5940,6 @@ android.support.v7.widget.ActionMenuView: void setOverflowReserved(boolean)
 android.support.v7.widget.ActionMenuView: int getWindowAnimations()
 android.support.v7.widget.ActionMenuView: android.view.Menu getMenu()
 android.support.v7.widget.ActionMenuView: void setExpandedActionViewsExclusive(boolean)
-android.support.v7.widget.ActivityChooserView: ActivityChooserView(android.content.Context)
-android.support.v7.widget.ActivityChooserView: ActivityChooserView(android.content.Context,android.util.AttributeSet)
-android.support.v7.widget.ActivityChooserView: ActivityChooserView(android.content.Context,android.util.AttributeSet,int)
 android.support.v7.widget.ActivityChooserView: void setActivityChooserModel(android.support.v7.widget.ActivityChooserModel)
 android.support.v7.widget.ActivityChooserView: void setExpandActivityOverflowButtonDrawable(android.graphics.drawable.Drawable)
 android.support.v7.widget.ActivityChooserView: void setExpandActivityOverflowButtonContentDescription(int)
@@ -5984,9 +5962,6 @@ android.support.v7.widget.AppCompatAutoCompleteTextView: void setSupportBackgrou
 android.support.v7.widget.AppCompatAutoCompleteTextView: android.content.res.ColorStateList getSupportBackgroundTintList()
 android.support.v7.widget.AppCompatAutoCompleteTextView: void setSupportBackgroundTintMode(android.graphics.PorterDuff$Mode)
 android.support.v7.widget.AppCompatAutoCompleteTextView: android.graphics.PorterDuff$Mode getSupportBackgroundTintMode()
-android.support.v7.widget.AppCompatButton: AppCompatButton(android.content.Context)
-android.support.v7.widget.AppCompatButton: AppCompatButton(android.content.Context,android.util.AttributeSet)
-android.support.v7.widget.AppCompatButton: AppCompatButton(android.content.Context,android.util.AttributeSet,int)
 android.support.v7.widget.AppCompatButton: void setBackgroundResource(int)
 android.support.v7.widget.AppCompatButton: void setBackgroundDrawable(android.graphics.drawable.Drawable)
 android.support.v7.widget.AppCompatButton: void setSupportBackgroundTintList(android.content.res.ColorStateList)
@@ -5994,9 +5969,6 @@ android.support.v7.widget.AppCompatButton: android.content.res.ColorStateList ge
 android.support.v7.widget.AppCompatButton: void setSupportBackgroundTintMode(android.graphics.PorterDuff$Mode)
 android.support.v7.widget.AppCompatButton: android.graphics.PorterDuff$Mode getSupportBackgroundTintMode()
 android.support.v7.widget.AppCompatButton: void setSupportAllCaps(boolean)
-android.support.v7.widget.AppCompatCheckBox: AppCompatCheckBox(android.content.Context)
-android.support.v7.widget.AppCompatCheckBox: AppCompatCheckBox(android.content.Context,android.util.AttributeSet)
-android.support.v7.widget.AppCompatCheckBox: AppCompatCheckBox(android.content.Context,android.util.AttributeSet,int)
 android.support.v7.widget.AppCompatCheckBox: void setButtonDrawable(android.graphics.drawable.Drawable)
 android.support.v7.widget.AppCompatCheckBox: void setButtonDrawable(int)
 android.support.v7.widget.AppCompatCheckBox: int getCompoundPaddingLeft()
@@ -6004,9 +5976,6 @@ android.support.v7.widget.AppCompatCheckBox: void setSupportButtonTintList(andro
 android.support.v7.widget.AppCompatCheckBox: android.content.res.ColorStateList getSupportButtonTintList()
 android.support.v7.widget.AppCompatCheckBox: void setSupportButtonTintMode(android.graphics.PorterDuff$Mode)
 android.support.v7.widget.AppCompatCheckBox: android.graphics.PorterDuff$Mode getSupportButtonTintMode()
-android.support.v7.widget.AppCompatCheckedTextView: AppCompatCheckedTextView(android.content.Context)
-android.support.v7.widget.AppCompatCheckedTextView: AppCompatCheckedTextView(android.content.Context,android.util.AttributeSet)
-android.support.v7.widget.AppCompatCheckedTextView: AppCompatCheckedTextView(android.content.Context,android.util.AttributeSet,int)
 android.support.v7.widget.AppCompatCheckedTextView: void setCheckMarkDrawable(int)
 android.support.v7.widget.AppCompatEditText: android.support.v7.widget.AppCompatBackgroundHelper mBackgroundTintHelper
 android.support.v7.widget.AppCompatEditText: android.support.v7.widget.AppCompatTextHelper mTextHelper
@@ -6035,9 +6004,6 @@ android.support.v7.widget.AppCompatImageButton: void setSupportBackgroundTintMod
 android.support.v7.widget.AppCompatImageButton: android.graphics.PorterDuff$Mode getSupportBackgroundTintMode()
 android.support.v7.widget.AppCompatImageButton: void drawableStateChanged()
 android.support.v7.widget.AppCompatImageButton: boolean hasOverlappingRendering()
-android.support.v7.widget.AppCompatImageView: AppCompatImageView(android.content.Context)
-android.support.v7.widget.AppCompatImageView: AppCompatImageView(android.content.Context,android.util.AttributeSet)
-android.support.v7.widget.AppCompatImageView: AppCompatImageView(android.content.Context,android.util.AttributeSet,int)
 android.support.v7.widget.AppCompatImageView: void setImageResource(int)
 android.support.v7.widget.AppCompatImageView: void setBackgroundResource(int)
 android.support.v7.widget.AppCompatImageView: void setBackgroundDrawable(android.graphics.drawable.Drawable)
@@ -6045,9 +6011,6 @@ android.support.v7.widget.AppCompatImageView: void setSupportBackgroundTintList(
 android.support.v7.widget.AppCompatImageView: android.content.res.ColorStateList getSupportBackgroundTintList()
 android.support.v7.widget.AppCompatImageView: void setSupportBackgroundTintMode(android.graphics.PorterDuff$Mode)
 android.support.v7.widget.AppCompatImageView: android.graphics.PorterDuff$Mode getSupportBackgroundTintMode()
-android.support.v7.widget.AppCompatMultiAutoCompleteTextView: AppCompatMultiAutoCompleteTextView(android.content.Context)
-android.support.v7.widget.AppCompatMultiAutoCompleteTextView: AppCompatMultiAutoCompleteTextView(android.content.Context,android.util.AttributeSet)
-android.support.v7.widget.AppCompatMultiAutoCompleteTextView: AppCompatMultiAutoCompleteTextView(android.content.Context,android.util.AttributeSet,int)
 android.support.v7.widget.AppCompatMultiAutoCompleteTextView: void setDropDownBackgroundResource(int)
 android.support.v7.widget.AppCompatMultiAutoCompleteTextView: void setBackgroundResource(int)
 android.support.v7.widget.AppCompatMultiAutoCompleteTextView: void setBackgroundDrawable(android.graphics.drawable.Drawable)
@@ -6055,9 +6018,6 @@ android.support.v7.widget.AppCompatMultiAutoCompleteTextView: void setSupportBac
 android.support.v7.widget.AppCompatMultiAutoCompleteTextView: android.content.res.ColorStateList getSupportBackgroundTintList()
 android.support.v7.widget.AppCompatMultiAutoCompleteTextView: void setSupportBackgroundTintMode(android.graphics.PorterDuff$Mode)
 android.support.v7.widget.AppCompatMultiAutoCompleteTextView: android.graphics.PorterDuff$Mode getSupportBackgroundTintMode()
-android.support.v7.widget.AppCompatRadioButton: AppCompatRadioButton(android.content.Context)
-android.support.v7.widget.AppCompatRadioButton: AppCompatRadioButton(android.content.Context,android.util.AttributeSet)
-android.support.v7.widget.AppCompatRadioButton: AppCompatRadioButton(android.content.Context,android.util.AttributeSet,int)
 android.support.v7.widget.AppCompatRadioButton: void setButtonDrawable(android.graphics.drawable.Drawable)
 android.support.v7.widget.AppCompatRadioButton: void setButtonDrawable(int)
 android.support.v7.widget.AppCompatRadioButton: int getCompoundPaddingLeft()
@@ -6065,15 +6025,6 @@ android.support.v7.widget.AppCompatRadioButton: void setSupportButtonTintList(an
 android.support.v7.widget.AppCompatRadioButton: android.content.res.ColorStateList getSupportButtonTintList()
 android.support.v7.widget.AppCompatRadioButton: void setSupportButtonTintMode(android.graphics.PorterDuff$Mode)
 android.support.v7.widget.AppCompatRadioButton: android.graphics.PorterDuff$Mode getSupportButtonTintMode()
-android.support.v7.widget.AppCompatRatingBar: AppCompatRatingBar(android.content.Context)
-android.support.v7.widget.AppCompatRatingBar: AppCompatRatingBar(android.content.Context,android.util.AttributeSet)
-android.support.v7.widget.AppCompatRatingBar: AppCompatRatingBar(android.content.Context,android.util.AttributeSet,int)
-android.support.v7.widget.AppCompatSeekBar: AppCompatSeekBar(android.content.Context)
-android.support.v7.widget.AppCompatSeekBar: AppCompatSeekBar(android.content.Context,android.util.AttributeSet)
-android.support.v7.widget.AppCompatSeekBar: AppCompatSeekBar(android.content.Context,android.util.AttributeSet,int)
-android.support.v7.widget.AppCompatSpinner: AppCompatSpinner(android.content.Context)
-android.support.v7.widget.AppCompatSpinner: AppCompatSpinner(android.content.Context,android.util.AttributeSet)
-android.support.v7.widget.AppCompatSpinner: AppCompatSpinner(android.content.Context,android.util.AttributeSet,int)
 android.support.v7.widget.AppCompatSpinner: android.content.Context getPopupContext()
 android.support.v7.widget.AppCompatSpinner: void setPopupBackgroundDrawable(android.graphics.drawable.Drawable)
 android.support.v7.widget.AppCompatSpinner: void setPopupBackgroundResource(int)
@@ -6163,9 +6114,6 @@ android.support.v7.widget.LinearLayoutManager: LinearLayoutManager(android.conte
 android.support.v7.widget.LinearLayoutManager: LinearLayoutManager(android.content.Context,int,boolean)
 android.support.v7.widget.LinearLayoutManager: LinearLayoutManager(android.content.Context,android.util.AttributeSet,int,int)
 android.support.v7.widget.LinearLayoutManager$SavedState: android.os.Parcelable$Creator CREATOR
-android.support.v7.widget.ListViewCompat: ListViewCompat(android.content.Context)
-android.support.v7.widget.ListViewCompat: ListViewCompat(android.content.Context,android.util.AttributeSet)
-android.support.v7.widget.ListViewCompat: ListViewCompat(android.content.Context,android.util.AttributeSet,int)
 android.support.v7.widget.ListViewCompat: void setSelector(android.graphics.drawable.Drawable)
 android.support.v7.widget.ListViewCompat: void setSelectorEnabled(boolean)
 android.support.v7.widget.MenuPopupWindow$MenuDropDownListView: void setHoverListener(android.support.v7.widget.MenuItemHoverListener)
@@ -6206,14 +6154,10 @@ android.support.v7.widget.RecyclerView: void setNestedScrollingEnabled(boolean)
 android.support.v7.widget.RecyclerView: android.support.v4.view.NestedScrollingChildHelper getScrollingChildHelper()
 android.support.v7.widget.RecyclerView$LayoutManager: RecyclerView$LayoutManager()
 android.support.v7.widget.RecyclerView$SavedState: android.os.Parcelable$Creator CREATOR
-android.support.v7.widget.ScrollingTabContainerView: ScrollingTabContainerView(android.content.Context)
 android.support.v7.widget.ScrollingTabContainerView: void setAllowCollapse(boolean)
 android.support.v7.widget.ScrollingTabContainerView: void setTabSelected(int)
 android.support.v7.widget.ScrollingTabContainerView: void setContentHeight(int)
 android.support.v7.widget.ScrollingTabContainerView$TabClickListener: void onClick(android.view.View)
-android.support.v7.widget.SearchView: SearchView(android.content.Context)
-android.support.v7.widget.SearchView: SearchView(android.content.Context,android.util.AttributeSet)
-android.support.v7.widget.SearchView: SearchView(android.content.Context,android.util.AttributeSet,int)
 android.support.v7.widget.SearchView: int getSuggestionRowLayout()
 android.support.v7.widget.SearchView: int getSuggestionCommitIconResId()
 android.support.v7.widget.SearchView: void setSearchableInfo(android.app.SearchableInfo)
@@ -6371,10 +6315,11 @@ com.anjlab.android.iab.v3.PurchaseInfo$PurchaseState: com.anjlab.android.iab.v3.
 com.anjlab.android.iab.v3.PurchaseInfo$ResponseData: android.os.Parcelable$Creator CREATOR
 com.anjlab.android.iab.v3.SkuDetails: android.os.Parcelable$Creator CREATOR
 com.anjlab.android.iab.v3.TransactionDetails: android.os.Parcelable$Creator CREATOR
+com.faendir.lightning_launcher.multitool.Loader
+com.faendir.lightning_launcher.multitool.Loader: Loader()
 com.faendir.lightning_launcher.multitool.MainActivity
 com.faendir.lightning_launcher.multitool.MainActivity: MainActivity()
 com.faendir.lightning_launcher.multitool.MainActivity: void onButtonClick(android.view.View)
-com.faendir.lightning_launcher.multitool.MainActivity: void onLeaveRequest(com.faendir.lightning_launcher.multitool.event.LeaveApplicationRequest)
 com.faendir.lightning_launcher.multitool.MainActivity: void onUpdateActionModeRequest(com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest)
 com.faendir.lightning_launcher.multitool.MultiTool
 com.faendir.lightning_launcher.multitool.MultiTool: MultiTool()
@@ -7455,6 +7400,9 @@ com.faendir.lightning_launcher.multitool.R$drawable: int ic_delete_white
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_edit_white
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_help_white
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_mode_edit_white
+com.faendir.lightning_launcher.multitool.R$drawable: int ic_next
+com.faendir.lightning_launcher.multitool.R$drawable: int ic_play
+com.faendir.lightning_launcher.multitool.R$drawable: int ic_previous
 com.faendir.lightning_launcher.multitool.R$drawable: int material_drawer_badge
 com.faendir.lightning_launcher.multitool.R$drawable: int material_drawer_circle_mask
 com.faendir.lightning_launcher.multitool.R$drawable: int material_drawer_shadow_bottom
@@ -7509,8 +7457,6 @@ com.faendir.lightning_launcher.multitool.R$id: int buttonSunday
 com.faendir.lightning_launcher.multitool.R$id: int buttonThursday
 com.faendir.lightning_launcher.multitool.R$id: int buttonTuesday
 com.faendir.lightning_launcher.multitool.R$id: int buttonWednesday
-com.faendir.lightning_launcher.multitool.R$id: int button_addMusic
-com.faendir.lightning_launcher.multitool.R$id: int button_chooseDefault
 com.faendir.lightning_launcher.multitool.R$id: int button_choose_action
 com.faendir.lightning_launcher.multitool.R$id: int button_confirm
 com.faendir.lightning_launcher.multitool.R$id: int button_import
@@ -7632,7 +7578,6 @@ com.faendir.lightning_launcher.multitool.R$id: int media_actions
 com.faendir.lightning_launcher.multitool.R$id: int middle
 com.faendir.lightning_launcher.multitool.R$id: int mini
 com.faendir.lightning_launcher.multitool.R$id: int multiply
-com.faendir.lightning_launcher.multitool.R$id: int nav_view
 com.faendir.lightning_launcher.multitool.R$id: int navigation_header_container
 com.faendir.lightning_launcher.multitool.R$id: int never
 com.faendir.lightning_launcher.multitool.R$id: int nnf_action_createdir
@@ -7702,7 +7647,6 @@ com.faendir.lightning_launcher.multitool.R$id: int textView12
 com.faendir.lightning_launcher.multitool.R$id: int textView2
 com.faendir.lightning_launcher.multitool.R$id: int textView3
 com.faendir.lightning_launcher.multitool.R$id: int textView4
-com.faendir.lightning_launcher.multitool.R$id: int textView5
 com.faendir.lightning_launcher.multitool.R$id: int textView6
 com.faendir.lightning_launcher.multitool.R$id: int text_album
 com.faendir.lightning_launcher.multitool.R$id: int text_artist
@@ -7761,6 +7705,7 @@ com.faendir.lightning_launcher.multitool.R$layout: int abc_search_view
 com.faendir.lightning_launcher.multitool.R$layout: int abc_select_dialog_material
 com.faendir.lightning_launcher.multitool.R$layout: int activity_base
 com.faendir.lightning_launcher.multitool.R$layout: int activity_dialog
+com.faendir.lightning_launcher.multitool.R$layout: int content_empty
 com.faendir.lightning_launcher.multitool.R$layout: int content_gesture
 com.faendir.lightning_launcher.multitool.R$layout: int content_intent_chooser
 com.faendir.lightning_launcher.multitool.R$layout: int content_main
@@ -7807,7 +7752,6 @@ com.faendir.lightning_launcher.multitool.R$layout: int material_drawer_item_togg
 com.faendir.lightning_launcher.multitool.R$layout: int material_drawer_recycler_view
 com.faendir.lightning_launcher.multitool.R$layout: int material_drawer_slider
 com.faendir.lightning_launcher.multitool.R$layout: int materialize
-com.faendir.lightning_launcher.multitool.R$layout: int navigationview
 com.faendir.lightning_launcher.multitool.R$layout: int nnf_activity_filepicker
 com.faendir.lightning_launcher.multitool.R$layout: int nnf_dialog_folder_name
 com.faendir.lightning_launcher.multitool.R$layout: int nnf_filepicker_listitem_checkable
@@ -7830,12 +7774,10 @@ com.faendir.lightning_launcher.multitool.R$layout: int textview_empty_gestures_l
 com.faendir.lightning_launcher.multitool.R$menu: int menu_context_gesture
 com.faendir.lightning_launcher.multitool.R$menu: int menu_context_scriptmanager
 com.faendir.lightning_launcher.multitool.R$menu: int menu_gesture
+com.faendir.lightning_launcher.multitool.R$menu: int menu_music_widget
 com.faendir.lightning_launcher.multitool.R$menu: int menu_scriptmanager
 com.faendir.lightning_launcher.multitool.R$menu: int picker_actions
 com.faendir.lightning_launcher.multitool.R$mipmap: int ic_multitool
-com.faendir.lightning_launcher.multitool.R$mipmap: int ic_next
-com.faendir.lightning_launcher.multitool.R$mipmap: int ic_play
-com.faendir.lightning_launcher.multitool.R$mipmap: int ic_previous
 com.faendir.lightning_launcher.multitool.R$raw: int backup
 com.faendir.lightning_launcher.multitool.R$raw: int gesture
 com.faendir.lightning_launcher.multitool.R$raw: int gesture_setup
@@ -7885,9 +7827,7 @@ com.faendir.lightning_launcher.multitool.R$string: int app_name
 com.faendir.lightning_launcher.multitool.R$string: int appbar_scrolling_view_behavior
 com.faendir.lightning_launcher.multitool.R$string: int bottom_sheet_behavior
 com.faendir.lightning_launcher.multitool.R$string: int browse_name
-com.faendir.lightning_launcher.multitool.R$string: int button_addMusic
 com.faendir.lightning_launcher.multitool.R$string: int button_cancel
-com.faendir.lightning_launcher.multitool.R$string: int button_choose
 com.faendir.lightning_launcher.multitool.R$string: int button_chooseAction
 com.faendir.lightning_launcher.multitool.R$string: int button_confirm
 com.faendir.lightning_launcher.multitool.R$string: int button_friday
@@ -7920,7 +7860,6 @@ com.faendir.lightning_launcher.multitool.R$string: int imageDescription_divider
 com.faendir.lightning_launcher.multitool.R$string: int key_appInfo
 com.faendir.lightning_launcher.multitool.R$string: int key_backupTime
 com.faendir.lightning_launcher.multitool.R$string: int key_enableBackup
-com.faendir.lightning_launcher.multitool.R$string: int key_listView
 com.faendir.lightning_launcher.multitool.R$string: int key_shortcuts
 com.faendir.lightning_launcher.multitool.R$string: int key_target
 com.faendir.lightning_launcher.multitool.R$string: int library_AndroidIconics_author
@@ -7979,7 +7918,6 @@ com.faendir.lightning_launcher.multitool.R$string: int menu_backup
 com.faendir.lightning_launcher.multitool.R$string: int menu_delete
 com.faendir.lightning_launcher.multitool.R$string: int menu_edit
 com.faendir.lightning_launcher.multitool.R$string: int menu_format
-com.faendir.lightning_launcher.multitool.R$string: int menu_move
 com.faendir.lightning_launcher.multitool.R$string: int menu_rename
 com.faendir.lightning_launcher.multitool.R$string: int menu_restore
 com.faendir.lightning_launcher.multitool.R$string: int menu_search
@@ -7987,13 +7925,12 @@ com.faendir.lightning_launcher.multitool.R$string: int message_confirmUpdate
 com.faendir.lightning_launcher.multitool.R$string: int message_deletePart1
 com.faendir.lightning_launcher.multitool.R$string: int message_deletePart2
 com.faendir.lightning_launcher.multitool.R$string: int message_done
-com.faendir.lightning_launcher.multitool.R$string: int message_help
+com.faendir.lightning_launcher.multitool.R$string: int message_helpGesture
+com.faendir.lightning_launcher.multitool.R$string: int message_helpMusic
 com.faendir.lightning_launcher.multitool.R$string: int message_missing
 com.faendir.lightning_launcher.multitool.R$string: int message_outDated
 com.faendir.lightning_launcher.multitool.R$string: int message_overwrite
 com.faendir.lightning_launcher.multitool.R$string: int message_pleaseWait
-com.faendir.lightning_launcher.multitool.R$string: int navigation_drawer_close
-com.faendir.lightning_launcher.multitool.R$string: int navigation_drawer_open
 com.faendir.lightning_launcher.multitool.R$string: int nnf_create_folder_error
 com.faendir.lightning_launcher.multitool.R$string: int nnf_filename
 com.faendir.lightning_launcher.multitool.R$string: int nnf_name
@@ -8039,7 +7976,6 @@ com.faendir.lightning_launcher.multitool.R$string: int title_chooseName
 com.faendir.lightning_launcher.multitool.R$string: int title_confirmUpdate
 com.faendir.lightning_launcher.multitool.R$string: int title_coverMode
 com.faendir.lightning_launcher.multitool.R$string: int title_create
-com.faendir.lightning_launcher.multitool.R$string: int title_defaultMusicPlayer
 com.faendir.lightning_launcher.multitool.R$string: int title_delete
 com.faendir.lightning_launcher.multitool.R$string: int title_enableAcra
 com.faendir.lightning_launcher.multitool.R$string: int title_format
@@ -8055,7 +7991,6 @@ com.faendir.lightning_launcher.multitool.R$string: int title_outDated
 com.faendir.lightning_launcher.multitool.R$string: int title_rename
 com.faendir.lightning_launcher.multitool.R$string: int title_scriptManager
 com.faendir.lightning_launcher.multitool.R$string: int title_search
-com.faendir.lightning_launcher.multitool.R$string: int title_selectGroup
 com.faendir.lightning_launcher.multitool.R$string: int title_settings
 com.faendir.lightning_launcher.multitool.R$string: int title_shortcuts
 com.faendir.lightning_launcher.multitool.R$string: int toast_cantLoadAction
@@ -9025,7 +8960,6 @@ com.faendir.lightning_launcher.multitool.backup.BootBroadcastReceiver
 com.faendir.lightning_launcher.multitool.backup.BootBroadcastReceiver: BootBroadcastReceiver()
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState[] values()
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState valueOf(java.lang.String)
-com.faendir.lightning_launcher.multitool.billing.BillingManager: void onPurchaseRequest(com.faendir.lightning_launcher.multitool.event.PurchaseRequest)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$1: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$2: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity
@@ -9115,24 +9049,16 @@ com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: void onClick(an
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: LightningGestureView(android.content.Context)
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: void onGesturePerformed(android.gesture.GestureOverlayView,android.gesture.Gesture)
-com.faendir.lightning_launcher.multitool.gesture.LoadGesture
-com.faendir.lightning_launcher.multitool.gesture.LoadGesture: LoadGesture()
-com.faendir.lightning_launcher.multitool.gesture.LoadGesture: void onCreate(android.os.Bundle)
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.gesture.GestureLibrary global
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: SingletonGestureLibrary()
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.gesture.GestureLibrary getGlobal(android.content.Context)
-com.faendir.lightning_launcher.multitool.launcherscript.LauncherLoad
-com.faendir.lightning_launcher.multitool.launcherscript.LauncherLoad: LauncherLoad()
 com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment: void onButtonClick(com.faendir.lightning_launcher.multitool.event.ClickEvent)
 com.faendir.lightning_launcher.multitool.music.DummyNotificationListener
 com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: DummyNotificationListener()
 com.faendir.lightning_launcher.multitool.music.MusicFragment: void onClick(com.faendir.lightning_launcher.multitool.event.ClickEvent)
 com.faendir.lightning_launcher.multitool.music.MusicManager
 com.faendir.lightning_launcher.multitool.music.MusicManager: MusicManager()
-com.faendir.lightning_launcher.multitool.music.MusicView: MusicView(android.content.Context)
-com.faendir.lightning_launcher.multitool.music.MusicView: MusicView(android.content.Context,android.util.AttributeSet)
-com.faendir.lightning_launcher.multitool.music.MusicView: MusicView(android.content.Context,android.util.AttributeSet,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: java.lang.String SWITCH
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: java.lang.String CASE
@@ -9276,7 +9202,6 @@ com.faendir.lightning_launcher.multitool.scriptmanager.Script: int compareTo(jav
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: java.lang.String name
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: boolean allowDelete
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: boolean sorting
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: ScriptGroup(java.lang.String,boolean)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: java.lang.String getName()
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: void setName(java.lang.String)
@@ -9373,11 +9298,10 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$3: android.wi
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$3: ScriptUtils$3(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,android.widget.EditText)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$3: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$4
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$4: com.faendir.lightning_launcher.scriptlib.ScriptManager val$scriptManager
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$4: com.faendir.lightning_launcher.multitool.scriptmanager.Transfer val$transfer
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$4: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager val$listManager
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$4: ScriptUtils$4(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.Transfer,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$4: void run()
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$4: ScriptUtils$4(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$4: void onResult(java.lang.String)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$4: void onResult(java.lang.Object)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$5
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$5: java.io.File val$dir
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$5: android.content.Context val$context
@@ -9386,11 +9310,10 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$5: java.util.
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$5: ScriptUtils$5(java.io.File,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.util.List)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$5: void handlePermissionResult(boolean)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$6
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$6: com.faendir.lightning_launcher.scriptlib.ScriptManager val$scriptManager
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$6: com.faendir.lightning_launcher.multitool.scriptmanager.Transfer val$transfer
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$6: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager val$listManager
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$6: ScriptUtils$6(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.Transfer,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$6: void run()
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$6: ScriptUtils$6(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$6: void onResult(java.lang.String)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$6: void onResult(java.lang.Object)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$7
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$7: com.faendir.lightning_launcher.scriptlib.ScriptManager val$scriptManager
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$7: android.content.Context val$context
@@ -9407,11 +9330,10 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$8: com.faendi
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$8: ScriptUtils$8(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$8: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$9
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$9: com.faendir.lightning_launcher.scriptlib.ScriptManager val$scriptManager
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$9: com.faendir.lightning_launcher.multitool.scriptmanager.Transfer val$transfer
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$9: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager val$listManager
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$9: ScriptUtils$9(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.Transfer,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$9: void run()
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$9: ScriptUtils$9(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$9: void onResult(java.lang.String)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$9: void onResult(java.lang.Object)
 com.faendir.lightning_launcher.multitool.scriptmanager.Transfer
 com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: java.lang.String RENAME
 com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: java.lang.String DELETE
@@ -14283,12 +14205,6 @@ com.mikepenz.iconics.core.R$styleable: int View_android_theme
 com.mikepenz.iconics.core.R$styleable: int View_paddingEnd
 com.mikepenz.iconics.core.R$styleable: int View_paddingStart
 com.mikepenz.iconics.core.R$styleable: int View_theme
-com.mikepenz.iconics.view.IconicsButton: IconicsButton(android.content.Context)
-com.mikepenz.iconics.view.IconicsButton: IconicsButton(android.content.Context,android.util.AttributeSet)
-com.mikepenz.iconics.view.IconicsButton: IconicsButton(android.content.Context,android.util.AttributeSet,int)
-com.mikepenz.iconics.view.IconicsCompatButton: IconicsCompatButton(android.content.Context)
-com.mikepenz.iconics.view.IconicsCompatButton: IconicsCompatButton(android.content.Context,android.util.AttributeSet)
-com.mikepenz.iconics.view.IconicsCompatButton: IconicsCompatButton(android.content.Context,android.util.AttributeSet,int)
 com.mikepenz.iconics.view.IconicsImageView
 com.mikepenz.iconics.view.IconicsImageView: IconicsImageView(android.content.Context)
 com.mikepenz.iconics.view.IconicsImageView: IconicsImageView(android.content.Context,android.util.AttributeSet)
@@ -14314,9 +14230,6 @@ com.mikepenz.iconics.view.IconicsImageView: void setRoundedCornersPx(int)
 com.mikepenz.iconics.view.IconicsImageView: void setRoundedCornersDp(int)
 com.mikepenz.iconics.view.IconicsImageView: void setRoundedCornersRes(int)
 com.mikepenz.iconics.view.IconicsImageView: com.mikepenz.iconics.IconicsDrawable getIcon()
-com.mikepenz.iconics.view.IconicsTextView: IconicsTextView(android.content.Context)
-com.mikepenz.iconics.view.IconicsTextView: IconicsTextView(android.content.Context,android.util.AttributeSet)
-com.mikepenz.iconics.view.IconicsTextView: IconicsTextView(android.content.Context,android.util.AttributeSet,int)
 com.mikepenz.materialdrawer.AccountHeader$OnAccountHeaderSelectionViewClickListener: boolean onClick(android.view.View,com.mikepenz.materialdrawer.model.interfaces.IProfile)
 com.mikepenz.materialdrawer.AccountHeaderBuilder$1: void onClick(android.view.View)
 com.mikepenz.materialdrawer.AccountHeaderBuilder$2: void onClick(android.view.View)
@@ -19840,6 +19753,7 @@ org.acra.ACRAConstants: java.lang.String DEFAULT_STRING_VALUE
 org.acra.ACRAConstants: int DEFAULT_LOGCAT_LINES
 org.acra.ACRAConstants: int DEFAULT_BUFFER_SIZE_IN_BYTES
 org.acra.ACRAConstants: boolean DEFAULT_LOGCAT_FILTER_BY_PID
+org.acra.ACRAConstants: boolean DEFAULT_NON_BLOCKING_READ_FOR_LOGCAT
 org.acra.ACRAConstants: boolean DEFAULT_SEND_REPORTS_IN_DEV_MODE
 org.acra.ACRAConstants: java.lang.String DEFAULT_APPLICATION_LOGFILE
 org.acra.ACRAConstants: int DEFAULT_APPLICATION_LOGFILE_LINES
@@ -19847,6 +19761,7 @@ org.acra.ACRAConstants: org.acra.ReportField[] DEFAULT_MAIL_REPORT_FIELDS
 org.acra.ACRAConstants: org.acra.ReportField[] DEFAULT_REPORT_FIELDS
 org.acra.ACRAConstants: java.lang.String DATE_TIME_FORMAT_STRING
 org.acra.ACRAConstants: java.lang.String DEFAULT_CERTIFICATE_TYPE
+org.acra.ACRAConstants: java.lang.String NOT_AVAILABLE
 org.acra.ACRAConstants: ACRAConstants()
 org.acra.ACRAConstants: void <clinit>()
 org.acra.CrashReportDialog
@@ -20013,6 +19928,7 @@ org.acra.annotation.ReportsCrashes: int socketTimeout()
 org.acra.annotation.ReportsCrashes: boolean alsoReportToAndroidFramework()
 org.acra.annotation.ReportsCrashes: java.lang.String[] additionalSharedPreferences()
 org.acra.annotation.ReportsCrashes: boolean logcatFilterByPid()
+org.acra.annotation.ReportsCrashes: boolean nonBlockingReadForLogcat()
 org.acra.annotation.ReportsCrashes: boolean sendReportsInDevMode()
 org.acra.annotation.ReportsCrashes: boolean sendReportsAtShutdown()
 org.acra.annotation.ReportsCrashes: java.lang.String[] excludeMatchingSharedPreferencesKeys()
@@ -20021,6 +19937,7 @@ org.acra.annotation.ReportsCrashes: java.lang.Class buildConfigClass()
 org.acra.annotation.ReportsCrashes: java.lang.Class[] reportSenderFactoryClasses()
 org.acra.annotation.ReportsCrashes: java.lang.String applicationLogFile()
 org.acra.annotation.ReportsCrashes: int applicationLogFileLines()
+org.acra.annotation.ReportsCrashes: org.acra.file.Directory applicationLogFileDir()
 org.acra.annotation.ReportsCrashes: java.lang.Class reportDialogClass()
 org.acra.annotation.ReportsCrashes: java.lang.Class reportPrimerClass()
 org.acra.annotation.ReportsCrashes: org.acra.sender.HttpSender$Method httpMethod()
@@ -20029,11 +19946,13 @@ org.acra.annotation.ReportsCrashes: java.lang.Class keyStoreFactoryClass()
 org.acra.annotation.ReportsCrashes: java.lang.String certificatePath()
 org.acra.annotation.ReportsCrashes: int resCertificate()
 org.acra.annotation.ReportsCrashes: java.lang.String certificateType()
+org.acra.annotation.ReportsCrashes: java.lang.Class retryPolicyClass()
 org.acra.builder.LastActivityManager
 org.acra.builder.LastActivityManager: java.lang.ref.WeakReference lastActivityCreated
 org.acra.builder.LastActivityManager: LastActivityManager(android.app.Application)
 org.acra.builder.LastActivityManager: android.app.Activity getLastActivity()
 org.acra.builder.LastActivityManager: void clearLastActivity()
+org.acra.builder.LastActivityManager: void waitForActivityStop(int)
 org.acra.builder.LastActivityManager: java.lang.ref.WeakReference access$002(org.acra.builder.LastActivityManager,java.lang.ref.WeakReference)
 org.acra.builder.LastActivityManager$1
 org.acra.builder.LastActivityManager$1: org.acra.builder.LastActivityManager this$0
@@ -20087,6 +20006,7 @@ org.acra.builder.ReportExecutor: void setEnabled(boolean)
 org.acra.builder.ReportExecutor: void execute(org.acra.builder.ReportBuilder)
 org.acra.builder.ReportExecutor: void dialogAndEnd(org.acra.builder.ReportBuilder,java.io.File,boolean)
 org.acra.builder.ReportExecutor: void endApplication(java.lang.Thread,java.lang.Throwable)
+org.acra.builder.ReportExecutor: void finishLastActivity(java.lang.Thread)
 org.acra.builder.ReportExecutor: void startSendingReports(boolean)
 org.acra.builder.ReportExecutor: void createNotification(java.io.File,org.acra.builder.ReportBuilder)
 org.acra.builder.ReportExecutor: java.io.File getReportFileName(org.acra.collector.CrashReportData)
@@ -20109,6 +20029,15 @@ org.acra.builder.ReportExecutor$2: boolean val$showDirectDialog
 org.acra.builder.ReportExecutor$2: org.acra.builder.ReportExecutor this$0
 org.acra.builder.ReportExecutor$2: ReportExecutor$2(org.acra.builder.ReportExecutor,org.acra.builder.ReportExecutor$TimeHelper,org.acra.builder.ReportBuilder,java.io.File,boolean)
 org.acra.builder.ReportExecutor$2: void run()
+org.acra.builder.ReportExecutor$3
+org.acra.builder.ReportExecutor$3: org.acra.builder.ReportExecutor this$0
+org.acra.builder.ReportExecutor$3: ReportExecutor$3(org.acra.builder.ReportExecutor)
+org.acra.builder.ReportExecutor$3: void run()
+org.acra.builder.ReportExecutor$4
+org.acra.builder.ReportExecutor$4: android.app.Activity val$lastActivity
+org.acra.builder.ReportExecutor$4: org.acra.builder.ReportExecutor this$0
+org.acra.builder.ReportExecutor$4: ReportExecutor$4(org.acra.builder.ReportExecutor,android.app.Activity)
+org.acra.builder.ReportExecutor$4: void run()
 org.acra.builder.ReportExecutor$TimeHelper
 org.acra.builder.ReportExecutor$TimeHelper: java.lang.Long initialTimeMillis
 org.acra.builder.ReportExecutor$TimeHelper: ReportExecutor$TimeHelper()
@@ -20220,6 +20149,12 @@ org.acra.collections.UnmodifiableListIteratorWrapper: java.lang.Object previous(
 org.acra.collections.UnmodifiableListIteratorWrapper: int previousIndex()
 org.acra.collections.UnmodifiableListIteratorWrapper: void remove()
 org.acra.collections.UnmodifiableListIteratorWrapper: void set(java.lang.Object)
+org.acra.collector.Collector
+org.acra.collector.Collector: org.acra.ReportField[] reportFields
+org.acra.collector.Collector: Collector(org.acra.ReportField[])
+org.acra.collector.Collector: org.acra.ReportField[] canCollect()
+org.acra.collector.Collector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.Collector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.ConfigurationCollector
 org.acra.collector.ConfigurationCollector: java.lang.String SUFFIX_MASK
 org.acra.collector.ConfigurationCollector: java.lang.String FIELD_SCREENLAYOUT
@@ -20235,12 +20170,18 @@ org.acra.collector.ConfigurationCollector: java.lang.String PREFIX_NAVIGATION
 org.acra.collector.ConfigurationCollector: java.lang.String PREFIX_KEYBOARDHIDDEN
 org.acra.collector.ConfigurationCollector: java.lang.String PREFIX_KEYBOARD
 org.acra.collector.ConfigurationCollector: java.lang.String PREFIX_HARDKEYBOARDHIDDEN
-org.acra.collector.ConfigurationCollector: java.util.Map mValueArrays
-org.acra.collector.ConfigurationCollector: ConfigurationCollector()
-org.acra.collector.ConfigurationCollector: java.lang.String toString(android.content.res.Configuration)
-org.acra.collector.ConfigurationCollector: java.lang.String getFieldValueName(android.content.res.Configuration,java.lang.reflect.Field)
+org.acra.collector.ConfigurationCollector: android.content.Context context
+org.acra.collector.ConfigurationCollector: java.lang.String initialConfiguration
+org.acra.collector.ConfigurationCollector: ConfigurationCollector(android.content.Context,java.lang.String)
+org.acra.collector.ConfigurationCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.ConfigurationCollector: java.lang.String configToString(android.content.res.Configuration)
+org.acra.collector.ConfigurationCollector: java.util.Map getValueArrays()
+org.acra.collector.ConfigurationCollector: java.lang.String getFieldValueName(java.util.Map,android.content.res.Configuration,java.lang.reflect.Field)
 org.acra.collector.ConfigurationCollector: java.lang.String activeFlags(android.util.SparseArray,int)
 org.acra.collector.ConfigurationCollector: java.lang.String collectConfiguration(android.content.Context)
+org.acra.collector.ConfigurationCollector$1
+org.acra.collector.ConfigurationCollector$1: int[] $SwitchMap$org$acra$ReportField
+org.acra.collector.ConfigurationCollector$1: void <clinit>()
 org.acra.collector.CrashReportData
 org.acra.collector.CrashReportData: long serialVersionUID
 org.acra.collector.CrashReportData: CrashReportData()
@@ -20259,17 +20200,29 @@ org.acra.collector.CrashReportDataFactory: java.lang.String removeCustomData(jav
 org.acra.collector.CrashReportDataFactory: void clearCustomData()
 org.acra.collector.CrashReportDataFactory: java.lang.String getCustomData(java.lang.String)
 org.acra.collector.CrashReportDataFactory: org.acra.collector.CrashReportData createCrashData(org.acra.builder.ReportBuilder)
-org.acra.collector.CrashReportDataFactory: java.lang.String createCustomInfoString(java.util.Map)
-org.acra.collector.CrashReportDataFactory: java.lang.String getStackTrace(java.lang.String,java.lang.Throwable)
-org.acra.collector.CrashReportDataFactory: java.lang.String getStackTraceHash(java.lang.Throwable)
-org.acra.collector.CrashReportDataFactory: java.lang.Class getBuildConfigClass()
+org.acra.collector.CrashReportDataFactory: java.util.List getCollectorsOrdered()
+org.acra.collector.CustomDataCollector
+org.acra.collector.CustomDataCollector: java.util.Map customParameters
+org.acra.collector.CustomDataCollector: CustomDataCollector(java.util.Map)
+org.acra.collector.CustomDataCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.CustomDataCollector: java.lang.String createCustomInfoString(java.util.Map)
 org.acra.collector.DeviceFeaturesCollector
-org.acra.collector.DeviceFeaturesCollector: DeviceFeaturesCollector()
-org.acra.collector.DeviceFeaturesCollector: java.lang.String getFeatures(android.content.Context)
+org.acra.collector.DeviceFeaturesCollector: android.content.Context context
+org.acra.collector.DeviceFeaturesCollector: DeviceFeaturesCollector(android.content.Context)
+org.acra.collector.DeviceFeaturesCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.DeviceIdCollector
+org.acra.collector.DeviceIdCollector: android.content.Context context
+org.acra.collector.DeviceIdCollector: org.acra.util.PackageManagerWrapper pm
+org.acra.collector.DeviceIdCollector: android.content.SharedPreferences prefs
+org.acra.collector.DeviceIdCollector: DeviceIdCollector(android.content.Context,org.acra.util.PackageManagerWrapper,android.content.SharedPreferences)
+org.acra.collector.DeviceIdCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.DeviceIdCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.DeviceIdCollector: java.lang.String getDeviceId()
 org.acra.collector.DisplayManagerCollector
-org.acra.collector.DisplayManagerCollector: android.util.SparseArray mFlagsNames
-org.acra.collector.DisplayManagerCollector: DisplayManagerCollector()
-org.acra.collector.DisplayManagerCollector: java.lang.String collectDisplays(android.content.Context)
+org.acra.collector.DisplayManagerCollector: android.content.Context context
+org.acra.collector.DisplayManagerCollector: android.util.SparseArray flagNames
+org.acra.collector.DisplayManagerCollector: DisplayManagerCollector(android.content.Context)
+org.acra.collector.DisplayManagerCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.DisplayManagerCollector: java.lang.Object collectDisplayData(android.view.Display)
 org.acra.collector.DisplayManagerCollector: java.lang.String collectIsValid(android.view.Display)
 org.acra.collector.DisplayManagerCollector: java.lang.String collectRotation(android.view.Display)
@@ -20283,37 +20236,44 @@ org.acra.collector.DisplayManagerCollector: java.lang.String collectName(android
 org.acra.collector.DisplayManagerCollector: java.lang.String collectMetrics(android.view.Display)
 org.acra.collector.DisplayManagerCollector: java.lang.String collectRealMetrics(android.view.Display)
 org.acra.collector.DisplayManagerCollector: java.lang.String collectMetrics(java.lang.String,android.util.DisplayMetrics)
-org.acra.collector.DisplayManagerCollector: java.lang.String activeFlags(android.util.SparseArray,int)
-org.acra.collector.DisplayManagerCollector: void <clinit>()
+org.acra.collector.DisplayManagerCollector: java.lang.String activeFlags(int)
 org.acra.collector.DropBoxCollector
+org.acra.collector.DropBoxCollector: android.content.Context context
+org.acra.collector.DropBoxCollector: org.acra.config.ACRAConfiguration config
+org.acra.collector.DropBoxCollector: org.acra.util.PackageManagerWrapper pm
 org.acra.collector.DropBoxCollector: java.lang.String[] SYSTEM_TAGS
-org.acra.collector.DropBoxCollector: java.lang.String NO_RESULT
 org.acra.collector.DropBoxCollector: java.text.SimpleDateFormat dateFormat
-org.acra.collector.DropBoxCollector: DropBoxCollector()
-org.acra.collector.DropBoxCollector: java.lang.String read(android.content.Context,org.acra.config.ACRAConfiguration)
+org.acra.collector.DropBoxCollector: DropBoxCollector(android.content.Context,org.acra.config.ACRAConfiguration,org.acra.util.PackageManagerWrapper)
+org.acra.collector.DropBoxCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.DropBoxCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.DropBoxCollector: void <clinit>()
-org.acra.collector.DumpSysCollector
-org.acra.collector.DumpSysCollector: DumpSysCollector()
-org.acra.collector.DumpSysCollector: java.lang.String collectMemInfo()
 org.acra.collector.LogCatCollector
 org.acra.collector.LogCatCollector: int DEFAULT_TAIL_COUNT
-org.acra.collector.LogCatCollector: LogCatCollector()
-org.acra.collector.LogCatCollector: java.lang.String collectLogCat(org.acra.config.ACRAConfiguration,java.lang.String)
+org.acra.collector.LogCatCollector: org.acra.config.ACRAConfiguration config
+org.acra.collector.LogCatCollector: org.acra.util.PackageManagerWrapper pm
+org.acra.collector.LogCatCollector: LogCatCollector(org.acra.config.ACRAConfiguration,org.acra.util.PackageManagerWrapper)
+org.acra.collector.LogCatCollector: java.lang.String collectLogCat(java.lang.String)
+org.acra.collector.LogCatCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.LogCatCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.LogCatCollector: java.lang.String streamToString(java.io.InputStream,com.android.internal.util.Predicate,int)
 org.acra.collector.LogCatCollector$1
-org.acra.collector.LogCatCollector$1: java.lang.Process val$process
+org.acra.collector.LogCatCollector$1: java.lang.String val$myPidStr
 org.acra.collector.LogCatCollector$1: org.acra.collector.LogCatCollector this$0
-org.acra.collector.LogCatCollector$1: LogCatCollector$1(org.acra.collector.LogCatCollector,java.lang.Process)
-org.acra.collector.LogCatCollector$1: void run()
+org.acra.collector.LogCatCollector$1: LogCatCollector$1(org.acra.collector.LogCatCollector,java.lang.String)
+org.acra.collector.LogCatCollector$1: boolean apply(java.lang.String)
+org.acra.collector.LogCatCollector$1: boolean apply(java.lang.Object)
 org.acra.collector.LogCatCollector$2
-org.acra.collector.LogCatCollector$2: java.lang.String val$finalMyPidStr
-org.acra.collector.LogCatCollector$2: org.acra.collector.LogCatCollector this$0
-org.acra.collector.LogCatCollector$2: LogCatCollector$2(org.acra.collector.LogCatCollector,java.lang.String)
-org.acra.collector.LogCatCollector$2: boolean apply(java.lang.String)
-org.acra.collector.LogCatCollector$2: boolean apply(java.lang.Object)
+org.acra.collector.LogCatCollector$2: int[] $SwitchMap$org$acra$ReportField
+org.acra.collector.LogCatCollector$2: void <clinit>()
 org.acra.collector.LogFileCollector
-org.acra.collector.LogFileCollector: LogFileCollector()
-org.acra.collector.LogFileCollector: java.lang.String collectLogFile(android.content.Context,java.lang.String,int)
-org.acra.collector.LogFileCollector: java.io.InputStream getStream(android.content.Context,java.lang.String)
+org.acra.collector.LogFileCollector: android.content.Context context
+org.acra.collector.LogFileCollector: org.acra.config.ACRAConfiguration config
+org.acra.collector.LogFileCollector: LogFileCollector(android.content.Context,org.acra.config.ACRAConfiguration)
+org.acra.collector.LogFileCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.LogFileCollector: java.io.InputStream getStream(org.acra.file.Directory,java.lang.String)
+org.acra.collector.LogFileCollector$1
+org.acra.collector.LogFileCollector$1: int[] $SwitchMap$org$acra$file$Directory
+org.acra.collector.LogFileCollector$1: void <clinit>()
 org.acra.collector.MediaCodecListCollector
 org.acra.collector.MediaCodecListCollector: java.lang.String COLOR_FORMAT_PREFIX
 org.acra.collector.MediaCodecListCollector: java.lang.String[] MPEG4_TYPES
@@ -20329,6 +20289,9 @@ org.acra.collector.MediaCodecListCollector: android.util.SparseArray mMPEG4Level
 org.acra.collector.MediaCodecListCollector: android.util.SparseArray mMPEG4ProfileValues
 org.acra.collector.MediaCodecListCollector: android.util.SparseArray mAACProfileValues
 org.acra.collector.MediaCodecListCollector: MediaCodecListCollector()
+org.acra.collector.MediaCodecListCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.MediaCodecListCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.MediaCodecListCollector: void prepare()
 org.acra.collector.MediaCodecListCollector: java.lang.String collectMediaCodecList()
 org.acra.collector.MediaCodecListCollector: java.lang.String collectCapabilitiesForType(android.media.MediaCodecInfo,java.lang.String)
 org.acra.collector.MediaCodecListCollector: org.acra.collector.MediaCodecListCollector$CodecType identifyCodecType(android.media.MediaCodecInfo)
@@ -20346,11 +20309,35 @@ org.acra.collector.MediaCodecListCollector$CodecType: org.acra.collector.MediaCo
 org.acra.collector.MediaCodecListCollector$CodecType: org.acra.collector.MediaCodecListCollector$CodecType valueOf(java.lang.String)
 org.acra.collector.MediaCodecListCollector$CodecType: MediaCodecListCollector$CodecType(java.lang.String,int)
 org.acra.collector.MediaCodecListCollector$CodecType: void <clinit>()
+org.acra.collector.MemoryInfoCollector
+org.acra.collector.MemoryInfoCollector: MemoryInfoCollector()
+org.acra.collector.MemoryInfoCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.MemoryInfoCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.MemoryInfoCollector: java.lang.String collectMemInfo()
+org.acra.collector.MemoryInfoCollector: long getAvailableInternalMemorySize()
+org.acra.collector.MemoryInfoCollector: long getTotalInternalMemorySize()
+org.acra.collector.MemoryInfoCollector$1
+org.acra.collector.MemoryInfoCollector$1: int[] $SwitchMap$org$acra$ReportField
+org.acra.collector.MemoryInfoCollector$1: void <clinit>()
+org.acra.collector.PackageManagerCollector
+org.acra.collector.PackageManagerCollector: org.acra.util.PackageManagerWrapper pm
+org.acra.collector.PackageManagerCollector: PackageManagerCollector(org.acra.util.PackageManagerWrapper)
+org.acra.collector.PackageManagerCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.PackageManagerCollector$1
+org.acra.collector.PackageManagerCollector$1: int[] $SwitchMap$org$acra$ReportField
+org.acra.collector.PackageManagerCollector$1: void <clinit>()
 org.acra.collector.ReflectionCollector
-org.acra.collector.ReflectionCollector: ReflectionCollector()
+org.acra.collector.ReflectionCollector: android.content.Context context
+org.acra.collector.ReflectionCollector: org.acra.config.ACRAConfiguration config
+org.acra.collector.ReflectionCollector: ReflectionCollector(android.content.Context,org.acra.config.ACRAConfiguration)
 org.acra.collector.ReflectionCollector: java.lang.String collectConstants(java.lang.Class,java.lang.String)
 org.acra.collector.ReflectionCollector: java.lang.String collectStaticGettersResults(java.lang.Class)
 org.acra.collector.ReflectionCollector: java.lang.String collectConstants(java.lang.Class)
+org.acra.collector.ReflectionCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.ReflectionCollector: java.lang.Class getBuildConfigClass()
+org.acra.collector.ReflectionCollector$1
+org.acra.collector.ReflectionCollector$1: int[] $SwitchMap$org$acra$ReportField
+org.acra.collector.ReflectionCollector$1: void <clinit>()
 org.acra.collector.SettingsCollector
 org.acra.collector.SettingsCollector: java.lang.String ERROR
 org.acra.collector.SettingsCollector: android.content.Context context
@@ -20360,15 +20347,52 @@ org.acra.collector.SettingsCollector: java.lang.String collectSystemSettings()
 org.acra.collector.SettingsCollector: java.lang.String collectSecureSettings()
 org.acra.collector.SettingsCollector: java.lang.String collectGlobalSettings()
 org.acra.collector.SettingsCollector: boolean isAuthorized(java.lang.reflect.Field)
+org.acra.collector.SettingsCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.SettingsCollector$1
+org.acra.collector.SettingsCollector$1: int[] $SwitchMap$org$acra$ReportField
+org.acra.collector.SettingsCollector$1: void <clinit>()
 org.acra.collector.SharedPreferencesCollector
 org.acra.collector.SharedPreferencesCollector: android.content.Context context
 org.acra.collector.SharedPreferencesCollector: org.acra.config.ACRAConfiguration config
-org.acra.collector.SharedPreferencesCollector: SharedPreferencesCollector(android.content.Context,org.acra.config.ACRAConfiguration)
+org.acra.collector.SharedPreferencesCollector: android.content.SharedPreferences prefs
+org.acra.collector.SharedPreferencesCollector: SharedPreferencesCollector(android.content.Context,org.acra.config.ACRAConfiguration,android.content.SharedPreferences)
 org.acra.collector.SharedPreferencesCollector: java.lang.String collect()
 org.acra.collector.SharedPreferencesCollector: boolean filteredKey(java.lang.String)
+org.acra.collector.SharedPreferencesCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.SharedPreferencesCollector$1
+org.acra.collector.SharedPreferencesCollector$1: int[] $SwitchMap$org$acra$ReportField
+org.acra.collector.SharedPreferencesCollector$1: void <clinit>()
+org.acra.collector.SimpleValuesCollector
+org.acra.collector.SimpleValuesCollector: android.content.Context context
+org.acra.collector.SimpleValuesCollector: SimpleValuesCollector(android.content.Context)
+org.acra.collector.SimpleValuesCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.SimpleValuesCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.SimpleValuesCollector: java.lang.String getApplicationFilePath()
+org.acra.collector.SimpleValuesCollector: java.lang.String getLocalIpAddress()
+org.acra.collector.SimpleValuesCollector$1
+org.acra.collector.SimpleValuesCollector$1: int[] $SwitchMap$org$acra$ReportField
+org.acra.collector.SimpleValuesCollector$1: void <clinit>()
+org.acra.collector.StacktraceCollector
+org.acra.collector.StacktraceCollector: StacktraceCollector()
+org.acra.collector.StacktraceCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.StacktraceCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.StacktraceCollector: java.lang.String getStackTrace(java.lang.String,java.lang.Throwable)
+org.acra.collector.StacktraceCollector: java.lang.String getStackTraceHash(java.lang.Throwable)
+org.acra.collector.StacktraceCollector$1
+org.acra.collector.StacktraceCollector$1: int[] $SwitchMap$org$acra$ReportField
+org.acra.collector.StacktraceCollector$1: void <clinit>()
 org.acra.collector.ThreadCollector
 org.acra.collector.ThreadCollector: ThreadCollector()
-org.acra.collector.ThreadCollector: java.lang.String collect(java.lang.Thread)
+org.acra.collector.ThreadCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.TimeCollector
+org.acra.collector.TimeCollector: java.util.Calendar appStartDate
+org.acra.collector.TimeCollector: TimeCollector(java.util.Calendar)
+org.acra.collector.TimeCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.TimeCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.TimeCollector: java.lang.String getTimeString(java.util.Calendar)
+org.acra.collector.TimeCollector$1
+org.acra.collector.TimeCollector$1: int[] $SwitchMap$org$acra$ReportField
+org.acra.collector.TimeCollector$1: void <clinit>()
 org.acra.config.ACRAConfiguration
 org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet additionalDropBoxTags
 org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet additionalSharedPreferences
@@ -20405,12 +20429,14 @@ org.acra.config.ACRAConfiguration: int sharedPreferencesMode
 org.acra.config.ACRAConfiguration: java.lang.String sharedPreferencesName
 org.acra.config.ACRAConfiguration: int socketTimeout
 org.acra.config.ACRAConfiguration: boolean logcatFilterByPid
+org.acra.config.ACRAConfiguration: boolean nonBlockingReadForLogcat
 org.acra.config.ACRAConfiguration: boolean sendReportsInDevMode
 org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet excludeMatchingSharedPreferencesKeys
 org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet excludeMatchingSettingsKeys
 org.acra.config.ACRAConfiguration: java.lang.Class buildConfigClass
 org.acra.config.ACRAConfiguration: java.lang.String applicationLogFile
 org.acra.config.ACRAConfiguration: int applicationLogFileLines
+org.acra.config.ACRAConfiguration: org.acra.file.Directory applicationLogFileDir
 org.acra.config.ACRAConfiguration: org.acra.sender.HttpSender$Method httpMethod
 org.acra.config.ACRAConfiguration: org.acra.sender.HttpSender$Type reportType
 org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableMap httpHeaders
@@ -20419,6 +20445,7 @@ org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet reportSende
 org.acra.config.ACRAConfiguration: int resCertificate
 org.acra.config.ACRAConfiguration: java.lang.String certificatePath
 org.acra.config.ACRAConfiguration: java.lang.String certificateType
+org.acra.config.ACRAConfiguration: java.lang.Class retryPolicyClass
 org.acra.config.ACRAConfiguration: ACRAConfiguration(org.acra.config.ConfigurationBuilder)
 org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableMap getHttpHeaders()
 org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet getReportFields()
@@ -20454,12 +20481,14 @@ org.acra.config.ACRAConfiguration: int sharedPreferencesMode()
 org.acra.config.ACRAConfiguration: java.lang.String sharedPreferencesName()
 org.acra.config.ACRAConfiguration: int socketTimeout()
 org.acra.config.ACRAConfiguration: boolean logcatFilterByPid()
+org.acra.config.ACRAConfiguration: boolean nonBlockingReadForLogcat()
 org.acra.config.ACRAConfiguration: boolean sendReportsInDevMode()
 org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet excludeMatchingSharedPreferencesKeys()
 org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet excludeMatchingSettingsKeys()
 org.acra.config.ACRAConfiguration: java.lang.Class buildConfigClass()
 org.acra.config.ACRAConfiguration: java.lang.String applicationLogFile()
 org.acra.config.ACRAConfiguration: int applicationLogFileLines()
+org.acra.config.ACRAConfiguration: org.acra.file.Directory applicationLogFileDir()
 org.acra.config.ACRAConfiguration: java.lang.Class reportDialogClass()
 org.acra.config.ACRAConfiguration: java.lang.Class reportPrimerClass()
 org.acra.config.ACRAConfiguration: org.acra.sender.HttpSender$Method httpMethod()
@@ -20469,9 +20498,11 @@ org.acra.config.ACRAConfiguration: java.lang.Class keyStoreFactoryClass()
 org.acra.config.ACRAConfiguration: int resCertificate()
 org.acra.config.ACRAConfiguration: java.lang.String certificatePath()
 org.acra.config.ACRAConfiguration: java.lang.String certificateType()
+org.acra.config.ACRAConfiguration: java.lang.Class retryPolicyClass()
 org.acra.config.ACRAConfigurationException
 org.acra.config.ACRAConfigurationException: long serialVersionUID
 org.acra.config.ACRAConfigurationException: ACRAConfigurationException(java.lang.String)
+org.acra.config.ACRAConfigurationException: ACRAConfigurationException(java.lang.String,java.lang.Throwable)
 org.acra.config.ConfigurationBuilder
 org.acra.config.ConfigurationBuilder: java.lang.Class annotationType
 org.acra.config.ConfigurationBuilder: java.lang.String[] additionalDropBoxTags
@@ -20510,12 +20541,14 @@ org.acra.config.ConfigurationBuilder: java.lang.Integer sharedPreferencesMode
 org.acra.config.ConfigurationBuilder: java.lang.String sharedPreferencesName
 org.acra.config.ConfigurationBuilder: java.lang.Integer socketTimeout
 org.acra.config.ConfigurationBuilder: java.lang.Boolean logcatFilterByPid
+org.acra.config.ConfigurationBuilder: java.lang.Boolean nonBlockingReadForLogcat
 org.acra.config.ConfigurationBuilder: java.lang.Boolean sendReportsInDevMode
 org.acra.config.ConfigurationBuilder: java.lang.String[] excludeMatchingSharedPreferencesKeys
 org.acra.config.ConfigurationBuilder: java.lang.String[] excludeMatchingSettingsKeys
 org.acra.config.ConfigurationBuilder: java.lang.Class buildConfigClass
 org.acra.config.ConfigurationBuilder: java.lang.String applicationLogFile
 org.acra.config.ConfigurationBuilder: java.lang.Integer applicationLogFileLines
+org.acra.config.ConfigurationBuilder: org.acra.file.Directory applicationLogFileDir
 org.acra.config.ConfigurationBuilder: org.acra.sender.HttpSender$Method httpMethod
 org.acra.config.ConfigurationBuilder: org.acra.sender.HttpSender$Type reportType
 org.acra.config.ConfigurationBuilder: java.util.Map httpHeaders
@@ -20524,8 +20557,10 @@ org.acra.config.ConfigurationBuilder: java.lang.Class[] reportSenderFactoryClass
 org.acra.config.ConfigurationBuilder: java.lang.Integer resCertificate
 org.acra.config.ConfigurationBuilder: java.lang.String certificatePath
 org.acra.config.ConfigurationBuilder: java.lang.String certificateType
+org.acra.config.ConfigurationBuilder: java.lang.Class retryPolicyClass
 org.acra.config.ConfigurationBuilder: ConfigurationBuilder(android.app.Application)
 org.acra.config.ConfigurationBuilder: org.acra.config.ACRAConfiguration build()
+org.acra.config.ConfigurationBuilder: void checkValidity(java.lang.Class[])
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setHttpHeaders(java.util.Map)
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setAdditionalDropboxTags(java.lang.String[])
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setAdditionalSharedPreferences(java.lang.String[])
@@ -20563,6 +20598,7 @@ org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setSh
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setSharedPreferenceName(java.lang.String)
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setSocketTimeout(int)
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setLogcatFilterByPid(boolean)
+org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setNonBlockingReadForLogcat(boolean)
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setSendReportsInDevMode(boolean)
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setSendReportsAtShutdown(boolean)
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setExcludeMatchingSharedPreferencesKeys(java.lang.String[])
@@ -20570,6 +20606,7 @@ org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setEx
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setBuildConfigClass(java.lang.Class)
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setApplicationLogFile(java.lang.String)
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setApplicationLogFileLines(int)
+org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setApplicationLogFileDir(org.acra.file.Directory)
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setHttpMethod(org.acra.sender.HttpSender$Method)
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setReportType(org.acra.sender.HttpSender$Type)
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setKeyStoreFactoryClass(java.lang.Class)
@@ -20578,6 +20615,7 @@ org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setCe
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setCertificateType(java.lang.String)
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setReportSenderFactoryClasses(java.lang.Class[])
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setReportPrimerClass(java.lang.Class)
+org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setRetryPolicyClass(java.lang.Class)
 org.acra.config.ConfigurationBuilder: java.lang.String[] additionalDropBoxTags()
 org.acra.config.ConfigurationBuilder: java.lang.String[] additionalSharedPreferences()
 org.acra.config.ConfigurationBuilder: java.lang.Class annotationType()
@@ -20612,12 +20650,14 @@ org.acra.config.ConfigurationBuilder: int sharedPreferencesMode()
 org.acra.config.ConfigurationBuilder: java.lang.String sharedPreferencesName()
 org.acra.config.ConfigurationBuilder: int socketTimeout()
 org.acra.config.ConfigurationBuilder: boolean logcatFilterByPid()
+org.acra.config.ConfigurationBuilder: boolean nonBlockingReadForLogcat()
 org.acra.config.ConfigurationBuilder: boolean sendReportsInDevMode()
 org.acra.config.ConfigurationBuilder: java.lang.String[] excludeMatchingSharedPreferencesKeys()
 org.acra.config.ConfigurationBuilder: java.lang.String[] excludeMatchingSettingsKeys()
 org.acra.config.ConfigurationBuilder: java.lang.Class buildConfigClass()
 org.acra.config.ConfigurationBuilder: java.lang.String applicationLogFile()
 org.acra.config.ConfigurationBuilder: int applicationLogFileLines()
+org.acra.config.ConfigurationBuilder: org.acra.file.Directory applicationLogFileDir()
 org.acra.config.ConfigurationBuilder: java.lang.Class reportDialogClass()
 org.acra.config.ConfigurationBuilder: java.lang.Class reportPrimerClass()
 org.acra.config.ConfigurationBuilder: org.acra.sender.HttpSender$Method httpMethod()
@@ -20628,15 +20668,28 @@ org.acra.config.ConfigurationBuilder: int resCertificate()
 org.acra.config.ConfigurationBuilder: java.lang.String certificatePath()
 org.acra.config.ConfigurationBuilder: java.lang.String certificateType()
 org.acra.config.ConfigurationBuilder: java.util.Map httpHeaders()
+org.acra.config.ConfigurationBuilder: java.lang.Class retryPolicyClass()
 org.acra.config.ConfigurationBuilder$1
 org.acra.config.ConfigurationBuilder$1: int[] $SwitchMap$org$acra$ReportingInteractionMode
 org.acra.config.ConfigurationBuilder$1: void <clinit>()
+org.acra.config.DefaultRetryPolicy
+org.acra.config.DefaultRetryPolicy: DefaultRetryPolicy()
+org.acra.config.DefaultRetryPolicy: boolean shouldRetrySend(java.util.List,java.util.List)
+org.acra.config.RetryPolicy
+org.acra.config.RetryPolicy: boolean shouldRetrySend(java.util.List,java.util.List)
+org.acra.config.RetryPolicy$FailedSender
+org.acra.config.RetryPolicy$FailedSender: org.acra.sender.ReportSender sender
+org.acra.config.RetryPolicy$FailedSender: org.acra.sender.ReportSenderException exception
+org.acra.config.RetryPolicy$FailedSender: RetryPolicy$FailedSender(org.acra.sender.ReportSender,org.acra.sender.ReportSenderException)
+org.acra.config.RetryPolicy$FailedSender: org.acra.sender.ReportSender getSender()
+org.acra.config.RetryPolicy$FailedSender: org.acra.sender.ReportSenderException getException()
 org.acra.dialog.BaseCrashReportDialog
 org.acra.dialog.BaseCrashReportDialog: java.io.File reportFile
 org.acra.dialog.BaseCrashReportDialog: org.acra.config.ACRAConfiguration config
 org.acra.dialog.BaseCrashReportDialog: java.lang.Throwable exception
 org.acra.dialog.BaseCrashReportDialog: BaseCrashReportDialog()
 org.acra.dialog.BaseCrashReportDialog: void onCreate(android.os.Bundle)
+org.acra.dialog.BaseCrashReportDialog: void preInit(android.os.Bundle)
 org.acra.dialog.BaseCrashReportDialog: void init(android.os.Bundle)
 org.acra.dialog.BaseCrashReportDialog: void cancelReports()
 org.acra.dialog.BaseCrashReportDialog: void sendCrash(java.lang.String,java.lang.String)
@@ -20685,6 +20738,20 @@ org.acra.file.CrashReportPersister: org.acra.collector.CrashReportData load(java
 org.acra.file.CrashReportPersister: void store(org.acra.collector.CrashReportData,java.io.File)
 org.acra.file.CrashReportPersister: org.acra.collector.CrashReportData load(java.io.Reader)
 org.acra.file.CrashReportPersister: void dumpString(java.lang.StringBuilder,java.lang.String,boolean)
+org.acra.file.Directory
+org.acra.file.Directory: org.acra.file.Directory FILES_LEGACY
+org.acra.file.Directory: org.acra.file.Directory FILES
+org.acra.file.Directory: org.acra.file.Directory EXTERNAL_FILES
+org.acra.file.Directory: org.acra.file.Directory CACHE
+org.acra.file.Directory: org.acra.file.Directory EXTERNAL_CACHE
+org.acra.file.Directory: org.acra.file.Directory NO_BACKUP_FILES
+org.acra.file.Directory: org.acra.file.Directory EXTERNAL_STORAGE
+org.acra.file.Directory: org.acra.file.Directory ROOT
+org.acra.file.Directory: org.acra.file.Directory[] $VALUES
+org.acra.file.Directory: org.acra.file.Directory[] values()
+org.acra.file.Directory: org.acra.file.Directory valueOf(java.lang.String)
+org.acra.file.Directory: Directory(java.lang.String,int)
+org.acra.file.Directory: void <clinit>()
 org.acra.file.LastModifiedComparator
 org.acra.file.LastModifiedComparator: LastModifiedComparator()
 org.acra.file.LastModifiedComparator: int compare(java.io.File,java.io.File)
@@ -20865,6 +20932,7 @@ org.acra.sender.ReportDistributor: java.util.List reportSenders
 org.acra.sender.ReportDistributor: ReportDistributor(android.content.Context,org.acra.config.ACRAConfiguration,java.util.List)
 org.acra.sender.ReportDistributor: void distribute(java.io.File)
 org.acra.sender.ReportDistributor: void sendCrashReport(org.acra.collector.CrashReportData)
+org.acra.sender.ReportDistributor: org.acra.config.RetryPolicy getRetryPolicy()
 org.acra.sender.ReportDistributor: void deleteFile(java.io.File)
 org.acra.sender.ReportDistributor: boolean isDebuggable()
 org.acra.sender.ReportSender
@@ -20877,12 +20945,11 @@ org.acra.sender.ReportSenderFactory: org.acra.sender.ReportSender create(android
 org.acra.sender.SenderService
 org.acra.sender.SenderService: java.lang.String EXTRA_ONLY_SEND_SILENT_REPORTS
 org.acra.sender.SenderService: java.lang.String EXTRA_APPROVE_REPORTS_FIRST
-org.acra.sender.SenderService: java.lang.String EXTRA_REPORT_SENDER_FACTORIES
 org.acra.sender.SenderService: java.lang.String EXTRA_ACRA_CONFIG
 org.acra.sender.SenderService: org.acra.file.ReportLocator locator
 org.acra.sender.SenderService: SenderService()
 org.acra.sender.SenderService: void onHandleIntent(android.content.Intent)
-org.acra.sender.SenderService: java.util.List getSenderInstances(org.acra.config.ACRAConfiguration,java.util.List)
+org.acra.sender.SenderService: java.util.List getSenderInstances(org.acra.config.ACRAConfiguration,java.util.Collection)
 org.acra.sender.SenderService: void markReportsAsApproved()
 org.acra.sender.SenderServiceStarter
 org.acra.sender.SenderServiceStarter: android.content.Context context
@@ -20900,14 +20967,6 @@ org.acra.util.ApplicationStartupProcessor: int getAppVersion()
 org.acra.util.ApplicationStartupProcessor: boolean hasNonSilentApprovedReports(java.io.File[])
 org.acra.util.HttpRequest
 org.acra.util.HttpRequest: java.lang.String UTF8
-org.acra.util.HttpRequest: int HTTP_SUCCESS
-org.acra.util.HttpRequest: int HTTP_REDIRECT
-org.acra.util.HttpRequest: int HTTP_CLIENT_ERROR
-org.acra.util.HttpRequest: int HTTP_UNAUTHORIZED
-org.acra.util.HttpRequest: int HTTP_FORBIDDEN
-org.acra.util.HttpRequest: int HTTP_METHOD_NOT_ALLOWED
-org.acra.util.HttpRequest: int HTTP_CONFLICT
-org.acra.util.HttpRequest: int MAX_HTTP_CODE
 org.acra.util.HttpRequest: org.acra.config.ACRAConfiguration config
 org.acra.util.HttpRequest: java.lang.String login
 org.acra.util.HttpRequest: java.lang.String password
@@ -20925,12 +20984,14 @@ org.acra.util.HttpRequest: java.lang.String getParamsAsFormString(java.util.Map)
 org.acra.util.IOUtils
 org.acra.util.IOUtils: com.android.internal.util.Predicate DEFAULT_FILTER
 org.acra.util.IOUtils: int NO_LIMIT
+org.acra.util.IOUtils: int READ_TIMEOUT
 org.acra.util.IOUtils: IOUtils()
 org.acra.util.IOUtils: void safeClose(java.io.Closeable)
 org.acra.util.IOUtils: java.lang.String streamToString(java.io.InputStream)
 org.acra.util.IOUtils: java.lang.String streamToString(java.io.InputStream,com.android.internal.util.Predicate)
 org.acra.util.IOUtils: java.lang.String streamToString(java.io.InputStream,int)
 org.acra.util.IOUtils: java.lang.String streamToString(java.io.InputStream,com.android.internal.util.Predicate,int)
+org.acra.util.IOUtils: java.lang.String streamToStringNonBlockingRead(java.io.InputStream,com.android.internal.util.Predicate,int)
 org.acra.util.IOUtils: void <clinit>()
 org.acra.util.IOUtils$1
 org.acra.util.IOUtils$1: IOUtils$1()
@@ -20952,19 +21013,23 @@ org.acra.util.JSONReportBuilder: void addJSONSubTree(org.json.JSONObject,java.la
 org.acra.util.JSONReportBuilder$JSONReportException
 org.acra.util.JSONReportBuilder$JSONReportException: long serialVersionUID
 org.acra.util.JSONReportBuilder$JSONReportException: JSONReportBuilder$JSONReportException(java.lang.String,java.lang.Throwable)
+org.acra.util.NonBlockingBufferedReader
+org.acra.util.NonBlockingBufferedReader: java.util.concurrent.BlockingQueue lines
+org.acra.util.NonBlockingBufferedReader: java.lang.Thread backgroundReaderThread
+org.acra.util.NonBlockingBufferedReader: NonBlockingBufferedReader(java.io.BufferedReader)
+org.acra.util.NonBlockingBufferedReader: java.lang.String readLine()
+org.acra.util.NonBlockingBufferedReader: void close()
+org.acra.util.NonBlockingBufferedReader: java.util.concurrent.BlockingQueue access$000(org.acra.util.NonBlockingBufferedReader)
+org.acra.util.NonBlockingBufferedReader$1
+org.acra.util.NonBlockingBufferedReader$1: java.io.BufferedReader val$bufferedReader
+org.acra.util.NonBlockingBufferedReader$1: org.acra.util.NonBlockingBufferedReader this$0
+org.acra.util.NonBlockingBufferedReader$1: NonBlockingBufferedReader$1(org.acra.util.NonBlockingBufferedReader,java.io.BufferedReader)
+org.acra.util.NonBlockingBufferedReader$1: void run()
 org.acra.util.PackageManagerWrapper
 org.acra.util.PackageManagerWrapper: android.content.Context context
 org.acra.util.PackageManagerWrapper: PackageManagerWrapper(android.content.Context)
 org.acra.util.PackageManagerWrapper: boolean hasPermission(java.lang.String)
 org.acra.util.PackageManagerWrapper: android.content.pm.PackageInfo getPackageInfo()
-org.acra.util.ReportUtils
-org.acra.util.ReportUtils: ReportUtils()
-org.acra.util.ReportUtils: long getAvailableInternalMemorySize()
-org.acra.util.ReportUtils: long getTotalInternalMemorySize()
-org.acra.util.ReportUtils: java.lang.String getDeviceId(android.content.Context)
-org.acra.util.ReportUtils: java.lang.String getApplicationFilePath(android.content.Context)
-org.acra.util.ReportUtils: java.lang.String getLocalIpAddress()
-org.acra.util.ReportUtils: java.lang.String getTimeString(java.util.Calendar)
 org.acra.util.ToastSender
 org.acra.util.ToastSender: ToastSender()
 org.acra.util.ToastSender: void sendToast(android.content.Context,int,int)

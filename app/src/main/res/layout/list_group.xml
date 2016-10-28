@@ -10,6 +10,7 @@
           android:paddingRight="30dp"
           android:paddingEnd="30dp"
           android:textSize="20sp"
-          android:background="@color/primary_dark">
+          android:background="@color/primary_dark"
+          android:textIsSelectable="true">
 
 </TextView>

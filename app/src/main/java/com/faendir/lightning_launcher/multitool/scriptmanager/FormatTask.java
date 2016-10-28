@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
+import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
@@ -85,7 +86,7 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, String> {
                 script.setCode(code); //set the text to the script
                 Transfer transfer = new Transfer(Transfer.SET_CODE);
                 transfer.script = script;
-                String result = scriptManager.runScriptForResult(R.raw.scriptmanager,  ScriptUtils.GSON.toJson(transfer));
+                String result = scriptManager.execute(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data",  ScriptUtils.GSON.toJson(transfer)));
                 if (result != null) {
                     List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
                     listManager.updateFrom(scripts);

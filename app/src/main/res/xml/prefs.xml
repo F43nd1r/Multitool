@@ -15,6 +15,9 @@
             android:title="Format : Spaces"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/title_musicWidget">
+        <Preference
+            android:key="@string/pref_musicDefault"
+            android:title="Default Player"/>
         <ListPreference
             android:key="@string/pref_coverMode"
             android:title="@string/title_coverMode"
