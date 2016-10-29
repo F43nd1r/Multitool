@@ -111,7 +111,7 @@ public class LauncherScriptFragment extends Fragment {
                         .setBindResultHandler(new ResultCallback<BindResult>() {
                             @Override
                             public void onResult(BindResult result) {
-                                if(result != BindResult.OK && isAdded()){
+                                if (result != BindResult.OK && isAdded()) {
                                     getActivity().runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
@@ -124,10 +124,11 @@ public class LauncherScriptFragment extends Fragment {
                         .add(new ScriptLoader(new Script(getActivity(),
                                 R.raw.multitool,
                                 nameTextView.getText().toString(),
-                                Script.FLAG_APP_MENU + Script.FLAG_ITEM_MENU)), new ResultCallback<Integer>() {
+                                Script.FLAG_APP_MENU + Script.FLAG_ITEM_MENU,
+                                getActivity().getPackageName().replace('.', '/'))), new ResultCallback<Integer>() {
                             @Override
                             public void onResult(Integer result) {
-                                if(isAdded()) {
+                                if (isAdded()) {
                                     getActivity().runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {

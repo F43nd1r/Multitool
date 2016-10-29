@@ -3,21 +3,29 @@ package com.faendir.lightning_launcher.multitool.util;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.omniadapter.OmniAdapter;
+import com.faendir.omniadapter.OmniBuilder;
+import com.faendir.omniadapter.model.Action;
+import com.faendir.omniadapter.model.Component;
+import com.faendir.omniadapter.model.DeepObservableList;
 
 import org.acra.ACRA;
 
 import java.util.List;
 
-public class IntentChooser extends BaseActivity implements AdapterView.OnItemClickListener {
+public class IntentChooser extends BaseActivity implements OmniAdapter.Controller<IntentInfo>, Action.Click.Listener {
 
     public IntentChooser() {
         super(R.layout.content_intent_chooser);
@@ -59,10 +67,11 @@ public class IntentChooser extends BaseActivity implements AdapterView.OnItemCli
             @Override
             protected void onPostExecute(List<IntentInfo> infos) {
                 View root = findViewById(R.id.apps);
-                ListView listView = (ListView) root.findViewById(R.id.list);
-                listView.setAdapter(new ListAdapter<>(IntentChooser.this, infos));
-                listView.setVisibility(View.VISIBLE);
-                listView.setOnItemClickListener(IntentChooser.this);
+                RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.list);
+                new OmniBuilder<>(IntentChooser.this, DeepObservableList.copyOf(IntentInfo.class, infos), IntentChooser.this)
+                        .setClick(new Action.Click(Action.CUSTOM, IntentChooser.this))
+                        .attach(recyclerView);
+                recyclerView.setVisibility(View.VISIBLE);
                 root.findViewById(R.id.progressBar).setVisibility(View.GONE);
             }
         }.execute();
@@ -73,19 +82,25 @@ public class IntentChooser extends BaseActivity implements AdapterView.OnItemCli
             @Override
             protected void onPostExecute(List<IntentInfo> infos) {
                 View root = findViewById(R.id.shortcuts);
-                ListView listView = (ListView) root.findViewById(R.id.list);
-                assert listView != null;
-                listView.setAdapter(new ListAdapter<>(IntentChooser.this, infos));
-                listView.setVisibility(View.VISIBLE);
-                listView.setOnItemClickListener(IntentChooser.this);
+                RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.list);
+                new OmniBuilder<>(IntentChooser.this, DeepObservableList.copyOf(IntentInfo.class, infos), IntentChooser.this)
+                        .setClick(new Action.Click(Action.CUSTOM, IntentChooser.this))
+                        .attach(recyclerView);
+                recyclerView.setVisibility(View.VISIBLE);
                 root.findViewById(R.id.progressBar).setVisibility(View.GONE);
             }
         }.execute();
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        handleSelection((IntentInfo) parent.getAdapter().getItem(position));
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                setResult(RESULT_CANCELED);
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void handleSelection(IntentInfo info) {
@@ -93,6 +108,7 @@ public class IntentChooser extends BaseActivity implements AdapterView.OnItemCli
             startActivityForResult(info.getIntent(), 0);
         } else if (info.getIntent() != null) {
             setResult(info.getIntent(), info.getText());
+            finish();
         } else {
             nullIntent();
             ACRA.getErrorReporter().handleSilentException(new NullPointerException(info.getText() + " intent was null"));
@@ -105,6 +121,7 @@ public class IntentChooser extends BaseActivity implements AdapterView.OnItemCli
             Intent intent = data.getParcelableExtra(Intent.EXTRA_SHORTCUT_INTENT);
             if (intent != null) {
                 setResult(intent, data.getStringExtra(Intent.EXTRA_SHORTCUT_NAME));
+                finish();
             } else {
                 nullIntent();
                 ACRA.getErrorReporter().handleSilentException(new NullPointerException("Shortcut intent was null"));
@@ -122,6 +139,46 @@ public class IntentChooser extends BaseActivity implements AdapterView.OnItemCli
 
     private void nullIntent() {
         Toast.makeText(this, R.string.toast_cantLoadAction, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public View createView(ViewGroup viewGroup, int i) {
+        return LayoutInflater.from(this).inflate(R.layout.list_item_app, viewGroup, false);
+    }
+
+    @Override
+    public void bindView(View view, final IntentInfo intentInfo, int i) {
+        final TextView txt = (TextView) view;
+        txt.setText(intentInfo.getText());
+        int size = (int) getResources().getDimension(android.R.dimen.app_icon_size);
+        Drawable img = intentInfo.getImage();
+        img.setBounds(0, 0, size, size);
+        txt.setCompoundDrawables(img, null, null, null);
+    }
+
+    @Override
+    public boolean shouldMove(IntentInfo intentInfo, DeepObservableList deepObservableList, int i, DeepObservableList deepObservableList1, int i1) {
+        return false;
+    }
+
+    @Override
+    public boolean isSelectable(IntentInfo intentInfo) {
+        return false;
+    }
+
+    @Override
+    public boolean shouldSwipe(IntentInfo intentInfo, int i) {
+        return false;
+    }
+
+    @Override
+    public boolean allowClick(Component component, int i) {
+        return true;
+    }
+
+    @Override
+    public void onClick(Component component, int i) {
+        handleSelection((IntentInfo) component);
     }
 
     public enum IntentTarget {

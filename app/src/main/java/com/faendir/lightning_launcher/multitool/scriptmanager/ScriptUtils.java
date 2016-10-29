@@ -18,6 +18,7 @@ import com.faendir.lightning_launcher.scriptlib.PermissionActivity;
 import com.faendir.lightning_launcher.scriptlib.ResultCallback;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
+import com.faendir.omniadapter.model.DeepObservableList;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -61,27 +62,31 @@ final class ScriptUtils {
                 .show();
     }
 
-    private static void search(Context context, List<ScriptGroup> items, String regex) {
-        StringBuilder builder = new StringBuilder(context.getString(R.string.text_matches_lines));
-        Pattern pattern = Pattern.compile(regex);
-        for (ScriptGroup group : items) {
-            for (Script script : group) {
-                boolean isFirst = true;
-                String[] lines = script.getCode().split("\n");
-                for (int i = 0; i < lines.length; i++) {
-                    if (pattern.matcher(lines[i]).find()) {
-                        if (isFirst) {
-                            builder.append(script.getName()).append(": ");
-                            isFirst = false;
-                        } else {
-                            builder.append(", ");
+    private static void search(Context context, DeepObservableList<ScriptItem> items, String regex) {
+        final StringBuilder builder = new StringBuilder(context.getString(R.string.text_matches_lines));
+        final Pattern pattern = Pattern.compile(regex);
+        items.visitDeep(new DeepObservableList.ComponentVisitor<ScriptItem>() {
+            @Override
+            public void visit(ScriptItem component, int level) {
+                if(component instanceof Script){
+                    Script script = (Script) component;
+                    boolean isFirst = true;
+                    String[] lines = script.getCode().split("\n");
+                    for (int i = 0; i < lines.length; i++) {
+                        if (pattern.matcher(lines[i]).find()) {
+                            if (isFirst) {
+                                builder.append(script.getName()).append(": ");
+                                isFirst = false;
+                            } else {
+                                builder.append(", ");
+                            }
+                            builder.append(i + 1);
                         }
-                        builder.append(i + 1);
                     }
+                    if (!isFirst) builder.append("\n");
                 }
-                if (!isFirst) builder.append("\n");
             }
-        }
+        }, false);
         new AlertDialog.Builder(context)
                 .setMessage(builder.toString().trim())
                 .setTitle(R.string.title_matches)
@@ -89,26 +94,11 @@ final class ScriptUtils {
                 .show();
     }
 
-    public static void createGroupDialog(Context context, final ListManager listManager) {
-        final EditText text = new EditText(context);
-        new AlertDialog.Builder(context)
-                .setTitle(R.string.title_create)
-                .setView(text)
-                .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        listManager.createGroup(text.getText().toString());
-                    }
-                })
-                .setNegativeButton(R.string.button_cancel, null)
-                .show();
-    }
-
     public static void renameDialog(final ScriptManager scriptManager, final Context context, final ListManager listManager, final ScriptItem item) {
         final EditText text = new EditText(context);
         text.setText(item.getName());
         new AlertDialog.Builder(context)
-                .setTitle(context.getString(R.string.title_rename) + (item instanceof ScriptGroup ? context.getString(R.string.text_group) : context.getString(R.string.text_script)))
+                .setTitle(context.getString(R.string.title_rename) + (item instanceof Folder ? context.getString(R.string.text_folder) : context.getString(R.string.text_script)))
                 .setView(text)
                 .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     @Override
@@ -136,6 +126,8 @@ final class ScriptUtils {
                         }
                     })
                     .start();
+        }else if(item instanceof Folder){
+
         }
         listManager.changed(item);
         listManager.deselectAll();

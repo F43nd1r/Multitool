@@ -22,8 +22,6 @@ import android.widget.Toast;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
-import com.faendir.lightning_launcher.multitool.util.FileManager;
-import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
 import com.faendir.lightning_launcher.scriptlib.ResultCallback;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
@@ -43,7 +41,6 @@ import java.util.List;
 public class ScriptManagerFragment extends Fragment {
 
     private SharedPreferences sharedPref;
-    private FileManager<ScriptGroup> fileManager;
     private boolean enableMenu;
     private FrameLayout layout;
     private ListManager listManager;
@@ -68,7 +65,6 @@ public class ScriptManagerFragment extends Fragment {
             }
         }).start();
         sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        fileManager = FileManagerFactory.createScriptFileManager(getActivity());
         listManager = new ListManager(scriptManager, getActivity());
         setHasOptionsMenu(true);
         enableMenu = false;
@@ -85,7 +81,6 @@ public class ScriptManagerFragment extends Fragment {
     public void onStart() {
         super.onStart();
         EventBus.getDefault().register(this);
-        listManager.restoreFrom(fileManager);
         loadFromLauncher();
     }
 
@@ -100,7 +95,6 @@ public class ScriptManagerFragment extends Fragment {
 
     @Override
     public void onPause() {
-        listManager.saveTo(fileManager);
         super.onPause();
     }
 
@@ -116,9 +110,6 @@ public class ScriptManagerFragment extends Fragment {
             return true;
         }
         switch (item.getItemId()) {
-            case R.id.action_add_group:
-                ScriptUtils.createGroupDialog(getActivity(), listManager);
-                break;
             case R.id.action_restore:
                 Intent intent = new Intent(getActivity(), FilePickerActivity.class);
                 intent.putExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false);

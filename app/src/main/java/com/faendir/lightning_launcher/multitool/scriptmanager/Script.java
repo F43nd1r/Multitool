@@ -14,8 +14,8 @@ public class Script extends Leaf implements Comparable<Script>, ScriptItem {
     private String name;
     private String code;
     private int flags;
+    private String path;
 
-    @Override
     public int getId() {
         return id;
     }
@@ -76,5 +76,14 @@ public class Script extends Leaf implements Comparable<Script>, ScriptItem {
         setId(script.getId());
         setCode(script.getCode());
         setFlags(script.getFlags());
+        setPath(script.getPath());
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }

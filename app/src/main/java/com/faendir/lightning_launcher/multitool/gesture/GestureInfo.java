@@ -11,10 +11,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.ParcelUuid;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.util.ImageText;
+import com.faendir.omniadapter.model.Component;
 
 import java.util.List;
 import java.util.UUID;
@@ -24,12 +25,13 @@ import java.util.UUID;
  *
  * @author F43nd1r
  */
-public class GestureInfo implements Parcelable, ImageText {
+public class GestureInfo implements Parcelable, Component {
     private Intent intent;
     private transient Gesture gesture;
     private String label;
     private transient BitmapDrawable drawable;
     private final ParcelUuid uuid;
+    private final State state = new State();
 
     GestureInfo(Intent intent, String label) {
         this(intent, label, null);
@@ -77,11 +79,11 @@ public class GestureInfo implements Parcelable, ImageText {
         library.removeGesture(uuid.toString(), getGesture(context));
     }
 
-    public Intent getIntent() {
+    Intent getIntent() {
         return intent;
     }
 
-    public void setIntent(Intent intent) {
+    void setIntent(Intent intent) {
         this.intent = intent;
     }
 
@@ -89,7 +91,7 @@ public class GestureInfo implements Parcelable, ImageText {
         return label;
     }
 
-    public void setLabel(String label) {
+    void setLabel(String label) {
         this.label = label;
     }
 
@@ -97,8 +99,7 @@ public class GestureInfo implements Parcelable, ImageText {
         return this.uuid.getUuid().equals(uuid);
     }
 
-    @Override
-    public Drawable getImage(Context context) {
+    Drawable getImage(Context context) {
         if (drawable == null) {
             int iconSize = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getLauncherLargeIconSize();
             //noinspection deprecation
@@ -144,4 +145,10 @@ public class GestureInfo implements Parcelable, ImageText {
             return new GestureInfo[size];
         }
     };
+
+    @NonNull
+    @Override
+    public State getState() {
+        return state;
+    }
 }

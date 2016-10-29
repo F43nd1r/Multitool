@@ -29,8 +29,8 @@ android {
 
 dependencies {
     def supportVersion = "24.2.1"
-    compile('com.faendir.lightninglauncher:scriptlib:2.2') {
-        changing = false
+    compile('com.faendir.lightninglauncher:scriptlib:2.3-SNAPSHOT') {
+        changing = true
     }
     compile('com.faendir:omniadapter:0.3-SNAPSHOT') {
         changing = true
@@ -38,8 +38,8 @@ dependencies {
     compile "com.android.support:appcompat-v7:$supportVersion"
     compile "com.android.support:design:$supportVersion"
     compile "com.android.support:percent:$supportVersion"
-    compile 'com.google.code.gson:gson:2.7'
-    compile 'com.nononsenseapps:filepicker:3.0.0'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.nononsenseapps:filepicker:3.1.0'
     compile 'com.faendir:acra:4.9.2-SNAPSHOT'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'org.apache.commons:commons-collections4:4.1'

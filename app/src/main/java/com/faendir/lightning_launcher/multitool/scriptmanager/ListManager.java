@@ -1,6 +1,7 @@
 package com.faendir.lightning_launcher.multitool.scriptmanager;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
@@ -15,53 +16,68 @@ import android.widget.TextView;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
-import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.ToStringBuilder;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
-import com.faendir.omniadapter.Action;
-import com.faendir.omniadapter.DeepObservableList;
 import com.faendir.omniadapter.OmniAdapter;
 import com.faendir.omniadapter.OmniBuilder;
+import com.faendir.omniadapter.model.Action;
 import com.faendir.omniadapter.model.ChangeInformation;
+import com.faendir.omniadapter.model.DeepObservableList;
 
 import org.acra.ACRA;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Comparator;
 import java.util.List;
+import java.util.ListIterator;
 
 /**
  * Created on 01.04.2016.
  *
  * @author F43nd1r
  */
-class ListManager extends OmniAdapter.BaseController<ScriptItem> implements ActionMode.Callback, OmniAdapter.SelectionListener<ScriptItem>, OmniAdapter.UndoListener<ScriptItem> {
+class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptItem> implements ActionMode.Callback, OmniAdapter.SelectionListener<ScriptItem>, OmniAdapter.UndoListener<ScriptItem> {
 
     @NonNull
     private final ScriptManager scriptManager;
     private final Context context;
-    private final RecyclerView listView;
+    private final RecyclerView recyclerView;
     private final OmniAdapter<ScriptItem> adapter;
-    private final DeepObservableList<ScriptGroup> items;
+    private final DeepObservableList<ScriptItem> items;
 
     public ListManager(@NonNull ScriptManager scriptManager, @NonNull Context context) {
         this.scriptManager = scriptManager;
         this.context = context;
-        listView = new RecyclerView(context);
-        listView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        items = new DeepObservableList<>();
+        recyclerView = new RecyclerView(context);
+        recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        items = new DeepObservableList<>(ScriptItem.class);
+        items.keepSorted(new Comparator<ScriptItem>() {
+            @Override
+            public int compare(ScriptItem o1, ScriptItem o2) {
+                if (o1 instanceof Folder) {
+                    if (o2 instanceof Folder) {
+                        return ((Folder) o1).compareTo((Folder) o2);
+                    } else {
+                        return -1;
+                    }
+                } else if (o2 instanceof Folder) {
+                    return 1;
+                } else {
+                    return o1.getName().compareTo(o2.getName());
+                }
+            }
+        });
         adapter = new OmniBuilder<>(context, items, this)
                 .setClick(new Action.Click(Action.SELECT)
                         .setDefaultCompositeAction(Action.EXPAND))
-                .setLongClick(new Action.LongClick(Action.DRAG)
-                        .setDefaultCompositeAction(Action.SELECT))
                 .setSwipeToRight(new Action.Swipe(Action.REMOVE))
-                .setExpandUntilLevelOnStartup(1)
+                .setExpandUntilLevelOnStartup(100)
                 .addSelectionListener(this)
                 .enableUndoForAction(Action.REMOVE, R.string.text_itemRemoved)
                 .addUndoListener(this)
-                .attach(listView);
+                .setInsetDpPerLevel(10)
+                .attach(recyclerView);
     }
 
     private void fireUpdateActionMode() {
@@ -72,100 +88,70 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
         adapter.clearSelection();
     }
 
-    public void changed(ScriptItem s){
+    public void changed(ScriptItem s) {
         adapter.notifyItemUpdated(s);
     }
 
-    private void delete(final List<ScriptItem> delete) {
-        new Thread(new Runnable() {
+    public void updateFrom(@NonNull List<Script> scripts) {
+        items.beginBatchedUpdates();
+        final List<Script> old = new ArrayList<>();
+        items.visitDeep(new DeepObservableList.ComponentVisitor<ScriptItem>() {
             @Override
-            public void run() {
-                for (ScriptItem item : delete) {
-                    loop:
-                    for (ScriptGroup group : items) {
-                        if (group.equals(item)) {
-                            if (prepareGroupForDelete(group)) {
-                                items.remove(group);
-                            }
-                            break;
-                        } else {
-                            for (Script script : group) {
-                                if (script.equals(item)) {
-                                    group.getChildren().remove(script);
-                                    break loop;
-                                }
-                            }
-                        }
+            public void visit(ScriptItem scriptItem, int i) {
+                if (scriptItem instanceof Script) {
+                    old.add((Script) scriptItem);
+                }
+            }
+        }, false);
+        List<Script> removed = new ArrayList<>(old);
+        removed.removeAll(scripts);
+        List<Script> added = new ArrayList<>(scripts);
+        added.removeAll(old);
+        for (Script script : added) {
+            String path = script.getPath();
+            String[] pathFolders = path.split("/");
+            DeepObservableList<ScriptItem> parent = items;
+            loop:
+            for (String folder : pathFolders) {
+                if ("".equals(folder)) continue;
+                for (ScriptItem item : parent) {
+                    if (item instanceof Folder && ((Folder) item).getRealName().equals(folder)) {
+                        parent = ((Folder) item).getRealChildren();
+                        continue loop;
+                    }
+                }
+                Folder f = new Folder(folder);
+                f.getState().setExpanded(true);
+                parent.add(f);
+                parent = f.getRealChildren();
+            }
+            parent.add(script);
+        }
+        for (Script script : removed) {
+            String path = script.getPath();
+            String[] pathFolders = path.split("/");
+            List<Folder> folders = new ArrayList<>();
+            DeepObservableList<ScriptItem> parent = items;
+            for (String folder : pathFolders) {
+                if ("".equals(folder)) continue;
+                for (ScriptItem item : parent) {
+                    if (item instanceof Folder && ((Folder) item).getRealName().equals(folder)) {
+                        folders.add((Folder) item);
+                        parent = ((Folder) item).getRealChildren();
+                        break;
                     }
                 }
             }
-        }).start();
-    }
-
-    private boolean prepareGroupForDelete(ScriptGroup delete) {
-        if (!delete.allowsDelete()) return false;
-        ScriptGroup def = null;
-        for (ScriptGroup s : items) {
-            if (!s.allowsDelete()) {
-                def = s;
+            folders.get(folders.size() - 1).getChildren().remove(script);
+            ListIterator<Folder> iterator = folders.listIterator(folders.size());
+            Folder lastEmpty = null;
+            while (iterator.hasPrevious() && (lastEmpty = iterator.previous()).getRealChildren().size() == 0) ;
+            if(lastEmpty != null) {
+                List<ScriptItem> p = iterator.hasPrevious() ? iterator.previous().getRealChildren() : items;
+                p.remove(lastEmpty);
             }
         }
-        assert def != null;
-        for (Script item : delete) {
-            def.getChildren().add(item);
-        }
-        return true;
-    }
-
-    public void updateFrom(@NonNull List<Script> scripts) {
-        ArrayList<Script> existing = new ArrayList<>();
-        if (items.isEmpty()) {
-            ScriptGroup def = new ScriptGroup(context.getString(R.string.text_defaultScriptGroup), false);
-            items.add(def);
-            for (Script s : scripts) {
-                def.getChildren().add(s);
-            }
-        }
-        ScriptGroup def = null;
-        for (ScriptGroup i : items) {
-            for (Iterator<Script> it = i.iterator(); it.hasNext(); ) {
-                Script s = it.next();
-                if (!checkIfStillExisting(scripts, s)) it.remove();
-                else existing.add(s);
-            }
-            if (!i.allowsDelete()) def = i;
-            i.getState().setExpanded(true);
-        }
-        assert def != null;
-        for (Script s : scripts) {
-            if (!existing.contains(s)) {
-                def.getChildren().add(s);
-            }
-        }
-    }
-
-    private boolean checkIfStillExisting(List<Script> scripts, Script item) {
-        if (scripts.contains(item)) {
-            Script script = scripts.get(scripts.indexOf(item));
-            item.fillFrom(script);
-        } else {
-            return false;
-        }
-        return true;
-    }
-
-    public void restoreFrom(FileManager<ScriptGroup> fileManager) {
-        List<ScriptGroup> i = fileManager.read();
-        if (i != null) {
-            items.clear();
-            items.addAll(i);
-        }
-        adapter.notifyDataSetUpdated();
-        fireUpdateActionMode();
-    }
-
-    public void saveTo(FileManager<ScriptGroup> fileManager) {
-        if (items != null) fileManager.write(items);
+        items.endBatchedUpdates();
     }
 
     public void setAsContentOf(final ViewGroup group) {
@@ -174,26 +160,23 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
                     @Override
                     public void run() {
                         group.removeAllViews();
-                        group.addView(listView);
+                        group.addView(recyclerView);
                     }
                 });
     }
 
-    public void createGroup(String name) {
-        items.add(new ScriptGroup(name, true));
-        adapter.notifyDataSetUpdated();
-    }
-
-    public List<ScriptGroup> getItems() {
+    public DeepObservableList<ScriptItem> getItems() {
         return items;
     }
 
     public boolean exists(Script script) {
-        for (ScriptGroup group : items) {
-            for (Script s : group) {
-                if (s.equals(script)) {
-                    return true;
-                }
+        return exists(script, items);
+    }
+
+    private boolean exists(Script script, DeepObservableList<ScriptItem> searchIn) {
+        for (ScriptItem item : searchIn) {
+            if (script.getName().equals(item.getName()) || item instanceof Folder && exists(script, ((Folder) item).getChildren())) {
+                return true;
             }
         }
         return false;
@@ -201,12 +184,15 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
 
     @Override
     public View createView(ViewGroup parent, int level) {
-        return LayoutInflater.from(context).inflate(level == 0 ? R.layout.list_group : R.layout.list_item_script, parent, false);
+        return LayoutInflater.from(context).inflate(R.layout.list_item_app, parent, false);
     }
 
     @Override
     public void bindView(View view, ScriptItem item, int level) {
-        ((TextView) view).setText(item.getName());
+        TextView txt = ((TextView) view);
+        txt.setText(item.getName());
+        Drawable icon = context.getResources().getDrawable(item instanceof Folder ? R.drawable.ic_folder_white : R.drawable.ic_file_white);
+        txt.setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null);
     }
 
     @Override
@@ -221,7 +207,6 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
         int selectionMode = getSelectionMode();
         if (selectionMode == ListManager.NONE) mode.finish();
         menu.findItem(R.id.action_rename).setVisible(selectionMode == ListManager.ONE_GROUP || selectionMode == ListManager.ONE_SCRIPT);
-        //menu.findItem(R.id.action_delete).setVisible(true);
         menu.findItem(R.id.action_edit).setVisible(selectionMode == ListManager.ONE_SCRIPT);
         menu.findItem(R.id.action_backup).setVisible(selectionMode == ListManager.ONLY_SCRIPTS || selectionMode == ListManager.ONE_SCRIPT);
         menu.findItem(R.id.action_format).setVisible(selectionMode == ListManager.ONLY_SCRIPTS || selectionMode == ListManager.ONE_SCRIPT);
@@ -239,10 +224,6 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
         switch (item.getItemId()) {
             case R.id.action_rename:
                 ScriptUtils.renameDialog(scriptManager, context, this, selectedItems.get(0));
-                break;
-            case R.id.action_delete:
-                delete(selectedItems);
-                deselectAll();
                 break;
             case R.id.action_edit:
                 ScriptUtils.editScript(context, this, (Script) selectedItems.get(0));
@@ -274,8 +255,8 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
 
     @Override
     public void onActionPersisted(List<? extends ChangeInformation<ScriptItem>> changes) {
-        for (ChangeInformation<ScriptItem> change: changes){
-            if(change instanceof ChangeInformation.Remove && change.getComponent() instanceof Script) {
+        for (ChangeInformation<ScriptItem> change : changes) {
+            if (change instanceof ChangeInformation.Remove && change.getComponent() instanceof Script) {
                 ScriptUtils.deleteScript(scriptManager, ListManager.this, (Script) change.getComponent());
             }
         }
@@ -283,6 +264,11 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
 
     @Override
     public void onActionReverted(List<? extends ChangeInformation<ScriptItem>> changes) {
+    }
+
+    @Override
+    public boolean isSelectable(ScriptItem component) {
+        return component instanceof Script;
     }
 
     @IntDef({NONE, ONE_SCRIPT, ONE_GROUP, ONLY_GROUPS, ONLY_SCRIPTS, BOTH})
@@ -298,8 +284,8 @@ class ListManager extends OmniAdapter.BaseController<ScriptItem> implements Acti
 
     @SelectionMode
     private int getSelectionMode() {
-        List<ScriptItem> selectedScriptGroups = adapter.getSelectionByLevel(0);
-        List<ScriptItem> selectedScripts = adapter.getSelectionByLevel(1);
+        List<Folder> selectedScriptGroups = adapter.getSelectionByType(Folder.class);
+        List<Script> selectedScripts = adapter.getSelectionByType(Script.class);
         boolean noScripts = selectedScripts.isEmpty();
         return selectedScriptGroups.isEmpty() ? noScripts ? NONE
                 : selectedScripts.size() == 1 ? ONE_SCRIPT : ONLY_SCRIPTS

@@ -1,8 +1,9 @@
 package com.faendir.lightning_launcher.multitool.util;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+
+import com.faendir.omniadapter.model.Leaf;
 
 import java.lang.ref.SoftReference;
 
@@ -11,7 +12,7 @@ import java.lang.ref.SoftReference;
  *
  * @author F43nd1r
  */
-public class IntentInfo implements ImageText {
+public class IntentInfo extends Leaf {
     private SoftReference<Drawable> icon;
     private final DrawableProvider provider;
     private final Intent intent;
@@ -26,7 +27,7 @@ public class IntentInfo implements ImageText {
 
     }
 
-    public Drawable getImage(Context context) {
+    public Drawable getImage() {
         if (icon == null || icon.get() == null) {
             Drawable drawable = provider.getDrawable();
             icon = new SoftReference<>(drawable);

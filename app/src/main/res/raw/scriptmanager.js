@@ -35,7 +35,8 @@ for (var i = 0; i < s.length; i++) {
         id: script.getId(),
         name: script.getName(),
         code: script.getText(),
-        flags: flags
+        flags: flags,
+        path: script.getPath()
     });
 }
 return JSON.stringify(list);
