@@ -7461,8 +7461,11 @@ com.faendir.lightning_launcher.multitool.R$id: int button_choose_action
 com.faendir.lightning_launcher.multitool.R$id: int button_confirm
 com.faendir.lightning_launcher.multitool.R$id: int button_import
 com.faendir.lightning_launcher.multitool.R$id: int button_negative
+com.faendir.lightning_launcher.multitool.R$id: int button_next
 com.faendir.lightning_launcher.multitool.R$id: int button_noLauncher
+com.faendir.lightning_launcher.multitool.R$id: int button_play
 com.faendir.lightning_launcher.multitool.R$id: int button_positive
+com.faendir.lightning_launcher.multitool.R$id: int button_prev
 com.faendir.lightning_launcher.multitool.R$id: int button_reload
 com.faendir.lightning_launcher.multitool.R$id: int button_updateMusic
 com.faendir.lightning_launcher.multitool.R$id: int cancel_action
@@ -7780,6 +7783,7 @@ com.faendir.lightning_launcher.multitool.R$menu: int picker_actions
 com.faendir.lightning_launcher.multitool.R$mipmap: int ic_multitool
 com.faendir.lightning_launcher.multitool.R$raw: int backup
 com.faendir.lightning_launcher.multitool.R$raw: int gesture
+com.faendir.lightning_launcher.multitool.R$raw: int gesture_menu
 com.faendir.lightning_launcher.multitool.R$raw: int gesture_setup
 com.faendir.lightning_launcher.multitool.R$raw: int multitool
 com.faendir.lightning_launcher.multitool.R$raw: int music_command
@@ -7962,9 +7966,12 @@ com.faendir.lightning_launcher.multitool.R$string: int text_listener
 com.faendir.lightning_launcher.multitool.R$string: int text_loading
 com.faendir.lightning_launcher.multitool.R$string: int text_matches_lines
 com.faendir.lightning_launcher.multitool.R$string: int text_nameOfScript
+com.faendir.lightning_launcher.multitool.R$string: int text_next
 com.faendir.lightning_launcher.multitool.R$string: int text_noGestures
 com.faendir.lightning_launcher.multitool.R$string: int text_noLauncherFound
 com.faendir.lightning_launcher.multitool.R$string: int text_noPermission
+com.faendir.lightning_launcher.multitool.R$string: int text_play
+com.faendir.lightning_launcher.multitool.R$string: int text_previous
 com.faendir.lightning_launcher.multitool.R$string: int text_repositoryImporter
 com.faendir.lightning_launcher.multitool.R$string: int text_script
 com.faendir.lightning_launcher.multitool.R$string: int text_scripts

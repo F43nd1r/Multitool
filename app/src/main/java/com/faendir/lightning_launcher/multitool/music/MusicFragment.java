@@ -152,6 +152,15 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
                         .add(new DirectScriptExecutor(R.raw.music_update))
                         .start();
                 break;
+            case R.id.button_play:
+                binder.togglePlay();
+                break;
+            case R.id.button_next:
+                binder.next();
+                break;
+            case R.id.button_prev:
+                binder.previous();
+                break;
         }
     }
 }

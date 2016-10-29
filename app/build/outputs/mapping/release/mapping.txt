@@ -17210,18 +17210,19 @@ com.faendir.lightning_launcher.multitool.MainActivity -> com.faendir.lightning_l
     85:89:void onDestroy() -> onDestroy
     93:96:void onBackPressed() -> onBackPressed
     100:103:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    106:107:void onButtonClick(android.view.View) -> onButtonClick
-    111:144:void onUpdateActionModeRequest(com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest) -> onUpdateActionModeRequest
+    107:109:void onNewIntent(android.content.Intent) -> onNewIntent
+    112:113:void onButtonClick(android.view.View) -> onButtonClick
+    117:150:void onUpdateActionModeRequest(com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest) -> onUpdateActionModeRequest
     25:25:android.support.v7.view.ActionMode access$002(com.faendir.lightning_launcher.multitool.MainActivity,android.support.v7.view.ActionMode) -> a
 com.faendir.lightning_launcher.multitool.MainActivity$1 -> com.faendir.lightning_launcher.multitool.MainActivity$1:
     android.support.v7.view.ActionMode$Callback delegate -> a
     com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest val$request -> b
     com.faendir.lightning_launcher.multitool.MainActivity this$0 -> c
-    112:113:void <init>(com.faendir.lightning_launcher.multitool.MainActivity,com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest) -> <init>
-    117:118:boolean onCreateActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> onCreateActionMode
-    123:123:boolean onPrepareActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> onPrepareActionMode
-    128:128:boolean onActionItemClicked(android.support.v7.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
-    133:135:void onDestroyActionMode(android.support.v7.view.ActionMode) -> onDestroyActionMode
+    118:119:void <init>(com.faendir.lightning_launcher.multitool.MainActivity,com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest) -> <init>
+    123:124:boolean onCreateActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> onCreateActionMode
+    129:129:boolean onPrepareActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> onPrepareActionMode
+    134:134:boolean onActionItemClicked(android.support.v7.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
+    139:141:void onDestroyActionMode(android.support.v7.view.ActionMode) -> onDestroyActionMode
 com.faendir.lightning_launcher.multitool.MultiTool -> com.faendir.lightning_launcher.multitool.MultiTool:
     25:25:void <init>() -> <init>
     28:30:void attachBaseContext(android.content.Context) -> attachBaseContext
@@ -17466,7 +17467,7 @@ com.faendir.lightning_launcher.multitool.music.MusicFragment -> com.faendir.ligh
     122:127:void onPause() -> onPause
     131:136:void onDestroy() -> onDestroy
     140:145:void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> a
-    149:156:void onClick(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onClick
+    149:165:void onClick(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onClick
     38:38:com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper access$002(com.faendir.lightning_launcher.multitool.music.MusicFragment,com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper) -> a
     38:38:boolean access$102(com.faendir.lightning_launcher.multitool.music.MusicFragment,boolean) -> a
     38:38:com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper access$000(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> a
@@ -17525,6 +17526,9 @@ com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper -> com
     417:419:void <init>(android.os.IBinder) -> <init>
     422:429:void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
     432:439:void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
+    442:448:void togglePlay() -> a
+    451:457:void next() -> b
+    460:466:void previous() -> c
 com.faendir.lightning_launcher.multitool.music.MusicManager$Callback -> com.faendir.lightning_launcher.multitool.music.MusicManager$b:
     android.media.MediaMetadata metadata -> b
     android.media.session.PlaybackState playbackState -> c
@@ -17972,7 +17976,7 @@ com.faendir.lightning_launcher.multitool.util.FragmentManager -> com.faendir.lig
     int lastId -> g
     38:44:void <init>(com.faendir.lightning_launcher.multitool.MainActivity,com.faendir.lightning_launcher.multitool.billing.BillingManager,com.mikepenz.materialdrawer.Drawer) -> <init>
     50:106:void onSwitchFragmentRequest(com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest) -> onSwitchFragmentRequest
-    109:114:boolean loadLastFragment() -> a
+    109:122:boolean loadLastFragment() -> a
     29:29:com.faendir.lightning_launcher.multitool.billing.BillingManager access$000(com.faendir.lightning_launcher.multitool.util.FragmentManager) -> a
     29:29:int access$100(com.faendir.lightning_launcher.multitool.util.FragmentManager) -> b
     29:29:com.mikepenz.materialdrawer.Drawer access$200(com.faendir.lightning_launcher.multitool.util.FragmentManager) -> c

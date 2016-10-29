@@ -180,11 +180,11 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
             t.join();
         } catch (InterruptedException ignored) {
         }
-        if(isAllowed.get()) {
+        if (isAllowed.get()) {
             startService(new Intent(this, MusicManager.class));
             Log.d("MusicManager", "Bind");
             return messenger.getBinder();
-        }else {
+        } else {
             Toast.makeText(this, "No active trial or purchase found.\nMusic widgets disabled.", Toast.LENGTH_LONG).show();
             return null;
         }
@@ -432,6 +432,33 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
             Message message = Message.obtain();
             message.what = ACTION_UNREGISTER;
             message.obj = listener;
+            try {
+                messenger.send(message);
+            } catch (RemoteException ignored) {
+            }
+        }
+
+        void togglePlay() {
+            Message message = Message.obtain();
+            message.what = ACTION_PLAY_PAUSE;
+            try {
+                messenger.send(message);
+            } catch (RemoteException ignored) {
+            }
+        }
+
+        void next() {
+            Message message = Message.obtain();
+            message.what = ACTION_NEXT;
+            try {
+                messenger.send(message);
+            } catch (RemoteException ignored) {
+            }
+        }
+
+        void previous() {
+            Message message = Message.obtain();
+            message.what = ACTION_PREVIOUS;
             try {
                 messenger.send(message);
             } catch (RemoteException ignored) {

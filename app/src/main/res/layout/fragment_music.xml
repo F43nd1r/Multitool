@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
@@ -58,4 +59,37 @@
         android:layout_below="@id/text_album"
         android:textAlignment="center"
         android:textIsSelectable="true"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_play"
+        android:layout_below="@+id/text_artist"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/button_play"
+        android:onClick="onButtonClick"
+        android:contentDescription="@string/text_play"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_previous"
+        android:id="@+id/button_prev"
+        android:layout_below="@+id/text_artist"
+        android:layout_toLeftOf="@+id/button_play"
+        android:layout_toStartOf="@+id/button_play"
+        android:onClick="onButtonClick"
+        android:contentDescription="@string/text_previous"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_next"
+        android:id="@+id/button_next"
+        android:layout_below="@+id/text_artist"
+        android:layout_toRightOf="@+id/button_play"
+        android:layout_toEndOf="@+id/button_play"
+        android:onClick="onButtonClick"
+        android:contentDescription="@string/text_next"/>
+
 </RelativeLayout>

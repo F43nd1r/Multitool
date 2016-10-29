@@ -144,4 +144,7 @@
     <string name="default_coverMode">0</string>
     <string name="title_coverMode">Cover scale mode</string>
     <string name="button_updateMusic">Try to update existing widgets</string>
+    <string name="text_play">Play/Pause</string>
+    <string name="text_previous">Previous</string>
+    <string name="text_next">Next</string>
 </resources>

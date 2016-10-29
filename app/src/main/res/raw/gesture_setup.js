@@ -20,11 +20,13 @@ function installScript(id, name, pathSuffix) {
     return script;
 }
 
-var e = getEvent();
-var view = e.getContainer().addCustomView(e.getTouchX(), e.getTouchY());
+var screen = getActiveScreen();
+var view = screen.getCurrentDesktop().addCustomView(screen.getLastTouchX(), screen.getLastTouchY());
 var script = installScript("gesture", "Gesture Launcher", "gesture");
+var menu = installScript("gesture_menu", "Menu", "gesture");
 var editor = view.getProperties().edit();
 editor.setString("v.onCreate", "" + script.getId());
 editor.setString("i.selectionEffect", "PLAIN");
 editor.getBox("i.box").setColor("c", "nsf", 0x42FfFfFf);
+editor.setEventHandler("i.menu", EventHandler.RUN_SCRIPT, menu.getId());
 editor.commit();

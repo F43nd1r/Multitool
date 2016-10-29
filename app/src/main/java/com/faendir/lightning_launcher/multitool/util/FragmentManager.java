@@ -106,6 +106,14 @@ public class FragmentManager {
     }
 
     public boolean loadLastFragment() {
+        String fragment = context.getIntent().getStringExtra("mode");
+        if(fragment != null){
+            switch (fragment){
+                case "gesture":
+                    EventBus.getDefault().post(new SwitchFragmentRequest(R.string.title_gestureLauncher));
+                    return true;
+            }
+        }
         if (sharedPref.contains(context.getString(R.string.pref_lastFragment))) {
             int load = context.getResources().getIdentifier(sharedPref.getString(context.getString(R.string.pref_lastFragment), ""), "id", context.getPackageName());
             EventBus.getDefault().post(new SwitchFragmentRequest(load));

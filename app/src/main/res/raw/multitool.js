@@ -50,10 +50,7 @@ items.push(itemUtils);
 items.push(other);
 
 
-//normal run
-if (typeof resultCode === 'undefined') expandableList(items, mainOnClick, title);
-//user has selected a file to import
-else import_handleInput();
+expandableList(items, mainOnClick, title);
 
 //handle user selection
 function mainOnClick(groupPosition, childPosition) {
