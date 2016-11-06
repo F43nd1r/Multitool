@@ -27,7 +27,7 @@ final class GestureUtils {
                 .setMessage(context.getString(R.string.message_deletePart1) + selected.size() + context.getString(R.string.message_deletePart2))
                 .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void onClick(DialogInterface dialog, int ignore) {
                         delete(context, selected, list, fileManager);
                     }
                 }).setNegativeButton(R.string.button_cancel, null)

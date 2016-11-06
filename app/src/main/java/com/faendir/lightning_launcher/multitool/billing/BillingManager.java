@@ -60,7 +60,7 @@ public class BillingManager extends BaseBillingManager {
                 .setMessage(context.getString(R.string.text_buyOrTrial, context.getString(which)))
                 .setPositiveButton(R.string.button_buy, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void onClick(DialogInterface dialog, int ignore) {
                         buy(mapping.get(which));
                         if(onClose != null) onClose.run();
                     }

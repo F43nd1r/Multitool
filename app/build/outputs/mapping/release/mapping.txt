@@ -17328,9 +17328,10 @@ com.faendir.lightning_launcher.multitool.billing.BillingManager$2$1 -> com.faend
     71:71:void <init>(com.faendir.lightning_launcher.multitool.billing.BillingManager$2) -> <init>
     74:76:void run() -> run
 com.faendir.lightning_launcher.multitool.billing.BillingManager$3 -> com.faendir.lightning_launcher.multitool.a.b$3:
-    java.lang.Runnable val$onClose -> a
-    com.faendir.lightning_launcher.multitool.billing.BillingManager this$0 -> b
-    61:61:void <init>(com.faendir.lightning_launcher.multitool.billing.BillingManager,java.lang.Runnable) -> <init>
+    int val$which -> a
+    java.lang.Runnable val$onClose -> b
+    com.faendir.lightning_launcher.multitool.billing.BillingManager this$0 -> c
+    61:61:void <init>(com.faendir.lightning_launcher.multitool.billing.BillingManager,int,java.lang.Runnable) -> <init>
     64:66:void onClick(android.content.DialogInterface,int) -> onClick
 com.faendir.lightning_launcher.multitool.billing.BillingManager$4 -> com.faendir.lightning_launcher.multitool.a.b$4:
     com.faendir.lightning_launcher.multitool.billing.BillingManager this$0 -> a

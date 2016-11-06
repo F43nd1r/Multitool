@@ -58,7 +58,7 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, String> {
         dialog.setTitle(context.getString(R.string.title_format));
         dialog.setButton(ProgressDialog.BUTTON_NEGATIVE, context.getString(R.string.button_cancel), new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(DialogInterface dialog, int ignore) {
                 cancel(true);
             }
         });

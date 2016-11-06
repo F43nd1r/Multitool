@@ -55,7 +55,7 @@ final class ScriptUtils {
                 .setNegativeButton(R.string.button_cancel, null)
                 .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void onClick(DialogInterface dialog, int ignore) {
                         search(context, listManager.getItems(), editText.getText().toString());
                     }
                 })
@@ -102,7 +102,7 @@ final class ScriptUtils {
                 .setView(text)
                 .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void onClick(DialogInterface dialog, int ignore) {
                         renameItem(scriptManager, listManager, item, text.getText().toString());
                     }
                 })
@@ -276,7 +276,7 @@ final class ScriptUtils {
                 .setTitle(R.string.title_chooseName)
                 .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void onClick(DialogInterface dialog, int ignore) {
                         prepareRestore(scriptManager, context, listManager, finalS, editText.getText().toString(), finalFlags);
                     }
                 })
@@ -294,7 +294,7 @@ final class ScriptUtils {
                     .setMessage(R.string.message_overwrite)
                     .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                        public void onClick(DialogInterface dialog, int ignore) {
                             restore(scriptManager, listManager, script);
                         }
                     })
