@@ -44,9 +44,7 @@
 
     <string name="title_scriptManager">Script Manager</string>
     <string name="pref_id">id</string>
-    <string name="menu_addGroup">Add Group</string>
     <string name="menu_rename">Rename</string>
-    <string name="menu_delete">Delete</string>
     <string name="menu_edit">Edit</string>
     <string name="menu_backup">Backup</string>
     <string name="menu_format">Beautify</string>
@@ -58,12 +56,10 @@
     <string name="title_format">Format</string>
     <string name="button_cancel">Cancel</string>
     <string name="message_done">Done!</string>
-    <string name="text_defaultScriptGroup">Unsorted Scripts</string>
     <string name="title_search">Search for (Regex)</string>
     <string name="button_ok">OK</string>
     <string name="text_matches_lines">Matches (lines):\n</string>
     <string name="title_matches">Matches</string>
-    <string name="title_create">Create a new Group</string>
     <string name="title_rename">"Rename "</string>
     <string name="text_folder">Folder</string>
     <string name="text_script">Script</string>
@@ -147,4 +143,10 @@
     <string name="text_play">Play/Pause</string>
     <string name="text_previous">Previous</string>
     <string name="text_next">Next</string>
+    <string name="pref_keepSorted">keepSorted</string>
+    <string name="title_keepSorted">Keep items sorted</string>
+    <string name="title_drawer">App Drawer</string>
+    <string name="text_buyOrTrial">%s is a paid feature. You can either start a 7-day Trial or buy it.</string>
+    <string name="button_buy">Buy</string>
+    <string name="button_trial">Trial</string>
 </resources>

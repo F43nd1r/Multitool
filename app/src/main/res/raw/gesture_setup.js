@@ -1,8 +1,8 @@
 var MY_PKG = "com.faendir.lightning_launcher.multitool";
 // install (or update) a script given its id in the package, and its clear name in the launcher data
-function installScript(id, name, pathSuffix) {
+function installScript(id, name) {
     // use our package name to classify scripts
-    var path = '/' + MY_PKG.replace(/\./g, '/') + '/' + pathSuffix;
+    var path = '/' + MY_PKG.replace(/\./g, '/') + "/gesture";
 
     // load the script (if any) among the existing ones
     var script = getScriptByPathAndName(path, name);
@@ -21,9 +21,9 @@ function installScript(id, name, pathSuffix) {
 }
 
 var screen = getActiveScreen();
-var view = screen.getCurrentDesktop().addCustomView(screen.getLastTouchX(), screen.getLastTouchY());
-var script = installScript("gesture", "Gesture Launcher", "gesture");
-var menu = installScript("gesture_menu", "Menu", "gesture");
+var view = getEvent().getContainer().addCustomView(screen.getLastTouchX(), screen.getLastTouchY());
+var script = installScript("gesture", "Gesture Launcher");
+var menu = installScript("gesture_menu", "Menu");
 var editor = view.getProperties().edit();
 editor.setString("v.onCreate", "" + script.getId());
 editor.setString("i.selectionEffect", "PLAIN");

@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.annotation.UiThread;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -48,27 +50,39 @@ public class BillingManager extends BaseBillingManager {
     }
 
     @UiThread
-    public void showDialog() {
+    public void showDialog(@StringRes int which){
+        showDialog(which, null);
+    }
+
+    @UiThread
+    public void showDialog(@StringRes final int which, @Nullable final Runnable onClose) {
         AlertDialog dialog = new AlertDialog.Builder(context)
-                .setMessage("Music widget is a paid feature. You can either start a 7-day Trial or buy it.")
-                .setPositiveButton("Buy", new DialogInterface.OnClickListener() {
+                .setMessage(context.getString(R.string.text_buyOrTrial, context.getString(which)))
+                .setPositiveButton(R.string.button_buy, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        buy(MUSIC_WIDGET);
+                        buy(mapping.get(which));
+                        if(onClose != null) onClose.run();
                     }
                 })
-                .setNeutralButton("Trial", new DialogInterface.OnClickListener() {
+                .setNeutralButton(R.string.button_trial, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void onClick(DialogInterface dialog, int ignore) {
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
-                                startTrial(MUSIC_WIDGET);
+                                startTrial(mapping.get(which));
+                                if(onClose != null) onClose.run();
                             }
                         }).start();
                     }
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(R.string.button_cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int ignore) {
+                        if(onClose != null) onClose.run();
+                    }
+                })
                 .setCancelable(false)
                 .create();
         dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
@@ -106,7 +120,8 @@ public class BillingManager extends BaseBillingManager {
                     }
                 });
             }else {
-                EventBus.getDefault().post(new SwitchFragmentRequest(R.string.title_musicWidget));
+                expiration.put(productId, System.currentTimeMillis() / 1000 + SEVEN_DAYS_IN_SECONDS);
+                EventBus.getDefault().post(new SwitchFragmentRequest(mapping.getKey(productId)));
             }
         }
 

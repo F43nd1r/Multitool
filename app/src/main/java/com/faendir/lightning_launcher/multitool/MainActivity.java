@@ -49,6 +49,7 @@ public class MainActivity extends BaseActivity {
                         new PrimaryDrawerItem().withName(R.string.title_scriptManager).withIdentifier(R.string.title_scriptManager),
                         new PrimaryDrawerItem().withName(R.string.title_gestureLauncher).withIdentifier(R.string.title_gestureLauncher),
                         new PrimaryDrawerItem().withName(R.string.title_musicWidget).withIdentifier(R.string.title_musicWidget),
+                        new PrimaryDrawerItem().withName(R.string.title_drawer).withIdentifier(R.string.title_drawer),
                         new SectionDrawerItem().withName(R.string.title_links).withIsExpanded(true).withSubItems(
                                 new SecondaryDrawerItem().withName(R.string.play_store).withIdentifier(R.string.play_store).withSelectable(false),
                                 new SecondaryDrawerItem().withName(R.string.google_community).withIdentifier(R.string.google_community).withSelectable(false),

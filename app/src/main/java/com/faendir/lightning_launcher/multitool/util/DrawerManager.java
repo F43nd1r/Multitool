@@ -54,6 +54,7 @@ public class DrawerManager implements Drawer.OnDrawerItemClickListener {
             case R.string.title_gestureLauncher:
             case R.string.title_musicWidget:
             case R.string.title_settings:
+            case R.string.title_drawer:
                 EventBus.getDefault().post(new SwitchFragmentRequest((int) drawerItem.getIdentifier()));
                 return false;
             case R.string.email: {

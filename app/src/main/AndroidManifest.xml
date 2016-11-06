@@ -55,7 +55,7 @@
 
         <activity
             android:name=".Loader"
-            android:theme="@style/Theme.Transparent"/>
+            android:theme="@style/AppTheme.Translucent"/>
 
         <activity-alias
             android:name=".LoadLauncherScript"
@@ -84,6 +84,15 @@
                 <action android:name="net.pierrox.lightning_launcher.script.PLUGIN"/>
             </intent-filter>
         </activity-alias>
+        <activity-alias
+            android:name=".LoadDrawer"
+            android:exported="true"
+            android:label="App Drawer"
+            android:targetActivity=".Loader">
+            <intent-filter>
+                <action android:name="net.pierrox.lightning_launcher.script.PLUGIN"/>
+            </intent-filter>
+        </activity-alias>
 
         <service
             android:name=".music.DummyNotificationListener"
@@ -103,6 +112,12 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
+
+        <provider
+            android:name=".util.PreferenceProvider"
+            android:authorities="com.faendir.lightning_launcher.multitool.provider"
+            android:enabled="true"
+            android:exported="true" tools:ignore="ExportedContentProvider"/>
     </application>
 
 </manifest>

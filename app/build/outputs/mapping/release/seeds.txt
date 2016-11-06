@@ -6571,6 +6571,7 @@ com.faendir.lightning_launcher.multitool.R$attr: int navigationContentDescriptio
 com.faendir.lightning_launcher.multitool.R$attr: int navigationIcon
 com.faendir.lightning_launcher.multitool.R$attr: int navigationMode
 com.faendir.lightning_launcher.multitool.R$attr: int nnf_dir_icon_color
+com.faendir.lightning_launcher.multitool.R$attr: int nnf_list_item_divider
 com.faendir.lightning_launcher.multitool.R$attr: int nnf_save_icon_color
 com.faendir.lightning_launcher.multitool.R$attr: int nnf_separator_color
 com.faendir.lightning_launcher.multitool.R$attr: int nnf_toolbarTheme
@@ -7398,6 +7399,8 @@ com.faendir.lightning_launcher.multitool.R$drawable: int design_snackbar_backgro
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_add_white
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_delete_white
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_edit_white
+com.faendir.lightning_launcher.multitool.R$drawable: int ic_file_white
+com.faendir.lightning_launcher.multitool.R$drawable: int ic_folder_white
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_help_white
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_mode_edit_white
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_next
@@ -7417,7 +7420,6 @@ com.faendir.lightning_launcher.multitool.R$drawable: int notification_template_i
 com.faendir.lightning_launcher.multitool.R$drawable: int round_button
 com.faendir.lightning_launcher.multitool.R$id: int action0
 com.faendir.lightning_launcher.multitool.R$id: int action_add_gesture
-com.faendir.lightning_launcher.multitool.R$id: int action_add_group
 com.faendir.lightning_launcher.multitool.R$id: int action_backup
 com.faendir.lightning_launcher.multitool.R$id: int action_bar
 com.faendir.lightning_launcher.multitool.R$id: int action_bar_activity_content
@@ -7427,7 +7429,6 @@ com.faendir.lightning_launcher.multitool.R$id: int action_bar_spinner
 com.faendir.lightning_launcher.multitool.R$id: int action_bar_subtitle
 com.faendir.lightning_launcher.multitool.R$id: int action_bar_title
 com.faendir.lightning_launcher.multitool.R$id: int action_context_bar
-com.faendir.lightning_launcher.multitool.R$id: int action_delete
 com.faendir.lightning_launcher.multitool.R$id: int action_divider
 com.faendir.lightning_launcher.multitool.R$id: int action_edit
 com.faendir.lightning_launcher.multitool.R$id: int action_format
@@ -7519,7 +7520,6 @@ com.faendir.lightning_launcher.multitool.R$id: int imageView
 com.faendir.lightning_launcher.multitool.R$id: int imageView2
 com.faendir.lightning_launcher.multitool.R$id: int imageView3
 com.faendir.lightning_launcher.multitool.R$id: int image_album
-com.faendir.lightning_launcher.multitool.R$id: int img
 com.faendir.lightning_launcher.multitool.R$id: int info
 com.faendir.lightning_launcher.multitool.R$id: int item_icon
 com.faendir.lightning_launcher.multitool.R$id: int item_touch_helper_previous_elevation
@@ -7708,7 +7708,6 @@ com.faendir.lightning_launcher.multitool.R$layout: int abc_search_view
 com.faendir.lightning_launcher.multitool.R$layout: int abc_select_dialog_material
 com.faendir.lightning_launcher.multitool.R$layout: int activity_base
 com.faendir.lightning_launcher.multitool.R$layout: int activity_dialog
-com.faendir.lightning_launcher.multitool.R$layout: int content_empty
 com.faendir.lightning_launcher.multitool.R$layout: int content_gesture
 com.faendir.lightning_launcher.multitool.R$layout: int content_intent_chooser
 com.faendir.lightning_launcher.multitool.R$layout: int content_main
@@ -7728,12 +7727,9 @@ com.faendir.lightning_launcher.multitool.R$layout: int design_text_input_passwor
 com.faendir.lightning_launcher.multitool.R$layout: int fragment_launcher_script
 com.faendir.lightning_launcher.multitool.R$layout: int fragment_loading
 com.faendir.lightning_launcher.multitool.R$layout: int fragment_music
-com.faendir.lightning_launcher.multitool.R$layout: int gesture_list_item
 com.faendir.lightning_launcher.multitool.R$layout: int intent_chooser_page
-com.faendir.lightning_launcher.multitool.R$layout: int list_group
 com.faendir.lightning_launcher.multitool.R$layout: int list_item
 com.faendir.lightning_launcher.multitool.R$layout: int list_item_app
-com.faendir.lightning_launcher.multitool.R$layout: int list_item_script
 com.faendir.lightning_launcher.multitool.R$layout: int material_drawer
 com.faendir.lightning_launcher.multitool.R$layout: int material_drawer_compact_header
 com.faendir.lightning_launcher.multitool.R$layout: int material_drawer_fits_not
@@ -7774,7 +7770,6 @@ com.faendir.lightning_launcher.multitool.R$layout: int select_dialog_multichoice
 com.faendir.lightning_launcher.multitool.R$layout: int select_dialog_singlechoice_material
 com.faendir.lightning_launcher.multitool.R$layout: int support_simple_spinner_dropdown_item
 com.faendir.lightning_launcher.multitool.R$layout: int textview_empty_gestures_list
-com.faendir.lightning_launcher.multitool.R$menu: int menu_context_gesture
 com.faendir.lightning_launcher.multitool.R$menu: int menu_context_scriptmanager
 com.faendir.lightning_launcher.multitool.R$menu: int menu_gesture
 com.faendir.lightning_launcher.multitool.R$menu: int menu_music_widget
@@ -7782,6 +7777,9 @@ com.faendir.lightning_launcher.multitool.R$menu: int menu_scriptmanager
 com.faendir.lightning_launcher.multitool.R$menu: int picker_actions
 com.faendir.lightning_launcher.multitool.R$mipmap: int ic_multitool
 com.faendir.lightning_launcher.multitool.R$raw: int backup
+com.faendir.lightning_launcher.multitool.R$raw: int drawer
+com.faendir.lightning_launcher.multitool.R$raw: int drawer_menu
+com.faendir.lightning_launcher.multitool.R$raw: int drawer_setup
 com.faendir.lightning_launcher.multitool.R$raw: int gesture
 com.faendir.lightning_launcher.multitool.R$raw: int gesture_menu
 com.faendir.lightning_launcher.multitool.R$raw: int gesture_setup
@@ -7831,6 +7829,7 @@ com.faendir.lightning_launcher.multitool.R$string: int app_name
 com.faendir.lightning_launcher.multitool.R$string: int appbar_scrolling_view_behavior
 com.faendir.lightning_launcher.multitool.R$string: int bottom_sheet_behavior
 com.faendir.lightning_launcher.multitool.R$string: int browse_name
+com.faendir.lightning_launcher.multitool.R$string: int button_buy
 com.faendir.lightning_launcher.multitool.R$string: int button_cancel
 com.faendir.lightning_launcher.multitool.R$string: int button_chooseAction
 com.faendir.lightning_launcher.multitool.R$string: int button_confirm
@@ -7846,6 +7845,7 @@ com.faendir.lightning_launcher.multitool.R$string: int button_saturday
 com.faendir.lightning_launcher.multitool.R$string: int button_set
 com.faendir.lightning_launcher.multitool.R$string: int button_sunday
 com.faendir.lightning_launcher.multitool.R$string: int button_thursday
+com.faendir.lightning_launcher.multitool.R$string: int button_trial
 com.faendir.lightning_launcher.multitool.R$string: int button_tuesday
 com.faendir.lightning_launcher.multitool.R$string: int button_updateMusic
 com.faendir.lightning_launcher.multitool.R$string: int button_wednesday
@@ -7917,9 +7917,7 @@ com.faendir.lightning_launcher.multitool.R$string: int link_email_subject
 com.faendir.lightning_launcher.multitool.R$string: int link_googlePlus
 com.faendir.lightning_launcher.multitool.R$string: int material_drawer_close
 com.faendir.lightning_launcher.multitool.R$string: int material_drawer_open
-com.faendir.lightning_launcher.multitool.R$string: int menu_addGroup
 com.faendir.lightning_launcher.multitool.R$string: int menu_backup
-com.faendir.lightning_launcher.multitool.R$string: int menu_delete
 com.faendir.lightning_launcher.multitool.R$string: int menu_edit
 com.faendir.lightning_launcher.multitool.R$string: int menu_format
 com.faendir.lightning_launcher.multitool.R$string: int menu_rename
@@ -7947,6 +7945,7 @@ com.faendir.lightning_launcher.multitool.R$string: int pref_coverMode
 com.faendir.lightning_launcher.multitool.R$string: int pref_directory
 com.faendir.lightning_launcher.multitool.R$string: int pref_enableAcra
 com.faendir.lightning_launcher.multitool.R$string: int pref_id
+com.faendir.lightning_launcher.multitool.R$string: int pref_keepSorted
 com.faendir.lightning_launcher.multitool.R$string: int pref_lastFragment
 com.faendir.lightning_launcher.multitool.R$string: int pref_musicDefault
 com.faendir.lightning_launcher.multitool.R$string: int pref_spaces
@@ -7957,9 +7956,9 @@ com.faendir.lightning_launcher.multitool.R$string: int search_menu_title
 com.faendir.lightning_launcher.multitool.R$string: int status_bar_notification_info_overflow
 com.faendir.lightning_launcher.multitool.R$string: int text_backupFailed
 com.faendir.lightning_launcher.multitool.R$string: int text_backupSuccessful
-com.faendir.lightning_launcher.multitool.R$string: int text_defaultScriptGroup
+com.faendir.lightning_launcher.multitool.R$string: int text_buyOrTrial
 com.faendir.lightning_launcher.multitool.R$string: int text_drawHere
-com.faendir.lightning_launcher.multitool.R$string: int text_group
+com.faendir.lightning_launcher.multitool.R$string: int text_folder
 com.faendir.lightning_launcher.multitool.R$string: int text_install
 com.faendir.lightning_launcher.multitool.R$string: int text_itemRemoved
 com.faendir.lightning_launcher.multitool.R$string: int text_listener
@@ -7982,12 +7981,13 @@ com.faendir.lightning_launcher.multitool.R$string: int title_backupDir
 com.faendir.lightning_launcher.multitool.R$string: int title_chooseName
 com.faendir.lightning_launcher.multitool.R$string: int title_confirmUpdate
 com.faendir.lightning_launcher.multitool.R$string: int title_coverMode
-com.faendir.lightning_launcher.multitool.R$string: int title_create
 com.faendir.lightning_launcher.multitool.R$string: int title_delete
+com.faendir.lightning_launcher.multitool.R$string: int title_drawer
 com.faendir.lightning_launcher.multitool.R$string: int title_enableAcra
 com.faendir.lightning_launcher.multitool.R$string: int title_format
 com.faendir.lightning_launcher.multitool.R$string: int title_gestureLauncher
 com.faendir.lightning_launcher.multitool.R$string: int title_help
+com.faendir.lightning_launcher.multitool.R$string: int title_keepSorted
 com.faendir.lightning_launcher.multitool.R$string: int title_launcherScript
 com.faendir.lightning_launcher.multitool.R$string: int title_links
 com.faendir.lightning_launcher.multitool.R$string: int title_listener
@@ -8017,6 +8017,7 @@ com.faendir.lightning_launcher.multitool.R$style: int AppTheme_AppBarOverlay
 com.faendir.lightning_launcher.multitool.R$style: int AppTheme_Dialog_Alert
 com.faendir.lightning_launcher.multitool.R$style: int AppTheme_NoActionBar
 com.faendir.lightning_launcher.multitool.R$style: int AppTheme_PopupOverlay
+com.faendir.lightning_launcher.multitool.R$style: int AppTheme_Translucent
 com.faendir.lightning_launcher.multitool.R$style: int Base_AlertDialog_AppCompat
 com.faendir.lightning_launcher.multitool.R$style: int Base_AlertDialog_AppCompat_Light
 com.faendir.lightning_launcher.multitool.R$style: int Base_Animation_AppCompat_Dialog
@@ -8331,7 +8332,6 @@ com.faendir.lightning_launcher.multitool.R$style: int Theme_Design_Light
 com.faendir.lightning_launcher.multitool.R$style: int Theme_Design_Light_BottomSheetDialog
 com.faendir.lightning_launcher.multitool.R$style: int Theme_Design_Light_NoActionBar
 com.faendir.lightning_launcher.multitool.R$style: int Theme_Design_NoActionBar
-com.faendir.lightning_launcher.multitool.R$style: int Theme_Transparent
 com.faendir.lightning_launcher.multitool.R$style: int ThemeOverlay_AppCompat
 com.faendir.lightning_launcher.multitool.R$style: int ThemeOverlay_AppCompat_ActionBar
 com.faendir.lightning_launcher.multitool.R$style: int ThemeOverlay_AppCompat_Dark
@@ -8960,6 +8960,7 @@ com.faendir.lightning_launcher.multitool.R$styleable: int[] ViewStubCompat
 com.faendir.lightning_launcher.multitool.R$styleable: int ViewStubCompat_android_id
 com.faendir.lightning_launcher.multitool.R$styleable: int ViewStubCompat_android_inflatedId
 com.faendir.lightning_launcher.multitool.R$styleable: int ViewStubCompat_android_layout
+com.faendir.lightning_launcher.multitool.R$xml: int drawer
 com.faendir.lightning_launcher.multitool.R$xml: int prefs
 com.faendir.lightning_launcher.multitool.backup.BackupService
 com.faendir.lightning_launcher.multitool.backup.BackupService: BackupService()
@@ -8969,6 +8970,7 @@ com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: 
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState valueOf(java.lang.String)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$1: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$2: void onClick(android.content.DialogInterface,int)
+com.faendir.lightning_launcher.multitool.billing.BillingManager$3: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity: com.faendir.lightning_launcher.multitool.gesture.GestureInfo info
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity: android.gesture.Gesture gesture
@@ -8994,27 +8996,34 @@ com.faendir.lightning_launcher.multitool.gesture.GestureFragment
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: int ADD
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: int EDIT
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: java.lang.String INDEX
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: com.faendir.lightning_launcher.multitool.util.ListAdapter adapter
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: com.faendir.lightning_launcher.multitool.util.FileManager fileManager
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: android.widget.ListView listView
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: com.faendir.omniadapter.model.DeepObservableList gestureInfos
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: GestureFragment()
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void onCreate(android.os.Bundle)
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater)
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean onOptionsItemSelected(android.view.MenuItem)
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void onActivityResult(int,int,android.content.Intent)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean onCreateActionMode(android.view.ActionMode,android.view.Menu)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean onPrepareActionMode(android.view.ActionMode,android.view.Menu)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean onActionItemClicked(android.view.ActionMode,android.view.MenuItem)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void onDestroyActionMode(android.view.ActionMode)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void onItemCheckedStateChanged(android.view.ActionMode,int,long,boolean)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void onItemClick(android.widget.AdapterView,android.view.View,int,long)
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: android.view.View createView(android.view.ViewGroup,int)
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void bindView(android.view.View,com.faendir.lightning_launcher.multitool.gesture.GestureInfo,int)
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean shouldMove(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int)
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean isSelectable(com.faendir.lightning_launcher.multitool.gesture.GestureInfo)
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean shouldSwipe(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,int)
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void onActionPersisted(java.util.List)
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void onActionReverted(java.util.List)
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean allowLongClick(com.faendir.omniadapter.model.Component,int)
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void onLongClick(com.faendir.omniadapter.model.Component,int)
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean shouldSwipe(com.faendir.omniadapter.model.Component,int)
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean isSelectable(com.faendir.omniadapter.model.Component)
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean shouldMove(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int)
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void bindView(android.view.View,com.faendir.omniadapter.model.Component,int)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.content.Intent intent
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.gesture.Gesture gesture
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: java.lang.String label
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.graphics.drawable.BitmapDrawable drawable
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.os.ParcelUuid uuid
+com.faendir.lightning_launcher.multitool.gesture.GestureInfo: com.faendir.omniadapter.model.Component$State state
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.os.Parcelable$Creator CREATOR
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: GestureInfo(android.content.Intent,java.lang.String)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: GestureInfo(android.content.Intent,java.lang.String,android.os.ParcelUuid)
@@ -9030,6 +9039,7 @@ com.faendir.lightning_launcher.multitool.gesture.GestureInfo: boolean hasUuid(ja
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.graphics.drawable.Drawable getImage(android.content.Context)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: int describeContents()
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void writeToParcel(android.os.Parcel,int)
+com.faendir.lightning_launcher.multitool.gesture.GestureInfo: com.faendir.omniadapter.model.Component$State getState()
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: GestureInfo(android.content.Intent,java.lang.String,android.os.ParcelUuid,com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.gesture.Gesture access$102(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,android.gesture.Gesture)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void <clinit>()
@@ -9041,17 +9051,16 @@ com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1: java.lang.Object
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1: java.lang.Object createFromParcel(android.os.Parcel)
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils: GestureUtils()
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void deleteDialog(android.content.Context,java.util.List,com.faendir.lightning_launcher.multitool.util.ListAdapter,com.faendir.lightning_launcher.multitool.util.FileManager)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void delete(android.content.Context,java.util.List,com.faendir.lightning_launcher.multitool.util.ListAdapter,com.faendir.lightning_launcher.multitool.util.FileManager)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void edit(android.app.Activity,com.faendir.lightning_launcher.multitool.gesture.GestureInfo,com.faendir.lightning_launcher.multitool.util.ListAdapter)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void updateSavedGestures(com.faendir.lightning_launcher.multitool.util.ListAdapter,com.faendir.lightning_launcher.multitool.util.FileManager)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void access$000(android.content.Context,java.util.List,com.faendir.lightning_launcher.multitool.util.ListAdapter,com.faendir.lightning_launcher.multitool.util.FileManager)
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void deleteDialog(android.content.Context,java.util.List,java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager)
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void delete(android.content.Context,java.util.List,java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager)
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void edit(android.app.Activity,com.faendir.lightning_launcher.multitool.gesture.GestureInfo,java.util.List)
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void updateSavedGestures(java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager)
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: android.content.Context val$context
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: java.util.List val$selected
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: com.faendir.lightning_launcher.multitool.util.ListAdapter val$adapter
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: java.util.List val$list
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: com.faendir.lightning_launcher.multitool.util.FileManager val$fileManager
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: GestureUtils$1(android.content.Context,java.util.List,com.faendir.lightning_launcher.multitool.util.ListAdapter,com.faendir.lightning_launcher.multitool.util.FileManager)
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: GestureUtils$1(android.content.Context,java.util.List,java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager)
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: LightningGestureView(android.content.Context)
@@ -9066,6 +9075,16 @@ com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: DummyN
 com.faendir.lightning_launcher.multitool.music.MusicFragment: void onClick(com.faendir.lightning_launcher.multitool.event.ClickEvent)
 com.faendir.lightning_launcher.multitool.music.MusicManager
 com.faendir.lightning_launcher.multitool.music.MusicManager: MusicManager()
+com.faendir.lightning_launcher.multitool.scriptmanager.Folder
+com.faendir.lightning_launcher.multitool.scriptmanager.Folder: java.lang.String name
+com.faendir.lightning_launcher.multitool.scriptmanager.Folder: Folder(java.lang.String)
+com.faendir.lightning_launcher.multitool.scriptmanager.Folder: java.lang.String getName()
+com.faendir.lightning_launcher.multitool.scriptmanager.Folder: java.lang.String getRealName()
+com.faendir.lightning_launcher.multitool.scriptmanager.Folder: void setName(java.lang.String)
+com.faendir.lightning_launcher.multitool.scriptmanager.Folder: com.faendir.omniadapter.model.DeepObservableList getChildren()
+com.faendir.lightning_launcher.multitool.scriptmanager.Folder: com.faendir.omniadapter.model.DeepObservableList getRealChildren()
+com.faendir.lightning_launcher.multitool.scriptmanager.Folder: int compareTo(com.faendir.lightning_launcher.multitool.scriptmanager.Folder)
+com.faendir.lightning_launcher.multitool.scriptmanager.Folder: int compareTo(java.lang.Object)
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: java.lang.String SWITCH
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: java.lang.String CASE
@@ -9134,30 +9153,24 @@ com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: void <clinit
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: com.faendir.lightning_launcher.scriptlib.ScriptManager scriptManager
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: android.content.Context context
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: android.support.v7.widget.RecyclerView listView
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: android.support.v7.widget.RecyclerView recyclerView
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: com.faendir.omniadapter.OmniAdapter adapter
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: com.faendir.omniadapter.DeepObservableList items
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: com.faendir.omniadapter.model.DeepObservableList items
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: int NONE
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: int ONE_SCRIPT
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: int ONE_GROUP
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: int ONLY_SCRIPTS
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: int ONLY_GROUPS
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: int BOTH
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean $assertionsDisabled
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: ListManager(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void fireUpdateActionMode()
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void deselectAll()
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void changed(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void delete(java.util.List)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean prepareGroupForDelete(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void updateFrom(java.util.List)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean checkIfStillExisting(java.util.List,com.faendir.lightning_launcher.multitool.scriptmanager.Script)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void restoreFrom(com.faendir.lightning_launcher.multitool.util.FileManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void saveTo(com.faendir.lightning_launcher.multitool.util.FileManager)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void setAsContentOf(android.view.ViewGroup)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void createGroup(java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: java.util.List getItems()
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: com.faendir.omniadapter.model.DeepObservableList getItems()
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script)
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.omniadapter.model.DeepObservableList)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: android.view.View createView(android.view.ViewGroup,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void bindView(android.view.View,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean onCreateActionMode(android.support.v7.view.ActionMode,android.view.Menu)
@@ -9168,30 +9181,36 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void onSelec
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void onSelectionCleared()
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void onActionPersisted(java.util.List)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void onActionReverted(java.util.List)
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean isSelectable(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: int getSelectionMode()
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: java.util.List getSelectedItems()
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: java.lang.String toString()
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean isSelectable(com.faendir.omniadapter.model.Component)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void bindView(android.view.View,com.faendir.omniadapter.model.Component,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: com.faendir.omniadapter.DeepObservableList access$000(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean access$100(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: android.support.v7.widget.RecyclerView access$200(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void <clinit>()
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: android.support.v7.widget.RecyclerView access$000(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$1: java.util.List val$delete
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$1: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager this$0
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$1: ListManager$1(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.util.List)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$1: void run()
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$1: ListManager$1(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$1: int compare(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem)
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$1: int compare(java.lang.Object,java.lang.Object)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$2
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$2: android.view.ViewGroup val$group
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$2: java.util.List val$old
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$2: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager this$0
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$2: ListManager$2(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$2: void run()
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$2: ListManager$2(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.util.List)
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$2: void visit(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int)
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$2: void visit(java.lang.Object,int)
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$3
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$3: android.view.ViewGroup val$group
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$3: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager this$0
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$3: ListManager$3(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup)
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$3: void run()
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$SelectionMode
 com.faendir.lightning_launcher.multitool.scriptmanager.Script
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: int id
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: java.lang.String name
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: java.lang.String code
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: int flags
+com.faendir.lightning_launcher.multitool.scriptmanager.Script: java.lang.String path
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: Script()
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: int getId()
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: java.lang.String getName()
@@ -9205,27 +9224,14 @@ com.faendir.lightning_launcher.multitool.scriptmanager.Script: void setId(int)
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: java.lang.String getCode()
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: int getFlags()
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: void fillFrom(com.faendir.lightning_launcher.multitool.scriptmanager.Script)
+com.faendir.lightning_launcher.multitool.scriptmanager.Script: java.lang.String getPath()
+com.faendir.lightning_launcher.multitool.scriptmanager.Script: void setPath(java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: int compareTo(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: java.lang.String name
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: boolean allowDelete
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: ScriptGroup(java.lang.String,boolean)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: java.lang.String getName()
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: void setName(java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: boolean allowsDelete()
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: boolean equals(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: int hashCode()
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: int compareTo(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: java.lang.String toString()
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: void onListChanged(java.util.List)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: java.util.Iterator iterator()
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptGroup: int compareTo(java.lang.Object)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem: java.lang.String getName()
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem: void setName(java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: android.content.SharedPreferences sharedPref
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: com.faendir.lightning_launcher.multitool.util.FileManager fileManager
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: boolean enableMenu
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: android.widget.FrameLayout layout
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager listManager
@@ -9236,7 +9242,6 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: vo
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void onStart()
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void onStop()
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void onPause()
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: boolean onOptionsItemSelected(android.view.MenuItem)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void onActivityResult(int,int,android.content.Intent)
@@ -9267,8 +9272,7 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: java.lang.St
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: java.lang.String NAME
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: ScriptUtils()
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void searchDialog(android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void search(android.content.Context,java.util.List,java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void createGroupDialog(android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void search(android.content.Context,com.faendir.omniadapter.model.DeepObservableList,java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void renameDialog(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void renameItem(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void format(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.util.List)
@@ -9280,7 +9284,7 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void restore
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void restoreDialog(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String,java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void prepareRestore(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String,java.lang.String,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void restore(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void access$000(android.content.Context,java.util.List,java.lang.String)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void access$000(android.content.Context,com.faendir.omniadapter.model.DeepObservableList,java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void access$100(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void access$200(android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.io.File,java.util.List)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void access$300(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String,java.lang.String,int)
@@ -9293,10 +9297,11 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$1: android.wi
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$1: ScriptUtils$1(android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.widget.EditText)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$1: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$2
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$2: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager val$listManager
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$2: android.widget.EditText val$text
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$2: ScriptUtils$2(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.widget.EditText)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$2: void onClick(android.content.DialogInterface,int)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$2: java.util.regex.Pattern val$pattern
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$2: java.lang.StringBuilder val$builder
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$2: ScriptUtils$2(java.util.regex.Pattern,java.lang.StringBuilder)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$2: void visit(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$2: void visit(java.lang.Object,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$3
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$3: com.faendir.lightning_launcher.scriptlib.ScriptManager val$scriptManager
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$3: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager val$listManager
@@ -9363,8 +9368,22 @@ com.faendir.lightning_launcher.multitool.util.BaseActivity: android.support.v7.w
 com.faendir.lightning_launcher.multitool.util.FragmentManager: void onSwitchFragmentRequest(com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest)
 com.faendir.lightning_launcher.multitool.util.IntentChooser
 com.faendir.lightning_launcher.multitool.util.IntentChooser: IntentChooser()
+com.faendir.lightning_launcher.multitool.util.IntentChooser: void onClick(com.faendir.omniadapter.model.Component,int)
 com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget: com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget[] values()
 com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget: com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget valueOf(java.lang.String)
+com.faendir.lightning_launcher.multitool.util.IntentInfo
+com.faendir.lightning_launcher.multitool.util.IntentInfo: java.lang.ref.SoftReference icon
+com.faendir.lightning_launcher.multitool.util.IntentInfo: com.faendir.lightning_launcher.multitool.util.DrawableProvider provider
+com.faendir.lightning_launcher.multitool.util.IntentInfo: android.content.Intent intent
+com.faendir.lightning_launcher.multitool.util.IntentInfo: java.lang.String title
+com.faendir.lightning_launcher.multitool.util.IntentInfo: boolean isIndirect
+com.faendir.lightning_launcher.multitool.util.IntentInfo: IntentInfo(android.content.Intent,com.faendir.lightning_launcher.multitool.util.DrawableProvider,java.lang.String,boolean)
+com.faendir.lightning_launcher.multitool.util.IntentInfo: android.graphics.drawable.Drawable getImage()
+com.faendir.lightning_launcher.multitool.util.IntentInfo: android.content.Intent getIntent()
+com.faendir.lightning_launcher.multitool.util.IntentInfo: java.lang.String getText()
+com.faendir.lightning_launcher.multitool.util.IntentInfo: boolean isIndirect()
+com.faendir.lightning_launcher.multitool.util.PreferenceProvider
+com.faendir.lightning_launcher.multitool.util.PreferenceProvider: PreferenceProvider()
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: ResetReportPrimer()
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: void primeReport(android.content.Context,org.acra.builder.ReportBuilder)
@@ -9709,14 +9728,14 @@ com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: com.faendir.ligh
 com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunData(java.lang.String)
 com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: java.lang.Integer execute(com.faendir.lightning_launcher.scriptlib.ServiceManager)
 com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: java.lang.Object execute(com.faendir.lightning_launcher.scriptlib.ServiceManager)
-com.faendir.omniadapter.Action$Click$Listener: void onClick(com.faendir.omniadapter.model.Component,int)
 com.faendir.omniadapter.ComponentViewHolder: void onClick(android.view.View)
 com.faendir.omniadapter.ComponentViewHolder$Listener: void onClick(com.faendir.omniadapter.ComponentViewHolder)
 com.faendir.omniadapter.OmniAdapter$BaseController: OmniAdapter$BaseController()
-com.faendir.omniadapter.OmniAdapter$BaseController: boolean isExpandable(com.faendir.omniadapter.model.Component)
-com.faendir.omniadapter.OmniAdapter$BaseController: boolean shouldMove(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.DeepObservableList,int,com.faendir.omniadapter.DeepObservableList,int)
+com.faendir.omniadapter.OmniAdapter$BaseController: boolean shouldMove(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int)
 com.faendir.omniadapter.OmniAdapter$BaseController: boolean isSelectable(com.faendir.omniadapter.model.Component)
 com.faendir.omniadapter.OmniAdapter$BaseController: boolean shouldSwipe(com.faendir.omniadapter.model.Component,int)
+com.faendir.omniadapter.OmniAdapter$BaseExpandableController: OmniAdapter$BaseExpandableController()
+com.faendir.omniadapter.OmniAdapter$BaseExpandableController: boolean isExpandable(com.faendir.omniadapter.model.Composite)
 com.faendir.omniadapter.OmniAdapterImpl: void onClick(com.faendir.omniadapter.ComponentViewHolder)
 com.faendir.omniadapter.OmniAdapterImpl$SnackbarListener: void onClick(android.view.View)
 com.faendir.omniadapter.R$anim: int abc_fade_in
@@ -10331,6 +10350,12 @@ com.faendir.omniadapter.R$drawable: int abc_switch_track_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_tab_indicator_material
 com.faendir.omniadapter.R$drawable: int abc_tab_indicator_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_text_cursor_material
+com.faendir.omniadapter.R$drawable: int abc_text_select_handle_left_mtrl_dark
+com.faendir.omniadapter.R$drawable: int abc_text_select_handle_left_mtrl_light
+com.faendir.omniadapter.R$drawable: int abc_text_select_handle_middle_mtrl_dark
+com.faendir.omniadapter.R$drawable: int abc_text_select_handle_middle_mtrl_light
+com.faendir.omniadapter.R$drawable: int abc_text_select_handle_right_mtrl_dark
+com.faendir.omniadapter.R$drawable: int abc_text_select_handle_right_mtrl_light
 com.faendir.omniadapter.R$drawable: int abc_textfield_activated_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_textfield_default_mtrl_alpha
 com.faendir.omniadapter.R$drawable: int abc_textfield_search_activated_mtrl_alpha
@@ -11411,6 +11436,7 @@ com.faendir.omniadapter.R$styleable: int View_android_theme
 com.faendir.omniadapter.R$styleable: int View_paddingEnd
 com.faendir.omniadapter.R$styleable: int View_paddingStart
 com.faendir.omniadapter.R$styleable: int View_theme
+com.faendir.omniadapter.model.Action$Click$Listener: void onClick(com.faendir.omniadapter.model.Component,int)
 com.faendir.omniadapter.model.Component$State: boolean selected
 com.faendir.omniadapter.model.Component$State: boolean enabled
 com.faendir.omniadapter.model.Component$State: com.faendir.omniadapter.model.Component$State$Listener listener
@@ -11423,31 +11449,32 @@ com.faendir.omniadapter.model.Component$State: void removeListener(com.faendir.o
 com.faendir.omniadapter.model.Component$State: boolean isEnabled()
 com.faendir.omniadapter.model.Component$State: void setEnabled(boolean)
 com.faendir.omniadapter.model.Composite
-com.faendir.omniadapter.model.Composite: java.util.UUID uuid
-com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.model.Composite$State state
-com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.DeepObservableList children
-com.faendir.omniadapter.model.Composite: Composite()
-com.faendir.omniadapter.model.Composite: int hashCode()
-com.faendir.omniadapter.model.Composite: boolean equals(java.lang.Object)
-com.faendir.omniadapter.model.Composite: int getId()
-com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.model.Composite$State getState()
-com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.DeepObservableList getChildren()
-com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.model.Component$State getState()
-com.faendir.omniadapter.model.Composite$State
-com.faendir.omniadapter.model.Composite$State: boolean expanded
-com.faendir.omniadapter.model.Composite$State: Composite$State()
-com.faendir.omniadapter.model.Composite$State: boolean isExpanded()
-com.faendir.omniadapter.model.Composite$State: void setExpanded(boolean)
+com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.model.Composite$ExpandableState getState()
+com.faendir.omniadapter.model.Composite: com.faendir.omniadapter.model.DeepObservableList getChildren()
+com.faendir.omniadapter.model.Composite$ExpandableState
+com.faendir.omniadapter.model.Composite$ExpandableState: boolean expanded
+com.faendir.omniadapter.model.Composite$ExpandableState: Composite$ExpandableState()
+com.faendir.omniadapter.model.Composite$ExpandableState: boolean isExpanded()
+com.faendir.omniadapter.model.Composite$ExpandableState: void setExpanded(boolean)
 com.faendir.omniadapter.model.Leaf
 com.faendir.omniadapter.model.Leaf: java.util.UUID uuid
 com.faendir.omniadapter.model.Leaf: com.faendir.omniadapter.model.Component$State state
 com.faendir.omniadapter.model.Leaf: Leaf()
 com.faendir.omniadapter.model.Leaf: boolean equals(java.lang.Object)
 com.faendir.omniadapter.model.Leaf: int hashCode()
-com.faendir.omniadapter.model.Leaf: int getId()
 com.faendir.omniadapter.model.Leaf: com.faendir.omniadapter.model.Component$State getState()
 com.faendir.omniadapter.model.SelectionMode: com.faendir.omniadapter.model.SelectionMode[] values()
 com.faendir.omniadapter.model.SelectionMode: com.faendir.omniadapter.model.SelectionMode valueOf(java.lang.String)
+com.faendir.omniadapter.model.SimpleComposite
+com.faendir.omniadapter.model.SimpleComposite: java.util.UUID uuid
+com.faendir.omniadapter.model.SimpleComposite: com.faendir.omniadapter.model.Composite$ExpandableState state
+com.faendir.omniadapter.model.SimpleComposite: com.faendir.omniadapter.model.DeepObservableList children
+com.faendir.omniadapter.model.SimpleComposite: SimpleComposite(java.lang.Class)
+com.faendir.omniadapter.model.SimpleComposite: int hashCode()
+com.faendir.omniadapter.model.SimpleComposite: boolean equals(java.lang.Object)
+com.faendir.omniadapter.model.SimpleComposite: com.faendir.omniadapter.model.Composite$ExpandableState getState()
+com.faendir.omniadapter.model.SimpleComposite: com.faendir.omniadapter.model.DeepObservableList getChildren()
+com.faendir.omniadapter.model.SimpleComposite: com.faendir.omniadapter.model.Component$State getState()
 com.google.gson.FieldNamingPolicy: com.google.gson.FieldNamingPolicy[] values()
 com.google.gson.FieldNamingPolicy: com.google.gson.FieldNamingPolicy valueOf(java.lang.String)
 com.google.gson.LongSerializationPolicy: com.google.gson.LongSerializationPolicy[] values()
@@ -18441,6 +18468,7 @@ com.nononsenseapps.filepicker.R$attr: int alertDialogCenterButtons
 com.nononsenseapps.filepicker.R$attr: int alertDialogStyle
 com.nononsenseapps.filepicker.R$attr: int alertDialogTheme
 com.nononsenseapps.filepicker.R$attr: int allowStacking
+com.nononsenseapps.filepicker.R$attr: int alpha
 com.nononsenseapps.filepicker.R$attr: int arrowHeadLength
 com.nononsenseapps.filepicker.R$attr: int arrowShaftLength
 com.nononsenseapps.filepicker.R$attr: int autoCompleteTextViewStyle
@@ -18456,6 +18484,7 @@ com.nononsenseapps.filepicker.R$attr: int buttonBarNegativeButtonStyle
 com.nononsenseapps.filepicker.R$attr: int buttonBarNeutralButtonStyle
 com.nononsenseapps.filepicker.R$attr: int buttonBarPositiveButtonStyle
 com.nononsenseapps.filepicker.R$attr: int buttonBarStyle
+com.nononsenseapps.filepicker.R$attr: int buttonGravity
 com.nononsenseapps.filepicker.R$attr: int buttonPanelSideLayout
 com.nononsenseapps.filepicker.R$attr: int buttonStyle
 com.nononsenseapps.filepicker.R$attr: int buttonStyleSmall
@@ -18469,6 +18498,7 @@ com.nononsenseapps.filepicker.R$attr: int collapseContentDescription
 com.nononsenseapps.filepicker.R$attr: int collapseIcon
 com.nononsenseapps.filepicker.R$attr: int color
 com.nononsenseapps.filepicker.R$attr: int colorAccent
+com.nononsenseapps.filepicker.R$attr: int colorBackgroundFloating
 com.nononsenseapps.filepicker.R$attr: int colorButtonNormal
 com.nononsenseapps.filepicker.R$attr: int colorControlActivated
 com.nononsenseapps.filepicker.R$attr: int colorControlHighlight
@@ -18478,9 +18508,11 @@ com.nononsenseapps.filepicker.R$attr: int colorPrimaryDark
 com.nononsenseapps.filepicker.R$attr: int colorSwitchThumbNormal
 com.nononsenseapps.filepicker.R$attr: int commitIcon
 com.nononsenseapps.filepicker.R$attr: int contentInsetEnd
+com.nononsenseapps.filepicker.R$attr: int contentInsetEndWithActions
 com.nononsenseapps.filepicker.R$attr: int contentInsetLeft
 com.nononsenseapps.filepicker.R$attr: int contentInsetRight
 com.nononsenseapps.filepicker.R$attr: int contentInsetStart
+com.nononsenseapps.filepicker.R$attr: int contentInsetStartWithNavigation
 com.nononsenseapps.filepicker.R$attr: int controlBackground
 com.nononsenseapps.filepicker.R$attr: int customNavigationLayout
 com.nononsenseapps.filepicker.R$attr: int defaultQueryHint
@@ -18519,6 +18551,7 @@ com.nononsenseapps.filepicker.R$attr: int listChoiceBackgroundIndicator
 com.nononsenseapps.filepicker.R$attr: int listDividerAlertDialog
 com.nononsenseapps.filepicker.R$attr: int listItemLayout
 com.nononsenseapps.filepicker.R$attr: int listLayout
+com.nononsenseapps.filepicker.R$attr: int listMenuViewStyle
 com.nononsenseapps.filepicker.R$attr: int listPopupWindowStyle
 com.nononsenseapps.filepicker.R$attr: int listPreferredItemHeight
 com.nononsenseapps.filepicker.R$attr: int listPreferredItemHeightLarge
@@ -18534,6 +18567,7 @@ com.nononsenseapps.filepicker.R$attr: int navigationContentDescription
 com.nononsenseapps.filepicker.R$attr: int navigationIcon
 com.nononsenseapps.filepicker.R$attr: int navigationMode
 com.nononsenseapps.filepicker.R$attr: int nnf_dir_icon_color
+com.nononsenseapps.filepicker.R$attr: int nnf_list_item_divider
 com.nononsenseapps.filepicker.R$attr: int nnf_save_icon_color
 com.nononsenseapps.filepicker.R$attr: int nnf_separator_color
 com.nononsenseapps.filepicker.R$attr: int nnf_toolbarTheme
@@ -18574,6 +18608,7 @@ com.nononsenseapps.filepicker.R$attr: int splitTrack
 com.nononsenseapps.filepicker.R$attr: int srcCompat
 com.nononsenseapps.filepicker.R$attr: int stackFromEnd
 com.nononsenseapps.filepicker.R$attr: int state_above_anchor
+com.nononsenseapps.filepicker.R$attr: int subMenuArrow
 com.nononsenseapps.filepicker.R$attr: int submitBackground
 com.nononsenseapps.filepicker.R$attr: int subtitle
 com.nononsenseapps.filepicker.R$attr: int subtitleTextAppearance
@@ -18588,6 +18623,7 @@ com.nononsenseapps.filepicker.R$attr: int textAllCaps
 com.nononsenseapps.filepicker.R$attr: int textAppearanceLargePopupMenu
 com.nononsenseapps.filepicker.R$attr: int textAppearanceListItem
 com.nononsenseapps.filepicker.R$attr: int textAppearanceListItemSmall
+com.nononsenseapps.filepicker.R$attr: int textAppearancePopupMenuHeader
 com.nononsenseapps.filepicker.R$attr: int textAppearanceSearchResultSubtitle
 com.nononsenseapps.filepicker.R$attr: int textAppearanceSearchResultTitle
 com.nononsenseapps.filepicker.R$attr: int textAppearanceSmallPopupMenu
@@ -18596,7 +18632,13 @@ com.nononsenseapps.filepicker.R$attr: int textColorSearchUrl
 com.nononsenseapps.filepicker.R$attr: int theme
 com.nononsenseapps.filepicker.R$attr: int thickness
 com.nononsenseapps.filepicker.R$attr: int thumbTextPadding
+com.nononsenseapps.filepicker.R$attr: int thumbTint
+com.nononsenseapps.filepicker.R$attr: int thumbTintMode
+com.nononsenseapps.filepicker.R$attr: int tickMark
+com.nononsenseapps.filepicker.R$attr: int tickMarkTint
+com.nononsenseapps.filepicker.R$attr: int tickMarkTintMode
 com.nononsenseapps.filepicker.R$attr: int title
+com.nononsenseapps.filepicker.R$attr: int titleMargin
 com.nononsenseapps.filepicker.R$attr: int titleMarginBottom
 com.nononsenseapps.filepicker.R$attr: int titleMarginEnd
 com.nononsenseapps.filepicker.R$attr: int titleMarginStart
@@ -18608,6 +18650,8 @@ com.nononsenseapps.filepicker.R$attr: int titleTextStyle
 com.nononsenseapps.filepicker.R$attr: int toolbarNavigationButtonStyle
 com.nononsenseapps.filepicker.R$attr: int toolbarStyle
 com.nononsenseapps.filepicker.R$attr: int track
+com.nononsenseapps.filepicker.R$attr: int trackTint
+com.nononsenseapps.filepicker.R$attr: int trackTintMode
 com.nononsenseapps.filepicker.R$attr: int voiceIcon
 com.nononsenseapps.filepicker.R$attr: int windowActionBar
 com.nononsenseapps.filepicker.R$attr: int windowActionBarOverlay
@@ -18626,6 +18670,7 @@ com.nononsenseapps.filepicker.R$bool: int abc_config_closeDialogWhenTouchOutside
 com.nononsenseapps.filepicker.R$bool: int abc_config_showMenuShortcutsWhenKeyboardPresent
 com.nononsenseapps.filepicker.R$color: int abc_background_cache_hint_selector_material_dark
 com.nononsenseapps.filepicker.R$color: int abc_background_cache_hint_selector_material_light
+com.nononsenseapps.filepicker.R$color: int abc_btn_colored_borderless_text_material
 com.nononsenseapps.filepicker.R$color: int abc_color_highlight_material
 com.nononsenseapps.filepicker.R$color: int abc_input_method_navigation_guard
 com.nononsenseapps.filepicker.R$color: int abc_primary_text_disable_only_material_dark
@@ -18638,6 +18683,13 @@ com.nononsenseapps.filepicker.R$color: int abc_search_url_text_pressed
 com.nononsenseapps.filepicker.R$color: int abc_search_url_text_selected
 com.nononsenseapps.filepicker.R$color: int abc_secondary_text_material_dark
 com.nononsenseapps.filepicker.R$color: int abc_secondary_text_material_light
+com.nononsenseapps.filepicker.R$color: int abc_tint_btn_checkable
+com.nononsenseapps.filepicker.R$color: int abc_tint_default
+com.nononsenseapps.filepicker.R$color: int abc_tint_edittext
+com.nononsenseapps.filepicker.R$color: int abc_tint_seek_thumb
+com.nononsenseapps.filepicker.R$color: int abc_tint_spinner
+com.nononsenseapps.filepicker.R$color: int abc_tint_switch_thumb
+com.nononsenseapps.filepicker.R$color: int abc_tint_switch_track
 com.nononsenseapps.filepicker.R$color: int accent_material_dark
 com.nononsenseapps.filepicker.R$color: int accent_material_light
 com.nononsenseapps.filepicker.R$color: int background_floating_material_dark
@@ -18697,9 +18749,11 @@ com.nononsenseapps.filepicker.R$color: int switch_thumb_material_light
 com.nononsenseapps.filepicker.R$color: int switch_thumb_normal_material_dark
 com.nononsenseapps.filepicker.R$color: int switch_thumb_normal_material_light
 com.nononsenseapps.filepicker.R$dimen: int abc_action_bar_content_inset_material
+com.nononsenseapps.filepicker.R$dimen: int abc_action_bar_content_inset_with_nav
 com.nononsenseapps.filepicker.R$dimen: int abc_action_bar_default_height_material
 com.nononsenseapps.filepicker.R$dimen: int abc_action_bar_default_padding_end_material
 com.nononsenseapps.filepicker.R$dimen: int abc_action_bar_default_padding_start_material
+com.nononsenseapps.filepicker.R$dimen: int abc_action_bar_elevation_material
 com.nononsenseapps.filepicker.R$dimen: int abc_action_bar_icon_vertical_padding_material
 com.nononsenseapps.filepicker.R$dimen: int abc_action_bar_overflow_padding_end_material
 com.nononsenseapps.filepicker.R$dimen: int abc_action_bar_overflow_padding_start_material
@@ -18716,6 +18770,7 @@ com.nononsenseapps.filepicker.R$dimen: int abc_button_inset_horizontal_material
 com.nononsenseapps.filepicker.R$dimen: int abc_button_inset_vertical_material
 com.nononsenseapps.filepicker.R$dimen: int abc_button_padding_horizontal_material
 com.nononsenseapps.filepicker.R$dimen: int abc_button_padding_vertical_material
+com.nononsenseapps.filepicker.R$dimen: int abc_cascading_menus_min_smallest_width
 com.nononsenseapps.filepicker.R$dimen: int abc_config_prefDialogWidth
 com.nononsenseapps.filepicker.R$dimen: int abc_control_corner_material
 com.nononsenseapps.filepicker.R$dimen: int abc_control_inset_material
@@ -18740,6 +18795,8 @@ com.nononsenseapps.filepicker.R$dimen: int abc_edit_text_inset_top_material
 com.nononsenseapps.filepicker.R$dimen: int abc_floating_window_z
 com.nononsenseapps.filepicker.R$dimen: int abc_list_item_padding_horizontal_material
 com.nononsenseapps.filepicker.R$dimen: int abc_panel_menu_list_width
+com.nononsenseapps.filepicker.R$dimen: int abc_progress_bar_height_material
+com.nononsenseapps.filepicker.R$dimen: int abc_search_view_preferred_height
 com.nononsenseapps.filepicker.R$dimen: int abc_search_view_preferred_width
 com.nononsenseapps.filepicker.R$dimen: int abc_seekbar_track_background_height_material
 com.nononsenseapps.filepicker.R$dimen: int abc_seekbar_track_progress_height_material
@@ -18756,6 +18813,7 @@ com.nononsenseapps.filepicker.R$dimen: int abc_text_size_display_4_material
 com.nononsenseapps.filepicker.R$dimen: int abc_text_size_headline_material
 com.nononsenseapps.filepicker.R$dimen: int abc_text_size_large_material
 com.nononsenseapps.filepicker.R$dimen: int abc_text_size_medium_material
+com.nononsenseapps.filepicker.R$dimen: int abc_text_size_menu_header_material
 com.nononsenseapps.filepicker.R$dimen: int abc_text_size_menu_material
 com.nononsenseapps.filepicker.R$dimen: int abc_text_size_small_material
 com.nononsenseapps.filepicker.R$dimen: int abc_text_size_subhead_material
@@ -18790,17 +18848,27 @@ com.nononsenseapps.filepicker.R$drawable: int abc_cab_background_internal_bg
 com.nononsenseapps.filepicker.R$drawable: int abc_cab_background_top_material
 com.nononsenseapps.filepicker.R$drawable: int abc_cab_background_top_mtrl_alpha
 com.nononsenseapps.filepicker.R$drawable: int abc_control_background_material
+com.nononsenseapps.filepicker.R$drawable: int abc_dialog_material_background
 com.nononsenseapps.filepicker.R$drawable: int abc_edit_text_material
+com.nononsenseapps.filepicker.R$drawable: int abc_ic_ab_back_material
+com.nononsenseapps.filepicker.R$drawable: int abc_ic_arrow_drop_right_black_24dp
+com.nononsenseapps.filepicker.R$drawable: int abc_ic_clear_material
 com.nononsenseapps.filepicker.R$drawable: int abc_ic_commit_search_api_mtrl_alpha
+com.nononsenseapps.filepicker.R$drawable: int abc_ic_go_search_api_material
 com.nononsenseapps.filepicker.R$drawable: int abc_ic_menu_copy_mtrl_am_alpha
 com.nononsenseapps.filepicker.R$drawable: int abc_ic_menu_cut_mtrl_alpha
+com.nononsenseapps.filepicker.R$drawable: int abc_ic_menu_overflow_material
 com.nononsenseapps.filepicker.R$drawable: int abc_ic_menu_paste_mtrl_am_alpha
 com.nononsenseapps.filepicker.R$drawable: int abc_ic_menu_selectall_mtrl_alpha
 com.nononsenseapps.filepicker.R$drawable: int abc_ic_menu_share_mtrl_alpha
+com.nononsenseapps.filepicker.R$drawable: int abc_ic_search_api_material
 com.nononsenseapps.filepicker.R$drawable: int abc_ic_star_black_16dp
 com.nononsenseapps.filepicker.R$drawable: int abc_ic_star_black_36dp
+com.nononsenseapps.filepicker.R$drawable: int abc_ic_star_black_48dp
 com.nononsenseapps.filepicker.R$drawable: int abc_ic_star_half_black_16dp
 com.nononsenseapps.filepicker.R$drawable: int abc_ic_star_half_black_36dp
+com.nononsenseapps.filepicker.R$drawable: int abc_ic_star_half_black_48dp
+com.nononsenseapps.filepicker.R$drawable: int abc_ic_voice_search_api_material
 com.nononsenseapps.filepicker.R$drawable: int abc_item_background_holo_dark
 com.nononsenseapps.filepicker.R$drawable: int abc_item_background_holo_light
 com.nononsenseapps.filepicker.R$drawable: int abc_list_divider_mtrl_alpha
@@ -18817,6 +18885,7 @@ com.nononsenseapps.filepicker.R$drawable: int abc_list_selector_holo_light
 com.nononsenseapps.filepicker.R$drawable: int abc_menu_hardkey_panel_mtrl_mult
 com.nononsenseapps.filepicker.R$drawable: int abc_popup_background_mtrl_mult
 com.nononsenseapps.filepicker.R$drawable: int abc_ratingbar_indicator_material
+com.nononsenseapps.filepicker.R$drawable: int abc_ratingbar_material
 com.nononsenseapps.filepicker.R$drawable: int abc_ratingbar_small_material
 com.nononsenseapps.filepicker.R$drawable: int abc_scrubber_control_off_mtrl_alpha
 com.nononsenseapps.filepicker.R$drawable: int abc_scrubber_control_to_pressed_mtrl_000
@@ -18824,6 +18893,7 @@ com.nononsenseapps.filepicker.R$drawable: int abc_scrubber_control_to_pressed_mt
 com.nononsenseapps.filepicker.R$drawable: int abc_scrubber_primary_mtrl_alpha
 com.nononsenseapps.filepicker.R$drawable: int abc_scrubber_track_mtrl_alpha
 com.nononsenseapps.filepicker.R$drawable: int abc_seekbar_thumb_material
+com.nononsenseapps.filepicker.R$drawable: int abc_seekbar_tick_mark_material
 com.nononsenseapps.filepicker.R$drawable: int abc_seekbar_track_material
 com.nononsenseapps.filepicker.R$drawable: int abc_spinner_mtrl_am_alpha
 com.nononsenseapps.filepicker.R$drawable: int abc_spinner_textfield_background_material
@@ -18832,11 +18902,18 @@ com.nononsenseapps.filepicker.R$drawable: int abc_switch_track_mtrl_alpha
 com.nononsenseapps.filepicker.R$drawable: int abc_tab_indicator_material
 com.nononsenseapps.filepicker.R$drawable: int abc_tab_indicator_mtrl_alpha
 com.nononsenseapps.filepicker.R$drawable: int abc_text_cursor_material
+com.nononsenseapps.filepicker.R$drawable: int abc_text_select_handle_left_mtrl_dark
+com.nononsenseapps.filepicker.R$drawable: int abc_text_select_handle_left_mtrl_light
+com.nononsenseapps.filepicker.R$drawable: int abc_text_select_handle_middle_mtrl_dark
+com.nononsenseapps.filepicker.R$drawable: int abc_text_select_handle_middle_mtrl_light
+com.nononsenseapps.filepicker.R$drawable: int abc_text_select_handle_right_mtrl_dark
+com.nononsenseapps.filepicker.R$drawable: int abc_text_select_handle_right_mtrl_light
 com.nononsenseapps.filepicker.R$drawable: int abc_textfield_activated_mtrl_alpha
 com.nononsenseapps.filepicker.R$drawable: int abc_textfield_default_mtrl_alpha
 com.nononsenseapps.filepicker.R$drawable: int abc_textfield_search_activated_mtrl_alpha
 com.nononsenseapps.filepicker.R$drawable: int abc_textfield_search_default_mtrl_alpha
 com.nononsenseapps.filepicker.R$drawable: int abc_textfield_search_material
+com.nononsenseapps.filepicker.R$drawable: int abc_vector_test
 com.nononsenseapps.filepicker.R$drawable: int nnf_ic_create_new_folder_white_24dp
 com.nononsenseapps.filepicker.R$drawable: int nnf_ic_folder_black_48dp
 com.nononsenseapps.filepicker.R$drawable: int nnf_ic_save_black_24dp
@@ -18857,9 +18934,11 @@ com.nononsenseapps.filepicker.R$id: int action_mode_bar
 com.nononsenseapps.filepicker.R$id: int action_mode_bar_stub
 com.nononsenseapps.filepicker.R$id: int action_mode_close_button
 com.nononsenseapps.filepicker.R$id: int activity_chooser_view_content
+com.nononsenseapps.filepicker.R$id: int add
 com.nononsenseapps.filepicker.R$id: int alertTitle
 com.nononsenseapps.filepicker.R$id: int always
 com.nononsenseapps.filepicker.R$id: int beginning
+com.nononsenseapps.filepicker.R$id: int bottom
 com.nononsenseapps.filepicker.R$id: int buttonPanel
 com.nononsenseapps.filepicker.R$id: int cancel_action
 com.nononsenseapps.filepicker.R$id: int checkbox
@@ -18937,6 +19016,7 @@ com.nononsenseapps.filepicker.R$id: int src_atop
 com.nononsenseapps.filepicker.R$id: int src_in
 com.nononsenseapps.filepicker.R$id: int src_over
 com.nononsenseapps.filepicker.R$id: int status_bar_latest_event_content
+com.nononsenseapps.filepicker.R$id: int submenuarrow
 com.nononsenseapps.filepicker.R$id: int submit_area
 com.nononsenseapps.filepicker.R$id: int tabMode
 com.nononsenseapps.filepicker.R$id: int text
@@ -18945,6 +19025,7 @@ com.nononsenseapps.filepicker.R$id: int textSpacerNoButtons
 com.nononsenseapps.filepicker.R$id: int time
 com.nononsenseapps.filepicker.R$id: int title
 com.nononsenseapps.filepicker.R$id: int title_template
+com.nononsenseapps.filepicker.R$id: int top
 com.nononsenseapps.filepicker.R$id: int topPanel
 com.nononsenseapps.filepicker.R$id: int up
 com.nononsenseapps.filepicker.R$id: int useLogo
@@ -18971,6 +19052,7 @@ com.nononsenseapps.filepicker.R$layout: int abc_list_menu_item_checkbox
 com.nononsenseapps.filepicker.R$layout: int abc_list_menu_item_icon
 com.nononsenseapps.filepicker.R$layout: int abc_list_menu_item_layout
 com.nononsenseapps.filepicker.R$layout: int abc_list_menu_item_radio
+com.nononsenseapps.filepicker.R$layout: int abc_popup_menu_header_item_layout
 com.nononsenseapps.filepicker.R$layout: int abc_popup_menu_item_layout
 com.nononsenseapps.filepicker.R$layout: int abc_screen_content_include
 com.nononsenseapps.filepicker.R$layout: int abc_screen_simple
@@ -19007,6 +19089,18 @@ com.nononsenseapps.filepicker.R$string: int abc_activity_chooser_view_see_all
 com.nononsenseapps.filepicker.R$string: int abc_activitychooserview_choose_application
 com.nononsenseapps.filepicker.R$string: int abc_capital_off
 com.nononsenseapps.filepicker.R$string: int abc_capital_on
+com.nononsenseapps.filepicker.R$string: int abc_font_family_body_1_material
+com.nononsenseapps.filepicker.R$string: int abc_font_family_body_2_material
+com.nononsenseapps.filepicker.R$string: int abc_font_family_button_material
+com.nononsenseapps.filepicker.R$string: int abc_font_family_caption_material
+com.nononsenseapps.filepicker.R$string: int abc_font_family_display_1_material
+com.nononsenseapps.filepicker.R$string: int abc_font_family_display_2_material
+com.nononsenseapps.filepicker.R$string: int abc_font_family_display_3_material
+com.nononsenseapps.filepicker.R$string: int abc_font_family_display_4_material
+com.nononsenseapps.filepicker.R$string: int abc_font_family_headline_material
+com.nononsenseapps.filepicker.R$string: int abc_font_family_menu_material
+com.nononsenseapps.filepicker.R$string: int abc_font_family_subhead_material
+com.nononsenseapps.filepicker.R$string: int abc_font_family_title_material
 com.nononsenseapps.filepicker.R$string: int abc_search_hint
 com.nononsenseapps.filepicker.R$string: int abc_searchview_description_clear
 com.nononsenseapps.filepicker.R$string: int abc_searchview_description_query
@@ -19023,6 +19117,7 @@ com.nononsenseapps.filepicker.R$string: int nnf_need_valid_filename
 com.nononsenseapps.filepicker.R$string: int nnf_new_folder
 com.nononsenseapps.filepicker.R$string: int nnf_permission_external_write_denied
 com.nononsenseapps.filepicker.R$string: int nnf_select_something_first
+com.nononsenseapps.filepicker.R$string: int search_menu_title
 com.nononsenseapps.filepicker.R$string: int status_bar_notification_info_overflow
 com.nononsenseapps.filepicker.R$style: int AlertDialog_AppCompat
 com.nononsenseapps.filepicker.R$style: int AlertDialog_AppCompat_Light
@@ -19071,6 +19166,7 @@ com.nononsenseapps.filepicker.R$style: int Base_TextAppearance_AppCompat_Widget_
 com.nononsenseapps.filepicker.R$style: int Base_TextAppearance_AppCompat_Widget_Button
 com.nononsenseapps.filepicker.R$style: int Base_TextAppearance_AppCompat_Widget_Button_Inverse
 com.nononsenseapps.filepicker.R$style: int Base_TextAppearance_AppCompat_Widget_DropDownItem
+com.nononsenseapps.filepicker.R$style: int Base_TextAppearance_AppCompat_Widget_PopupMenu_Header
 com.nononsenseapps.filepicker.R$style: int Base_TextAppearance_AppCompat_Widget_PopupMenu_Large
 com.nononsenseapps.filepicker.R$style: int Base_TextAppearance_AppCompat_Widget_PopupMenu_Small
 com.nononsenseapps.filepicker.R$style: int Base_TextAppearance_AppCompat_Widget_Switch
@@ -19082,6 +19178,8 @@ com.nononsenseapps.filepicker.R$style: int Base_ThemeOverlay_AppCompat
 com.nononsenseapps.filepicker.R$style: int Base_ThemeOverlay_AppCompat_ActionBar
 com.nononsenseapps.filepicker.R$style: int Base_ThemeOverlay_AppCompat_Dark
 com.nononsenseapps.filepicker.R$style: int Base_ThemeOverlay_AppCompat_Dark_ActionBar
+com.nononsenseapps.filepicker.R$style: int Base_ThemeOverlay_AppCompat_Dialog
+com.nononsenseapps.filepicker.R$style: int Base_ThemeOverlay_AppCompat_Dialog_Alert
 com.nononsenseapps.filepicker.R$style: int Base_ThemeOverlay_AppCompat_Light
 com.nononsenseapps.filepicker.R$style: int Base_Theme_AppCompat
 com.nononsenseapps.filepicker.R$style: int Base_Theme_AppCompat_CompactMenu
@@ -19097,10 +19195,12 @@ com.nononsenseapps.filepicker.R$style: int Base_Theme_AppCompat_Light_DialogWhen
 com.nononsenseapps.filepicker.R$style: int Base_Theme_AppCompat_Light_Dialog_Alert
 com.nononsenseapps.filepicker.R$style: int Base_Theme_AppCompat_Light_Dialog_FixedSize
 com.nononsenseapps.filepicker.R$style: int Base_Theme_AppCompat_Light_Dialog_MinWidth
+com.nononsenseapps.filepicker.R$style: int Base_V11_ThemeOverlay_AppCompat_Dialog
 com.nononsenseapps.filepicker.R$style: int Base_V11_Theme_AppCompat_Dialog
 com.nononsenseapps.filepicker.R$style: int Base_V11_Theme_AppCompat_Light_Dialog
 com.nononsenseapps.filepicker.R$style: int Base_V12_Widget_AppCompat_AutoCompleteTextView
 com.nononsenseapps.filepicker.R$style: int Base_V12_Widget_AppCompat_EditText
+com.nononsenseapps.filepicker.R$style: int Base_V21_ThemeOverlay_AppCompat_Dialog
 com.nononsenseapps.filepicker.R$style: int Base_V21_Theme_AppCompat
 com.nononsenseapps.filepicker.R$style: int Base_V21_Theme_AppCompat_Dialog
 com.nononsenseapps.filepicker.R$style: int Base_V21_Theme_AppCompat_Light
@@ -19109,6 +19209,7 @@ com.nononsenseapps.filepicker.R$style: int Base_V22_Theme_AppCompat
 com.nononsenseapps.filepicker.R$style: int Base_V22_Theme_AppCompat_Light
 com.nononsenseapps.filepicker.R$style: int Base_V23_Theme_AppCompat
 com.nononsenseapps.filepicker.R$style: int Base_V23_Theme_AppCompat_Light
+com.nononsenseapps.filepicker.R$style: int Base_V7_ThemeOverlay_AppCompat_Dialog
 com.nononsenseapps.filepicker.R$style: int Base_V7_Theme_AppCompat
 com.nononsenseapps.filepicker.R$style: int Base_V7_Theme_AppCompat_Dialog
 com.nononsenseapps.filepicker.R$style: int Base_V7_Theme_AppCompat_Light
@@ -19150,6 +19251,7 @@ com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_Light_ActionBar
 com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_Light_ActionBar_TabView
 com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_Light_PopupMenu
 com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_Light_PopupMenu_Overflow
+com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_ListMenuView
 com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_ListPopupWindow
 com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_ListView
 com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_ListView_DropDown
@@ -19165,6 +19267,7 @@ com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_RatingBar_Small
 com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_SearchView
 com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_SearchView_ActionBar
 com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_SeekBar
+com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_SeekBar_Discrete
 com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_Spinner
 com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_Spinner_Underlined
 com.nononsenseapps.filepicker.R$style: int Base_Widget_AppCompat_TextView_SpinnerItem
@@ -19236,6 +19339,7 @@ com.nononsenseapps.filepicker.R$style: int TextAppearance_AppCompat_Widget_Actio
 com.nononsenseapps.filepicker.R$style: int TextAppearance_AppCompat_Widget_Button
 com.nononsenseapps.filepicker.R$style: int TextAppearance_AppCompat_Widget_Button_Inverse
 com.nononsenseapps.filepicker.R$style: int TextAppearance_AppCompat_Widget_DropDownItem
+com.nononsenseapps.filepicker.R$style: int TextAppearance_AppCompat_Widget_PopupMenu_Header
 com.nononsenseapps.filepicker.R$style: int TextAppearance_AppCompat_Widget_PopupMenu_Large
 com.nononsenseapps.filepicker.R$style: int TextAppearance_AppCompat_Widget_PopupMenu_Small
 com.nononsenseapps.filepicker.R$style: int TextAppearance_AppCompat_Widget_Switch
@@ -19252,6 +19356,8 @@ com.nononsenseapps.filepicker.R$style: int ThemeOverlay_AppCompat
 com.nononsenseapps.filepicker.R$style: int ThemeOverlay_AppCompat_ActionBar
 com.nononsenseapps.filepicker.R$style: int ThemeOverlay_AppCompat_Dark
 com.nononsenseapps.filepicker.R$style: int ThemeOverlay_AppCompat_Dark_ActionBar
+com.nononsenseapps.filepicker.R$style: int ThemeOverlay_AppCompat_Dialog
+com.nononsenseapps.filepicker.R$style: int ThemeOverlay_AppCompat_Dialog_Alert
 com.nononsenseapps.filepicker.R$style: int ThemeOverlay_AppCompat_Light
 com.nononsenseapps.filepicker.R$style: int Theme_AppCompat
 com.nononsenseapps.filepicker.R$style: int Theme_AppCompat_CompactMenu
@@ -19322,6 +19428,7 @@ com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_Light_PopupMenu
 com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_Light_PopupMenu_Overflow
 com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_Light_SearchView
 com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_Light_Spinner_DropDown_ActionBar
+com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_ListMenuView
 com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_ListPopupWindow
 com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_ListView
 com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_ListView_DropDown
@@ -19337,6 +19444,7 @@ com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_RatingBar_Small
 com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_SearchView
 com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_SearchView_ActionBar
 com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_SeekBar
+com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_SeekBar_Discrete
 com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_Spinner
 com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_Spinner_DropDown
 com.nononsenseapps.filepicker.R$style: int Widget_AppCompat_Spinner_DropDown_ActionBar
@@ -19351,9 +19459,11 @@ com.nononsenseapps.filepicker.R$styleable: int ActionBar_background
 com.nononsenseapps.filepicker.R$styleable: int ActionBar_backgroundSplit
 com.nononsenseapps.filepicker.R$styleable: int ActionBar_backgroundStacked
 com.nononsenseapps.filepicker.R$styleable: int ActionBar_contentInsetEnd
+com.nononsenseapps.filepicker.R$styleable: int ActionBar_contentInsetEndWithActions
 com.nononsenseapps.filepicker.R$styleable: int ActionBar_contentInsetLeft
 com.nononsenseapps.filepicker.R$styleable: int ActionBar_contentInsetRight
 com.nononsenseapps.filepicker.R$styleable: int ActionBar_contentInsetStart
+com.nononsenseapps.filepicker.R$styleable: int ActionBar_contentInsetStartWithNavigation
 com.nononsenseapps.filepicker.R$styleable: int ActionBar_customNavigationLayout
 com.nononsenseapps.filepicker.R$styleable: int ActionBar_displayOptions
 com.nononsenseapps.filepicker.R$styleable: int ActionBar_divider
@@ -19397,6 +19507,19 @@ com.nononsenseapps.filepicker.R$styleable: int AlertDialog_singleChoiceItemLayou
 com.nononsenseapps.filepicker.R$styleable: int[] AppCompatImageView
 com.nononsenseapps.filepicker.R$styleable: int AppCompatImageView_android_src
 com.nononsenseapps.filepicker.R$styleable: int AppCompatImageView_srcCompat
+com.nononsenseapps.filepicker.R$styleable: int[] AppCompatSeekBar
+com.nononsenseapps.filepicker.R$styleable: int AppCompatSeekBar_android_thumb
+com.nononsenseapps.filepicker.R$styleable: int AppCompatSeekBar_tickMark
+com.nononsenseapps.filepicker.R$styleable: int AppCompatSeekBar_tickMarkTint
+com.nononsenseapps.filepicker.R$styleable: int AppCompatSeekBar_tickMarkTintMode
+com.nononsenseapps.filepicker.R$styleable: int[] AppCompatTextHelper
+com.nononsenseapps.filepicker.R$styleable: int AppCompatTextHelper_android_drawableBottom
+com.nononsenseapps.filepicker.R$styleable: int AppCompatTextHelper_android_drawableEnd
+com.nononsenseapps.filepicker.R$styleable: int AppCompatTextHelper_android_drawableLeft
+com.nononsenseapps.filepicker.R$styleable: int AppCompatTextHelper_android_drawableRight
+com.nononsenseapps.filepicker.R$styleable: int AppCompatTextHelper_android_drawableStart
+com.nononsenseapps.filepicker.R$styleable: int AppCompatTextHelper_android_drawableTop
+com.nononsenseapps.filepicker.R$styleable: int AppCompatTextHelper_android_textAppearance
 com.nononsenseapps.filepicker.R$styleable: int[] AppCompatTextView
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTextView_android_textAppearance
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTextView_textAllCaps
@@ -19450,6 +19573,7 @@ com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_buttonStyleSmall
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_checkboxStyle
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_checkedTextViewStyle
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_colorAccent
+com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_colorBackgroundFloating
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_colorButtonNormal
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_colorControlActivated
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_colorControlHighlight
@@ -19471,6 +19595,7 @@ com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_homeAsUpIndicator
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_imageButtonStyle
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_listChoiceBackgroundIndicator
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_listDividerAlertDialog
+com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_listMenuViewStyle
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_listPopupWindowStyle
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_listPreferredItemHeight
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_listPreferredItemHeightLarge
@@ -19496,6 +19621,7 @@ com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_switchStyle
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_textAppearanceLargePopupMenu
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_textAppearanceListItem
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_textAppearanceListItemSmall
+com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_textAppearancePopupMenuHeader
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_textAppearanceSearchResultSubtitle
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_textAppearanceSearchResultTitle
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_textAppearanceSmallPopupMenu
@@ -19515,6 +19641,10 @@ com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_windowMinWidthMino
 com.nononsenseapps.filepicker.R$styleable: int AppCompatTheme_windowNoTitle
 com.nononsenseapps.filepicker.R$styleable: int[] ButtonBarLayout
 com.nononsenseapps.filepicker.R$styleable: int ButtonBarLayout_allowStacking
+com.nononsenseapps.filepicker.R$styleable: int[] ColorStateListItem
+com.nononsenseapps.filepicker.R$styleable: int ColorStateListItem_alpha
+com.nononsenseapps.filepicker.R$styleable: int ColorStateListItem_android_alpha
+com.nononsenseapps.filepicker.R$styleable: int ColorStateListItem_android_color
 com.nononsenseapps.filepicker.R$styleable: int[] CompoundButton
 com.nononsenseapps.filepicker.R$styleable: int CompoundButton_android_button
 com.nononsenseapps.filepicker.R$styleable: int CompoundButton_buttonTint
@@ -19580,12 +19710,15 @@ com.nononsenseapps.filepicker.R$styleable: int MenuView_android_itemTextAppearan
 com.nononsenseapps.filepicker.R$styleable: int MenuView_android_verticalDivider
 com.nononsenseapps.filepicker.R$styleable: int MenuView_android_windowAnimationStyle
 com.nononsenseapps.filepicker.R$styleable: int MenuView_preserveIconSpacing
+com.nononsenseapps.filepicker.R$styleable: int MenuView_subMenuArrow
 com.nononsenseapps.filepicker.R$styleable: int[] PopupWindow
 com.nononsenseapps.filepicker.R$styleable: int[] PopupWindowBackgroundState
 com.nononsenseapps.filepicker.R$styleable: int PopupWindowBackgroundState_state_above_anchor
+com.nononsenseapps.filepicker.R$styleable: int PopupWindow_android_popupAnimationStyle
 com.nononsenseapps.filepicker.R$styleable: int PopupWindow_android_popupBackground
 com.nononsenseapps.filepicker.R$styleable: int PopupWindow_overlapAnchor
 com.nononsenseapps.filepicker.R$styleable: int[] RecyclerView
+com.nononsenseapps.filepicker.R$styleable: int RecyclerView_android_descendantFocusability
 com.nononsenseapps.filepicker.R$styleable: int RecyclerView_android_orientation
 com.nononsenseapps.filepicker.R$styleable: int RecyclerView_layoutManager
 com.nononsenseapps.filepicker.R$styleable: int RecyclerView_reverseLayout
@@ -19625,7 +19758,11 @@ com.nononsenseapps.filepicker.R$styleable: int SwitchCompat_switchMinWidth
 com.nononsenseapps.filepicker.R$styleable: int SwitchCompat_switchPadding
 com.nononsenseapps.filepicker.R$styleable: int SwitchCompat_switchTextAppearance
 com.nononsenseapps.filepicker.R$styleable: int SwitchCompat_thumbTextPadding
+com.nononsenseapps.filepicker.R$styleable: int SwitchCompat_thumbTint
+com.nononsenseapps.filepicker.R$styleable: int SwitchCompat_thumbTintMode
 com.nononsenseapps.filepicker.R$styleable: int SwitchCompat_track
+com.nononsenseapps.filepicker.R$styleable: int SwitchCompat_trackTint
+com.nononsenseapps.filepicker.R$styleable: int SwitchCompat_trackTintMode
 com.nononsenseapps.filepicker.R$styleable: int[] TextAppearance
 com.nononsenseapps.filepicker.R$styleable: int TextAppearance_android_shadowColor
 com.nononsenseapps.filepicker.R$styleable: int TextAppearance_android_shadowDx
@@ -19639,12 +19776,15 @@ com.nononsenseapps.filepicker.R$styleable: int TextAppearance_textAllCaps
 com.nononsenseapps.filepicker.R$styleable: int[] Toolbar
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_android_gravity
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_android_minHeight
+com.nononsenseapps.filepicker.R$styleable: int Toolbar_buttonGravity
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_collapseContentDescription
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_collapseIcon
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_contentInsetEnd
+com.nononsenseapps.filepicker.R$styleable: int Toolbar_contentInsetEndWithActions
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_contentInsetLeft
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_contentInsetRight
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_contentInsetStart
+com.nononsenseapps.filepicker.R$styleable: int Toolbar_contentInsetStartWithNavigation
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_logo
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_logoDescription
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_maxButtonHeight
@@ -19655,6 +19795,7 @@ com.nononsenseapps.filepicker.R$styleable: int Toolbar_subtitle
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_subtitleTextAppearance
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_subtitleTextColor
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_title
+com.nononsenseapps.filepicker.R$styleable: int Toolbar_titleMargin
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_titleMarginBottom
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_titleMarginEnd
 com.nononsenseapps.filepicker.R$styleable: int Toolbar_titleMarginStart

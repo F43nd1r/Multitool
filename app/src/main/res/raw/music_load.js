@@ -7,6 +7,19 @@ bindClass("android.graphics.Rect");
 
 var s = getActiveScreen();
 var c = s.getContext();
+
+function bindPrefs(keys) {
+    bindClass("android.database.Cursor");
+    var resolver = c.getContentResolver();
+    var result = {};
+    var cursor = resolver.query(Uri.parse("content://com.faendir.lightning_launcher.multitool.provider/pref"), null, null, keys, null);
+    while (cursor.moveToNext()) {
+        result[cursor.getString(0)] = cursor.getString(1);
+    }
+    cursor.close();
+    return result;
+}
+
 var data = getEvent().getData();
 var currentScript = getCurrentScript();
 if (data != null && data != "") {
@@ -20,7 +33,8 @@ var h = new JavaAdapter(Handler, {
             var title = bundle.getString("title");
             var album = bundle.getString("album");
             var artist = bundle.getString("artist");
-            var mode = bundle.getInt("coverMode");
+            var prefs = bindPrefs(["coverFillMode"]);
+            var mode = parseInt(prefs.coverFillMode);
             if (albumArt != null) {
                 var panel = s.getContainerById(currentScript.getTag());
                 var item = panel.getItemByName("albumart");
@@ -63,7 +77,6 @@ var h = new JavaAdapter(Handler, {
                 }
                 var img = Image.createImage(wi, hi);
                 img.draw().drawBitmap(albumArt, src, dest, null);
-                //albumArt.recycle();
                 item.setBoxBackground(img, "nsf", false);
             }
             getVariables().edit().setString("title", title).setString("album", album).setString("artist", artist).commit();

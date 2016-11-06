@@ -4466,7 +4466,6 @@ android.support.v7.widget.RecyclerView:
     3700:3700:public boolean isAnimating()
     3878:3887:public void invalidateItemDecorations()
     3988:3988:public int getChildPosition(android.view.View)
-    3998:3999:public int getChildAdapterPosition(android.view.View)
     4024:4028:public long getChildItemId(android.view.View)
     4037:4037:public android.support.v7.widget.RecyclerView$ViewHolder findViewHolderForPosition(int)
     4060:4060:public android.support.v7.widget.RecyclerView$ViewHolder findViewHolderForLayoutPosition(int)
@@ -4894,6 +4893,7 @@ com.faendir.lightning_launcher.multitool.Loader:
     private static final java.lang.String LAUNCHER_SCRIPT
     private static final java.lang.String GESTURE_LAUNCHER
     private static final java.lang.String MUSIC_WIDGET
+    private static final java.lang.String DRAWER
     public static final int FLAG_APP_MENU
     public static final int FLAG_ITEM_MENU
     public static final int FLAG_CUSTOM_MENU
@@ -4924,8 +4924,9 @@ com.faendir.lightning_launcher.multitool.R$xml
 com.faendir.lightning_launcher.multitool.backup.BackupUtils:
     26:26:public BackupUtils()
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager:
-    static final java.lang.String MUSIC_WIDGET
-    static final int SEVEN_DAYS_IN_SECONDS
+    private static final java.lang.String MUSIC_WIDGET
+    private static final java.lang.String DRAWER
+    protected static final int SEVEN_DAYS_IN_SECONDS
 com.faendir.lightning_launcher.multitool.music.MusicManager:
     private static final int ACTION_REGISTER
     private static final int ACTION_UNREGISTER
@@ -4943,92 +4944,47 @@ com.faendir.lightning_launcher.multitool.settings.PrefsFragment:
 com.faendir.lightning_launcher.multitool.util.FileManager$IntentTypeAdapter:
     private static final java.lang.String URI
 com.faendir.lightning_launcher.multitool.util.FileManagerFactory:
-    15:16:private FileManagerFactory()
-com.faendir.lightning_launcher.multitool.util.ListAdapter:
-    private static final int RESOURCE
-com.faendir.omniadapter.Action:
-    public static final int NONE
-    public static final int SELECT
-    public static final int EXPAND
-    public static final int DRAG
-    public static final int REMOVE
-    public static final int MOVE
-    public static final int CUSTOM
-    24:24:public Action()
-com.faendir.omniadapter.Action$BaseAction:
-    80:80:public com.faendir.omniadapter.Action$BaseAction setAction(int,int)
-    84:85:public com.faendir.omniadapter.Action$BaseAction setAction(int,int,int)
-    89:89:public com.faendir.omniadapter.Action$BaseAction setCompositeAction(int,int)
-    93:94:public com.faendir.omniadapter.Action$BaseAction setCompositeAction(int,int,int)
-com.faendir.omniadapter.Action$Click:
-    158:158:public com.faendir.omniadapter.Action$Click setAction(int,int)
-    163:163:public com.faendir.omniadapter.Action$Click setAction(int,int,int)
-    168:168:public com.faendir.omniadapter.Action$Click setCompositeAction(int,int)
-    173:173:public com.faendir.omniadapter.Action$Click setCompositeAction(int,int,int)
-    129:129:public bridge synthetic com.faendir.omniadapter.Action$BaseAction setCompositeAction(int,int,int)
-    129:129:public bridge synthetic com.faendir.omniadapter.Action$BaseAction setCompositeAction(int,int)
-    129:129:public bridge synthetic com.faendir.omniadapter.Action$BaseAction setAction(int,int,int)
-    129:129:public bridge synthetic com.faendir.omniadapter.Action$BaseAction setAction(int,int)
-com.faendir.omniadapter.Action$CompositeAction
-com.faendir.omniadapter.Action$GenericAction
-com.faendir.omniadapter.Action$LongClick:
-    212:212:public com.faendir.omniadapter.Action$LongClick setAction(int,int)
-    217:217:public com.faendir.omniadapter.Action$LongClick setAction(int,int,int)
-    222:222:public com.faendir.omniadapter.Action$LongClick setCompositeAction(int,int)
-    227:227:public com.faendir.omniadapter.Action$LongClick setCompositeAction(int,int,int)
-    183:183:public bridge synthetic com.faendir.omniadapter.Action$BaseAction setCompositeAction(int,int,int)
-    183:183:public bridge synthetic com.faendir.omniadapter.Action$BaseAction setCompositeAction(int,int)
-    183:183:public bridge synthetic com.faendir.omniadapter.Action$BaseAction setAction(int,int,int)
-    183:183:public bridge synthetic com.faendir.omniadapter.Action$BaseAction setAction(int,int)
-com.faendir.omniadapter.Action$LongClickAction
-com.faendir.omniadapter.Action$LongClickCompositeAction
-com.faendir.omniadapter.Action$Swipe:
-    266:266:public com.faendir.omniadapter.Action$Swipe setAction(int,int)
-    271:271:public com.faendir.omniadapter.Action$Swipe setAction(int,int,int)
-    276:276:public com.faendir.omniadapter.Action$Swipe setCompositeAction(int,int)
-    281:281:public com.faendir.omniadapter.Action$Swipe setCompositeAction(int,int,int)
-    237:237:public bridge synthetic com.faendir.omniadapter.Action$BaseAction setCompositeAction(int,int,int)
-    237:237:public bridge synthetic com.faendir.omniadapter.Action$BaseAction setCompositeAction(int,int)
-    237:237:public bridge synthetic com.faendir.omniadapter.Action$BaseAction setAction(int,int,int)
-    237:237:public bridge synthetic com.faendir.omniadapter.Action$BaseAction setAction(int,int)
-com.faendir.omniadapter.Action$UndoableAction
+    14:15:private FileManagerFactory()
+com.faendir.lightning_launcher.multitool.util.PreferenceProvider:
+    private static final java.lang.String AUTHORITY
+    private static final int SHARED_PREFERENCES
 com.faendir.omniadapter.ActionModeHelper
 com.faendir.omniadapter.ActionModeHelper$1
 com.faendir.omniadapter.BuildConfig
-com.faendir.omniadapter.DeepObservableList:
-    33:33:public static com.faendir.omniadapter.DeepObservableList copyOf(java.util.Collection)
-    45:45:public static com.faendir.omniadapter.DeepObservableList wrap(java.util.List)
-    49:64:private DeepObservableList(java.util.Collection)
-    49:69:private DeepObservableList(java.util.List)
-    82:83:public void setFilter(com.faendir.omniadapter.DeepObservableList$VisibleFilter)
 com.faendir.omniadapter.OmniAdapter:
+    public abstract java.util.List getSelectionByLevel(int)
     public varargs abstract void notifyItemsUpdated(com.faendir.omniadapter.model.Component[])
     public abstract void notifyItemsUpdated(java.util.Collection)
+    public abstract void notifyDataSetUpdated()
     public abstract java.util.List getVisible()
     public abstract java.util.List getVisibleByLevel(int)
     public abstract java.util.List getVisibleByParent(com.faendir.omniadapter.model.Component)
+    public abstract java.util.List getVisibleByType(java.lang.Class)
     public abstract int getVisibleCount()
     public abstract void commitPendingUndoIfAny()
     public abstract boolean isVisible(com.faendir.omniadapter.model.Component)
 com.faendir.omniadapter.OmniAdapterImpl:
-    385:388:public final varargs void notifyItemsUpdated(com.faendir.omniadapter.model.Component[])
-    392:395:public void notifyItemsUpdated(java.util.Collection)
-    405:405:public java.util.List getVisible()
-    411:417:public java.util.List getVisibleByLevel(int)
-    423:431:public java.util.List getVisibleByParent(com.faendir.omniadapter.model.Component)
-    436:436:public int getVisibleCount()
-    441:441:public boolean isVisible(com.faendir.omniadapter.model.Component)
+    202:211:public java.util.List getSelectionByLevel(int)
+    402:405:public final varargs void notifyItemsUpdated(com.faendir.omniadapter.model.Component[])
+    409:412:public void notifyItemsUpdated(java.util.Collection)
+    416:417:public void notifyDataSetUpdated()
+    422:422:public java.util.List getVisible()
+    428:434:public java.util.List getVisibleByLevel(int)
+    440:448:public java.util.List getVisibleByParent(com.faendir.omniadapter.model.Component)
+    454:460:public java.util.List getVisibleByType(java.lang.Class)
+    465:465:public int getVisibleCount()
+    470:470:public boolean isVisible(com.faendir.omniadapter.model.Component)
+com.faendir.omniadapter.OmniAdapterImpl$3
 com.faendir.omniadapter.OmniBuilder:
-    97:98:public com.faendir.omniadapter.OmniBuilder setSwipeToLeft(com.faendir.omniadapter.Action$Swipe)
-    107:108:public com.faendir.omniadapter.OmniBuilder setLayoutManager(android.support.v7.widget.RecyclerView$LayoutManager)
-    112:113:public com.faendir.omniadapter.OmniBuilder setHighlightColor(int)
-    117:118:public com.faendir.omniadapter.OmniBuilder setSelectionColor(int)
-    122:123:public com.faendir.omniadapter.OmniBuilder setSelectionMode(com.faendir.omniadapter.model.SelectionMode)
-    132:133:public com.faendir.omniadapter.OmniBuilder setDeselectChildrenOnCollapse(boolean)
-    151:151:public com.faendir.omniadapter.OmniBuilder setUndoButtonText(int)
-    155:156:public com.faendir.omniadapter.OmniBuilder setUndoButtonText(java.lang.String)
-    165:166:public com.faendir.omniadapter.OmniBuilder setInsetDpPerLevel(int)
-    170:171:public com.faendir.omniadapter.OmniBuilder setInsetAsMargin(boolean)
+    99:100:public com.faendir.omniadapter.OmniBuilder setSwipeToLeft(com.faendir.omniadapter.model.Action$Swipe)
+    109:110:public com.faendir.omniadapter.OmniBuilder setLayoutManager(android.support.v7.widget.RecyclerView$LayoutManager)
+    114:115:public com.faendir.omniadapter.OmniBuilder setHighlightColor(int)
+    119:120:public com.faendir.omniadapter.OmniBuilder setSelectionColor(int)
+    124:125:public com.faendir.omniadapter.OmniBuilder setSelectionMode(com.faendir.omniadapter.model.SelectionMode)
+    134:135:public com.faendir.omniadapter.OmniBuilder setDeselectChildrenOnCollapse(boolean)
+    153:153:public com.faendir.omniadapter.OmniBuilder setUndoButtonText(int)
+    157:158:public com.faendir.omniadapter.OmniBuilder setUndoButtonText(java.lang.String)
+    172:173:public com.faendir.omniadapter.OmniBuilder setInsetAsMargin(boolean)
 com.faendir.omniadapter.R:
     9:9:public R()
 com.faendir.omniadapter.R$anim
@@ -5044,18 +5000,67 @@ com.faendir.omniadapter.R$layout
 com.faendir.omniadapter.R$string
 com.faendir.omniadapter.R$style
 com.faendir.omniadapter.R$styleable
-com.faendir.omniadapter.TypedItemTouchHelperCallback:
+com.faendir.omniadapter.model.Action:
+    public static final int NONE
+    public static final int SELECT
+    public static final int EXPAND
+    public static final int DRAG
+    public static final int REMOVE
+    public static final int MOVE
+    public static final int CUSTOM
+    21:21:public Action()
+com.faendir.omniadapter.model.Action$BaseAction:
+    77:77:public com.faendir.omniadapter.model.Action$BaseAction setAction(int,int)
+    81:82:public com.faendir.omniadapter.model.Action$BaseAction setAction(int,int,int)
+    86:86:public com.faendir.omniadapter.model.Action$BaseAction setCompositeAction(int,int)
+    90:91:public com.faendir.omniadapter.model.Action$BaseAction setCompositeAction(int,int,int)
+com.faendir.omniadapter.model.Action$Click:
+    155:155:public com.faendir.omniadapter.model.Action$Click setAction(int,int)
+    160:160:public com.faendir.omniadapter.model.Action$Click setAction(int,int,int)
+    165:165:public com.faendir.omniadapter.model.Action$Click setCompositeAction(int,int)
+    170:170:public com.faendir.omniadapter.model.Action$Click setCompositeAction(int,int,int)
+    126:126:public bridge synthetic com.faendir.omniadapter.model.Action$BaseAction setCompositeAction(int,int,int)
+    126:126:public bridge synthetic com.faendir.omniadapter.model.Action$BaseAction setCompositeAction(int,int)
+    126:126:public bridge synthetic com.faendir.omniadapter.model.Action$BaseAction setAction(int,int,int)
+    126:126:public bridge synthetic com.faendir.omniadapter.model.Action$BaseAction setAction(int,int)
+com.faendir.omniadapter.model.Action$CompositeAction
+com.faendir.omniadapter.model.Action$GenericAction
+com.faendir.omniadapter.model.Action$LongClick:
+    209:209:public com.faendir.omniadapter.model.Action$LongClick setAction(int,int)
+    214:214:public com.faendir.omniadapter.model.Action$LongClick setAction(int,int,int)
+    219:219:public com.faendir.omniadapter.model.Action$LongClick setCompositeAction(int,int)
+    224:224:public com.faendir.omniadapter.model.Action$LongClick setCompositeAction(int,int,int)
+    180:180:public bridge synthetic com.faendir.omniadapter.model.Action$BaseAction setCompositeAction(int,int,int)
+    180:180:public bridge synthetic com.faendir.omniadapter.model.Action$BaseAction setCompositeAction(int,int)
+    180:180:public bridge synthetic com.faendir.omniadapter.model.Action$BaseAction setAction(int,int,int)
+    180:180:public bridge synthetic com.faendir.omniadapter.model.Action$BaseAction setAction(int,int)
+com.faendir.omniadapter.model.Action$LongClickAction
+com.faendir.omniadapter.model.Action$LongClickCompositeAction
+com.faendir.omniadapter.model.Action$Swipe:
+    263:263:public com.faendir.omniadapter.model.Action$Swipe setAction(int,int)
+    268:268:public com.faendir.omniadapter.model.Action$Swipe setAction(int,int,int)
+    273:273:public com.faendir.omniadapter.model.Action$Swipe setCompositeAction(int,int)
+    278:278:public com.faendir.omniadapter.model.Action$Swipe setCompositeAction(int,int,int)
+    234:234:public bridge synthetic com.faendir.omniadapter.model.Action$BaseAction setCompositeAction(int,int,int)
+    234:234:public bridge synthetic com.faendir.omniadapter.model.Action$BaseAction setCompositeAction(int,int)
+    234:234:public bridge synthetic com.faendir.omniadapter.model.Action$BaseAction setAction(int,int,int)
+    234:234:public bridge synthetic com.faendir.omniadapter.model.Action$BaseAction setAction(int,int)
+com.faendir.omniadapter.model.Action$UndoableAction
+com.faendir.omniadapter.model.DeepObservableList:
+    52:52:public static com.faendir.omniadapter.model.DeepObservableList wrap(java.lang.Class,java.util.List)
+    57:83:private DeepObservableList(java.lang.Class,java.util.List)
+com.faendir.omniadapter.utils.TypedItemTouchHelperCallback:
     25:26:void setDefaultSwipeDirs(int)
     29:30:void setDefaultDragDirs(int)
-com.faendir.omniadapter.TypedItemTouchHelperCallback$Wrapper:
+com.faendir.omniadapter.utils.TypedItemTouchHelperCallback$Wrapper:
     130:131:public void setDefaultSwipeDirs(int)
     135:136:public void setDefaultDragDirs(int)
     249:250:private void $setDefaultSwipeDirs(int)
     253:254:private void $setDefaultDragDirs(int)
-    120:120:static synthetic void access$100(com.faendir.omniadapter.TypedItemTouchHelperCallback$Wrapper,int)
-    120:120:static synthetic void access$200(com.faendir.omniadapter.TypedItemTouchHelperCallback$Wrapper,int)
-com.faendir.omniadapter.Utils:
-    36:36:Utils()
+    120:120:static synthetic void access$100(com.faendir.omniadapter.utils.TypedItemTouchHelperCallback$Wrapper,int)
+    120:120:static synthetic void access$200(com.faendir.omniadapter.utils.TypedItemTouchHelperCallback$Wrapper,int)
+com.faendir.omniadapter.utils.Utils:
+    38:38:public Utils()
 com.google.gson.DefaultDateTypeAdapter:
     54:55:DefaultDateTypeAdapter(int)
 com.google.gson.FieldAttributes:
@@ -5106,6 +5111,7 @@ com.google.gson.GsonBuilder:
     408:409:public com.google.gson.GsonBuilder setDateFormat(java.lang.String)
     427:429:public com.google.gson.GsonBuilder setDateFormat(int)
     448:451:public com.google.gson.GsonBuilder setDateFormat(int,int)
+    498:499:public com.google.gson.GsonBuilder registerTypeAdapterFactory(com.google.gson.TypeAdapterFactory)
     518:528:public com.google.gson.GsonBuilder registerTypeHierarchyAdapter(java.lang.Class,java.lang.Object)
     552:553:public com.google.gson.GsonBuilder serializeSpecialFloatingPointValues()
 com.google.gson.JsonArray:
@@ -5265,6 +5271,8 @@ com.google.gson.reflect.TypeToken:
     240:250:private static boolean typeEquals(java.lang.reflect.ParameterizedType,java.lang.reflect.ParameterizedType,java.util.Map)
     257:265:private static varargs java.lang.AssertionError buildUnexpectedTypeError(java.lang.reflect.Type,java.lang.Class[])
     273:275:private static boolean matches(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)
+    311:311:public static varargs com.google.gson.reflect.TypeToken getParameterized(java.lang.reflect.Type,java.lang.reflect.Type[])
+    318:318:public static com.google.gson.reflect.TypeToken getArray(java.lang.reflect.Type)
 com.google.gson.stream.JsonReader:
     private static final long MIN_INCOMPLETE_INTEGER
     private static final int PEEKED_NONE
@@ -6319,7 +6327,7 @@ com.nononsenseapps.filepicker.AbstractFilePickerFragment:
     public static final java.lang.String KEY_ALLOW_EXISTING_FILE
     public static final java.lang.String KEY_SINGLE_CLICK
     protected static final java.lang.String KEY_CURRENT_PATH
-    109:109:protected com.nononsenseapps.filepicker.FileItemAdapter getAdapter()
+    111:111:protected com.nononsenseapps.filepicker.FileItemAdapter getAdapter()
 com.nononsenseapps.filepicker.BuildConfig
 com.nononsenseapps.filepicker.FileItemAdapter:
     76:79:protected java.lang.Object getItem(int)
@@ -6336,20 +6344,21 @@ com.nononsenseapps.filepicker.NewFolderFragment:
 com.nononsenseapps.filepicker.R:
     9:9:public R()
 com.nononsenseapps.filepicker.R$anim
-com.nononsenseapps.filepicker.R$attr
+com.nononsenseapps.filepicker.R$attr:
+    22:22:public R$attr()
 com.nononsenseapps.filepicker.R$bool
 com.nononsenseapps.filepicker.R$color
 com.nononsenseapps.filepicker.R$dimen
 com.nononsenseapps.filepicker.R$drawable
 com.nononsenseapps.filepicker.R$id:
-    471:471:public R$id()
+    521:521:public R$id()
 com.nononsenseapps.filepicker.R$integer
 com.nononsenseapps.filepicker.R$layout:
-    588:588:public R$layout()
+    642:642:public R$layout()
 com.nononsenseapps.filepicker.R$menu:
-    632:632:public R$menu()
+    687:687:public R$menu()
 com.nononsenseapps.filepicker.R$string:
-    635:635:public R$string()
+    690:690:public R$string()
 com.nononsenseapps.filepicker.R$style
 com.nononsenseapps.filepicker.R$styleable
 com.nononsenseapps.filepicker.Utils:
@@ -6373,13 +6382,17 @@ com.trianguloy.llscript.repository.aidl.Script:
     public static final int FLAG_APP_MENU
     public static final int FLAG_ITEM_MENU
     public static final int FLAG_CUSTOM_MENU
-    51:51:public java.lang.String getCode()
-    55:56:public void setCode(java.lang.String)
-    60:60:public int getFlags()
-    64:65:public void setFlags(int)
-    68:68:public java.lang.String getName()
-    72:73:public void setName(java.lang.String)
-    76:81:public boolean isValid()
+    43:44:public Script(java.lang.String,java.lang.String,int)
+    53:54:public Script(android.content.Context,int,java.lang.String,int)
+    61:61:public java.lang.String getCode()
+    65:66:public void setCode(java.lang.String)
+    70:70:public int getFlags()
+    74:75:public void setFlags(int)
+    78:78:public java.lang.String getName()
+    82:83:public void setName(java.lang.String)
+    86:86:public java.lang.String getPath()
+    90:91:public void setPath(java.lang.String)
+    94:99:public boolean isValid()
 com.trianguloy.llscript.repository.aidl.Script$ScriptFlag
 org.apache.commons.collections4.ArrayStack
 org.apache.commons.collections4.Bag

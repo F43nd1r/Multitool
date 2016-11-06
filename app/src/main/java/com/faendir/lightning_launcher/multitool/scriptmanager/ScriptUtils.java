@@ -68,7 +68,7 @@ final class ScriptUtils {
         items.visitDeep(new DeepObservableList.ComponentVisitor<ScriptItem>() {
             @Override
             public void visit(ScriptItem component, int level) {
-                if(component instanceof Script){
+                if (component instanceof Script) {
                     Script script = (Script) component;
                     boolean isFirst = true;
                     String[] lines = script.getCode().split("\n");
@@ -126,8 +126,8 @@ final class ScriptUtils {
                         }
                     })
                     .start();
-        }else if(item instanceof Folder){
-
+        } else if (item instanceof Folder) {
+//TODO
         }
         listManager.changed(item);
         listManager.deselectAll();

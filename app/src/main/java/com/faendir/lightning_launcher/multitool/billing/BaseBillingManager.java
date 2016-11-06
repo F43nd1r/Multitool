@@ -3,10 +3,15 @@ package com.faendir.lightning_launcher.multitool.billing;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.provider.Settings;
+import android.support.annotation.StringRes;
+import android.support.annotation.WorkerThread;
 
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.TransactionDetails;
 import com.faendir.lightning_launcher.multitool.R;
+
+import org.apache.commons.collections4.BidiMap;
+import org.apache.commons.collections4.bidimap.DualHashBidiMap;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,11 +33,13 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
         EXPIRED
     }
 
-    static final String MUSIC_WIDGET = "music_widget";
-    static final int SEVEN_DAYS_IN_SECONDS = 60 * 60 * 24 * 7;
+    private static final String MUSIC_WIDGET = "music_widget";
+    private static final String DRAWER = "drawer";
+    protected static final int SEVEN_DAYS_IN_SECONDS = 60 * 60 * 24 * 7;
     private final Context context;
     private final BillingProcessor billingProcessor;
-    private final Map<String, Long> expiration;
+    protected final Map<String, Long> expiration;
+    protected final BidiMap<Integer, String> mapping;
 
     public BaseBillingManager(Context context) {
         billingProcessor = new BillingProcessor(context, "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr" +
@@ -43,6 +50,9 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
                 "ffU1hwIDAQAB", this);
         this.context = context;
         expiration = new HashMap<>();
+        mapping = new DualHashBidiMap<>();
+        mapping.put(R.string.title_musicWidget, MUSIC_WIDGET);
+        mapping.put(R.string.title_drawer, DRAWER);
     }
 
     @Override
@@ -71,12 +81,10 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
         billingProcessor.release();
     }
 
-    public boolean isBoughtOrTrial(long id) {
-        if (id == R.string.title_musicWidget) {
-            return billingProcessor.isPurchased(MUSIC_WIDGET) || isTrial(MUSIC_WIDGET) == TrialState.ONGOING;
-        } else {
-            return true;
-        }
+    @WorkerThread
+    public boolean isBoughtOrTrial(@StringRes int id) {
+        String name = mapping.get(id);
+        return name == null || billingProcessor.isPurchased(name) || isTrial(name) == TrialState.ONGOING;
     }
 
     protected TrialState isTrial(String productId) {

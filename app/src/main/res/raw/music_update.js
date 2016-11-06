@@ -1,8 +1,8 @@
 var MY_PKG = "com.faendir.lightning_launcher.multitool";
 // install (or update) a script given its id in the package, and its clear name in the launcher data
-function installScript(id, name, pathSuffix) {
+function installScript(id, name) {
     // use our package name to classify scripts
-    var path = '/' + MY_PKG.replace(/\./g, '/') + '/' + pathSuffix;
+    var path = '/' + MY_PKG.replace(/\./g, '/') + "/music";
 
     // load the script (if any) among the existing ones
     var script = getScriptByPathAndName(path, name);
@@ -19,8 +19,8 @@ function installScript(id, name, pathSuffix) {
     }
     return script;
 }
-var load = installScript("music_load", "load", "music");
-var resume = installScript("music_resume", "resume", "music");
-var pause = installScript("music_pause", "pause", "music");
-var command = installScript("music_command", "command", "music");
+var load = installScript("music_load", "load");
+var resume = installScript("music_resume", "resume");
+var pause = installScript("music_pause", "pause");
+var command = installScript("music_command", "command");
 Toast.makeText(LL.getContext(),"Done",Toast.LENGTH_SHORT).show();
