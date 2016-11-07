@@ -17502,34 +17502,35 @@ com.faendir.lightning_launcher.multitool.music.MusicFragment -> com.faendir.ligh
     android.widget.TextView title -> b
     android.widget.TextView album -> c
     android.widget.TextView artist -> d
-    com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper binder -> e
-    android.content.ServiceConnection connection -> f
-    boolean isBound -> g
-    boolean calledAtLeastOnce -> h
-    38:46:void <init>() -> <init>
-    50:66:void onCreate(android.os.Bundle) -> onCreate
-    71:76:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    81:83:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
-    87:95:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    101:118:void onResume() -> onResume
-    122:127:void onPause() -> onPause
-    131:136:void onDestroy() -> onDestroy
-    140:145:void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> a
-    149:165:void onClick(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onClick
-    38:38:com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper access$002(com.faendir.lightning_launcher.multitool.music.MusicFragment,com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper) -> a
-    38:38:boolean access$102(com.faendir.lightning_launcher.multitool.music.MusicFragment,boolean) -> a
-    38:38:com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper access$000(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> a
-    38:38:boolean access$200(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> b
-    38:38:boolean access$202(com.faendir.lightning_launcher.multitool.music.MusicFragment,boolean) -> b
+    android.widget.ImageView player -> e
+    com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper binder -> f
+    android.content.ServiceConnection connection -> g
+    boolean isBound -> h
+    boolean calledAtLeastOnce -> i
+    39:48:void <init>() -> <init>
+    52:68:void onCreate(android.os.Bundle) -> onCreate
+    73:79:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    84:86:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
+    90:98:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    104:121:void onResume() -> onResume
+    125:130:void onPause() -> onPause
+    134:139:void onDestroy() -> onDestroy
+    143:153:void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    157:173:void onClick(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onClick
+    39:39:com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper access$002(com.faendir.lightning_launcher.multitool.music.MusicFragment,com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper) -> a
+    39:39:boolean access$102(com.faendir.lightning_launcher.multitool.music.MusicFragment,boolean) -> a
+    39:39:com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper access$000(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> a
+    39:39:boolean access$200(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> b
+    39:39:boolean access$202(com.faendir.lightning_launcher.multitool.music.MusicFragment,boolean) -> b
 com.faendir.lightning_launcher.multitool.music.MusicFragment$1 -> com.faendir.lightning_launcher.multitool.music.a$1:
     com.faendir.lightning_launcher.multitool.music.MusicFragment this$0 -> a
-    53:53:void <init>(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> <init>
-    56:57:void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
-    61:63:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+    55:55:void <init>(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> <init>
+    58:59:void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    63:65:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
 com.faendir.lightning_launcher.multitool.music.MusicFragment$2 -> com.faendir.lightning_launcher.multitool.music.a$2:
     com.faendir.lightning_launcher.multitool.music.MusicFragment this$0 -> a
-    103:103:void <init>(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> <init>
-    106:116:void run() -> run
+    106:106:void <init>(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> <init>
+    109:119:void run() -> run
 com.faendir.lightning_launcher.multitool.music.MusicManager -> com.faendir.lightning_launcher.multitool.music.MusicManager:
     java.util.List PLAYING_STATES -> a
     org.apache.commons.collections4.BidiMap controllers -> b
@@ -17540,17 +17541,18 @@ com.faendir.lightning_launcher.multitool.music.MusicManager -> com.faendir.light
     java.lang.String title -> g
     java.lang.String album -> h
     java.lang.String artist -> i
-    android.os.Messenger messenger -> j
-    java.lang.ref.WeakReference currentController -> k
-    83:88:void <init>() -> <init>
-    92:92:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    97:99:void onCreate() -> onCreate
-    102:111:void updateCurrentInfo(android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> a
-    115:151:void onActiveSessionsChanged(java.util.List) -> onActiveSessionsChanged
-    155:166:void startDefaultPlayerWithKeyCode(int) -> a
-    171:189:android.os.IBinder onBind(android.content.Intent) -> onBind
-    194:221:void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
-    224:228:void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
+    java.lang.String packageName -> j
+    android.os.Messenger messenger -> k
+    java.lang.ref.WeakReference currentController -> l
+    84:89:void <init>() -> <init>
+    93:93:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    98:100:void onCreate() -> onCreate
+    103:113:void updateCurrentInfo(android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> a
+    117:153:void onActiveSessionsChanged(java.util.List) -> onActiveSessionsChanged
+    157:168:void startDefaultPlayerWithKeyCode(int) -> a
+    173:191:android.os.IBinder onBind(android.content.Intent) -> onBind
+    196:223:void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
+    226:230:void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
     61:61:java.util.List access$300() -> a
     61:61:java.lang.ref.WeakReference access$400(com.faendir.lightning_launcher.multitool.music.MusicManager) -> a
     61:61:org.apache.commons.collections4.BidiMap access$500(com.faendir.lightning_launcher.multitool.music.MusicManager) -> b
@@ -17563,37 +17565,37 @@ com.faendir.lightning_launcher.multitool.music.MusicManager -> com.faendir.light
 com.faendir.lightning_launcher.multitool.music.MusicManager$1 -> com.faendir.lightning_launcher.multitool.music.MusicManager$1:
     java.util.concurrent.atomic.AtomicBoolean val$isAllowed -> a
     com.faendir.lightning_launcher.multitool.music.MusicManager this$0 -> b
-    172:172:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,java.util.concurrent.atomic.AtomicBoolean) -> <init>
-    175:176:void run() -> run
+    174:174:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,java.util.concurrent.atomic.AtomicBoolean) -> <init>
+    177:178:void run() -> run
 com.faendir.lightning_launcher.multitool.music.MusicManager$2 -> com.faendir.lightning_launcher.multitool.music.MusicManager$2:
     com.faendir.lightning_launcher.multitool.music.MusicManager this$0 -> a
-    200:200:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,android.os.Handler) -> <init>
-    203:209:void onReceiveResult(int,android.os.Bundle) -> onReceiveResult
+    202:202:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,android.os.Handler) -> <init>
+    205:211:void onReceiveResult(int,android.os.Bundle) -> onReceiveResult
 com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper -> com.faendir.lightning_launcher.multitool.music.MusicManager$a:
     android.os.Messenger messenger -> a
-    417:419:void <init>(android.os.IBinder) -> <init>
-    422:429:void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
-    432:439:void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
-    442:448:void togglePlay() -> a
-    451:457:void next() -> b
-    460:466:void previous() -> c
+    415:417:void <init>(android.os.IBinder) -> <init>
+    420:427:void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
+    430:437:void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
+    440:446:void togglePlay() -> a
+    449:455:void next() -> b
+    458:464:void previous() -> c
 com.faendir.lightning_launcher.multitool.music.MusicManager$Callback -> com.faendir.lightning_launcher.multitool.music.MusicManager$b:
     android.media.MediaMetadata metadata -> b
     android.media.session.PlaybackState playbackState -> c
     android.graphics.Bitmap bitmap -> d
     boolean hasRequestedAlbumArt -> e
     com.faendir.lightning_launcher.multitool.music.MusicManager this$0 -> a
-    230:230:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager) -> <init>
-    238:242:void onPlaybackStateChanged(android.media.session.PlaybackState) -> onPlaybackStateChanged
-    246:249:void onMetadataChanged(android.media.MediaMetadata) -> onMetadataChanged
-    252:267:void update() -> b
+    232:232:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager) -> <init>
+    240:244:void onPlaybackStateChanged(android.media.session.PlaybackState) -> onPlaybackStateChanged
+    248:251:void onMetadataChanged(android.media.MediaMetadata) -> onMetadataChanged
+    254:267:void update() -> b
     271:286:android.graphics.Bitmap loadBitmapForKeys(java.lang.String[]) -> a
     290:297:void push() -> c
     300:303:void recycle() -> a
-    230:230:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
-    230:230:void access$200(com.faendir.lightning_launcher.multitool.music.MusicManager$Callback) -> a
+    232:232:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
+    232:232:void access$200(com.faendir.lightning_launcher.multitool.music.MusicManager$Callback) -> a
 com.faendir.lightning_launcher.multitool.music.MusicManager$Listener -> com.faendir.lightning_launcher.multitool.music.MusicManager$c:
-    void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> a
+    void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
 com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler -> com.faendir.lightning_launcher.multitool.music.MusicManager$d:
     java.lang.ref.WeakReference musicManager -> a
     309:311:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager) -> <init>
@@ -17601,11 +17603,10 @@ com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler -> com.
     306:306:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
 com.faendir.lightning_launcher.multitool.music.MusicManager$MessengerListener -> com.faendir.lightning_launcher.multitool.music.MusicManager$e:
     android.os.Messenger messenger -> a
-    android.content.Context context -> b
-    382:385:void <init>(android.os.Messenger,android.content.Context) -> <init>
-    389:403:void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> a
-    406:406:boolean hasMessenger(android.os.Messenger) -> a
-    378:378:void <init>(android.os.Messenger,android.content.Context,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
+    381:383:void <init>(android.os.Messenger) -> <init>
+    387:401:void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    404:404:boolean hasMessenger(android.os.Messenger) -> a
+    378:378:void <init>(android.os.Messenger,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
     378:378:boolean access$1000(com.faendir.lightning_launcher.multitool.music.MusicManager$MessengerListener,android.os.Messenger) -> a
 com.faendir.lightning_launcher.multitool.scriptmanager.Folder -> com.faendir.lightning_launcher.multitool.scriptmanager.Folder:
     java.lang.String name -> name
@@ -17952,30 +17953,16 @@ com.faendir.lightning_launcher.multitool.util.BaseActivity -> com.faendir.lightn
     38:43:void initLayout() -> initLayout
     46:48:android.support.v7.widget.Toolbar initToolbar() -> initToolbar
     52:52:android.support.v7.widget.Toolbar getToolbar() -> getToolbar
-com.faendir.lightning_launcher.multitool.util.BaseIntentHandlerListTask -> com.faendir.lightning_launcher.multitool.util.b:
-    android.content.pm.PackageManager pm -> a
-    android.content.Intent intent -> b
-    boolean isIndirect -> c
-    com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget target -> d
-    boolean useApplicationLabel -> e
-    27:33:void <init>(android.content.pm.PackageManager,android.content.Intent,boolean,com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget,boolean) -> <init>
-    37:59:java.util.List doInBackground(java.lang.Void[]) -> a
-    63:69:java.util.List queryInfos() -> a
-    74:74:java.lang.String getLabel(android.content.pm.ResolveInfo) -> a
-    19:19:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.faendir.lightning_launcher.multitool.util.BaseIntentHandlerListTask$1 -> com.faendir.lightning_launcher.multitool.util.b$1:
-    int[] $SwitchMap$com$faendir$lightning_launcher$multitool$util$IntentChooser$IntentTarget -> a
-    63:63:void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.multitool.util.DrawableProvider -> com.faendir.lightning_launcher.multitool.util.c:
+com.faendir.lightning_launcher.multitool.util.DrawableProvider -> com.faendir.lightning_launcher.multitool.util.b:
     android.graphics.drawable.Drawable getDrawable() -> a
-com.faendir.lightning_launcher.multitool.util.DrawerManager -> com.faendir.lightning_launcher.multitool.util.d:
+com.faendir.lightning_launcher.multitool.util.DrawerManager -> com.faendir.lightning_launcher.multitool.util.c:
     android.content.Context context -> a
     com.mikepenz.materialdrawer.Drawer drawer -> b
     25:29:void <init>(android.content.Context,com.mikepenz.materialdrawer.Drawer) -> <init>
     32:36:boolean closeDrawer() -> a
     41:45:boolean openDrawer() -> b
     51:82:boolean onItemClick(android.view.View,int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem) -> a
-com.faendir.lightning_launcher.multitool.util.FileManager -> com.faendir.lightning_launcher.multitool.util.e:
+com.faendir.lightning_launcher.multitool.util.FileManager -> com.faendir.lightning_launcher.multitool.util.d:
     java.lang.Class clazz -> a
     java.io.File file -> b
     com.google.gson.Gson gson -> c
@@ -17984,19 +17971,19 @@ com.faendir.lightning_launcher.multitool.util.FileManager -> com.faendir.lightni
     56:57:void allowGlobalRead() -> a
     61:67:java.util.List read() -> b
     73:92:void write(java.util.List) -> a
-com.faendir.lightning_launcher.multitool.util.FileManager$1 -> com.faendir.lightning_launcher.multitool.util.e$1:
-com.faendir.lightning_launcher.multitool.util.FileManager$FatalFileException -> com.faendir.lightning_launcher.multitool.util.e$a:
+com.faendir.lightning_launcher.multitool.util.FileManager$1 -> com.faendir.lightning_launcher.multitool.util.d$1:
+com.faendir.lightning_launcher.multitool.util.FileManager$FatalFileException -> com.faendir.lightning_launcher.multitool.util.d$a:
     96:97:void <init>(java.lang.Exception) -> <init>
-com.faendir.lightning_launcher.multitool.util.FileManager$IntentTypeAdapter -> com.faendir.lightning_launcher.multitool.util.e$b:
+com.faendir.lightning_launcher.multitool.util.FileManager$IntentTypeAdapter -> com.faendir.lightning_launcher.multitool.util.d$b:
     100:100:void <init>() -> <init>
     105:113:void write(com.google.gson.stream.JsonWriter,android.content.Intent) -> a
     117:128:android.content.Intent read(com.google.gson.stream.JsonReader) -> a
     100:100:java.lang.Object read(com.google.gson.stream.JsonReader) -> b
     100:100:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> a
     100:100:void <init>(com.faendir.lightning_launcher.multitool.util.FileManager$1) -> <init>
-com.faendir.lightning_launcher.multitool.util.FileManagerFactory -> com.faendir.lightning_launcher.multitool.util.f:
+com.faendir.lightning_launcher.multitool.util.FileManagerFactory -> com.faendir.lightning_launcher.multitool.util.e:
     19:19:com.faendir.lightning_launcher.multitool.util.FileManager createGestureFileManager(android.content.Context) -> a
-com.faendir.lightning_launcher.multitool.util.FragmentManager -> com.faendir.lightning_launcher.multitool.util.g:
+com.faendir.lightning_launcher.multitool.util.FragmentManager -> com.faendir.lightning_launcher.multitool.util.f:
     com.faendir.lightning_launcher.multitool.MainActivity context -> a
     android.app.FragmentManager manager -> b
     android.content.SharedPreferences sharedPref -> c
@@ -18016,68 +18003,76 @@ com.faendir.lightning_launcher.multitool.util.FragmentManager -> com.faendir.lig
     30:30:com.faendir.lightning_launcher.multitool.MainActivity access$500(com.faendir.lightning_launcher.multitool.util.FragmentManager) -> f
     30:30:android.content.SharedPreferences access$600(com.faendir.lightning_launcher.multitool.util.FragmentManager) -> g
     30:30:int access$102(com.faendir.lightning_launcher.multitool.util.FragmentManager,int) -> a
-com.faendir.lightning_launcher.multitool.util.FragmentManager$1 -> com.faendir.lightning_launcher.multitool.util.g$1:
+com.faendir.lightning_launcher.multitool.util.FragmentManager$1 -> com.faendir.lightning_launcher.multitool.util.f$1:
     com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest val$request -> a
     com.faendir.lightning_launcher.multitool.util.FragmentManager this$0 -> b
     59:59:void <init>(com.faendir.lightning_launcher.multitool.util.FragmentManager,com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest) -> <init>
     62:64:void run() -> run
-com.faendir.lightning_launcher.multitool.util.FragmentManager$2 -> com.faendir.lightning_launcher.multitool.util.g$2:
+com.faendir.lightning_launcher.multitool.util.FragmentManager$2 -> com.faendir.lightning_launcher.multitool.util.f$2:
     com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest val$request -> a
     java.lang.String val$finalName -> b
     com.faendir.lightning_launcher.multitool.util.FragmentManager this$0 -> c
     68:68:void <init>(com.faendir.lightning_launcher.multitool.util.FragmentManager,com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest,java.lang.String) -> <init>
     71:107:void run() -> run
 com.faendir.lightning_launcher.multitool.util.IntentChooser -> com.faendir.lightning_launcher.multitool.util.IntentChooser:
-    31:32:void <init>() -> <init>
-    36:63:void onCreate(android.os.Bundle) -> onCreate
-    66:78:void loadApps(android.content.Intent,com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget,boolean) -> a
-    81:93:void loadShortcuts() -> a
-    97:103:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    107:116:void handleSelection(com.faendir.lightning_launcher.multitool.util.IntentInfo) -> b
-    120:130:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    133:138:void setResult(android.content.Intent,java.lang.String) -> a
-    141:142:void nullIntent() -> b
-    146:146:android.view.View createView(android.view.ViewGroup,int) -> createView
-    151:157:void bindView(android.view.View,com.faendir.lightning_launcher.multitool.util.IntentInfo,int) -> a
-    161:161:boolean shouldMove(com.faendir.lightning_launcher.multitool.util.IntentInfo,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int) -> a
-    166:166:boolean isSelectable(com.faendir.lightning_launcher.multitool.util.IntentInfo) -> a
-    171:171:boolean shouldSwipe(com.faendir.lightning_launcher.multitool.util.IntentInfo,int) -> a
-    176:176:boolean allowClick(com.faendir.omniadapter.model.Component,int) -> a
-    181:182:void onClick(com.faendir.omniadapter.model.Component,int) -> onClick
-    28:28:boolean shouldSwipe(com.faendir.omniadapter.model.Component,int) -> shouldSwipe
-    28:28:boolean isSelectable(com.faendir.omniadapter.model.Component) -> isSelectable
-    28:28:boolean shouldMove(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int) -> shouldMove
-    28:28:void bindView(android.view.View,com.faendir.omniadapter.model.Component,int) -> bindView
-com.faendir.lightning_launcher.multitool.util.IntentChooser$1 -> com.faendir.lightning_launcher.multitool.util.IntentChooser$1:
-    com.faendir.lightning_launcher.multitool.util.IntentChooser this$0 -> a
-    66:66:void <init>(com.faendir.lightning_launcher.multitool.util.IntentChooser,android.content.pm.PackageManager,android.content.Intent,boolean,com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget,boolean) -> <init>
-    69:76:void onPostExecute(java.util.List) -> a
-    66:66:void onPostExecute(java.lang.Object) -> onPostExecute
-com.faendir.lightning_launcher.multitool.util.IntentChooser$2 -> com.faendir.lightning_launcher.multitool.util.IntentChooser$2:
-    com.faendir.lightning_launcher.multitool.util.IntentChooser this$0 -> a
-    81:81:void <init>(com.faendir.lightning_launcher.multitool.util.IntentChooser,android.content.pm.PackageManager,android.content.Intent,boolean,com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget,boolean) -> <init>
-    84:91:void onPostExecute(java.util.List) -> a
-    81:81:void onPostExecute(java.lang.Object) -> onPostExecute
+    32:33:void <init>() -> <init>
+    37:64:void onCreate(android.os.Bundle) -> onCreate
+    67:68:void loadApps(android.content.Intent,com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget,boolean) -> a
+    71:72:void loadShortcuts() -> a
+    76:82:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    86:95:void handleSelection(com.faendir.lightning_launcher.multitool.util.IntentInfo) -> b
+    99:109:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    112:117:void setResult(android.content.Intent,java.lang.String) -> a
+    120:121:void nullIntent() -> b
+    125:125:android.view.View createView(android.view.ViewGroup,int) -> createView
+    130:136:void bindView(android.view.View,com.faendir.lightning_launcher.multitool.util.IntentInfo,int) -> a
+    140:140:boolean shouldMove(com.faendir.lightning_launcher.multitool.util.IntentInfo,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int) -> a
+    145:145:boolean isSelectable(com.faendir.lightning_launcher.multitool.util.IntentInfo) -> a
+    150:150:boolean shouldSwipe(com.faendir.lightning_launcher.multitool.util.IntentInfo,int) -> a
+    155:155:boolean allowClick(com.faendir.omniadapter.model.Component,int) -> a
+    160:161:void onClick(com.faendir.omniadapter.model.Component,int) -> onClick
+    29:29:boolean shouldSwipe(com.faendir.omniadapter.model.Component,int) -> shouldSwipe
+    29:29:boolean isSelectable(com.faendir.omniadapter.model.Component) -> isSelectable
+    29:29:boolean shouldMove(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int) -> shouldMove
+    29:29:void bindView(android.view.View,com.faendir.omniadapter.model.Component,int) -> bindView
 com.faendir.lightning_launcher.multitool.util.IntentChooser$Builder -> com.faendir.lightning_launcher.multitool.util.IntentChooser$a:
     android.app.Activity context -> a
     android.app.Fragment fragment -> b
     android.content.Intent intent -> c
-    195:196:void <init>(android.app.Activity) -> <init>
-    199:200:void <init>(android.app.Fragment) -> <init>
-    202:207:void <init>(android.app.Activity,android.app.Fragment) -> <init>
-    210:216:void setDefaults() -> a
-    219:220:com.faendir.lightning_launcher.multitool.util.IntentChooser$Builder enableShortcuts() -> b
-    224:226:com.faendir.lightning_launcher.multitool.util.IntentChooser$Builder useIntent(android.content.Intent,com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget) -> a
-    230:231:com.faendir.lightning_launcher.multitool.util.IntentChooser$Builder useApplicationInfo() -> c
-    235:240:void startForResult(int) -> a
+    174:175:void <init>(android.app.Activity) -> <init>
+    178:179:void <init>(android.app.Fragment) -> <init>
+    181:186:void <init>(android.app.Activity,android.app.Fragment) -> <init>
+    189:195:void setDefaults() -> a
+    198:199:com.faendir.lightning_launcher.multitool.util.IntentChooser$Builder enableShortcuts() -> b
+    203:205:com.faendir.lightning_launcher.multitool.util.IntentChooser$Builder useIntent(android.content.Intent,com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget) -> a
+    209:210:com.faendir.lightning_launcher.multitool.util.IntentChooser$Builder useApplicationInfo() -> c
+    214:219:void startForResult(int) -> a
 com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget -> com.faendir.lightning_launcher.multitool.util.IntentChooser$b:
     com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget ACTIVITY -> a
     com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget BROADCAST_RECEIVER -> b
     com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget[] $VALUES -> c
-    184:184:com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget[] values() -> values
-    184:184:com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget valueOf(java.lang.String) -> valueOf
-    184:184:void <init>(java.lang.String,int) -> <init>
-    184:186:void <clinit>() -> <clinit>
+    163:163:com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget[] values() -> values
+    163:163:com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget valueOf(java.lang.String) -> valueOf
+    163:163:void <init>(java.lang.String,int) -> <init>
+    163:165:void <clinit>() -> <clinit>
+com.faendir.lightning_launcher.multitool.util.IntentHandlerListTask -> com.faendir.lightning_launcher.multitool.util.g:
+    com.faendir.lightning_launcher.multitool.util.IntentChooser context -> a
+    android.content.pm.PackageManager pm -> b
+    android.content.Intent intent -> c
+    boolean isIndirect -> d
+    com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget target -> e
+    boolean useApplicationLabel -> f
+    int rootId -> g
+    41:49:void <init>(com.faendir.lightning_launcher.multitool.util.IntentChooser,android.content.Intent,boolean,com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget,boolean,int) -> <init>
+    53:75:java.util.List doInBackground(java.lang.Void[]) -> a
+    80:91:void onPostExecute(java.util.List) -> a
+    94:100:java.util.List queryInfos() -> a
+    105:105:java.lang.String getLabel(android.content.pm.ResolveInfo) -> a
+    30:30:void onPostExecute(java.lang.Object) -> onPostExecute
+    30:30:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+com.faendir.lightning_launcher.multitool.util.IntentHandlerListTask$1 -> com.faendir.lightning_launcher.multitool.util.g$1:
+    int[] $SwitchMap$com$faendir$lightning_launcher$multitool$util$IntentChooser$IntentTarget -> a
+    94:94:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.util.IntentInfo -> com.faendir.lightning_launcher.multitool.util.IntentInfo:
     java.lang.ref.SoftReference icon -> icon
     com.faendir.lightning_launcher.multitool.util.DrawableProvider provider -> provider
@@ -18089,6 +18084,8 @@ com.faendir.lightning_launcher.multitool.util.IntentInfo -> com.faendir.lightnin
     41:41:android.content.Intent getIntent() -> getIntent
     45:45:java.lang.String getText() -> getText
     49:49:boolean isIndirect() -> isIndirect
+    54:54:int compareTo(com.faendir.lightning_launcher.multitool.util.IntentInfo) -> compareTo
+    15:15:int compareTo(java.lang.Object) -> compareTo
 com.faendir.lightning_launcher.multitool.util.PreferenceProvider -> com.faendir.lightning_launcher.multitool.util.PreferenceProvider:
     android.content.UriMatcher URI_MATCHER -> a
     android.content.SharedPreferences sharedPref -> b
@@ -28141,23 +28138,31 @@ org.apache.commons.collections4.collection.AbstractCollectionDecorator -> org.a.
     165:165:boolean removeAll(java.util.Collection) -> removeAll
     170:170:boolean retainAll(java.util.Collection) -> retainAll
     175:175:java.lang.String toString() -> toString
-org.apache.commons.collections4.iterators.AbstractIteratorDecorator -> org.a.a.a.c.a:
+org.apache.commons.collections4.comparators.ComparableComparator -> org.a.a.a.c.a:
+    org.apache.commons.collections4.comparators.ComparableComparator INSTANCE -> a
+    76:77:void <init>() -> <init>
+    95:95:int compare(java.lang.Comparable,java.lang.Comparable) -> a
+    108:108:int hashCode() -> hashCode
+    126:126:boolean equals(java.lang.Object) -> equals
+    43:43:int compare(java.lang.Object,java.lang.Object) -> compare
+    50:50:void <clinit>() -> <clinit>
+org.apache.commons.collections4.iterators.AbstractIteratorDecorator -> org.a.a.a.d.a:
     39:40:void <init>(java.util.Iterator) -> <init>
     44:44:java.lang.Object next() -> next
-org.apache.commons.collections4.iterators.AbstractUntypedIteratorDecorator -> org.a.a.a.c.b:
+org.apache.commons.collections4.iterators.AbstractUntypedIteratorDecorator -> org.a.a.a.d.b:
     java.util.Iterator iterator -> a
     42:47:void <init>(java.util.Iterator) -> <init>
     55:55:java.util.Iterator getIterator() -> b
     59:59:boolean hasNext() -> hasNext
     63:64:void remove() -> remove
-org.apache.commons.collections4.iterators.UnmodifiableIterator -> org.a.a.a.c.c:
+org.apache.commons.collections4.iterators.UnmodifiableIterator -> org.a.a.a.d.c:
     java.util.Iterator iterator -> a
     48:56:java.util.Iterator unmodifiableIterator(java.util.Iterator) -> a
     66:68:void <init>(java.util.Iterator) -> <init>
     72:72:boolean hasNext() -> hasNext
     76:76:java.lang.Object next() -> next
     80:80:void remove() -> remove
-org.apache.commons.collections4.iterators.UnmodifiableListIterator -> org.a.a.a.c.d:
+org.apache.commons.collections4.iterators.UnmodifiableListIterator -> org.a.a.a.d.d:
     java.util.ListIterator iterator -> a
     46:54:java.util.ListIterator umodifiableListIterator(java.util.ListIterator) -> a
     64:66:void <init>(java.util.ListIterator) -> <init>
@@ -28170,7 +28175,7 @@ org.apache.commons.collections4.iterators.UnmodifiableListIterator -> org.a.a.a.
     94:94:void remove() -> remove
     98:98:void set(java.lang.Object) -> set
     102:102:void add(java.lang.Object) -> add
-org.apache.commons.collections4.keyvalue.AbstractMapEntryDecorator -> org.a.a.a.d.a:
+org.apache.commons.collections4.keyvalue.AbstractMapEntryDecorator -> org.a.a.a.e.a:
     java.util.Map$Entry entry -> a
     41:46:void <init>(java.util.Map$Entry) -> <init>
     60:60:java.lang.Object getKey() -> getKey
@@ -28179,7 +28184,7 @@ org.apache.commons.collections4.keyvalue.AbstractMapEntryDecorator -> org.a.a.a.
     73:76:boolean equals(java.lang.Object) -> equals
     81:81:int hashCode() -> hashCode
     86:86:java.lang.String toString() -> toString
-org.apache.commons.collections4.list.AbstractListDecorator -> org.a.a.a.e.a:
+org.apache.commons.collections4.list.AbstractListDecorator -> org.a.a.a.f.a:
     55:56:void <init>(java.util.List) -> <init>
     65:65:java.util.List decorated() -> b
     70:70:boolean equals(java.lang.Object) -> equals
@@ -28195,9 +28200,9 @@ org.apache.commons.collections4.list.AbstractListDecorator -> org.a.a.a.e.a:
     113:113:java.lang.Object set(int,java.lang.Object) -> set
     117:117:java.util.List subList(int,int) -> subList
     34:34:java.util.Collection decorated() -> a
-org.apache.commons.collections4.list.AbstractSerializableListDecorator -> org.a.a.a.e.b:
+org.apache.commons.collections4.list.AbstractSerializableListDecorator -> org.a.a.a.f.b:
     44:45:void <init>(java.util.List) -> <init>
-org.apache.commons.collections4.list.UnmodifiableList -> org.a.a.a.e.c:
+org.apache.commons.collections4.list.UnmodifiableList -> org.a.a.a.f.c:
     72:73:void <init>(java.util.List) -> <init>
     78:78:java.util.Iterator iterator() -> iterator
     83:83:boolean add(java.lang.Object) -> add

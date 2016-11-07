@@ -6566,7 +6566,9 @@ org.apache.commons.collections4.collection.TransformedCollection
 org.apache.commons.collections4.collection.UnmodifiableBoundedCollection
 org.apache.commons.collections4.collection.UnmodifiableCollection
 org.apache.commons.collections4.comparators.BooleanComparator
-org.apache.commons.collections4.comparators.ComparableComparator
+org.apache.commons.collections4.comparators.ComparableComparator:
+    private static final long serialVersionUID
+    66:66:public static org.apache.commons.collections4.comparators.ComparableComparator comparableComparator()
 org.apache.commons.collections4.comparators.ComparatorChain
 org.apache.commons.collections4.comparators.FixedOrderComparator
 org.apache.commons.collections4.comparators.FixedOrderComparator$1

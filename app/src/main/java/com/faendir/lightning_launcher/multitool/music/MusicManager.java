@@ -77,6 +77,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
     private String title;
     private String album;
     private String artist;
+    private String packageName;
     private final Messenger messenger;
     private WeakReference<MediaController> currentController;
 
@@ -105,8 +106,9 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         this.title = title;
         this.album = album;
         this.artist = artist;
+        this.packageName = controller.getPackageName();
         for (Listener listener : listeners) {
-            listener.updateCurrentInfo(albumArt, title, album, artist);
+            listener.updateCurrentInfo(albumArt, title, album, artist, packageName);
         }
     }
 
@@ -217,7 +219,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         }
         listeners.add(listener);
         if (albumArt != null && albumArt.isRecycled()) albumArt = null;
-        listener.updateCurrentInfo(albumArt, title, album, artist);
+        listener.updateCurrentInfo(albumArt, title, album, artist, packageName);
     }
 
     private void unregisterListener(Listener listener) {
@@ -252,10 +254,8 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
             if (metadata != null) {
                 if (!hasRequestedAlbumArt || bitmap == null) {
                     Bitmap bmp = loadBitmapForKeys(METADATA_KEY_ALBUM_ART, METADATA_KEY_ALBUM_ART_URI, METADATA_KEY_ART, METADATA_KEY_ART_URI);
-                    if (bmp != null) {
-                        if (bitmap != null && bitmap != bmp) bitmap.recycle();
-                        bitmap = bmp;
-                    }
+                    if (bitmap != null && bitmap != bmp) bitmap.recycle();
+                    bitmap = bmp;
                     hasRequestedAlbumArt = true;
                 }
                 if ((playbackState != null && PLAYING_STATES.contains(playbackState.getState()))
@@ -317,7 +317,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
                 switch (msg.what) {
                     case ACTION_REGISTER_MESSENGER:
                         if (msg.replyTo != null) {
-                            musicManager.get().registerListener(new MessengerListener(msg.replyTo, musicManager.get()));
+                            musicManager.get().registerListener(new MessengerListener(msg.replyTo));
                         }
                         break;
                     case ACTION_UNREGISTER_MESSENGER:
@@ -377,15 +377,13 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
 
     private static class MessengerListener implements Listener {
         private final Messenger messenger;
-        private final Context context;
 
-        private MessengerListener(Messenger messenger, Context context) {
+        private MessengerListener(Messenger messenger) {
             this.messenger = messenger;
-            this.context = context;
         }
 
         @Override
-        public void updateCurrentInfo(@Nullable Bitmap albumArt, @Nullable String title, @Nullable String album, @Nullable String artist) {
+        public void updateCurrentInfo(@Nullable Bitmap albumArt, @Nullable String title, @Nullable String album, @Nullable String artist, @Nullable String packageName) {
             Bundle data = new Bundle();
             if (albumArt != null && !albumArt.isRecycled()) {
                 data.putParcelable("albumArt", albumArt);
@@ -393,7 +391,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
             data.putString("title", title);
             data.putString("album", album);
             data.putString("artist", artist);
-            data.putInt("coverMode", Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.pref_coverMode), "0")));
+            data.putString("player", packageName);
             Message message = Message.obtain();
             message.setData(data);
             try {
@@ -408,7 +406,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
     }
 
     interface Listener {
-        void updateCurrentInfo(@Nullable Bitmap albumArt, @Nullable String title, @Nullable String album, @Nullable String artist);
+        void updateCurrentInfo(@Nullable Bitmap albumArt, @Nullable String title, @Nullable String album, @Nullable String artist, @Nullable String packageName);
     }
 
     static class BinderWrapper {

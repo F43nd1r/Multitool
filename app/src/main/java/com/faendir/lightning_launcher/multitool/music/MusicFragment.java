@@ -6,6 +6,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
     private TextView title;
     private TextView album;
     private TextView artist;
+    private ImageView player;
     private MusicManager.BinderWrapper binder;
     private ServiceConnection connection;
     private boolean isBound;
@@ -73,6 +75,7 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
         title = (TextView) v.findViewById(R.id.text_title);
         album = (TextView) v.findViewById(R.id.text_album);
         artist = (TextView) v.findViewById(R.id.text_artist);
+        player = (ImageView) v.findViewById(R.id.image_player);
         return v;
     }
 
@@ -136,11 +139,16 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
     }
 
     @Override
-    public void updateCurrentInfo(Bitmap albumArt, String title, String album, String artist) {
+    public void updateCurrentInfo(Bitmap albumArt, String title, String album, String artist, @Nullable String packageName) {
         this.albumArt.setImageBitmap(albumArt);
         this.title.setText(title);
         this.album.setText(album);
         this.artist.setText(artist);
+        try {
+            this.player.setImageDrawable(getActivity().getPackageManager().getApplicationIcon(packageName));
+        } catch (PackageManager.NameNotFoundException e) {
+            this.player.setImageDrawable(null);
+        }
         calledAtLeastOnce = true;
     }
 

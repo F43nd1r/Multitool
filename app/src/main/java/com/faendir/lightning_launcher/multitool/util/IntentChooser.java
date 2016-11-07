@@ -22,6 +22,7 @@ import com.faendir.omniadapter.model.Component;
 import com.faendir.omniadapter.model.DeepObservableList;
 
 import org.acra.ACRA;
+import org.apache.commons.collections4.comparators.ComparableComparator;
 
 import java.util.List;
 
@@ -63,33 +64,11 @@ public class IntentChooser extends BaseActivity implements OmniAdapter.Controlle
     }
 
     private void loadApps(Intent intent, IntentTarget target, boolean useApplication) {
-        new BaseIntentHandlerListTask(getPackageManager(), intent, false, target, useApplication) {
-            @Override
-            protected void onPostExecute(List<IntentInfo> infos) {
-                View root = findViewById(R.id.apps);
-                RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.list);
-                new OmniBuilder<>(IntentChooser.this, DeepObservableList.copyOf(IntentInfo.class, infos), IntentChooser.this)
-                        .setClick(new Action.Click(Action.CUSTOM, IntentChooser.this))
-                        .attach(recyclerView);
-                recyclerView.setVisibility(View.VISIBLE);
-                root.findViewById(R.id.progressBar).setVisibility(View.GONE);
-            }
-        }.execute();
+        new IntentHandlerListTask(this, intent, false, target, useApplication, R.id.apps).execute();
     }
 
     private void loadShortcuts() {
-        new BaseIntentHandlerListTask(getPackageManager(), new Intent(Intent.ACTION_CREATE_SHORTCUT), true, IntentTarget.ACTIVITY, false) {
-            @Override
-            protected void onPostExecute(List<IntentInfo> infos) {
-                View root = findViewById(R.id.shortcuts);
-                RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.list);
-                new OmniBuilder<>(IntentChooser.this, DeepObservableList.copyOf(IntentInfo.class, infos), IntentChooser.this)
-                        .setClick(new Action.Click(Action.CUSTOM, IntentChooser.this))
-                        .attach(recyclerView);
-                recyclerView.setVisibility(View.VISIBLE);
-                root.findViewById(R.id.progressBar).setVisibility(View.GONE);
-            }
-        }.execute();
+        new IntentHandlerListTask(this, new Intent(Intent.ACTION_CREATE_SHORTCUT), true, IntentTarget.ACTIVITY, false, R.id.shortcuts).execute();
     }
 
     @Override

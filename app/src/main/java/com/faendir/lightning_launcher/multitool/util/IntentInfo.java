@@ -12,7 +12,7 @@ import java.lang.ref.SoftReference;
  *
  * @author F43nd1r
  */
-public class IntentInfo extends Leaf {
+public class IntentInfo extends Leaf implements Comparable<IntentInfo>{
     private SoftReference<Drawable> icon;
     private final DrawableProvider provider;
     private final Intent intent;
@@ -47,5 +47,10 @@ public class IntentInfo extends Leaf {
 
     public boolean isIndirect() {
         return isIndirect;
+    }
+
+    @Override
+    public int compareTo(IntentInfo o) {
+        return getText().compareTo(o.getText());
     }
 }

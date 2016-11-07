@@ -4,6 +4,7 @@ bindClass("android.os.Message");
 bindClass("android.os.Handler");
 bindClass("java.lang.Exception");
 bindClass("android.graphics.Rect");
+bindClass("android.util.Log");
 
 var s = getActiveScreen();
 var c = s.getContext();
@@ -30,16 +31,18 @@ var h = new JavaAdapter(Handler, {
         try {
             var bundle = msg.getData();
             var albumArt = bundle.getParcelable("albumArt");
-            var title = bundle.getString("title");
-            var album = bundle.getString("album");
-            var artist = bundle.getString("artist");
+            var title = bundle.getString("title") || "";
+            var album = bundle.getString("album") || "";
+            var artist = bundle.getString("artist") || "";
+            var player = bundle.getString("player") || "";
             var prefs = bindPrefs(["coverFillMode"]);
             var mode = parseInt(prefs.coverFillMode);
-            if (albumArt != null) {
                 var panel = s.getContainerById(currentScript.getTag());
                 var item = panel.getItemByName("albumart");
                 var wi = item.getWidth();
                 var hi = item.getHeight();
+                var img = Image.createImage(wi, hi);
+            if (albumArt != null) {
                 var wa = albumArt.getWidth();
                 var ha = albumArt.getHeight();
                 var src, dest;
@@ -75,11 +78,10 @@ var h = new JavaAdapter(Handler, {
                         dest = new Rect(0, 0, wi, hi);
                         break;
                 }
-                var img = Image.createImage(wi, hi);
                 img.draw().drawBitmap(albumArt, src, dest, null);
-                item.setBoxBackground(img, "nsf", false);
             }
-            getVariables().edit().setString("title", title).setString("album", album).setString("artist", artist).commit();
+                item.setBoxBackground(img, "nsf", false);
+            getVariables().edit().setString("title", title).setString("album", album).setString("artist", artist).setString("player",player).commit();
         } catch (e) {
             new Exception(e).printStackTrace();
         }

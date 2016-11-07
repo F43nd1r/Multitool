@@ -23,4 +23,6 @@ var load = installScript("music_load", "load");
 var resume = installScript("music_resume", "resume");
 var pause = installScript("music_pause", "pause");
 var command = installScript("music_command", "command");
+var launch = installScript("music_launch","launch");
+getActiveScreen().runAction(EventHandler.RESTART, null);
 Toast.makeText(LL.getContext(),"Done",Toast.LENGTH_SHORT).show();
