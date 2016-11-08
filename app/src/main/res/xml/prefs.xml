@@ -15,7 +15,10 @@
             android:title="@string/title_spaces"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/title_musicWidget">
-        <Preference
+        <com.faendir.lightning_launcher.multitool.settings.PlayersPreference
+            android:key="@string/pref_activePlayers"
+            android:title="@string/title_activePlayers"/>
+        <com.faendir.lightning_launcher.multitool.settings.DefaultPlayerPreference
             android:key="@string/pref_musicDefault"
             android:title="@string/title_defaultPlayer"/>
         <ListPreference
@@ -28,11 +31,11 @@
     <PreferenceCategory android:title="@string/title_backup">
         <SwitchPreference
             android:defaultValue="false"
-            android:key="@string/key_enableBackup"
+            android:key="@string/pref_enableBackup"
             android:title="@string/title_enableBackup"/>
         <com.faendir.lightning_launcher.multitool.settings.BackupTimePreference
-            android:dependency="@string/key_enableBackup"
-            android:key="@string/key_backupTime"
+            android:dependency="@string/pref_enableBackup"
+            android:key="@string/pref_backupTime"
             android:title="@string/title_backupTime"/>
     </PreferenceCategory>
 </PreferenceScreen>

@@ -7864,8 +7864,6 @@ com.faendir.lightning_launcher.multitool.R$string: int google_community
 com.faendir.lightning_launcher.multitool.R$string: int hint_nameOfScript
 com.faendir.lightning_launcher.multitool.R$string: int imageDescription_divider
 com.faendir.lightning_launcher.multitool.R$string: int key_appInfo
-com.faendir.lightning_launcher.multitool.R$string: int key_backupTime
-com.faendir.lightning_launcher.multitool.R$string: int key_enableBackup
 com.faendir.lightning_launcher.multitool.R$string: int key_shortcuts
 com.faendir.lightning_launcher.multitool.R$string: int key_target
 com.faendir.lightning_launcher.multitool.R$string: int library_AndroidIconics_author
@@ -7943,9 +7941,12 @@ com.faendir.lightning_launcher.multitool.R$string: int nnf_new_folder
 com.faendir.lightning_launcher.multitool.R$string: int nnf_permission_external_write_denied
 com.faendir.lightning_launcher.multitool.R$string: int nnf_select_something_first
 com.faendir.lightning_launcher.multitool.R$string: int play_store
+com.faendir.lightning_launcher.multitool.R$string: int pref_activePlayers
+com.faendir.lightning_launcher.multitool.R$string: int pref_backupTime
 com.faendir.lightning_launcher.multitool.R$string: int pref_coverMode
 com.faendir.lightning_launcher.multitool.R$string: int pref_directory
 com.faendir.lightning_launcher.multitool.R$string: int pref_enableAcra
+com.faendir.lightning_launcher.multitool.R$string: int pref_enableBackup
 com.faendir.lightning_launcher.multitool.R$string: int pref_id
 com.faendir.lightning_launcher.multitool.R$string: int pref_keepSorted
 com.faendir.lightning_launcher.multitool.R$string: int pref_lastFragment
@@ -7956,6 +7957,7 @@ com.faendir.lightning_launcher.multitool.R$string: int reload_script
 com.faendir.lightning_launcher.multitool.R$string: int script_name
 com.faendir.lightning_launcher.multitool.R$string: int search_menu_title
 com.faendir.lightning_launcher.multitool.R$string: int status_bar_notification_info_overflow
+com.faendir.lightning_launcher.multitool.R$string: int summary_spaces
 com.faendir.lightning_launcher.multitool.R$string: int text_backupFailed
 com.faendir.lightning_launcher.multitool.R$string: int text_backupSuccessful
 com.faendir.lightning_launcher.multitool.R$string: int text_buyOrTrial
@@ -7976,16 +7978,21 @@ com.faendir.lightning_launcher.multitool.R$string: int text_previous
 com.faendir.lightning_launcher.multitool.R$string: int text_repositoryImporter
 com.faendir.lightning_launcher.multitool.R$string: int text_script
 com.faendir.lightning_launcher.multitool.R$string: int text_scripts
+com.faendir.lightning_launcher.multitool.R$string: int title_activePlayers
 com.faendir.lightning_launcher.multitool.R$string: int title_activity_gesture
 com.faendir.lightning_launcher.multitool.R$string: int title_activity_intent_chooser
 com.faendir.lightning_launcher.multitool.R$string: int title_apps
+com.faendir.lightning_launcher.multitool.R$string: int title_backup
 com.faendir.lightning_launcher.multitool.R$string: int title_backupDir
+com.faendir.lightning_launcher.multitool.R$string: int title_backupTime
 com.faendir.lightning_launcher.multitool.R$string: int title_chooseName
 com.faendir.lightning_launcher.multitool.R$string: int title_confirmUpdate
 com.faendir.lightning_launcher.multitool.R$string: int title_coverMode
+com.faendir.lightning_launcher.multitool.R$string: int title_defaultPlayer
 com.faendir.lightning_launcher.multitool.R$string: int title_delete
 com.faendir.lightning_launcher.multitool.R$string: int title_drawer
 com.faendir.lightning_launcher.multitool.R$string: int title_enableAcra
+com.faendir.lightning_launcher.multitool.R$string: int title_enableBackup
 com.faendir.lightning_launcher.multitool.R$string: int title_format
 com.faendir.lightning_launcher.multitool.R$string: int title_gestureLauncher
 com.faendir.lightning_launcher.multitool.R$string: int title_help
@@ -8002,6 +8009,7 @@ com.faendir.lightning_launcher.multitool.R$string: int title_scriptManager
 com.faendir.lightning_launcher.multitool.R$string: int title_search
 com.faendir.lightning_launcher.multitool.R$string: int title_settings
 com.faendir.lightning_launcher.multitool.R$string: int title_shortcuts
+com.faendir.lightning_launcher.multitool.R$string: int title_spaces
 com.faendir.lightning_launcher.multitool.R$string: int toast_cantLoadAction
 com.faendir.lightning_launcher.multitool.R$string: int toast_failedDirWrite
 com.faendir.lightning_launcher.multitool.R$string: int toast_failedLoad
@@ -9069,8 +9077,10 @@ com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: Lightning
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: void onGesturePerformed(android.gesture.GestureOverlayView,android.gesture.Gesture)
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.gesture.GestureLibrary global
+com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: long lastModified
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: SingletonGestureLibrary()
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.gesture.GestureLibrary getGlobal(android.content.Context)
+com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: void <clinit>()
 com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment: void onButtonClick(com.faendir.lightning_launcher.multitool.event.ClickEvent)
 com.faendir.lightning_launcher.multitool.music.DummyNotificationListener
 com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: DummyNotificationListener()
@@ -9360,6 +9370,10 @@ com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: Transfer(java.l
 com.faendir.lightning_launcher.multitool.settings.BackupTimePreference
 com.faendir.lightning_launcher.multitool.settings.BackupTimePreference: BackupTimePreference(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.settings.BackupTimePreference: void onClick(android.view.View)
+com.faendir.lightning_launcher.multitool.settings.DefaultPlayerPreference
+com.faendir.lightning_launcher.multitool.settings.DefaultPlayerPreference: DefaultPlayerPreference(android.content.Context,android.util.AttributeSet)
+com.faendir.lightning_launcher.multitool.settings.PlayersPreference
+com.faendir.lightning_launcher.multitool.settings.PlayersPreference: PlayersPreference(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.util.BaseActivity: int layoutRes
 com.faendir.lightning_launcher.multitool.util.BaseActivity: android.support.v7.widget.Toolbar toolbar
 com.faendir.lightning_launcher.multitool.util.BaseActivity: BaseActivity(int)

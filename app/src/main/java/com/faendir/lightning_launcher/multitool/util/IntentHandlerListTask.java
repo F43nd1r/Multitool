@@ -52,8 +52,7 @@ class IntentHandlerListTask extends AsyncTask<Void, Void, List<IntentInfo>> {
     protected final List<IntentInfo> doInBackground(Void... params) {
         List<ResolveInfo> resolveInfos = queryInfos();
         List<IntentInfo> infos = new ArrayList<>();
-        for (int i = 0; i < resolveInfos.size(); i++) {
-            ResolveInfo info = resolveInfos.get(i);
+        for (ResolveInfo info : resolveInfos) {
             ActivityInfo activity = info.activityInfo;
             ComponentName name = new ComponentName(activity.applicationInfo.packageName,
                     activity.name);

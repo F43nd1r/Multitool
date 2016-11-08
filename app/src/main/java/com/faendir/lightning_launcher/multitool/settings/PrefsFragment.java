@@ -33,7 +33,6 @@ import java.util.List;
 public class PrefsFragment extends PreferenceFragment {
     public static final String DEFAULT_BACKUP_PATH = Environment.getExternalStorageDirectory().getPath() + File.separator + "LightningLauncher" + File.separator + "Scripts";
     private static final int REQUEST_DIRECTORY = 0;
-    private static final int REQUEST_INTENT = 1;
 
     private SharedPreferences sharedPref;
     private PreferenceListener listener;
@@ -44,7 +43,7 @@ public class PrefsFragment extends PreferenceFragment {
         addPreferencesFromResource(R.xml.prefs);
         sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         listener = new PreferenceListener(getPreferenceScreen());
-        String path = sharedPref.getString(getString(R.string.pref_directory), PrefsFragment.DEFAULT_BACKUP_PATH);
+        final String path = sharedPref.getString(getString(R.string.pref_directory), PrefsFragment.DEFAULT_BACKUP_PATH);
         Preference dir = findPreference(getString(R.string.pref_directory));
         dir.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
@@ -60,43 +59,18 @@ public class PrefsFragment extends PreferenceFragment {
         });
         listener.addPreferenceForSummary(dir);
         dir.setSummary(path);
-        final Preference musicDefault = findPreference(getString(R.string.pref_musicDefault));
-        musicDefault.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                new IntentChooser.Builder(PrefsFragment.this)
-                        .useApplicationInfo()
-                        .useIntent(new Intent(Intent.ACTION_MEDIA_BUTTON), IntentChooser.IntentTarget.BROADCAST_RECEIVER)
-                        .startForResult(REQUEST_INTENT);
-                return true;
-            }
-        });
-        listener.addPreference(musicDefault, new Runnable() {
-            @Override
-            public void run() {
-                String uri = sharedPref.getString(getString(R.string.pref_musicDefault), null);
-                if (uri != null) {
-                    PackageManager pm = getActivity().getPackageManager();
-                    try {
-                        List<ResolveInfo> list = pm.queryBroadcastReceivers(Intent.parseUri(uri, 0), 0);
-                        if (!list.isEmpty()) {
-                            musicDefault.setSummary(list.get(0).loadLabel(pm));
-                        }
-                    } catch (URISyntaxException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }, true);
         Runnable backupChanged = new Runnable() {
             @Override
             public void run() {
                 BackupUtils.scheduleNext(getActivity());
             }
         };
-        listener.addPreference(getString(R.string.key_backupTime), backupChanged, false);
-        listener.addPreference(getString(R.string.key_enableBackup), backupChanged, false);
+        listener.addPreference(getString(R.string.pref_backupTime), backupChanged, false);
+        listener.addPreference(getString(R.string.pref_enableBackup), backupChanged, false);
         listener.addPreferenceForSummary(getString(R.string.pref_coverMode));
+        listener.addPreferenceForSummary(getString(R.string.pref_activePlayers));
+        listener.addPreferenceForSummary(getString(R.string.pref_backupTime));
+        listener.addPreferenceForSummary(getString(R.string.pref_musicDefault));
         if (!BuildConfig.DEBUG) {
             removeDebugOptions();
         }
@@ -142,12 +116,6 @@ public class PrefsFragment extends PreferenceFragment {
                         Uri uri = data.getData();
                         setBackupPath(uri);
                     }
-                    break;
-                case REQUEST_INTENT:
-                    sharedPref.edit()
-                            .putString(getString(R.string.pref_musicDefault),
-                                    ((Intent) data.getParcelableExtra(Intent.EXTRA_INTENT)).toUri(0))
-                            .apply();
                     break;
             }
         }

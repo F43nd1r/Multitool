@@ -102,8 +102,8 @@
     <string name="key_shortcuts">shortcuts</string>
     <string name="key_appInfo">applicationInfo</string>
     <string name="key_target">target</string>
-    <string name="key_enableBackup">backup.enable</string>
-    <string name="key_backupTime">backup.time</string>
+    <string name="pref_enableBackup">backup.enable</string>
+    <string name="pref_backupTime">backup.time</string>
     <string name="button_monday">Mo</string>
     <string name="button_tuesday">Tu</string>
     <string name="button_wednesday">We</string>
@@ -155,4 +155,6 @@
     <string name="title_backup">Lightning Auto Backup</string>
     <string name="title_enableBackup">Enable automatic Backup</string>
     <string name="title_backupTime">Execution time</string>
+    <string name="pref_activePlayers">activePlayers</string>
+    <string name="title_activePlayers">Active Players</string>
 </resources>

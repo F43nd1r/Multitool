@@ -5,6 +5,7 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaMetadata;
@@ -44,6 +45,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -80,6 +82,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
     private String packageName;
     private final Messenger messenger;
     private WeakReference<MediaController> currentController;
+    private SharedPreferences sharedPref;
 
     public MusicManager() {
         controllers = new DualHashBidiMap<>();
@@ -97,6 +100,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
     public void onCreate() {
         mediaSessionManager = (MediaSessionManager) getSystemService(Context.MEDIA_SESSION_SERVICE);
         notificationListener = new ComponentName(this, DummyNotificationListener.class);
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
     private void updateCurrentInfo(MediaController controller, Bitmap albumArt, String title, String album, String artist) {
@@ -125,8 +129,13 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
                 iterator.remove();
             }
         }
-        Collections.reverse(list);
-        for (MediaController controller : list) {
+        Set<String> players = sharedPref.getStringSet(getString(R.string.pref_activePlayers), Collections.<String>emptySet());
+        for (ListIterator<MediaController> iterator = list.listIterator(list.size()); iterator.hasPrevious(); ) {
+            MediaController controller = iterator.previous();
+            if (!players.contains(controller.getPackageName())) {
+                iterator.remove();
+                continue;
+            }
             if (!controllers.containsKey(controller)) {
                 Callback callback;
                 if (removed.containsKey(controller.getPackageName())) {

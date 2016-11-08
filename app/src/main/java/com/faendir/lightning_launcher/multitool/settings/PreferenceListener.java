@@ -37,10 +37,12 @@ class PreferenceListener implements SharedPreferences.OnSharedPreferenceChangeLi
 
     private void setSummary(String key) {
         Preference preference = screen.findPreference(key);
-        if (preference instanceof ListPreference) {
+        if (preference instanceof SummaryPreference) {
+            preference.setSummary(((SummaryPreference) preference).getSummaryText());
+        } else if (preference instanceof ListPreference) {
             preference.setSummary(((ListPreference) preference).getEntry());
         } else {
-            preference.setSummary(String.valueOf(screen.getSharedPreferences().getAll().get(key)));
+            preference.setSummary(String.valueOf(preference.getSharedPreferences().getAll().get(key)));
         }
     }
 

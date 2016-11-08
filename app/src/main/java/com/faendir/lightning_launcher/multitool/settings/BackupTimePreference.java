@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BackupTimePreference extends DialogPreference implements View.OnClickListener {
+public class BackupTimePreference extends DialogPreference implements View.OnClickListener, SummaryPreference {
     private BackupTime backupTime = BackupUtils.getBackupTime(null);
     private Map<Button, Integer> map;
     private TimePicker picker;
@@ -106,4 +106,8 @@ public class BackupTimePreference extends DialogPreference implements View.OnCli
         view.setSelected(!view.isSelected());
     }
 
+    @Override
+    public CharSequence getSummaryText() {
+        return BackupUtils.toHumanReadableString(getContext(), backupTime);
+    }
 }

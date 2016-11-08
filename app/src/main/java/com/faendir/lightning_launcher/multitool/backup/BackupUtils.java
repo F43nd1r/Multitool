@@ -14,8 +14,12 @@ import com.faendir.lightning_launcher.multitool.R;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * Created on 23.07.2016.
@@ -26,6 +30,7 @@ import java.util.Collections;
 public class BackupUtils {
     private static final BackupTime DEFAULT = new BackupTime(0, 0, Collections.singletonList(Calendar.SUNDAY));
     private static final Gson GSON = new Gson();
+    private static final SimpleDateFormat WEEKDAY = new SimpleDateFormat("EE", Locale.US);
 
     @NonNull
     public static BackupTime getBackupTime(@Nullable String s) {
@@ -43,10 +48,27 @@ public class BackupUtils {
         return GSON.toJson(backupTime);
     }
 
+    @NonNull
+    public static String toHumanReadableString(@NonNull Context context, @NonNull BackupTime backupTime) {
+        List<Integer> days = new ArrayList<>(backupTime.getDays());
+        Collections.sort(days);
+        if (days.remove(Integer.valueOf(Calendar.SUNDAY))) days.add(Calendar.SUNDAY);
+        List<String> dayStrings = new ArrayList<>();
+        for (int day : days) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.DAY_OF_WEEK, day);
+            dayStrings.add(calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US).substring(0, 2));
+        }
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, backupTime.getHour());
+        calendar.set(Calendar.MINUTE, backupTime.getMinute());
+        return TextUtils.join(", ", dayStrings) + " " + android.text.format.DateFormat.getTimeFormat(context).format(calendar.getTime());
+    }
+
     public static void scheduleNext(Context context) {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean shouldEnable = sharedPref.getBoolean(context.getString(R.string.key_enableBackup), false);
-        BackupTime time = BackupUtils.getBackupTime(sharedPref.getString(context.getString(R.string.key_backupTime), null));
+        boolean shouldEnable = sharedPref.getBoolean(context.getString(R.string.pref_enableBackup), false);
+        BackupTime time = BackupUtils.getBackupTime(sharedPref.getString(context.getString(R.string.pref_backupTime), null));
         PendingIntent intent = PendingIntent.getService(context, 0, new Intent(context, BackupService.class), PendingIntent.FLAG_UPDATE_CURRENT);
         if (shouldEnable) {
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);

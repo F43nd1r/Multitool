@@ -4922,7 +4922,7 @@ com.faendir.lightning_launcher.multitool.R$style
 com.faendir.lightning_launcher.multitool.R$styleable
 com.faendir.lightning_launcher.multitool.R$xml
 com.faendir.lightning_launcher.multitool.backup.BackupUtils:
-    26:26:public BackupUtils()
+    30:30:public BackupUtils()
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager:
     private static final java.lang.String MUSIC_WIDGET
     private static final java.lang.String DRAWER
@@ -4936,15 +4936,19 @@ com.faendir.lightning_launcher.multitool.music.MusicManager:
     private static final int ACTION_NEXT
     private static final int ACTION_PREVIOUS
 com.faendir.lightning_launcher.multitool.settings.PreferenceListener:
-    95:96:void addPreferenceForSummary(android.preference.Preference,java.lang.Runnable,boolean)
-    106:107:void addPreferenceForSummary(java.lang.String,java.lang.Runnable,boolean)
+    75:76:void addPreference(android.preference.Preference,java.lang.Runnable,boolean)
+    97:98:void addPreferenceForSummary(android.preference.Preference,java.lang.Runnable,boolean)
+    108:109:void addPreferenceForSummary(java.lang.String,java.lang.Runnable,boolean)
 com.faendir.lightning_launcher.multitool.settings.PrefsFragment:
     private static final int REQUEST_DIRECTORY
-    private static final int REQUEST_INTENT
 com.faendir.lightning_launcher.multitool.util.FileManager$IntentTypeAdapter:
     private static final java.lang.String URI
 com.faendir.lightning_launcher.multitool.util.FileManagerFactory:
     14:15:private FileManagerFactory()
+com.faendir.lightning_launcher.multitool.util.IntentChooser$Builder:
+    178:179:public IntentChooser$Builder(android.app.Fragment)
+    203:205:public com.faendir.lightning_launcher.multitool.util.IntentChooser$Builder useIntent(android.content.Intent,com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget)
+    209:210:public com.faendir.lightning_launcher.multitool.util.IntentChooser$Builder useApplicationInfo()
 com.faendir.lightning_launcher.multitool.util.PreferenceProvider:
     private static final java.lang.String AUTHORITY
     private static final int SHARED_PREFERENCES
