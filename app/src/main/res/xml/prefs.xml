@@ -11,13 +11,13 @@
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="@string/pref_spaces"
-            android:summary="Inserts spaces around operators"
-            android:title="Format : Spaces"/>
+            android:summary="@string/summary_spaces"
+            android:title="@string/title_spaces"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/title_musicWidget">
         <Preference
             android:key="@string/pref_musicDefault"
-            android:title="Default Player"/>
+            android:title="@string/title_defaultPlayer"/>
         <ListPreference
             android:key="@string/pref_coverMode"
             android:title="@string/title_coverMode"
@@ -25,14 +25,14 @@
             android:entryValues="@array/listCoverModeKeys"
             android:defaultValue="@string/default_coverMode"/>
     </PreferenceCategory>
-    <PreferenceCategory android:title="Lightning Auto Backup">
+    <PreferenceCategory android:title="@string/title_backup">
         <SwitchPreference
             android:defaultValue="false"
             android:key="@string/key_enableBackup"
-            android:title="Enable automatic Backup"/>
+            android:title="@string/title_enableBackup"/>
         <com.faendir.lightning_launcher.multitool.settings.BackupTimePreference
             android:dependency="@string/key_enableBackup"
             android:key="@string/key_backupTime"
-            android:title="Execution time"/>
+            android:title="@string/title_backupTime"/>
     </PreferenceCategory>
 </PreferenceScreen>

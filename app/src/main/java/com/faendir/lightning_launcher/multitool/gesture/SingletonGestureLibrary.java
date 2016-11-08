@@ -18,12 +18,16 @@ final class SingletonGestureLibrary {
     }
 
     private static GestureLibrary global;
+    private static long lastModified = 0;
 
     public static GestureLibrary getGlobal(Context context) {
+        File file = new File(context.getFilesDir(), "gestureLibrary");
         if (global == null) {
-            File file = new File(context.getFilesDir(), "gestureLibrary");
             FileManager.allowGlobalRead(file);
             global = GestureLibraries.fromFile(file);
+        }
+        if(file.lastModified() > lastModified) {
+            lastModified = file.lastModified();
             global.load();
         }
         return global;

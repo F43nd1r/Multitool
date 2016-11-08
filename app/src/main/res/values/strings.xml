@@ -149,4 +149,10 @@
     <string name="text_buyOrTrial">%s is a paid feature. You can either start a 7-day Trial or buy it.</string>
     <string name="button_buy">Buy</string>
     <string name="button_trial">Trial</string>
+    <string name="summary_spaces">Inserts spaces around operators</string>
+    <string name="title_spaces">Format : Spaces</string>
+    <string name="title_defaultPlayer">Default Player</string>
+    <string name="title_backup">Lightning Auto Backup</string>
+    <string name="title_enableBackup">Enable automatic Backup</string>
+    <string name="title_backupTime">Execution time</string>
 </resources>
