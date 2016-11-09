@@ -157,4 +157,6 @@
     <string name="title_backupTime">Execution time</string>
     <string name="pref_activePlayers">activePlayers</string>
     <string name="title_activePlayers">Active Players</string>
+    <string name="title_export">Export Gestures</string>
+    <string name="title_import">Import Gestures</string>
 </resources>

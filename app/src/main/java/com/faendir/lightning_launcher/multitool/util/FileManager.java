@@ -32,9 +32,8 @@ public class FileManager<T> {
     private final File file;
     private final Gson gson;
 
-    FileManager(Context context, String filename, Class<T[]> clazz) {
-        File directory = context.getFilesDir();
-        file = new File(directory, filename);
+    public FileManager(File file, Class<T[]> clazz) {
+        this.file = file;
         gson = new GsonBuilder()
                 .registerTypeAdapter(Intent.class, new IntentTypeAdapter())
                 .create();
@@ -89,6 +88,10 @@ public class FileManager<T> {
             }
 
         }
+    }
+
+    public File getFile() {
+        return file;
     }
 
     public static class FatalFileException extends RuntimeException {

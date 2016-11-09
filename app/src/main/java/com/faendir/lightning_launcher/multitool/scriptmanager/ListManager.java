@@ -142,13 +142,18 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
                     }
                 }
             }
-            folders.get(folders.size() - 1).getChildren().remove(script);
-            ListIterator<Folder> iterator = folders.listIterator(folders.size());
-            Folder lastEmpty = null;
-            while (iterator.hasPrevious() && (lastEmpty = iterator.previous()).getRealChildren().size() == 0) ;
-            if(lastEmpty != null) {
-                List<ScriptItem> p = iterator.hasPrevious() ? iterator.previous().getRealChildren() : items;
-                p.remove(lastEmpty);
+            if(!folders.isEmpty()) {
+                folders.get(folders.size() - 1).getChildren().remove(script);
+                ListIterator<Folder> iterator = folders.listIterator(folders.size());
+                Folder lastEmpty = null;
+                while (iterator.hasPrevious() && (lastEmpty = iterator.previous()).getRealChildren().size() == 0)
+                    ;
+                if (lastEmpty != null) {
+                    List<ScriptItem> p = iterator.hasPrevious() ? iterator.previous().getRealChildren() : items;
+                    p.remove(lastEmpty);
+                }
+            } else {
+                items.remove(script);
             }
         }
         items.endBatchedUpdates();

@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,12 +21,14 @@ import android.widget.TextView;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
+import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.faendir.omniadapter.OmniAdapter;
 import com.faendir.omniadapter.OmniBuilder;
 import com.faendir.omniadapter.model.Action;
 import com.faendir.omniadapter.model.ChangeInformation;
 import com.faendir.omniadapter.model.Component;
 import com.faendir.omniadapter.model.DeepObservableList;
+import com.nononsenseapps.filepicker.FilePickerActivity;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -38,6 +41,8 @@ public class GestureFragment extends Fragment implements OmniAdapter.Controller<
 
     private static final int ADD = 1;
     static final int EDIT = 2;
+    static final int EXPORT = 3;
+    static final int IMPORT = 4;
     static final String INDEX = "index";
 
     private FileManager<GestureInfo> fileManager;
@@ -86,16 +91,34 @@ public class GestureFragment extends Fragment implements OmniAdapter.Controller<
         switch (item.getItemId()) {
             case R.id.action_add_gesture:
                 startActivityForResult(new Intent(getActivity(), GestureActivity.class), ADD);
-                return true;
+                break;
             case R.id.action_help:
                 new AlertDialog.Builder(getActivity())
                         .setTitle(R.string.title_help)
                         .setMessage(R.string.message_helpGesture)
                         .setPositiveButton(R.string.button_ok, null)
                         .show();
+                break;
+            case R.id.action_export: {
+                Intent intent = new Intent(getActivity(), FilePickerActivity.class);
+                intent.putExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false);
+                intent.putExtra(FilePickerActivity.EXTRA_ALLOW_CREATE_DIR, true);
+                intent.putExtra(FilePickerActivity.EXTRA_MODE, FilePickerActivity.MODE_DIR);
+                startActivityForResult(intent, EXPORT);
+                break;
+            }
+            case R.id.action_import: {
+                Intent intent = new Intent(getActivity(), FilePickerActivity.class);
+                intent.putExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false);
+                intent.putExtra(FilePickerActivity.EXTRA_ALLOW_CREATE_DIR, false);
+                intent.putExtra(FilePickerActivity.EXTRA_MODE, FilePickerActivity.MODE_FILE);
+                startActivityForResult(intent, IMPORT);
+                break;
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
+        return true;
     }
 
     @Override
@@ -116,6 +139,16 @@ public class GestureFragment extends Fragment implements OmniAdapter.Controller<
                         GestureUtils.updateSavedGestures(gestureInfos, fileManager);
                     }
                 }
+                case EXPORT:
+                    for (Uri uri : Utils.getFilePickerActivityResult(data)) {
+                        GestureUtils.exportGestures(getActivity(), uri, fileManager);
+                    }
+                    break;
+                case IMPORT:
+                    for (Uri uri : Utils.getFilePickerActivityResult(data)) {
+                        GestureUtils.importGestures(getActivity(), uri, gestureInfos, fileManager);
+                    }
+                    break;
                 default:
                     super.onActivityResult(requestCode, resultCode, data);
             }

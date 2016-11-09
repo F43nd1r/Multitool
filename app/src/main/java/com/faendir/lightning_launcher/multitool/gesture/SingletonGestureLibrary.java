@@ -14,22 +14,35 @@ import java.io.File;
  * @author F43nd1r
  */
 final class SingletonGestureLibrary {
-    private SingletonGestureLibrary() {
-    }
 
-    private static GestureLibrary global;
-    private static long lastModified = 0;
+    private static SingletonGestureLibrary global;
 
     public static GestureLibrary getGlobal(Context context) {
-        File file = new File(context.getFilesDir(), "gestureLibrary");
         if (global == null) {
-            FileManager.allowGlobalRead(file);
-            global = GestureLibraries.fromFile(file);
+            global = new SingletonGestureLibrary(context);
         }
-        if(file.lastModified() > lastModified) {
+        return global.get();
+    }
+
+    public static File getFile(){
+        return global.file;
+    }
+
+    private final GestureLibrary library;
+    private final File file;
+    private long lastModified = 0;
+
+    private SingletonGestureLibrary(Context context) {
+        file = new File(context.getFilesDir(), "gestureLibrary");
+        FileManager.allowGlobalRead(file);
+        library = GestureLibraries.fromFile(file);
+    }
+
+    private GestureLibrary get() {
+        if (file.lastModified() > lastModified) {
             lastModified = file.lastModified();
-            global.load();
+            library.load();
         }
-        return global;
+        return library;
     }
 }

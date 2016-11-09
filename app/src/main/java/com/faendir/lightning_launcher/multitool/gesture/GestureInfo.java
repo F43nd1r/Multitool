@@ -77,6 +77,7 @@ public class GestureInfo implements Parcelable, Component {
     void removeGesture(Context context) {
         GestureLibrary library = SingletonGestureLibrary.getGlobal(context);
         library.removeGesture(uuid.toString(), getGesture(context));
+        library.save();
     }
 
     Intent getIntent() {

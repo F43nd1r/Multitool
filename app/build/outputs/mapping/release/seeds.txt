@@ -7431,8 +7431,10 @@ com.faendir.lightning_launcher.multitool.R$id: int action_bar_title
 com.faendir.lightning_launcher.multitool.R$id: int action_context_bar
 com.faendir.lightning_launcher.multitool.R$id: int action_divider
 com.faendir.lightning_launcher.multitool.R$id: int action_edit
+com.faendir.lightning_launcher.multitool.R$id: int action_export
 com.faendir.lightning_launcher.multitool.R$id: int action_format
 com.faendir.lightning_launcher.multitool.R$id: int action_help
+com.faendir.lightning_launcher.multitool.R$id: int action_import
 com.faendir.lightning_launcher.multitool.R$id: int action_menu_divider
 com.faendir.lightning_launcher.multitool.R$id: int action_menu_presenter
 com.faendir.lightning_launcher.multitool.R$id: int action_mode_bar
@@ -7993,9 +7995,11 @@ com.faendir.lightning_launcher.multitool.R$string: int title_delete
 com.faendir.lightning_launcher.multitool.R$string: int title_drawer
 com.faendir.lightning_launcher.multitool.R$string: int title_enableAcra
 com.faendir.lightning_launcher.multitool.R$string: int title_enableBackup
+com.faendir.lightning_launcher.multitool.R$string: int title_export
 com.faendir.lightning_launcher.multitool.R$string: int title_format
 com.faendir.lightning_launcher.multitool.R$string: int title_gestureLauncher
 com.faendir.lightning_launcher.multitool.R$string: int title_help
+com.faendir.lightning_launcher.multitool.R$string: int title_import
 com.faendir.lightning_launcher.multitool.R$string: int title_keepSorted
 com.faendir.lightning_launcher.multitool.R$string: int title_launcherScript
 com.faendir.lightning_launcher.multitool.R$string: int title_links
@@ -9005,6 +9009,8 @@ com.faendir.lightning_launcher.multitool.gesture.GestureActivity$1: void run()
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: int ADD
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: int EDIT
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: int EXPORT
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: int IMPORT
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: java.lang.String INDEX
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: com.faendir.lightning_launcher.multitool.util.FileManager fileManager
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: com.faendir.omniadapter.model.DeepObservableList gestureInfos
@@ -9060,27 +9066,38 @@ com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1: com.faendir.ligh
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1: java.lang.Object[] newArray(int)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1: java.lang.Object createFromParcel(android.os.Parcel)
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils: java.lang.String METADATA
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils: java.lang.String GESTURES
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils: GestureUtils()
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void deleteDialog(android.content.Context,java.util.List,java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager)
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void delete(android.content.Context,java.util.List,java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager)
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void edit(android.app.Activity,com.faendir.lightning_launcher.multitool.gesture.GestureInfo,java.util.List)
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void updateSavedGestures(java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager)
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void exportGestures(android.content.Context,android.net.Uri,com.faendir.lightning_launcher.multitool.util.FileManager)
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void export(android.content.Context,java.io.File,java.io.File,java.io.File)
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void writeFile(java.io.File,java.io.OutputStream)
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void readToFile(java.io.File,java.io.InputStream)
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void importGestures(android.content.Context,android.net.Uri,com.faendir.omniadapter.model.DeepObservableList,com.faendir.lightning_launcher.multitool.util.FileManager)
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void access$000(android.content.Context,java.io.File,java.io.File,java.io.File)
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: java.io.File val$dir
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: android.content.Context val$context
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: java.util.List val$selected
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: java.util.List val$list
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: com.faendir.lightning_launcher.multitool.util.FileManager val$fileManager
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: GestureUtils$1(android.content.Context,java.util.List,java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: void onClick(android.content.DialogInterface,int)
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: java.io.File val$file
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: java.io.File val$metadata
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: java.io.File val$gestures
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: GestureUtils$1(java.io.File,android.content.Context,java.io.File,java.io.File,java.io.File)
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1: void handlePermissionResult(boolean)
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: LightningGestureView(android.content.Context)
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: void onGesturePerformed(android.gesture.GestureOverlayView,android.gesture.Gesture)
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.gesture.GestureLibrary global
+com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary global
+com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.gesture.GestureLibrary library
+com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: java.io.File file
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: long lastModified
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: SingletonGestureLibrary()
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.gesture.GestureLibrary getGlobal(android.content.Context)
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: void <clinit>()
+com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: java.io.File getFile()
+com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: SingletonGestureLibrary(android.content.Context)
+com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.gesture.GestureLibrary get()
 com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment: void onButtonClick(com.faendir.lightning_launcher.multitool.event.ClickEvent)
 com.faendir.lightning_launcher.multitool.music.DummyNotificationListener
 com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: DummyNotificationListener()

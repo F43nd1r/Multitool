@@ -17384,28 +17384,30 @@ com.faendir.lightning_launcher.multitool.gesture.GestureActivity$1 -> com.faendi
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment -> com.faendir.lightning_launcher.multitool.gesture.GestureFragment:
     int ADD -> ADD
     int EDIT -> EDIT
+    int EXPORT -> EXPORT
+    int IMPORT -> IMPORT
     java.lang.String INDEX -> INDEX
     com.faendir.lightning_launcher.multitool.util.FileManager fileManager -> fileManager
     com.faendir.omniadapter.model.DeepObservableList gestureInfos -> gestureInfos
-    37:37:void <init>() -> <init>
-    48:52:void onCreate(android.os.Bundle) -> onCreate
-    57:75:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    80:82:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
-    86:97:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    103:123:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    127:127:android.view.View createView(android.view.ViewGroup,int) -> createView
-    132:136:void bindView(android.view.View,com.faendir.lightning_launcher.multitool.gesture.GestureInfo,int) -> bindView
-    140:140:boolean shouldMove(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int) -> shouldMove
-    145:145:boolean isSelectable(com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> isSelectable
-    150:150:boolean shouldSwipe(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,int) -> shouldSwipe
-    155:162:void onActionPersisted(java.util.List) -> onActionPersisted
-    166:166:void onActionReverted(java.util.List) -> onActionReverted
-    170:170:boolean allowLongClick(com.faendir.omniadapter.model.Component,int) -> allowLongClick
-    175:176:void onLongClick(com.faendir.omniadapter.model.Component,int) -> onLongClick
-    37:37:boolean shouldSwipe(com.faendir.omniadapter.model.Component,int) -> shouldSwipe
-    37:37:boolean isSelectable(com.faendir.omniadapter.model.Component) -> isSelectable
-    37:37:boolean shouldMove(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int) -> shouldMove
-    37:37:void bindView(android.view.View,com.faendir.omniadapter.model.Component,int) -> bindView
+    40:40:void <init>() -> <init>
+    53:57:void onCreate(android.os.Bundle) -> onCreate
+    62:80:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    85:87:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
+    91:121:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    126:156:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    160:160:android.view.View createView(android.view.ViewGroup,int) -> createView
+    165:169:void bindView(android.view.View,com.faendir.lightning_launcher.multitool.gesture.GestureInfo,int) -> bindView
+    173:173:boolean shouldMove(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int) -> shouldMove
+    178:178:boolean isSelectable(com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> isSelectable
+    183:183:boolean shouldSwipe(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,int) -> shouldSwipe
+    188:195:void onActionPersisted(java.util.List) -> onActionPersisted
+    199:199:void onActionReverted(java.util.List) -> onActionReverted
+    203:203:boolean allowLongClick(com.faendir.omniadapter.model.Component,int) -> allowLongClick
+    208:209:void onLongClick(com.faendir.omniadapter.model.Component,int) -> onLongClick
+    40:40:boolean shouldSwipe(com.faendir.omniadapter.model.Component,int) -> shouldSwipe
+    40:40:boolean isSelectable(com.faendir.omniadapter.model.Component) -> isSelectable
+    40:40:boolean shouldMove(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int) -> shouldMove
+    40:40:void bindView(android.view.View,com.faendir.omniadapter.model.Component,int) -> bindView
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo -> com.faendir.lightning_launcher.multitool.gesture.GestureInfo:
     android.content.Intent intent -> intent
     android.gesture.Gesture gesture -> gesture
@@ -17419,47 +17421,58 @@ com.faendir.lightning_launcher.multitool.gesture.GestureInfo -> com.faendir.ligh
     51:51:boolean isInvalid() -> isInvalid
     56:62:android.gesture.Gesture getGesture(android.content.Context) -> getGesture
     66:75:void setGesture(android.content.Context,android.gesture.Gesture) -> setGesture
-    78:80:void removeGesture(android.content.Context) -> removeGesture
-    83:83:android.content.Intent getIntent() -> getIntent
-    87:88:void setIntent(android.content.Intent) -> setIntent
-    91:91:java.lang.String getText() -> getText
-    95:96:void setLabel(java.lang.String) -> setLabel
-    99:99:boolean hasUuid(java.util.UUID) -> hasUuid
-    103:113:android.graphics.drawable.Drawable getImage(android.content.Context) -> getImage
-    118:118:int describeContents() -> describeContents
-    123:127:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-    152:152:com.faendir.omniadapter.model.Component$State getState() -> getState
+    78:81:void removeGesture(android.content.Context) -> removeGesture
+    84:84:android.content.Intent getIntent() -> getIntent
+    88:89:void setIntent(android.content.Intent) -> setIntent
+    92:92:java.lang.String getText() -> getText
+    96:97:void setLabel(java.lang.String) -> setLabel
+    100:100:boolean hasUuid(java.util.UUID) -> hasUuid
+    104:114:android.graphics.drawable.Drawable getImage(android.content.Context) -> getImage
+    119:119:int describeContents() -> describeContents
+    124:128:void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    153:153:com.faendir.omniadapter.model.Component$State getState() -> getState
     28:28:void <init>(android.content.Intent,java.lang.String,android.os.ParcelUuid,com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1) -> <init>
     28:28:android.gesture.Gesture access$102(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,android.gesture.Gesture) -> access$102
-    129:129:void <clinit>() -> <clinit>
+    130:130:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1 -> com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1:
-    129:129:void <init>() -> <init>
-    132:140:com.faendir.lightning_launcher.multitool.gesture.GestureInfo createFromParcel(android.os.Parcel) -> createFromParcel
-    145:145:com.faendir.lightning_launcher.multitool.gesture.GestureInfo[] newArray(int) -> newArray
-    129:129:java.lang.Object[] newArray(int) -> newArray
-    129:129:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    130:130:void <init>() -> <init>
+    133:141:com.faendir.lightning_launcher.multitool.gesture.GestureInfo createFromParcel(android.os.Parcel) -> createFromParcel
+    146:146:com.faendir.lightning_launcher.multitool.gesture.GestureInfo[] newArray(int) -> newArray
+    130:130:java.lang.Object[] newArray(int) -> newArray
+    130:130:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils -> com.faendir.lightning_launcher.multitool.gesture.GestureUtils:
-    21:22:void <init>() -> <init>
-    25:35:void deleteDialog(android.content.Context,java.util.List,java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager) -> deleteDialog
-    38:43:void delete(android.content.Context,java.util.List,java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager) -> delete
-    46:51:void edit(android.app.Activity,com.faendir.lightning_launcher.multitool.gesture.GestureInfo,java.util.List) -> edit
-    54:59:void updateSavedGestures(java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager) -> updateSavedGestures
+    java.lang.String METADATA -> METADATA
+    java.lang.String GESTURES -> GESTURES
+    43:44:void <init>() -> <init>
+    47:52:void delete(android.content.Context,java.util.List,java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager) -> delete
+    55:60:void edit(android.app.Activity,com.faendir.lightning_launcher.multitool.gesture.GestureInfo,java.util.List) -> edit
+    63:64:void updateSavedGestures(java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager) -> updateSavedGestures
+    70:92:void exportGestures(android.content.Context,android.net.Uri,com.faendir.lightning_launcher.multitool.util.FileManager) -> exportGestures
+    95:113:void export(android.content.Context,java.io.File,java.io.File,java.io.File) -> export
+    116:129:void writeFile(java.io.File,java.io.OutputStream) -> writeFile
+    132:145:void readToFile(java.io.File,java.io.InputStream) -> readToFile
+    148:194:void importGestures(android.content.Context,android.net.Uri,com.faendir.omniadapter.model.DeepObservableList,com.faendir.lightning_launcher.multitool.util.FileManager) -> importGestures
+    42:42:void access$000(android.content.Context,java.io.File,java.io.File,java.io.File) -> access$000
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1 -> com.faendir.lightning_launcher.multitool.gesture.GestureUtils$1:
+    java.io.File val$dir -> val$dir
     android.content.Context val$context -> val$context
-    java.util.List val$selected -> val$selected
-    java.util.List val$list -> val$list
-    com.faendir.lightning_launcher.multitool.util.FileManager val$fileManager -> val$fileManager
-    28:28:void <init>(android.content.Context,java.util.List,java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager) -> <init>
-    31:32:void onClick(android.content.DialogInterface,int) -> onClick
+    java.io.File val$file -> val$file
+    java.io.File val$metadata -> val$metadata
+    java.io.File val$gestures -> val$gestures
+    76:76:void <init>(java.io.File,android.content.Context,java.io.File,java.io.File,java.io.File) -> <init>
+    79:84:void handlePermissionResult(boolean) -> handlePermissionResult
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView -> com.faendir.lightning_launcher.multitool.gesture.LightningGestureView:
     28:34:void <init>(android.content.Context) -> <init>
     38:65:void onGesturePerformed(android.gesture.GestureOverlayView,android.gesture.Gesture) -> onGesturePerformed
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary -> com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary:
-    android.gesture.GestureLibrary global -> global
+    com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary global -> global
+    android.gesture.GestureLibrary library -> library
+    java.io.File file -> file
     long lastModified -> lastModified
-    17:18:void <init>() -> <init>
-    24:33:android.gesture.GestureLibrary getGlobal(android.content.Context) -> getGlobal
-    21:21:void <clinit>() -> <clinit>
+    21:24:android.gesture.GestureLibrary getGlobal(android.content.Context) -> getGlobal
+    28:28:java.io.File getFile() -> getFile
+    33:39:void <init>(android.content.Context) -> <init>
+    42:46:android.gesture.GestureLibrary get() -> get
 com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment -> com.faendir.lightning_launcher.multitool.d.a:
     android.widget.TextView nameTextView -> a
     android.content.SharedPreferences shareprefs -> b
@@ -17704,25 +17717,25 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ListManager -> com.faendi
     84:85:void fireUpdateActionMode() -> fireUpdateActionMode
     88:89:void deselectAll() -> deselectAll
     92:93:void changed(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> changed
-    96:155:void updateFrom(java.util.List) -> updateFrom
-    158:166:void setAsContentOf(android.view.ViewGroup) -> setAsContentOf
-    169:169:com.faendir.omniadapter.model.DeepObservableList getItems() -> getItems
-    173:173:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> exists
-    177:182:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.omniadapter.model.DeepObservableList) -> exists
-    187:187:android.view.View createView(android.view.ViewGroup,int) -> createView
-    192:196:void bindView(android.view.View,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int) -> bindView
-    200:202:boolean onCreateActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> onCreateActionMode
-    207:213:boolean onPrepareActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> onPrepareActionMode
-    218:238:boolean onActionItemClicked(android.support.v7.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
-    243:244:void onDestroyActionMode(android.support.v7.view.ActionMode) -> onDestroyActionMode
-    248:249:void onSelectionChanged(java.util.List) -> onSelectionChanged
-    253:254:void onSelectionCleared() -> onSelectionCleared
-    258:263:void onActionPersisted(java.util.List) -> onActionPersisted
-    267:267:void onActionReverted(java.util.List) -> onActionReverted
-    271:271:boolean isSelectable(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> isSelectable
-    287:292:int getSelectionMode() -> getSelectionMode
-    297:297:java.util.List getSelectedItems() -> getSelectedItems
-    302:302:java.lang.String toString() -> toString
+    96:160:void updateFrom(java.util.List) -> updateFrom
+    163:171:void setAsContentOf(android.view.ViewGroup) -> setAsContentOf
+    174:174:com.faendir.omniadapter.model.DeepObservableList getItems() -> getItems
+    178:178:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> exists
+    182:187:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.omniadapter.model.DeepObservableList) -> exists
+    192:192:android.view.View createView(android.view.ViewGroup,int) -> createView
+    197:201:void bindView(android.view.View,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int) -> bindView
+    205:207:boolean onCreateActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> onCreateActionMode
+    212:218:boolean onPrepareActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> onPrepareActionMode
+    223:243:boolean onActionItemClicked(android.support.v7.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
+    248:249:void onDestroyActionMode(android.support.v7.view.ActionMode) -> onDestroyActionMode
+    253:254:void onSelectionChanged(java.util.List) -> onSelectionChanged
+    258:259:void onSelectionCleared() -> onSelectionCleared
+    263:268:void onActionPersisted(java.util.List) -> onActionPersisted
+    272:272:void onActionReverted(java.util.List) -> onActionReverted
+    276:276:boolean isSelectable(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> isSelectable
+    292:297:int getSelectionMode() -> getSelectionMode
+    302:302:java.util.List getSelectedItems() -> getSelectedItems
+    307:307:java.lang.String toString() -> toString
     40:40:boolean isSelectable(com.faendir.omniadapter.model.Component) -> isSelectable
     40:40:void bindView(android.view.View,com.faendir.omniadapter.model.Component,int) -> bindView
     40:40:android.support.v7.widget.RecyclerView access$000(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager) -> access$000
@@ -17740,8 +17753,8 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$2 -> com.faen
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$3 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$3:
     android.view.ViewGroup val$group -> val$group
     com.faendir.lightning_launcher.multitool.scriptmanager.ListManager this$0 -> this$0
-    159:159:void <init>(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup) -> <init>
-    162:164:void run() -> run
+    164:164:void <init>(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup) -> <init>
+    167:169:void run() -> run
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$SelectionMode -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$SelectionMode:
 com.faendir.lightning_launcher.multitool.scriptmanager.Script -> com.faendir.lightning_launcher.multitool.scriptmanager.Script:
     int id -> id
@@ -17932,22 +17945,22 @@ com.faendir.lightning_launcher.multitool.settings.PrefsFragment -> com.faendir.l
     java.lang.String DEFAULT_BACKUP_PATH -> a
     android.content.SharedPreferences sharedPref -> b
     com.faendir.lightning_launcher.multitool.settings.PreferenceListener listener -> c
-    33:33:void <init>() -> <init>
-    42:78:void onCreate(android.os.Bundle) -> onCreate
-    82:84:void onDestroy() -> onDestroy
-    88:122:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    125:126:void setBackupPath(android.net.Uri) -> a
-    130:133:void removeDebugOptions() -> a
-    33:33:android.content.SharedPreferences access$000(com.faendir.lightning_launcher.multitool.settings.PrefsFragment) -> a
-    34:34:void <clinit>() -> <clinit>
+    34:34:void <init>() -> <init>
+    43:79:void onCreate(android.os.Bundle) -> onCreate
+    83:85:void onDestroy() -> onDestroy
+    89:98:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    101:102:void setBackupPath(android.net.Uri) -> a
+    106:109:void removeDebugOptions() -> a
+    34:34:android.content.SharedPreferences access$000(com.faendir.lightning_launcher.multitool.settings.PrefsFragment) -> a
+    35:35:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.settings.PrefsFragment$1 -> com.faendir.lightning_launcher.multitool.settings.b$1:
     com.faendir.lightning_launcher.multitool.settings.PrefsFragment this$0 -> a
-    48:48:void <init>(com.faendir.lightning_launcher.multitool.settings.PrefsFragment) -> <init>
-    51:57:boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
+    49:49:void <init>(com.faendir.lightning_launcher.multitool.settings.PrefsFragment) -> <init>
+    52:58:boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
 com.faendir.lightning_launcher.multitool.settings.PrefsFragment$2 -> com.faendir.lightning_launcher.multitool.settings.b$2:
     com.faendir.lightning_launcher.multitool.settings.PrefsFragment this$0 -> a
-    62:62:void <init>(com.faendir.lightning_launcher.multitool.settings.PrefsFragment) -> <init>
-    65:66:void run() -> run
+    63:63:void <init>(com.faendir.lightning_launcher.multitool.settings.PrefsFragment) -> <init>
+    66:67:void run() -> run
 com.faendir.lightning_launcher.multitool.settings.SummaryPreference -> com.faendir.lightning_launcher.multitool.settings.c:
     java.lang.CharSequence getSummaryText() -> a
 com.faendir.lightning_launcher.multitool.util.BaseActivity -> com.faendir.lightning_launcher.multitool.util.a:
@@ -17971,23 +17984,24 @@ com.faendir.lightning_launcher.multitool.util.FileManager -> com.faendir.lightni
     java.lang.Class clazz -> a
     java.io.File file -> b
     com.google.gson.Gson gson -> c
-    35:42:void <init>(android.content.Context,java.lang.String,java.lang.Class) -> <init>
-    48:53:void allowGlobalRead(java.io.File) -> a
-    56:57:void allowGlobalRead() -> a
-    61:67:java.util.List read() -> b
-    73:92:void write(java.util.List) -> a
+    35:41:void <init>(java.io.File,java.lang.Class) -> <init>
+    47:52:void allowGlobalRead(java.io.File) -> a
+    55:56:void allowGlobalRead() -> a
+    60:66:java.util.List read() -> b
+    72:91:void write(java.util.List) -> a
+    94:94:java.io.File getFile() -> c
 com.faendir.lightning_launcher.multitool.util.FileManager$1 -> com.faendir.lightning_launcher.multitool.util.d$1:
 com.faendir.lightning_launcher.multitool.util.FileManager$FatalFileException -> com.faendir.lightning_launcher.multitool.util.d$a:
-    96:97:void <init>(java.lang.Exception) -> <init>
+    99:100:void <init>(java.lang.Exception) -> <init>
 com.faendir.lightning_launcher.multitool.util.FileManager$IntentTypeAdapter -> com.faendir.lightning_launcher.multitool.util.d$b:
-    100:100:void <init>() -> <init>
-    105:113:void write(com.google.gson.stream.JsonWriter,android.content.Intent) -> a
-    117:128:android.content.Intent read(com.google.gson.stream.JsonReader) -> a
-    100:100:java.lang.Object read(com.google.gson.stream.JsonReader) -> b
-    100:100:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> a
-    100:100:void <init>(com.faendir.lightning_launcher.multitool.util.FileManager$1) -> <init>
+    103:103:void <init>() -> <init>
+    108:116:void write(com.google.gson.stream.JsonWriter,android.content.Intent) -> a
+    120:131:android.content.Intent read(com.google.gson.stream.JsonReader) -> a
+    103:103:java.lang.Object read(com.google.gson.stream.JsonReader) -> b
+    103:103:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> a
+    103:103:void <init>(com.faendir.lightning_launcher.multitool.util.FileManager$1) -> <init>
 com.faendir.lightning_launcher.multitool.util.FileManagerFactory -> com.faendir.lightning_launcher.multitool.util.e:
-    19:19:com.faendir.lightning_launcher.multitool.util.FileManager createGestureFileManager(android.content.Context) -> a
+    21:21:com.faendir.lightning_launcher.multitool.util.FileManager createGestureFileManager(android.content.Context) -> a
 com.faendir.lightning_launcher.multitool.util.FragmentManager -> com.faendir.lightning_launcher.multitool.util.f:
     com.faendir.lightning_launcher.multitool.MainActivity context -> a
     android.app.FragmentManager manager -> b
@@ -18113,6 +18127,8 @@ com.faendir.lightning_launcher.multitool.util.ToStringBuilder -> com.faendir.lig
     23:24:void <init>(java.lang.Object) -> <init>
     27:37:com.faendir.lightning_launcher.multitool.util.ToStringBuilder append(java.lang.String,java.lang.Object) -> a
     41:41:java.lang.String build() -> a
+com.faendir.lightning_launcher.multitool.util.Utils -> com.faendir.lightning_launcher.multitool.util.j:
+    23:41:java.util.List getFilePickerActivityResult(android.content.Intent) -> a
 com.faendir.lightning_launcher.scriptlib.Action -> com.faendir.lightning_launcher.scriptlib.Action:
     int UNSET -> UNSET
     int NOTHING -> NOTHING

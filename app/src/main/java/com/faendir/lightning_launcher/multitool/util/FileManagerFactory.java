@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 
 import com.faendir.lightning_launcher.multitool.gesture.GestureInfo;
 
+import java.io.File;
+
 /**
  * Created on 27.01.2016.
  *
@@ -16,6 +18,6 @@ public final class FileManagerFactory {
 
     @NonNull
     public static FileManager<GestureInfo> createGestureFileManager(Context context) {
-        return new FileManager<>(context, "gestures", GestureInfo[].class);
+        return new FileManager<>(new File(context.getFilesDir(),"gestures"), GestureInfo[].class);
     }
 }

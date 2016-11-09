@@ -19,6 +19,7 @@ import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.backup.BackupUtils;
 import com.faendir.lightning_launcher.multitool.util.IntentChooser;
+import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
 import java.io.File;
@@ -88,32 +89,7 @@ public class PrefsFragment extends PreferenceFragment {
         if (resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
                 case REQUEST_DIRECTORY:
-                    if (data.getBooleanExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false)) {
-                        // For JellyBean and above
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                            ClipData clip = data.getClipData();
-
-                            if (clip != null) {
-                                for (int i = 0; i < clip.getItemCount(); i++) {
-                                    Uri uri = clip.getItemAt(i).getUri();
-                                    setBackupPath(uri);
-                                }
-                            }
-                            // For Ice Cream Sandwich
-                        } else {
-                            ArrayList<String> paths = data.getStringArrayListExtra
-                                    (FilePickerActivity.EXTRA_PATHS);
-
-                            if (paths != null) {
-                                for (String path : paths) {
-                                    Uri uri = Uri.parse(path);
-                                    setBackupPath(uri);
-                                }
-                            }
-                        }
-
-                    } else {
-                        Uri uri = data.getData();
+                    for (Uri uri : Utils.getFilePickerActivityResult(data)){
                         setBackupPath(uri);
                     }
                     break;
