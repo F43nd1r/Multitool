@@ -6,9 +6,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RawRes;
 import android.support.annotation.StringRes;
+import android.util.Log;
 
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
 import com.faendir.lightning_launcher.multitool.util.BaseActivity;
+
+import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
+import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
 
 /**
  * @author F43nd1r
@@ -38,6 +42,7 @@ public class Loader extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         billingManager = new BillingManager(this);
+        if(DEBUG) Log.d(LOG_TAG, "Loader for class "+getIntent().getComponent().getClassName());
         switch (getIntent().getComponent().getClassName()) {
             case LAUNCHER_SCRIPT:
                 check(R.string.title_launcherScript, R.raw.multitool, false, FLAG_APP_MENU + FLAG_ITEM_MENU, getString(R.string.script_name), true);

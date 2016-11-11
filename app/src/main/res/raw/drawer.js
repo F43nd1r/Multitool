@@ -129,7 +129,6 @@ function deepSort(container) {
     }
     sortByName(move);
     var width = Math.round(container.getWidth() / container.getCellWidth());
-    Log.d("tag",""+width);
     var x = 0;
     var y = 0;
     for (var i = 0; i < move.length; i++) {

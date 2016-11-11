@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.annotation.UiThread;
+import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -16,6 +17,9 @@ import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
 
 import org.greenrobot.eventbus.EventBus;
 
+import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
+import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
+
 /**
  * @author F43nd1r
  * @since 29.09.2016
@@ -23,12 +27,10 @@ import org.greenrobot.eventbus.EventBus;
 
 public class BillingManager extends BaseBillingManager {
     private final Activity context;
-    private volatile boolean ready = false;
 
     public BillingManager(Activity context) {
         super(context);
         this.context = context;
-        getBillingProcessor().loadOwnedPurchasesFromGoogle();
     }
 
     public boolean handleActivityResult(int requestCode, int resultCode, Intent data) {
@@ -36,17 +38,9 @@ public class BillingManager extends BaseBillingManager {
     }
 
     @Override
-    public void onBillingInitialized() {
-        synchronized (this) {
-            ready = true;
-            notifyAll();
-        }
-    }
-
-    @Override
     public void onProductPurchased(String productId, TransactionDetails details) {
         super.onProductPurchased(productId, details);
-        EventBus.getDefault().post(new SwitchFragmentRequest(R.string.title_musicWidget));
+        EventBus.getDefault().post(new SwitchFragmentRequest(mapping.getKey(productId)));
     }
 
     @UiThread
@@ -61,6 +55,7 @@ public class BillingManager extends BaseBillingManager {
                 .setPositiveButton(R.string.button_buy, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int ignore) {
+                        if(DEBUG) Log.d(LOG_TAG, "Button buy");
                         buy(mapping.get(which));
                         if(onClose != null) onClose.run();
                     }
@@ -68,6 +63,7 @@ public class BillingManager extends BaseBillingManager {
                 .setNeutralButton(R.string.button_trial, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int ignore) {
+                        if(DEBUG) Log.d(LOG_TAG, "Button trial");
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
@@ -80,6 +76,7 @@ public class BillingManager extends BaseBillingManager {
                 .setNegativeButton(R.string.button_cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int ignore) {
+                        if(DEBUG) Log.d(LOG_TAG, "Button cancel");
                         if(onClose != null) onClose.run();
                     }
                 })
@@ -90,14 +87,7 @@ public class BillingManager extends BaseBillingManager {
     }
 
     private void buy(String productId) {
-        synchronized (this) {
-            while (!ready) {
-                try {
-                    wait();
-                } catch (InterruptedException ignored) {
-                }
-            }
-        }
+        waitForInit();
         getBillingProcessor().purchase(context, productId);
     }
 

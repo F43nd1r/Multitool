@@ -52,6 +52,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import static android.media.MediaMetadata.*;
 import static android.media.session.PlaybackState.*;
+import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
+import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
 
 /**
  * Created on 03.07.2016.
@@ -193,7 +195,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         }
         if (isAllowed.get()) {
             startService(new Intent(this, MusicManager.class));
-            Log.d("MusicManager", "Bind");
+            if(DEBUG)Log.d(LOG_TAG, "MusicManager bound");
             return messenger.getBinder();
         } else {
             Toast.makeText(this, "No active trial or purchase found.\nMusic widgets disabled.", Toast.LENGTH_LONG).show();
@@ -323,6 +325,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         public void handleMessage(Message msg) {
             if (musicManager.get() != null) {
                 MediaController controller = musicManager.get().currentController.get();
+                if(DEBUG)Log.d(LOG_TAG, "MusicManager got message "+msg.what);
                 switch (msg.what) {
                     case ACTION_REGISTER_MESSENGER:
                         if (msg.replyTo != null) {

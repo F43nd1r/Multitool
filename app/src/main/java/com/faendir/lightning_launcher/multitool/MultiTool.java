@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.faendir.lightning_launcher.multitool.util.ResetReportPrimer;
+import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 
 import org.acra.ACRA;
 import org.acra.annotation.ReportsCrashes;
@@ -23,9 +24,14 @@ import org.acra.sender.HttpSender;
         buildConfigClass = BuildConfig.class
 )
 public class MultiTool extends Application {
+    public static final boolean DEBUG = true;
+    public static final String LOG_TAG = "[MULTITOOL]";
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+        if(DEBUG){
+            ACRA.DEV_LOGGING = true;
+        }
         ACRA.init(this);
     }
 }

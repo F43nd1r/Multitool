@@ -5,9 +5,11 @@ import android.content.Context;
 import android.provider.Settings;
 import android.support.annotation.StringRes;
 import android.support.annotation.WorkerThread;
+import android.util.Log;
 
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.TransactionDetails;
+import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 
 import org.apache.commons.collections4.BidiMap;
@@ -21,6 +23,9 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
+import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
 
 /**
  * @author F43nd1r
@@ -71,6 +76,10 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
 
     @Override
     public void onBillingInitialized() {
+        billingProcessor.loadOwnedPurchasesFromGoogle();
+        synchronized (this){
+            notifyAll();
+        }
     }
 
     BillingProcessor getBillingProcessor() {
@@ -83,8 +92,11 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
 
     @WorkerThread
     public boolean isBoughtOrTrial(@StringRes int id) {
+        waitForInit();
         String name = mapping.get(id);
-        return name == null || billingProcessor.isPurchased(name) || isTrial(name) == TrialState.ONGOING;
+        boolean result = name == null || billingProcessor.isPurchased(name) || isTrial(name) == TrialState.ONGOING;
+        if (DEBUG) Log.d(LOG_TAG, name + " isBoughtOrTrial " + result);
+        return result;
     }
 
     protected TrialState isTrial(String productId) {
@@ -100,13 +112,16 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
             }
             expiration.put(productId, expires);
         }
+        TrialState result;
         if (expires == -1) {
-            return TrialState.NOT_STARTED;
+            result = TrialState.NOT_STARTED;
         } else if (System.currentTimeMillis() / 1000 < expires) {
-            return TrialState.ONGOING;
+            result = TrialState.ONGOING;
         } else {
-            return TrialState.EXPIRED;
+            result = TrialState.EXPIRED;
         }
+        if(DEBUG) Log.d(LOG_TAG, productId + " TrialState " + result.name());
+        return result;
     }
 
     @SuppressLint("HardwareIds")
@@ -128,6 +143,17 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
             return Integer.valueOf(result);
         } catch (IOException | NumberFormatException e) {
             return -1;
+        }
+    }
+
+    void waitForInit(){
+        synchronized (this) {
+            while (!billingProcessor.isInitialized()) {
+                try {
+                    wait();
+                } catch (InterruptedException ignored) {
+                }
+            }
         }
     }
 }
