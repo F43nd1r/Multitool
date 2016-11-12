@@ -37,8 +37,8 @@ class IntentHandlerListTask extends AsyncTask<Void, Void, List<IntentInfo>> {
     private final boolean useApplicationLabel;
     private final int rootId;
 
-    public IntentHandlerListTask(IntentChooser context, Intent intent, boolean isIndirect,
-                                 IntentChooser.IntentTarget target, boolean useApplicationLabel, @IdRes int rootId) {
+    IntentHandlerListTask(IntentChooser context, Intent intent, boolean isIndirect,
+                          IntentChooser.IntentTarget target, boolean useApplicationLabel, @IdRes int rootId) {
         this.context = context;
         this.pm = context.getPackageManager();
         this.intent = intent;
@@ -52,17 +52,17 @@ class IntentHandlerListTask extends AsyncTask<Void, Void, List<IntentInfo>> {
     protected final List<IntentInfo> doInBackground(Void... params) {
         List<ResolveInfo> resolveInfos = queryInfos();
         List<IntentInfo> infos = new ArrayList<>();
-        for (ResolveInfo info : resolveInfos) {
-            ActivityInfo activity = info.activityInfo;
+        for (ResolveInfo resolveInfo : resolveInfos) {
+            ActivityInfo activity = resolveInfo.activityInfo;
             ComponentName name = new ComponentName(activity.applicationInfo.packageName,
                     activity.name);
             Intent launchIntent = new Intent(intent);
             launchIntent.setComponent(name);
-            IntentInfo intentInfo = new IntentInfo(launchIntent, new ResolveInfoDrawableProvider(pm, info), getLabel(info), isIndirect);
+            IntentInfo intentInfo = new IntentInfo(launchIntent, new ResolveInfoDrawableProvider(pm, resolveInfo), getLabel(resolveInfo), isIndirect);
             boolean found = false;
-            for (IntentInfo x : infos) {
-                if (x.getIntent().getComponent().getPackageName().equals(intentInfo.getIntent().getComponent().getPackageName())
-                        && x.getText().equals(intentInfo.getText())) {
+            for (IntentInfo info : infos) {
+                if (info.getIntent().getComponent().getPackageName().equals(intentInfo.getIntent().getComponent().getPackageName())
+                        && info.getText().equals(intentInfo.getText())) {
                     found = true;
                     break;
                 }
@@ -80,7 +80,7 @@ class IntentHandlerListTask extends AsyncTask<Void, Void, List<IntentInfo>> {
         RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.list);
         DeepObservableList<IntentInfo> list = DeepObservableList.copyOf(IntentInfo.class, infos);
         list.beginBatchedUpdates();
-        list.keepSorted(new ComparableComparator<IntentInfo>());
+        list.keepSorted(new ComparableComparator<>());
         list.endBatchedUpdates();
         new OmniBuilder<>(context, list, context)
                 .setClick(new Action.Click(Action.CUSTOM, context))

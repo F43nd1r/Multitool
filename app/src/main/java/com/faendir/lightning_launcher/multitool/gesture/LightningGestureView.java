@@ -16,6 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import java8.util.Optional;
+import java8.util.stream.StreamSupport;
+
 /**
  * Created on 26.01.2016.
  *
@@ -38,20 +41,18 @@ public class LightningGestureView extends GestureOverlayView implements GestureO
         FileManager<GestureInfo> fileManager = FileManagerFactory.createGestureFileManager(getContext());
         List<GestureInfo> gestureInfos = fileManager.read();
         boolean recognized = false;
-        if (gestureInfos != null) {
+        if (!gestureInfos.isEmpty()) {
             GestureLibrary library = SingletonGestureLibrary.getGlobal(getContext());
             ArrayList<Prediction> list = library.recognize(gesture);
             if (list != null && list.size() != 0) {
                 try {
                     UUID uuid = UUID.fromString(list.get(0).name);
-                    for (GestureInfo info : gestureInfos) {
-                        if (info.hasUuid(uuid)) {
-                            recognized = true;
-                            Intent intent = info.getIntent();
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            getContext().startActivity(intent);
-                            break;
-                        }
+                    Optional<GestureInfo> info = StreamSupport.stream(gestureInfos).filter(gestureInfo -> gestureInfo.hasUuid(uuid)).findAny();
+                    if (info.isPresent()) {
+                        recognized = true;
+                        Intent intent = info.get().getIntent();
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        getContext().startActivity(intent);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

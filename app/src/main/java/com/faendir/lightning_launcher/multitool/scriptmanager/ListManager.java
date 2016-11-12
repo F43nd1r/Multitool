@@ -32,6 +32,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ListIterator;
 
+import java8.util.Optional;
+import java8.util.stream.StreamSupport;
+
 /**
  * Created on 01.04.2016.
  *
@@ -46,26 +49,23 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
     private final OmniAdapter<ScriptItem> adapter;
     private final DeepObservableList<ScriptItem> items;
 
-    public ListManager(@NonNull ScriptManager scriptManager, @NonNull Context context) {
+    ListManager(@NonNull ScriptManager scriptManager, @NonNull Context context) {
         this.scriptManager = scriptManager;
         this.context = context;
         recyclerView = new RecyclerView(context);
         recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         items = new DeepObservableList<>(ScriptItem.class);
-        items.keepSorted(new Comparator<ScriptItem>() {
-            @Override
-            public int compare(ScriptItem o1, ScriptItem o2) {
-                if (o1 instanceof Folder) {
-                    if (o2 instanceof Folder) {
-                        return ((Folder) o1).compareTo((Folder) o2);
-                    } else {
-                        return -1;
-                    }
-                } else if (o2 instanceof Folder) {
-                    return 1;
+        items.keepSorted((o1, o2) -> {
+            if (o1 instanceof Folder) {
+                if (o2 instanceof Folder) {
+                    return ((Folder) o1).compareTo((Folder) o2);
                 } else {
-                    return o1.getName().compareTo(o2.getName());
+                    return -1;
                 }
+            } else if (o2 instanceof Folder) {
+                return 1;
+            } else {
+                return o1.getName().compareTo(o2.getName());
             }
         });
         adapter = new OmniBuilder<>(context, items, this)
@@ -84,23 +84,20 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
         EventBus.getDefault().post(new UpdateActionModeRequest(this, !adapter.getSelection().isEmpty()));
     }
 
-    public void deselectAll() {
+    void deselectAll() {
         adapter.clearSelection();
     }
 
-    public void changed(ScriptItem s) {
+    void changed(ScriptItem s) {
         adapter.notifyItemUpdated(s);
     }
 
-    public void updateFrom(@NonNull List<Script> scripts) {
+    void updateFrom(@NonNull List<Script> scripts) {
         items.beginBatchedUpdates();
         final List<Script> old = new ArrayList<>();
-        items.visitDeep(new DeepObservableList.ComponentVisitor<ScriptItem>() {
-            @Override
-            public void visit(ScriptItem scriptItem, int i) {
-                if (scriptItem instanceof Script) {
-                    old.add((Script) scriptItem);
-                }
+        items.visitDeep((scriptItem, i) -> {
+            if (scriptItem instanceof Script) {
+                old.add((Script) scriptItem);
             }
         }, false);
         List<Script> removed = new ArrayList<>(old);
@@ -111,14 +108,11 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
             String path = script.getPath();
             String[] pathFolders = path.split("/");
             DeepObservableList<ScriptItem> parent = items;
-            loop:
             for (String folder : pathFolders) {
-                if ("".equals(folder)) continue;
-                for (ScriptItem item : parent) {
-                    if (item instanceof Folder && ((Folder) item).getRealName().equals(folder)) {
-                        parent = ((Folder) item).getRealChildren();
-                        continue loop;
-                    }
+                if ("".equals(folder) || StreamSupport.stream(parent)
+                        .filter(item -> item instanceof Folder && ((Folder) item).getRealName().equals(folder))
+                        .findAny().isPresent()) {
+                    continue;
                 }
                 Folder f = new Folder(folder);
                 f.getState().setExpanded(true);
@@ -134,18 +128,18 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
             DeepObservableList<ScriptItem> parent = items;
             for (String folder : pathFolders) {
                 if ("".equals(folder)) continue;
-                for (ScriptItem item : parent) {
-                    if (item instanceof Folder && ((Folder) item).getRealName().equals(folder)) {
-                        folders.add((Folder) item);
-                        parent = ((Folder) item).getRealChildren();
-                        break;
-                    }
+                Optional<Folder> folderOptional = StreamSupport.stream(parent).filter(item -> item instanceof Folder)
+                        .map(Folder.class::cast).filter(item -> item.getRealName().equals(folder)).findAny();
+                if (folderOptional.isPresent()) {
+                    folders.add(folderOptional.get());
+                    parent = folderOptional.get().getRealChildren();
                 }
             }
-            if(!folders.isEmpty()) {
+            if (!folders.isEmpty()) {
                 folders.get(folders.size() - 1).getChildren().remove(script);
                 ListIterator<Folder> iterator = folders.listIterator(folders.size());
                 Folder lastEmpty = null;
+                //noinspection StatementWithEmptyBody
                 while (iterator.hasPrevious() && (lastEmpty = iterator.previous()).getRealChildren().size() == 0)
                     ;
                 if (lastEmpty != null) {
@@ -159,32 +153,24 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
         items.endBatchedUpdates();
     }
 
-    public void setAsContentOf(final ViewGroup group) {
-        new Handler(context.getMainLooper())
-                .post(new Runnable() {
-                    @Override
-                    public void run() {
-                        group.removeAllViews();
-                        group.addView(recyclerView);
-                    }
-                });
+    void setAsContentOf(final ViewGroup group) {
+        new Handler(context.getMainLooper()).post(() -> {
+            group.removeAllViews();
+            group.addView(recyclerView);
+        });
     }
 
-    public DeepObservableList<ScriptItem> getItems() {
+    DeepObservableList<ScriptItem> getItems() {
         return items;
     }
 
-    public boolean exists(Script script) {
+    boolean exists(Script script) {
         return exists(script, items);
     }
 
     private boolean exists(Script script, DeepObservableList<ScriptItem> searchIn) {
-        for (ScriptItem item : searchIn) {
-            if (script.getName().equals(item.getName()) || item instanceof Folder && exists(script, ((Folder) item).getChildren())) {
-                return true;
-            }
-        }
-        return false;
+        return StreamSupport.stream(searchIn).filter(item -> script.getName().equals(item.getName())
+                || item instanceof Folder && exists(script, ((Folder) item).getChildren())).findAny().isPresent();
     }
 
     @Override
@@ -260,11 +246,8 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
 
     @Override
     public void onActionPersisted(List<? extends ChangeInformation<ScriptItem>> changes) {
-        for (ChangeInformation<ScriptItem> change : changes) {
-            if (change instanceof ChangeInformation.Remove && change.getComponent() instanceof Script) {
-                ScriptUtils.deleteScript(scriptManager, ListManager.this, (Script) change.getComponent());
-            }
-        }
+        StreamSupport.stream(changes).filter(change -> change instanceof ChangeInformation.Remove && change.getComponent() instanceof Script)
+                .map(change -> (Script) change.getComponent()).forEach(script -> ScriptUtils.deleteScript(scriptManager, ListManager.this, script));
     }
 
     @Override

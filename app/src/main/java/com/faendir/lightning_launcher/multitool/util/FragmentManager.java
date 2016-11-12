@@ -56,54 +56,48 @@ public class FragmentManager {
             return;
         }
         if (!billingManager.isBoughtOrTrial(request.getId())) {
-            context.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    billingManager.showDialog(request.getId());
-                    drawer.setSelection(lastId);
-                }
+            context.runOnUiThread(() -> {
+                billingManager.showDialog(request.getId());
+                drawer.setSelection(lastId);
             });
         } else {
             final String finalName = name;
-            context.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    switch (request.getId()) {
-                        case R.string.title_scriptManager:
-                            currentFragment = new ScriptManagerFragment();
-                            break;
-                        case R.string.title_launcherScript:
-                            currentFragment = new LauncherScriptFragment();
-                            break;
-                        case R.string.title_gestureLauncher:
-                            currentFragment = new GestureFragment();
-                            break;
-                        case R.string.title_musicWidget:
-                            currentFragment = new MusicFragment();
-                            break;
-                        case R.string.title_settings:
-                            currentFragment = new PrefsFragment();
-                            break;
-                        case R.string.title_drawer:
-                            currentFragment = new DrawerFragment();
-                            break;
-                        default:
-                            if (currentFragment != null) {
-                                manager.beginTransaction().remove(currentFragment).commit();
-                                currentFragment = null;
-                            }
-                            drawer.openDrawer();
-                    }
-                    if (currentFragment != null) {
-                        manager.beginTransaction().replace(R.id.content_frame, currentFragment).commit();
-                        sharedPref.edit().putString(context.getString(R.string.pref_lastFragment), finalName).apply();
-                        lastId = request.getId();
-                        ActionBar toolbar = context.getSupportActionBar();
-                        if (toolbar != null) {
-                            toolbar.setTitle(context.getString(request.getId()));
+            context.runOnUiThread(() -> {
+                switch (request.getId()) {
+                    case R.string.title_scriptManager:
+                        currentFragment = new ScriptManagerFragment();
+                        break;
+                    case R.string.title_launcherScript:
+                        currentFragment = new LauncherScriptFragment();
+                        break;
+                    case R.string.title_gestureLauncher:
+                        currentFragment = new GestureFragment();
+                        break;
+                    case R.string.title_musicWidget:
+                        currentFragment = new MusicFragment();
+                        break;
+                    case R.string.title_settings:
+                        currentFragment = new PrefsFragment();
+                        break;
+                    case R.string.title_drawer:
+                        currentFragment = new DrawerFragment();
+                        break;
+                    default:
+                        if (currentFragment != null) {
+                            manager.beginTransaction().remove(currentFragment).commit();
+                            currentFragment = null;
                         }
-                        drawer.setSelection(request.getId());
+                        drawer.openDrawer();
+                }
+                if (currentFragment != null) {
+                    manager.beginTransaction().replace(R.id.content_frame, currentFragment).commit();
+                    sharedPref.edit().putString(context.getString(R.string.pref_lastFragment), finalName).apply();
+                    lastId = request.getId();
+                    ActionBar toolbar = context.getSupportActionBar();
+                    if (toolbar != null) {
+                        toolbar.setTitle(context.getString(request.getId()));
                     }
+                    drawer.setSelection(request.getId());
                 }
             });
         }

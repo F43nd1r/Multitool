@@ -60,7 +60,7 @@
     <string name="button_ok">OK</string>
     <string name="text_matches_lines">Matches (lines):\n</string>
     <string name="title_matches">Matches</string>
-    <string name="title_rename">"Rename "</string>
+    <string name="title_rename">Rename %s</string>
     <string name="text_folder">Folder</string>
     <string name="text_script">Script</string>
     <string name="text_backupSuccessful">" scripts successfully backed up"</string>
@@ -170,4 +170,9 @@
     <string name="summary_unknown">Trial state unknown.</string>
     <string name="pref_altControl">alternativeControlMode</string>
     <string name="title_altControl">Alternative Control Mode</string>
+    <string name="toast_noGestures">No gestures found</string>
+    <string name="toast_exportedTo">Exported gestures to %s</string>
+    <string name="toast_failedExportTo">Failed to export gestures to %s</string>
+    <string name="toast_imported">Imported Gestures successfully</string>
+    <string name="toast_importFailed">Importing Gestures failed: Invalid file</string>
 </resources>

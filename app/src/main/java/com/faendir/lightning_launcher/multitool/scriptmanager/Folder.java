@@ -51,6 +51,6 @@ public class Folder extends SimpleComposite<ScriptItem> implements ScriptItem, C
 
     @Override
     public int compareTo(@NonNull Folder o) {
-        return name.compareTo(o.getName());
+        return name.compareTo(o.name);
     }
 }

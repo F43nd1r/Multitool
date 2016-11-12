@@ -57,6 +57,9 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                 binder = new MusicManager.BinderWrapper(iBinder);
+                synchronized (MusicFragment.this){
+                    MusicFragment.this.notifyAll();
+                }
             }
 
             @Override
@@ -104,19 +107,18 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
     public void onResume() {
         super.onResume();
         EventBus.getDefault().register(this);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (binder == null) {
+        new Thread(() -> {
+            while (binder == null) {
+                synchronized (MusicFragment.this) {
                     try {
-                        Thread.sleep(50);
+                        MusicFragment.this.wait();
                     } catch (InterruptedException ignored) {
                     }
                 }
-                if (calledAtLeastOnce) {
-                    calledAtLeastOnce = false;
-                    binder.registerListener(MusicFragment.this);
-                }
+            }
+            if (calledAtLeastOnce) {
+                calledAtLeastOnce = false;
+                binder.registerListener(MusicFragment.this);
             }
         }).start();
     }
@@ -148,22 +150,19 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
                 bitmap = albumArt.copy(Bitmap.Config.ARGB_8888, false);
             }
         }
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                synchronized (MusicFragment.this) {
-                    MusicFragment.this.albumArt.setImageBitmap(bitmap);
-                }
-                MusicFragment.this.title.setText(title);
-                MusicFragment.this.album.setText(album);
-                MusicFragment.this.artist.setText(artist);
-                try {
-                    MusicFragment.this.player.setImageDrawable(getActivity().getPackageManager().getApplicationIcon(packageName));
-                } catch (PackageManager.NameNotFoundException e) {
-                    MusicFragment.this.player.setImageDrawable(null);
-                }
-                calledAtLeastOnce = true;
+        getActivity().runOnUiThread(() -> {
+            synchronized (MusicFragment.this) {
+                MusicFragment.this.albumArt.setImageBitmap(bitmap);
             }
+            MusicFragment.this.title.setText(title);
+            MusicFragment.this.album.setText(album);
+            MusicFragment.this.artist.setText(artist);
+            try {
+                MusicFragment.this.player.setImageDrawable(getActivity().getPackageManager().getApplicationIcon(packageName));
+            } catch (PackageManager.NameNotFoundException e) {
+                MusicFragment.this.player.setImageDrawable(null);
+            }
+            calledAtLeastOnce = true;
         });
     }
 

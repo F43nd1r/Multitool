@@ -36,37 +36,29 @@ public class TrialPreference extends Preference {
     }
 
     private void update() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                final String summary;
-                int res = getTitleRes();
-                isBought = billingManager.isBought(res);
-                if (isBought) {
-                    summary = getContext().getString(R.string.summary_unlocked);
-                } else {
-                    trialState = billingManager.isTrial(res);
-                    switch (trialState) {
-                        case NOT_STARTED:
-                            summary = getContext().getString(R.string.summary_notStarted);
-                            break;
-                        case ONGOING:
-                            summary = getContext().getString(R.string.summary_ongoing, DateFormat.getDateFormat(getContext()).format(billingManager.getExpiration(res).getTime()));
-                            break;
-                        case EXPIRED:
-                            summary = getContext().getString(R.string.summary_used);
-                            break;
-                        default:
-                            summary = getContext().getString(R.string.summary_unknown);
-                    }
+        new Thread(() -> {
+            final String summary;
+            int res = getTitleRes();
+            isBought = billingManager.isBought(res);
+            if (isBought) {
+                summary = getContext().getString(R.string.summary_unlocked);
+            } else {
+                trialState = billingManager.isTrial(res);
+                switch (trialState) {
+                    case NOT_STARTED:
+                        summary = getContext().getString(R.string.summary_notStarted);
+                        break;
+                    case ONGOING:
+                        summary = getContext().getString(R.string.summary_ongoing, DateFormat.getDateFormat(getContext()).format(billingManager.getExpiration(res).getTime()));
+                        break;
+                    case EXPIRED:
+                        summary = getContext().getString(R.string.summary_used);
+                        break;
+                    default:
+                        summary = getContext().getString(R.string.summary_unknown);
                 }
-                new Handler(getContext().getMainLooper()).post(new Runnable() {
-                    @Override
-                    public void run() {
-                        setSummary(summary);
-                    }
-                });
             }
+            new Handler(getContext().getMainLooper()).post(() -> setSummary(summary));
         }).start();
     }
 
@@ -78,18 +70,10 @@ public class TrialPreference extends Preference {
                     new AlertDialog.Builder(getContext())
                             .setTitle(R.string.title_trial)
                             .setMessage(R.string.message_trial)
-                            .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    new Thread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            billingManager.startTrial(getTitleRes());
-                                            update();
-                                        }
-                                    }).start();
-                                }
-                            })
+                            .setPositiveButton(R.string.button_ok, (dialog, which) -> new Thread(() -> {
+                                billingManager.startTrial(getTitleRes());
+                                update();
+                            }).start())
                             .setNegativeButton(R.string.button_cancel, null)
                             .show();
                     break;
@@ -98,18 +82,10 @@ public class TrialPreference extends Preference {
                     new AlertDialog.Builder(getContext())
                             .setTitle(R.string.title_buy)
                             .setMessage(getContext().getString(R.string.message_buy, getTitle()))
-                            .setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    new Thread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            billingManager.buy(getTitleRes());
-                                            update();
-                                        }
-                                    }).start();
-                                }
-                            })
+                            .setPositiveButton(R.string.button_ok, (dialog, which) -> new Thread(() -> {
+                                billingManager.buy(getTitleRes());
+                                update();
+                            }).start())
                             .setNegativeButton(R.string.button_cancel, null)
                             .show();
                     break;

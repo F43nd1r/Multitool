@@ -46,26 +46,10 @@ public class PrefsFragment extends PreferenceFragment {
         listener = new PreferenceListener(getPreferenceScreen());
         final String path = sharedPref.getString(getString(R.string.pref_directory), PrefsFragment.DEFAULT_BACKUP_PATH);
         Preference dir = findPreference(getString(R.string.pref_directory));
-        dir.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                Intent intent = new Intent(getActivity(), FilePickerActivity.class);
-                intent.putExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false);
-                intent.putExtra(FilePickerActivity.EXTRA_ALLOW_CREATE_DIR, true);
-                intent.putExtra(FilePickerActivity.EXTRA_MODE, FilePickerActivity.MODE_DIR);
-                intent.putExtra(FilePickerActivity.EXTRA_START_PATH, sharedPref.getString(getString(R.string.pref_directory), PrefsFragment.DEFAULT_BACKUP_PATH));
-                startActivityForResult(intent, REQUEST_DIRECTORY);
-                return true;
-            }
-        });
+        dir.setOnPreferenceClickListener(preference -> selectBackupPath());
         listener.addPreferenceForSummary(dir);
         dir.setSummary(path);
-        Runnable backupChanged = new Runnable() {
-            @Override
-            public void run() {
-                BackupUtils.scheduleNext(getActivity());
-            }
-        };
+        Runnable backupChanged = () -> BackupUtils.scheduleNext(getActivity());
         listener.addPreference(getString(R.string.pref_backupTime), backupChanged, false);
         listener.addPreference(getString(R.string.pref_enableBackup), backupChanged, false);
         listener.addPreferenceForSummary(getString(R.string.pref_coverMode));
@@ -76,6 +60,16 @@ public class PrefsFragment extends PreferenceFragment {
             removeDebugOptions();
         }
         sharedPref.registerOnSharedPreferenceChangeListener(listener);
+    }
+
+    private boolean selectBackupPath(){
+        Intent intent = new Intent(getActivity(), FilePickerActivity.class);
+        intent.putExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false);
+        intent.putExtra(FilePickerActivity.EXTRA_ALLOW_CREATE_DIR, true);
+        intent.putExtra(FilePickerActivity.EXTRA_MODE, FilePickerActivity.MODE_DIR);
+        intent.putExtra(FilePickerActivity.EXTRA_START_PATH, sharedPref.getString(getString(R.string.pref_directory), PrefsFragment.DEFAULT_BACKUP_PATH));
+        startActivityForResult(intent, REQUEST_DIRECTORY);
+        return true;
     }
 
     @Override

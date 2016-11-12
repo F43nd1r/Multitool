@@ -34,6 +34,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import java8.util.stream.Collectors;
+import java8.util.stream.StreamSupport;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -61,12 +64,8 @@ public class GestureFragment extends Fragment implements OmniAdapter.Controller<
                              Bundle savedInstanceState) {
         LinearLayout layout = new LinearLayout(getActivity());
         RecyclerView recyclerView = new RecyclerView(getActivity());
-        gestureInfos = DeepObservableList.copyOf(GestureInfo.class, fileManager.read());
-        for (Iterator<GestureInfo> iterator = gestureInfos.iterator(); iterator.hasNext(); ) {
-            if (iterator.next().isInvalid()) {
-                iterator.remove();
-            }
-        }
+        gestureInfos = DeepObservableList.copyOf(GestureInfo.class,
+                StreamSupport.stream(fileManager.read()).filter(gestureInfo -> !gestureInfo.isInvalid()).collect(Collectors.toList()));
         new OmniBuilder<>(getActivity(), gestureInfos, this)
                 .setLongClick(new Action.LongClick(Action.CUSTOM, this))
                 .setSwipeToRight(new Action.Swipe(Action.REMOVE))
@@ -140,14 +139,12 @@ public class GestureFragment extends Fragment implements OmniAdapter.Controller<
                     }
                 }
                 case EXPORT:
-                    for (Uri uri : Utils.getFilePickerActivityResult(data)) {
-                        GestureUtils.exportGestures(getActivity(), uri, fileManager);
-                    }
+                    StreamSupport.stream(Utils.getFilePickerActivityResult(data)).findAny()
+                            .ifPresent(uri -> GestureUtils.exportGestures(getActivity(), uri, fileManager));
                     break;
                 case IMPORT:
-                    for (Uri uri : Utils.getFilePickerActivityResult(data)) {
-                        GestureUtils.importGestures(getActivity(), uri, gestureInfos, fileManager);
-                    }
+                    StreamSupport.stream(Utils.getFilePickerActivityResult(data)).findAny()
+                            .ifPresent(uri -> GestureUtils.importGestures(getActivity(), uri, gestureInfos, fileManager));
                     break;
                 default:
                     super.onActivityResult(requestCode, resultCode, data);
@@ -185,13 +182,10 @@ public class GestureFragment extends Fragment implements OmniAdapter.Controller<
 
     @Override
     public void onActionPersisted(List<? extends ChangeInformation<GestureInfo>> changes) {
-        List<GestureInfo> removed = new ArrayList<>();
-        for (ChangeInformation<GestureInfo> change : changes) {
-            if (change instanceof ChangeInformation.Remove) {
-                removed.add(change.getComponent());
-            }
-        }
-        GestureUtils.delete(getActivity(), removed, gestureInfos, fileManager);
+        GestureUtils.delete(getActivity(), StreamSupport.stream(changes)
+                        .filter(change -> change instanceof ChangeInformation.Remove)
+                        .map(ChangeInformation::getComponent).collect(Collectors.toList()),
+                gestureInfos, fileManager);
     }
 
     @Override

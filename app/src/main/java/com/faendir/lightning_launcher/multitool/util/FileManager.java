@@ -17,9 +17,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -55,38 +57,27 @@ public class FileManager<T> {
         allowGlobalRead(file);
     }
 
-    @Nullable
+    @NonNull
     public List<T> read() {
-        if (!file.exists()) return null;
-        try {
-            T[] array = gson.fromJson(new FileReader(file), clazz);
-            if (array == null) return null;
-            return new ArrayList<>(Arrays.asList(array));
-        } catch (Throwable e) {
-            return null;
+        if (file.exists()) {
+            try (FileReader reader = new FileReader(file)) {
+                T[] array = gson.fromJson(reader, clazz);
+                if (array != null) {
+                    return new ArrayList<>(Arrays.asList(array));
+                }
+            } catch (Throwable ignored) {
+            }
         }
+        return Collections.emptyList();
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public void write(@NonNull List<T> items) {
-        BufferedWriter writer = null;
-        try {
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            writer = new BufferedWriter(new FileWriter(file));
+        try (Writer writer = new BufferedWriter(new FileWriter(file))) {
             gson.toJson(items.toArray(), clazz, writer);
             writer.flush();
         } catch (Exception e) {
             throw new FatalFileException(e);
-        } finally {
-            try {
-                if (writer != null) {
-                    writer.close();
-                }
-            } catch (IOException ignored) {
-            }
-
         }
     }
 

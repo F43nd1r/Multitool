@@ -35,6 +35,7 @@ public class IntentChooser extends BaseActivity implements OmniAdapter.Controlle
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         TabHost host = (TabHost) findViewById(R.id.tabHost);
         Intent i = getIntent();

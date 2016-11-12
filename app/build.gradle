@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 24
@@ -23,12 +24,18 @@ android {
     }
     lintOptions {
         abortOnError false
+        lintConfig file("lint.xml")
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
 }
 
 dependencies {
     def supportVersion = "24.2.1"
+    def streamVersion = "1.5.2"
     compile('com.faendir.lightninglauncher:scriptlib:2.3-SNAPSHOT') {
         changing = true
     }
@@ -45,4 +52,9 @@ dependencies {
     compile 'org.apache.commons:commons-collections4:4.1'
     compile 'com.anjlab.android.iab.v3:library:1.0.33'
     compile 'com.mikepenz:materialdrawer:5.6.0'
+    compile "net.sourceforge.streamsupport:streamsupport:$streamVersion"
+    compile "net.sourceforge.streamsupport:streamsupport-cfuture:$streamVersion"
+    compile "net.sourceforge.streamsupport:streamsupport-atomic:$streamVersion"
+    compile "net.sourceforge.streamsupport:streamsupport-flow:$streamVersion"
+    compile "net.sourceforge.streamsupport:streamsupport-literal:$streamVersion"
 }

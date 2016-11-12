@@ -41,7 +41,7 @@ public class LauncherScriptFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //populate
         layout = new FrameLayout(getActivity());
-        LayoutInflater.from(getActivity()).inflate(R.layout.fragment_launcher_script, layout);
+        inflater.inflate(R.layout.fragment_launcher_script, layout);
 
         checkLauncher();
         checkImporter();
@@ -51,14 +51,8 @@ public class LauncherScriptFragment extends Fragment {
         importButton = (Button) layout.findViewById(R.id.button_import);
         shareprefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
-
         //set name text
-        nameTextView.setText(
-                shareprefs.getString(
-                        getString(R.string.preference_scriptName),
-                        getString(R.string.script_name)
-                )
-        );
+        nameTextView.setText(shareprefs.getString(getString(R.string.preference_scriptName), getString(R.string.script_name)));
         return layout;
     }
 
@@ -108,36 +102,20 @@ public class LauncherScriptFragment extends Fragment {
                 saveName();
                 changeText(getString(R.string.button_repositoryImporter_importing));
                 new ScriptManager(getActivity()).getAsyncExecutorService()
-                        .setBindResultHandler(new ResultCallback<BindResult>() {
-                            @Override
-                            public void onResult(BindResult result) {
-                                if (result != BindResult.OK && isAdded()) {
-                                    getActivity().runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            changeText(getString(R.string.button_repositoryImporter_importError));
-                                        }
-                                    });
-                                }
+                        .setBindResultHandler(result -> {
+                            if (result != BindResult.OK && isAdded()) {
+                                getActivity().runOnUiThread(() -> changeText(getString(R.string.button_repositoryImporter_importError)));
                             }
                         })
                         .add(new ScriptLoader(new Script(getActivity(),
                                 R.raw.multitool,
                                 nameTextView.getText().toString(),
                                 Script.FLAG_APP_MENU + Script.FLAG_ITEM_MENU,
-                                getActivity().getPackageName().replace('.', '/'))), new ResultCallback<Integer>() {
-                            @Override
-                            public void onResult(Integer result) {
-                                if (isAdded()) {
-                                    getActivity().runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            changeText(getString(R.string.button_repositoryImporter_importOk));
-                                        }
-                                    });
-                                }
-                            }
-                        })
+                                getActivity().getPackageName().replace('.', '/'))), result -> {
+                                    if (isAdded()) {
+                                        getActivity().runOnUiThread(() -> changeText(getString(R.string.button_repositoryImporter_importOk)));
+                                    }
+                                })
                         .start();
                 break;
             }

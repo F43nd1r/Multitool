@@ -52,33 +52,21 @@ public class BillingManager extends BaseBillingManager {
     public void showDialog(@StringRes final int which, @Nullable final Runnable onClose) {
         AlertDialog dialog = new AlertDialog.Builder(context)
                 .setMessage(context.getString(R.string.text_buyOrTrial, context.getString(which)))
-                .setPositiveButton(R.string.button_buy, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int ignore) {
-                        if(DEBUG) Log.d(LOG_TAG, "Button buy");
-                        buy(which);
-                        if(onClose != null) onClose.run();
-                    }
+                .setPositiveButton(R.string.button_buy, (dialog1, ignore) -> {
+                    if(DEBUG) Log.d(LOG_TAG, "Button buy");
+                    buy(which);
+                    if(onClose != null) onClose.run();
                 })
-                .setNeutralButton(R.string.button_trial, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int ignore) {
-                        if(DEBUG) Log.d(LOG_TAG, "Button trial");
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                startTrial(which);
-                                if(onClose != null) onClose.run();
-                            }
-                        }).start();
-                    }
-                })
-                .setNegativeButton(R.string.button_cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int ignore) {
-                        if(DEBUG) Log.d(LOG_TAG, "Button cancel");
+                .setNeutralButton(R.string.button_trial, (dialog1, ignore) -> {
+                    if(DEBUG) Log.d(LOG_TAG, "Button trial");
+                    new Thread(() -> {
+                        startTrial(which);
                         if(onClose != null) onClose.run();
-                    }
+                    }).start();
+                })
+                .setNegativeButton(R.string.button_cancel, (dialog1, ignore) -> {
+                    if(DEBUG) Log.d(LOG_TAG, "Button cancel");
+                    if(onClose != null) onClose.run();
                 })
                 .setCancelable(false)
                 .create();
@@ -95,27 +83,15 @@ public class BillingManager extends BaseBillingManager {
         String productId = mapping.get(id);
         TrialState state = isTrial(productId);
         if (state == TrialState.EXPIRED) {
-            context.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(context, "You've already used your Trial period.", Toast.LENGTH_LONG).show();
-                }
-            });
+            context.runOnUiThread(() -> Toast.makeText(context, "You've already used your Trial period.", Toast.LENGTH_LONG).show());
         } else {
             int result = networkRequest(productId, 1);
             if (result != 0) {
-                context.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(context, "Sorry, something went wrong.", Toast.LENGTH_LONG).show();
-                    }
-                });
+                context.runOnUiThread(() -> Toast.makeText(context, "Sorry, something went wrong.", Toast.LENGTH_LONG).show());
             }else {
                 expiration.put(productId, System.currentTimeMillis() / 1000 + SEVEN_DAYS_IN_SECONDS);
                 EventBus.getDefault().post(new SwitchFragmentRequest(mapping.getKey(productId)));
             }
         }
-
     }
-
 }

@@ -20,6 +20,9 @@ import com.faendir.omniadapter.model.Component;
 import java.util.List;
 import java.util.UUID;
 
+import java8.util.Optional;
+import java8.util.stream.StreamSupport;
+
 /**
  * Created on 26.01.2016.
  *
@@ -47,17 +50,15 @@ public class GestureInfo implements Parcelable, Component {
         }
     }
 
-    boolean isInvalid(){
+    boolean isInvalid() {
         return intent == null || uuid == null;
     }
 
     @Nullable
     Gesture getGesture(Context context) {
         if (gesture == null) {
-            List<Gesture> gestures = SingletonGestureLibrary.getGlobal(context).getGestures(uuid.toString());
-            if (gestures != null && gestures.size() > 0) {
-                gesture = gestures.get(0);
-            }
+            Optional.ofNullable(SingletonGestureLibrary.getGlobal(context).getGestures(uuid.toString()))
+                    .ifPresent(list -> gesture = StreamSupport.stream(list).findFirst().get());
         }
         return gesture;
     }
@@ -100,13 +101,17 @@ public class GestureInfo implements Parcelable, Component {
         return this.uuid.getUuid().equals(uuid);
     }
 
+    UUID getUuid() {
+        return uuid.getUuid();
+    }
+
     Drawable getImage(Context context) {
         if (drawable == null) {
             int iconSize = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getLauncherLargeIconSize();
             //noinspection deprecation
             int color = context.getResources().getColor(R.color.accent);
             Gesture gesture = getGesture(context);
-            if(gesture != null) {
+            if (gesture != null) {
                 Bitmap bitmap = gesture.toBitmap(iconSize, iconSize, iconSize / 20, color);
                 drawable = new BitmapDrawable(context.getResources(), bitmap);
             }

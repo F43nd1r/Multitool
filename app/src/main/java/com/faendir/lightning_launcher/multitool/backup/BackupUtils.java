@@ -21,6 +21,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
+import java8.util.stream.Collectors;
+import java8.util.stream.StreamSupport;
+
 /**
  * Created on 23.07.2016.
  *
@@ -30,7 +33,6 @@ import java.util.Locale;
 public class BackupUtils {
     private static final BackupTime DEFAULT = new BackupTime(0, 0, Collections.singletonList(Calendar.SUNDAY));
     private static final Gson GSON = new Gson();
-    private static final SimpleDateFormat WEEKDAY = new SimpleDateFormat("EE", Locale.US);
 
     @NonNull
     public static BackupTime getBackupTime(@Nullable String s) {
@@ -53,16 +55,14 @@ public class BackupUtils {
         List<Integer> days = new ArrayList<>(backupTime.getDays());
         Collections.sort(days);
         if (days.remove(Integer.valueOf(Calendar.SUNDAY))) days.add(Calendar.SUNDAY);
-        List<String> dayStrings = new ArrayList<>();
-        for (int day : days) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(Calendar.DAY_OF_WEEK, day);
-            dayStrings.add(calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US).substring(0, 2));
-        }
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, backupTime.getHour());
         calendar.set(Calendar.MINUTE, backupTime.getMinute());
-        return TextUtils.join(", ", dayStrings) + " " + android.text.format.DateFormat.getTimeFormat(context).format(calendar.getTime());
+        return StreamSupport.stream(days).map((Integer day) -> {
+            Calendar c = Calendar.getInstance();
+            c.set(Calendar.DAY_OF_WEEK, day);
+            return (c.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US).substring(0, 2));
+        }).collect(Collectors.joining(", ", "", " " + android.text.format.DateFormat.getTimeFormat(context).format(calendar.getTime())));
     }
 
     public static void scheduleNext(Context context) {

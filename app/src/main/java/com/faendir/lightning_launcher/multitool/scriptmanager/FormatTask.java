@@ -21,7 +21,7 @@ import java.util.List;
  * Created by Lukas on 29.08.2015.
  * Formats the given scripts
  */
-class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, String> {
+class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
 
     private static final String SWITCH = "switch(";
     private static final String CASE = "case";
@@ -76,7 +76,7 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, String> {
     }
 
     @Override
-    protected String doInBackground(ScriptItem... params) {
+    protected Void doInBackground(ScriptItem... params) {
         for (ScriptItem item : params) {
             if (item instanceof Script) {
                 Script script = (Script) item;
@@ -237,11 +237,7 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, String> {
     }
 
     @Override
-    protected void onPostExecute(String result) {
-        if (result != null) {
-            List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
-            listManager.updateFrom(scripts);
-        }
+    protected void onPostExecute(Void result) {
         dialog.dismiss();
         Toast.makeText(context, R.string.message_done, Toast.LENGTH_SHORT).show();
     }

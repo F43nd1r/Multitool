@@ -64,27 +64,14 @@ public class Loader extends Activity {
     }
 
     private void check(@StringRes final int id, @RawRes final int script, final boolean runAndDelete, final int flags, final String name, final boolean showDialog) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                if (billingManager.isBoughtOrTrial(id)) {
-                    setResult(script, runAndDelete, flags, name);
-                } else if (showDialog) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            billingManager.showDialog(id, new Runnable() {
-                                @Override
-                                public void run() {
-                                    check(id, script, runAndDelete, flags, name, false);
-                                }
-                            });
-                        }
-                    });
-                } else {
-                    setResult(RESULT_CANCELED);
-                    finish();
-                }
+        new Thread(() -> {
+            if (billingManager.isBoughtOrTrial(id)) {
+                setResult(script, runAndDelete, flags, name);
+            } else if (showDialog) {
+                runOnUiThread(() -> billingManager.showDialog(id, () -> check(id, script, runAndDelete, flags, name, false)));
+            } else {
+                setResult(RESULT_CANCELED);
+                finish();
             }
         }).start();
     }

@@ -21,6 +21,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import java8.util.stream.Collectors;
+import java8.util.stream.StreamSupport;
+
 public class BackupTimePreference extends DialogPreference implements View.OnClickListener, SummaryPreference {
     private BackupTime backupTime = BackupUtils.getBackupTime(null);
     private Map<Button, Integer> map;
@@ -44,9 +47,7 @@ public class BackupTimePreference extends DialogPreference implements View.OnCli
         map.put((Button) root.findViewById(R.id.buttonFriday), Calendar.FRIDAY);
         map.put((Button) root.findViewById(R.id.buttonSaturday), Calendar.SATURDAY);
         map.put((Button) root.findViewById(R.id.buttonSunday), Calendar.SUNDAY);
-        for (Button b : map.keySet()) {
-            b.setOnClickListener(this);
-        }
+        StreamSupport.stream(map.keySet()).forEach(button -> button.setOnClickListener(this));
         picker = (TimePicker) root.findViewById(R.id.timePicker);
         picker.setIs24HourView(DateFormat.is24HourFormat(getContext()));
         return root;
@@ -69,13 +70,9 @@ public class BackupTimePreference extends DialogPreference implements View.OnCli
 
         if (positiveResult) {
 
-            List<Integer> days = new ArrayList<>();
-            for (Map.Entry<Button, Integer> entry : map.entrySet()) {
-                if (entry.getKey().isSelected()) days.add(entry.getValue());
-            }
+            List<Integer> days = StreamSupport.stream(map.entrySet()).filter(entry->entry.getKey().isSelected()).map(Map.Entry::getValue).collect(Collectors.toList());
             backupTime = new BackupTime(picker.getCurrentHour(), picker.getCurrentMinute(), days);
             String time = BackupUtils.toString(backupTime);
-
             if (callChangeListener(time)) {
                 persistString(time);
             }

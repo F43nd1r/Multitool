@@ -53,6 +53,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
+import java8.util.stream.StreamSupport;
+
 import static android.media.MediaMetadata.METADATA_KEY_ALBUM;
 import static android.media.MediaMetadata.METADATA_KEY_ALBUM_ART;
 import static android.media.MediaMetadata.METADATA_KEY_ALBUM_ART_URI;
@@ -127,9 +129,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         this.album = album;
         this.artist = artist;
         this.packageName = controller.getPackageName();
-        for (Listener listener : listeners) {
-            listener.updateCurrentInfo(albumArt, title, album, artist, packageName);
-        }
+        StreamSupport.stream(listeners).forEach(listener -> listener.updateCurrentInfo(albumArt, title, album, artist, packageName));
     }
 
     @Override
@@ -172,9 +172,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         if (title == null && !list.isEmpty()) {
             controllers.get(list.get(list.size() - 1)).push();
         }
-        for (Callback callback : removed.values()) {
-            callback.recycle();
-        }
+        StreamSupport.stream(removed.values()).forEach(Callback::recycle);
     }
 
     private void startDefaultPlayerWithKeyCode(int keyCode) {
@@ -200,7 +198,6 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         }
     }
 
-    @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         startService(new Intent(this, MusicManager.class));
@@ -329,78 +326,73 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
 
         @Override
         public void handleMessage(Message msg) {
-            if (musicManager.get() != null) {
-                if (musicManager.get().billingManager.isBoughtOrTrial(R.string.title_musicWidget)) {
-                    MediaController controller = musicManager.get().currentController.get();
+            MusicManager musicManager = this.musicManager.get();
+            if (musicManager != null) {
+                if (musicManager.billingManager.isBoughtOrTrial(R.string.title_musicWidget)) {
+                    MediaController controller = musicManager.currentController.get();
                     if (DEBUG) Log.d(LOG_TAG, "MusicManager got message " + msg.what);
                     switch (msg.what) {
                         case ACTION_REGISTER_MESSENGER:
                             if (msg.replyTo != null) {
-                                musicManager.get().registerListener(new MessengerListener(msg.replyTo));
+                                musicManager.registerListener(new MessengerListener(msg.replyTo));
                             }
                             break;
                         case ACTION_UNREGISTER_MESSENGER:
                             if (msg.replyTo != null) {
-                                for (Listener l : musicManager.get().listeners) {
-                                    if (l instanceof MessengerListener) {
-                                        MessengerListener listener = (MessengerListener) l;
-                                        if (listener.hasMessenger(msg.replyTo)) {
-                                            musicManager.get().unregisterListener(listener);
-                                            break;
-                                        }
-                                    }
-                                }
+                                StreamSupport.stream(musicManager.listeners)
+                                        .filter(l -> l instanceof MessengerListener && ((MessengerListener) l).hasMessenger(msg.replyTo))
+                                        .forEach(musicManager::unregisterListener);
                             }
                             break;
                         case ACTION_REGISTER:
                             if (msg.obj != null && msg.obj instanceof Listener) {
-                                musicManager.get().registerListener((Listener) msg.obj);
+                                musicManager.registerListener((Listener) msg.obj);
                             }
                             break;
                         case ACTION_UNREGISTER:
                             if (msg.obj != null && msg.obj instanceof Listener) {
-                                musicManager.get().unregisterListener((Listener) msg.obj);
+                                musicManager.unregisterListener((Listener) msg.obj);
                             }
                             break;
                         case ACTION_PLAY_PAUSE:
                             if (controller != null) {
                                 PlaybackState state = controller.getPlaybackState();
                                 if (isAlternativeControl(controller)) {
-                                    musicManager.get().sendKeyCodeToPlayer(KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE, controller.getPackageName());
+                                    musicManager.sendKeyCodeToPlayer(KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE, controller.getPackageName());
                                 } else if (state != null && PLAYING_STATES.contains(state.getState())) {
                                     controller.getTransportControls().pause();
                                 } else {
                                     controller.getTransportControls().play();
                                 }
                             } else {
-                                musicManager.get().startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_PLAY);
+                                musicManager.startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_PLAY);
                             }
                             break;
                         case ACTION_NEXT:
                             if (controller != null) {
                                 if (isAlternativeControl(controller)) {
-                                    musicManager.get().sendKeyCodeToPlayer(KeyEvent.KEYCODE_MEDIA_NEXT, controller.getPackageName());
+                                    musicManager.sendKeyCodeToPlayer(KeyEvent.KEYCODE_MEDIA_NEXT, controller.getPackageName());
                                 } else {
                                     controller.getTransportControls().skipToNext();
                                 }
                             } else {
-                                musicManager.get().startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_NEXT);
+                                musicManager.startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_NEXT);
                             }
                             break;
                         case ACTION_PREVIOUS:
                             if (controller != null) {
                                 if (isAlternativeControl(controller)) {
-                                    musicManager.get().sendKeyCodeToPlayer(KeyEvent.KEYCODE_MEDIA_PREVIOUS, controller.getPackageName());
+                                    musicManager.sendKeyCodeToPlayer(KeyEvent.KEYCODE_MEDIA_PREVIOUS, controller.getPackageName());
                                 } else {
                                     controller.getTransportControls().skipToPrevious();
                                 }
                             } else {
-                                musicManager.get().startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+                                musicManager.startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
                             }
                             break;
                     }
                 } else {
-                    Toast.makeText(musicManager.get(), "No active trial or purchase found.\nMusic widgets disabled.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(musicManager, "No active trial or purchase found.\nMusic widgets disabled.", Toast.LENGTH_LONG).show();
                 }
             }
         }
@@ -413,16 +405,13 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
 
         private static Looper getNewPreparedLooper() {
             final AtomicReference<Looper> reference = new AtomicReference<>();
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    Looper.prepare();
-                    synchronized (reference) {
-                        reference.set(Looper.myLooper());
-                        reference.notifyAll();
-                    }
-                    Looper.loop();
+            new Thread(() -> {
+                Looper.prepare();
+                synchronized (reference) {
+                    reference.set(Looper.myLooper());
+                    reference.notifyAll();
                 }
+                Looper.loop();
             }).start();
             while (reference.get() == null) {
                 synchronized (reference) {
