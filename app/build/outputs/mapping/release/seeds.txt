@@ -6415,6 +6415,7 @@ com.faendir.lightning_launcher.multitool.R$attr: int buttonStyleSmall
 com.faendir.lightning_launcher.multitool.R$attr: int buttonTint
 com.faendir.lightning_launcher.multitool.R$attr: int buttonTintMode
 com.faendir.lightning_launcher.multitool.R$attr: int checkboxStyle
+com.faendir.lightning_launcher.multitool.R$attr: int checkedByDefault
 com.faendir.lightning_launcher.multitool.R$attr: int checkedTextViewStyle
 com.faendir.lightning_launcher.multitool.R$attr: int closeIcon
 com.faendir.lightning_launcher.multitool.R$attr: int closeItemLayout
@@ -7789,7 +7790,6 @@ com.faendir.lightning_launcher.multitool.R$raw: int gesture_setup
 com.faendir.lightning_launcher.multitool.R$raw: int multitool
 com.faendir.lightning_launcher.multitool.R$raw: int music_command
 com.faendir.lightning_launcher.multitool.R$raw: int music_launch
-com.faendir.lightning_launcher.multitool.R$raw: int music_load
 com.faendir.lightning_launcher.multitool.R$raw: int music_pause
 com.faendir.lightning_launcher.multitool.R$raw: int music_resume
 com.faendir.lightning_launcher.multitool.R$raw: int music_setup
@@ -7925,6 +7925,7 @@ com.faendir.lightning_launcher.multitool.R$string: int menu_format
 com.faendir.lightning_launcher.multitool.R$string: int menu_rename
 com.faendir.lightning_launcher.multitool.R$string: int menu_restore
 com.faendir.lightning_launcher.multitool.R$string: int menu_search
+com.faendir.lightning_launcher.multitool.R$string: int message_buy
 com.faendir.lightning_launcher.multitool.R$string: int message_confirmUpdate
 com.faendir.lightning_launcher.multitool.R$string: int message_deletePart1
 com.faendir.lightning_launcher.multitool.R$string: int message_deletePart2
@@ -7935,6 +7936,7 @@ com.faendir.lightning_launcher.multitool.R$string: int message_missing
 com.faendir.lightning_launcher.multitool.R$string: int message_outDated
 com.faendir.lightning_launcher.multitool.R$string: int message_overwrite
 com.faendir.lightning_launcher.multitool.R$string: int message_pleaseWait
+com.faendir.lightning_launcher.multitool.R$string: int message_trial
 com.faendir.lightning_launcher.multitool.R$string: int nnf_create_folder_error
 com.faendir.lightning_launcher.multitool.R$string: int nnf_filename
 com.faendir.lightning_launcher.multitool.R$string: int nnf_name
@@ -7944,6 +7946,7 @@ com.faendir.lightning_launcher.multitool.R$string: int nnf_permission_external_w
 com.faendir.lightning_launcher.multitool.R$string: int nnf_select_something_first
 com.faendir.lightning_launcher.multitool.R$string: int play_store
 com.faendir.lightning_launcher.multitool.R$string: int pref_activePlayers
+com.faendir.lightning_launcher.multitool.R$string: int pref_altControl
 com.faendir.lightning_launcher.multitool.R$string: int pref_backupTime
 com.faendir.lightning_launcher.multitool.R$string: int pref_coverMode
 com.faendir.lightning_launcher.multitool.R$string: int pref_directory
@@ -7959,7 +7962,12 @@ com.faendir.lightning_launcher.multitool.R$string: int reload_script
 com.faendir.lightning_launcher.multitool.R$string: int script_name
 com.faendir.lightning_launcher.multitool.R$string: int search_menu_title
 com.faendir.lightning_launcher.multitool.R$string: int status_bar_notification_info_overflow
+com.faendir.lightning_launcher.multitool.R$string: int summary_notStarted
+com.faendir.lightning_launcher.multitool.R$string: int summary_ongoing
 com.faendir.lightning_launcher.multitool.R$string: int summary_spaces
+com.faendir.lightning_launcher.multitool.R$string: int summary_unknown
+com.faendir.lightning_launcher.multitool.R$string: int summary_unlocked
+com.faendir.lightning_launcher.multitool.R$string: int summary_used
 com.faendir.lightning_launcher.multitool.R$string: int text_backupFailed
 com.faendir.lightning_launcher.multitool.R$string: int text_backupSuccessful
 com.faendir.lightning_launcher.multitool.R$string: int text_buyOrTrial
@@ -7983,10 +7991,12 @@ com.faendir.lightning_launcher.multitool.R$string: int text_scripts
 com.faendir.lightning_launcher.multitool.R$string: int title_activePlayers
 com.faendir.lightning_launcher.multitool.R$string: int title_activity_gesture
 com.faendir.lightning_launcher.multitool.R$string: int title_activity_intent_chooser
+com.faendir.lightning_launcher.multitool.R$string: int title_altControl
 com.faendir.lightning_launcher.multitool.R$string: int title_apps
 com.faendir.lightning_launcher.multitool.R$string: int title_backup
 com.faendir.lightning_launcher.multitool.R$string: int title_backupDir
 com.faendir.lightning_launcher.multitool.R$string: int title_backupTime
+com.faendir.lightning_launcher.multitool.R$string: int title_buy
 com.faendir.lightning_launcher.multitool.R$string: int title_chooseName
 com.faendir.lightning_launcher.multitool.R$string: int title_confirmUpdate
 com.faendir.lightning_launcher.multitool.R$string: int title_coverMode
@@ -8014,6 +8024,7 @@ com.faendir.lightning_launcher.multitool.R$string: int title_search
 com.faendir.lightning_launcher.multitool.R$string: int title_settings
 com.faendir.lightning_launcher.multitool.R$string: int title_shortcuts
 com.faendir.lightning_launcher.multitool.R$string: int title_spaces
+com.faendir.lightning_launcher.multitool.R$string: int title_trial
 com.faendir.lightning_launcher.multitool.R$string: int toast_cantLoadAction
 com.faendir.lightning_launcher.multitool.R$string: int toast_failedDirWrite
 com.faendir.lightning_launcher.multitool.R$string: int toast_failedLoad
@@ -8818,6 +8829,8 @@ com.faendir.lightning_launcher.multitool.R$styleable: int PercentLayout_Layout_l
 com.faendir.lightning_launcher.multitool.R$styleable: int PercentLayout_Layout_layout_marginStartPercent
 com.faendir.lightning_launcher.multitool.R$styleable: int PercentLayout_Layout_layout_marginTopPercent
 com.faendir.lightning_launcher.multitool.R$styleable: int PercentLayout_Layout_layout_widthPercent
+com.faendir.lightning_launcher.multitool.R$styleable: int[] PlayersPreference
+com.faendir.lightning_launcher.multitool.R$styleable: int PlayersPreference_checkedByDefault
 com.faendir.lightning_launcher.multitool.R$styleable: int[] PopupWindow
 com.faendir.lightning_launcher.multitool.R$styleable: int PopupWindow_android_popupAnimationStyle
 com.faendir.lightning_launcher.multitool.R$styleable: int PopupWindow_android_popupBackground
@@ -9391,6 +9404,11 @@ com.faendir.lightning_launcher.multitool.settings.DefaultPlayerPreference
 com.faendir.lightning_launcher.multitool.settings.DefaultPlayerPreference: DefaultPlayerPreference(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.settings.PlayersPreference
 com.faendir.lightning_launcher.multitool.settings.PlayersPreference: PlayersPreference(android.content.Context,android.util.AttributeSet)
+com.faendir.lightning_launcher.multitool.settings.TrialPreference
+com.faendir.lightning_launcher.multitool.settings.TrialPreference: TrialPreference(android.content.Context,android.util.AttributeSet)
+com.faendir.lightning_launcher.multitool.settings.TrialPreference: void onClick()
+com.faendir.lightning_launcher.multitool.settings.TrialPreference$2: void onClick(android.content.DialogInterface,int)
+com.faendir.lightning_launcher.multitool.settings.TrialPreference$3: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.util.BaseActivity: int layoutRes
 com.faendir.lightning_launcher.multitool.util.BaseActivity: android.support.v7.widget.Toolbar toolbar
 com.faendir.lightning_launcher.multitool.util.BaseActivity: BaseActivity(int)

@@ -98,7 +98,7 @@
     <string name="title_listener">Notification Listener</string>
     <string name="text_listener">Music Widget requires the notification listener to be enabled. Do you want to enable it now?</string>
     <string name="currently_playing">Currently Playing</string>
-    <string name="pref_musicDefault">musicDefaultUri</string>
+    <string name="pref_musicDefault">musicDefaultPackage</string>
     <string name="key_shortcuts">shortcuts</string>
     <string name="key_appInfo">applicationInfo</string>
     <string name="key_target">target</string>
@@ -159,4 +159,15 @@
     <string name="title_activePlayers">Active Players</string>
     <string name="title_export">Export Gestures</string>
     <string name="title_import">Import Gestures</string>
+    <string name="title_trial">Trial</string>
+    <string name="message_trial">Do you want to start your Trial now?</string>
+    <string name="title_buy">Buy</string>
+    <string name="message_buy">Do you want to buy %s now?</string>
+    <string name="summary_unlocked">Unlocked. Thanks for supporting MultiTool!</string>
+    <string name="summary_notStarted">Trial not started.</string>
+    <string name="summary_ongoing">Trial ongoing. Ends %s</string>
+    <string name="summary_used">Trial is over.</string>
+    <string name="summary_unknown">Trial state unknown.</string>
+    <string name="pref_altControl">alternativeControlMode</string>
+    <string name="title_altControl">Alternative Control Mode</string>
 </resources>

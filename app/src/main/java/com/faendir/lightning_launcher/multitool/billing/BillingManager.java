@@ -56,7 +56,7 @@ public class BillingManager extends BaseBillingManager {
                     @Override
                     public void onClick(DialogInterface dialog, int ignore) {
                         if(DEBUG) Log.d(LOG_TAG, "Button buy");
-                        buy(mapping.get(which));
+                        buy(which);
                         if(onClose != null) onClose.run();
                     }
                 })
@@ -67,7 +67,7 @@ public class BillingManager extends BaseBillingManager {
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
-                                startTrial(mapping.get(which));
+                                startTrial(which);
                                 if(onClose != null) onClose.run();
                             }
                         }).start();
@@ -86,12 +86,13 @@ public class BillingManager extends BaseBillingManager {
         dialog.show();
     }
 
-    private void buy(String productId) {
+    public void buy(@StringRes int id){
         waitForInit();
-        getBillingProcessor().purchase(context, productId);
+        getBillingProcessor().purchase(context, mapping.get(id));
     }
 
-    private void startTrial(String productId) {
+    public void startTrial(@StringRes int id) {
+        String productId = mapping.get(id);
         TrialState state = isTrial(productId);
         if (state == TrialState.EXPIRED) {
             context.runOnUiThread(new Runnable() {

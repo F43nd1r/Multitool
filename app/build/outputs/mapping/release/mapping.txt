@@ -17197,15 +17197,15 @@ com.anjlab.android.iab.v3.TransactionDetails$1 -> com.b.a.a.a.f$1:
 com.faendir.lightning_launcher.multitool.BuildConfig -> com.faendir.lightning_launcher.multitool.a:
 com.faendir.lightning_launcher.multitool.Loader -> com.faendir.lightning_launcher.multitool.Loader:
     com.faendir.lightning_launcher.multitool.billing.BillingManager billingManager -> a
-    18:18:void <init>() -> <init>
-    39:55:void onCreate(android.os.Bundle) -> onCreate
-    58:59:void setupCheck(int,int) -> a
-    62:85:void check(int,int,boolean,int,java.lang.String,boolean) -> a
-    88:97:void setResult(int,boolean,int,java.lang.String) -> a
-    101:105:void onDestroy() -> onDestroy
-    18:18:com.faendir.lightning_launcher.multitool.billing.BillingManager access$000(com.faendir.lightning_launcher.multitool.Loader) -> a
-    18:18:void access$100(com.faendir.lightning_launcher.multitool.Loader,int,boolean,int,java.lang.String) -> a
-    18:18:void access$200(com.faendir.lightning_launcher.multitool.Loader,int,int,boolean,int,java.lang.String,boolean) -> a
+    22:22:void <init>() -> <init>
+    43:60:void onCreate(android.os.Bundle) -> onCreate
+    63:64:void setupCheck(int,int) -> a
+    67:90:void check(int,int,boolean,int,java.lang.String,boolean) -> a
+    93:102:void setResult(int,boolean,int,java.lang.String) -> a
+    106:110:void onDestroy() -> onDestroy
+    22:22:com.faendir.lightning_launcher.multitool.billing.BillingManager access$000(com.faendir.lightning_launcher.multitool.Loader) -> a
+    22:22:void access$100(com.faendir.lightning_launcher.multitool.Loader,int,boolean,int,java.lang.String) -> a
+    22:22:void access$200(com.faendir.lightning_launcher.multitool.Loader,int,int,boolean,int,java.lang.String,boolean) -> a
 com.faendir.lightning_launcher.multitool.Loader$1 -> com.faendir.lightning_launcher.multitool.Loader$1:
     int val$id -> a
     int val$script -> b
@@ -17214,16 +17214,16 @@ com.faendir.lightning_launcher.multitool.Loader$1 -> com.faendir.lightning_launc
     java.lang.String val$name -> e
     boolean val$showDialog -> f
     com.faendir.lightning_launcher.multitool.Loader this$0 -> g
-    62:62:void <init>(com.faendir.lightning_launcher.multitool.Loader,int,int,boolean,int,java.lang.String,boolean) -> <init>
-    65:83:void run() -> run
+    67:67:void <init>(com.faendir.lightning_launcher.multitool.Loader,int,int,boolean,int,java.lang.String,boolean) -> <init>
+    70:88:void run() -> run
 com.faendir.lightning_launcher.multitool.Loader$1$1 -> com.faendir.lightning_launcher.multitool.Loader$1$1:
     com.faendir.lightning_launcher.multitool.Loader$1 this$1 -> a
-    68:68:void <init>(com.faendir.lightning_launcher.multitool.Loader$1) -> <init>
-    71:77:void run() -> run
+    73:73:void <init>(com.faendir.lightning_launcher.multitool.Loader$1) -> <init>
+    76:82:void run() -> run
 com.faendir.lightning_launcher.multitool.Loader$1$1$1 -> com.faendir.lightning_launcher.multitool.Loader$1$1$1:
     com.faendir.lightning_launcher.multitool.Loader$1$1 this$2 -> a
-    71:71:void <init>(com.faendir.lightning_launcher.multitool.Loader$1$1) -> <init>
-    74:75:void run() -> run
+    76:76:void <init>(com.faendir.lightning_launcher.multitool.Loader$1$1) -> <init>
+    79:80:void run() -> run
 com.faendir.lightning_launcher.multitool.MainActivity -> com.faendir.lightning_launcher.multitool.MainActivity:
     com.faendir.lightning_launcher.multitool.util.FragmentManager fragmentManager -> a
     com.faendir.lightning_launcher.multitool.util.DrawerManager drawerManager -> b
@@ -17251,8 +17251,550 @@ com.faendir.lightning_launcher.multitool.MainActivity$1 -> com.faendir.lightning
     135:135:boolean onActionItemClicked(android.support.v7.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
     140:142:void onDestroyActionMode(android.support.v7.view.ActionMode) -> onDestroyActionMode
 com.faendir.lightning_launcher.multitool.MultiTool -> com.faendir.lightning_launcher.multitool.MultiTool:
-    25:25:void <init>() -> <init>
-    28:30:void attachBaseContext(android.content.Context) -> attachBaseContext
+    26:26:void <init>() -> <init>
+    31:36:void attachBaseContext(android.content.Context) -> attachBaseContext
+com.faendir.lightning_launcher.multitool.R -> com.faendir.lightning_launcher.multitool.b:
+com.faendir.lightning_launcher.multitool.R$styleable -> com.faendir.lightning_launcher.multitool.b$a:
+    int[] ActionBar -> ActionBar
+    int ActionBar_background -> ActionBar_background
+    int ActionBar_backgroundSplit -> ActionBar_backgroundSplit
+    int ActionBar_backgroundStacked -> ActionBar_backgroundStacked
+    int ActionBar_contentInsetEnd -> ActionBar_contentInsetEnd
+    int ActionBar_contentInsetEndWithActions -> ActionBar_contentInsetEndWithActions
+    int ActionBar_contentInsetLeft -> ActionBar_contentInsetLeft
+    int ActionBar_contentInsetRight -> ActionBar_contentInsetRight
+    int ActionBar_contentInsetStart -> ActionBar_contentInsetStart
+    int ActionBar_contentInsetStartWithNavigation -> ActionBar_contentInsetStartWithNavigation
+    int ActionBar_customNavigationLayout -> ActionBar_customNavigationLayout
+    int ActionBar_displayOptions -> ActionBar_displayOptions
+    int ActionBar_divider -> ActionBar_divider
+    int ActionBar_elevation -> ActionBar_elevation
+    int ActionBar_height -> ActionBar_height
+    int ActionBar_hideOnContentScroll -> ActionBar_hideOnContentScroll
+    int ActionBar_homeAsUpIndicator -> ActionBar_homeAsUpIndicator
+    int ActionBar_homeLayout -> ActionBar_homeLayout
+    int ActionBar_icon -> ActionBar_icon
+    int ActionBar_indeterminateProgressStyle -> ActionBar_indeterminateProgressStyle
+    int ActionBar_itemPadding -> ActionBar_itemPadding
+    int ActionBar_logo -> ActionBar_logo
+    int ActionBar_navigationMode -> ActionBar_navigationMode
+    int ActionBar_popupTheme -> ActionBar_popupTheme
+    int ActionBar_progressBarPadding -> ActionBar_progressBarPadding
+    int ActionBar_progressBarStyle -> ActionBar_progressBarStyle
+    int ActionBar_subtitle -> ActionBar_subtitle
+    int ActionBar_subtitleTextStyle -> ActionBar_subtitleTextStyle
+    int ActionBar_title -> ActionBar_title
+    int ActionBar_titleTextStyle -> ActionBar_titleTextStyle
+    int[] ActionBarLayout -> ActionBarLayout
+    int ActionBarLayout_android_layout_gravity -> ActionBarLayout_android_layout_gravity
+    int[] ActionMenuItemView -> ActionMenuItemView
+    int ActionMenuItemView_android_minWidth -> ActionMenuItemView_android_minWidth
+    int[] ActionMenuView -> ActionMenuView
+    int[] ActionMode -> ActionMode
+    int ActionMode_background -> ActionMode_background
+    int ActionMode_backgroundSplit -> ActionMode_backgroundSplit
+    int ActionMode_closeItemLayout -> ActionMode_closeItemLayout
+    int ActionMode_height -> ActionMode_height
+    int ActionMode_subtitleTextStyle -> ActionMode_subtitleTextStyle
+    int ActionMode_titleTextStyle -> ActionMode_titleTextStyle
+    int[] ActivityChooserView -> ActivityChooserView
+    int ActivityChooserView_expandActivityOverflowButtonDrawable -> ActivityChooserView_expandActivityOverflowButtonDrawable
+    int ActivityChooserView_initialActivityCount -> ActivityChooserView_initialActivityCount
+    int[] AlertDialog -> AlertDialog
+    int AlertDialog_android_layout -> AlertDialog_android_layout
+    int AlertDialog_buttonPanelSideLayout -> AlertDialog_buttonPanelSideLayout
+    int AlertDialog_listItemLayout -> AlertDialog_listItemLayout
+    int AlertDialog_listLayout -> AlertDialog_listLayout
+    int AlertDialog_multiChoiceItemLayout -> AlertDialog_multiChoiceItemLayout
+    int AlertDialog_singleChoiceItemLayout -> AlertDialog_singleChoiceItemLayout
+    int[] AppBarLayout -> AppBarLayout
+    int AppBarLayout_android_background -> AppBarLayout_android_background
+    int AppBarLayout_elevation -> AppBarLayout_elevation
+    int AppBarLayout_expanded -> AppBarLayout_expanded
+    int[] AppBarLayoutStates -> AppBarLayoutStates
+    int AppBarLayoutStates_state_collapsed -> AppBarLayoutStates_state_collapsed
+    int AppBarLayoutStates_state_collapsible -> AppBarLayoutStates_state_collapsible
+    int[] AppBarLayout_Layout -> AppBarLayout_Layout
+    int AppBarLayout_Layout_layout_scrollFlags -> AppBarLayout_Layout_layout_scrollFlags
+    int AppBarLayout_Layout_layout_scrollInterpolator -> AppBarLayout_Layout_layout_scrollInterpolator
+    int[] AppCompatImageView -> AppCompatImageView
+    int AppCompatImageView_android_src -> AppCompatImageView_android_src
+    int AppCompatImageView_srcCompat -> AppCompatImageView_srcCompat
+    int[] AppCompatSeekBar -> AppCompatSeekBar
+    int AppCompatSeekBar_android_thumb -> AppCompatSeekBar_android_thumb
+    int AppCompatSeekBar_tickMark -> AppCompatSeekBar_tickMark
+    int AppCompatSeekBar_tickMarkTint -> AppCompatSeekBar_tickMarkTint
+    int AppCompatSeekBar_tickMarkTintMode -> AppCompatSeekBar_tickMarkTintMode
+    int[] AppCompatTextHelper -> AppCompatTextHelper
+    int AppCompatTextHelper_android_drawableBottom -> AppCompatTextHelper_android_drawableBottom
+    int AppCompatTextHelper_android_drawableEnd -> AppCompatTextHelper_android_drawableEnd
+    int AppCompatTextHelper_android_drawableLeft -> AppCompatTextHelper_android_drawableLeft
+    int AppCompatTextHelper_android_drawableRight -> AppCompatTextHelper_android_drawableRight
+    int AppCompatTextHelper_android_drawableStart -> AppCompatTextHelper_android_drawableStart
+    int AppCompatTextHelper_android_drawableTop -> AppCompatTextHelper_android_drawableTop
+    int AppCompatTextHelper_android_textAppearance -> AppCompatTextHelper_android_textAppearance
+    int[] AppCompatTextView -> AppCompatTextView
+    int AppCompatTextView_android_textAppearance -> AppCompatTextView_android_textAppearance
+    int AppCompatTextView_textAllCaps -> AppCompatTextView_textAllCaps
+    int[] AppCompatTheme -> AppCompatTheme
+    int AppCompatTheme_actionBarDivider -> AppCompatTheme_actionBarDivider
+    int AppCompatTheme_actionBarItemBackground -> AppCompatTheme_actionBarItemBackground
+    int AppCompatTheme_actionBarPopupTheme -> AppCompatTheme_actionBarPopupTheme
+    int AppCompatTheme_actionBarSize -> AppCompatTheme_actionBarSize
+    int AppCompatTheme_actionBarSplitStyle -> AppCompatTheme_actionBarSplitStyle
+    int AppCompatTheme_actionBarStyle -> AppCompatTheme_actionBarStyle
+    int AppCompatTheme_actionBarTabBarStyle -> AppCompatTheme_actionBarTabBarStyle
+    int AppCompatTheme_actionBarTabStyle -> AppCompatTheme_actionBarTabStyle
+    int AppCompatTheme_actionBarTabTextStyle -> AppCompatTheme_actionBarTabTextStyle
+    int AppCompatTheme_actionBarTheme -> AppCompatTheme_actionBarTheme
+    int AppCompatTheme_actionBarWidgetTheme -> AppCompatTheme_actionBarWidgetTheme
+    int AppCompatTheme_actionButtonStyle -> AppCompatTheme_actionButtonStyle
+    int AppCompatTheme_actionDropDownStyle -> AppCompatTheme_actionDropDownStyle
+    int AppCompatTheme_actionMenuTextAppearance -> AppCompatTheme_actionMenuTextAppearance
+    int AppCompatTheme_actionMenuTextColor -> AppCompatTheme_actionMenuTextColor
+    int AppCompatTheme_actionModeBackground -> AppCompatTheme_actionModeBackground
+    int AppCompatTheme_actionModeCloseButtonStyle -> AppCompatTheme_actionModeCloseButtonStyle
+    int AppCompatTheme_actionModeCloseDrawable -> AppCompatTheme_actionModeCloseDrawable
+    int AppCompatTheme_actionModeCopyDrawable -> AppCompatTheme_actionModeCopyDrawable
+    int AppCompatTheme_actionModeCutDrawable -> AppCompatTheme_actionModeCutDrawable
+    int AppCompatTheme_actionModeFindDrawable -> AppCompatTheme_actionModeFindDrawable
+    int AppCompatTheme_actionModePasteDrawable -> AppCompatTheme_actionModePasteDrawable
+    int AppCompatTheme_actionModePopupWindowStyle -> AppCompatTheme_actionModePopupWindowStyle
+    int AppCompatTheme_actionModeSelectAllDrawable -> AppCompatTheme_actionModeSelectAllDrawable
+    int AppCompatTheme_actionModeShareDrawable -> AppCompatTheme_actionModeShareDrawable
+    int AppCompatTheme_actionModeSplitBackground -> AppCompatTheme_actionModeSplitBackground
+    int AppCompatTheme_actionModeStyle -> AppCompatTheme_actionModeStyle
+    int AppCompatTheme_actionModeWebSearchDrawable -> AppCompatTheme_actionModeWebSearchDrawable
+    int AppCompatTheme_actionOverflowButtonStyle -> AppCompatTheme_actionOverflowButtonStyle
+    int AppCompatTheme_actionOverflowMenuStyle -> AppCompatTheme_actionOverflowMenuStyle
+    int AppCompatTheme_activityChooserViewStyle -> AppCompatTheme_activityChooserViewStyle
+    int AppCompatTheme_alertDialogButtonGroupStyle -> AppCompatTheme_alertDialogButtonGroupStyle
+    int AppCompatTheme_alertDialogCenterButtons -> AppCompatTheme_alertDialogCenterButtons
+    int AppCompatTheme_alertDialogStyle -> AppCompatTheme_alertDialogStyle
+    int AppCompatTheme_alertDialogTheme -> AppCompatTheme_alertDialogTheme
+    int AppCompatTheme_android_windowAnimationStyle -> AppCompatTheme_android_windowAnimationStyle
+    int AppCompatTheme_android_windowIsFloating -> AppCompatTheme_android_windowIsFloating
+    int AppCompatTheme_autoCompleteTextViewStyle -> AppCompatTheme_autoCompleteTextViewStyle
+    int AppCompatTheme_borderlessButtonStyle -> AppCompatTheme_borderlessButtonStyle
+    int AppCompatTheme_buttonBarButtonStyle -> AppCompatTheme_buttonBarButtonStyle
+    int AppCompatTheme_buttonBarNegativeButtonStyle -> AppCompatTheme_buttonBarNegativeButtonStyle
+    int AppCompatTheme_buttonBarNeutralButtonStyle -> AppCompatTheme_buttonBarNeutralButtonStyle
+    int AppCompatTheme_buttonBarPositiveButtonStyle -> AppCompatTheme_buttonBarPositiveButtonStyle
+    int AppCompatTheme_buttonBarStyle -> AppCompatTheme_buttonBarStyle
+    int AppCompatTheme_buttonStyle -> AppCompatTheme_buttonStyle
+    int AppCompatTheme_buttonStyleSmall -> AppCompatTheme_buttonStyleSmall
+    int AppCompatTheme_checkboxStyle -> AppCompatTheme_checkboxStyle
+    int AppCompatTheme_checkedTextViewStyle -> AppCompatTheme_checkedTextViewStyle
+    int AppCompatTheme_colorAccent -> AppCompatTheme_colorAccent
+    int AppCompatTheme_colorBackgroundFloating -> AppCompatTheme_colorBackgroundFloating
+    int AppCompatTheme_colorButtonNormal -> AppCompatTheme_colorButtonNormal
+    int AppCompatTheme_colorControlActivated -> AppCompatTheme_colorControlActivated
+    int AppCompatTheme_colorControlHighlight -> AppCompatTheme_colorControlHighlight
+    int AppCompatTheme_colorControlNormal -> AppCompatTheme_colorControlNormal
+    int AppCompatTheme_colorPrimary -> AppCompatTheme_colorPrimary
+    int AppCompatTheme_colorPrimaryDark -> AppCompatTheme_colorPrimaryDark
+    int AppCompatTheme_colorSwitchThumbNormal -> AppCompatTheme_colorSwitchThumbNormal
+    int AppCompatTheme_controlBackground -> AppCompatTheme_controlBackground
+    int AppCompatTheme_dialogPreferredPadding -> AppCompatTheme_dialogPreferredPadding
+    int AppCompatTheme_dialogTheme -> AppCompatTheme_dialogTheme
+    int AppCompatTheme_dividerHorizontal -> AppCompatTheme_dividerHorizontal
+    int AppCompatTheme_dividerVertical -> AppCompatTheme_dividerVertical
+    int AppCompatTheme_dropDownListViewStyle -> AppCompatTheme_dropDownListViewStyle
+    int AppCompatTheme_dropdownListPreferredItemHeight -> AppCompatTheme_dropdownListPreferredItemHeight
+    int AppCompatTheme_editTextBackground -> AppCompatTheme_editTextBackground
+    int AppCompatTheme_editTextColor -> AppCompatTheme_editTextColor
+    int AppCompatTheme_editTextStyle -> AppCompatTheme_editTextStyle
+    int AppCompatTheme_homeAsUpIndicator -> AppCompatTheme_homeAsUpIndicator
+    int AppCompatTheme_imageButtonStyle -> AppCompatTheme_imageButtonStyle
+    int AppCompatTheme_listChoiceBackgroundIndicator -> AppCompatTheme_listChoiceBackgroundIndicator
+    int AppCompatTheme_listDividerAlertDialog -> AppCompatTheme_listDividerAlertDialog
+    int AppCompatTheme_listMenuViewStyle -> AppCompatTheme_listMenuViewStyle
+    int AppCompatTheme_listPopupWindowStyle -> AppCompatTheme_listPopupWindowStyle
+    int AppCompatTheme_listPreferredItemHeight -> AppCompatTheme_listPreferredItemHeight
+    int AppCompatTheme_listPreferredItemHeightLarge -> AppCompatTheme_listPreferredItemHeightLarge
+    int AppCompatTheme_listPreferredItemHeightSmall -> AppCompatTheme_listPreferredItemHeightSmall
+    int AppCompatTheme_listPreferredItemPaddingLeft -> AppCompatTheme_listPreferredItemPaddingLeft
+    int AppCompatTheme_listPreferredItemPaddingRight -> AppCompatTheme_listPreferredItemPaddingRight
+    int AppCompatTheme_panelBackground -> AppCompatTheme_panelBackground
+    int AppCompatTheme_panelMenuListTheme -> AppCompatTheme_panelMenuListTheme
+    int AppCompatTheme_panelMenuListWidth -> AppCompatTheme_panelMenuListWidth
+    int AppCompatTheme_popupMenuStyle -> AppCompatTheme_popupMenuStyle
+    int AppCompatTheme_popupWindowStyle -> AppCompatTheme_popupWindowStyle
+    int AppCompatTheme_radioButtonStyle -> AppCompatTheme_radioButtonStyle
+    int AppCompatTheme_ratingBarStyle -> AppCompatTheme_ratingBarStyle
+    int AppCompatTheme_ratingBarStyleIndicator -> AppCompatTheme_ratingBarStyleIndicator
+    int AppCompatTheme_ratingBarStyleSmall -> AppCompatTheme_ratingBarStyleSmall
+    int AppCompatTheme_searchViewStyle -> AppCompatTheme_searchViewStyle
+    int AppCompatTheme_seekBarStyle -> AppCompatTheme_seekBarStyle
+    int AppCompatTheme_selectableItemBackground -> AppCompatTheme_selectableItemBackground
+    int AppCompatTheme_selectableItemBackgroundBorderless -> AppCompatTheme_selectableItemBackgroundBorderless
+    int AppCompatTheme_spinnerDropDownItemStyle -> AppCompatTheme_spinnerDropDownItemStyle
+    int AppCompatTheme_spinnerStyle -> AppCompatTheme_spinnerStyle
+    int AppCompatTheme_switchStyle -> AppCompatTheme_switchStyle
+    int AppCompatTheme_textAppearanceLargePopupMenu -> AppCompatTheme_textAppearanceLargePopupMenu
+    int AppCompatTheme_textAppearanceListItem -> AppCompatTheme_textAppearanceListItem
+    int AppCompatTheme_textAppearanceListItemSmall -> AppCompatTheme_textAppearanceListItemSmall
+    int AppCompatTheme_textAppearancePopupMenuHeader -> AppCompatTheme_textAppearancePopupMenuHeader
+    int AppCompatTheme_textAppearanceSearchResultSubtitle -> AppCompatTheme_textAppearanceSearchResultSubtitle
+    int AppCompatTheme_textAppearanceSearchResultTitle -> AppCompatTheme_textAppearanceSearchResultTitle
+    int AppCompatTheme_textAppearanceSmallPopupMenu -> AppCompatTheme_textAppearanceSmallPopupMenu
+    int AppCompatTheme_textColorAlertDialogListItem -> AppCompatTheme_textColorAlertDialogListItem
+    int AppCompatTheme_textColorSearchUrl -> AppCompatTheme_textColorSearchUrl
+    int AppCompatTheme_toolbarNavigationButtonStyle -> AppCompatTheme_toolbarNavigationButtonStyle
+    int AppCompatTheme_toolbarStyle -> AppCompatTheme_toolbarStyle
+    int AppCompatTheme_windowActionBar -> AppCompatTheme_windowActionBar
+    int AppCompatTheme_windowActionBarOverlay -> AppCompatTheme_windowActionBarOverlay
+    int AppCompatTheme_windowActionModeOverlay -> AppCompatTheme_windowActionModeOverlay
+    int AppCompatTheme_windowFixedHeightMajor -> AppCompatTheme_windowFixedHeightMajor
+    int AppCompatTheme_windowFixedHeightMinor -> AppCompatTheme_windowFixedHeightMinor
+    int AppCompatTheme_windowFixedWidthMajor -> AppCompatTheme_windowFixedWidthMajor
+    int AppCompatTheme_windowFixedWidthMinor -> AppCompatTheme_windowFixedWidthMinor
+    int AppCompatTheme_windowMinWidthMajor -> AppCompatTheme_windowMinWidthMajor
+    int AppCompatTheme_windowMinWidthMinor -> AppCompatTheme_windowMinWidthMinor
+    int AppCompatTheme_windowNoTitle -> AppCompatTheme_windowNoTitle
+    int[] BezelImageView -> BezelImageView
+    int BezelImageView_biv_drawCircularShadow -> BezelImageView_biv_drawCircularShadow
+    int BezelImageView_biv_maskDrawable -> BezelImageView_biv_maskDrawable
+    int BezelImageView_biv_selectorOnPress -> BezelImageView_biv_selectorOnPress
+    int[] BottomSheetBehavior_Layout -> BottomSheetBehavior_Layout
+    int BottomSheetBehavior_Layout_behavior_hideable -> BottomSheetBehavior_Layout_behavior_hideable
+    int BottomSheetBehavior_Layout_behavior_peekHeight -> BottomSheetBehavior_Layout_behavior_peekHeight
+    int BottomSheetBehavior_Layout_behavior_skipCollapsed -> BottomSheetBehavior_Layout_behavior_skipCollapsed
+    int[] ButtonBarLayout -> ButtonBarLayout
+    int ButtonBarLayout_allowStacking -> ButtonBarLayout_allowStacking
+    int[] CollapsingToolbarLayout -> CollapsingToolbarLayout
+    int CollapsingToolbarLayout_collapsedTitleGravity -> CollapsingToolbarLayout_collapsedTitleGravity
+    int CollapsingToolbarLayout_collapsedTitleTextAppearance -> CollapsingToolbarLayout_collapsedTitleTextAppearance
+    int CollapsingToolbarLayout_contentScrim -> CollapsingToolbarLayout_contentScrim
+    int CollapsingToolbarLayout_expandedTitleGravity -> CollapsingToolbarLayout_expandedTitleGravity
+    int CollapsingToolbarLayout_expandedTitleMargin -> CollapsingToolbarLayout_expandedTitleMargin
+    int CollapsingToolbarLayout_expandedTitleMarginBottom -> CollapsingToolbarLayout_expandedTitleMarginBottom
+    int CollapsingToolbarLayout_expandedTitleMarginEnd -> CollapsingToolbarLayout_expandedTitleMarginEnd
+    int CollapsingToolbarLayout_expandedTitleMarginStart -> CollapsingToolbarLayout_expandedTitleMarginStart
+    int CollapsingToolbarLayout_expandedTitleMarginTop -> CollapsingToolbarLayout_expandedTitleMarginTop
+    int CollapsingToolbarLayout_expandedTitleTextAppearance -> CollapsingToolbarLayout_expandedTitleTextAppearance
+    int CollapsingToolbarLayout_scrimAnimationDuration -> CollapsingToolbarLayout_scrimAnimationDuration
+    int CollapsingToolbarLayout_scrimVisibleHeightTrigger -> CollapsingToolbarLayout_scrimVisibleHeightTrigger
+    int CollapsingToolbarLayout_statusBarScrim -> CollapsingToolbarLayout_statusBarScrim
+    int CollapsingToolbarLayout_title -> CollapsingToolbarLayout_title
+    int CollapsingToolbarLayout_titleEnabled -> CollapsingToolbarLayout_titleEnabled
+    int CollapsingToolbarLayout_toolbarId -> CollapsingToolbarLayout_toolbarId
+    int[] CollapsingToolbarLayout_Layout -> CollapsingToolbarLayout_Layout
+    int CollapsingToolbarLayout_Layout_layout_collapseMode -> CollapsingToolbarLayout_Layout_layout_collapseMode
+    int CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier -> CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier
+    int[] ColorStateListItem -> ColorStateListItem
+    int ColorStateListItem_alpha -> ColorStateListItem_alpha
+    int ColorStateListItem_android_alpha -> ColorStateListItem_android_alpha
+    int ColorStateListItem_android_color -> ColorStateListItem_android_color
+    int[] CompoundButton -> CompoundButton
+    int CompoundButton_android_button -> CompoundButton_android_button
+    int CompoundButton_buttonTint -> CompoundButton_buttonTint
+    int CompoundButton_buttonTintMode -> CompoundButton_buttonTintMode
+    int[] CoordinatorLayout -> CoordinatorLayout
+    int CoordinatorLayout_keylines -> CoordinatorLayout_keylines
+    int CoordinatorLayout_statusBarBackground -> CoordinatorLayout_statusBarBackground
+    int[] CoordinatorLayout_Layout -> CoordinatorLayout_Layout
+    int CoordinatorLayout_Layout_android_layout_gravity -> CoordinatorLayout_Layout_android_layout_gravity
+    int CoordinatorLayout_Layout_layout_anchor -> CoordinatorLayout_Layout_layout_anchor
+    int CoordinatorLayout_Layout_layout_anchorGravity -> CoordinatorLayout_Layout_layout_anchorGravity
+    int CoordinatorLayout_Layout_layout_behavior -> CoordinatorLayout_Layout_layout_behavior
+    int CoordinatorLayout_Layout_layout_dodgeInsetEdges -> CoordinatorLayout_Layout_layout_dodgeInsetEdges
+    int CoordinatorLayout_Layout_layout_insetEdge -> CoordinatorLayout_Layout_layout_insetEdge
+    int CoordinatorLayout_Layout_layout_keyline -> CoordinatorLayout_Layout_layout_keyline
+    int[] DesignTheme -> DesignTheme
+    int DesignTheme_bottomSheetDialogTheme -> DesignTheme_bottomSheetDialogTheme
+    int DesignTheme_bottomSheetStyle -> DesignTheme_bottomSheetStyle
+    int DesignTheme_textColorError -> DesignTheme_textColorError
+    int[] DrawerArrowToggle -> DrawerArrowToggle
+    int DrawerArrowToggle_arrowHeadLength -> DrawerArrowToggle_arrowHeadLength
+    int DrawerArrowToggle_arrowShaftLength -> DrawerArrowToggle_arrowShaftLength
+    int DrawerArrowToggle_barLength -> DrawerArrowToggle_barLength
+    int DrawerArrowToggle_color -> DrawerArrowToggle_color
+    int DrawerArrowToggle_drawableSize -> DrawerArrowToggle_drawableSize
+    int DrawerArrowToggle_gapBetweenBars -> DrawerArrowToggle_gapBetweenBars
+    int DrawerArrowToggle_spinBars -> DrawerArrowToggle_spinBars
+    int DrawerArrowToggle_thickness -> DrawerArrowToggle_thickness
+    int[] FloatingActionButton -> FloatingActionButton
+    int FloatingActionButton_backgroundTint -> FloatingActionButton_backgroundTint
+    int FloatingActionButton_backgroundTintMode -> FloatingActionButton_backgroundTintMode
+    int FloatingActionButton_borderWidth -> FloatingActionButton_borderWidth
+    int FloatingActionButton_elevation -> FloatingActionButton_elevation
+    int FloatingActionButton_fabSize -> FloatingActionButton_fabSize
+    int FloatingActionButton_pressedTranslationZ -> FloatingActionButton_pressedTranslationZ
+    int FloatingActionButton_rippleColor -> FloatingActionButton_rippleColor
+    int FloatingActionButton_useCompatPadding -> FloatingActionButton_useCompatPadding
+    int[] FloatingActionButton_Behavior_Layout -> FloatingActionButton_Behavior_Layout
+    int FloatingActionButton_Behavior_Layout_behavior_autoHide -> FloatingActionButton_Behavior_Layout_behavior_autoHide
+    int[] ForegroundLinearLayout -> ForegroundLinearLayout
+    int ForegroundLinearLayout_android_foreground -> ForegroundLinearLayout_android_foreground
+    int ForegroundLinearLayout_android_foregroundGravity -> ForegroundLinearLayout_android_foregroundGravity
+    int ForegroundLinearLayout_foregroundInsidePadding -> ForegroundLinearLayout_foregroundInsidePadding
+    int[] Iconics -> Iconics
+    int Iconics_ico_background_color -> Iconics_ico_background_color
+    int Iconics_ico_color -> Iconics_ico_color
+    int Iconics_ico_contour_color -> Iconics_ico_contour_color
+    int Iconics_ico_contour_width -> Iconics_ico_contour_width
+    int Iconics_ico_corner_radius -> Iconics_ico_corner_radius
+    int Iconics_ico_icon -> Iconics_ico_icon
+    int Iconics_ico_offset_x -> Iconics_ico_offset_x
+    int Iconics_ico_offset_y -> Iconics_ico_offset_y
+    int Iconics_ico_padding -> Iconics_ico_padding
+    int Iconics_ico_size -> Iconics_ico_size
+    int[] IconicsImageView -> IconicsImageView
+    int IconicsImageView_iiv_background_color -> IconicsImageView_iiv_background_color
+    int IconicsImageView_iiv_color -> IconicsImageView_iiv_color
+    int IconicsImageView_iiv_contour_color -> IconicsImageView_iiv_contour_color
+    int IconicsImageView_iiv_contour_width -> IconicsImageView_iiv_contour_width
+    int IconicsImageView_iiv_corner_radius -> IconicsImageView_iiv_corner_radius
+    int IconicsImageView_iiv_icon -> IconicsImageView_iiv_icon
+    int IconicsImageView_iiv_padding -> IconicsImageView_iiv_padding
+    int IconicsImageView_iiv_size -> IconicsImageView_iiv_size
+    int[] LinearLayoutCompat -> LinearLayoutCompat
+    int LinearLayoutCompat_android_baselineAligned -> LinearLayoutCompat_android_baselineAligned
+    int LinearLayoutCompat_android_baselineAlignedChildIndex -> LinearLayoutCompat_android_baselineAlignedChildIndex
+    int LinearLayoutCompat_android_gravity -> LinearLayoutCompat_android_gravity
+    int LinearLayoutCompat_android_orientation -> LinearLayoutCompat_android_orientation
+    int LinearLayoutCompat_android_weightSum -> LinearLayoutCompat_android_weightSum
+    int LinearLayoutCompat_divider -> LinearLayoutCompat_divider
+    int LinearLayoutCompat_dividerPadding -> LinearLayoutCompat_dividerPadding
+    int LinearLayoutCompat_measureWithLargestChild -> LinearLayoutCompat_measureWithLargestChild
+    int LinearLayoutCompat_showDividers -> LinearLayoutCompat_showDividers
+    int[] LinearLayoutCompat_Layout -> LinearLayoutCompat_Layout
+    int LinearLayoutCompat_Layout_android_layout_gravity -> LinearLayoutCompat_Layout_android_layout_gravity
+    int LinearLayoutCompat_Layout_android_layout_height -> LinearLayoutCompat_Layout_android_layout_height
+    int LinearLayoutCompat_Layout_android_layout_weight -> LinearLayoutCompat_Layout_android_layout_weight
+    int LinearLayoutCompat_Layout_android_layout_width -> LinearLayoutCompat_Layout_android_layout_width
+    int[] ListPopupWindow -> ListPopupWindow
+    int ListPopupWindow_android_dropDownHorizontalOffset -> ListPopupWindow_android_dropDownHorizontalOffset
+    int ListPopupWindow_android_dropDownVerticalOffset -> ListPopupWindow_android_dropDownVerticalOffset
+    int[] MaterialDrawer -> MaterialDrawer
+    int MaterialDrawer_material_drawer_background -> MaterialDrawer_material_drawer_background
+    int MaterialDrawer_material_drawer_divider -> MaterialDrawer_material_drawer_divider
+    int MaterialDrawer_material_drawer_header_selection_text -> MaterialDrawer_material_drawer_header_selection_text
+    int MaterialDrawer_material_drawer_hint_icon -> MaterialDrawer_material_drawer_hint_icon
+    int MaterialDrawer_material_drawer_hint_text -> MaterialDrawer_material_drawer_hint_text
+    int MaterialDrawer_material_drawer_primary_icon -> MaterialDrawer_material_drawer_primary_icon
+    int MaterialDrawer_material_drawer_primary_text -> MaterialDrawer_material_drawer_primary_text
+    int MaterialDrawer_material_drawer_secondary_text -> MaterialDrawer_material_drawer_secondary_text
+    int MaterialDrawer_material_drawer_selected -> MaterialDrawer_material_drawer_selected
+    int MaterialDrawer_material_drawer_selected_text -> MaterialDrawer_material_drawer_selected_text
+    int MaterialDrawer_material_drawer_window_background -> MaterialDrawer_material_drawer_window_background
+    int[] MenuGroup -> MenuGroup
+    int MenuGroup_android_checkableBehavior -> MenuGroup_android_checkableBehavior
+    int MenuGroup_android_enabled -> MenuGroup_android_enabled
+    int MenuGroup_android_id -> MenuGroup_android_id
+    int MenuGroup_android_menuCategory -> MenuGroup_android_menuCategory
+    int MenuGroup_android_orderInCategory -> MenuGroup_android_orderInCategory
+    int MenuGroup_android_visible -> MenuGroup_android_visible
+    int[] MenuItem -> MenuItem
+    int MenuItem_actionLayout -> MenuItem_actionLayout
+    int MenuItem_actionProviderClass -> MenuItem_actionProviderClass
+    int MenuItem_actionViewClass -> MenuItem_actionViewClass
+    int MenuItem_android_alphabeticShortcut -> MenuItem_android_alphabeticShortcut
+    int MenuItem_android_checkable -> MenuItem_android_checkable
+    int MenuItem_android_checked -> MenuItem_android_checked
+    int MenuItem_android_enabled -> MenuItem_android_enabled
+    int MenuItem_android_icon -> MenuItem_android_icon
+    int MenuItem_android_id -> MenuItem_android_id
+    int MenuItem_android_menuCategory -> MenuItem_android_menuCategory
+    int MenuItem_android_numericShortcut -> MenuItem_android_numericShortcut
+    int MenuItem_android_onClick -> MenuItem_android_onClick
+    int MenuItem_android_orderInCategory -> MenuItem_android_orderInCategory
+    int MenuItem_android_title -> MenuItem_android_title
+    int MenuItem_android_titleCondensed -> MenuItem_android_titleCondensed
+    int MenuItem_android_visible -> MenuItem_android_visible
+    int MenuItem_showAsAction -> MenuItem_showAsAction
+    int[] MenuView -> MenuView
+    int MenuView_android_headerBackground -> MenuView_android_headerBackground
+    int MenuView_android_horizontalDivider -> MenuView_android_horizontalDivider
+    int MenuView_android_itemBackground -> MenuView_android_itemBackground
+    int MenuView_android_itemIconDisabledAlpha -> MenuView_android_itemIconDisabledAlpha
+    int MenuView_android_itemTextAppearance -> MenuView_android_itemTextAppearance
+    int MenuView_android_verticalDivider -> MenuView_android_verticalDivider
+    int MenuView_android_windowAnimationStyle -> MenuView_android_windowAnimationStyle
+    int MenuView_preserveIconSpacing -> MenuView_preserveIconSpacing
+    int MenuView_subMenuArrow -> MenuView_subMenuArrow
+    int[] NavigationView -> NavigationView
+    int NavigationView_android_background -> NavigationView_android_background
+    int NavigationView_android_fitsSystemWindows -> NavigationView_android_fitsSystemWindows
+    int NavigationView_android_maxWidth -> NavigationView_android_maxWidth
+    int NavigationView_elevation -> NavigationView_elevation
+    int NavigationView_headerLayout -> NavigationView_headerLayout
+    int NavigationView_itemBackground -> NavigationView_itemBackground
+    int NavigationView_itemIconTint -> NavigationView_itemIconTint
+    int NavigationView_itemTextAppearance -> NavigationView_itemTextAppearance
+    int NavigationView_itemTextColor -> NavigationView_itemTextColor
+    int NavigationView_menu -> NavigationView_menu
+    int[] PercentLayout_Layout -> PercentLayout_Layout
+    int PercentLayout_Layout_layout_aspectRatio -> PercentLayout_Layout_layout_aspectRatio
+    int PercentLayout_Layout_layout_heightPercent -> PercentLayout_Layout_layout_heightPercent
+    int PercentLayout_Layout_layout_marginBottomPercent -> PercentLayout_Layout_layout_marginBottomPercent
+    int PercentLayout_Layout_layout_marginEndPercent -> PercentLayout_Layout_layout_marginEndPercent
+    int PercentLayout_Layout_layout_marginLeftPercent -> PercentLayout_Layout_layout_marginLeftPercent
+    int PercentLayout_Layout_layout_marginPercent -> PercentLayout_Layout_layout_marginPercent
+    int PercentLayout_Layout_layout_marginRightPercent -> PercentLayout_Layout_layout_marginRightPercent
+    int PercentLayout_Layout_layout_marginStartPercent -> PercentLayout_Layout_layout_marginStartPercent
+    int PercentLayout_Layout_layout_marginTopPercent -> PercentLayout_Layout_layout_marginTopPercent
+    int PercentLayout_Layout_layout_widthPercent -> PercentLayout_Layout_layout_widthPercent
+    int[] PlayersPreference -> PlayersPreference
+    int PlayersPreference_checkedByDefault -> PlayersPreference_checkedByDefault
+    int[] PopupWindow -> PopupWindow
+    int PopupWindow_android_popupAnimationStyle -> PopupWindow_android_popupAnimationStyle
+    int PopupWindow_android_popupBackground -> PopupWindow_android_popupBackground
+    int PopupWindow_overlapAnchor -> PopupWindow_overlapAnchor
+    int[] PopupWindowBackgroundState -> PopupWindowBackgroundState
+    int PopupWindowBackgroundState_state_above_anchor -> PopupWindowBackgroundState_state_above_anchor
+    int[] RecyclerView -> RecyclerView
+    int RecyclerView_android_descendantFocusability -> RecyclerView_android_descendantFocusability
+    int RecyclerView_android_orientation -> RecyclerView_android_orientation
+    int RecyclerView_layoutManager -> RecyclerView_layoutManager
+    int RecyclerView_reverseLayout -> RecyclerView_reverseLayout
+    int RecyclerView_spanCount -> RecyclerView_spanCount
+    int RecyclerView_stackFromEnd -> RecyclerView_stackFromEnd
+    int[] ScrimInsetsFrameLayout -> ScrimInsetsFrameLayout
+    int ScrimInsetsFrameLayout_insetForeground -> ScrimInsetsFrameLayout_insetForeground
+    int[] ScrimInsetsRelativeLayout -> ScrimInsetsRelativeLayout
+    int ScrimInsetsRelativeLayout_sirl_insetForeground -> ScrimInsetsRelativeLayout_sirl_insetForeground
+    int[] ScrimInsetsView -> ScrimInsetsView
+    int ScrimInsetsView_siv_insetForeground -> ScrimInsetsView_siv_insetForeground
+    int[] ScrollingViewBehavior_Layout -> ScrollingViewBehavior_Layout
+    int ScrollingViewBehavior_Layout_behavior_overlapTop -> ScrollingViewBehavior_Layout_behavior_overlapTop
+    int[] SearchView -> SearchView
+    int SearchView_android_focusable -> SearchView_android_focusable
+    int SearchView_android_imeOptions -> SearchView_android_imeOptions
+    int SearchView_android_inputType -> SearchView_android_inputType
+    int SearchView_android_maxWidth -> SearchView_android_maxWidth
+    int SearchView_closeIcon -> SearchView_closeIcon
+    int SearchView_commitIcon -> SearchView_commitIcon
+    int SearchView_defaultQueryHint -> SearchView_defaultQueryHint
+    int SearchView_goIcon -> SearchView_goIcon
+    int SearchView_iconifiedByDefault -> SearchView_iconifiedByDefault
+    int SearchView_layout -> SearchView_layout
+    int SearchView_queryBackground -> SearchView_queryBackground
+    int SearchView_queryHint -> SearchView_queryHint
+    int SearchView_searchHintIcon -> SearchView_searchHintIcon
+    int SearchView_searchIcon -> SearchView_searchIcon
+    int SearchView_submitBackground -> SearchView_submitBackground
+    int SearchView_suggestionRowLayout -> SearchView_suggestionRowLayout
+    int SearchView_voiceIcon -> SearchView_voiceIcon
+    int[] SnackbarLayout -> SnackbarLayout
+    int SnackbarLayout_android_maxWidth -> SnackbarLayout_android_maxWidth
+    int SnackbarLayout_elevation -> SnackbarLayout_elevation
+    int SnackbarLayout_maxActionInlineWidth -> SnackbarLayout_maxActionInlineWidth
+    int[] Spinner -> Spinner
+    int Spinner_android_dropDownWidth -> Spinner_android_dropDownWidth
+    int Spinner_android_entries -> Spinner_android_entries
+    int Spinner_android_popupBackground -> Spinner_android_popupBackground
+    int Spinner_android_prompt -> Spinner_android_prompt
+    int Spinner_popupTheme -> Spinner_popupTheme
+    int[] SwitchCompat -> SwitchCompat
+    int SwitchCompat_android_textOff -> SwitchCompat_android_textOff
+    int SwitchCompat_android_textOn -> SwitchCompat_android_textOn
+    int SwitchCompat_android_thumb -> SwitchCompat_android_thumb
+    int SwitchCompat_showText -> SwitchCompat_showText
+    int SwitchCompat_splitTrack -> SwitchCompat_splitTrack
+    int SwitchCompat_switchMinWidth -> SwitchCompat_switchMinWidth
+    int SwitchCompat_switchPadding -> SwitchCompat_switchPadding
+    int SwitchCompat_switchTextAppearance -> SwitchCompat_switchTextAppearance
+    int SwitchCompat_thumbTextPadding -> SwitchCompat_thumbTextPadding
+    int SwitchCompat_thumbTint -> SwitchCompat_thumbTint
+    int SwitchCompat_thumbTintMode -> SwitchCompat_thumbTintMode
+    int SwitchCompat_track -> SwitchCompat_track
+    int SwitchCompat_trackTint -> SwitchCompat_trackTint
+    int SwitchCompat_trackTintMode -> SwitchCompat_trackTintMode
+    int[] TabItem -> TabItem
+    int TabItem_android_icon -> TabItem_android_icon
+    int TabItem_android_layout -> TabItem_android_layout
+    int TabItem_android_text -> TabItem_android_text
+    int[] TabLayout -> TabLayout
+    int TabLayout_tabBackground -> TabLayout_tabBackground
+    int TabLayout_tabContentStart -> TabLayout_tabContentStart
+    int TabLayout_tabGravity -> TabLayout_tabGravity
+    int TabLayout_tabIndicatorColor -> TabLayout_tabIndicatorColor
+    int TabLayout_tabIndicatorHeight -> TabLayout_tabIndicatorHeight
+    int TabLayout_tabMaxWidth -> TabLayout_tabMaxWidth
+    int TabLayout_tabMinWidth -> TabLayout_tabMinWidth
+    int TabLayout_tabMode -> TabLayout_tabMode
+    int TabLayout_tabPadding -> TabLayout_tabPadding
+    int TabLayout_tabPaddingBottom -> TabLayout_tabPaddingBottom
+    int TabLayout_tabPaddingEnd -> TabLayout_tabPaddingEnd
+    int TabLayout_tabPaddingStart -> TabLayout_tabPaddingStart
+    int TabLayout_tabPaddingTop -> TabLayout_tabPaddingTop
+    int TabLayout_tabSelectedTextColor -> TabLayout_tabSelectedTextColor
+    int TabLayout_tabTextAppearance -> TabLayout_tabTextAppearance
+    int TabLayout_tabTextColor -> TabLayout_tabTextColor
+    int[] TextAppearance -> TextAppearance
+    int TextAppearance_android_shadowColor -> TextAppearance_android_shadowColor
+    int TextAppearance_android_shadowDx -> TextAppearance_android_shadowDx
+    int TextAppearance_android_shadowDy -> TextAppearance_android_shadowDy
+    int TextAppearance_android_shadowRadius -> TextAppearance_android_shadowRadius
+    int TextAppearance_android_textColor -> TextAppearance_android_textColor
+    int TextAppearance_android_textSize -> TextAppearance_android_textSize
+    int TextAppearance_android_textStyle -> TextAppearance_android_textStyle
+    int TextAppearance_android_typeface -> TextAppearance_android_typeface
+    int TextAppearance_textAllCaps -> TextAppearance_textAllCaps
+    int[] TextInputLayout -> TextInputLayout
+    int TextInputLayout_android_hint -> TextInputLayout_android_hint
+    int TextInputLayout_android_textColorHint -> TextInputLayout_android_textColorHint
+    int TextInputLayout_counterEnabled -> TextInputLayout_counterEnabled
+    int TextInputLayout_counterMaxLength -> TextInputLayout_counterMaxLength
+    int TextInputLayout_counterOverflowTextAppearance -> TextInputLayout_counterOverflowTextAppearance
+    int TextInputLayout_counterTextAppearance -> TextInputLayout_counterTextAppearance
+    int TextInputLayout_errorEnabled -> TextInputLayout_errorEnabled
+    int TextInputLayout_errorTextAppearance -> TextInputLayout_errorTextAppearance
+    int TextInputLayout_hintAnimationEnabled -> TextInputLayout_hintAnimationEnabled
+    int TextInputLayout_hintEnabled -> TextInputLayout_hintEnabled
+    int TextInputLayout_hintTextAppearance -> TextInputLayout_hintTextAppearance
+    int TextInputLayout_passwordToggleContentDescription -> TextInputLayout_passwordToggleContentDescription
+    int TextInputLayout_passwordToggleDrawable -> TextInputLayout_passwordToggleDrawable
+    int TextInputLayout_passwordToggleEnabled -> TextInputLayout_passwordToggleEnabled
+    int TextInputLayout_passwordToggleTint -> TextInputLayout_passwordToggleTint
+    int TextInputLayout_passwordToggleTintMode -> TextInputLayout_passwordToggleTintMode
+    int[] Toolbar -> Toolbar
+    int Toolbar_android_gravity -> Toolbar_android_gravity
+    int Toolbar_android_minHeight -> Toolbar_android_minHeight
+    int Toolbar_buttonGravity -> Toolbar_buttonGravity
+    int Toolbar_collapseContentDescription -> Toolbar_collapseContentDescription
+    int Toolbar_collapseIcon -> Toolbar_collapseIcon
+    int Toolbar_contentInsetEnd -> Toolbar_contentInsetEnd
+    int Toolbar_contentInsetEndWithActions -> Toolbar_contentInsetEndWithActions
+    int Toolbar_contentInsetLeft -> Toolbar_contentInsetLeft
+    int Toolbar_contentInsetRight -> Toolbar_contentInsetRight
+    int Toolbar_contentInsetStart -> Toolbar_contentInsetStart
+    int Toolbar_contentInsetStartWithNavigation -> Toolbar_contentInsetStartWithNavigation
+    int Toolbar_logo -> Toolbar_logo
+    int Toolbar_logoDescription -> Toolbar_logoDescription
+    int Toolbar_maxButtonHeight -> Toolbar_maxButtonHeight
+    int Toolbar_navigationContentDescription -> Toolbar_navigationContentDescription
+    int Toolbar_navigationIcon -> Toolbar_navigationIcon
+    int Toolbar_popupTheme -> Toolbar_popupTheme
+    int Toolbar_subtitle -> Toolbar_subtitle
+    int Toolbar_subtitleTextAppearance -> Toolbar_subtitleTextAppearance
+    int Toolbar_subtitleTextColor -> Toolbar_subtitleTextColor
+    int Toolbar_title -> Toolbar_title
+    int Toolbar_titleMargin -> Toolbar_titleMargin
+    int Toolbar_titleMarginBottom -> Toolbar_titleMarginBottom
+    int Toolbar_titleMarginEnd -> Toolbar_titleMarginEnd
+    int Toolbar_titleMarginStart -> Toolbar_titleMarginStart
+    int Toolbar_titleMarginTop -> Toolbar_titleMarginTop
+    int Toolbar_titleMargins -> Toolbar_titleMargins
+    int Toolbar_titleTextAppearance -> Toolbar_titleTextAppearance
+    int Toolbar_titleTextColor -> Toolbar_titleTextColor
+    int[] View -> View
+    int View_android_focusable -> View_android_focusable
+    int View_android_theme -> View_android_theme
+    int View_paddingEnd -> View_paddingEnd
+    int View_paddingStart -> View_paddingStart
+    int View_theme -> View_theme
+    int[] ViewBackgroundHelper -> ViewBackgroundHelper
+    int ViewBackgroundHelper_android_background -> ViewBackgroundHelper_android_background
+    int ViewBackgroundHelper_backgroundTint -> ViewBackgroundHelper_backgroundTint
+    int ViewBackgroundHelper_backgroundTintMode -> ViewBackgroundHelper_backgroundTintMode
+    int[] ViewStubCompat -> ViewStubCompat
+    int ViewStubCompat_android_id -> ViewStubCompat_android_id
+    int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
+    int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
+    4491:11730:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.backup.BackupService -> com.faendir.lightning_launcher.multitool.backup.BackupService:
     18:20:void <init>() -> <init>
     24:28:void onHandleIntent(android.content.Intent) -> onHandleIntent
@@ -17281,68 +17823,69 @@ com.faendir.lightning_launcher.multitool.billing.BaseBillingManager -> com.faend
     com.anjlab.android.iab.v3.BillingProcessor billingProcessor -> d
     java.util.Map expiration -> a
     org.apache.commons.collections4.BidiMap mapping -> b
-    44:56:void <init>(android.content.Context) -> <init>
-    61:61:void onProductPurchased(java.lang.String,com.anjlab.android.iab.v3.TransactionDetails) -> a
-    66:66:void onPurchaseHistoryRestored() -> a
-    70:70:void onBillingError(int,java.lang.Throwable) -> a
-    74:74:void onBillingInitialized() -> b
-    77:77:com.anjlab.android.iab.v3.BillingProcessor getBillingProcessor() -> c
-    81:82:void release() -> d
-    86:87:boolean isBoughtOrTrial(int) -> a
-    92:108:com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState isTrial(java.lang.String) -> a
-    115:130:int networkRequest(java.lang.String,int) -> a
+    50:62:void <init>(android.content.Context) -> <init>
+    67:67:void onProductPurchased(java.lang.String,com.anjlab.android.iab.v3.TransactionDetails) -> a
+    72:72:void onPurchaseHistoryRestored() -> a
+    76:76:void onBillingError(int,java.lang.Throwable) -> a
+    80:84:void onBillingInitialized() -> b
+    87:87:com.anjlab.android.iab.v3.BillingProcessor getBillingProcessor() -> c
+    91:92:void release() -> d
+    96:100:boolean isBoughtOrTrial(int) -> a
+    105:108:boolean isBought(int) -> b
+    113:117:com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState isTrial(int) -> c
+    122:129:java.util.Calendar getExpiration(int) -> d
+    134:145:long getExpiration(java.lang.String) -> b
+    149:159:com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState isTrial(java.lang.String) -> a
+    165:180:int networkRequest(java.lang.String,int) -> a
+    185:193:void waitForInit() -> e
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState -> com.faendir.lightning_launcher.multitool.a.a$a:
     com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState NOT_STARTED -> a
     com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState ONGOING -> b
     com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState EXPIRED -> c
     com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState[] $VALUES -> d
-    30:30:com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState[] values() -> values
-    30:30:com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState valueOf(java.lang.String) -> valueOf
-    30:30:void <init>(java.lang.String,int) -> <init>
-    30:33:void <clinit>() -> <clinit>
+    36:36:com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState[] values() -> values
+    36:36:com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState valueOf(java.lang.String) -> valueOf
+    36:36:void <init>(java.lang.String,int) -> <init>
+    36:39:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.billing.BillingManager -> com.faendir.lightning_launcher.multitool.a.b:
     android.app.Activity context -> c
-    boolean ready -> d
-    26:32:void <init>(android.app.Activity) -> <init>
-    35:35:boolean handleActivityResult(int,int,android.content.Intent) -> a
-    40:44:void onBillingInitialized() -> b
-    48:50:void onProductPurchased(java.lang.String,com.anjlab.android.iab.v3.TransactionDetails) -> a
-    54:55:void showDialog(int) -> b
-    59:90:void showDialog(int,java.lang.Runnable) -> a
-    93:102:void buy(java.lang.String) -> b
-    105:128:void startTrial(java.lang.String) -> c
-    24:24:void access$000(com.faendir.lightning_launcher.multitool.billing.BillingManager,java.lang.String) -> a
-    24:24:void access$100(com.faendir.lightning_launcher.multitool.billing.BillingManager,java.lang.String) -> b
-    24:24:android.app.Activity access$200(com.faendir.lightning_launcher.multitool.billing.BillingManager) -> a
+    32:34:void <init>(android.app.Activity) -> <init>
+    37:37:boolean handleActivityResult(int,int,android.content.Intent) -> a
+    42:44:void onProductPurchased(java.lang.String,com.anjlab.android.iab.v3.TransactionDetails) -> a
+    48:49:void showDialog(int) -> e
+    53:87:void showDialog(int,java.lang.Runnable) -> a
+    90:92:void buy(int) -> f
+    95:119:void startTrial(int) -> g
+    28:28:android.app.Activity access$000(com.faendir.lightning_launcher.multitool.billing.BillingManager) -> a
 com.faendir.lightning_launcher.multitool.billing.BillingManager$1 -> com.faendir.lightning_launcher.multitool.a.b$1:
     java.lang.Runnable val$onClose -> a
     com.faendir.lightning_launcher.multitool.billing.BillingManager this$0 -> b
-    80:80:void <init>(com.faendir.lightning_launcher.multitool.billing.BillingManager,java.lang.Runnable) -> <init>
-    83:84:void onClick(android.content.DialogInterface,int) -> onClick
+    76:76:void <init>(com.faendir.lightning_launcher.multitool.billing.BillingManager,java.lang.Runnable) -> <init>
+    80:81:void onClick(android.content.DialogInterface,int) -> onClick
 com.faendir.lightning_launcher.multitool.billing.BillingManager$2 -> com.faendir.lightning_launcher.multitool.a.b$2:
     int val$which -> a
     java.lang.Runnable val$onClose -> b
     com.faendir.lightning_launcher.multitool.billing.BillingManager this$0 -> c
-    68:68:void <init>(com.faendir.lightning_launcher.multitool.billing.BillingManager,int,java.lang.Runnable) -> <init>
-    71:78:void onClick(android.content.DialogInterface,int) -> onClick
+    63:63:void <init>(com.faendir.lightning_launcher.multitool.billing.BillingManager,int,java.lang.Runnable) -> <init>
+    67:74:void onClick(android.content.DialogInterface,int) -> onClick
 com.faendir.lightning_launcher.multitool.billing.BillingManager$2$1 -> com.faendir.lightning_launcher.multitool.a.b$2$1:
     com.faendir.lightning_launcher.multitool.billing.BillingManager$2 this$1 -> a
-    71:71:void <init>(com.faendir.lightning_launcher.multitool.billing.BillingManager$2) -> <init>
-    74:76:void run() -> run
+    67:67:void <init>(com.faendir.lightning_launcher.multitool.billing.BillingManager$2) -> <init>
+    70:72:void run() -> run
 com.faendir.lightning_launcher.multitool.billing.BillingManager$3 -> com.faendir.lightning_launcher.multitool.a.b$3:
     int val$which -> a
     java.lang.Runnable val$onClose -> b
     com.faendir.lightning_launcher.multitool.billing.BillingManager this$0 -> c
-    61:61:void <init>(com.faendir.lightning_launcher.multitool.billing.BillingManager,int,java.lang.Runnable) -> <init>
-    64:66:void onClick(android.content.DialogInterface,int) -> onClick
+    55:55:void <init>(com.faendir.lightning_launcher.multitool.billing.BillingManager,int,java.lang.Runnable) -> <init>
+    59:61:void onClick(android.content.DialogInterface,int) -> onClick
 com.faendir.lightning_launcher.multitool.billing.BillingManager$4 -> com.faendir.lightning_launcher.multitool.a.b$4:
+    com.faendir.lightning_launcher.multitool.billing.BillingManager this$0 -> a
+    98:98:void <init>(com.faendir.lightning_launcher.multitool.billing.BillingManager) -> <init>
+    101:102:void run() -> run
+com.faendir.lightning_launcher.multitool.billing.BillingManager$5 -> com.faendir.lightning_launcher.multitool.a.b$5:
     com.faendir.lightning_launcher.multitool.billing.BillingManager this$0 -> a
     107:107:void <init>(com.faendir.lightning_launcher.multitool.billing.BillingManager) -> <init>
     110:111:void run() -> run
-com.faendir.lightning_launcher.multitool.billing.BillingManager$5 -> com.faendir.lightning_launcher.multitool.a.b$5:
-    com.faendir.lightning_launcher.multitool.billing.BillingManager this$0 -> a
-    116:116:void <init>(com.faendir.lightning_launcher.multitool.billing.BillingManager) -> <init>
-    119:120:void run() -> run
 com.faendir.lightning_launcher.multitool.drawer.DrawerFragment -> com.faendir.lightning_launcher.multitool.b.a:
     13:13:void <init>() -> <init>
     16:18:void onCreate(android.os.Bundle) -> onCreate
@@ -17524,108 +18067,129 @@ com.faendir.lightning_launcher.multitool.music.MusicFragment -> com.faendir.ligh
     android.content.ServiceConnection connection -> g
     boolean isBound -> h
     boolean calledAtLeastOnce -> i
+    android.graphics.Bitmap bitmap -> j
     39:48:void <init>() -> <init>
-    52:68:void onCreate(android.os.Bundle) -> onCreate
-    73:79:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    84:86:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
-    90:98:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    104:121:void onResume() -> onResume
-    125:130:void onPause() -> onPause
-    134:139:void onDestroy() -> onDestroy
-    143:153:void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
-    157:173:void onClick(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onClick
+    53:69:void onCreate(android.os.Bundle) -> onCreate
+    74:80:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    85:87:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
+    91:99:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    105:122:void onResume() -> onResume
+    126:131:void onPause() -> onPause
+    135:140:void onDestroy() -> onDestroy
+    144:168:void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    172:188:void onClick(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onClick
     39:39:com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper access$002(com.faendir.lightning_launcher.multitool.music.MusicFragment,com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper) -> a
     39:39:boolean access$102(com.faendir.lightning_launcher.multitool.music.MusicFragment,boolean) -> a
     39:39:com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper access$000(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> a
     39:39:boolean access$200(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> b
     39:39:boolean access$202(com.faendir.lightning_launcher.multitool.music.MusicFragment,boolean) -> b
+    39:39:android.graphics.Bitmap access$300(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> c
+    39:39:android.widget.ImageView access$400(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> d
+    39:39:android.widget.TextView access$500(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> e
+    39:39:android.widget.TextView access$600(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> f
+    39:39:android.widget.TextView access$700(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> g
+    39:39:android.widget.ImageView access$800(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> h
 com.faendir.lightning_launcher.multitool.music.MusicFragment$1 -> com.faendir.lightning_launcher.multitool.music.a$1:
     com.faendir.lightning_launcher.multitool.music.MusicFragment this$0 -> a
-    55:55:void <init>(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> <init>
-    58:59:void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
-    63:65:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+    56:56:void <init>(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> <init>
+    59:60:void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    64:66:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
 com.faendir.lightning_launcher.multitool.music.MusicFragment$2 -> com.faendir.lightning_launcher.multitool.music.a$2:
     com.faendir.lightning_launcher.multitool.music.MusicFragment this$0 -> a
-    106:106:void <init>(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> <init>
-    109:119:void run() -> run
+    107:107:void <init>(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> <init>
+    110:120:void run() -> run
+com.faendir.lightning_launcher.multitool.music.MusicFragment$3 -> com.faendir.lightning_launcher.multitool.music.a$3:
+    java.lang.String val$title -> a
+    java.lang.String val$album -> b
+    java.lang.String val$artist -> c
+    java.lang.String val$packageName -> d
+    com.faendir.lightning_launcher.multitool.music.MusicFragment this$0 -> e
+    151:151:void <init>(com.faendir.lightning_launcher.multitool.music.MusicFragment,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> <init>
+    154:166:void run() -> run
 com.faendir.lightning_launcher.multitool.music.MusicManager -> com.faendir.lightning_launcher.multitool.music.MusicManager:
     java.util.List PLAYING_STATES -> a
     org.apache.commons.collections4.BidiMap controllers -> b
     java.util.Set listeners -> c
-    android.media.session.MediaSessionManager mediaSessionManager -> d
-    android.content.ComponentName notificationListener -> e
-    android.graphics.Bitmap albumArt -> f
-    java.lang.String title -> g
-    java.lang.String album -> h
-    java.lang.String artist -> i
-    java.lang.String packageName -> j
-    android.os.Messenger messenger -> k
-    java.lang.ref.WeakReference currentController -> l
-    android.content.SharedPreferences sharedPref -> m
-    87:92:void <init>() -> <init>
-    96:96:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    101:104:void onCreate() -> onCreate
-    107:117:void updateCurrentInfo(android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> a
-    121:162:void onActiveSessionsChanged(java.util.List) -> onActiveSessionsChanged
-    166:177:void startDefaultPlayerWithKeyCode(int) -> a
-    182:200:android.os.IBinder onBind(android.content.Intent) -> onBind
-    205:232:void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
-    235:239:void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
-    63:63:java.util.List access$300() -> a
-    63:63:java.lang.ref.WeakReference access$400(com.faendir.lightning_launcher.multitool.music.MusicManager) -> a
-    63:63:org.apache.commons.collections4.BidiMap access$500(com.faendir.lightning_launcher.multitool.music.MusicManager) -> b
-    63:63:void access$600(com.faendir.lightning_launcher.multitool.music.MusicManager,android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> a
-    63:63:void access$800(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
-    63:63:java.util.Set access$900(com.faendir.lightning_launcher.multitool.music.MusicManager) -> c
-    63:63:void access$1100(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
-    63:63:void access$1200(com.faendir.lightning_launcher.multitool.music.MusicManager,int) -> a
-    71:73:void <clinit>() -> <clinit>
+    android.os.Messenger messenger -> d
+    android.media.session.MediaSessionManager mediaSessionManager -> e
+    android.content.ComponentName notificationListener -> f
+    android.content.SharedPreferences sharedPref -> g
+    com.faendir.lightning_launcher.multitool.billing.BaseBillingManager billingManager -> h
+    android.graphics.Bitmap albumArt -> i
+    java.lang.String title -> j
+    java.lang.String album -> k
+    java.lang.String artist -> l
+    java.lang.String packageName -> m
+    java.lang.ref.WeakReference currentController -> n
+    103:108:void <init>() -> <init>
+    112:112:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    117:121:void onCreate() -> onCreate
+    124:133:void updateCurrentInfo(android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> a
+    137:178:void onActiveSessionsChanged(java.util.List) -> onActiveSessionsChanged
+    181:185:void startDefaultPlayerWithKeyCode(int) -> a
+    189:201:void sendKeyCodeToPlayer(int,java.lang.String) -> a
+    206:208:android.os.IBinder onBind(android.content.Intent) -> onBind
+    212:239:void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
+    242:246:void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
+    78:78:java.util.List access$300() -> a
+    78:78:java.lang.ref.WeakReference access$400(com.faendir.lightning_launcher.multitool.music.MusicManager) -> a
+    78:78:org.apache.commons.collections4.BidiMap access$500(com.faendir.lightning_launcher.multitool.music.MusicManager) -> b
+    78:78:void access$600(com.faendir.lightning_launcher.multitool.music.MusicManager,android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> a
+    78:78:com.faendir.lightning_launcher.multitool.billing.BaseBillingManager access$700(com.faendir.lightning_launcher.multitool.music.MusicManager) -> c
+    78:78:void access$900(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
+    78:78:java.util.Set access$1000(com.faendir.lightning_launcher.multitool.music.MusicManager) -> d
+    78:78:void access$1200(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
+    78:78:void access$1300(com.faendir.lightning_launcher.multitool.music.MusicManager,int,java.lang.String) -> a
+    78:78:void access$1400(com.faendir.lightning_launcher.multitool.music.MusicManager,int) -> a
+    78:78:android.content.SharedPreferences access$1500(com.faendir.lightning_launcher.multitool.music.MusicManager) -> e
+    86:88:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.music.MusicManager$1 -> com.faendir.lightning_launcher.multitool.music.MusicManager$1:
-    java.util.concurrent.atomic.AtomicBoolean val$isAllowed -> a
-    com.faendir.lightning_launcher.multitool.music.MusicManager this$0 -> b
-    183:183:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,java.util.concurrent.atomic.AtomicBoolean) -> <init>
-    186:187:void run() -> run
-com.faendir.lightning_launcher.multitool.music.MusicManager$2 -> com.faendir.lightning_launcher.multitool.music.MusicManager$2:
     com.faendir.lightning_launcher.multitool.music.MusicManager this$0 -> a
-    211:211:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,android.os.Handler) -> <init>
-    214:220:void onReceiveResult(int,android.os.Bundle) -> onReceiveResult
+    218:218:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,android.os.Handler) -> <init>
+    221:227:void onReceiveResult(int,android.os.Bundle) -> onReceiveResult
 com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper -> com.faendir.lightning_launcher.multitool.music.MusicManager$a:
     android.os.Messenger messenger -> a
-    424:426:void <init>(android.os.IBinder) -> <init>
-    429:436:void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
-    439:446:void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
-    449:455:void togglePlay() -> a
-    458:464:void next() -> b
-    467:473:void previous() -> c
+    476:478:void <init>(android.os.IBinder) -> <init>
+    481:488:void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
+    491:498:void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
+    501:507:void togglePlay() -> a
+    510:516:void next() -> b
+    519:525:void previous() -> c
 com.faendir.lightning_launcher.multitool.music.MusicManager$Callback -> com.faendir.lightning_launcher.multitool.music.MusicManager$b:
     android.media.MediaMetadata metadata -> b
     android.media.session.PlaybackState playbackState -> c
     android.graphics.Bitmap bitmap -> d
     boolean hasRequestedAlbumArt -> e
     com.faendir.lightning_launcher.multitool.music.MusicManager this$0 -> a
-    241:241:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager) -> <init>
-    249:253:void onPlaybackStateChanged(android.media.session.PlaybackState) -> onPlaybackStateChanged
-    257:260:void onMetadataChanged(android.media.MediaMetadata) -> onMetadataChanged
-    263:276:void update() -> b
-    280:295:android.graphics.Bitmap loadBitmapForKeys(java.lang.String[]) -> a
-    299:306:void push() -> c
-    309:312:void recycle() -> a
-    241:241:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
-    241:241:void access$200(com.faendir.lightning_launcher.multitool.music.MusicManager$Callback) -> a
+    248:248:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager) -> <init>
+    256:260:void onPlaybackStateChanged(android.media.session.PlaybackState) -> onPlaybackStateChanged
+    264:267:void onMetadataChanged(android.media.MediaMetadata) -> onMetadataChanged
+    270:283:void update() -> b
+    287:302:android.graphics.Bitmap loadBitmapForKeys(java.lang.String[]) -> a
+    306:313:void push() -> c
+    316:319:void recycle() -> a
+    248:248:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
+    248:248:void access$200(com.faendir.lightning_launcher.multitool.music.MusicManager$Callback) -> a
 com.faendir.lightning_launcher.multitool.music.MusicManager$Listener -> com.faendir.lightning_launcher.multitool.music.MusicManager$c:
     void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
 com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler -> com.faendir.lightning_launcher.multitool.music.MusicManager$d:
     java.lang.ref.WeakReference musicManager -> a
-    318:320:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager) -> <init>
-    324:384:void handleMessage(android.os.Message) -> handleMessage
-    315:315:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
+    326:328:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager) -> <init>
+    332:406:void handleMessage(android.os.Message) -> handleMessage
+    409:411:boolean isAlternativeControl(android.media.session.MediaController) -> a
+    415:435:android.os.Looper getNewPreparedLooper() -> a
+    322:322:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
+com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler$1 -> com.faendir.lightning_launcher.multitool.music.MusicManager$d$1:
+    java.util.concurrent.atomic.AtomicReference val$reference -> a
+    416:416:void <init>(java.util.concurrent.atomic.AtomicReference) -> <init>
+    419:425:void run() -> run
 com.faendir.lightning_launcher.multitool.music.MusicManager$MessengerListener -> com.faendir.lightning_launcher.multitool.music.MusicManager$e:
     android.os.Messenger messenger -> a
-    390:392:void <init>(android.os.Messenger) -> <init>
-    396:410:void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
-    413:413:boolean hasMessenger(android.os.Messenger) -> a
-    387:387:void <init>(android.os.Messenger,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
-    387:387:boolean access$1000(com.faendir.lightning_launcher.multitool.music.MusicManager$MessengerListener,android.os.Messenger) -> a
+    442:444:void <init>(android.os.Messenger) -> <init>
+    448:462:void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    465:465:boolean hasMessenger(android.os.Messenger) -> a
+    439:439:void <init>(android.os.Messenger,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
+    439:439:boolean access$1100(com.faendir.lightning_launcher.multitool.music.MusicManager$MessengerListener,android.os.Messenger) -> a
 com.faendir.lightning_launcher.multitool.scriptmanager.Folder -> com.faendir.lightning_launcher.multitool.scriptmanager.Folder:
     java.lang.String name -> name
     17:19:void <init>(java.lang.String) -> <init>
@@ -17922,9 +18486,9 @@ com.faendir.lightning_launcher.multitool.settings.DefaultPlayerPreference -> com
     22:35:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     39:39:java.lang.CharSequence getSummaryText() -> a
 com.faendir.lightning_launcher.multitool.settings.PlayersPreference -> com.faendir.lightning_launcher.multitool.settings.PlayersPreference:
-    26:37:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    40:47:java.util.List getSelectedEntries() -> b
-    52:52:java.lang.CharSequence getSummaryText() -> a
+    29:58:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    61:68:java.util.List getSelectedEntries() -> b
+    73:73:java.lang.CharSequence getSummaryText() -> a
 com.faendir.lightning_launcher.multitool.settings.PreferenceListener -> com.faendir.lightning_launcher.multitool.settings.a:
     java.util.Map map -> a
     android.preference.PreferenceScreen screen -> b
@@ -17963,6 +18527,48 @@ com.faendir.lightning_launcher.multitool.settings.PrefsFragment$2 -> com.faendir
     66:67:void run() -> run
 com.faendir.lightning_launcher.multitool.settings.SummaryPreference -> com.faendir.lightning_launcher.multitool.settings.c:
     java.lang.CharSequence getSummaryText() -> a
+com.faendir.lightning_launcher.multitool.settings.TrialPreference -> com.faendir.lightning_launcher.multitool.settings.TrialPreference:
+    com.faendir.lightning_launcher.multitool.billing.BillingManager billingManager -> a
+    boolean isBought -> b
+    com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState trialState -> c
+    24:36:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    39:71:void update() -> a
+    75:119:void onClick() -> onClick
+    123:124:void onPrepareForRemoval() -> onPrepareForRemoval
+    22:22:boolean access$002(com.faendir.lightning_launcher.multitool.settings.TrialPreference,boolean) -> a
+    22:22:com.faendir.lightning_launcher.multitool.billing.BillingManager access$100(com.faendir.lightning_launcher.multitool.settings.TrialPreference) -> a
+    22:22:boolean access$000(com.faendir.lightning_launcher.multitool.settings.TrialPreference) -> b
+    22:22:com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState access$202(com.faendir.lightning_launcher.multitool.settings.TrialPreference,com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState) -> a
+    22:22:com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState access$200(com.faendir.lightning_launcher.multitool.settings.TrialPreference) -> c
+    22:22:void access$300(com.faendir.lightning_launcher.multitool.settings.TrialPreference) -> d
+com.faendir.lightning_launcher.multitool.settings.TrialPreference$1 -> com.faendir.lightning_launcher.multitool.settings.TrialPreference$1:
+    com.faendir.lightning_launcher.multitool.settings.TrialPreference this$0 -> a
+    39:39:void <init>(com.faendir.lightning_launcher.multitool.settings.TrialPreference) -> <init>
+    43:69:void run() -> run
+com.faendir.lightning_launcher.multitool.settings.TrialPreference$1$1 -> com.faendir.lightning_launcher.multitool.settings.TrialPreference$1$1:
+    java.lang.String val$summary -> a
+    com.faendir.lightning_launcher.multitool.settings.TrialPreference$1 this$1 -> b
+    63:63:void <init>(com.faendir.lightning_launcher.multitool.settings.TrialPreference$1,java.lang.String) -> <init>
+    66:67:void run() -> run
+com.faendir.lightning_launcher.multitool.settings.TrialPreference$2 -> com.faendir.lightning_launcher.multitool.settings.TrialPreference$2:
+    com.faendir.lightning_launcher.multitool.settings.TrialPreference this$0 -> a
+    81:81:void <init>(com.faendir.lightning_launcher.multitool.settings.TrialPreference) -> <init>
+    84:91:void onClick(android.content.DialogInterface,int) -> onClick
+com.faendir.lightning_launcher.multitool.settings.TrialPreference$2$1 -> com.faendir.lightning_launcher.multitool.settings.TrialPreference$2$1:
+    com.faendir.lightning_launcher.multitool.settings.TrialPreference$2 this$1 -> a
+    84:84:void <init>(com.faendir.lightning_launcher.multitool.settings.TrialPreference$2) -> <init>
+    87:89:void run() -> run
+com.faendir.lightning_launcher.multitool.settings.TrialPreference$3 -> com.faendir.lightning_launcher.multitool.settings.TrialPreference$3:
+    com.faendir.lightning_launcher.multitool.settings.TrialPreference this$0 -> a
+    101:101:void <init>(com.faendir.lightning_launcher.multitool.settings.TrialPreference) -> <init>
+    104:111:void onClick(android.content.DialogInterface,int) -> onClick
+com.faendir.lightning_launcher.multitool.settings.TrialPreference$3$1 -> com.faendir.lightning_launcher.multitool.settings.TrialPreference$3$1:
+    com.faendir.lightning_launcher.multitool.settings.TrialPreference$3 this$1 -> a
+    104:104:void <init>(com.faendir.lightning_launcher.multitool.settings.TrialPreference$3) -> <init>
+    107:109:void run() -> run
+com.faendir.lightning_launcher.multitool.settings.TrialPreference$4 -> com.faendir.lightning_launcher.multitool.settings.TrialPreference$4:
+    int[] $SwitchMap$com$faendir$lightning_launcher$multitool$billing$BaseBillingManager$TrialState -> a
+    49:49:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.util.BaseActivity -> com.faendir.lightning_launcher.multitool.util.a:
     int layoutRes -> layoutRes
     android.support.v7.widget.Toolbar toolbar -> toolbar

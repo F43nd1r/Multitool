@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +33,7 @@ import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
  * @since 07.10.2016
  */
 public class BaseBillingManager implements BillingProcessor.IBillingHandler {
-    enum TrialState {
+    public enum TrialState {
         NOT_STARTED,
         ONGOING,
         EXPIRED
@@ -77,7 +78,7 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
     @Override
     public void onBillingInitialized() {
         billingProcessor.loadOwnedPurchasesFromGoogle();
-        synchronized (this){
+        synchronized (this) {
             notifyAll();
         }
     }
@@ -99,7 +100,36 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
         return result;
     }
 
-    protected TrialState isTrial(String productId) {
+    @WorkerThread
+    public boolean isBought(@StringRes int id) {
+        String name = mapping.get(id);
+        boolean result = name == null || billingProcessor.isPurchased(name);
+        if (DEBUG) Log.d(LOG_TAG, name + " isBought " + result);
+        return result;
+    }
+
+    @WorkerThread
+    public TrialState isTrial(@StringRes int id) {
+        waitForInit();
+        String name = mapping.get(id);
+        TrialState result = name == null ? TrialState.NOT_STARTED : isTrial(name);
+        if (DEBUG) Log.d(LOG_TAG, name + " isTrial " + result.name());
+        return result;
+    }
+
+    @WorkerThread
+    public Calendar getExpiration(@StringRes int id) {
+        waitForInit();
+        String name = mapping.get(id);
+        Calendar calendar = Calendar.getInstance();
+        long expiration;
+        if (name != null && (expiration = getExpiration(name)) != -1) {
+            calendar.setTimeInMillis(expiration * 1000);
+        }
+        return calendar;
+    }
+
+    private long getExpiration(String productId) {
         long expires;
         if (expiration.containsKey(productId)) {
             expires = expiration.get(productId);
@@ -112,6 +142,11 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
             }
             expiration.put(productId, expires);
         }
+        return expires;
+    }
+
+    protected TrialState isTrial(String productId) {
+        long expires = getExpiration(productId);
         TrialState result;
         if (expires == -1) {
             result = TrialState.NOT_STARTED;
@@ -120,7 +155,7 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
         } else {
             result = TrialState.EXPIRED;
         }
-        if(DEBUG) Log.d(LOG_TAG, productId + " TrialState " + result.name());
+        if (DEBUG) Log.d(LOG_TAG, productId + " TrialState " + result.name());
         return result;
     }
 
@@ -146,9 +181,9 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
         }
     }
 
-    void waitForInit(){
-        synchronized (this) {
-            while (!billingProcessor.isInitialized()) {
+    void waitForInit() {
+        while (!billingProcessor.isInitialized()) {
+            synchronized (this) {
                 try {
                     wait();
                 } catch (InterruptedException ignored) {

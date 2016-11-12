@@ -6,6 +6,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaMetadata;
@@ -17,6 +18,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
@@ -26,6 +28,7 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.annotation.StringRes;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.Toast;
@@ -48,6 +51,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static android.media.MediaMetadata.METADATA_KEY_ALBUM;
 import static android.media.MediaMetadata.METADATA_KEY_ALBUM_ART;
@@ -84,17 +88,17 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
             STATE_SKIPPING_TO_PREVIOUS, STATE_SKIPPING_TO_QUEUE_ITEM);
     private final BidiMap<MediaController, Callback> controllers;
     private final Set<Listener> listeners;
+    private final Messenger messenger;
     private MediaSessionManager mediaSessionManager;
     private ComponentName notificationListener;
-    private Bitmap albumArt;
-    private String title;
-    private String album;
-    private String artist;
-    private String packageName;
-    private final Messenger messenger;
-    private WeakReference<MediaController> currentController;
     private SharedPreferences sharedPref;
     private BaseBillingManager billingManager;
+    private volatile Bitmap albumArt;
+    private volatile String title;
+    private volatile String album;
+    private volatile String artist;
+    private volatile String packageName;
+    private volatile WeakReference<MediaController> currentController;
 
     public MusicManager() {
         controllers = new DualHashBidiMap<>();
@@ -118,7 +122,6 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
 
     private void updateCurrentInfo(MediaController controller, Bitmap albumArt, String title, String album, String artist) {
         this.currentController = new WeakReference<>(controller);
-        if (albumArt != null && albumArt.isRecycled()) albumArt = null;
         this.albumArt = albumArt;
         this.title = title;
         this.album = album;
@@ -175,14 +178,22 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
     }
 
     private void startDefaultPlayerWithKeyCode(int keyCode) {
+        String player = sharedPref.getString(getString(R.string.pref_musicDefault), null);
+        if (player != null) {
+            sendKeyCodeToPlayer(keyCode, player);
+        }
+    }
+
+    private void sendKeyCodeToPlayer(int keyCode, String playerPackage) {
         try {
-            String uri = PreferenceManager.getDefaultSharedPreferences(this).getString(getString(R.string.pref_musicDefault), null);
-            if (uri != null) {
-                Intent intent = Intent.parseUri(uri, 0);
-                KeyEvent event = new KeyEvent(KeyEvent.ACTION_UP, keyCode);
-                intent.putExtra(Intent.EXTRA_KEY_EVENT, event);
-                sendBroadcast(intent);
-            }
+            Intent down = new Intent(Intent.ACTION_MEDIA_BUTTON);
+            down.setPackage(playerPackage);
+            down.putExtra(Intent.EXTRA_KEY_EVENT, new KeyEvent(KeyEvent.ACTION_DOWN, keyCode));
+            sendBroadcast(down);
+            Intent up = new Intent(Intent.ACTION_MEDIA_BUTTON);
+            up.setPackage(playerPackage);
+            up.putExtra(Intent.EXTRA_KEY_EVENT, new KeyEvent(KeyEvent.ACTION_UP, keyCode));
+            sendBroadcast(up);
         } catch (Exception e) {
             ACRA.getErrorReporter().handleSilentException(e);
             e.printStackTrace();
@@ -197,7 +208,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         return messenger.getBinder();
     }
 
-    private void registerListener(Listener listener) {
+    private void registerListener(final Listener listener) {
         String flat = Settings.Secure.getString(getContentResolver(), "enabled_notification_listeners");
         final boolean enabled = flat != null && flat.contains(notificationListener.flattenToString());
         if (!enabled) {
@@ -312,85 +323,116 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         private final WeakReference<MusicManager> musicManager;
 
         private LocalHandler(MusicManager musicManager) {
+            super(getNewPreparedLooper());
             this.musicManager = new WeakReference<>(musicManager);
         }
 
         @Override
-        public void handleMessage(final Message msg) {
+        public void handleMessage(Message msg) {
             if (musicManager.get() != null) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (musicManager.get().billingManager.isBoughtOrTrial(R.string.title_musicWidget)) {
-                            MediaController controller = musicManager.get().currentController.get();
-                            if (DEBUG) Log.d(LOG_TAG, "MusicManager got message " + msg.what);
-                            switch (msg.what) {
-                                case ACTION_REGISTER_MESSENGER:
-                                    if (msg.replyTo != null) {
-                                        musicManager.get().registerListener(new MessengerListener(msg.replyTo));
-                                    }
-                                    break;
-                                case ACTION_UNREGISTER_MESSENGER:
-                                    if (msg.replyTo != null) {
-                                        for (Listener l : musicManager.get().listeners) {
-                                            if (l instanceof MessengerListener) {
-                                                MessengerListener listener = (MessengerListener) l;
-                                                if (listener.hasMessenger(msg.replyTo)) {
-                                                    musicManager.get().unregisterListener(listener);
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                    }
-                                    break;
-                                case ACTION_REGISTER:
-                                    if (msg.obj != null && msg.obj instanceof Listener) {
-                                        musicManager.get().registerListener((Listener) msg.obj);
-                                    }
-                                    break;
-                                case ACTION_UNREGISTER:
-                                    if (msg.obj != null && msg.obj instanceof Listener) {
-                                        musicManager.get().unregisterListener((Listener) msg.obj);
-                                    }
-                                    break;
-                                case ACTION_PLAY_PAUSE:
-                                    if (controller != null) {
-                                        PlaybackState state = controller.getPlaybackState();
-                                        if (state != null && PLAYING_STATES.contains(state.getState())) {
-                                            controller.getTransportControls().pause();
-                                        } else {
-                                            controller.getTransportControls().play();
-                                        }
-                                    } else {
-                                        musicManager.get().startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_PLAY);
-                                    }
-                                    break;
-                                case ACTION_NEXT:
-                                    if (controller != null) {
-                                        controller.getTransportControls().skipToNext();
-                                    } else {
-                                        musicManager.get().startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_NEXT);
-                                    }
-                                    break;
-                                case ACTION_PREVIOUS:
-                                    if (controller != null) {
-                                        controller.getTransportControls().skipToPrevious();
-                                    } else {
-                                        musicManager.get().startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
-                                    }
-                                    break;
+                if (musicManager.get().billingManager.isBoughtOrTrial(R.string.title_musicWidget)) {
+                    MediaController controller = musicManager.get().currentController.get();
+                    if (DEBUG) Log.d(LOG_TAG, "MusicManager got message " + msg.what);
+                    switch (msg.what) {
+                        case ACTION_REGISTER_MESSENGER:
+                            if (msg.replyTo != null) {
+                                musicManager.get().registerListener(new MessengerListener(msg.replyTo));
                             }
-                        } else {
-                            new Handler(musicManager.get().getMainLooper()).post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(musicManager.get(), "No active trial or purchase found.\nMusic widgets disabled.", Toast.LENGTH_LONG).show();
+                            break;
+                        case ACTION_UNREGISTER_MESSENGER:
+                            if (msg.replyTo != null) {
+                                for (Listener l : musicManager.get().listeners) {
+                                    if (l instanceof MessengerListener) {
+                                        MessengerListener listener = (MessengerListener) l;
+                                        if (listener.hasMessenger(msg.replyTo)) {
+                                            musicManager.get().unregisterListener(listener);
+                                            break;
+                                        }
+                                    }
                                 }
-                            });
-                        }
+                            }
+                            break;
+                        case ACTION_REGISTER:
+                            if (msg.obj != null && msg.obj instanceof Listener) {
+                                musicManager.get().registerListener((Listener) msg.obj);
+                            }
+                            break;
+                        case ACTION_UNREGISTER:
+                            if (msg.obj != null && msg.obj instanceof Listener) {
+                                musicManager.get().unregisterListener((Listener) msg.obj);
+                            }
+                            break;
+                        case ACTION_PLAY_PAUSE:
+                            if (controller != null) {
+                                PlaybackState state = controller.getPlaybackState();
+                                if (isAlternativeControl(controller)) {
+                                    musicManager.get().sendKeyCodeToPlayer(KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE, controller.getPackageName());
+                                } else if (state != null && PLAYING_STATES.contains(state.getState())) {
+                                    controller.getTransportControls().pause();
+                                } else {
+                                    controller.getTransportControls().play();
+                                }
+                            } else {
+                                musicManager.get().startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_PLAY);
+                            }
+                            break;
+                        case ACTION_NEXT:
+                            if (controller != null) {
+                                if (isAlternativeControl(controller)) {
+                                    musicManager.get().sendKeyCodeToPlayer(KeyEvent.KEYCODE_MEDIA_NEXT, controller.getPackageName());
+                                } else {
+                                    controller.getTransportControls().skipToNext();
+                                }
+                            } else {
+                                musicManager.get().startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_NEXT);
+                            }
+                            break;
+                        case ACTION_PREVIOUS:
+                            if (controller != null) {
+                                if (isAlternativeControl(controller)) {
+                                    musicManager.get().sendKeyCodeToPlayer(KeyEvent.KEYCODE_MEDIA_PREVIOUS, controller.getPackageName());
+                                } else {
+                                    controller.getTransportControls().skipToPrevious();
+                                }
+                            } else {
+                                musicManager.get().startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+                            }
+                            break;
                     }
-                }).start();
+                } else {
+                    Toast.makeText(musicManager.get(), "No active trial or purchase found.\nMusic widgets disabled.", Toast.LENGTH_LONG).show();
+                }
             }
+        }
+
+        private boolean isAlternativeControl(MediaController controller) {
+            return musicManager.get().sharedPref
+                    .getStringSet(musicManager.get().getString(R.string.pref_altControl), Collections.<String>emptySet())
+                    .contains(controller.getPackageName());
+        }
+
+        private static Looper getNewPreparedLooper() {
+            final AtomicReference<Looper> reference = new AtomicReference<>();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Looper.prepare();
+                    synchronized (reference) {
+                        reference.set(Looper.myLooper());
+                        reference.notifyAll();
+                    }
+                    Looper.loop();
+                }
+            }).start();
+            while (reference.get() == null) {
+                synchronized (reference) {
+                    try {
+                        reference.wait();
+                    } catch (InterruptedException ignored) {
+                    }
+                }
+            }
+            return reference.get();
         }
     }
 

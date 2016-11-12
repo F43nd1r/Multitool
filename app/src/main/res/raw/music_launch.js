@@ -14,11 +14,8 @@ var player = getVariables().getString("player");
 var screen = getActiveScreen();
 try {
     if (player == null) {
-        var prefs = bindPrefs(["musicDefaultUri"]);
-        if (prefs.musicDefaultUri != null) {
-            var i = Intent.parseUri(prefs.musicDefaultUri);
-            player = i.getPackage();
-        }
+        var prefs = bindPrefs(["musicDefaultPackage"]);
+        player = prefs.musicDefaultPackage;
     }
     var intent = screen.getContext().getPackageManager().getLaunchIntentForPackage(player);
     screen.startActivity(intent);

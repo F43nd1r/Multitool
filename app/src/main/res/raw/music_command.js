@@ -1,7 +1,9 @@
-if (typeof multitoolMusicSender != "undefined") {
+var event = getEvent();
+var sender = event.getContainer().my.connection.sender;
+if (sender != null) {
     try {
         var msg = Message.obtain();
-        msg.what = parseInt(getEvent().getData());
-        multitoolMusicSender.send(msg);
+        msg.what = parseInt(event.getData());
+        sender.send(msg);
     } catch (e) {}
 }

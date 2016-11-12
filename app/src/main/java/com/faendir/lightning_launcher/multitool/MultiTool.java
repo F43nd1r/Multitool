@@ -24,7 +24,7 @@ import org.acra.sender.HttpSender;
         buildConfigClass = BuildConfig.class
 )
 public class MultiTool extends Application {
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = BuildConfig.DEBUG;
     public static final String LOG_TAG = "[MULTITOOL]";
     @Override
     protected void attachBaseContext(Context base) {

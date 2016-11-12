@@ -46,6 +46,7 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
     private ServiceConnection connection;
     private boolean isBound;
     private boolean calledAtLeastOnce = true;
+    private volatile Bitmap bitmap;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -139,17 +140,31 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
     }
 
     @Override
-    public void updateCurrentInfo(Bitmap albumArt, String title, String album, String artist, @Nullable String packageName) {
-        this.albumArt.setImageBitmap(albumArt);
-        this.title.setText(title);
-        this.album.setText(album);
-        this.artist.setText(artist);
-        try {
-            this.player.setImageDrawable(getActivity().getPackageManager().getApplicationIcon(packageName));
-        } catch (PackageManager.NameNotFoundException e) {
-            this.player.setImageDrawable(null);
+    public void updateCurrentInfo(Bitmap albumArt, final String title, final String album, final String artist, @Nullable final String packageName) {
+        synchronized (MusicFragment.this) {
+            if (albumArt == null) {
+                bitmap = null;
+            } else if (!albumArt.isRecycled()) {
+                bitmap = albumArt.copy(Bitmap.Config.ARGB_8888, false);
+            }
         }
-        calledAtLeastOnce = true;
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                synchronized (MusicFragment.this) {
+                    MusicFragment.this.albumArt.setImageBitmap(bitmap);
+                }
+                MusicFragment.this.title.setText(title);
+                MusicFragment.this.album.setText(album);
+                MusicFragment.this.artist.setText(artist);
+                try {
+                    MusicFragment.this.player.setImageDrawable(getActivity().getPackageManager().getApplicationIcon(packageName));
+                } catch (PackageManager.NameNotFoundException e) {
+                    MusicFragment.this.player.setImageDrawable(null);
+                }
+                calledAtLeastOnce = true;
+            }
+        });
     }
 
     @Subscribe

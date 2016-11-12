@@ -20,7 +20,6 @@ function installScript(id, name) {
     }
     return script;
 }
-var load = installScript("music_load", "load");
 var resume = installScript("music_resume", "resume");
 var pause = installScript("music_pause", "pause");
 var command = installScript("music_command", "command");
@@ -36,7 +35,6 @@ panelEditor.commit();
 panel.setSize(size, size);
 var p = panel.getContainer();
 p.getProperties().edit()
-    .setEventHandler("load", EventHandler.RUN_SCRIPT, load.getId())
     .setEventHandler("resumed", EventHandler.RUN_SCRIPT, resume.getId())
     .setEventHandler("paused", EventHandler.RUN_SCRIPT, pause.getId())
     .setString("scrollingDirection", "NONE")
@@ -90,5 +88,4 @@ if (x == Integer.MIN_VALUE || y == Integer.MIN_VALUE) {
 }
 
 panel.setPosition(x, y);
-screen.runScript(load.getName(), p.getId());
-screen.runScript(resume.getName(), null);
+getActiveScreen().runAction(EventHandler.RESTART, null);

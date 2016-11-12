@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.TypedArray;
 import android.preference.MultiSelectListPreference;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+
+import com.faendir.lightning_launcher.multitool.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +36,25 @@ public class PlayersPreference extends MultiSelectListPreference implements Summ
         }
         setEntries(map.keySet().toArray(new String[0]));
         setEntryValues(map.values().toArray(new String[0]));
-        setDefaultValue(new HashSet<>(map.values()));
+        TypedArray a = context.obtainStyledAttributes(attrs,
+                R.styleable.PlayersPreference);
+
+        final int N = a.getIndexCount();
+        for (int i = 0; i < N; ++i)
+        {
+            int attr = a.getIndex(i);
+            switch (attr)
+            {
+                case R.styleable.PlayersPreference_checkedByDefault:
+                    if(a.getBoolean(attr, false)){
+                        setDefaultValue(new HashSet<>(map.values()));
+                    } else {
+                        setDefaultValue(new HashSet<>());
+                    }
+                    break;
+            }
+        }
+        a.recycle();
     }
 
     private List<String> getSelectedEntries() {
