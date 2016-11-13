@@ -53,6 +53,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
+import java8.util.Optional;
+import java8.util.function.Function;
 import java8.util.stream.StreamSupport;
 
 import static android.media.MediaMetadata.METADATA_KEY_ALBUM;
@@ -341,7 +343,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
                             if (msg.replyTo != null) {
                                 StreamSupport.stream(musicManager.listeners)
                                         .filter(l -> l instanceof MessengerListener && ((MessengerListener) l).hasMessenger(msg.replyTo))
-                                        .forEach(musicManager::unregisterListener);
+                                        .findAny().ifPresent(musicManager::unregisterListener);
                             }
                             break;
                         case ACTION_REGISTER:

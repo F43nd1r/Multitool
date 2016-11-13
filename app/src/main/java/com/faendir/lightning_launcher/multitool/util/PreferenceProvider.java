@@ -12,8 +12,15 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.google.gson.JsonSyntaxException;
 
+import org.json.JSONException;
+
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Map;
+
+import java8.util.function.BiConsumer;
 
 /**
  * Provides various data (including SharedPreferences) to LL
@@ -46,15 +53,13 @@ public class PreferenceProvider extends ContentProvider {
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        switch (URI_MATCHER.match(uri)) {
-            case SHARED_PREFERENCES: {
-                MatrixCursor cursor = new MatrixCursor(new String[]{"key", "value"});
-                Map<String, ?> values = sharedPref.getAll();
-                for (String s : selectionArgs) {
-                    cursor.addRow(new Object[]{s, values.get(s)});
-                }
-                return cursor;
+        if (URI_MATCHER.match(uri) == SHARED_PREFERENCES) {
+            MatrixCursor cursor = new MatrixCursor(new String[]{"key", "value"});
+            Map<String, ?> values = sharedPref.getAll();
+            for (String s : selectionArgs) {
+                cursor.addRow(new Object[]{s, Utils.GSON.toJson(values.get(s))});
             }
+            return cursor;
         }
         return null;
     }
@@ -78,6 +83,31 @@ public class PreferenceProvider extends ContentProvider {
 
     @Override
     public int update(@NonNull Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-        return 0;
+        if (URI_MATCHER.match(uri) == SHARED_PREFERENCES) {
+            SharedPreferences.Editor editor = sharedPref.edit();
+            for (Map.Entry<String, Object> entry : values.valueSet()) {
+                if (setIfTypeMatch(entry, Boolean.class, editor::putBoolean)) continue;
+                if (setIfTypeMatch(entry, Float.class, editor::putFloat)) continue;
+                if (setIfTypeMatch(entry, Integer.class, editor::putInt)) continue;
+                if (setIfTypeMatch(entry, Long.class, editor::putLong)) continue;
+                try {
+                    String[] strings = Utils.GSON.fromJson(entry.getValue().toString(), String[].class);
+                    editor.putStringSet(entry.getKey(), new HashSet<>(Arrays.asList(strings)));
+                }catch (JsonSyntaxException e){
+                    editor.putString(entry.getKey(), entry.getValue().toString());
+                }
+            }
+            editor.apply();
+        }
+        return values.size();
+    }
+
+    private <T> boolean setIfTypeMatch(Map.Entry<String, Object> entry, Class<T> clazz, BiConsumer<String, T> consumer) {
+        if (clazz.isAssignableFrom(entry.getValue().getClass())) {
+            //noinspection unchecked
+            consumer.accept(entry.getKey(), (T) entry.getValue());
+            return true;
+        }
+        return false;
     }
 }

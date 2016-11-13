@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 
+import com.google.gson.Gson;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
 import java.util.ArrayList;
@@ -15,6 +16,8 @@ import java.util.List;
  */
 
 public final class Utils {
+    public static final Gson GSON = new Gson();
+
     private Utils() {
     }
 

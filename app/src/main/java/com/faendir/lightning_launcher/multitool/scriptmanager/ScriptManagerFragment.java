@@ -2,11 +2,8 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.ClipData;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
@@ -23,7 +20,6 @@ import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
 import com.faendir.lightning_launcher.multitool.util.Utils;
-import com.faendir.lightning_launcher.scriptlib.ResultCallback;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
 import com.nononsenseapps.filepicker.FilePickerActivity;
@@ -31,7 +27,6 @@ import com.nononsenseapps.filepicker.FilePickerActivity;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -137,7 +132,7 @@ public class ScriptManagerFragment extends Fragment {
 
     private void handleScriptResult(@Nullable String result) {
         if (result != null) {
-            List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
+            List<Script> scripts = Arrays.asList(Utils.GSON.fromJson(result, Script[].class));
             listManager.updateFrom(scripts);
             listManager.setAsContentOf(layout);
             enableMenu = true;

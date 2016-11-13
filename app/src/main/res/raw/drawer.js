@@ -72,10 +72,15 @@ function Matrix() {
 
 var old = getPresentActivities();
 var current = getCurrentActivities();
+prefs = bindPrefs(["keepSorted", "hiddenApps"]);
+var hidden = JSON.parse(prefs.hiddenApps);
 for (var x = 0; x < current.size(); x++) {
     var app = current.get(x);
     var activity = app.activityInfo;
     var name = new ComponentName(activity.packageName, activity.name);
+    if(hidden != null && hidden.indexOf(name.flattenToString())!=-1){
+        continue;
+    }
     if (old.contains(name)) {
         old.remove(name);
         continue;
@@ -100,7 +105,6 @@ for (var x = 0; x < old.size(); x++) {
         }
     });
 }
-prefs = bindPrefs(["keepSorted"]);
 if (JSON.parse(prefs.keepSorted)) {
     setTimeout(function(){deepSort(c);},0);
 }

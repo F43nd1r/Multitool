@@ -3,7 +3,6 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.preference.PreferenceManager;
@@ -15,12 +14,11 @@ import com.faendir.lightning_launcher.multitool.Loader;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
+import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.faendir.lightning_launcher.scriptlib.PermissionActivity;
-import com.faendir.lightning_launcher.scriptlib.ResultCallback;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
 import com.faendir.omniadapter.model.DeepObservableList;
-import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.FileReader;
@@ -38,8 +36,6 @@ import java.util.regex.Pattern;
 final class ScriptUtils {
     private ScriptUtils() {
     }
-
-    public static final Gson GSON = new Gson();
 
     private static final String FLAGS = "//Flags ";
     private static final String APP = "app ";
@@ -104,7 +100,7 @@ final class ScriptUtils {
             final Transfer transfer = new Transfer(Transfer.RENAME);
             transfer.script = (Script) item;
             scriptManager.getAsyncExecutorService()
-                    .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", GSON.toJson(transfer)), result -> updateFrom(result, listManager))
+                    .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager))
                     .start();
         } else if (item instanceof Folder) {
 //TODO
@@ -115,7 +111,7 @@ final class ScriptUtils {
 
     private static void updateFrom(@Nullable String result, ListManager listManager) {
         if (result != null) {
-            listManager.updateFrom(Arrays.asList(GSON.fromJson(result, Script[].class)));
+            listManager.updateFrom(Arrays.asList(Utils.GSON.fromJson(result, Script[].class)));
         }
     }
 
@@ -186,7 +182,7 @@ final class ScriptUtils {
         final Transfer transfer = new Transfer(Transfer.DELETE);
         transfer.script = delete;
         scriptManager.getAsyncExecutorService()
-                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", GSON.toJson(transfer)), result -> updateFrom(result, listManager))
+                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager))
                 .start();
     }
 
@@ -260,7 +256,7 @@ final class ScriptUtils {
         final Transfer transfer = new Transfer(Transfer.RESTORE);
         transfer.script = script;
         scriptManager.getAsyncExecutorService()
-                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", GSON.toJson(transfer)), result -> updateFrom(result, listManager))
+                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager))
                 .start();
     }
 

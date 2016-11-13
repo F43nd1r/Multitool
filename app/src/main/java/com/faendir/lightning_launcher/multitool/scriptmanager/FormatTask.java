@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
 
@@ -86,9 +87,9 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
                 script.setCode(code); //set the text to the script
                 Transfer transfer = new Transfer(Transfer.SET_CODE);
                 transfer.script = script;
-                String result = scriptManager.execute(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data",  ScriptUtils.GSON.toJson(transfer)));
+                String result = scriptManager.execute(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data",  Utils.GSON.toJson(transfer)));
                 if (result != null) {
-                    List<Script> scripts = Arrays.asList(ScriptUtils.GSON.fromJson(result, Script[].class));
+                    List<Script> scripts = Arrays.asList(Utils.GSON.fromJson(result, Script[].class));
                     listManager.updateFrom(scripts);
                 }
             }

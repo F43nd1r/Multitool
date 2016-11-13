@@ -3,6 +3,9 @@
 
     <CheckBoxPreference
         android:defaultValue="true"
-        android:title="@string/title_keepSorted"
-        android:key="@string/pref_keepSorted"/>
+        android:key="@string/pref_keepSorted"
+        android:title="@string/title_keepSorted" />
+    <com.faendir.lightning_launcher.multitool.drawer.RestorePreference
+        android:key="@string/pref_hiddenApps"
+        android:title="@string/title_hiddenApps" />
 </PreferenceScreen>

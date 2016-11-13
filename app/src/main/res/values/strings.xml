@@ -175,4 +175,6 @@
     <string name="toast_failedExportTo">Failed to export gestures to %s</string>
     <string name="toast_imported">Imported Gestures successfully</string>
     <string name="toast_importFailed">Importing Gestures failed: Invalid file</string>
+    <string name="pref_hiddenApps">hiddenApps</string>
+    <string name="title_hiddenApps">Restore hidden apps</string>
 </resources>
