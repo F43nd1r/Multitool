@@ -1,13 +1,10 @@
 package com.faendir.lightning_launcher.multitool.util;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.StringRes;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,15 +15,11 @@ import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.omniadapter.OmniAdapter;
-import com.faendir.omniadapter.OmniBuilder;
 import com.faendir.omniadapter.model.Action;
 import com.faendir.omniadapter.model.Component;
 import com.faendir.omniadapter.model.DeepObservableList;
 
 import org.acra.ACRA;
-import org.apache.commons.collections4.comparators.ComparableComparator;
-
-import java.util.List;
 
 public class IntentChooser extends BaseActivity implements OmniAdapter.Controller<IntentInfo>, Action.Click.Listener {
 

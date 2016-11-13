@@ -2,6 +2,7 @@ package com.faendir.lightning_launcher.multitool.util;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 
 import com.faendir.omniadapter.model.Leaf;
 
@@ -12,14 +13,14 @@ import java.lang.ref.SoftReference;
  *
  * @author F43nd1r
  */
-public class IntentInfo extends Leaf implements Comparable<IntentInfo>{
+class IntentInfo extends Leaf implements Comparable<IntentInfo>{
     private SoftReference<Drawable> icon;
     private final DrawableProvider provider;
     private final Intent intent;
     private final String title;
     private final boolean isIndirect;
 
-    public IntentInfo(Intent intent, DrawableProvider provider, String title, boolean isIndirect) {
+    IntentInfo(Intent intent, DrawableProvider provider, String title, boolean isIndirect) {
         this.provider = provider;
         this.intent = intent;
         this.title = title;
@@ -27,7 +28,7 @@ public class IntentInfo extends Leaf implements Comparable<IntentInfo>{
 
     }
 
-    public Drawable getImage() {
+    Drawable getImage() {
         if (icon == null || icon.get() == null) {
             Drawable drawable = provider.getDrawable();
             icon = new SoftReference<>(drawable);
@@ -37,20 +38,20 @@ public class IntentInfo extends Leaf implements Comparable<IntentInfo>{
         }
     }
 
-    public Intent getIntent() {
+    Intent getIntent() {
         return intent;
     }
 
-    public String getText() {
+    String getText() {
         return title;
     }
 
-    public boolean isIndirect() {
+    boolean isIndirect() {
         return isIndirect;
     }
 
     @Override
-    public int compareTo(IntentInfo o) {
+    public int compareTo(@NonNull IntentInfo o) {
         return getText().compareTo(o.getText());
     }
 }

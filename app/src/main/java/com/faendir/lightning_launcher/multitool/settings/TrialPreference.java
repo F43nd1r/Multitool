@@ -3,7 +3,6 @@ package com.faendir.lightning_launcher.multitool.settings;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Handler;
 import android.preference.Preference;
 import android.text.format.DateFormat;
@@ -12,8 +11,6 @@ import android.util.AttributeSet;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.billing.BaseBillingManager;
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
-
-import java.util.Calendar;
 
 /**
  * Created by Lukas on 12.11.2016.

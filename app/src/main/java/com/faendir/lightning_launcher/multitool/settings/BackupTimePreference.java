@@ -15,7 +15,6 @@ import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.backup.BackupTime;
 import com.faendir.lightning_launcher.multitool.backup.BackupUtils;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -53,6 +52,7 @@ public class BackupTimePreference extends DialogPreference implements View.OnCli
         return root;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onBindDialogView(View v) {
         super.onBindDialogView(v);
@@ -64,6 +64,7 @@ public class BackupTimePreference extends DialogPreference implements View.OnCli
         }
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onDialogClosed(boolean positiveResult) {
         super.onDialogClosed(positiveResult);

@@ -18,7 +18,7 @@ import java8.util.stream.StreamSupport;
  */
 
 public class RestorePreference extends MultiSelectListPreference {
-    private PackageManager pm;
+    private final PackageManager pm;
 
     public RestorePreference(Context context, AttributeSet attrs) {
         super(context, attrs);

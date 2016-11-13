@@ -4,7 +4,6 @@ import android.app.Application;
 import android.content.Context;
 
 import com.faendir.lightning_launcher.multitool.util.ResetReportPrimer;
-import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 
 import org.acra.ACRA;
 import org.acra.annotation.ReportsCrashes;

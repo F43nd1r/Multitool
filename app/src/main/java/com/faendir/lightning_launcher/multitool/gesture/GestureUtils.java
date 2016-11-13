@@ -2,9 +2,7 @@ package com.faendir.lightning_launcher.multitool.gesture;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.gesture.GestureLibraries;
 import android.gesture.GestureLibrary;
@@ -22,7 +20,6 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +27,6 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -52,10 +48,6 @@ final class GestureUtils {
     }
 
     static void edit(Activity context, GestureInfo selected, List<GestureInfo> list) {
-        Intent intent = new Intent(context, GestureActivity.class);
-        intent.putExtra(GestureActivity.GESTURE, selected);
-        intent.putExtra(GestureFragment.INDEX, list.indexOf(selected));
-        context.startActivityForResult(intent, GestureFragment.EDIT);
 
     }
 

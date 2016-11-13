@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -30,8 +29,6 @@ import com.faendir.omniadapter.model.Component;
 import com.faendir.omniadapter.model.DeepObservableList;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import java8.util.stream.Collectors;
@@ -43,10 +40,10 @@ import java8.util.stream.StreamSupport;
 public class GestureFragment extends Fragment implements OmniAdapter.Controller<GestureInfo>, OmniAdapter.UndoListener<GestureInfo>, Action.LongClick.Listener {
 
     private static final int ADD = 1;
-    static final int EDIT = 2;
-    static final int EXPORT = 3;
-    static final int IMPORT = 4;
-    static final String INDEX = "index";
+    private static final int EDIT = 2;
+    private static final int EXPORT = 3;
+    private static final int IMPORT = 4;
+    private static final String INDEX = "index";
 
     private FileManager<GestureInfo> fileManager;
     private DeepObservableList<GestureInfo> gestureInfos;
@@ -199,6 +196,9 @@ public class GestureFragment extends Fragment implements OmniAdapter.Controller<
 
     @Override
     public void onLongClick(Component component, int action) {
-        GestureUtils.edit(getActivity(), (GestureInfo) component, gestureInfos);
+        Intent intent = new Intent(getActivity(), GestureActivity.class);
+        intent.putExtra(GestureActivity.GESTURE, (GestureInfo)component);
+        intent.putExtra(INDEX, gestureInfos.indexOf(component));
+        startActivityForResult(intent, EDIT);
     }
 }

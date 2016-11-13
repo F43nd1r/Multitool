@@ -57,12 +57,7 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
         dialog.setCancelable(false);
         dialog.setMessage(context.getString(R.string.message_pleaseWait));
         dialog.setTitle(context.getString(R.string.title_format));
-        dialog.setButton(ProgressDialog.BUTTON_NEGATIVE, context.getString(R.string.button_cancel), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int ignore) {
-                cancel(true);
-            }
-        });
+        dialog.setButton(ProgressDialog.BUTTON_NEGATIVE, context.getString(R.string.button_cancel), (dialog1, ignore) -> cancel(true));
         dialog.show();
         checkOperators = PreferenceManager.getDefaultSharedPreferences(context).getBoolean(context.getString(R.string.pref_spaces), true);
     }

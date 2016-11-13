@@ -9,7 +9,6 @@ import android.support.annotation.StringRes;
 import android.util.Log;
 
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
-import com.faendir.lightning_launcher.multitool.util.BaseActivity;
 
 import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
 import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;

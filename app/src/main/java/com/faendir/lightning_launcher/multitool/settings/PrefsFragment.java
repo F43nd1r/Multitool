@@ -1,13 +1,9 @@
 package com.faendir.lightning_launcher.multitool.settings;
 
 import android.app.Activity;
-import android.content.ClipData;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.CheckBoxPreference;
@@ -18,14 +14,12 @@ import android.preference.PreferenceManager;
 import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.backup.BackupUtils;
-import com.faendir.lightning_launcher.multitool.util.IntentChooser;
 import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
 import java.io.File;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.List;
+
+import java8.util.stream.StreamSupport;
 
 /**
  * Created by Lukas on 29.08.2015.
@@ -62,6 +56,7 @@ public class PrefsFragment extends PreferenceFragment {
         sharedPref.registerOnSharedPreferenceChangeListener(listener);
     }
 
+    @SuppressWarnings("SameReturnValue")
     private boolean selectBackupPath(){
         Intent intent = new Intent(getActivity(), FilePickerActivity.class);
         intent.putExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false);
@@ -83,9 +78,7 @@ public class PrefsFragment extends PreferenceFragment {
         if (resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
                 case REQUEST_DIRECTORY:
-                    for (Uri uri : Utils.getFilePickerActivityResult(data)){
-                        setBackupPath(uri);
-                    }
+                    StreamSupport.stream(Utils.getFilePickerActivityResult(data)).forEach(this::setBackupPath);
                     break;
             }
         }

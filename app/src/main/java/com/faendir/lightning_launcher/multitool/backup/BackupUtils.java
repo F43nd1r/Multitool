@@ -14,7 +14,6 @@ import com.faendir.lightning_launcher.multitool.R;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;

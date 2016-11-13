@@ -28,7 +28,6 @@ import org.acra.ACRA;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -182,6 +181,7 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
     public void bindView(View view, ScriptItem item, int level) {
         TextView txt = ((TextView) view);
         txt.setText(item.getName());
+        //noinspection deprecation
         Drawable icon = context.getResources().getDrawable(item instanceof Folder ? R.drawable.ic_folder_white : R.drawable.ic_file_white);
         txt.setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null);
     }

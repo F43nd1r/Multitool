@@ -6,7 +6,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaMetadata;
@@ -28,7 +27,6 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.support.annotation.StringRes;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.Toast;
@@ -53,8 +51,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
-import java8.util.Optional;
-import java8.util.function.Function;
 import java8.util.stream.StreamSupport;
 
 import static android.media.MediaMetadata.METADATA_KEY_ALBUM;
@@ -147,7 +143,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
                 iterator.remove();
             }
         }
-        Set<String> players = sharedPref.getStringSet(getString(R.string.pref_activePlayers), Collections.<String>emptySet());
+        Set<String> players = sharedPref.getStringSet(getString(R.string.pref_activePlayers), Collections.emptySet());
         for (ListIterator<MediaController> iterator = list.listIterator(list.size()); iterator.hasPrevious(); ) {
             MediaController controller = iterator.previous();
             if (!players.contains(controller.getPackageName())) {
@@ -401,7 +397,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
 
         private boolean isAlternativeControl(MediaController controller) {
             return musicManager.get().sharedPref
-                    .getStringSet(musicManager.get().getString(R.string.pref_altControl), Collections.<String>emptySet())
+                    .getStringSet(musicManager.get().getString(R.string.pref_altControl), Collections.emptySet())
                     .contains(controller.getPackageName());
         }
 

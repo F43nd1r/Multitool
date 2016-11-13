@@ -9,7 +9,6 @@ import android.util.Log;
 
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.TransactionDetails;
-import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 
 import org.apache.commons.collections4.BidiMap;
@@ -41,11 +40,11 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
 
     private static final String MUSIC_WIDGET = "music_widget";
     private static final String DRAWER = "drawer";
-    protected static final int SEVEN_DAYS_IN_SECONDS = 60 * 60 * 24 * 7;
+    static final int SEVEN_DAYS_IN_SECONDS = 60 * 60 * 24 * 7;
     private final Context context;
     private final BillingProcessor billingProcessor;
-    protected final Map<String, Long> expiration;
-    protected final BidiMap<Integer, String> mapping;
+    final Map<String, Long> expiration;
+    final BidiMap<Integer, String> mapping;
 
     public BaseBillingManager(Context context) {
         billingProcessor = new BillingProcessor(context, "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr" +
@@ -145,7 +144,7 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
         return expires;
     }
 
-    protected TrialState isTrial(String productId) {
+    TrialState isTrial(String productId) {
         long expires = getExpiration(productId);
         TrialState result;
         if (expires == -1) {

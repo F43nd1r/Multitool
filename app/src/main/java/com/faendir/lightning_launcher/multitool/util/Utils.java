@@ -11,6 +11,9 @@ import com.nononsenseapps.filepicker.FilePickerActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import java8.util.stream.Collectors;
+import java8.util.stream.StreamSupport;
+
 /**
  * Created by Lukas on 09.11.2016.
  */
@@ -33,9 +36,7 @@ public final class Utils {
             } else {
                 List<String> paths = data.getStringArrayListExtra(FilePickerActivity.EXTRA_PATHS);
                 if (paths != null) {
-                    for (String path : paths) {
-                        result.add(Uri.parse(path));
-                    }
+                    result.addAll(StreamSupport.stream(paths).map(Uri::parse).collect(Collectors.toList()));
                 }
             }
         } else {
