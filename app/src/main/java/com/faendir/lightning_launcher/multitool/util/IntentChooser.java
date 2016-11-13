@@ -5,6 +5,8 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.StringRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -38,38 +40,19 @@ public class IntentChooser extends BaseActivity implements OmniAdapter.Controlle
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         TabHost host = (TabHost) findViewById(R.id.tabHost);
-        Intent i = getIntent();
-        boolean enableShortcuts = i.getBooleanExtra(getString(R.string.key_shortcuts), false);
-        boolean useAppInfo = i.getBooleanExtra(getString(R.string.key_appInfo), false);
-        Intent intent = i.getParcelableExtra(Intent.EXTRA_INTENT);
-        IntentTarget target = (IntentTarget) i.getSerializableExtra(getString(R.string.key_target));
-        if (enableShortcuts) {
-            host.setup();
-            TabHost.TabSpec apps = host.newTabSpec("a");
-            apps.setContent(R.id.apps);
-            apps.setIndicator(getString(R.string.title_apps));
-            host.addTab(apps);
-            TabHost.TabSpec shortcuts = host.newTabSpec("s");
-            shortcuts.setContent(R.id.shortcuts);
-            shortcuts.setIndicator(getString(R.string.title_shortcuts));
-            host.addTab(shortcuts);
-            loadShortcuts();
-        } else {
-            ViewGroup parent = (ViewGroup) host.getParent();
-            parent.removeView(host);
-            View apps = host.findViewById(R.id.apps);
-            ((ViewGroup) apps.getParent()).removeView(apps);
-            parent.addView(apps);
-        }
-        loadApps(intent, target, useAppInfo);
+        host.setup();
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+        load(host, R.id.apps, R.string.title_apps, "a", intent, false);
+        load(host, R.id.shortcuts, R.string.title_shortcuts, "s", new Intent(Intent.ACTION_CREATE_SHORTCUT), true);
     }
 
-    private void loadApps(Intent intent, IntentTarget target, boolean useApplication) {
-        new IntentHandlerListTask(this, intent, false, target, useApplication, R.id.apps).execute();
-    }
-
-    private void loadShortcuts() {
-        new IntentHandlerListTask(this, new Intent(Intent.ACTION_CREATE_SHORTCUT), true, IntentTarget.ACTIVITY, false, R.id.shortcuts).execute();
+    private void load(TabHost host, @IdRes int id, @StringRes int title, String tag, Intent intent, boolean isIndirect){
+        TabHost.TabSpec tab = host.newTabSpec(tag);
+        tab.setContent(id);
+        tab.setIndicator(getString(title));
+        host.addTab(tab);
+        new IntentHandlerListTask(this, intent, isIndirect, id).execute();
     }
 
     @Override
@@ -161,62 +144,4 @@ public class IntentChooser extends BaseActivity implements OmniAdapter.Controlle
         handleSelection((IntentInfo) component);
     }
 
-    public enum IntentTarget {
-        ACTIVITY,
-        BROADCAST_RECEIVER
-    }
-
-    public static class Builder {
-        private final Activity context;
-        private final Fragment fragment;
-        private final Intent intent;
-
-        public Builder(Activity context) {
-            this(context, null);
-        }
-
-        public Builder(Fragment fragment) {
-            this(fragment.getActivity(), fragment);
-        }
-
-        private Builder(Activity context, Fragment fragment) {
-            this.context = context;
-            this.fragment = fragment;
-            intent = new Intent(context, IntentChooser.class);
-            setDefaults();
-        }
-
-        void setDefaults() {
-            intent.putExtra(context.getString(R.string.key_shortcuts), false);
-            intent.putExtra(context.getString(R.string.key_appInfo), false);
-            Intent i = new Intent(Intent.ACTION_MAIN);
-            i.addCategory(Intent.CATEGORY_LAUNCHER);
-            intent.putExtra(Intent.EXTRA_INTENT, i);
-            intent.putExtra(context.getString(R.string.key_target), IntentTarget.ACTIVITY);
-        }
-
-        public Builder enableShortcuts() {
-            intent.putExtra(context.getString(R.string.key_shortcuts), true);
-            return this;
-        }
-
-        public Builder useIntent(Intent i, IntentTarget target) {
-            intent.putExtra(Intent.EXTRA_INTENT, i);
-            intent.putExtra(context.getString(R.string.key_target), target);
-            return this;
-        }
-
-        public Builder useApplicationInfo() {
-            intent.putExtra(context.getString(R.string.key_appInfo), true);
-            return this;
-        }
-
-        public void startForResult(int requestCode) {
-            if (fragment != null) {
-                fragment.startActivityForResult(intent, requestCode);
-            } else {
-                context.startActivityForResult(intent, requestCode);
-            }
-        }
-    }
 }
