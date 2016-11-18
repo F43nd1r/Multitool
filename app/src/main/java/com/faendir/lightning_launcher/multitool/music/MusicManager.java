@@ -316,6 +316,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
 
     private static class LocalHandler extends Handler {
         private final WeakReference<MusicManager> musicManager;
+        private boolean hasDisplayedToast = false;
 
         private LocalHandler(MusicManager musicManager) {
             super(getNewPreparedLooper());
@@ -389,8 +390,9 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
                             }
                             break;
                     }
-                } else {
+                } else if (!hasDisplayedToast) {
                     Toast.makeText(musicManager, "No active trial or purchase found.\nMusic widgets disabled.", Toast.LENGTH_LONG).show();
+                    hasDisplayedToast = true;
                 }
             }
         }

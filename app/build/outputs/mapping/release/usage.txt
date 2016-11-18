@@ -4924,14 +4924,14 @@ com.faendir.lightning_launcher.multitool.R$raw
 com.faendir.lightning_launcher.multitool.R$string
 com.faendir.lightning_launcher.multitool.R$style
 com.faendir.lightning_launcher.multitool.R$styleable:
-    4424:4424:public R$styleable()
+    4440:4440:public R$styleable()
 com.faendir.lightning_launcher.multitool.R$xml
 com.faendir.lightning_launcher.multitool.backup.BackupUtils:
-    30:30:public BackupUtils()
+    32:32:public BackupUtils()
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager:
     private static final java.lang.String MUSIC_WIDGET
     private static final java.lang.String DRAWER
-    protected static final int SEVEN_DAYS_IN_SECONDS
+    static final int SEVEN_DAYS_IN_SECONDS
 com.faendir.lightning_launcher.multitool.music.MusicManager:
     private static final int ACTION_REGISTER
     private static final int ACTION_UNREGISTER
@@ -4950,15 +4950,11 @@ com.faendir.lightning_launcher.multitool.util.FileManager$IntentTypeAdapter:
     private static final java.lang.String URI
 com.faendir.lightning_launcher.multitool.util.FileManagerFactory:
     16:17:private FileManagerFactory()
-com.faendir.lightning_launcher.multitool.util.IntentChooser$Builder:
-    178:179:public IntentChooser$Builder(android.app.Fragment)
-    203:205:public com.faendir.lightning_launcher.multitool.util.IntentChooser$Builder useIntent(android.content.Intent,com.faendir.lightning_launcher.multitool.util.IntentChooser$IntentTarget)
-    209:210:public com.faendir.lightning_launcher.multitool.util.IntentChooser$Builder useApplicationInfo()
 com.faendir.lightning_launcher.multitool.util.PreferenceProvider:
     private static final java.lang.String AUTHORITY
     private static final int SHARED_PREFERENCES
 com.faendir.lightning_launcher.multitool.util.Utils:
-    18:19:private Utils()
+    24:25:private Utils()
 com.faendir.omniadapter.ActionModeHelper
 com.faendir.omniadapter.ActionModeHelper$1
 com.faendir.omniadapter.BuildConfig
@@ -6405,6 +6401,1792 @@ com.trianguloy.llscript.repository.aidl.Script:
     90:91:public void setPath(java.lang.String)
     94:99:public boolean isValid()
 com.trianguloy.llscript.repository.aidl.Script$ScriptFlag
+java8.lang.Doubles
+java8.lang.FunctionalInterface
+java8.lang.Integers
+java8.lang.Iterables:
+    101:112:public static boolean removeIf(java.lang.Iterable,java8.util.function.Predicate)
+    146:151:public static java8.util.Spliterator spliterator(java.lang.Iterable)
+    247:248:private Iterables()
+java8.lang.Longs
+java8.util.ArrayPrefixHelpers
+java8.util.ArrayPrefixHelpers$CumulateTask
+java8.util.ArrayPrefixHelpers$DoubleCumulateTask
+java8.util.ArrayPrefixHelpers$IntCumulateTask
+java8.util.ArrayPrefixHelpers$LongCumulateTask
+java8.util.ArraysArrayListSpliterator:
+    34:35:private ArraysArrayListSpliterator()
+java8.util.ArraysParallelSortHelpers:
+    76:903:ArraysParallelSortHelpers()
+java8.util.ArraysParallelSortHelpers$EmptyCompleter:
+    static final long serialVersionUID
+java8.util.ArraysParallelSortHelpers$FJByte
+java8.util.ArraysParallelSortHelpers$FJByte$Merger
+java8.util.ArraysParallelSortHelpers$FJByte$Sorter
+java8.util.ArraysParallelSortHelpers$FJChar
+java8.util.ArraysParallelSortHelpers$FJChar$Merger
+java8.util.ArraysParallelSortHelpers$FJChar$Sorter
+java8.util.ArraysParallelSortHelpers$FJDouble
+java8.util.ArraysParallelSortHelpers$FJDouble$Merger
+java8.util.ArraysParallelSortHelpers$FJDouble$Sorter
+java8.util.ArraysParallelSortHelpers$FJFloat
+java8.util.ArraysParallelSortHelpers$FJFloat$Merger
+java8.util.ArraysParallelSortHelpers$FJFloat$Sorter
+java8.util.ArraysParallelSortHelpers$FJInt
+java8.util.ArraysParallelSortHelpers$FJInt$Merger
+java8.util.ArraysParallelSortHelpers$FJInt$Sorter
+java8.util.ArraysParallelSortHelpers$FJLong
+java8.util.ArraysParallelSortHelpers$FJLong$Merger
+java8.util.ArraysParallelSortHelpers$FJLong$Sorter
+java8.util.ArraysParallelSortHelpers$FJObject:
+    113:151:ArraysParallelSortHelpers$FJObject()
+java8.util.ArraysParallelSortHelpers$FJObject$Merger:
+    static final long serialVersionUID
+java8.util.ArraysParallelSortHelpers$FJObject$Sorter:
+    static final long serialVersionUID
+java8.util.ArraysParallelSortHelpers$FJShort
+java8.util.ArraysParallelSortHelpers$FJShort$Merger
+java8.util.ArraysParallelSortHelpers$FJShort$Sorter
+java8.util.ArraysParallelSortHelpers$Relay:
+    static final long serialVersionUID
+java8.util.COWArrayListSpliterator:
+    32:33:private COWArrayListSpliterator()
+java8.util.COWArraySetSpliterator:
+    33:34:private COWArraySetSpliterator()
+java8.util.CollSer
+java8.util.Comparators:
+    165:167:public static java.util.Comparator comparing(java8.util.function.Function,java.util.Comparator)
+    199:200:public static java.util.Comparator comparing(java8.util.function.Function)
+    220:221:public static java.util.Comparator comparingInt(java8.util.function.ToIntFunction)
+    241:242:public static java.util.Comparator comparingLong(java8.util.function.ToLongFunction)
+    262:263:public static java.util.Comparator comparingDouble(java8.util.function.ToDoubleFunction)
+    296:301:public static java.util.Comparator thenComparing(java.util.Comparator,java.util.Comparator)
+    331:331:public static java.util.Comparator thenComparing(java.util.Comparator,java8.util.function.Function,java.util.Comparator)
+    357:357:public static java.util.Comparator thenComparing(java.util.Comparator,java8.util.function.Function)
+    378:378:public static java.util.Comparator thenComparingInt(java.util.Comparator,java8.util.function.ToIntFunction)
+    399:399:public static java.util.Comparator thenComparingLong(java.util.Comparator,java8.util.function.ToLongFunction)
+    420:420:public static java.util.Comparator thenComparingDouble(java.util.Comparator,java8.util.function.ToDoubleFunction)
+    434:437:public static java.util.Comparator reversed(java.util.Comparator)
+    458:458:public static java.util.Comparator nullsFirst(java.util.Comparator)
+    479:479:public static java.util.Comparator nullsLast(java.util.Comparator)
+    482:483:private Comparators()
+    302:303:private static synthetic int lambda$thenComparing$aafead48$1(java.util.Comparator,java.util.Comparator,java.lang.Object,java.lang.Object)
+    264:264:private static synthetic int lambda$comparingDouble$57709dbc$1(java8.util.function.ToDoubleFunction,java.lang.Object,java.lang.Object)
+    243:243:private static synthetic int lambda$comparingLong$c3a37e6$1(java8.util.function.ToLongFunction,java.lang.Object,java.lang.Object)
+    222:222:private static synthetic int lambda$comparingInt$134fc06a$1(java8.util.function.ToIntFunction,java.lang.Object,java.lang.Object)
+    201:201:private static synthetic int lambda$comparing$628f93f7$1(java8.util.function.Function,java.lang.Object,java.lang.Object)
+    168:169:private static synthetic int lambda$comparing$b1478148$1(java.util.Comparator,java8.util.function.Function,java.lang.Object,java.lang.Object)
+    static synthetic int access$lambda$0(java.util.Comparator,java8.util.function.Function,java.lang.Object,java.lang.Object)
+    static synthetic int access$lambda$1(java8.util.function.Function,java.lang.Object,java.lang.Object)
+    static synthetic int access$lambda$2(java8.util.function.ToIntFunction,java.lang.Object,java.lang.Object)
+    static synthetic int access$lambda$3(java8.util.function.ToLongFunction,java.lang.Object,java.lang.Object)
+    static synthetic int access$lambda$4(java8.util.function.ToDoubleFunction,java.lang.Object,java.lang.Object)
+    static synthetic int access$lambda$5(java.util.Comparator,java.util.Comparator,java.lang.Object,java.lang.Object)
+java8.util.Comparators$$Lambda$1
+java8.util.Comparators$$Lambda$2
+java8.util.Comparators$$Lambda$3
+java8.util.Comparators$$Lambda$4
+java8.util.Comparators$$Lambda$5
+java8.util.Comparators$$Lambda$6
+java8.util.Comparators$NullComparator
+java8.util.DoubleSummaryStatistics
+java8.util.DualPivotQuicksort
+java8.util.HMSpliterators:
+    40:41:private HMSpliterators()
+java8.util.HMSpliterators$HashMapSpliterator:
+    public abstract int characteristics()
+java8.util.ImmutableCollections
+java8.util.ImmutableCollections$AbstractImmutableList
+java8.util.ImmutableCollections$AbstractImmutableMap
+java8.util.ImmutableCollections$AbstractImmutableSet
+java8.util.ImmutableCollections$List0
+java8.util.ImmutableCollections$List1
+java8.util.ImmutableCollections$List2
+java8.util.ImmutableCollections$ListN
+java8.util.ImmutableCollections$Map0
+java8.util.ImmutableCollections$Map1
+java8.util.ImmutableCollections$MapN
+java8.util.ImmutableCollections$MapN$1
+java8.util.ImmutableCollections$MapN$1$1
+java8.util.ImmutableCollections$Set0
+java8.util.ImmutableCollections$Set1
+java8.util.ImmutableCollections$Set2
+java8.util.ImmutableCollections$Set2$1
+java8.util.ImmutableCollections$SetN
+java8.util.ImmutableCollections$SetN$1
+java8.util.IntSummaryStatistics
+java8.util.Iterators:
+    87:92:public static void forEachRemaining(java8.util.PrimitiveIterator$OfInt,java8.util.function.IntConsumer)
+    113:118:public static void forEachRemaining(java8.util.PrimitiveIterator$OfLong,java8.util.function.LongConsumer)
+    139:144:public static void forEachRemaining(java8.util.PrimitiveIterator$OfDouble,java8.util.function.DoubleConsumer)
+    182:183:public static java.util.Iterator asIterator(java.util.Enumeration)
+    199:200:private Iterators()
+java8.util.Iterators$1
+java8.util.J8Arrays:
+    private static final int MIN_ARRAY_SORT_GRAN
+    64:64:public static java8.util.Spliterator spliterator(java.lang.Object[])
+    104:104:public static java8.util.Spliterator$OfInt spliterator(int[])
+    127:127:public static java8.util.Spliterator$OfInt spliterator(int[],int,int)
+    143:143:public static java8.util.Spliterator$OfLong spliterator(long[])
+    166:166:public static java8.util.Spliterator$OfLong spliterator(long[],int,int)
+    183:183:public static java8.util.Spliterator$OfDouble spliterator(double[])
+    206:206:public static java8.util.Spliterator$OfDouble spliterator(double[],int,int)
+    219:219:public static java8.util.stream.Stream stream(java.lang.Object[])
+    238:238:public static java8.util.stream.Stream stream(java.lang.Object[],int,int)
+    250:250:public static java8.util.stream.IntStream stream(int[])
+    268:268:public static java8.util.stream.IntStream stream(int[],int,int)
+    280:280:public static java8.util.stream.LongStream stream(long[])
+    298:298:public static java8.util.stream.LongStream stream(long[],int,int)
+    310:310:public static java8.util.stream.DoubleStream stream(double[])
+    328:328:public static java8.util.stream.DoubleStream stream(double[],int,int)
+    381:390:public static void parallelSort(byte[])
+    420:430:public static void parallelSort(byte[],int,int)
+    451:460:public static void parallelSort(char[])
+    490:500:public static void parallelSort(char[],int,int)
+    521:530:public static void parallelSort(short[])
+    560:570:public static void parallelSort(short[],int,int)
+    591:600:public static void parallelSort(int[])
+    630:640:public static void parallelSort(int[],int,int)
+    661:670:public static void parallelSort(long[])
+    700:710:public static void parallelSort(long[],int,int)
+    739:748:public static void parallelSort(float[])
+    786:796:public static void parallelSort(float[],int,int)
+    825:834:public static void parallelSort(double[])
+    872:882:public static void parallelSort(double[],int,int)
+    920:930:public static void parallelSort(java.lang.Comparable[])
+    978:989:public static void parallelSort(java.lang.Comparable[],int,int)
+    1086:1099:public static void parallelSort(java.lang.Object[],int,int,java.util.Comparator)
+    1124:1128:public static void setAll(java.lang.Object[],java8.util.function.IntFunction)
+    1155:1157:public static void parallelSetAll(java.lang.Object[],java8.util.function.IntFunction)
+    1181:1185:public static void setAll(int[],java8.util.function.IntUnaryOperator)
+    1211:1213:public static void parallelSetAll(int[],java8.util.function.IntUnaryOperator)
+    1237:1241:public static void setAll(long[],java8.util.function.IntToLongFunction)
+    1267:1269:public static void parallelSetAll(long[],java8.util.function.IntToLongFunction)
+    1293:1297:public static void setAll(double[],java8.util.function.IntToDoubleFunction)
+    1323:1325:public static void parallelSetAll(double[],java8.util.function.IntToDoubleFunction)
+    1345:1349:public static void parallelPrefix(java.lang.Object[],java8.util.function.BinaryOperator)
+    1369:1374:public static void parallelPrefix(java.lang.Object[],int,int,java8.util.function.BinaryOperator)
+    1391:1395:public static void parallelPrefix(long[],java8.util.function.LongBinaryOperator)
+    1414:1419:public static void parallelPrefix(long[],int,int,java8.util.function.LongBinaryOperator)
+    1439:1443:public static void parallelPrefix(double[],java8.util.function.DoubleBinaryOperator)
+    1462:1467:public static void parallelPrefix(double[],int,int,java8.util.function.DoubleBinaryOperator)
+    1484:1488:public static void parallelPrefix(int[],java8.util.function.IntBinaryOperator)
+    1507:1512:public static void parallelPrefix(int[],int,int,java8.util.function.IntBinaryOperator)
+    1519:1529:private static void rangeCheck(int,int,int)
+    1531:1532:private J8Arrays()
+    1324:1324:private static synthetic void lambda$parallelSetAll$131(double[],java8.util.function.IntToDoubleFunction,int)
+    1268:1268:private static synthetic void lambda$parallelSetAll$130(long[],java8.util.function.IntToLongFunction,int)
+    1212:1212:private static synthetic void lambda$parallelSetAll$129(int[],java8.util.function.IntUnaryOperator,int)
+    1156:1156:private static synthetic void lambda$parallelSetAll$128(java.lang.Object[],java8.util.function.IntFunction,int)
+    static synthetic void access$lambda$0(java.lang.Object[],java8.util.function.IntFunction,int)
+    static synthetic void access$lambda$1(int[],java8.util.function.IntUnaryOperator,int)
+    static synthetic void access$lambda$2(long[],java8.util.function.IntToLongFunction,int)
+    static synthetic void access$lambda$3(double[],java8.util.function.IntToDoubleFunction,int)
+java8.util.J8Arrays$$Lambda$1
+java8.util.J8Arrays$$Lambda$2
+java8.util.J8Arrays$$Lambda$3
+java8.util.J8Arrays$$Lambda$4
+java8.util.J8Collections
+java8.util.J8Collections$1
+java8.util.J8Collections$EmptyIt
+java8.util.J8Collections$ImmutableIt
+java8.util.KeyValueHolder
+java8.util.LBDSpliterator:
+    private static final int MAX_BATCH
+java8.util.LBQSpliterator:
+    private static final int MAX_BATCH
+java8.util.LinkedListSpliterator:
+    private static final int BATCH_UNIT
+    private static final int MAX_BATCH
+java8.util.Lists:
+    98:104:public static void replaceAll(java.util.List,java8.util.function.UnaryOperator)
+    125:125:public static java8.util.Spliterator spliterator(java.util.List)
+    128:129:private Lists()
+java8.util.Lists2
+java8.util.LongSummaryStatistics
+java8.util.Maps:
+    127:134:public static java.lang.Object getOrDefault(java.util.Map,java.lang.Object,java.lang.Object)
+    169:190:public static void forEach(java.util.Map,java8.util.function.BiConsumer)
+    366:381:public static java.lang.Object computeIfAbsent(java.util.Map,java.lang.Object,java8.util.function.Function)
+    428:440:public static boolean replace(java.util.Map,java.lang.Object,java.lang.Object,java.lang.Object)
+    483:493:public static java.lang.Object replace(java.util.Map,java.lang.Object,java.lang.Object)
+    537:569:public static void replaceAll(java.util.Map,java8.util.function.BiFunction)
+    648:671:public static java.lang.Object compute(java.util.Map,java.lang.Object,java8.util.function.BiFunction)
+    741:759:public static java.lang.Object computeIfPresent(java.util.Map,java.lang.Object,java8.util.function.BiFunction)
+    798:810:public static boolean remove(java.util.Map,java.lang.Object,java.lang.Object)
+    915:916:private Maps()
+java8.util.Maps$Entry
+java8.util.Maps$Entry$$Lambda$1
+java8.util.Maps$Entry$$Lambda$2
+java8.util.Maps$Entry$$Lambda$3
+java8.util.Maps$Entry$$Lambda$4
+java8.util.Maps2
+java8.util.Objects:
+    48:49:private Objects()
+    88:93:public static boolean deepEquals(java.lang.Object,java.lang.Object)
+    98:118:private static boolean deepEquals0(java.lang.Object,java.lang.Object)
+    161:161:public static varargs int hash(java.lang.Object[])
+    175:175:public static java.lang.String toString(java.lang.Object)
+    192:192:public static java.lang.String toString(java.lang.Object,java.lang.String)
+    216:216:public static int compare(java.lang.Object,java.lang.Object,java.util.Comparator)
+    280:280:public static boolean isNull(java.lang.Object)
+    298:298:public static boolean nonNull(java.lang.Object)
+    316:316:public static java.lang.Object requireNonNullElse(java.lang.Object,java.lang.Object)
+    335:336:public static java.lang.Object requireNonNullElseGet(java.lang.Object,java8.util.function.Supplier)
+    360:362:public static java.lang.Object requireNonNull(java.lang.Object,java8.util.function.Supplier)
+    385:389:public static int checkIndex(int,int)
+    415:420:public static int checkFromToIndex(int,int,int)
+    446:451:public static int checkFromIndexSize(int,int,int)
+java8.util.Optional:
+    183:188:public void ifPresentOrElse(java8.util.function.Consumer,java.lang.Runnable)
+    202:206:public java8.util.Optional filter(java8.util.function.Predicate)
+    244:248:public java8.util.Optional map(java8.util.function.Function)
+    274:278:public java8.util.Optional flatMap(java8.util.function.Function)
+    298:302:public java8.util.Optional or(java8.util.function.Supplier)
+    323:326:public java8.util.stream.Stream stream()
+    339:339:public java.lang.Object orElse(java.lang.Object)
+    353:353:public java.lang.Object orElseGet(java8.util.function.Supplier)
+    374:377:public java.lang.Object orElseThrow(java8.util.function.Supplier)
+java8.util.OptionalDouble
+java8.util.OptionalInt
+java8.util.OptionalInt$OICache
+java8.util.OptionalLong
+java8.util.OptionalLong$OLCache
+java8.util.PrimitiveIterator
+java8.util.PrimitiveIterator$OfDouble
+java8.util.PrimitiveIterator$OfInt
+java8.util.PrimitiveIterator$OfLong
+java8.util.Sets2
+java8.util.Spliterator:
+    public static final int ORDERED
+    public static final int DISTINCT
+    public static final int SORTED
+    public static final int SIZED
+    public static final int NONNULL
+    public static final int IMMUTABLE
+    public static final int CONCURRENT
+    public static final int SUBSIZED
+java8.util.Spliterator$OfDouble:
+    public abstract java8.util.Spliterator$OfDouble trySplit()
+    public abstract boolean tryAdvance(java8.util.function.Consumer)
+java8.util.Spliterator$OfInt:
+    public abstract java8.util.Spliterator$OfInt trySplit()
+    public abstract boolean tryAdvance(java8.util.function.Consumer)
+java8.util.Spliterator$OfLong:
+    public abstract java8.util.Spliterator$OfLong trySplit()
+    public abstract boolean tryAdvance(java8.util.function.Consumer)
+java8.util.Spliterator$OfPrimitive:
+    public abstract java8.util.Spliterator$OfPrimitive trySplit()
+    public abstract boolean tryAdvance(java.lang.Object)
+    public abstract void forEachRemaining(java.lang.Object)
+java8.util.Spliterators:
+    114:115:public static void forEachRemaining(java8.util.Spliterator,java8.util.function.Consumer)
+    638:638:public static java8.util.Spliterator$OfInt spliterator(int[],int)
+    671:672:public static java8.util.Spliterator$OfInt spliterator(int[],int,int,int)
+    700:700:public static java8.util.Spliterator$OfLong spliterator(long[],int)
+    737:738:public static java8.util.Spliterator$OfLong spliterator(long[],int,int,int)
+    766:766:public static java8.util.Spliterator$OfDouble spliterator(double[],int)
+    803:804:public static java8.util.Spliterator$OfDouble spliterator(double[],int,int,int)
+    1101:1101:public static java8.util.Spliterator spliterator(java.util.Iterator,long,int)
+    1128:1128:public static java8.util.Spliterator spliteratorUnknownSize(java.util.Iterator,int)
+    1158:1158:public static java8.util.Spliterator$OfInt spliterator(java8.util.PrimitiveIterator$OfInt,long,int)
+    1185:1185:public static java8.util.Spliterator$OfInt spliteratorUnknownSize(java8.util.PrimitiveIterator$OfInt,int)
+    1215:1215:public static java8.util.Spliterator$OfLong spliterator(java8.util.PrimitiveIterator$OfLong,long,int)
+    1242:1242:public static java8.util.Spliterator$OfLong spliteratorUnknownSize(java8.util.PrimitiveIterator$OfLong,int)
+    1272:1272:public static java8.util.Spliterator$OfDouble spliterator(java8.util.PrimitiveIterator$OfDouble,long,int)
+    1299:1299:public static java8.util.Spliterator$OfDouble spliteratorUnknownSize(java8.util.PrimitiveIterator$OfDouble,int)
+    1317:1351:public static java.util.Iterator iterator(java8.util.Spliterator)
+    1367:1411:public static java8.util.PrimitiveIterator$OfInt iterator(java8.util.Spliterator$OfInt)
+    1427:1471:public static java8.util.PrimitiveIterator$OfLong iterator(java8.util.Spliterator$OfLong)
+    1487:1531:public static java8.util.PrimitiveIterator$OfDouble iterator(java8.util.Spliterator$OfDouble)
+java8.util.Spliterators$1Adapter
+java8.util.Spliterators$2Adapter
+java8.util.Spliterators$3Adapter
+java8.util.Spliterators$4Adapter
+java8.util.Spliterators$AbstractDoubleSpliterator
+java8.util.Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer
+java8.util.Spliterators$AbstractIntSpliterator
+java8.util.Spliterators$AbstractIntSpliterator$HoldingIntConsumer
+java8.util.Spliterators$AbstractLongSpliterator
+java8.util.Spliterators$AbstractLongSpliterator$HoldingLongConsumer
+java8.util.Spliterators$AbstractSpliterator
+java8.util.Spliterators$AbstractSpliterator$HoldingConsumer
+java8.util.Spliterators$DoubleArraySpliterator
+java8.util.Spliterators$DoubleIteratorSpliterator
+java8.util.Spliterators$EmptySpliterator$OfDouble:
+    1644:1644:public bridge synthetic java8.util.Spliterator$OfDouble trySplit()
+    1644:1644:public bridge synthetic java8.util.Spliterator$OfPrimitive trySplit()
+java8.util.Spliterators$EmptySpliterator$OfInt:
+    1582:1582:public bridge synthetic java8.util.Spliterator$OfInt trySplit()
+    1582:1582:public bridge synthetic java8.util.Spliterator$OfPrimitive trySplit()
+java8.util.Spliterators$EmptySpliterator$OfLong:
+    1613:1613:public bridge synthetic java8.util.Spliterator$OfLong trySplit()
+    1613:1613:public bridge synthetic java8.util.Spliterator$OfPrimitive trySplit()
+java8.util.Spliterators$IntArraySpliterator
+java8.util.Spliterators$IntIteratorSpliterator
+java8.util.Spliterators$IteratorSpliterator:
+    static final int BATCH_UNIT
+    static final int MAX_BATCH
+    2757:2764:public Spliterators$IteratorSpliterator(java.util.Iterator,long,int)
+    2775:2780:public Spliterators$IteratorSpliterator(java.util.Iterator,int)
+java8.util.Spliterators$LongArraySpliterator
+java8.util.Spliterators$LongIteratorSpliterator
+java8.util.Spliterators$OfDouble:
+    410:411:public static void forEachRemaining(java8.util.Spliterator$OfDouble,java8.util.function.DoubleConsumer)
+    474:475:private Spliterators$OfDouble()
+java8.util.Spliterators$OfDouble$$Lambda$1:
+    private static java8.util.function.DoubleConsumer get$Lambda(java8.util.function.Consumer)
+    public void accept(double)
+java8.util.Spliterators$OfDouble$$Lambda$2:
+    private static java8.util.function.DoubleConsumer get$Lambda(java8.util.function.Consumer)
+    public void accept(double)
+java8.util.Spliterators$OfInt:
+    232:233:public static void forEachRemaining(java8.util.Spliterator$OfInt,java8.util.function.IntConsumer)
+    295:296:private Spliterators$OfInt()
+java8.util.Spliterators$OfInt$$Lambda$1:
+    private static java8.util.function.IntConsumer get$Lambda(java8.util.function.Consumer)
+    public void accept(int)
+java8.util.Spliterators$OfInt$$Lambda$2:
+    private static java8.util.function.IntConsumer get$Lambda(java8.util.function.Consumer)
+    public void accept(int)
+java8.util.Spliterators$OfLong:
+    321:322:public static void forEachRemaining(java8.util.Spliterator$OfLong,java8.util.function.LongConsumer)
+    384:385:private Spliterators$OfLong()
+java8.util.Spliterators$OfLong$$Lambda$1:
+    private static java8.util.function.LongConsumer get$Lambda(java8.util.function.Consumer)
+    public void accept(long)
+java8.util.Spliterators$OfLong$$Lambda$2:
+    private static java8.util.function.LongConsumer get$Lambda(java8.util.function.Consumer)
+    public void accept(long)
+java8.util.Spliterators$OfPrimitive
+java8.util.SplittableRandom
+java8.util.SplittableRandom$1
+java8.util.SplittableRandom$RandomDoublesSpliterator
+java8.util.SplittableRandom$RandomIntsSpliterator
+java8.util.SplittableRandom$RandomLongsSpliterator
+java8.util.StringJoiner:
+    101:102:public StringJoiner(java.lang.CharSequence)
+    147:149:public java8.util.StringJoiner setEmptyValue(java.lang.CharSequence)
+    245:246:public int length()
+java8.util.TimSort:
+    private static final int MIN_MERGE
+    private static final int MIN_GALLOP
+    private static final int INITIAL_TMP_STORAGE_LENGTH
+java8.util.UnsafeAccess:
+    31:32:private UnsafeAccess()
+java8.util.concurrent.CompletableFuture
+java8.util.concurrent.CompletableFuture$AltResult
+java8.util.concurrent.CompletableFuture$AnyOf
+java8.util.concurrent.CompletableFuture$AsyncRun
+java8.util.concurrent.CompletableFuture$AsyncSupply
+java8.util.concurrent.CompletableFuture$AsynchronousCompletionTask
+java8.util.concurrent.CompletableFuture$BiAccept
+java8.util.concurrent.CompletableFuture$BiApply
+java8.util.concurrent.CompletableFuture$BiCompletion
+java8.util.concurrent.CompletableFuture$BiRelay
+java8.util.concurrent.CompletableFuture$BiRun
+java8.util.concurrent.CompletableFuture$Canceller
+java8.util.concurrent.CompletableFuture$CoCompletion
+java8.util.concurrent.CompletableFuture$Completion
+java8.util.concurrent.CompletableFuture$DelayedCompleter
+java8.util.concurrent.CompletableFuture$DelayedExecutor
+java8.util.concurrent.CompletableFuture$Delayer
+java8.util.concurrent.CompletableFuture$Delayer$DaemonThreadFactory
+java8.util.concurrent.CompletableFuture$MinimalStage
+java8.util.concurrent.CompletableFuture$OrAccept
+java8.util.concurrent.CompletableFuture$OrApply
+java8.util.concurrent.CompletableFuture$OrRun
+java8.util.concurrent.CompletableFuture$Signaller
+java8.util.concurrent.CompletableFuture$TaskSubmitter
+java8.util.concurrent.CompletableFuture$ThreadPerTaskExecutor
+java8.util.concurrent.CompletableFuture$Timeout
+java8.util.concurrent.CompletableFuture$UniAccept
+java8.util.concurrent.CompletableFuture$UniApply
+java8.util.concurrent.CompletableFuture$UniCompletion
+java8.util.concurrent.CompletableFuture$UniCompose
+java8.util.concurrent.CompletableFuture$UniExceptionally
+java8.util.concurrent.CompletableFuture$UniHandle
+java8.util.concurrent.CompletableFuture$UniRelay
+java8.util.concurrent.CompletableFuture$UniRun
+java8.util.concurrent.CompletableFuture$UniWhenComplete
+java8.util.concurrent.CompletionException
+java8.util.concurrent.CompletionStage
+java8.util.concurrent.ConcurrentMaps:
+    213:218:public static java.lang.Object computeIfAbsent(java.util.concurrent.ConcurrentMap,java.lang.Object,java8.util.function.Function)
+    275:284:public static java.lang.Object computeIfPresent(java.util.concurrent.ConcurrentMap,java.lang.Object,java8.util.function.BiFunction)
+    350:365:public static java.lang.Object compute(java.util.concurrent.ConcurrentMap,java.lang.Object,java8.util.function.BiFunction)
+    420:431:public static void replaceAll(java.util.concurrent.ConcurrentMap,java8.util.function.BiFunction)
+    457:459:public static java.lang.Object getOrDefault(java.util.concurrent.ConcurrentMap,java.lang.Object,java.lang.Object)
+    493:507:public static void forEach(java.util.concurrent.ConcurrentMap,java8.util.function.BiConsumer)
+    509:510:private ConcurrentMaps()
+    423:430:private static synthetic void lambda$replaceAll$49(java.util.concurrent.ConcurrentMap,java8.util.function.BiFunction,java.lang.Object,java.lang.Object)
+    static synthetic void access$lambda$0(java.util.concurrent.ConcurrentMap,java8.util.function.BiFunction,java.lang.Object,java.lang.Object)
+java8.util.concurrent.ConcurrentMaps$$Lambda$1
+java8.util.concurrent.CountedCompleter:
+    private static final long serialVersionUID
+    534:534:public final boolean compareAndSetPendingCount(int,int)
+    545:547:public final int decrementPendingCountUnlessZero()
+    557:560:public final java8.util.concurrent.CountedCompleter getRoot()
+    628:633:public void complete(java.lang.Object)
+    645:648:public final java8.util.concurrent.CountedCompleter firstComplete()
+    671:675:public final java8.util.concurrent.CountedCompleter nextComplete()
+    683:688:public final void quietlyCompleteRoot()
+    703:710:public final void helpComplete(int)
+    749:749:protected void setRawResult(java.lang.Object)
+java8.util.concurrent.Flow
+java8.util.concurrent.Flow$Processor
+java8.util.concurrent.Flow$Publisher
+java8.util.concurrent.Flow$Subscriber
+java8.util.concurrent.Flow$Subscription
+java8.util.concurrent.ForkJoinPool:
+    static final int SWIDTH
+    static final int SMASK
+    static final int MAX_CAP
+    static final int SQMASK
+    static final int UNSIGNALLED
+    static final int SS_SEQ
+    static final int QLOCK
+    static final int OWNED
+    static final int FIFO
+    static final int SHUTDOWN
+    static final int TERMINATED
+    static final int STOP
+    static final int QUIET
+    static final int DORMANT
+    static final int POLL_LIMIT
+    private static final long DEFAULT_KEEPALIVE
+    private static final long TIMEOUT_SLOP
+    private static final int DEFAULT_COMMON_MAX_SPARES
+    private static final int SEED_INCREMENT
+    private static final long SP_MASK
+    private static final long UC_MASK
+    private static final int RC_SHIFT
+    private static final long RC_UNIT
+    private static final long RC_MASK
+    private static final int TC_SHIFT
+    private static final long TC_UNIT
+    private static final long TC_MASK
+    private static final long ADD_WORKER
+    volatile long pad00
+    volatile long pad01
+    volatile long pad02
+    volatile long pad03
+    volatile long pad04
+    volatile long pad05
+    volatile long pad06
+    volatile long pad07
+    volatile long pad08
+    volatile long pad09
+    volatile long pad0a
+    volatile long pad0b
+    volatile long pad0c
+    volatile long pad0d
+    volatile long pad0e
+    volatile long pad0f
+    volatile long pad10
+    volatile long pad11
+    volatile long pad12
+    volatile long pad13
+    volatile long pad14
+    volatile long pad15
+    volatile long pad16
+    volatile long pad17
+    volatile long pad18
+    volatile long pad19
+    volatile long pad1a
+    volatile long pad1b
+    volatile long pad1c
+    volatile long pad1d
+    volatile long pad1e
+    1890:1894:final java8.util.concurrent.ForkJoinTask nextTaskFor(java8.util.concurrent.ForkJoinPool$WorkQueue)
+    1993:1996:static java8.util.concurrent.ForkJoinPool$WorkQueue commonSubmitterQueue()
+    2036:2036:final int helpComplete(java8.util.concurrent.ForkJoinPool$WorkQueue,java8.util.concurrent.CountedCompleter,int)
+    2083:2095:static int getSurplusQueuedTaskCount()
+    2226:2228:public ForkJoinPool(int)
+    2261:2263:public ForkJoinPool(int,java8.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory,java.lang.Thread$UncaughtExceptionHandler,boolean)
+    2459:2459:public static java8.util.concurrent.ForkJoinPool commonPool()
+    2482:2483:public java.lang.Object invoke(java8.util.concurrent.ForkJoinTask)
+    2495:2496:public void execute(java8.util.concurrent.ForkJoinTask)
+    2526:2526:public java8.util.concurrent.ForkJoinTask submit(java8.util.concurrent.ForkJoinTask)
+    2594:2594:public java8.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory getFactory()
+    2604:2604:public java.lang.Thread$UncaughtExceptionHandler getUncaughtExceptionHandler()
+    2613:2614:public int getParallelism()
+    2636:2636:public int getPoolSize()
+    2646:2646:public boolean getAsyncMode()
+    2658:2666:public int getRunningThreadCount()
+    2677:2678:public int getActiveThreadCount()
+    2731:2739:public long getStealCount()
+    2753:2761:public long getQueuedTaskCount()
+    2772:2780:public int getQueuedSubmissionCount()
+    2791:2797:public boolean hasQueuedSubmissions()
+    2808:2808:protected java8.util.concurrent.ForkJoinTask pollSubmission()
+    2829:2841:protected int drainTasksTo(java.util.Collection)
+    2961:2962:public boolean isTerminating()
+    3055:3056:static void quiesceCommonPool()
+    3163:3184:public static void managedBlock(java8.util.concurrent.ForkJoinPool$ManagedBlocker)
+    3192:3234:static void helpAsyncBlocker(java.util.concurrent.Executor,java8.util.concurrent.ForkJoinPool$ManagedBlocker)
+    3238:3241:static boolean isInstanceOfAsynCompTask(java8.util.concurrent.ForkJoinTask)
+java8.util.concurrent.ForkJoinPool$ManagedBlocker
+java8.util.concurrent.ForkJoinPool$MemBar:
+    3354:3355:static void loadFence()
+    3363:3364:private ForkJoinPool$MemBar()
+java8.util.concurrent.ForkJoinPool$WorkQueue:
+    static final int INITIAL_QUEUE_CAPACITY
+    static final int MAXIMUM_QUEUE_CAPACITY
+    volatile long pad00
+    volatile long pad01
+    volatile long pad02
+    volatile long pad03
+    volatile long pad04
+    volatile long pad05
+    volatile long pad06
+    volatile long pad07
+    volatile long pad08
+    volatile long pad09
+    volatile long pad0a
+    volatile long pad0b
+    volatile long pad0c
+    volatile long pad0d
+    volatile long pad0e
+    volatile long pad0f
+    volatile java.lang.Object pad10
+    volatile java.lang.Object pad11
+    volatile java.lang.Object pad12
+    volatile java.lang.Object pad13
+    volatile java.lang.Object pad14
+    volatile java.lang.Object pad15
+    volatile java.lang.Object pad16
+    volatile java.lang.Object pad17
+    volatile java.lang.Object pad18
+    volatile java.lang.Object pad19
+    volatile java.lang.Object pad1a
+    volatile java.lang.Object pad1b
+    volatile java.lang.Object pad1c
+    volatile java.lang.Object pad1d
+    volatile java.lang.Object pad1e
+    volatile java.lang.Object pad1f
+    725:725:final int getPoolIndex()
+    743:743:final boolean isEmpty()
+    808:821:final java8.util.concurrent.ForkJoinTask pop()
+    857:857:final java8.util.concurrent.ForkJoinTask nextLocalTask()
+    865:865:final java8.util.concurrent.ForkJoinTask peek()
+java8.util.concurrent.ForkJoinTask:
+    static final int DONE_MASK
+    static final int NORMAL
+    static final int CANCELLED
+    static final int EXCEPTIONAL
+    static final int SIGNAL
+    static final int SMASK
+    private static final long serialVersionUID
+    498:523:private void clearExceptionalCompletion()
+    688:690:public final java.lang.Object join()
+    727:732:public static void invokeAll(java8.util.concurrent.ForkJoinTask,java8.util.concurrent.ForkJoinTask)
+    750:774:public static varargs void invokeAll(java8.util.concurrent.ForkJoinTask[])
+    795:825:public static java.util.Collection invokeAll(java.util.Collection)
+    873:873:public final boolean isCompletedAbnormally()
+    884:884:public final boolean isCompletedNormally()
+    895:898:public final java.lang.Throwable getException()
+    916:919:public void completeExceptionally(java.lang.Throwable)
+    936:942:public void complete(java.lang.Object)
+    1053:1054:public final void quietlyInvoke()
+    1065:1071:public static void helpQuiesce()
+    1090:1094:public void reinitialize()
+    1106:1107:public static java8.util.concurrent.ForkJoinPool getPool()
+    1120:1120:public static boolean inForkJoinPool()
+    1135:1137:public boolean tryUnfork()
+    1150:1154:public static int getQueuedTaskCount()
+    1171:1171:public static int getSurplusQueuedTaskCount()
+    protected abstract void setRawResult(java.lang.Object)
+    1226:1230:protected static java8.util.concurrent.ForkJoinTask peekNextLocalTask()
+    1244:1245:protected static java8.util.concurrent.ForkJoinTask pollNextLocalTask()
+    1264:1265:protected static java8.util.concurrent.ForkJoinTask pollTask()
+    1282:1283:protected static java8.util.concurrent.ForkJoinTask pollSubmission()
+    1295:1295:public final short getForkJoinTaskTag()
+    1307:1309:public final short setForkJoinTaskTag(short)
+    1329:1333:public final boolean compareAndSetForkJoinTaskTag(short,short)
+    1425:1425:public static java8.util.concurrent.ForkJoinTask adapt(java.lang.Runnable)
+    1439:1439:public static java8.util.concurrent.ForkJoinTask adapt(java.lang.Runnable,java.lang.Object)
+    1453:1453:public static java8.util.concurrent.ForkJoinTask adapt(java.util.concurrent.Callable)
+    1470:1472:private void writeObject(java.io.ObjectOutputStream)
+    1483:1488:private void readObject(java.io.ObjectInputStream)
+java8.util.concurrent.ForkJoinTask$AdaptedCallable:
+    private static final long serialVersionUID
+    1401:1401:public final void setRawResult(java.lang.Object)
+java8.util.concurrent.ForkJoinTask$AdaptedRunnable:
+    private static final long serialVersionUID
+    1351:1351:public final void setRawResult(java.lang.Object)
+java8.util.concurrent.ForkJoinTask$AdaptedRunnableAction:
+    private static final long serialVersionUID
+    1367:1367:public final void setRawResult(java.lang.Void)
+    1360:1360:public bridge synthetic void setRawResult(java.lang.Object)
+java8.util.concurrent.ForkJoinTask$RunnableExecuteAction:
+    private static final long serialVersionUID
+    1382:1382:public final void setRawResult(java.lang.Void)
+    1376:1376:public bridge synthetic void setRawResult(java.lang.Object)
+java8.util.concurrent.ForkJoinWorkerThread:
+    private static final java.lang.String NAME_PLACEHOLDER
+    112:112:public java8.util.concurrent.ForkJoinPool getPool()
+    126:126:public int getPoolIndex()
+java8.util.concurrent.Phaser
+java8.util.concurrent.Phaser$QNode
+java8.util.concurrent.RecursiveAction
+java8.util.concurrent.RecursiveTask
+java8.util.concurrent.SubmissionPublisher
+java8.util.concurrent.SubmissionPublisher$BufferedSubscription
+java8.util.concurrent.SubmissionPublisher$ConsumerSubscriber
+java8.util.concurrent.SubmissionPublisher$ConsumerSubscriber$1
+java8.util.concurrent.SubmissionPublisher$ConsumerTask
+java8.util.concurrent.SubmissionPublisher$ThreadPerTaskExecutor
+java8.util.concurrent.TLRandom:
+    private static final long GAMMA
+    private static final int PROBE_INCREMENT
+    private static final long SEEDER_INCREMENT
+    82:83:static final long nextSeed()
+    148:148:static long getThreadLocalRandomSeed()
+    173:174:private static void setUncontendedToTrue(java.lang.Integer)
+    178:184:private static int getInitializedProbe(java.lang.Integer)
+java8.util.concurrent.ThreadLocalRandom
+java8.util.concurrent.ThreadLocalRandom$RandomDoublesSpliterator
+java8.util.concurrent.ThreadLocalRandom$RandomIntsSpliterator
+java8.util.concurrent.ThreadLocalRandom$RandomLongsSpliterator
+java8.util.concurrent.UnsafeAccess:
+    31:32:private UnsafeAccess()
+java8.util.concurrent.atomic.DoubleAccumulator
+java8.util.concurrent.atomic.DoubleAccumulator$SerializationProxy
+java8.util.concurrent.atomic.DoubleAdder
+java8.util.concurrent.atomic.DoubleAdder$SerializationProxy
+java8.util.concurrent.atomic.LongAccumulator
+java8.util.concurrent.atomic.LongAccumulator$SerializationProxy
+java8.util.concurrent.atomic.LongAdder
+java8.util.concurrent.atomic.LongAdder$SerializationProxy
+java8.util.concurrent.atomic.Striped64
+java8.util.concurrent.atomic.Striped64$Cell
+java8.util.concurrent.atomic.UnsafeAccess
+java8.util.function.BiConsumers
+java8.util.function.BiConsumers$$Lambda$1
+java8.util.function.BiFunctions
+java8.util.function.BiFunctions$$Lambda$1
+java8.util.function.BiPredicate
+java8.util.function.BiPredicates
+java8.util.function.BiPredicates$$Lambda$1
+java8.util.function.BiPredicates$$Lambda$2
+java8.util.function.BiPredicates$$Lambda$3
+java8.util.function.BinaryOperators
+java8.util.function.BinaryOperators$$Lambda$1
+java8.util.function.BinaryOperators$$Lambda$2
+java8.util.function.BooleanSupplier
+java8.util.function.Consumers:
+    56:57:private Consumers()
+java8.util.function.Consumers$$Lambda$1:
+    private static java8.util.function.Consumer get$Lambda(java8.util.function.Consumer,java8.util.function.Consumer)
+java8.util.function.DoubleBinaryOperator
+java8.util.function.DoubleConsumer:
+    public abstract void accept(double)
+java8.util.function.DoubleConsumers
+java8.util.function.DoubleConsumers$$Lambda$1
+java8.util.function.DoubleFunction
+java8.util.function.DoublePredicate
+java8.util.function.DoublePredicates
+java8.util.function.DoublePredicates$$Lambda$1
+java8.util.function.DoublePredicates$$Lambda$2
+java8.util.function.DoublePredicates$$Lambda$3
+java8.util.function.DoubleSupplier
+java8.util.function.DoubleToIntFunction
+java8.util.function.DoubleToLongFunction
+java8.util.function.DoubleUnaryOperator
+java8.util.function.DoubleUnaryOperators
+java8.util.function.DoubleUnaryOperators$$Lambda$1
+java8.util.function.DoubleUnaryOperators$$Lambda$2
+java8.util.function.DoubleUnaryOperators$$Lambda$3
+java8.util.function.Functions
+java8.util.function.Functions$$Lambda$1
+java8.util.function.Functions$$Lambda$2
+java8.util.function.Functions$$Lambda$3
+java8.util.function.IntBinaryOperator
+java8.util.function.IntConsumer:
+    public abstract void accept(int)
+java8.util.function.IntConsumers
+java8.util.function.IntConsumers$$Lambda$1
+java8.util.function.IntPredicate
+java8.util.function.IntPredicates
+java8.util.function.IntPredicates$$Lambda$1
+java8.util.function.IntPredicates$$Lambda$2
+java8.util.function.IntPredicates$$Lambda$3
+java8.util.function.IntSupplier
+java8.util.function.IntToDoubleFunction
+java8.util.function.IntToLongFunction
+java8.util.function.IntUnaryOperator
+java8.util.function.IntUnaryOperators
+java8.util.function.IntUnaryOperators$$Lambda$1
+java8.util.function.IntUnaryOperators$$Lambda$2
+java8.util.function.IntUnaryOperators$$Lambda$3
+java8.util.function.LongBinaryOperator
+java8.util.function.LongConsumer:
+    public abstract void accept(long)
+java8.util.function.LongConsumers
+java8.util.function.LongConsumers$$Lambda$1
+java8.util.function.LongPredicate
+java8.util.function.LongPredicates
+java8.util.function.LongPredicates$$Lambda$1
+java8.util.function.LongPredicates$$Lambda$2
+java8.util.function.LongPredicates$$Lambda$3
+java8.util.function.LongSupplier
+java8.util.function.LongToDoubleFunction
+java8.util.function.LongToIntFunction
+java8.util.function.LongUnaryOperator
+java8.util.function.LongUnaryOperators
+java8.util.function.LongUnaryOperators$$Lambda$1
+java8.util.function.LongUnaryOperators$$Lambda$2
+java8.util.function.LongUnaryOperators$$Lambda$3
+java8.util.function.ObjDoubleConsumer
+java8.util.function.ObjIntConsumer
+java8.util.function.ObjLongConsumer
+java8.util.function.Predicates
+java8.util.function.Predicates$$Lambda$1
+java8.util.function.Predicates$$Lambda$2
+java8.util.function.Predicates$$Lambda$3
+java8.util.function.Predicates$$Lambda$4
+java8.util.function.Predicates$$Lambda$5
+java8.util.function.ToDoubleBiFunction
+java8.util.function.ToDoubleFunction
+java8.util.function.ToIntBiFunction
+java8.util.function.ToIntFunction
+java8.util.function.ToLongBiFunction
+java8.util.function.ToLongFunction
+java8.util.function.UnaryOperator
+java8.util.function.UnaryOperators
+java8.util.function.UnaryOperators$$Lambda$1
+java8.util.stream.AbstractPipeline:
+    private static final java.lang.String MSG_STREAM_LINKED
+    private static final java.lang.String MSG_CONSUMED
+    private java.lang.Runnable sourceCloseAction
+    160:170:AbstractPipeline(java8.util.function.Supplier,int,boolean)
+    302:303:public final java8.util.stream.BaseStream sequential()
+    309:310:public final java8.util.stream.BaseStream parallel()
+    315:323:public void close()
+    328:336:public java8.util.stream.BaseStream onClose(java.lang.Runnable)
+    343:363:public java8.util.Spliterator spliterator()
+    382:382:final int getStreamFlags()
+    457:461:final java8.util.stream.StreamShape getSourceShape()
+    477:478:final java8.util.stream.SinkConsumer wrapAndCopyInto(java8.util.stream.SinkConsumer,java8.util.Spliterator)
+    531:565:final java8.util.stream.Sink wrapSink(java8.util.stream.SinkConsumer)
+    571:575:final java8.util.Spliterator wrapSpliterator(java8.util.Spliterator)
+    abstract java8.util.stream.StreamShape getOutputShape()
+    abstract java8.util.Spliterator wrap(java8.util.stream.PipelineHelper,java8.util.function.Supplier,boolean)
+    abstract java8.util.Spliterator lazySpliterator(java8.util.function.Supplier)
+    575:575:private static synthetic java8.util.Spliterator lambda$wrapSpliterator$1(java8.util.Spliterator)
+    363:363:private synthetic java8.util.Spliterator lambda$spliterator$0()
+    static synthetic java8.util.Spliterator access$lambda$0(java8.util.stream.AbstractPipeline)
+    static synthetic java8.util.Spliterator access$lambda$1(java8.util.Spliterator)
+java8.util.stream.AbstractPipeline$$Lambda$1
+java8.util.stream.AbstractPipeline$$Lambda$2
+java8.util.stream.AbstractPipeline$1
+java8.util.stream.AbstractSpinedBuffer:
+    public static final int MIN_CHUNK_POWER
+    public static final int MIN_CHUNK_SIZE
+    public static final int MAX_CHUNK_POWER
+    public static final int MIN_SPINE_SIZE
+    89:95:protected AbstractSpinedBuffer(int)
+    101:101:public boolean isEmpty()
+    public abstract void clear()
+java8.util.stream.AbstractTask:
+    223:225:protected void setRawResult(java.lang.Object)
+java8.util.stream.BaseStream
+java8.util.stream.Collectors:
+    126:126:private Collectors()
+    149:157:public static varargs java8.util.stream.Collector of(java8.util.function.Supplier,java8.util.function.BiConsumer,java8.util.function.BinaryOperator,java8.util.stream.Collector$Characteristics[])
+    181:192:public static varargs java8.util.stream.Collector of(java8.util.function.Supplier,java8.util.function.BiConsumer,java8.util.function.BinaryOperator,java8.util.function.Function,java8.util.stream.Collector$Characteristics[])
+    204:204:private static java.lang.IllegalStateException duplicateKeyException(java.lang.Object,java.lang.Object,java.lang.Object)
+    221:221:private static java8.util.function.BinaryOperator uniqKeysMapMerger()
+    254:254:private static java8.util.function.BiConsumer uniqKeysMapAccumulator(java8.util.function.Function,java8.util.function.Function)
+    342:342:public static java8.util.stream.Collector toCollection(java8.util.function.Supplier)
+    380:380:public static java8.util.stream.Collector toSet()
+    399:399:public static java8.util.stream.Collector joining()
+    414:414:public static java8.util.stream.Collector joining(java.lang.CharSequence)
+    463:463:private static java8.util.function.BinaryOperator mapMergerConcurrent(java8.util.function.BinaryOperator)
+    499:503:public static java8.util.stream.Collector mapping(java8.util.function.Function,java8.util.stream.Collector)
+    542:561:public static java8.util.stream.Collector flatMapping(java8.util.function.Function,java8.util.stream.Collector)
+    600:608:public static java8.util.stream.Collector filtering(java8.util.function.Predicate,java8.util.stream.Collector)
+    631:644:public static java8.util.stream.Collector collectingAndThen(java8.util.stream.Collector,java8.util.function.Function)
+    664:664:public static java8.util.stream.Collector counting()
+    683:683:public static java8.util.stream.Collector minBy(java.util.Comparator)
+    702:702:public static java8.util.stream.Collector maxBy(java.util.Comparator)
+    716:716:public static java8.util.stream.Collector summingInt(java8.util.function.ToIntFunction)
+    734:734:public static java8.util.stream.Collector summingLong(java8.util.function.ToLongFunction)
+    767:767:public static java8.util.stream.Collector summingDouble(java8.util.function.ToDoubleFunction)
+    791:796:static double[] sumWithCompensation(double[],double)
+    806:811:static double computeFinalSum(double[])
+    826:826:public static java8.util.stream.Collector averagingInt(java8.util.function.ToIntFunction)
+    844:844:public static java8.util.stream.Collector averagingLong(java8.util.function.ToLongFunction)
+    881:881:public static java8.util.stream.Collector averagingDouble(java8.util.function.ToDoubleFunction)
+    911:912:public static java8.util.stream.Collector reducing(java.lang.Object,java8.util.function.BinaryOperator)
+    921:921:private static java8.util.function.Supplier boxSupplier(java.lang.Object)
+    968:968:public static java8.util.stream.Collector reducing(java8.util.function.BinaryOperator)
+    1012:1013:public static java8.util.stream.Collector reducing(java.lang.Object,java8.util.function.Function,java8.util.function.BinaryOperator)
+    1058:1058:public static java8.util.stream.Collector groupingBy(java8.util.function.Function)
+    1106:1106:public static java8.util.stream.Collector groupingBy(java8.util.function.Function,java8.util.stream.Collector)
+    1157:1180:public static java8.util.stream.Collector groupingBy(java8.util.function.Function,java8.util.function.Supplier,java8.util.stream.Collector)
+    1220:1220:public static java8.util.stream.Collector groupingByConcurrent(java8.util.function.Function)
+    1264:1264:public static java8.util.stream.Collector groupingByConcurrent(java8.util.function.Function,java8.util.stream.Collector)
+    1311:1346:public static java8.util.stream.Collector groupingByConcurrent(java8.util.function.Function,java8.util.function.Supplier,java8.util.stream.Collector)
+    1367:1367:public static java8.util.stream.Collector partitioningBy(java8.util.function.Predicate)
+    1394:1411:public static java8.util.stream.Collector partitioningBy(java8.util.function.Predicate,java8.util.stream.Collector)
+    1472:1474:public static java8.util.stream.Collector toMap(java8.util.function.Function,java8.util.function.Function)
+    1537:1537:public static java8.util.stream.Collector toMap(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator)
+    1643:1645:public static java8.util.stream.Collector toConcurrentMap(java8.util.function.Function,java8.util.function.Function)
+    1703:1703:public static java8.util.stream.Collector toConcurrentMap(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator)
+    1745:1747:public static java8.util.stream.Collector toConcurrentMap(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator,java8.util.function.Supplier)
+    1764:1764:public static java8.util.stream.Collector summarizingInt(java8.util.function.ToIntFunction)
+    1784:1784:public static java8.util.stream.Collector summarizingLong(java8.util.function.ToLongFunction)
+    1804:1804:public static java8.util.stream.Collector summarizingDouble(java8.util.function.ToDoubleFunction)
+    1807:1807:private static synthetic java8.util.DoubleSummaryStatistics lambda$summarizingDouble$127(java8.util.DoubleSummaryStatistics,java8.util.DoubleSummaryStatistics)
+    1806:1806:private static synthetic void lambda$summarizingDouble$126(java8.util.function.ToDoubleFunction,java8.util.DoubleSummaryStatistics,java.lang.Object)
+    1787:1787:private static synthetic java8.util.LongSummaryStatistics lambda$summarizingLong$125(java8.util.LongSummaryStatistics,java8.util.LongSummaryStatistics)
+    1786:1786:private static synthetic void lambda$summarizingLong$124(java8.util.function.ToLongFunction,java8.util.LongSummaryStatistics,java.lang.Object)
+    1767:1767:private static synthetic java8.util.IntSummaryStatistics lambda$summarizingInt$123(java8.util.IntSummaryStatistics,java8.util.IntSummaryStatistics)
+    1766:1766:private static synthetic void lambda$summarizingInt$122(java8.util.function.ToIntFunction,java8.util.IntSummaryStatistics,java.lang.Object)
+    1746:1746:private static synthetic void lambda$toConcurrentMap$121(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator,java.util.concurrent.ConcurrentMap,java.lang.Object)
+    1409:1410:private static synthetic java.util.Map lambda$partitioningBy$119(java8.util.stream.Collector,java8.util.stream.Collectors$Partition)
+    1402:1403:private static synthetic java8.util.stream.Collectors$Partition lambda$partitioningBy$118(java8.util.stream.Collector)
+    1399:1400:private static synthetic java8.util.stream.Collectors$Partition lambda$partitioningBy$117(java8.util.function.BinaryOperator,java8.util.stream.Collectors$Partition,java8.util.stream.Collectors$Partition)
+    1396:1396:private static synthetic void lambda$partitioningBy$116(java8.util.function.BiConsumer,java8.util.function.Predicate,java8.util.stream.Collectors$Partition,java.lang.Object)
+    1341:1344:private static synthetic java.util.concurrent.ConcurrentMap lambda$groupingByConcurrent$115(java8.util.function.Function,java.util.concurrent.ConcurrentMap)
+    1341:1341:private static synthetic java.lang.Object lambda$null$114(java8.util.function.Function,java.lang.Object,java.lang.Object)
+    1326:1331:private static synthetic void lambda$groupingByConcurrent$113(java8.util.function.Function,java8.util.function.Supplier,java8.util.function.BiConsumer,java.util.concurrent.ConcurrentMap,java.lang.Object)
+    1327:1327:private static synthetic java.lang.Object lambda$null$112(java8.util.function.Supplier,java.lang.Object)
+    1319:1322:private static synthetic void lambda$groupingByConcurrent$111(java8.util.function.Function,java8.util.function.Supplier,java8.util.function.BiConsumer,java.util.concurrent.ConcurrentMap,java.lang.Object)
+    1320:1320:private static synthetic java.lang.Object lambda$null$110(java8.util.function.Supplier,java.lang.Object)
+    1175:1178:private static synthetic java.util.Map lambda$groupingBy$109(java8.util.function.Function,java.util.Map)
+    1175:1175:private static synthetic java.lang.Object lambda$null$108(java8.util.function.Function,java.lang.Object,java.lang.Object)
+    1160:1163:private static synthetic void lambda$groupingBy$107(java8.util.function.Function,java8.util.function.Supplier,java8.util.function.BiConsumer,java.util.Map,java.lang.Object)
+    1161:1161:private static synthetic java.lang.Object lambda$null$106(java8.util.function.Supplier,java.lang.Object)
+    1016:1016:private static synthetic java.lang.Object lambda$reducing$105(java.lang.Object[])
+    1015:1015:private static synthetic java.lang.Object[] lambda$reducing$104(java8.util.function.BinaryOperator,java.lang.Object[],java.lang.Object[])
+    1014:1014:private static synthetic void lambda$reducing$103(java8.util.function.BinaryOperator,java8.util.function.Function,java.lang.Object[],java.lang.Object)
+    971:971:private static synthetic java8.util.Optional lambda$reducing$102(java8.util.stream.Collectors$1OptionalBox)
+    970:970:private static synthetic java8.util.stream.Collectors$1OptionalBox lambda$reducing$101(java8.util.stream.Collectors$1OptionalBox,java8.util.stream.Collectors$1OptionalBox)
+    969:969:private static synthetic java8.util.stream.Collectors$1OptionalBox lambda$reducing$100(java8.util.function.BinaryOperator)
+    921:921:private static synthetic java.lang.Object[] lambda$boxSupplier$99(java.lang.Object)
+    915:915:private static synthetic java.lang.Object lambda$reducing$98(java.lang.Object[])
+    914:914:private static synthetic java.lang.Object[] lambda$reducing$97(java8.util.function.BinaryOperator,java.lang.Object[],java.lang.Object[])
+    913:913:private static synthetic void lambda$reducing$96(java8.util.function.BinaryOperator,java.lang.Object[],java.lang.Object)
+    885:885:private static synthetic java.lang.Double lambda$averagingDouble$95(double[])
+    884:884:private static synthetic double[] lambda$averagingDouble$94(double[],double[])
+    883:883:private static synthetic void lambda$averagingDouble$93(java8.util.function.ToDoubleFunction,double[],java.lang.Object)
+    882:882:private static synthetic double[] lambda$averagingDouble$92()
+    848:848:private static synthetic java.lang.Double lambda$averagingLong$91(long[])
+    847:847:private static synthetic long[] lambda$averagingLong$90(long[],long[])
+    846:846:private static synthetic void lambda$averagingLong$89(java8.util.function.ToLongFunction,long[],java.lang.Object)
+    845:845:private static synthetic long[] lambda$averagingLong$88()
+    830:830:private static synthetic java.lang.Double lambda$averagingInt$87(long[])
+    829:829:private static synthetic long[] lambda$averagingInt$86(long[],long[])
+    828:828:private static synthetic void lambda$averagingInt$85(java8.util.function.ToIntFunction,long[],java.lang.Object)
+    827:827:private static synthetic long[] lambda$averagingInt$84()
+    775:775:private static synthetic java.lang.Double lambda$summingDouble$83(double[])
+    772:774:private static synthetic double[] lambda$summingDouble$82(double[],double[])
+    769:771:private static synthetic void lambda$summingDouble$81(java8.util.function.ToDoubleFunction,double[],java.lang.Object)
+    768:768:private static synthetic double[] lambda$summingDouble$80()
+    738:738:private static synthetic java.lang.Long lambda$summingLong$79(long[])
+    737:737:private static synthetic long[] lambda$summingLong$78(long[],long[])
+    736:736:private static synthetic void lambda$summingLong$77(java8.util.function.ToLongFunction,long[],java.lang.Object)
+    735:735:private static synthetic long[] lambda$summingLong$76()
+    720:720:private static synthetic java.lang.Integer lambda$summingInt$75(int[])
+    719:719:private static synthetic int[] lambda$summingInt$74(int[],int[])
+    718:718:private static synthetic void lambda$summingInt$73(java8.util.function.ToIntFunction,int[],java.lang.Object)
+    717:717:private static synthetic int[] lambda$summingInt$72()
+    664:664:private static synthetic long lambda$counting$71(java.lang.Object)
+    603:606:private static synthetic void lambda$filtering$70(java8.util.function.Predicate,java8.util.function.BiConsumer,java.lang.Object,java.lang.Object)
+    545:559:private static synthetic void lambda$flatMapping$69(java8.util.function.Function,java8.util.function.BiConsumer,java.lang.Object,java.lang.Object)
+    549:549:private static synthetic void lambda$null$68(java8.util.function.BiConsumer,java.lang.Object,java.lang.Object)
+    501:501:private static synthetic void lambda$mapping$67(java8.util.function.BiConsumer,java8.util.function.Function,java.lang.Object,java.lang.Object)
+    464:467:private static synthetic java.util.concurrent.ConcurrentMap lambda$mapMergerConcurrent$66(java8.util.function.BinaryOperator,java.util.concurrent.ConcurrentMap,java.util.concurrent.ConcurrentMap)
+    401:401:private static synthetic java.lang.StringBuilder lambda$joining$63(java.lang.StringBuilder,java.lang.StringBuilder)
+    382:385:private static synthetic java.util.Set lambda$toSet$62(java.util.Set,java.util.Set)
+    343:343:private static synthetic java.util.Collection lambda$toCollection$60(java.util.Collection,java.util.Collection)
+    255:266:private static synthetic void lambda$uniqKeysMapAccumulator$58(java8.util.function.Function,java8.util.function.Function,java.util.Map,java.lang.Object)
+    222:235:private static synthetic java.util.Map lambda$uniqKeysMapMerger$57(java.util.Map,java.util.Map)
+    static synthetic java.util.Map access$lambda$0(java.util.Map,java.util.Map)
+    static synthetic void access$lambda$1(java8.util.function.Function,java8.util.function.Function,java.util.Map,java.lang.Object)
+    static synthetic java.util.Collection access$lambda$2(java.util.Collection,java.util.Collection)
+    static synthetic java.util.Set access$lambda$4(java.util.Set,java.util.Set)
+    static synthetic java.lang.StringBuilder access$lambda$5(java.lang.StringBuilder,java.lang.StringBuilder)
+    static synthetic java.util.concurrent.ConcurrentMap access$lambda$8(java8.util.function.BinaryOperator,java.util.concurrent.ConcurrentMap,java.util.concurrent.ConcurrentMap)
+    static synthetic void access$lambda$9(java8.util.function.BiConsumer,java8.util.function.Function,java.lang.Object,java.lang.Object)
+    static synthetic void access$lambda$10(java8.util.function.Function,java8.util.function.BiConsumer,java.lang.Object,java.lang.Object)
+    static synthetic void access$lambda$11(java8.util.function.Predicate,java8.util.function.BiConsumer,java.lang.Object,java.lang.Object)
+    static synthetic long access$lambda$12(java.lang.Object)
+    static synthetic int[] access$lambda$13()
+    static synthetic void access$lambda$14(java8.util.function.ToIntFunction,int[],java.lang.Object)
+    static synthetic int[] access$lambda$15(int[],int[])
+    static synthetic java.lang.Integer access$lambda$16(int[])
+    static synthetic long[] access$lambda$17()
+    static synthetic void access$lambda$18(java8.util.function.ToLongFunction,long[],java.lang.Object)
+    static synthetic long[] access$lambda$19(long[],long[])
+    static synthetic java.lang.Long access$lambda$20(long[])
+    static synthetic double[] access$lambda$21()
+    static synthetic void access$lambda$22(java8.util.function.ToDoubleFunction,double[],java.lang.Object)
+    static synthetic double[] access$lambda$23(double[],double[])
+    static synthetic java.lang.Double access$lambda$24(double[])
+    static synthetic long[] access$lambda$25()
+    static synthetic void access$lambda$26(java8.util.function.ToIntFunction,long[],java.lang.Object)
+    static synthetic long[] access$lambda$27(long[],long[])
+    static synthetic java.lang.Double access$lambda$28(long[])
+    static synthetic long[] access$lambda$29()
+    static synthetic void access$lambda$30(java8.util.function.ToLongFunction,long[],java.lang.Object)
+    static synthetic long[] access$lambda$31(long[],long[])
+    static synthetic java.lang.Double access$lambda$32(long[])
+    static synthetic double[] access$lambda$33()
+    static synthetic void access$lambda$34(java8.util.function.ToDoubleFunction,double[],java.lang.Object)
+    static synthetic double[] access$lambda$35(double[],double[])
+    static synthetic java.lang.Double access$lambda$36(double[])
+    static synthetic void access$lambda$37(java8.util.function.BinaryOperator,java.lang.Object[],java.lang.Object)
+    static synthetic java.lang.Object[] access$lambda$38(java8.util.function.BinaryOperator,java.lang.Object[],java.lang.Object[])
+    static synthetic java.lang.Object access$lambda$39(java.lang.Object[])
+    static synthetic java.lang.Object[] access$lambda$40(java.lang.Object)
+    static synthetic java8.util.stream.Collectors$1OptionalBox access$lambda$41(java8.util.function.BinaryOperator)
+    static synthetic java8.util.stream.Collectors$1OptionalBox access$lambda$42(java8.util.stream.Collectors$1OptionalBox,java8.util.stream.Collectors$1OptionalBox)
+    static synthetic java8.util.Optional access$lambda$43(java8.util.stream.Collectors$1OptionalBox)
+    static synthetic void access$lambda$44(java8.util.function.BinaryOperator,java8.util.function.Function,java.lang.Object[],java.lang.Object)
+    static synthetic java.lang.Object[] access$lambda$45(java8.util.function.BinaryOperator,java.lang.Object[],java.lang.Object[])
+    static synthetic java.lang.Object access$lambda$46(java.lang.Object[])
+    static synthetic void access$lambda$47(java8.util.function.Function,java8.util.function.Supplier,java8.util.function.BiConsumer,java.util.Map,java.lang.Object)
+    static synthetic java.util.Map access$lambda$48(java8.util.function.Function,java.util.Map)
+    static synthetic void access$lambda$49(java8.util.function.Function,java8.util.function.Supplier,java8.util.function.BiConsumer,java.util.concurrent.ConcurrentMap,java.lang.Object)
+    static synthetic void access$lambda$50(java8.util.function.Function,java8.util.function.Supplier,java8.util.function.BiConsumer,java.util.concurrent.ConcurrentMap,java.lang.Object)
+    static synthetic java.util.concurrent.ConcurrentMap access$lambda$51(java8.util.function.Function,java.util.concurrent.ConcurrentMap)
+    static synthetic void access$lambda$52(java8.util.function.BiConsumer,java8.util.function.Predicate,java8.util.stream.Collectors$Partition,java.lang.Object)
+    static synthetic java8.util.stream.Collectors$Partition access$lambda$53(java8.util.function.BinaryOperator,java8.util.stream.Collectors$Partition,java8.util.stream.Collectors$Partition)
+    static synthetic java8.util.stream.Collectors$Partition access$lambda$54(java8.util.stream.Collector)
+    static synthetic java.util.Map access$lambda$55(java8.util.stream.Collector,java8.util.stream.Collectors$Partition)
+    static synthetic void access$lambda$57(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator,java.util.concurrent.ConcurrentMap,java.lang.Object)
+    static synthetic void access$lambda$58(java8.util.function.ToIntFunction,java8.util.IntSummaryStatistics,java.lang.Object)
+    static synthetic java8.util.IntSummaryStatistics access$lambda$59(java8.util.IntSummaryStatistics,java8.util.IntSummaryStatistics)
+    static synthetic void access$lambda$60(java8.util.function.ToLongFunction,java8.util.LongSummaryStatistics,java.lang.Object)
+    static synthetic java8.util.LongSummaryStatistics access$lambda$61(java8.util.LongSummaryStatistics,java8.util.LongSummaryStatistics)
+    static synthetic void access$lambda$62(java8.util.function.ToDoubleFunction,java8.util.DoubleSummaryStatistics,java.lang.Object)
+    static synthetic java8.util.DoubleSummaryStatistics access$lambda$63(java8.util.DoubleSummaryStatistics,java8.util.DoubleSummaryStatistics)
+    static synthetic java.lang.Object access$lambda$64(java8.util.function.Function,java.lang.Object,java.lang.Object)
+    static synthetic java.lang.Object access$lambda$65(java8.util.function.Supplier,java.lang.Object)
+    static synthetic java.lang.Object access$lambda$66(java8.util.function.Supplier,java.lang.Object)
+    static synthetic java.lang.Object access$lambda$67(java8.util.function.Function,java.lang.Object,java.lang.Object)
+    static synthetic java.lang.Object access$lambda$68(java8.util.function.Supplier,java.lang.Object)
+    static synthetic void access$lambda$69(java8.util.function.BiConsumer,java.lang.Object,java.lang.Object)
+java8.util.stream.Collectors$$Lambda$1
+java8.util.stream.Collectors$$Lambda$10
+java8.util.stream.Collectors$$Lambda$11
+java8.util.stream.Collectors$$Lambda$12
+java8.util.stream.Collectors$$Lambda$13
+java8.util.stream.Collectors$$Lambda$14
+java8.util.stream.Collectors$$Lambda$15:
+    private static java8.util.function.Supplier get$Lambda(java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence)
+java8.util.stream.Collectors$$Lambda$19:
+    private static java8.util.function.BinaryOperator get$Lambda(java8.util.function.BinaryOperator)
+java8.util.stream.Collectors$$Lambda$2
+java8.util.stream.Collectors$$Lambda$20
+java8.util.stream.Collectors$$Lambda$21
+java8.util.stream.Collectors$$Lambda$22
+java8.util.stream.Collectors$$Lambda$23
+java8.util.stream.Collectors$$Lambda$24
+java8.util.stream.Collectors$$Lambda$25
+java8.util.stream.Collectors$$Lambda$26
+java8.util.stream.Collectors$$Lambda$27
+java8.util.stream.Collectors$$Lambda$28
+java8.util.stream.Collectors$$Lambda$29
+java8.util.stream.Collectors$$Lambda$3
+java8.util.stream.Collectors$$Lambda$30
+java8.util.stream.Collectors$$Lambda$31
+java8.util.stream.Collectors$$Lambda$32
+java8.util.stream.Collectors$$Lambda$33
+java8.util.stream.Collectors$$Lambda$34
+java8.util.stream.Collectors$$Lambda$35
+java8.util.stream.Collectors$$Lambda$36
+java8.util.stream.Collectors$$Lambda$37
+java8.util.stream.Collectors$$Lambda$38
+java8.util.stream.Collectors$$Lambda$39
+java8.util.stream.Collectors$$Lambda$4
+java8.util.stream.Collectors$$Lambda$40
+java8.util.stream.Collectors$$Lambda$41
+java8.util.stream.Collectors$$Lambda$42
+java8.util.stream.Collectors$$Lambda$43
+java8.util.stream.Collectors$$Lambda$44
+java8.util.stream.Collectors$$Lambda$45
+java8.util.stream.Collectors$$Lambda$46
+java8.util.stream.Collectors$$Lambda$47
+java8.util.stream.Collectors$$Lambda$48
+java8.util.stream.Collectors$$Lambda$49
+java8.util.stream.Collectors$$Lambda$50
+java8.util.stream.Collectors$$Lambda$51
+java8.util.stream.Collectors$$Lambda$52
+java8.util.stream.Collectors$$Lambda$53
+java8.util.stream.Collectors$$Lambda$54
+java8.util.stream.Collectors$$Lambda$55
+java8.util.stream.Collectors$$Lambda$56
+java8.util.stream.Collectors$$Lambda$57
+java8.util.stream.Collectors$$Lambda$58
+java8.util.stream.Collectors$$Lambda$59
+java8.util.stream.Collectors$$Lambda$60
+java8.util.stream.Collectors$$Lambda$61
+java8.util.stream.Collectors$$Lambda$62
+java8.util.stream.Collectors$$Lambda$63
+java8.util.stream.Collectors$$Lambda$64
+java8.util.stream.Collectors$$Lambda$65
+java8.util.stream.Collectors$$Lambda$66
+java8.util.stream.Collectors$$Lambda$67
+java8.util.stream.Collectors$$Lambda$68
+java8.util.stream.Collectors$$Lambda$69
+java8.util.stream.Collectors$$Lambda$70
+java8.util.stream.Collectors$$Lambda$71
+java8.util.stream.Collectors$$Lambda$72
+java8.util.stream.Collectors$$Lambda$73
+java8.util.stream.Collectors$$Lambda$74:
+    private static java8.util.function.BiConsumer get$Lambda(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator)
+java8.util.stream.Collectors$$Lambda$75
+java8.util.stream.Collectors$$Lambda$76
+java8.util.stream.Collectors$$Lambda$77
+java8.util.stream.Collectors$$Lambda$78
+java8.util.stream.Collectors$$Lambda$79
+java8.util.stream.Collectors$$Lambda$8
+java8.util.stream.Collectors$$Lambda$80
+java8.util.stream.Collectors$$Lambda$81
+java8.util.stream.Collectors$$Lambda$82
+java8.util.stream.Collectors$$Lambda$83
+java8.util.stream.Collectors$$Lambda$84
+java8.util.stream.Collectors$$Lambda$85
+java8.util.stream.Collectors$$Lambda$86
+java8.util.stream.Collectors$$Lambda$87
+java8.util.stream.Collectors$$Lambda$88
+java8.util.stream.Collectors$$Lambda$89
+java8.util.stream.Collectors$$Lambda$9
+java8.util.stream.Collectors$$Lambda$90
+java8.util.stream.Collectors$$Lambda$91
+java8.util.stream.Collectors$$Lambda$92
+java8.util.stream.Collectors$1OptionalBox
+java8.util.stream.Collectors$Partition
+java8.util.stream.Collectors$Partition$1
+java8.util.stream.DistinctOps
+java8.util.stream.DistinctOps$1
+java8.util.stream.DistinctOps$1$$Lambda$1
+java8.util.stream.DistinctOps$1$$Lambda$2
+java8.util.stream.DistinctOps$1$$Lambda$3
+java8.util.stream.DistinctOps$1$$Lambda$4
+java8.util.stream.DistinctOps$1$1
+java8.util.stream.DistinctOps$1$2
+java8.util.stream.DistinctOps$KeysAndNullSet
+java8.util.stream.DistinctOps$KeysAndNullSet$1
+java8.util.stream.DoublePipeline
+java8.util.stream.DoublePipeline$$Lambda$1
+java8.util.stream.DoublePipeline$$Lambda$10
+java8.util.stream.DoublePipeline$$Lambda$11
+java8.util.stream.DoublePipeline$$Lambda$12
+java8.util.stream.DoublePipeline$$Lambda$13
+java8.util.stream.DoublePipeline$$Lambda$14
+java8.util.stream.DoublePipeline$$Lambda$15
+java8.util.stream.DoublePipeline$$Lambda$16
+java8.util.stream.DoublePipeline$$Lambda$2
+java8.util.stream.DoublePipeline$$Lambda$3
+java8.util.stream.DoublePipeline$$Lambda$4
+java8.util.stream.DoublePipeline$$Lambda$5
+java8.util.stream.DoublePipeline$$Lambda$6
+java8.util.stream.DoublePipeline$$Lambda$7
+java8.util.stream.DoublePipeline$$Lambda$8
+java8.util.stream.DoublePipeline$$Lambda$9
+java8.util.stream.DoublePipeline$1
+java8.util.stream.DoublePipeline$1$1
+java8.util.stream.DoublePipeline$2
+java8.util.stream.DoublePipeline$2$1
+java8.util.stream.DoublePipeline$3
+java8.util.stream.DoublePipeline$3$1
+java8.util.stream.DoublePipeline$4
+java8.util.stream.DoublePipeline$4$1
+java8.util.stream.DoublePipeline$5
+java8.util.stream.DoublePipeline$5$1
+java8.util.stream.DoublePipeline$5$1$$Lambda$1
+java8.util.stream.DoublePipeline$6
+java8.util.stream.DoublePipeline$7
+java8.util.stream.DoublePipeline$7$1
+java8.util.stream.DoublePipeline$8
+java8.util.stream.DoublePipeline$8$1
+java8.util.stream.DoublePipeline$Head
+java8.util.stream.DoublePipeline$StatefulOp
+java8.util.stream.DoublePipeline$StatelessOp
+java8.util.stream.DoubleStream
+java8.util.stream.DoubleStream$Builder
+java8.util.stream.DoubleStreams
+java8.util.stream.DoubleStreams$$Lambda$1
+java8.util.stream.DoubleStreams$$Lambda$2
+java8.util.stream.DoubleStreams$1
+java8.util.stream.DoubleStreams$2
+java8.util.stream.FindOps:
+    47:47:private FindOps()
+    70:70:public static java8.util.stream.TerminalOp makeInt(boolean)
+    82:82:public static java8.util.stream.TerminalOp makeLong(boolean)
+    94:94:public static java8.util.stream.TerminalOp makeDouble(boolean)
+java8.util.stream.FindOps$$Lambda$3
+java8.util.stream.FindOps$$Lambda$4
+java8.util.stream.FindOps$$Lambda$5
+java8.util.stream.FindOps$$Lambda$6
+java8.util.stream.FindOps$$Lambda$7
+java8.util.stream.FindOps$$Lambda$8
+java8.util.stream.FindOps$FindOp:
+    146:146:public java8.util.stream.StreamShape inputShape()
+java8.util.stream.FindOps$FindSink:
+    202:203:public void accept(int)
+    207:208:public void accept(long)
+    212:213:public void accept(double)
+java8.util.stream.FindOps$FindSink$OfDouble
+java8.util.stream.FindOps$FindSink$OfInt
+java8.util.stream.FindOps$FindSink$OfLong
+java8.util.stream.ForEachOps:
+    60:60:private ForEachOps()
+    89:90:public static java8.util.stream.TerminalOp makeInt(java8.util.function.IntConsumer,boolean)
+    104:105:public static java8.util.stream.TerminalOp makeLong(java8.util.function.LongConsumer,boolean)
+    119:120:public static java8.util.stream.TerminalOp makeDouble(java8.util.function.DoubleConsumer,boolean)
+java8.util.stream.ForEachOps$ForEachOp:
+    160:161:public void accept(int)
+    165:166:public void accept(long)
+    170:171:public void accept(double)
+    175:175:public java8.util.stream.StreamShape inputShape()
+java8.util.stream.ForEachOps$ForEachOp$OfDouble
+java8.util.stream.ForEachOps$ForEachOp$OfInt
+java8.util.stream.ForEachOps$ForEachOp$OfLong
+java8.util.stream.IntPipeline
+java8.util.stream.IntPipeline$$Lambda$1
+java8.util.stream.IntPipeline$$Lambda$10
+java8.util.stream.IntPipeline$$Lambda$11
+java8.util.stream.IntPipeline$$Lambda$12
+java8.util.stream.IntPipeline$$Lambda$13
+java8.util.stream.IntPipeline$$Lambda$14
+java8.util.stream.IntPipeline$$Lambda$2
+java8.util.stream.IntPipeline$$Lambda$3
+java8.util.stream.IntPipeline$$Lambda$4
+java8.util.stream.IntPipeline$$Lambda$5
+java8.util.stream.IntPipeline$$Lambda$6
+java8.util.stream.IntPipeline$$Lambda$7
+java8.util.stream.IntPipeline$$Lambda$8
+java8.util.stream.IntPipeline$$Lambda$9
+java8.util.stream.IntPipeline$1
+java8.util.stream.IntPipeline$1$1
+java8.util.stream.IntPipeline$10
+java8.util.stream.IntPipeline$10$1
+java8.util.stream.IntPipeline$2
+java8.util.stream.IntPipeline$2$1
+java8.util.stream.IntPipeline$3
+java8.util.stream.IntPipeline$3$1
+java8.util.stream.IntPipeline$4
+java8.util.stream.IntPipeline$4$1
+java8.util.stream.IntPipeline$5
+java8.util.stream.IntPipeline$5$1
+java8.util.stream.IntPipeline$6
+java8.util.stream.IntPipeline$6$1
+java8.util.stream.IntPipeline$7
+java8.util.stream.IntPipeline$7$1
+java8.util.stream.IntPipeline$7$1$$Lambda$1
+java8.util.stream.IntPipeline$8
+java8.util.stream.IntPipeline$9
+java8.util.stream.IntPipeline$9$1
+java8.util.stream.IntPipeline$Head
+java8.util.stream.IntPipeline$StatefulOp
+java8.util.stream.IntPipeline$StatelessOp
+java8.util.stream.IntStream
+java8.util.stream.IntStream$Builder
+java8.util.stream.IntStreams
+java8.util.stream.IntStreams$$Lambda$1
+java8.util.stream.IntStreams$$Lambda$2
+java8.util.stream.IntStreams$1
+java8.util.stream.IntStreams$2
+java8.util.stream.LongPipeline
+java8.util.stream.LongPipeline$$Lambda$1
+java8.util.stream.LongPipeline$$Lambda$10
+java8.util.stream.LongPipeline$$Lambda$11
+java8.util.stream.LongPipeline$$Lambda$12
+java8.util.stream.LongPipeline$$Lambda$13
+java8.util.stream.LongPipeline$$Lambda$14
+java8.util.stream.LongPipeline$$Lambda$2
+java8.util.stream.LongPipeline$$Lambda$3
+java8.util.stream.LongPipeline$$Lambda$4
+java8.util.stream.LongPipeline$$Lambda$5
+java8.util.stream.LongPipeline$$Lambda$6
+java8.util.stream.LongPipeline$$Lambda$7
+java8.util.stream.LongPipeline$$Lambda$8
+java8.util.stream.LongPipeline$$Lambda$9
+java8.util.stream.LongPipeline$1
+java8.util.stream.LongPipeline$1$1
+java8.util.stream.LongPipeline$2
+java8.util.stream.LongPipeline$2$1
+java8.util.stream.LongPipeline$3
+java8.util.stream.LongPipeline$3$1
+java8.util.stream.LongPipeline$4
+java8.util.stream.LongPipeline$4$1
+java8.util.stream.LongPipeline$5
+java8.util.stream.LongPipeline$5$1
+java8.util.stream.LongPipeline$6
+java8.util.stream.LongPipeline$6$1
+java8.util.stream.LongPipeline$6$1$$Lambda$1
+java8.util.stream.LongPipeline$7
+java8.util.stream.LongPipeline$8
+java8.util.stream.LongPipeline$8$1
+java8.util.stream.LongPipeline$9
+java8.util.stream.LongPipeline$9$1
+java8.util.stream.LongPipeline$Head
+java8.util.stream.LongPipeline$StatefulOp
+java8.util.stream.LongPipeline$StatelessOp
+java8.util.stream.LongStream
+java8.util.stream.LongStream$Builder
+java8.util.stream.LongStreams
+java8.util.stream.LongStreams$$Lambda$1
+java8.util.stream.LongStreams$$Lambda$2
+java8.util.stream.LongStreams$1
+java8.util.stream.LongStreams$2
+java8.util.stream.MatchOps
+java8.util.stream.MatchOps$$Lambda$1
+java8.util.stream.MatchOps$$Lambda$2
+java8.util.stream.MatchOps$$Lambda$3
+java8.util.stream.MatchOps$$Lambda$4
+java8.util.stream.MatchOps$1MatchSink
+java8.util.stream.MatchOps$2MatchSink
+java8.util.stream.MatchOps$3MatchSink
+java8.util.stream.MatchOps$4MatchSink
+java8.util.stream.MatchOps$BooleanTerminalSink
+java8.util.stream.MatchOps$MatchKind
+java8.util.stream.MatchOps$MatchOp
+java8.util.stream.MatchOps$MatchTask
+java8.util.stream.Node:
+    public abstract java8.util.stream.StreamShape getShape()
+    public abstract java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+java8.util.stream.Node$Builder$OfDouble
+java8.util.stream.Node$Builder$OfInt
+java8.util.stream.Node$Builder$OfLong
+java8.util.stream.Node$OfDouble:
+    public abstract void forEach(java8.util.function.Consumer)
+    public abstract void copyInto(java.lang.Double[],int)
+    public abstract java8.util.stream.Node$OfDouble truncate(long,long,java8.util.function.IntFunction)
+    public abstract double[] newArray(int)
+    public abstract java8.util.stream.StreamShape getShape()
+java8.util.stream.Node$OfInt:
+    public abstract void forEach(java8.util.function.Consumer)
+    public abstract void copyInto(java.lang.Integer[],int)
+    public abstract java8.util.stream.Node$OfInt truncate(long,long,java8.util.function.IntFunction)
+    public abstract int[] newArray(int)
+    public abstract java8.util.stream.StreamShape getShape()
+java8.util.stream.Node$OfLong:
+    public abstract void forEach(java8.util.function.Consumer)
+    public abstract void copyInto(java.lang.Long[],int)
+    public abstract java8.util.stream.Node$OfLong truncate(long,long,java8.util.function.IntFunction)
+    public abstract long[] newArray(int)
+    public abstract java8.util.stream.StreamShape getShape()
+java8.util.stream.Node$OfPrimitive:
+    public abstract java8.util.stream.Node$OfPrimitive getChild(int)
+    public abstract java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
+    public abstract java.lang.Object[] asArray(java8.util.function.IntFunction)
+    public abstract java.lang.Object newArray(int)
+    public abstract void copyInto(java.lang.Object,int)
+java8.util.stream.Nodes:
+    static final long MAX_ARRAY_SIZE
+    static final java.lang.String BAD_SIZE
+    55:56:private Nodes()
+    82:82:static java8.util.stream.StreamShape getShape(java8.util.stream.Node)
+    125:139:static java8.util.stream.Node truncate(java8.util.stream.Node,long,long,java8.util.function.IntFunction)
+    371:371:static java8.util.function.IntFunction castingArray()
+    385:391:static java8.util.stream.Node emptyNode(java8.util.stream.StreamShape)
+    416:426:static java8.util.stream.Node conc(java8.util.stream.StreamShape,java8.util.stream.Node,java8.util.stream.Node)
+    455:455:static java8.util.stream.Node node(java.util.Collection)
+    495:495:static java8.util.stream.Node$OfInt node(int[])
+    507:509:static java8.util.stream.Node$Builder$OfInt intBuilder(long)
+    518:518:static java8.util.stream.Node$Builder$OfInt intBuilder()
+    532:532:static java8.util.stream.Node$OfLong node(long[])
+    544:546:static java8.util.stream.Node$Builder$OfLong longBuilder(long)
+    555:555:static java8.util.stream.Node$Builder$OfLong longBuilder()
+    569:569:static java8.util.stream.Node$OfDouble node(double[])
+    581:583:static java8.util.stream.Node$Builder$OfDouble doubleBuilder(long)
+    592:592:static java8.util.stream.Node$Builder$OfDouble doubleBuilder()
+    659:669:public static java8.util.stream.Node$OfInt collectInt(java8.util.stream.PipelineHelper,java8.util.Spliterator,boolean)
+    697:707:public static java8.util.stream.Node$OfLong collectLong(java8.util.stream.PipelineHelper,java8.util.Spliterator,boolean)
+    735:745:public static java8.util.stream.Node$OfDouble collectDouble(java8.util.stream.PipelineHelper,java8.util.Spliterator,boolean)
+    793:801:public static java8.util.stream.Node$OfInt flattenInt(java8.util.stream.Node$OfInt)
+    819:827:public static java8.util.stream.Node$OfLong flattenLong(java8.util.stream.Node$OfLong)
+    845:853:public static java8.util.stream.Node$OfDouble flattenDouble(java8.util.stream.Node$OfDouble)
+    371:371:private static synthetic java.lang.Object[] lambda$castingArray$55(int)
+    132:132:private static synthetic void lambda$truncate$51(java.lang.Object)
+    static synthetic void access$lambda$0(java.lang.Object)
+    static synthetic java.lang.Object[] access$lambda$1(int)
+java8.util.stream.Nodes$$Lambda$1
+java8.util.stream.Nodes$$Lambda$2
+java8.util.stream.Nodes$AbstractConcNode:
+    1210:1210:public java8.util.stream.StreamShape getShape()
+java8.util.stream.Nodes$ArrayNode:
+    1063:1063:public java8.util.stream.StreamShape getShape()
+    1078:1078:public java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+java8.util.stream.Nodes$CollectionNode
+java8.util.stream.Nodes$CollectorTask$OfDouble
+java8.util.stream.Nodes$CollectorTask$OfDouble$$Lambda$1
+java8.util.stream.Nodes$CollectorTask$OfDouble$$Lambda$2
+java8.util.stream.Nodes$CollectorTask$OfInt
+java8.util.stream.Nodes$CollectorTask$OfInt$$Lambda$1
+java8.util.stream.Nodes$CollectorTask$OfInt$$Lambda$2
+java8.util.stream.Nodes$CollectorTask$OfLong
+java8.util.stream.Nodes$CollectorTask$OfLong$$Lambda$1
+java8.util.stream.Nodes$CollectorTask$OfLong$$Lambda$2
+java8.util.stream.Nodes$CollectorTask$OfRef$$Lambda$1:
+    private static java8.util.function.LongFunction get$Lambda(java8.util.function.IntFunction)
+java8.util.stream.Nodes$ConcNode:
+    1266:1275:public java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+java8.util.stream.Nodes$ConcNode$OfDouble
+java8.util.stream.Nodes$ConcNode$OfInt
+java8.util.stream.Nodes$ConcNode$OfLong
+java8.util.stream.Nodes$ConcNode$OfPrimitive
+java8.util.stream.Nodes$DoubleArrayNode
+java8.util.stream.Nodes$DoubleFixedNodeBuilder
+java8.util.stream.Nodes$DoubleSpinedNodeBuilder
+java8.util.stream.Nodes$EmptyNode:
+    876:876:public java8.util.stream.StreamShape getShape()
+    891:891:public java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+java8.util.stream.Nodes$EmptyNode$OfDouble:
+    1012:1012:public java8.util.stream.Node$OfDouble truncate(long,long,java8.util.function.IntFunction)
+    1032:1032:public double[] newArray(int)
+    993:993:public bridge synthetic java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+    993:993:public bridge synthetic java.lang.Object newArray(int)
+    993:993:public bridge synthetic java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
+    993:993:public bridge synthetic java8.util.stream.Node$OfPrimitive getChild(int)
+java8.util.stream.Nodes$EmptyNode$OfInt:
+    931:931:public java8.util.stream.Node$OfInt truncate(long,long,java8.util.function.IntFunction)
+    946:946:public int[] newArray(int)
+    907:907:public bridge synthetic java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+    907:907:public bridge synthetic java.lang.Object newArray(int)
+    907:907:public bridge synthetic java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
+    907:907:public bridge synthetic java8.util.stream.Node$OfPrimitive getChild(int)
+java8.util.stream.Nodes$EmptyNode$OfLong:
+    974:974:public java8.util.stream.Node$OfLong truncate(long,long,java8.util.function.IntFunction)
+    989:989:public long[] newArray(int)
+    950:950:public bridge synthetic java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+    950:950:public bridge synthetic java.lang.Object newArray(int)
+    950:950:public bridge synthetic java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
+    950:950:public bridge synthetic java8.util.stream.Node$OfPrimitive getChild(int)
+java8.util.stream.Nodes$FixedNodeBuilder:
+    1818:1819:public void accept(int)
+    1823:1824:public void accept(long)
+    1828:1829:public void accept(double)
+java8.util.stream.Nodes$IntArrayNode
+java8.util.stream.Nodes$IntFixedNodeBuilder
+java8.util.stream.Nodes$IntSpinedNodeBuilder
+java8.util.stream.Nodes$InternalNodeSpliterator$OfDouble
+java8.util.stream.Nodes$InternalNodeSpliterator$OfInt
+java8.util.stream.Nodes$InternalNodeSpliterator$OfLong
+java8.util.stream.Nodes$InternalNodeSpliterator$OfPrimitive
+java8.util.stream.Nodes$LongArrayNode
+java8.util.stream.Nodes$LongFixedNodeBuilder
+java8.util.stream.Nodes$LongSpinedNodeBuilder
+java8.util.stream.Nodes$OfDouble:
+    164:177:static java8.util.stream.Node$OfDouble truncate(java8.util.stream.Node$OfDouble,long,long,java8.util.function.IntFunction)
+    213:213:static double[] newArray(java8.util.stream.Node$OfDouble,int)
+    223:223:static java8.util.stream.StreamShape getShape(java8.util.stream.Node$OfDouble)
+    226:227:private Nodes$OfDouble()
+    170:170:private static synthetic void lambda$truncate$52(double)
+    static synthetic void access$lambda$0(double)
+java8.util.stream.Nodes$OfDouble$$Lambda$1
+java8.util.stream.Nodes$OfInt:
+    301:314:static java8.util.stream.Node$OfInt truncate(java8.util.stream.Node$OfInt,long,long,java8.util.function.IntFunction)
+    350:350:static int[] newArray(java8.util.stream.Node$OfInt,int)
+    359:359:static java8.util.stream.StreamShape getShape(java8.util.stream.Node$OfInt)
+    362:363:private Nodes$OfInt()
+    307:307:private static synthetic void lambda$truncate$54(int)
+    static synthetic void access$lambda$0(int)
+java8.util.stream.Nodes$OfInt$$Lambda$1
+java8.util.stream.Nodes$OfLong:
+    233:246:static java8.util.stream.Node$OfLong truncate(java8.util.stream.Node$OfLong,long,long,java8.util.function.IntFunction)
+    282:282:static long[] newArray(java8.util.stream.Node$OfLong,int)
+    291:291:static java8.util.stream.StreamShape getShape(java8.util.stream.Node$OfLong)
+    294:295:private Nodes$OfLong()
+    239:239:private static synthetic void lambda$truncate$53(long)
+    static synthetic void access$lambda$0(long)
+java8.util.stream.Nodes$OfLong$$Lambda$1
+java8.util.stream.Nodes$OfPrimitive:
+    148:154:static java.lang.Object[] asArray(java8.util.stream.Node$OfPrimitive,java8.util.function.IntFunction)
+    157:158:private Nodes$OfPrimitive()
+java8.util.stream.Nodes$SizedCollectorTask:
+    2836:2837:public void accept(int)
+    2841:2842:public void accept(long)
+    2846:2847:public void accept(double)
+java8.util.stream.Nodes$SizedCollectorTask$OfDouble
+java8.util.stream.Nodes$SizedCollectorTask$OfInt
+java8.util.stream.Nodes$SizedCollectorTask$OfLong
+java8.util.stream.Nodes$SpinedNodeBuilder:
+    1864:1864:public java8.util.stream.StreamShape getShape()
+    1879:1879:public java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+    1901:1902:public void accept(int)
+    1906:1907:public void accept(long)
+    1911:1912:public void accept(double)
+java8.util.stream.Nodes$ToArrayTask$OfDouble
+java8.util.stream.Nodes$ToArrayTask$OfInt
+java8.util.stream.Nodes$ToArrayTask$OfLong
+java8.util.stream.Nodes$ToArrayTask$OfPrimitive
+java8.util.stream.PipelineHelper:
+    abstract java8.util.stream.StreamShape getSourceShape()
+    abstract java8.util.stream.SinkConsumer wrapAndCopyInto(java8.util.stream.SinkConsumer,java8.util.Spliterator)
+    abstract java8.util.stream.Sink wrapSink(java8.util.stream.SinkConsumer)
+    abstract java8.util.Spliterator wrapSpliterator(java8.util.Spliterator)
+java8.util.stream.ReduceOps:
+    53:53:private ReduceOps()
+    70:112:public static java8.util.stream.TerminalOp makeRef(java.lang.Object,java8.util.function.BiFunction,java8.util.function.BinaryOperator)
+    130:186:public static java8.util.stream.TerminalOp makeRef(java8.util.function.BinaryOperator)
+    280:324:public static java8.util.stream.TerminalOp makeRef(java8.util.function.Supplier,java8.util.function.BiConsumer,java8.util.function.BiConsumer)
+    344:344:public static java8.util.stream.TerminalOp makeRefCounting()
+    381:430:public static java8.util.stream.TerminalOp makeInt(int,java8.util.function.IntBinaryOperator)
+    447:504:public static java8.util.stream.TerminalOp makeInt(java8.util.function.IntBinaryOperator)
+    527:571:public static java8.util.stream.TerminalOp makeInt(java8.util.function.Supplier,java8.util.function.ObjIntConsumer,java8.util.function.BinaryOperator)
+    590:590:public static java8.util.stream.TerminalOp makeIntCounting()
+    627:676:public static java8.util.stream.TerminalOp makeLong(long,java8.util.function.LongBinaryOperator)
+    693:750:public static java8.util.stream.TerminalOp makeLong(java8.util.function.LongBinaryOperator)
+    773:817:public static java8.util.stream.TerminalOp makeLong(java8.util.function.Supplier,java8.util.function.ObjLongConsumer,java8.util.function.BinaryOperator)
+    836:836:public static java8.util.stream.TerminalOp makeLongCounting()
+    873:922:public static java8.util.stream.TerminalOp makeDouble(double,java8.util.function.DoubleBinaryOperator)
+    939:996:public static java8.util.stream.TerminalOp makeDouble(java8.util.function.DoubleBinaryOperator)
+    1019:1063:public static java8.util.stream.TerminalOp makeDouble(java8.util.function.Supplier,java8.util.function.ObjDoubleConsumer,java8.util.function.BinaryOperator)
+    1082:1082:public static java8.util.stream.TerminalOp makeDoubleCounting()
+java8.util.stream.ReduceOps$1
+java8.util.stream.ReduceOps$10
+java8.util.stream.ReduceOps$10ReducingSink
+java8.util.stream.ReduceOps$11
+java8.util.stream.ReduceOps$11ReducingSink
+java8.util.stream.ReduceOps$12
+java8.util.stream.ReduceOps$12ReducingSink
+java8.util.stream.ReduceOps$13
+java8.util.stream.ReduceOps$13ReducingSink
+java8.util.stream.ReduceOps$14
+java8.util.stream.ReduceOps$15
+java8.util.stream.ReduceOps$16
+java8.util.stream.ReduceOps$17
+java8.util.stream.ReduceOps$1ReducingSink
+java8.util.stream.ReduceOps$2
+java8.util.stream.ReduceOps$2ReducingSink
+java8.util.stream.ReduceOps$3ReducingSink:
+    231:232:public void accept(int)
+    236:237:public void accept(long)
+    241:242:public void accept(double)
+java8.util.stream.ReduceOps$4
+java8.util.stream.ReduceOps$4ReducingSink
+java8.util.stream.ReduceOps$5
+java8.util.stream.ReduceOps$5ReducingSink
+java8.util.stream.ReduceOps$6
+java8.util.stream.ReduceOps$6ReducingSink
+java8.util.stream.ReduceOps$7
+java8.util.stream.ReduceOps$7ReducingSink
+java8.util.stream.ReduceOps$8
+java8.util.stream.ReduceOps$8ReducingSink
+java8.util.stream.ReduceOps$9
+java8.util.stream.ReduceOps$9ReducingSink
+java8.util.stream.ReduceOps$CountingSink
+java8.util.stream.ReduceOps$CountingSink$OfDouble
+java8.util.stream.ReduceOps$CountingSink$OfInt
+java8.util.stream.ReduceOps$CountingSink$OfLong
+java8.util.stream.ReduceOps$CountingSink$OfRef
+java8.util.stream.ReduceOps$ReduceOp:
+    1258:1258:public java8.util.stream.StreamShape inputShape()
+java8.util.stream.RefStreams
+java8.util.stream.RefStreams$$Lambda$1
+java8.util.stream.RefStreams$$Lambda$2
+java8.util.stream.RefStreams$1
+java8.util.stream.RefStreams$2
+java8.util.stream.ReferencePipeline:
+    73:74:ReferencePipeline(java8.util.function.Supplier,int,boolean)
+    103:103:final java8.util.stream.StreamShape getOutputShape()
+    118:118:final java8.util.Spliterator wrap(java8.util.stream.PipelineHelper,java8.util.function.Supplier,boolean)
+    123:123:final java8.util.Spliterator lazySpliterator(java8.util.function.Supplier)
+    143:143:public final java.util.Iterator iterator()
+    153:155:public java8.util.stream.Stream unordered()
+    205:206:public final java8.util.stream.IntStream mapToInt(java8.util.function.ToIntFunction)
+    222:223:public final java8.util.stream.LongStream mapToLong(java8.util.function.ToLongFunction)
+    239:240:public final java8.util.stream.DoubleStream mapToDouble(java8.util.function.ToDoubleFunction)
+    256:258:public final java8.util.stream.Stream flatMap(java8.util.function.Function)
+    290:292:public final java8.util.stream.IntStream flatMapToInt(java8.util.function.Function)
+    325:327:public final java8.util.stream.DoubleStream flatMapToDouble(java8.util.function.Function)
+    360:362:public final java8.util.stream.LongStream flatMapToLong(java8.util.function.Function)
+    415:415:public final java8.util.stream.Stream distinct()
+    425:425:public final java8.util.stream.Stream sorted(java.util.Comparator)
+    430:432:public final java8.util.stream.Stream limit(long)
+    437:442:public final java8.util.stream.Stream skip(long)
+    447:447:public final java8.util.stream.Stream takeWhile(java8.util.function.Predicate)
+    452:452:public final java8.util.stream.Stream dropWhile(java8.util.function.Predicate)
+    464:465:public void forEachOrdered(java8.util.function.Consumer)
+    485:485:public final java.lang.Object[] toArray()
+    490:490:public final boolean anyMatch(java8.util.function.Predicate)
+    495:495:public final boolean allMatch(java8.util.function.Predicate)
+    500:500:public final boolean noneMatch(java8.util.function.Predicate)
+    515:515:public final java.lang.Object reduce(java.lang.Object,java8.util.function.BinaryOperator)
+    520:520:public final java8.util.Optional reduce(java8.util.function.BinaryOperator)
+    525:525:public final java.lang.Object reduce(java.lang.Object,java8.util.function.BiFunction,java8.util.function.BinaryOperator)
+    551:551:public final java.lang.Object collect(java8.util.function.Supplier,java8.util.function.BiConsumer,java8.util.function.BiConsumer)
+    556:556:public final java8.util.Optional max(java.util.Comparator)
+    561:561:public final java8.util.Optional min(java.util.Comparator)
+    567:567:public final long count()
+    59:59:public bridge synthetic java8.util.stream.BaseStream unordered()
+    485:485:private static synthetic java.lang.Object[] lambda$toArray$27(int)
+    static synthetic java.lang.Object[] access$lambda$0(int)
+java8.util.stream.ReferencePipeline$$Lambda$1
+java8.util.stream.ReferencePipeline$$Lambda$2:
+    private static java8.util.function.Consumer get$Lambda(java8.util.function.BiConsumer,java.lang.Object)
+java8.util.stream.ReferencePipeline$1
+java8.util.stream.ReferencePipeline$10
+java8.util.stream.ReferencePipeline$10$1
+java8.util.stream.ReferencePipeline$10$1$$Lambda$1
+java8.util.stream.ReferencePipeline$4
+java8.util.stream.ReferencePipeline$4$1
+java8.util.stream.ReferencePipeline$5
+java8.util.stream.ReferencePipeline$5$1
+java8.util.stream.ReferencePipeline$6
+java8.util.stream.ReferencePipeline$6$1
+java8.util.stream.ReferencePipeline$7
+java8.util.stream.ReferencePipeline$7$1
+java8.util.stream.ReferencePipeline$8
+java8.util.stream.ReferencePipeline$8$1
+java8.util.stream.ReferencePipeline$8$1$$Lambda$1
+java8.util.stream.ReferencePipeline$9
+java8.util.stream.ReferencePipeline$9$1
+java8.util.stream.ReferencePipeline$9$1$$Lambda$1
+java8.util.stream.ReferencePipeline$Head:
+    591:592:ReferencePipeline$Head(java8.util.function.Supplier,int,boolean)
+    630:636:public void forEachOrdered(java8.util.function.Consumer)
+    580:580:public bridge synthetic java8.util.stream.BaseStream unordered()
+java8.util.stream.ReferencePipeline$StatefulOp:
+    675:675:public bridge synthetic java8.util.stream.BaseStream unordered()
+java8.util.stream.ReferencePipeline$StatelessOp:
+    646:646:public bridge synthetic java8.util.stream.BaseStream unordered()
+java8.util.stream.Sink:
+    public abstract void accept(int)
+    public abstract void accept(long)
+    public abstract void accept(double)
+java8.util.stream.Sink$ChainedDouble
+java8.util.stream.Sink$ChainedInt
+java8.util.stream.Sink$ChainedLong
+java8.util.stream.Sink$ChainedReference:
+    248:249:public void accept(int)
+    253:254:public void accept(long)
+    258:259:public void accept(double)
+java8.util.stream.Sink$OfDouble
+java8.util.stream.Sink$OfInt
+java8.util.stream.Sink$OfLong
+java8.util.stream.SinkDefaults
+java8.util.stream.SinkDefaults$OfDouble
+java8.util.stream.SinkDefaults$OfInt
+java8.util.stream.SinkDefaults$OfLong
+java8.util.stream.SliceOps
+java8.util.stream.SliceOps$1
+java8.util.stream.SliceOps$1$1
+java8.util.stream.SliceOps$2
+java8.util.stream.SliceOps$2$$Lambda$1
+java8.util.stream.SliceOps$2$1
+java8.util.stream.SliceOps$3
+java8.util.stream.SliceOps$3$$Lambda$1
+java8.util.stream.SliceOps$3$1
+java8.util.stream.SliceOps$4
+java8.util.stream.SliceOps$4$$Lambda$1
+java8.util.stream.SliceOps$4$1
+java8.util.stream.SliceOps$5
+java8.util.stream.SliceOps$SliceTask
+java8.util.stream.SortedOps:
+    45:45:private SortedOps()
+    66:66:static java8.util.stream.Stream makeRef(java8.util.stream.AbstractPipeline,java.util.Comparator)
+    76:76:static java8.util.stream.IntStream makeInt(java8.util.stream.AbstractPipeline)
+    86:86:static java8.util.stream.LongStream makeLong(java8.util.stream.AbstractPipeline)
+    96:96:static java8.util.stream.DoubleStream makeDouble(java8.util.stream.AbstractPipeline)
+java8.util.stream.SortedOps$AbstractDoubleSortingSink
+java8.util.stream.SortedOps$AbstractIntSortingSink
+java8.util.stream.SortedOps$AbstractLongSortingSink
+java8.util.stream.SortedOps$DoubleSortingSink
+java8.util.stream.SortedOps$IntSortingSink
+java8.util.stream.SortedOps$LongSortingSink
+java8.util.stream.SortedOps$OfDouble
+java8.util.stream.SortedOps$OfInt
+java8.util.stream.SortedOps$OfLong
+java8.util.stream.SortedOps$OfRef:
+    129:133:SortedOps$OfRef(java8.util.stream.AbstractPipeline,java.util.Comparator)
+java8.util.stream.SortedOps$RefSortingSink$$Lambda$1:
+    private static java8.util.function.Consumer get$Lambda(java8.util.stream.Sink)
+java8.util.stream.SortedOps$SizedDoubleSortingSink
+java8.util.stream.SortedOps$SizedIntSortingSink
+java8.util.stream.SortedOps$SizedLongSortingSink
+java8.util.stream.SpinedBuffer:
+    private static final int SPLITERATOR_CHARACTERISTICS
+    99:101:SpinedBuffer(int)
+    168:182:public java.lang.Object get(long)
+    239:239:public java.util.Iterator iterator()
+java8.util.stream.SpinedBuffer$$Lambda$1:
+    private static java8.util.function.Consumer get$Lambda(java.util.List)
+java8.util.stream.SpinedBuffer$OfDouble
+java8.util.stream.SpinedBuffer$OfDouble$1Splitr
+java8.util.stream.SpinedBuffer$OfInt
+java8.util.stream.SpinedBuffer$OfInt$1Splitr
+java8.util.stream.SpinedBuffer$OfLong
+java8.util.stream.SpinedBuffer$OfLong$1Splitr
+java8.util.stream.SpinedBuffer$OfPrimitive
+java8.util.stream.SpinedBuffer$OfPrimitive$BaseSpliterator
+java8.util.stream.Stream:
+    public abstract java8.util.stream.IntStream mapToInt(java8.util.function.ToIntFunction)
+    public abstract java8.util.stream.LongStream mapToLong(java8.util.function.ToLongFunction)
+    public abstract java8.util.stream.DoubleStream mapToDouble(java8.util.function.ToDoubleFunction)
+    public abstract java8.util.stream.Stream flatMap(java8.util.function.Function)
+    public abstract java8.util.stream.IntStream flatMapToInt(java8.util.function.Function)
+    public abstract java8.util.stream.LongStream flatMapToLong(java8.util.function.Function)
+    public abstract java8.util.stream.DoubleStream flatMapToDouble(java8.util.function.Function)
+    public abstract java8.util.stream.Stream distinct()
+    public abstract java8.util.stream.Stream sorted(java.util.Comparator)
+    public abstract java8.util.stream.Stream limit(long)
+    public abstract java8.util.stream.Stream skip(long)
+    public abstract java8.util.stream.Stream takeWhile(java8.util.function.Predicate)
+    public abstract java8.util.stream.Stream dropWhile(java8.util.function.Predicate)
+    public abstract void forEachOrdered(java8.util.function.Consumer)
+    public abstract java.lang.Object[] toArray()
+    public abstract java.lang.Object reduce(java.lang.Object,java8.util.function.BinaryOperator)
+    public abstract java8.util.Optional reduce(java8.util.function.BinaryOperator)
+    public abstract java.lang.Object reduce(java.lang.Object,java8.util.function.BiFunction,java8.util.function.BinaryOperator)
+    public abstract java.lang.Object collect(java8.util.function.Supplier,java8.util.function.BiConsumer,java8.util.function.BiConsumer)
+    public abstract java8.util.Optional min(java.util.Comparator)
+    public abstract java8.util.Optional max(java.util.Comparator)
+    public abstract long count()
+    public abstract boolean anyMatch(java8.util.function.Predicate)
+    public abstract boolean allMatch(java8.util.function.Predicate)
+    public abstract boolean noneMatch(java8.util.function.Predicate)
+java8.util.stream.Stream$Builder
+java8.util.stream.StreamOpFlag:
+    private static final int SET_BITS
+    private static final int CLEAR_BITS
+    private static final int PRESERVE_BITS
+    472:472:int set()
+    481:481:int clear()
+    490:490:boolean isStreamFlag()
+    513:513:boolean isCleared(int)
+    523:523:boolean isPreserved(int)
+    533:533:boolean canSet(java8.util.stream.StreamOpFlag$Type)
+    717:717:static int toStreamFlags(int)
+    727:727:static int toCharacteristics(int)
+    762:762:static int fromCharacteristics(int)
+java8.util.stream.StreamSpliterators
+java8.util.stream.StreamSpliterators$AbstractWrappingSpliterator
+java8.util.stream.StreamSpliterators$ArrayBuffer
+java8.util.stream.StreamSpliterators$ArrayBuffer$OfDouble
+java8.util.stream.StreamSpliterators$ArrayBuffer$OfInt
+java8.util.stream.StreamSpliterators$ArrayBuffer$OfLong
+java8.util.stream.StreamSpliterators$ArrayBuffer$OfPrimitive
+java8.util.stream.StreamSpliterators$ArrayBuffer$OfRef
+java8.util.stream.StreamSpliterators$DelegatingSpliterator
+java8.util.stream.StreamSpliterators$DelegatingSpliterator$OfDouble
+java8.util.stream.StreamSpliterators$DelegatingSpliterator$OfInt
+java8.util.stream.StreamSpliterators$DelegatingSpliterator$OfLong
+java8.util.stream.StreamSpliterators$DelegatingSpliterator$OfPrimitive
+java8.util.stream.StreamSpliterators$DistinctSpliterator
+java8.util.stream.StreamSpliterators$DistinctSpliterator$$Lambda$1
+java8.util.stream.StreamSpliterators$DoubleWrappingSpliterator
+java8.util.stream.StreamSpliterators$DoubleWrappingSpliterator$$Lambda$1
+java8.util.stream.StreamSpliterators$DoubleWrappingSpliterator$1
+java8.util.stream.StreamSpliterators$DoubleWrappingSpliterator$2
+java8.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator
+java8.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble
+java8.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator$OfInt
+java8.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator$OfLong
+java8.util.stream.StreamSpliterators$InfiniteSupplyingSpliterator$OfRef
+java8.util.stream.StreamSpliterators$IntWrappingSpliterator
+java8.util.stream.StreamSpliterators$IntWrappingSpliterator$$Lambda$1
+java8.util.stream.StreamSpliterators$IntWrappingSpliterator$1
+java8.util.stream.StreamSpliterators$IntWrappingSpliterator$2
+java8.util.stream.StreamSpliterators$LongWrappingSpliterator
+java8.util.stream.StreamSpliterators$LongWrappingSpliterator$$Lambda$1
+java8.util.stream.StreamSpliterators$LongWrappingSpliterator$1
+java8.util.stream.StreamSpliterators$LongWrappingSpliterator$2
+java8.util.stream.StreamSpliterators$SliceSpliterator
+java8.util.stream.StreamSpliterators$SliceSpliterator$OfDouble
+java8.util.stream.StreamSpliterators$SliceSpliterator$OfDouble$$Lambda$1
+java8.util.stream.StreamSpliterators$SliceSpliterator$OfInt
+java8.util.stream.StreamSpliterators$SliceSpliterator$OfInt$$Lambda$1
+java8.util.stream.StreamSpliterators$SliceSpliterator$OfLong
+java8.util.stream.StreamSpliterators$SliceSpliterator$OfLong$$Lambda$1
+java8.util.stream.StreamSpliterators$SliceSpliterator$OfPrimitive
+java8.util.stream.StreamSpliterators$SliceSpliterator$OfRef
+java8.util.stream.StreamSpliterators$SliceSpliterator$OfRef$$Lambda$1
+java8.util.stream.StreamSpliterators$SliceSpliterator$OfRef$$Lambda$2
+java8.util.stream.StreamSpliterators$UnorderedSliceSpliterator
+java8.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfDouble
+java8.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfInt
+java8.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfLong
+java8.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive
+java8.util.stream.StreamSpliterators$UnorderedSliceSpliterator$OfRef
+java8.util.stream.StreamSpliterators$UnorderedSliceSpliterator$PermitStatus
+java8.util.stream.StreamSpliterators$WrappingSpliterator
+java8.util.stream.StreamSpliterators$WrappingSpliterator$$Lambda$1
+java8.util.stream.StreamSpliterators$WrappingSpliterator$$Lambda$2
+java8.util.stream.StreamSpliterators$WrappingSpliterator$$Lambda$3
+java8.util.stream.StreamSupport:
+    46:46:private StreamSupport()
+    195:195:public static java8.util.stream.Stream parallelStream(java.util.Collection)
+    234:234:public static java8.util.stream.Stream stream(java.util.Collection,int)
+    276:277:public static java8.util.stream.Stream stream(java.util.Collection,int,boolean)
+    345:347:public static java8.util.stream.Stream stream(java8.util.function.Supplier,int,boolean)
+    373:374:public static java8.util.stream.IntStream intStream(java8.util.Spliterator$OfInt,boolean)
+    413:414:public static java8.util.stream.IntStream intStream(java8.util.function.Supplier,int,boolean)
+    441:442:public static java8.util.stream.LongStream longStream(java8.util.Spliterator$OfLong,boolean)
+    481:482:public static java8.util.stream.LongStream longStream(java8.util.function.Supplier,int,boolean)
+    509:510:public static java8.util.stream.DoubleStream doubleStream(java8.util.Spliterator$OfDouble,boolean)
+    549:550:public static java8.util.stream.DoubleStream doubleStream(java8.util.function.Supplier,int,boolean)
+java8.util.stream.Streams
+java8.util.stream.Streams$1
+java8.util.stream.Streams$2
+java8.util.stream.Streams$AbstractStreamBuilderImpl
+java8.util.stream.Streams$ConcatSpliterator
+java8.util.stream.Streams$ConcatSpliterator$OfDouble
+java8.util.stream.Streams$ConcatSpliterator$OfInt
+java8.util.stream.Streams$ConcatSpliterator$OfLong
+java8.util.stream.Streams$ConcatSpliterator$OfPrimitive
+java8.util.stream.Streams$ConcatSpliterator$OfRef
+java8.util.stream.Streams$DoubleStreamBuilderImpl
+java8.util.stream.Streams$IntStreamBuilderImpl
+java8.util.stream.Streams$LongStreamBuilderImpl
+java8.util.stream.Streams$RangeIntSpliterator
+java8.util.stream.Streams$RangeLongSpliterator
+java8.util.stream.Streams$StreamBuilderImpl
+java8.util.stream.TerminalOp:
+    public abstract java8.util.stream.StreamShape inputShape()
+java8.util.stream.TerminalOpDefaults:
+    38:38:static java8.util.stream.StreamShape inputShape()
+    68:68:static java.lang.Object evaluateParallel(java8.util.stream.TerminalOp,java8.util.stream.PipelineHelper,java8.util.Spliterator)
+    71:72:private TerminalOpDefaults()
+java8.util.stream.WhileOps
+java8.util.stream.WhileOps$1
+java8.util.stream.WhileOps$1$1
+java8.util.stream.WhileOps$1Op
+java8.util.stream.WhileOps$1Op$1OpSink
+java8.util.stream.WhileOps$2
+java8.util.stream.WhileOps$2$$Lambda$1
+java8.util.stream.WhileOps$2$1
+java8.util.stream.WhileOps$2Op
+java8.util.stream.WhileOps$2Op$$Lambda$1
+java8.util.stream.WhileOps$2Op$1OpSink
+java8.util.stream.WhileOps$3
+java8.util.stream.WhileOps$3$$Lambda$1
+java8.util.stream.WhileOps$3$1
+java8.util.stream.WhileOps$3Op
+java8.util.stream.WhileOps$3Op$$Lambda$1
+java8.util.stream.WhileOps$3Op$1OpSink
+java8.util.stream.WhileOps$4
+java8.util.stream.WhileOps$4$$Lambda$1
+java8.util.stream.WhileOps$4$1
+java8.util.stream.WhileOps$4Op
+java8.util.stream.WhileOps$4Op$$Lambda$1
+java8.util.stream.WhileOps$4Op$1OpSink
+java8.util.stream.WhileOps$DropWhileOp
+java8.util.stream.WhileOps$DropWhileSink
+java8.util.stream.WhileOps$DropWhileTask
+java8.util.stream.WhileOps$TakeWhileTask
+java8.util.stream.WhileOps$UnorderedWhileSpliterator
+java8.util.stream.WhileOps$UnorderedWhileSpliterator$OfDouble
+java8.util.stream.WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping
+java8.util.stream.WhileOps$UnorderedWhileSpliterator$OfDouble$Taking
+java8.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt
+java8.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt$Dropping
+java8.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt$Taking
+java8.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong
+java8.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong$Dropping
+java8.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong$Taking
+java8.util.stream.WhileOps$UnorderedWhileSpliterator$OfRef
+java8.util.stream.WhileOps$UnorderedWhileSpliterator$OfRef$Dropping
+java8.util.stream.WhileOps$UnorderedWhileSpliterator$OfRef$Taking
 org.apache.commons.collections4.ArrayStack
 org.apache.commons.collections4.Bag
 org.apache.commons.collections4.BagUtils

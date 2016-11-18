@@ -3,14 +3,14 @@ apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion '24.0.2'
+    buildToolsVersion '24.0.3'
 
     defaultConfig {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 14
         targetSdkVersion 24
-        versionCode 62
-        versionName "2.9b10"
+        versionCode 64
+        versionName "2.9"
     }
     buildTypes {
         release {
