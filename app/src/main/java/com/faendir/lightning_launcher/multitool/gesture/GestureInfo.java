@@ -34,7 +34,17 @@ public class GestureInfo implements Parcelable, Component {
     private String label;
     private transient BitmapDrawable drawable;
     private final ParcelUuid uuid;
-    private final State state = new State();
+    private final State state;
+
+
+    /**
+     * Constructor for Gson
+     */
+    @SuppressWarnings("unused")
+    private GestureInfo(){
+        this.uuid = new ParcelUuid(UUID.randomUUID());
+        state = new State();
+    }
 
     GestureInfo(Intent intent, String label) {
         this(intent, label, null);
@@ -48,6 +58,7 @@ public class GestureInfo implements Parcelable, Component {
         } else {
             this.uuid = uuid;
         }
+        state = new State();
     }
 
     boolean isInvalid() {

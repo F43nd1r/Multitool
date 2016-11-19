@@ -9095,6 +9095,7 @@ com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.graphics.d
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.os.ParcelUuid uuid
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: com.faendir.omniadapter.model.Component$State state
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.os.Parcelable$Creator CREATOR
+com.faendir.lightning_launcher.multitool.gesture.GestureInfo: GestureInfo()
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: GestureInfo(android.content.Intent,java.lang.String)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: GestureInfo(android.content.Intent,java.lang.String,android.os.ParcelUuid)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: boolean isInvalid()
@@ -9440,16 +9441,16 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$La
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$1: ScriptManagerFragment$$Lambda$1(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$1: void run()
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$1: java.lang.Runnable lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2: com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2: ScriptManagerFragment$$Lambda$2(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2: void accept(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2: java8.util.function.Consumer lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$3
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$3: com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$3: ScriptManagerFragment$$Lambda$3(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$3: void onResult(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$3: com.faendir.lightning_launcher.scriptlib.ResultCallback lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$4
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$4: com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment arg$1
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$4: ScriptManagerFragment$$Lambda$4(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$4: void accept(java.lang.Object)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$4: java8.util.function.Consumer lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$5
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$5: com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment arg$1
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$5: ScriptManagerFragment$$Lambda$5(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$5: void onResult(java.lang.Object)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$5: com.faendir.lightning_launcher.scriptlib.ResultCallback lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$1
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$1: int[] $SwitchMap$com$faendir$lightning_launcher$scriptlib$BindResult
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$1: void <clinit>()

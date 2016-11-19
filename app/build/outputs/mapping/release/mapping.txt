@@ -17810,8 +17810,8 @@ com.faendir.lightning_launcher.multitool.R$styleable -> com.faendir.lightning_la
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
     4507:11746:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.backup.BackupService -> com.faendir.lightning_launcher.multitool.backup.BackupService:
-    18:20:void <init>() -> <init>
-    24:28:void onHandleIntent(android.content.Intent) -> onHandleIntent
+    19:21:void <init>() -> <init>
+    25:31:void onHandleIntent(android.content.Intent) -> onHandleIntent
 com.faendir.lightning_launcher.multitool.backup.BackupTime -> com.faendir.lightning_launcher.multitool.backup.a:
     int hour -> a
     int minute -> b
@@ -17822,13 +17822,12 @@ com.faendir.lightning_launcher.multitool.backup.BackupTime -> com.faendir.lightn
     32:32:java.util.List getDays() -> c
 com.faendir.lightning_launcher.multitool.backup.BackupUtils -> com.faendir.lightning_launcher.multitool.backup.b:
     com.faendir.lightning_launcher.multitool.backup.BackupTime DEFAULT -> a
-    com.google.gson.Gson GSON -> b
     38:44:com.faendir.lightning_launcher.multitool.backup.BackupTime getBackupTime(java.lang.String) -> a
     49:49:java.lang.String toString(com.faendir.lightning_launcher.multitool.backup.BackupTime) -> a
     54:64:java.lang.String toHumanReadableString(android.content.Context,com.faendir.lightning_launcher.multitool.backup.BackupTime) -> a
     68:87:void scheduleNext(android.content.Context) -> a
     61:63:java.lang.String lambda$toHumanReadableString$0(java.lang.Integer) -> a
-    33:34:void <clinit>() -> <clinit>
+    34:34:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.backup.BackupUtils$$Lambda$1 -> com.faendir.lightning_launcher.multitool.backup.c:
     com.faendir.lightning_launcher.multitool.backup.BackupUtils$$Lambda$1 instance -> a
     void <init>() -> <init>
@@ -18042,37 +18041,38 @@ com.faendir.lightning_launcher.multitool.gesture.GestureInfo -> com.faendir.ligh
     android.os.ParcelUuid uuid -> uuid
     com.faendir.omniadapter.model.Component$State state -> state
     android.os.Parcelable$Creator CREATOR -> CREATOR
-    40:41:void <init>(android.content.Intent,java.lang.String) -> <init>
-    37:51:void <init>(android.content.Intent,java.lang.String,android.os.ParcelUuid) -> <init>
-    54:54:boolean isInvalid() -> isInvalid
-    59:63:android.gesture.Gesture getGesture(android.content.Context) -> getGesture
-    67:76:void setGesture(android.content.Context,android.gesture.Gesture) -> setGesture
-    79:82:void removeGesture(android.content.Context) -> removeGesture
-    85:85:android.content.Intent getIntent() -> getIntent
-    89:90:void setIntent(android.content.Intent) -> setIntent
-    93:93:java.lang.String getText() -> getText
-    97:98:void setLabel(java.lang.String) -> setLabel
-    101:101:boolean hasUuid(java.util.UUID) -> hasUuid
-    105:105:java.util.UUID getUuid() -> getUuid
-    109:119:android.graphics.drawable.Drawable getImage(android.content.Context) -> getImage
-    124:124:int describeContents() -> describeContents
-    129:133:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-    158:158:com.faendir.omniadapter.model.Component$State getState() -> getState
-    61:61:void lambda$getGesture$0(java.util.ArrayList) -> lambda$getGesture$0
+    44:47:void <init>() -> <init>
+    50:51:void <init>(android.content.Intent,java.lang.String) -> <init>
+    53:62:void <init>(android.content.Intent,java.lang.String,android.os.ParcelUuid) -> <init>
+    65:65:boolean isInvalid() -> isInvalid
+    70:74:android.gesture.Gesture getGesture(android.content.Context) -> getGesture
+    78:87:void setGesture(android.content.Context,android.gesture.Gesture) -> setGesture
+    90:93:void removeGesture(android.content.Context) -> removeGesture
+    96:96:android.content.Intent getIntent() -> getIntent
+    100:101:void setIntent(android.content.Intent) -> setIntent
+    104:104:java.lang.String getText() -> getText
+    108:109:void setLabel(java.lang.String) -> setLabel
+    112:112:boolean hasUuid(java.util.UUID) -> hasUuid
+    116:116:java.util.UUID getUuid() -> getUuid
+    120:130:android.graphics.drawable.Drawable getImage(android.content.Context) -> getImage
+    135:135:int describeContents() -> describeContents
+    140:144:void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    169:169:com.faendir.omniadapter.model.Component$State getState() -> getState
+    72:72:void lambda$getGesture$0(java.util.ArrayList) -> lambda$getGesture$0
     31:31:void <init>(android.content.Intent,java.lang.String,android.os.ParcelUuid,com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1) -> <init>
     31:31:android.gesture.Gesture access$102(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,android.gesture.Gesture) -> access$102
-    135:135:void <clinit>() -> <clinit>
+    146:146:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo$$Lambda$1 -> com.faendir.lightning_launcher.multitool.gesture.GestureInfo$$Lambda$1:
     com.faendir.lightning_launcher.multitool.gesture.GestureInfo arg$1 -> arg$1
     void <init>(com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> <init>
     void accept(java.lang.Object) -> accept
     java8.util.function.Consumer lambdaFactory$(com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> lambdaFactory$
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1 -> com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1:
-    135:135:void <init>() -> <init>
-    138:146:com.faendir.lightning_launcher.multitool.gesture.GestureInfo createFromParcel(android.os.Parcel) -> createFromParcel
-    151:151:com.faendir.lightning_launcher.multitool.gesture.GestureInfo[] newArray(int) -> newArray
-    135:135:java.lang.Object[] newArray(int) -> newArray
-    135:135:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    146:146:void <init>() -> <init>
+    149:157:com.faendir.lightning_launcher.multitool.gesture.GestureInfo createFromParcel(android.os.Parcel) -> createFromParcel
+    162:162:com.faendir.lightning_launcher.multitool.gesture.GestureInfo[] newArray(int) -> newArray
+    146:146:java.lang.Object[] newArray(int) -> newArray
+    146:146:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils -> com.faendir.lightning_launcher.multitool.gesture.GestureUtils:
     java.lang.String METADATA -> METADATA
     java.lang.String GESTURES -> GESTURES
@@ -18149,21 +18149,21 @@ com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment -
     android.content.SharedPreferences shareprefs -> b
     android.widget.FrameLayout layout -> c
     android.widget.Button importButton -> d
-    30:30:void <init>() -> <init>
-    42:55:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    60:63:void checkImporter() -> c
-    67:74:void checkLauncher() -> d
-    78:80:void onPause() -> onPause
-    84:85:void saveName() -> e
-    90:124:void onButtonClick(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onButtonClick
-    128:133:boolean isPackageInstalled(java.lang.String,android.content.Context) -> a
-    138:139:void changeText(java.lang.String) -> a
-    143:145:void onStart() -> onStart
-    149:151:void onStop() -> onStop
-    114:117:void lambda$onButtonClick$3(java.lang.Integer) -> a
-    115:115:void lambda$null$2() -> a
-    105:108:void lambda$onButtonClick$1(com.faendir.lightning_launcher.scriptlib.BindResult) -> a
-    106:106:void lambda$null$0() -> b
+    31:31:void <init>() -> <init>
+    43:56:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    61:64:void checkImporter() -> c
+    68:75:void checkLauncher() -> d
+    79:81:void onPause() -> onPause
+    85:86:void saveName() -> e
+    91:127:void onButtonClick(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onButtonClick
+    131:136:boolean isPackageInstalled(java.lang.String,android.content.Context) -> a
+    141:142:void changeText(java.lang.String) -> a
+    146:148:void onStart() -> onStart
+    152:154:void onStop() -> onStop
+    117:120:void lambda$onButtonClick$3(java.lang.Integer) -> a
+    118:118:void lambda$null$2() -> a
+    108:111:void lambda$onButtonClick$1(com.faendir.lightning_launcher.scriptlib.BindResult) -> a
+    109:109:void lambda$null$0() -> b
 com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment$$Lambda$1 -> com.faendir.lightning_launcher.multitool.c.b:
     com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment) -> <init>
@@ -18201,20 +18201,20 @@ com.faendir.lightning_launcher.multitool.music.MusicFragment -> com.faendir.ligh
     boolean isBound -> h
     boolean calledAtLeastOnce -> i
     android.graphics.Bitmap bitmap -> j
-    39:48:void <init>() -> <init>
-    53:72:void onCreate(android.os.Bundle) -> onCreate
-    77:83:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    88:90:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
-    94:102:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    108:124:void onResume() -> onResume
-    128:133:void onPause() -> onPause
-    137:142:void onDestroy() -> onDestroy
-    146:167:void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
-    171:187:void onClick(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onClick
-    154:166:void lambda$updateCurrentInfo$1(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
-    111:123:void lambda$onResume$0() -> a
-    39:39:com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper access$002(com.faendir.lightning_launcher.multitool.music.MusicFragment,com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper) -> a
-    39:39:boolean access$102(com.faendir.lightning_launcher.multitool.music.MusicFragment,boolean) -> a
+    40:49:void <init>() -> <init>
+    54:73:void onCreate(android.os.Bundle) -> onCreate
+    78:84:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    89:91:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
+    95:103:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    109:125:void onResume() -> onResume
+    129:134:void onPause() -> onPause
+    138:143:void onDestroy() -> onDestroy
+    147:168:void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    172:189:void onClick(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onClick
+    155:167:void lambda$updateCurrentInfo$1(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    112:124:void lambda$onResume$0() -> a
+    40:40:com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper access$002(com.faendir.lightning_launcher.multitool.music.MusicFragment,com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper) -> a
+    40:40:boolean access$102(com.faendir.lightning_launcher.multitool.music.MusicFragment,boolean) -> a
 com.faendir.lightning_launcher.multitool.music.MusicFragment$$Lambda$1 -> com.faendir.lightning_launcher.multitool.music.b:
     com.faendir.lightning_launcher.multitool.music.MusicFragment arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> <init>
@@ -18231,9 +18231,9 @@ com.faendir.lightning_launcher.multitool.music.MusicFragment$$Lambda$2 -> com.fa
     java.lang.Runnable lambdaFactory$(com.faendir.lightning_launcher.multitool.music.MusicFragment,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
 com.faendir.lightning_launcher.multitool.music.MusicFragment$1 -> com.faendir.lightning_launcher.multitool.music.a$1:
     com.faendir.lightning_launcher.multitool.music.MusicFragment this$0 -> a
-    56:56:void <init>(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> <init>
-    59:63:void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
-    67:69:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+    57:57:void <init>(com.faendir.lightning_launcher.multitool.music.MusicFragment) -> <init>
+    60:64:void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    68:70:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
 com.faendir.lightning_launcher.multitool.music.MusicManager -> com.faendir.lightning_launcher.multitool.music.MusicManager:
     java.util.List PLAYING_STATES -> a
     org.apache.commons.collections4.BidiMap controllers -> b
@@ -18567,38 +18567,38 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment -> 
     com.faendir.lightning_launcher.multitool.scriptmanager.ListManager listManager -> listManager
     com.faendir.lightning_launcher.scriptlib.ScriptManager scriptManager -> scriptManager
     boolean stopAutoLoad -> stopAutoLoad
-    39:46:void <init>() -> <init>
-    50:66:void onCreate(android.os.Bundle) -> onCreate
-    71:72:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    77:80:void onStart() -> onStart
-    84:89:void onStop() -> onStop
-    93:94:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
-    98:117:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    122:125:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    128:131:void loadFromLauncher() -> loadFromLauncher
-    134:140:void handleScriptResult(java.lang.String) -> handleScriptResult
-    144:148:void onReloadButton(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onReloadButton
-    123:123:void lambda$onActivityResult$1(android.net.Uri) -> lambda$onActivityResult$1
-    54:61:void lambda$onCreate$0() -> lambda$onCreate$0
+    41:48:void <init>() -> <init>
+    52:68:void onCreate(android.os.Bundle) -> onCreate
+    73:74:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    79:82:void onStart() -> onStart
+    86:91:void onStop() -> onStop
+    95:96:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
+    100:119:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    124:127:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    130:133:void loadFromLauncher() -> loadFromLauncher
+    136:142:void handleScriptResult(java.lang.String) -> handleScriptResult
+    146:150:void onReloadButton(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onReloadButton
+    125:125:void lambda$onActivityResult$1(android.net.Uri) -> lambda$onActivityResult$1
+    56:63:void lambda$onCreate$0() -> lambda$onCreate$0
     void access$lambda$0(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment,java.lang.String) -> access$lambda$0
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$1 -> com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$1:
     com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment arg$1 -> arg$1
     void <init>(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment) -> <init>
     void run() -> run
     java.lang.Runnable lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment) -> lambdaFactory$
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2 -> com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2:
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$4 -> com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$4:
     com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment arg$1 -> arg$1
     void <init>(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment) -> <init>
     void accept(java.lang.Object) -> accept
     java8.util.function.Consumer lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment) -> lambdaFactory$
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$3 -> com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$3:
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$5 -> com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$5:
     com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment arg$1 -> arg$1
     void <init>(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment) -> <init>
     void onResult(java.lang.Object) -> onResult
     com.faendir.lightning_launcher.scriptlib.ResultCallback lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment) -> lambdaFactory$
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$1 -> com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$1:
     int[] $SwitchMap$com$faendir$lightning_launcher$scriptlib$BindResult -> $SwitchMap$com$faendir$lightning_launcher$scriptlib$BindResult
-    54:54:void <clinit>() -> <clinit>
+    56:56:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils -> com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils:
     java.lang.String FLAGS -> FLAGS
     java.lang.String APP -> APP

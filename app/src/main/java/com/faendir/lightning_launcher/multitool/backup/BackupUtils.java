@@ -11,7 +11,6 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 import java.util.ArrayList;
@@ -23,6 +22,8 @@ import java.util.Locale;
 import java8.util.stream.Collectors;
 import java8.util.stream.StreamSupport;
 
+import static com.faendir.lightning_launcher.multitool.util.Utils.GSON;
+
 /**
  * Created on 23.07.2016.
  *
@@ -31,7 +32,6 @@ import java8.util.stream.StreamSupport;
 
 public class BackupUtils {
     private static final BackupTime DEFAULT = new BackupTime(0, 0, Collections.singletonList(Calendar.SUNDAY));
-    private static final Gson GSON = new Gson();
 
     @NonNull
     public static BackupTime getBackupTime(@Nullable String s) {

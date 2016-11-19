@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
@@ -169,8 +170,9 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
     @Subscribe
     public void onClick(ClickEvent event) {
         switch (event.getId()) {
-            case R.id.button_updateMusic:
-                new ScriptManager(getActivity()).getAsyncExecutorService()
+            case R.id.button_updateMusic:ScriptManager manager = new ScriptManager(getActivity());
+                if(MultiTool.DEBUG) manager.enableDebug();
+                manager.getAsyncExecutorService()
                         .add(new DirectScriptExecutor(R.raw.music_update))
                         .start();
                 break;

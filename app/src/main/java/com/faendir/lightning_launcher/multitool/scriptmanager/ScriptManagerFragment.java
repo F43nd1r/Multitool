@@ -32,6 +32,8 @@ import java.util.List;
 
 import java8.util.stream.StreamSupport;
 
+import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
+
 /**
  * Created by Lukas on 22.08.2015.
  * Main activity of ScriptManager
@@ -49,7 +51,7 @@ public class ScriptManagerFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         scriptManager = new ScriptManager(getActivity());
-        scriptManager.enableDebug();
+        if(DEBUG) scriptManager.enableDebug();
         new Thread(() -> {
             switch (scriptManager.bind()) {
                 case OK:

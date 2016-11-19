@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.scriptlib.BindResult;
@@ -100,7 +101,9 @@ public class LauncherScriptFragment extends Fragment {
             case R.id.button_import: {
                 saveName();
                 changeText(getString(R.string.button_repositoryImporter_importing));
-                new ScriptManager(getActivity()).getAsyncExecutorService()
+                ScriptManager manager = new ScriptManager(getActivity());
+                if(MultiTool.DEBUG) manager.enableDebug();
+                manager.getAsyncExecutorService()
                         .setBindResultHandler(result -> {
                             if (result != BindResult.OK && isAdded()) {
                                 getActivity().runOnUiThread(() -> changeText(getString(R.string.button_repositoryImporter_importError)));
