@@ -81,7 +81,7 @@
     <string name="google_community">Google + Community</string>
     <string name="email">Email</string>
 
-    <string name="title_enableAcra">Enable Acra</string>
+    <string name="title_enableAcra">Enable Bug Reports</string>
     <string name="pref_enableAcra">acra.enable</string>
     <string name="toast_failedLoad">"Failed to load file "</string>
     <string name="toast_failedDirWrite">Failed to access directory. Please choose an accessible backup location</string>

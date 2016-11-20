@@ -17808,7 +17808,7 @@ com.faendir.lightning_launcher.multitool.R$styleable -> com.faendir.lightning_la
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    4507:11746:void <clinit>() -> <clinit>
+    4498:11737:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.backup.BackupService -> com.faendir.lightning_launcher.multitool.backup.BackupService:
     19:21:void <init>() -> <init>
     25:31:void onHandleIntent(android.content.Intent) -> onHandleIntent
@@ -18830,28 +18830,27 @@ com.faendir.lightning_launcher.multitool.settings.PrefsFragment -> com.faendir.l
     java.lang.String DEFAULT_BACKUP_PATH -> a
     android.content.SharedPreferences sharedPref -> b
     com.faendir.lightning_launcher.multitool.settings.PreferenceListener listener -> c
-    28:28:void <init>() -> <init>
-    37:57:void onCreate(android.os.Bundle) -> onCreate
-    61:67:boolean selectBackupPath() -> b
-    72:74:void onDestroy() -> onDestroy
-    78:85:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    88:89:void setBackupPath(android.net.Uri) -> a
-    93:96:void removeDebugOptions() -> c
-    46:46:void lambda$onCreate$1() -> a
-    43:43:boolean lambda$onCreate$0(android.preference.Preference) -> a
-    29:29:void <clinit>() -> <clinit>
+    26:26:void <init>() -> <init>
+    35:52:void onCreate(android.os.Bundle) -> onCreate
+    56:62:boolean selectBackupPath() -> b
+    67:69:void onDestroy() -> onDestroy
+    73:80:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    83:84:void setBackupPath(android.net.Uri) -> a
+    44:44:void lambda$onCreate$1() -> a
+    41:41:boolean lambda$onCreate$0(android.preference.Preference) -> a
+    27:27:void <clinit>() -> <clinit>
     void access$lambda$0(com.faendir.lightning_launcher.multitool.settings.PrefsFragment,android.net.Uri) -> a
 com.faendir.lightning_launcher.multitool.settings.PrefsFragment$$Lambda$1 -> com.faendir.lightning_launcher.multitool.settings.q:
     com.faendir.lightning_launcher.multitool.settings.PrefsFragment arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.settings.PrefsFragment) -> <init>
     boolean onPreferenceClick(android.preference.Preference) -> onPreferenceClick
     android.preference.Preference$OnPreferenceClickListener lambdaFactory$(com.faendir.lightning_launcher.multitool.settings.PrefsFragment) -> a
-com.faendir.lightning_launcher.multitool.settings.PrefsFragment$$Lambda$2 -> com.faendir.lightning_launcher.multitool.settings.r:
+com.faendir.lightning_launcher.multitool.settings.PrefsFragment$$Lambda$4 -> com.faendir.lightning_launcher.multitool.settings.r:
     com.faendir.lightning_launcher.multitool.settings.PrefsFragment arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.settings.PrefsFragment) -> <init>
     void run() -> run
     java.lang.Runnable lambdaFactory$(com.faendir.lightning_launcher.multitool.settings.PrefsFragment) -> a
-com.faendir.lightning_launcher.multitool.settings.PrefsFragment$$Lambda$3 -> com.faendir.lightning_launcher.multitool.settings.s:
+com.faendir.lightning_launcher.multitool.settings.PrefsFragment$$Lambda$5 -> com.faendir.lightning_launcher.multitool.settings.s:
     com.faendir.lightning_launcher.multitool.settings.PrefsFragment arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.settings.PrefsFragment) -> <init>
     void accept(java.lang.Object) -> accept

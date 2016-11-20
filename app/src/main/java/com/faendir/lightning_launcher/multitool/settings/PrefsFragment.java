@@ -6,12 +6,10 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 
-import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.backup.BackupUtils;
 import com.faendir.lightning_launcher.multitool.util.Utils;
@@ -50,9 +48,6 @@ public class PrefsFragment extends PreferenceFragment {
         listener.addPreferenceForSummary(getString(R.string.pref_activePlayers));
         listener.addPreferenceForSummary(getString(R.string.pref_backupTime));
         listener.addPreferenceForSummary(getString(R.string.pref_musicDefault));
-        if (!BuildConfig.DEBUG) {
-            removeDebugOptions();
-        }
         sharedPref.registerOnSharedPreferenceChangeListener(listener);
     }
 
@@ -86,12 +81,5 @@ public class PrefsFragment extends PreferenceFragment {
 
     private void setBackupPath(Uri path) {
         sharedPref.edit().putString(getString(R.string.pref_directory), path.getEncodedPath()).apply();
-    }
-
-    private void removeDebugOptions() {
-        //remove enable acra preference
-        CheckBoxPreference acraPref = (CheckBoxPreference) findPreference(getString(R.string.pref_enableAcra));
-        acraPref.setChecked(true);
-        getPreferenceScreen().removePreference(acraPref);
     }
 }
