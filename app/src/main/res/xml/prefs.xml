@@ -1,52 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:custom="http://schemas.android.com/apk/res/com.faendir.lightning_launcher.multitool">
+                  xmlns:custom="http://schemas.android.com/apk/res/com.faendir.lightning_launcher.multitool">
     <SwitchPreference
         android:defaultValue="true"
         android:key="@string/pref_enableAcra"
-        android:title="@string/title_enableAcra" />
+        android:title="@string/title_enableAcra"/>
     <PreferenceCategory android:title="@string/title_scriptManager">
         <Preference
             android:key="@string/pref_directory"
-            android:title="@string/title_backupDir" />
+            android:title="@string/title_backupDir"/>
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="@string/pref_spaces"
             android:summary="@string/summary_spaces"
-            android:title="@string/title_spaces" />
+            android:title="@string/title_spaces"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/title_musicWidget">
-        <com.faendir.lightning_launcher.multitool.settings.TrialPreference android:title="@string/title_musicWidget" />
+        <com.faendir.lightning_launcher.multitool.settings.TrialPreference android:title="@string/title_musicWidget"/>
         <com.faendir.lightning_launcher.multitool.settings.PlayersPreference
             android:key="@string/pref_activePlayers"
             android:title="@string/title_activePlayers"
-            custom:checkedByDefault="true" />
+            custom:checkedByDefault="true"/>
         <com.faendir.lightning_launcher.multitool.settings.DefaultPlayerPreference
             android:key="@string/pref_musicDefault"
-            android:title="@string/title_defaultPlayer" />
+            android:title="@string/title_defaultPlayer"/>
         <ListPreference
             android:defaultValue="@string/default_coverMode"
             android:entries="@array/list_coverMode"
             android:entryValues="@array/listCoverModeKeys"
             android:key="@string/pref_coverMode"
-            android:title="@string/title_coverMode" />
+            android:title="@string/title_coverMode"/>
         <com.faendir.lightning_launcher.multitool.settings.PlayersPreference
             android:key="@string/pref_altControl"
-            android:title="@string/title_altControl"
             android:summary="If a player does not react to buttons, this might help"
-            custom:checkedByDefault="false" />
+            android:title="@string/title_altControl"
+            custom:checkedByDefault="false"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/title_drawer">
-        <com.faendir.lightning_launcher.multitool.settings.TrialPreference android:title="@string/title_drawer" />
+        <com.faendir.lightning_launcher.multitool.settings.TrialPreference android:title="@string/title_drawer"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/title_backup">
         <SwitchPreference
             android:defaultValue="false"
             android:key="@string/pref_enableBackup"
-            android:title="@string/title_enableBackup" />
+            android:title="@string/title_enableBackup"/>
         <com.faendir.lightning_launcher.multitool.settings.BackupTimePreference
             android:dependency="@string/pref_enableBackup"
             android:key="@string/pref_backupTime"
-            android:title="@string/title_backupTime" />
+            android:title="@string/title_backupTime"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/title_info">
+        <com.faendir.lightning_launcher.multitool.settings.VersionPreference
+            android:title="@string/title_version"/>
     </PreferenceCategory>
 </PreferenceScreen>

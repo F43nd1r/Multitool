@@ -53,18 +53,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import java8.util.stream.StreamSupport;
 
-import static android.media.MediaMetadata.METADATA_KEY_ALBUM;
-import static android.media.MediaMetadata.METADATA_KEY_ALBUM_ART;
-import static android.media.MediaMetadata.METADATA_KEY_ALBUM_ART_URI;
-import static android.media.MediaMetadata.METADATA_KEY_ART;
-import static android.media.MediaMetadata.METADATA_KEY_ARTIST;
-import static android.media.MediaMetadata.METADATA_KEY_ART_URI;
-import static android.media.MediaMetadata.METADATA_KEY_TITLE;
-import static android.media.session.PlaybackState.STATE_FAST_FORWARDING;
-import static android.media.session.PlaybackState.STATE_PLAYING;
-import static android.media.session.PlaybackState.STATE_SKIPPING_TO_NEXT;
-import static android.media.session.PlaybackState.STATE_SKIPPING_TO_PREVIOUS;
-import static android.media.session.PlaybackState.STATE_SKIPPING_TO_QUEUE_ITEM;
+import static android.media.MediaMetadata.*;
+import static android.media.session.PlaybackState.*;
 import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
 import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
 
@@ -74,8 +64,7 @@ import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
  * @author F43nd1r
  */
 
-@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-public class MusicManager extends Service implements MediaSessionManager.OnActiveSessionsChangedListener {
+public class MusicManager extends Service {
     private static final int ACTION_REGISTER = 1;
     private static final int ACTION_UNREGISTER = 2;
     private static final int ACTION_REGISTER_MESSENGER = 3;
@@ -83,9 +72,17 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
     private static final int ACTION_PLAY_PAUSE = 5;
     private static final int ACTION_NEXT = 6;
     private static final int ACTION_PREVIOUS = 7;
-    private static final List<Integer> PLAYING_STATES = Arrays.asList(
-            STATE_PLAYING, STATE_FAST_FORWARDING, STATE_SKIPPING_TO_NEXT,
-            STATE_SKIPPING_TO_PREVIOUS, STATE_SKIPPING_TO_QUEUE_ITEM);
+    private static final List<Integer> PLAYING_STATES;
+    static {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            PLAYING_STATES = Arrays.asList(
+                    STATE_PLAYING, STATE_FAST_FORWARDING, STATE_SKIPPING_TO_NEXT,
+                    STATE_SKIPPING_TO_PREVIOUS, STATE_SKIPPING_TO_QUEUE_ITEM);
+        }else {
+            PLAYING_STATES = Collections.emptyList();
+        }
+    }
+
     private final BidiMap<MediaController, Callback> controllers;
     private final Set<Listener> listeners;
     private final Messenger messenger;
@@ -99,12 +96,18 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
     private volatile String artist;
     private volatile String packageName;
     private volatile WeakReference<MediaController> currentController;
+    private final MediaSessionManager.OnActiveSessionsChangedListener sessionsChangedListener;
 
     public MusicManager() {
         controllers = new DualHashBidiMap<>();
         listeners = new HashSet<>();
         messenger = new Messenger(new LocalHandler(this));
         currentController = new WeakReference<>(null);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            sessionsChangedListener = this::onActiveSessionsChanged;
+        }else {
+            sessionsChangedListener = null;
+        }
     }
 
     @Override
@@ -114,12 +117,15 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
 
     @Override
     public void onCreate() {
-        mediaSessionManager = (MediaSessionManager) getSystemService(Context.MEDIA_SESSION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mediaSessionManager = (MediaSessionManager) getSystemService(Context.MEDIA_SESSION_SERVICE);
+        }
         notificationListener = new ComponentName(this, DummyNotificationListener.class);
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         billingManager = new BaseBillingManager(this);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void updateCurrentInfo(MediaController controller, Bitmap albumArt, String title, String album, String artist) {
         this.currentController = new WeakReference<>(controller);
         this.albumArt = albumArt;
@@ -130,7 +136,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         StreamSupport.stream(listeners).forEach(listener -> listener.updateCurrentInfo(albumArt, title, album, artist, packageName));
     }
 
-    @Override
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void onActiveSessionsChanged(List<MediaController> list) {
         Map<String, Callback> removed = new HashMap<>();
         for (Iterator<Map.Entry<MediaController, Callback>> iterator = controllers.entrySet().iterator(); iterator.hasNext(); ) {
@@ -203,6 +209,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         return messenger.getBinder();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void registerListener(final Listener listener) {
         String flat = Settings.Secure.getString(getContentResolver(), "enabled_notification_listeners");
         final boolean enabled = flat != null && flat.contains(notificationListener.flattenToString());
@@ -225,21 +232,23 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
             return;
         }
         if (listeners.isEmpty()) {
-            onActiveSessionsChanged(mediaSessionManager.getActiveSessions(notificationListener));
-            mediaSessionManager.addOnActiveSessionsChangedListener(MusicManager.this, notificationListener);
+            this.sessionsChangedListener.onActiveSessionsChanged(mediaSessionManager.getActiveSessions(notificationListener));
+            mediaSessionManager.addOnActiveSessionsChangedListener(this.sessionsChangedListener, notificationListener);
         }
         listeners.add(listener);
         if (albumArt != null && albumArt.isRecycled()) albumArt = null;
         listener.updateCurrentInfo(albumArt, title, album, artist, packageName);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void unregisterListener(Listener listener) {
         listeners.remove(listener);
         if (listeners.isEmpty()) {
-            mediaSessionManager.removeOnActiveSessionsChangedListener(MusicManager.this);
+            mediaSessionManager.removeOnActiveSessionsChangedListener(sessionsChangedListener);
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private class Callback extends MediaController.Callback {
         private MediaMetadata metadata;
         private PlaybackState playbackState;
@@ -326,7 +335,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
         @Override
         public void handleMessage(Message msg) {
             MusicManager musicManager = this.musicManager.get();
-            if (musicManager != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && musicManager != null) {
                 if (musicManager.billingManager.isBoughtOrTrial(R.string.title_musicWidget)) {
                     MediaController controller = musicManager.currentController.get();
                     if (DEBUG) Log.d(LOG_TAG, "MusicManager got message " + msg.what);
@@ -397,6 +406,7 @@ public class MusicManager extends Service implements MediaSessionManager.OnActiv
             }
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         private boolean isAlternativeControl(MediaController controller) {
             return musicManager.get().sharedPref
                     .getStringSet(musicManager.get().getString(R.string.pref_altControl), Collections.emptySet())

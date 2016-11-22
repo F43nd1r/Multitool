@@ -31,16 +31,22 @@ public final class Utils {
             ClipData clip;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && (clip = data.getClipData()) != null) {
                 for (int i = 0; i < clip.getItemCount(); i++) {
-                    result.add(clip.getItemAt(i).getUri());
+                    Uri uri = clip.getItemAt(i).getUri();
+                    if (uri != null) {
+                        result.add(uri);
+                    }
                 }
             } else {
                 List<String> paths = data.getStringArrayListExtra(FilePickerActivity.EXTRA_PATHS);
                 if (paths != null) {
-                    result.addAll(StreamSupport.stream(paths).map(Uri::parse).collect(Collectors.toList()));
+                    result.addAll(StreamSupport.stream(paths).filter(path -> path != null).map(Uri::parse).collect(Collectors.toList()));
                 }
             }
         } else {
-            result.add(data.getData());
+            Uri uri = data.getData();
+            if (uri != null) {
+                result.add(uri);
+            }
         }
         return result;
     }

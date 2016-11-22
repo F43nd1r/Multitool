@@ -77,6 +77,7 @@
         </activity-alias>
         <activity-alias
             android:name=".LoadMusicWidget"
+            android:enabled="@bool/isLollipopOrHigher"
             android:exported="true"
             android:label="Music Widget"
             android:targetActivity=".Loader">
@@ -117,7 +118,8 @@
             android:name=".util.PreferenceProvider"
             android:authorities="com.faendir.lightning_launcher.multitool.provider"
             android:enabled="true"
-            android:exported="true" tools:ignore="ExportedContentProvider"/>
+            android:exported="true"
+            tools:ignore="ExportedContentProvider"/>
     </application>
 
 </manifest>

@@ -21,7 +21,8 @@ import java8.util.stream.Collectors;
 import java8.util.stream.StreamSupport;
 
 /**
- * Created by Lukas on 08.11.2016.
+ * @author F43nd1r
+ * @since 08.11.2016
  */
 
 public class PlayersPreference extends MultiSelectListPreference implements SummaryPreference {
@@ -52,10 +53,11 @@ public class PlayersPreference extends MultiSelectListPreference implements Summ
         a.recycle();
     }
 
-    private List<String> getSelectedEntries() {
-        CharSequence[] entries = getEntries();
+    private List<CharSequence> getSelectedEntries() {
+        List<CharSequence> entries = Arrays.asList(getEntries());
         List<CharSequence> values = Arrays.asList(getEntryValues());
-        return StreamSupport.stream(getValues()).map(value -> entries[values.indexOf(value)].toString()).sorted().collect(Collectors.toList());
+        return StreamSupport.stream(getValues()).map(values::indexOf).filter(index -> index >= 0)
+                .map(entries::get).sorted().collect(Collectors.toList());
     }
 
     @Override
