@@ -6,11 +6,11 @@ import android.gesture.Gesture;
 import android.gesture.GestureLibrary;
 import android.gesture.GestureOverlayView;
 import android.gesture.Prediction;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.util.FileManager;
-import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
+import com.faendir.lightning_launcher.multitool.util.DataProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +18,9 @@ import java.util.UUID;
 
 import java8.util.Optional;
 import java8.util.stream.StreamSupport;
+
+import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
+import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
 
 /**
  * Created on 26.01.2016.
@@ -35,17 +38,21 @@ public class LightningGestureView extends GestureOverlayView implements GestureO
         setGestureColor(color);
         setUncertainGestureColor(color);
         setEventsInterceptionEnabled(true);
+        if (DEBUG) Log.d(LOG_TAG, "Created gesture view");
     }
 
     @Override
     public void onGesturePerformed(GestureOverlayView overlay, Gesture gesture) {
-        FileManager<GestureInfo> fileManager = FileManagerFactory.createGestureFileManager(getContext());
-        List<GestureInfo> gestureInfos = fileManager.read();
+        if (DEBUG) Log.d(LOG_TAG, "Gesture performed");
+        List<GestureInfo> gestureInfos = DataProvider.getGestureInfos(getContext());
+        if (DEBUG) Log.d(LOG_TAG, "GestureInfos loaded");
         boolean recognized = false;
         if (!gestureInfos.isEmpty()) {
             GestureLibrary library = SingletonGestureLibrary.getGlobal(getContext());
+            if (DEBUG) Log.d(LOG_TAG, "Gestures loaded");
             ArrayList<Prediction> list = library.recognize(gesture);
             if (list != null && list.size() != 0) {
+                if (DEBUG) Log.d(LOG_TAG, "Gesture recognized");
                 try {
                     UUID uuid = UUID.fromString(list.get(0).name);
                     Optional<GestureInfo> info = StreamSupport.stream(gestureInfos).filter(gestureInfo -> gestureInfo.hasUuid(uuid)).findAny();
@@ -54,6 +61,7 @@ public class LightningGestureView extends GestureOverlayView implements GestureO
                         Intent intent = info.get().getIntent();
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         getContext().startActivity(intent);
+                        if (DEBUG) Log.d(LOG_TAG, "Gesture launched");
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

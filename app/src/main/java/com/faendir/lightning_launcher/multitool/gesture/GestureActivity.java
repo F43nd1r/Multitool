@@ -51,7 +51,7 @@ public class GestureActivity extends BaseActivity implements GestureOverlayView.
         if (intent.hasExtra(GESTURE)) {
             info = intent.getParcelableExtra(GESTURE);
             gestureView.post(() -> gestureView.setGesture(info.getGesture(GestureActivity.this)));
-            label.setText(info.getText());
+            label.setText(info.getLabel());
             action = info.getIntent();
             PackageManager pm = getPackageManager();
             String label = pm.resolveActivity(info.getIntent(), 0).activityInfo.loadLabel(pm).toString();

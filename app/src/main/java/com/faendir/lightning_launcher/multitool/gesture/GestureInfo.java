@@ -50,7 +50,7 @@ public class GestureInfo implements Parcelable, Component {
         this(intent, label, null);
     }
 
-    private GestureInfo(Intent intent, String label, ParcelUuid uuid) {
+    public GestureInfo(Intent intent, String label, ParcelUuid uuid) {
         this.intent = intent;
         this.label = label;
         if (uuid == null) {
@@ -92,7 +92,7 @@ public class GestureInfo implements Parcelable, Component {
         library.save();
     }
 
-    Intent getIntent() {
+    public Intent getIntent() {
         return intent;
     }
 
@@ -100,7 +100,7 @@ public class GestureInfo implements Parcelable, Component {
         this.intent = intent;
     }
 
-    public String getText() {
+    public String getLabel() {
         return label;
     }
 
@@ -112,7 +112,7 @@ public class GestureInfo implements Parcelable, Component {
         return this.uuid.getUuid().equals(uuid);
     }
 
-    UUID getUuid() {
+    public UUID getUuid() {
         return uuid.getUuid();
     }
 

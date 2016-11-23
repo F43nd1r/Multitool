@@ -157,7 +157,7 @@ public class GestureFragment extends Fragment implements OmniAdapter.Controller<
     @Override
     public void bindView(View view, GestureInfo component, int level) {
         final TextView txt = (TextView) view;
-        txt.setText(component.getText());
+        txt.setText(component.getLabel());
         Drawable img = component.getImage(getActivity());
         txt.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null);
     }

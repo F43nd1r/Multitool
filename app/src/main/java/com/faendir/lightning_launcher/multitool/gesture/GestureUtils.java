@@ -1,9 +1,7 @@
 package com.faendir.lightning_launcher.multitool.gesture;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.gesture.GestureLibraries;
 import android.gesture.GestureLibrary;
 import android.net.Uri;
@@ -47,10 +45,6 @@ final class GestureUtils {
         updateSavedGestures(list, fileManager);
     }
 
-    static void edit(Activity context, GestureInfo selected, List<GestureInfo> list) {
-
-    }
-
     static void updateSavedGestures(List<GestureInfo> list, FileManager<GestureInfo> fileManager) {
         fileManager.write(new ArrayList<>(list));
     }
@@ -60,7 +54,7 @@ final class GestureUtils {
 
     static void exportGestures(final Context context, Uri path, FileManager<GestureInfo> fileManager) {
         final File metadata = fileManager.getFile();
-        final File gestures = SingletonGestureLibrary.getFile();
+        final File gestures = SingletonGestureLibrary.getFile(context);
         if (metadata.exists() && gestures.exists()) {
             final File dir = new File(path.getPath());
             final File file = new File(dir, "Multitool_Gestures_" + DateFormat.getDateFormat(context).format(new Date()) + ".zip");

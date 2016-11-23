@@ -2,23 +2,35 @@ package com.faendir.lightning_launcher.multitool.util;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
+import android.os.ParcelFileDescriptor;
+import android.os.ParcelUuid;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.gesture.GestureInfo;
+import com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary;
 import com.google.gson.JsonSyntaxException;
 
+import java.io.FileDescriptor;
+import java.io.FileNotFoundException;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 
 import java8.util.function.BiConsumer;
+import java8.util.stream.StreamSupport;
 
 /**
  * Provides various data (including SharedPreferences) to LL
@@ -26,17 +38,49 @@ import java8.util.function.BiConsumer;
  * @author F43nd1r
  * @since 15.08.2015
  */
-public class PreferenceProvider extends ContentProvider {
+public class DataProvider extends ContentProvider {
 
     private static final String AUTHORITY = "com.faendir.lightning_launcher.multitool.provider";
+    private static final String LIBRARY = "lib";
+    private static final String INFOS = "infos";
     private static final int SHARED_PREFERENCES = 1;
+    private static final int GESTURE_LIBRARY = 2;
+    private static final int GESTURE_INFOS = 3;
 
     private final UriMatcher URI_MATCHER;
     private SharedPreferences sharedPref;
 
-    public PreferenceProvider() {
+    public DataProvider() {
         URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
         URI_MATCHER.addURI(AUTHORITY, "pref", SHARED_PREFERENCES);
+        URI_MATCHER.addURI(AUTHORITY, LIBRARY, GESTURE_LIBRARY);
+        URI_MATCHER.addURI(AUTHORITY, INFOS, GESTURE_INFOS);
+    }
+
+    public static List<GestureInfo> getGestureInfos(Context context) {
+        List<GestureInfo> gestureInfos = new ArrayList<>();
+        try (Cursor cursor = context.getContentResolver().query(getContentUri(INFOS), null, null, null, null)) {
+            while (cursor.moveToNext()) {
+                try {
+                    gestureInfos.add(new GestureInfo(Intent.parseUri(cursor.getString(0), 0), cursor.getString(1), ParcelUuid.fromString(cursor.getString(2))));
+                } catch (URISyntaxException ignored) {
+                }
+            }
+            cursor.close();
+        }
+        return gestureInfos;
+    }
+
+    public static FileDescriptor getGestureLibraryFile(Context context) {
+        try {
+            return context.getContentResolver().openFileDescriptor(getContentUri(DataProvider.LIBRARY), "").getFileDescriptor();
+        } catch (FileNotFoundException e) {
+            return new FileDescriptor();
+        }
+    }
+
+    private static Uri getContentUri(String suffix) {
+        return Uri.parse("content://" + DataProvider.AUTHORITY + "/" + suffix);
     }
 
     @Override
@@ -51,13 +95,21 @@ public class PreferenceProvider extends ContentProvider {
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        if (URI_MATCHER.match(uri) == SHARED_PREFERENCES) {
-            MatrixCursor cursor = new MatrixCursor(new String[]{"key", "value"});
-            Map<String, ?> values = sharedPref.getAll();
-            for (String s : selectionArgs) {
-                cursor.addRow(new Object[]{s, Utils.GSON.toJson(values.get(s))});
+        switch (URI_MATCHER.match(uri)) {
+            case SHARED_PREFERENCES: {
+                MatrixCursor cursor = new MatrixCursor(new String[]{"key", "value"});
+                Map<String, ?> values = sharedPref.getAll();
+                for (String s : selectionArgs) {
+                    cursor.addRow(new Object[]{s, Utils.GSON.toJson(values.get(s))});
+                }
+                return cursor;
             }
-            return cursor;
+            case GESTURE_INFOS: {
+                MatrixCursor cursor = new MatrixCursor(new String[]{"intent", "label", "uuid"});
+                FileManager<GestureInfo> fileManager = FileManagerFactory.createGestureFileManager(getContext());
+                StreamSupport.stream(fileManager.read()).forEach(info -> cursor.addRow(new Object[]{info.getIntent().toUri(0), info.getLabel(), info.getUuid().toString()}));
+                return cursor;
+            }
         }
         return null;
     }
@@ -91,7 +143,7 @@ public class PreferenceProvider extends ContentProvider {
                 try {
                     String[] strings = Utils.GSON.fromJson(entry.getValue().toString(), String[].class);
                     editor.putStringSet(entry.getKey(), new HashSet<>(Arrays.asList(strings)));
-                }catch (JsonSyntaxException e){
+                } catch (JsonSyntaxException e) {
                     editor.putString(entry.getKey(), entry.getValue().toString());
                 }
             }
@@ -107,5 +159,14 @@ public class PreferenceProvider extends ContentProvider {
             return true;
         }
         return false;
+    }
+
+    @Nullable
+    @Override
+    public ParcelFileDescriptor openFile(@NonNull Uri uri, @NonNull String mode) throws FileNotFoundException {
+        if (URI_MATCHER.match(uri) == GESTURE_LIBRARY) {
+            return ParcelFileDescriptor.open(SingletonGestureLibrary.getFile(getContext()), ParcelFileDescriptor.MODE_READ_WRITE);
+        }
+        return super.openFile(uri, mode);
     }
 }

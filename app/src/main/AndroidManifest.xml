@@ -115,7 +115,7 @@
         </receiver>
 
         <provider
-            android:name=".util.PreferenceProvider"
+            android:name=".util.DataProvider"
             android:authorities="com.faendir.lightning_launcher.multitool.provider"
             android:enabled="true"
             android:exported="true"

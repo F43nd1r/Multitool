@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
-    compileSdkVersion 24
+    compileSdkVersion 25
     buildToolsVersion '24.0.3'
 
     defaultConfig {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 14
-        targetSdkVersion 24
+        targetSdkVersion 25
         versionCode 67
         versionName "2.9.3"
     }
@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    def supportVersion = "24.2.1"
+    def supportVersion = "25.0.1"
     def streamVersion = "1.5.2"
     compile('com.faendir.lightninglauncher:scriptlib:2.3-SNAPSHOT') {
         changing = true
