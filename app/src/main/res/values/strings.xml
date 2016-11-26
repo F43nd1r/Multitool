@@ -160,7 +160,7 @@
     <string name="title_export">Export Gestures</string>
     <string name="title_import">Import Gestures</string>
     <string name="title_trial">Trial</string>
-    <string name="message_trial">Do you want to start your Trial now?</string>
+    <string name="message_trial">Do you want to start your Trial for % s now?</string>
     <string name="title_buy">Buy</string>
     <string name="message_buy">Do you want to buy %s now?</string>
     <string name="summary_unlocked">Unlocked. Thanks for supporting MultiTool!</string>

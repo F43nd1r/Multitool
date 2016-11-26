@@ -71,7 +71,7 @@ public class Loader extends Activity {
                 if (billingManager.isBoughtOrTrial(id)) {
                     setResult(script, runAndDelete, flags, name);
                 } else if (showDialog) {
-                    runOnUiThread(() -> billingManager.showDialog(id, () -> check(id, script, runAndDelete, flags, name, false)));
+                    runOnUiThread(() -> billingManager.showTrialBuyDialog(id, () -> check(id, script, runAndDelete, flags, name, false)));
                 } else {
                     setResult(RESULT_CANCELED);
                     finish();

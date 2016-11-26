@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.annotation.UiThread;
 import android.util.Log;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.anjlab.android.iab.v3.TransactionDetails;
@@ -43,42 +42,79 @@ public class BillingManager extends BaseBillingManager {
     }
 
     @UiThread
-    public void showDialog(@StringRes int which){
-        showDialog(which, null);
+    public void showTrialBuyDialog(@StringRes int which) {
+        showTrialBuyDialog(which, null);
     }
 
     @UiThread
-    public void showDialog(@StringRes final int which, @Nullable final Runnable onClose) {
-        AlertDialog dialog = new AlertDialog.Builder(context)
-                .setMessage(context.getString(R.string.text_buyOrTrial, context.getString(which)))
-                .setPositiveButton(R.string.button_buy, (dialog1, ignore) -> {
-                    if(DEBUG) Log.d(LOG_TAG, "Button buy");
-                    buy(which);
-                    if(onClose != null) onClose.run();
-                })
-                .setNeutralButton(R.string.button_trial, (dialog1, ignore) -> {
-                    if(DEBUG) Log.d(LOG_TAG, "Button trial");
-                    new Thread(() -> {
-                        startTrial(which);
-                        if(onClose != null) onClose.run();
-                    }).start();
-                })
-                .setNegativeButton(R.string.button_cancel, (dialog1, ignore) -> {
-                    if(DEBUG) Log.d(LOG_TAG, "Button cancel");
-                    if(onClose != null) onClose.run();
-                })
-                .setCancelable(false)
-                .create();
-        dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-        dialog.show();
+    public void showTrialBuyDialog(@StringRes final int which, @Nullable final Runnable onClose) {
+        if (!context.isFinishing()) {
+            new AlertDialog.Builder(context)
+                    .setMessage(context.getString(R.string.text_buyOrTrial, context.getString(which)))
+                    .setPositiveButton(R.string.button_buy, (dialog1, ignore) -> {
+                        if (DEBUG) Log.d(LOG_TAG, "Button buy");
+                        buy(which);
+                        runIfNotNull(onClose);
+                    })
+                    .setNeutralButton(R.string.button_trial, (dialog1, ignore) -> {
+                        if (DEBUG) Log.d(LOG_TAG, "Button trial");
+                        new Thread(() -> {
+                            startTrial(which);
+                            runIfNotNull(onClose);
+                        }).start();
+                    })
+                    .setNegativeButton(R.string.button_cancel, (dialog1, ignore) -> {
+                        if (DEBUG) Log.d(LOG_TAG, "Button cancel");
+                        if (onClose != null) onClose.run();
+                    })
+                    .setOnCancelListener(dialogInterface -> runIfNotNull(onClose))
+                    .setCancelable(false)
+                    .show();
+        }
     }
 
-    public void buy(@StringRes int id){
+    public void showTrialDialog(@StringRes final int which, @Nullable final Runnable onClose) {
+        if (!context.isFinishing()) {
+            new AlertDialog.Builder(context)
+                    .setTitle(R.string.title_trial)
+                    .setMessage(context.getString(R.string.message_trial, context.getString(which)))
+                    .setPositiveButton(R.string.button_ok, (dialog, ignore) -> new Thread(() -> {
+                        startTrial(which);
+                        runIfNotNull(onClose);
+                    }).start())
+                    .setNegativeButton(R.string.button_cancel, (dialogInterface, i) -> runIfNotNull(onClose))
+                    .setOnCancelListener(dialogInterface -> runIfNotNull(onClose))
+                    .setCancelable(false)
+                    .show();
+        }
+    }
+
+    public void showBuyDialog(@StringRes final int which, @Nullable final Runnable onClose) {
+        if (!context.isFinishing()) {
+            new AlertDialog.Builder(context)
+                    .setTitle(R.string.title_buy)
+                    .setMessage(context.getString(R.string.message_buy, context.getString(which)))
+                    .setPositiveButton(R.string.button_ok, (dialog, ignore) -> new Thread(() -> {
+                        buy(which);
+                        runIfNotNull(onClose);
+                    }).start())
+                    .setNegativeButton(R.string.button_cancel, (dialogInterface, i) -> runIfNotNull(onClose))
+                    .setOnCancelListener(dialogInterface -> runIfNotNull(onClose))
+                    .setCancelable(false)
+                    .show();
+        }
+    }
+
+    private void runIfNotNull(Runnable runnable) {
+        if (runnable != null) runnable.run();
+    }
+
+    private void buy(@StringRes int id) {
         waitForInit();
         getBillingProcessor().purchase(context, mapping.get(id));
     }
 
-    public void startTrial(@StringRes int id) {
+    private void startTrial(@StringRes int id) {
         String productId = mapping.get(id);
         TrialState state = isTrial(productId);
         if (state == TrialState.EXPIRED) {
@@ -87,7 +123,7 @@ public class BillingManager extends BaseBillingManager {
             int result = networkRequest(productId, 1);
             if (result != 0) {
                 context.runOnUiThread(() -> Toast.makeText(context, "Sorry, something went wrong.", Toast.LENGTH_LONG).show());
-            }else {
+            } else {
                 expiration.put(productId, System.currentTimeMillis() / 1000 + SEVEN_DAYS_IN_SECONDS);
                 EventBus.getDefault().post(new SwitchFragmentRequest(mapping.getKey(productId)));
             }

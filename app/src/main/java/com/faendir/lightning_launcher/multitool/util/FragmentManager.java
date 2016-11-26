@@ -57,7 +57,7 @@ public class FragmentManager {
         }
         if (!billingManager.isBoughtOrTrial(request.getId())) {
             context.runOnUiThread(() -> {
-                billingManager.showDialog(request.getId());
+                billingManager.showTrialBuyDialog(request.getId());
                 drawer.setSelection(lastId);
             });
         } else {

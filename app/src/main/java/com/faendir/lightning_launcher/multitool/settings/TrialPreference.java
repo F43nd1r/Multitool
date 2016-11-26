@@ -1,7 +1,6 @@
 package com.faendir.lightning_launcher.multitool.settings;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Handler;
 import android.preference.Preference;
@@ -13,7 +12,8 @@ import com.faendir.lightning_launcher.multitool.billing.BaseBillingManager;
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
 
 /**
- * Created by Lukas on 12.11.2016.
+ * @author F43nd1r
+ * @since 12.11.2016
  */
 
 public class TrialPreference extends Preference {
@@ -64,27 +64,11 @@ public class TrialPreference extends Preference {
         if (!isBought) {
             switch (trialState) {
                 case NOT_STARTED:
-                    new AlertDialog.Builder(getContext())
-                            .setTitle(R.string.title_trial)
-                            .setMessage(R.string.message_trial)
-                            .setPositiveButton(R.string.button_ok, (dialog, which) -> new Thread(() -> {
-                                billingManager.startTrial(getTitleRes());
-                                update();
-                            }).start())
-                            .setNegativeButton(R.string.button_cancel, null)
-                            .show();
+                    billingManager.showTrialDialog(getTitleRes(), this::update);
                     break;
                 case ONGOING:
                 case EXPIRED:
-                    new AlertDialog.Builder(getContext())
-                            .setTitle(R.string.title_buy)
-                            .setMessage(getContext().getString(R.string.message_buy, getTitle()))
-                            .setPositiveButton(R.string.button_ok, (dialog, which) -> new Thread(() -> {
-                                billingManager.buy(getTitleRes());
-                                update();
-                            }).start())
-                            .setNegativeButton(R.string.button_cancel, null)
-                            .show();
+                    billingManager.showBuyDialog(getTitleRes(), this::update);
                     break;
             }
 
