@@ -1,28 +1,25 @@
 //Created by Lukas Morawietz in collaboration with TrianguloY
 //import java classes
-LL.bindClass("android.app.AlertDialog");
-LL.bindClass("android.app.ProgressDialog");
-LL.bindClass("android.content.DialogInterface");
-LL.bindClass("android.os.Environment");
-LL.bindClass("android.R");
-LL.bindClass("android.widget.ExpandableListView");
-LL.bindClass("android.widget.ImageView");
-LL.bindClass("android.widget.LinearLayout");
-LL.bindClass("android.widget.ListView");
-LL.bindClass("android.widget.NumberPicker");
-LL.bindClass("android.widget.SimpleAdapter");
-LL.bindClass("android.widget.SimpleExpandableListAdapter");
-LL.bindClass("android.widget.ScrollView");
-LL.bindClass("android.widget.TextView");
-LL.bindClass("java.io.File");
-LL.bindClass("java.io.BufferedReader");
-LL.bindClass("java.io.FileReader");
-LL.bindClass("java.io.FileWriter");
-LL.bindClass("java.util.HashMap");
-LL.bindClass("java.util.ArrayList");
+bindClass("android.app.AlertDialog");
+bindClass("android.content.DialogInterface");
+bindClass("android.R");
+bindClass("android.widget.ExpandableListView");
+bindClass("android.widget.ImageView");
+bindClass("android.widget.LinearLayout");
+bindClass("android.widget.ListView");
+bindClass("android.widget.NumberPicker");
+bindClass("android.widget.SimpleExpandableListAdapter");
+bindClass("android.widget.ScrollView");
+bindClass("android.widget.TextView");
+bindClass("java.io.File");
+bindClass("java.io.BufferedReader");
+bindClass("java.io.FileReader");
+bindClass("java.text.DateFormat");
+bindClass("java.util.HashMap");
+bindClass("java.util.ArrayList");
 
 
-var hasItem = (LL.getEvent().getItem() != null);
+var hasItem = (getEvent().getItem() != null);
 
 //define Strings to display
 var title = "What do you want to do?";
@@ -111,36 +108,53 @@ function mainOnClick(groupPosition, childPosition) {
 
 
 function eventData() {
-    var e = LL.getEvent();
+    var e = getEvent();
+    var ok;
     try { //test if event contains touch data
         e.getTouchScreenX();
-        var ok = true;
+        ok = true;
     } catch (Exception) {
-        var ok = false;
+        ok = false;
     }
-    text("Source: " + e.getSource() + "\nDate: " + e.getDate() + "\nContainer: " + e.getContainer() + "\nItem: " + e.getItem() + (ok ? ("\nTouch: " + e.getTouchX() + "," + e.getTouchY() + "\nTouch (Screen): " + e.getTouchScreenX() + "," + e.getTouchScreenY()) : ""), "Event Information");
+    text("Source: " + e.getSource()
+    + "\nDate: " + DateFormat.getInstance().format(e.getDate())
+    + "\nContainer: " + e.getContainer()
+    + "\nScreen: " + e.getScreen()
+    + "\nItem: " + e.getItem()
+    + "\nData: " + e.getData()
+    + (ok ? ("\nTouch: " + e.getTouchX() + "," + e.getTouchY()
+    + "\nTouch (Screen): " + e.getTouchScreenX() + "," + e.getTouchScreenY()) : ""), "Event Information");
 }
 
 function containerData() {
-    var c = LL.getEvent().getContainer();
+    var c = getEvent().getContainer();
     var t = c.getType(); //Differentiate between Desktop and other containers
 
     //read Tags from launcher file
-    var s = read(LL.getContext().getFilesDir().getPath() + "/pages/" + c.getId() + "/conf");
+    var s = read(getActiveScreen().getContext().getFilesDir().getPath() + "/pages/" + c.getId() + "/conf");
     var data = JSON.parse(s);
     var tags = "Default: " + c.getTag();
     for (property in data.tags)
         tags += "\n" + property + ": " + data.tags[property];
-    text("Type: " + t + "\nName/Label: " + (t == "Desktop" ? c.getName() : c.getOpener().getLabel()) + "\nID: " + c.getId() + "\nSize: " + c.getWidth() + "," + c.getHeight() + "\nBoundingbox: " + c.getBoundingBox() + "\nCell Size: " + c.getCellWidth() + "," + c.getCellHeight() + "\nCurrent Position: " + c.getPositionX() + "," + c.getPositionY() + "\nCurrent Scale: " + c.getPositionScale() + "\nTags: " + tags + "\nItems: " + c.getItems(), "Container Information");
+    text("Type: " + t
+    + "\nName/Label: " + (t == "Desktop" ? c.getName() : c.getOpener().getLabel())
+    + "\nID: " + c.getId()
+    + "\nSize: " + c.getWidth() + "," + c.getHeight()
+    + "\nBoundingbox: " + c.getBoundingBox()
+    + "\nCell Size: " + c.getCellWidth() + "," + c.getCellHeight()
+    + "\nCurrent Position: " + c.getPositionX() + "," + c.getPositionY()
+    + "\nCurrent Scale: " + c.getPositionScale()
+    + "\nTags: " + tags
+    + "\nItems: " + c.getAllItems(), "Container Information");
 }
 
 function itemData() {
-    var i = LL.getEvent().getItem();
+    var i = getEvent().getItem();
     if (i == null) //check if event contains item
         text("no item found", "Error 5");
 
     //read tags from launcher file
-    var s = read(LL.getContext().getFilesDir().getPath() + "/pages/" + LL.getEvent().getContainer().getId() + "/items");
+    var s = read(getActiveScreen().getContext().getFilesDir().getPath() + "/pages/" + LL.getEvent().getContainer().getId() + "/items");
     var all = JSON.parse(s).i;
     var x;
     var item;
@@ -157,19 +171,32 @@ function itemData() {
         if (property == "_") continue;
         tags += "\n" + property + ": " + item.an[property];
     }
-    text("Label: " + i.getLabel() + "\nType: " + i.getType() + "\nID: " + i.getId() + "\nSize: " + i.getWidth() + "," + i.getHeight() + "\nPosition: " + i.getPositionX() + "," + i.getPositionY() + "\nScale: " + i.getScaleX() + "," + i.getScaleY() + "\nAngle: " + i.getRotation() + "\nCenter: " + center(i) + ((i.getType() == "Shortcut" || i.getType() == "Folder") ? "\nIntent:" + i.getIntent() : "") + "\nTags: " + tags, "Item Information");
+    text("Label: " + i.getLabel()
+    + "\nName: " + i.getName()
+    + "\nType: " + i.getType()
+    + "\nID: " + i.getId()
+    + "\nSize: " + i.getWidth() + "," + i.getHeight()
+    + "\nPosition: " + i.getPositionX() + "," + i.getPositionY()
+    + "\nScale: " + i.getScaleX() + "," + i.getScaleY()
+    + "\nAngle: " + i.getRotation()
+    + "\nCenter: " + center(i)
+    + "\nCell: " + i.getCell()
+    + "\nis Visible: " + i.isVisible()
+    + "\nTags: " + tags, "Item Information");
 }
 
 function intentData() {
-    it = LL.getEvent().getItem();
-    if (it == null || item.getType() != "Shortcut") text("No Intent found.", "Error 1");
-    else text("Intent: " + it.getIntent() + "\nExtras: " + it.getIntent().getExtras(), "Intent Information");
+    var it = getEvent().getItem();
+    if (it == null || it.getType() != "Shortcut") text("No Intent found.", "Error 1");
+    else text("Intent: " + it.getIntent()
+    + "\nExtras: " + it.getIntent().getExtras(), "Intent Information");
 }
 
 function iconData() {
-    it = LL.getEvent().getItem();
+    var it = getEvent().getItem();
+    var c = getActiveScreen().getContext();
     //create view structure
-    var root = new LinearLayout(LL.getContext());
+    var root = new LinearLayout(c);
     root.setOrientation(LinearLayout.VERTICAL);
 
     //check for all kinds of images in this item and add them to the view if there are any
@@ -181,20 +208,20 @@ function iconData() {
         addImageIfNotNull(root, image = it.getCustomIcon(), "Custom Icon");
     }
     if (root.getChildCount() > 0) { //at least one image found
-        var scroll = new ScrollView(LL.getContext());
+        var scroll = new ScrollView(c);
         scroll.addView(root);
         customDialog(scroll, "Icon");
-    } else Android.makeNewToast("No Image Data available", true).show(); //no image found
+    } else Toast.makeText(c, "No Image Data available", Toast.LENGTH_SHORT).show(); //no image found
 }
 
 function attachDetachAll() {
-    var items = LL.getEvent().getContainer().getItems();
+    var items = getEvent().getContainer().getAllItems();
     var attachDetach = function(toGrid) {
         for (x = 0; x < items.length; x++) {
-            var i = items.getAt(x);
+            var i = items[x];
             i.getProperties().edit().setBoolean("i.onGrid", toGrid).commit();
         }
-        Android.makeNewToast("Done!", true).show();
+        Toast.makeText(getActiveScreen().getContext(), "Done!", Toast.LENGTH_SHORT).show();
     }
     var attach = function() {
         attachDetach(true);
@@ -206,47 +233,48 @@ function attachDetachAll() {
 }
 
 function resizeAllDetached() {
-    var linearLayout = new LinearLayout(LL.getContext());
-    var c = LL.getEvent().getContainer();
+    var context = getActiveScreen().getContext();
+    var linearLayout = new LinearLayout(context);
+    var c = getEvent().getContainer();
     linearLayout.setOrientation(LinearLayout.VERTICAL);
-    var widthText = new TextView(LL.getContext());
+    var widthText = new TextView(context);
     widthText.setText("Width: ");
     linearLayout.addView(widthText);
-    var widthPicker = new NumberPicker(LL.getContext());
+    var widthPicker = new NumberPicker(context);
     widthPicker.setMinValue(1);
     widthPicker.setMaxValue(9999);
     widthPicker.setValue(c.getCellWidth());
     linearLayout.addView(widthPicker);
-    var heightText = new TextView(LL.getContext());
+    var heightText = new TextView(context);
     heightText.setText("Height: ");
     linearLayout.addView(heightText);
-    var heightPicker = new NumberPicker(LL.getContext());
+    var heightPicker = new NumberPicker(context);
     heightPicker.setMinValue(1);
     heightPicker.setMaxValue(9999);
     heightPicker.setValue(c.getCellHeight());
     linearLayout.addView(heightPicker);
     var onClick = function() {
         var s = [widthPicker.getValue(), heightPicker.getValue()];
-        var items = c.getItems();
+        var items = c.getAllItems();
         for (var a = 0; a < items.length; a++)
-            items.getAt(a).setSize(s[0], s[1]);
+            items[a].setSize(s[0], s[1]);
     }
     customConfirmDialog(linearLayout, "To which size?", onClick);
 }
 
 function deleteAll() {
     var f = function() {
-        var c = LL.getEvent().getContainer();
-        var i = c.getItems();
+        var c = getEvent().getContainer();
+        var i = c.getAllItems();
         for (a = 0; a < i.length; a++)
-            c.removeItem(i.getAt(a));
+            c.removeItem(i[a]);
     }
     chooser([function() {}, f], ["No", "Yes"], "Are you sure?", "Delete all items");
 }
 
 function movePages() {
-    var cont = LL.getEvent().getContainer();
-    var items = cont.getItems();
+    var cont = getEvent().getContainer();
+    var items = cont.getAllItems();
     var cWidth = cont.getWidth();
     var cHeight = cont.getHeight();
     var cellsFloatX = cWidth / cont.getCellWidth();
@@ -264,7 +292,7 @@ function movePages() {
             }
             //check for valid input
             if (!done || move == null || move[0] == null || (move[0] != "*" && isNaN(parseInt(move[0]))) || move[1] == null || (move[1] != "*" && isNaN(parseInt(move[1])))) {
-                Android.makeNewToast("Invalid input", true).show();
+                Toast.makeText(getActiveScreen().getContext(), "Invalid input", Toast.LENGTH_SHORT).show();
                 return;
             }
             //format to int if needed
@@ -279,14 +307,14 @@ function movePages() {
             }
             //check for valid input
             if (!done || dist == null || dist[0] == null || isNaN(dist[0]) || dist[1] == null || isNaN(dist[1])) {
-                Android.makeNewToast("Invalid input", true).show();
+                Toast.makeText(getActiveScreen().getContext(), "Invalid input", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (dist[0] == 0 && dist[1] == 0) return; //if nothing to do, do nothing :P
 
             //do the movement
             for (var i = items.getLength() - 1; i >= 0; --i) {
-                var item = items.getAt(i);
+                var item = items[i];
                 var pos = [item.getPositionX(), item.getPositionY()];
                 //check if item should be moved
                 if ((move[0] == "*" || (pos[0] >= cWidth * move[0] && pos[0] < cWidth * (move[0] + 1))) && (move[1] == "*" || (pos[1] >= cHeight * move[1] && pos[1] < cHeight * (move[1] + 1)))) {
@@ -307,7 +335,7 @@ function movePages() {
                         item.setPosition(pos[0] + cWidth * dist[0] * xx, pos[1] + cHeight * dist[1] * yy);
                 }
             }
-            LL.save();
+            save();
         }
         //check for safe cell sizes
     if (Math.abs(cellsFloatX - cellsX) > 0.00001 || Math.abs(cellsFloatY - cellsY) > 0.00001)
@@ -316,11 +344,12 @@ function movePages() {
 }
 
 function resetTags() {
-    var d = LL.getEvent().getContainer();
-    var i = LL.getEvent().getItem();
+    var e = getEvent();
+    var d = e.getContainer();
+    var i = e.getItem();
     if (i != null) { //Items Tag
         //read tags from launcher file
-        var s = read(LL.getContext().getFilesDir().getPath() + "/pages/" + LL.getEvent().getContainer().getId() + "/items");
+        var s = read(getActiveScreen().getContext().getFilesDir().getPath() + "/pages/" + LL.getEvent().getContainer().getId() + "/items");
         var all = JSON.parse(s).i;
         var x;
         var item;
@@ -350,14 +379,14 @@ function resetTags() {
                 else tags = [tags[id]];
                 for (var y = 0; y < tags.length; y++)
                     i.setTag(tags[y].toString(), null);
-                Android.makeNewToast("Deleting tag(s) done!", true).show();
-                LL.save();
+                Toast.makeText(getActiveScreen().getContext(), "Deleting tag(s) done!", Toast.LENGTH_SHORT).show();
+                save();
             }
             //ask user for selection
         list(tags, onClick, "Which Tag do you want to reset?");
     } else { //Container Tags
         //read Tags from launcher file
-        var s = read(LL.getContext().getFilesDir().getPath() + "/pages/" + d.getId() + "/conf");
+        var s = read(getActiveScreen().getContext().getFilesDir().getPath() + "/pages/" + d.getId() + "/conf");
         var data = JSON.parse(s);
         var tags = [];
         for (property in data.tags)
@@ -379,8 +408,8 @@ function resetTags() {
                     if (tags[x] == "_") d.setTag(null);
                     else d.setTag(tags[x].toString(), null);
                 }
-                Android.makeNewToast("Deleting tag(s) done!", true).show();
-                LL.save();
+                Toast.makeText(getActiveScreen().getContext(), "Deleting tag(s) done!", Toast.LENGTH_SHORT).show();
+                save();
             }
             //ask user for selection
         list(tags, onClick, "Which Tag do you want to reset?");
@@ -388,16 +417,18 @@ function resetTags() {
 }
 
 function resetTool() {
-    var cont = LL.getEvent().getContainer();
-    var items = cont.getItems();
-    var listItems = ["Cell (only grid items) [0,0]", "Position (only free items) [0,0]", "Rotation (only free items) [0]", "Scale (only free items) [1,1]", "Skew (only free items) [0,0]", "Size (only free items) [cell size]", "Visibility [true]"];
+    var cont = getEvent().getContainer();
+    var items = cont.getAllItems();
+    var listItems = ["Cell (only grid items) [0,0]", "Position (only free items) [0,0]",
+    "Rotation (only free items) [0]", "Scale (only free items) [1,1]",
+    "Skew (only free items) [0,0]", "Size (only free items) [cell size]", "Visibility [true]"];
     var listener = new DialogInterface.OnMultiChoiceClickListener() {
         onClick: function(dialog, which, isChecked) {
             bools[which] = isChecked;
         }
     };
     var bools = [false, false, false, false, false, false, false];
-    var builder = new AlertDialog.Builder(LL.getContext());
+    var builder = new AlertDialog.Builder(getActiveScreen().getContext());
     builder.setMultiChoiceItems(listItems, bools, listener);
     builder.setTitle("Reset");
     builder.setCancelable(true);
@@ -405,7 +436,7 @@ function resetTool() {
         onClick: function(dialog, which) {
             dialog.dismiss();
             for (var i = 0; i < items.getLength(); ++i) {
-                var t = items.getAt(i);
+                var t = items[i];
                 if (bools[0]) t.setCell(0, 0, 1, 1);
                 if (bools[1]) t.setPosition(0, 0);
                 if (bools[2]) t.setRotation(0);
@@ -420,21 +451,22 @@ function resetTool() {
 }
 
 function saveLayout() {
-    LL.save();
-    Android.makeNewToast("Saved Layout", true).show();
+    save();
+    Toast.makeText(getActiveScreen().getContext(), "Saved Layout", Toast.LENGTH_SHORT).show();
 }
 
 function resetRecents() {
-    new File(LL.getContext().getFilesDir().getPath() + "/statistics").delete();
-    Android.makeNewToast("Recents resetted", true).show();
+    new File(getActiveScreen().getContext().getFilesDir().getPath() + "/statistics").delete();
+    Toast.makeText(getActiveScreen().getContext(), "Recents resetted", Toast.LENGTH_SHORT).show();
 }
 
 //function to display a grouped list where the user can select one item
 //items should be an array containing arrays which first item is the group and the second item is an array of the items in this group
 //onClickFunction has to have two arguments. first is group position, second is child position
 function expandableList(items, onClickFunction, title) {
-    var builder = new AlertDialog.Builder(LL.getContext());
-    var view = new ExpandableListView(LL.getContext());
+    var c = getActiveScreen().getContext();
+    var builder = new AlertDialog.Builder(c);
+    var view = new ExpandableListView(c);
 
     //transform array of items into the correct format
     var groupData = new ArrayList();
@@ -451,7 +483,7 @@ function expandableList(items, onClickFunction, title) {
         }
         childData.add(cd);
     }
-    var mContext = LL.getContext().createPackageContext("com.faendir.lightning_launcher.multitool", 0);
+    var mContext = c.createPackageContext("com.faendir.lightning_launcher.multitool", 0);
     var layoutId = mContext.getResources().getIdentifier("list_item", "layout", "com.faendir.lightning_launcher.multitool");
     //assign the items to an adapter
     var adapter = new SimpleExpandableListAdapter(mContext, groupData, layoutId, ["root"], [R.id.text1], childData, layoutId, ["child"], [R.id.text1]);
@@ -484,7 +516,7 @@ function expandableList(items, onClickFunction, title) {
 
 //function to display a List in a Popup, where the user can select one item
 function list(items, onClickFunction, title) {
-    var builder = new AlertDialog.Builder(LL.getContext());
+    var builder = new AlertDialog.Builder(getActiveScreen().getContext());
     var listener = new DialogInterface.OnClickListener() {
         onClick: function(dialog, which) {
             dialog.dismiss();
@@ -507,7 +539,7 @@ function list(items, onClickFunction, title) {
 
 //function to display an alert like Dialog, but scrollable and with custom Title
 function text(txt, title) {
-    var builder = new AlertDialog.Builder(LL.getContext());
+    var builder = new AlertDialog.Builder(getActiveScreen().getContext());
     builder.setMessage(txt);
     builder.setCancelable(true);
     builder.setTitle(title);
@@ -520,7 +552,7 @@ function text(txt, title) {
 }
 
 function chooser(functions, texts, txt, title) {
-    var builder = new AlertDialog.Builder(LL.getContext());
+    var builder = new AlertDialog.Builder(getActiveScreen().getContext());
     builder.setMessage(txt);
     builder.setCancelable(true);
     builder.setTitle(title);
@@ -546,7 +578,7 @@ function chooser(functions, texts, txt, title) {
 }
 
 function customDialog(view, title) {
-    var builder = new AlertDialog.Builder(LL.getContext());
+    var builder = new AlertDialog.Builder(getActiveScreen().getContext());
     builder.setView(view);
     builder.setCancelable(true);
     builder.setTitle(title);
@@ -559,7 +591,7 @@ function customDialog(view, title) {
 }
 
 function customConfirmDialog(view, title, onPositiveFunction) {
-    var builder = new AlertDialog.Builder(LL.getContext());
+    var builder = new AlertDialog.Builder(getActiveScreen().getContext());
     builder.setView(view);
     builder.setCancelable(true);
     builder.setTitle(title);
@@ -605,10 +637,11 @@ function read(filePath) {
 
 function addImageIfNotNull(root, image, txt) {
     if (image != null) {
-        var textView = new TextView(LL.getContext());
+        var c = getActiveScreen().getContext();
+        var textView = new TextView(c);
         textView.setText(txt + " (" + image.getWidth() + "x" + image.getHeight() + ")");
         root.addView(textView);
-        var imageView = new ImageView(LL.getContext());
+        var imageView = new ImageView(c);
         imageView.setImageBitmap(image.getBitmap());
         root.addView(imageView);
     }
