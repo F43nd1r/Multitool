@@ -25,9 +25,9 @@ function write(stream, file, pathLength, pathPrefix) {
     }
 }
 
-function dir(name) {
-    startNext(outStream, name + "/");
-    outStream.closeEntry();
+function dir(stream, name) {
+    startNext(stream, name + "/");
+    stream.closeEntry();
 }
 
 function getRelativePath(file, pathLength, pathPrefix) {
@@ -69,7 +69,7 @@ var task = new JavaAdapter(AsyncTask, {
         p.append("1");
         p.flush();
         outStream.closeEntry();
-        dir("core");
+        dir(outStream, "core");
         write(outStream, new File(inDir, "pages"), inDir.getPath().length, "core");
         write(outStream, new File(inDir, "scripts"), inDir.getPath().length, "core");
         write(outStream, new File(inDir, "themes"), inDir.getPath().length, "core");
@@ -78,15 +78,15 @@ var task = new JavaAdapter(AsyncTask, {
         write(outStream, new File(inDir, "statistics"), inDir.getPath().length, "core");
         write(outStream, new File(inDir, "system"), inDir.getPath().length, "core");
         write(outStream, new File(inDir, "variables"), inDir.getPath().length, "core");
-        dir("wallpaper");
+        dir(outStream, "wallpaper");
         var wp = WallpaperManager.getInstance(c).getDrawable().getBitmap();
         startNext(outStream, "wallpaper/bitmap.png");
         wp.compress(Bitmap.CompressFormat.PNG, 100, outStream);
         outStream.flush();
         outStream.closeEntry();
-        dir("fonts");
+        dir(outStream, "fonts");
         write(outStream, new File(inDir, "fonts"), inDir.getPath().length, "");
-        dir("widgets_data");
+        dir(outStream, "widgets_data");
         p.close();
     },
     onPostExecute: function(ignored) {
