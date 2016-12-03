@@ -69,7 +69,7 @@
         <activity-alias
             android:name=".LoadGestureLauncher"
             android:exported="true"
-            android:label="Gesture Launcher"
+            android:label="@string/title_gestureLauncher"
             android:targetActivity=".Loader">
             <intent-filter>
                 <action android:name="net.pierrox.lightning_launcher.script.PLUGIN"/>
@@ -79,7 +79,7 @@
             android:name=".LoadMusicWidget"
             android:enabled="@bool/isLollipopOrHigher"
             android:exported="true"
-            android:label="Music Widget"
+            android:label="@string/title_musicWidget"
             android:targetActivity=".Loader">
             <intent-filter>
                 <action android:name="net.pierrox.lightning_launcher.script.PLUGIN"/>
@@ -88,10 +88,19 @@
         <activity-alias
             android:name=".LoadDrawer"
             android:exported="true"
-            android:label="App Drawer"
+            android:label="@string/title_drawer"
             android:targetActivity=".Loader">
             <intent-filter>
                 <action android:name="net.pierrox.lightning_launcher.script.PLUGIN"/>
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".toggleImmersive"
+            android:exported="true"
+            android:label="@string/title_immersive"
+            android:targetActivity=".Loader">
+            <intent-filter>
+                <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE"/>
             </intent-filter>
         </activity-alias>
 

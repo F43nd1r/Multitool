@@ -179,4 +179,5 @@
     <string name="title_hiddenApps">Restore hidden apps</string>
     <string name="title_info">Info</string>
     <string name="title_version">Version</string>
+    <string name="title_immersive">Toggle immersive mode</string>
 </resources>

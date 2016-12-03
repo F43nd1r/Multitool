@@ -1,0 +1,1 @@
+setTimeout(function(){getActiveScreen().getContext().getWindow().getDecorView().setSystemUiVisibility(4096+4+2);},100);
