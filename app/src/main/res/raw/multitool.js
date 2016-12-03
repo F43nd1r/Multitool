@@ -145,7 +145,7 @@ function containerData() {
     + "\nCurrent Position: " + c.getPositionX() + "," + c.getPositionY()
     + "\nCurrent Scale: " + c.getPositionScale()
     + "\nTags: " + tags
-    + "\nItems: " + c.getAllItems(), "Container Information");
+    + "\nItems: " + JSON.parse(c.getAllItems()), "Container Information");
 }
 
 function itemData() {
@@ -181,15 +181,19 @@ function itemData() {
     + "\nAngle: " + i.getRotation()
     + "\nCenter: " + center(i)
     + "\nCell: " + i.getCell()
-    + "\nis Visible: " + i.isVisible()
+    + "\nis visible: " + i.isVisible()
     + "\nTags: " + tags, "Item Information");
 }
 
 function intentData() {
     var it = getEvent().getItem();
     if (it == null || it.getType() != "Shortcut") text("No Intent found.", "Error 1");
-    else text("Intent: " + it.getIntent()
-    + "\nExtras: " + it.getIntent().getExtras(), "Intent Information");
+    else {
+        var intent = it.getIntent();
+        intent.getStringExtra("somenamenoonewouldeveruse");
+        text("Intent: " + intent
+        + "\nExtras: " + intent.getExtras(), "Intent Information");
+    }
 }
 
 function iconData() {
