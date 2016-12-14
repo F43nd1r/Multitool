@@ -111,11 +111,11 @@ final class GestureUtils {
         if (file.exists() && file.canRead()) {
             try (ZipInputStream in = new ZipInputStream(new BufferedInputStream(new FileInputStream(file)))) {
                 ZipEntry metaEntry = in.getNextEntry();
-                if (metaEntry.getName().equals(METADATA)) {
+                if (metaEntry != null && metaEntry.getName().equals(METADATA)) {
                     File metadata = new File(context.getCacheDir(), METADATA);
                     readToFile(metadata, in);
                     ZipEntry gestureEntry = in.getNextEntry();
-                    if (gestureEntry.getName().equals(GESTURES)) {
+                    if (gestureEntry != null && gestureEntry.getName().equals(GESTURES)) {
                         File gestures = new File(context.getCacheDir(), GESTURES);
                         readToFile(gestures, in);
                         in.close();
