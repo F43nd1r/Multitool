@@ -11,13 +11,13 @@ android.support.design.R$anim: int abc_slide_in_bottom
 android.support.design.R$anim: int abc_slide_in_top
 android.support.design.R$anim: int abc_slide_out_bottom
 android.support.design.R$anim: int abc_slide_out_top
-android.support.design.R$anim: int design_appbar_state_list_animator
 android.support.design.R$anim: int design_bottom_sheet_slide_in
 android.support.design.R$anim: int design_bottom_sheet_slide_out
 android.support.design.R$anim: int design_fab_in
 android.support.design.R$anim: int design_fab_out
 android.support.design.R$anim: int design_snackbar_in
 android.support.design.R$anim: int design_snackbar_out
+android.support.design.R$animator: int design_appbar_state_list_animator
 android.support.design.R$attr: int actionBarDivider
 android.support.design.R$attr: int actionBarItemBackground
 android.support.design.R$attr: int actionBarPopupTheme
@@ -205,8 +205,10 @@ android.support.design.R$attr: int navigationContentDescription
 android.support.design.R$attr: int navigationIcon
 android.support.design.R$attr: int navigationMode
 android.support.design.R$attr: int overlapAnchor
+android.support.design.R$attr: int paddingBottomNoButtons
 android.support.design.R$attr: int paddingEnd
 android.support.design.R$attr: int paddingStart
+android.support.design.R$attr: int paddingTopNoTitle
 android.support.design.R$attr: int panelBackground
 android.support.design.R$attr: int panelMenuListTheme
 android.support.design.R$attr: int panelMenuListWidth
@@ -241,6 +243,7 @@ android.support.design.R$attr: int selectableItemBackgroundBorderless
 android.support.design.R$attr: int showAsAction
 android.support.design.R$attr: int showDividers
 android.support.design.R$attr: int showText
+android.support.design.R$attr: int showTitle
 android.support.design.R$attr: int singleChoiceItemLayout
 android.support.design.R$attr: int spanCount
 android.support.design.R$attr: int spinBars
@@ -337,6 +340,7 @@ android.support.design.R$bool: int abc_config_showMenuShortcutsWhenKeyboardPrese
 android.support.design.R$color: int abc_background_cache_hint_selector_material_dark
 android.support.design.R$color: int abc_background_cache_hint_selector_material_light
 android.support.design.R$color: int abc_btn_colored_borderless_text_material
+android.support.design.R$color: int abc_btn_colored_text_material
 android.support.design.R$color: int abc_color_highlight_material
 android.support.design.R$color: int abc_hint_foreground_material_dark
 android.support.design.R$color: int abc_hint_foreground_material_light
@@ -459,11 +463,13 @@ android.support.design.R$dimen: int abc_dialog_fixed_height_major
 android.support.design.R$dimen: int abc_dialog_fixed_height_minor
 android.support.design.R$dimen: int abc_dialog_fixed_width_major
 android.support.design.R$dimen: int abc_dialog_fixed_width_minor
-android.support.design.R$dimen: int abc_dialog_list_padding_vertical_material
+android.support.design.R$dimen: int abc_dialog_list_padding_bottom_no_buttons
+android.support.design.R$dimen: int abc_dialog_list_padding_top_no_title
 android.support.design.R$dimen: int abc_dialog_min_width_major
 android.support.design.R$dimen: int abc_dialog_min_width_minor
 android.support.design.R$dimen: int abc_dialog_padding_material
 android.support.design.R$dimen: int abc_dialog_padding_top_material
+android.support.design.R$dimen: int abc_dialog_title_divider_material
 android.support.design.R$dimen: int abc_disabled_alpha_material_dark
 android.support.design.R$dimen: int abc_disabled_alpha_material_light
 android.support.design.R$dimen: int abc_dropdownitem_icon_width
@@ -648,9 +654,19 @@ android.support.design.R$drawable: int abc_textfield_search_activated_mtrl_alpha
 android.support.design.R$drawable: int abc_textfield_search_default_mtrl_alpha
 android.support.design.R$drawable: int abc_textfield_search_material
 android.support.design.R$drawable: int abc_vector_test
+android.support.design.R$drawable: int avd_hide_password
+android.support.design.R$drawable: int avd_hide_password_1
+android.support.design.R$drawable: int avd_hide_password_2
+android.support.design.R$drawable: int avd_hide_password_3
+android.support.design.R$drawable: int avd_show_password
+android.support.design.R$drawable: int avd_show_password_1
+android.support.design.R$drawable: int avd_show_password_2
+android.support.design.R$drawable: int avd_show_password_3
 android.support.design.R$drawable: int design_bottom_navigation_item_background
 android.support.design.R$drawable: int design_fab_background
 android.support.design.R$drawable: int design_ic_visibility
+android.support.design.R$drawable: int design_ic_visibility_off
+android.support.design.R$drawable: int design_password_eye
 android.support.design.R$drawable: int design_snackbar_background
 android.support.design.R$drawable: int navigation_empty_icon
 android.support.design.R$drawable: int notification_action_background
@@ -739,6 +755,7 @@ android.support.design.R$id: int line1
 android.support.design.R$id: int line3
 android.support.design.R$id: int listMode
 android.support.design.R$id: int list_item
+android.support.design.R$id: int masked
 android.support.design.R$id: int media_actions
 android.support.design.R$id: int middle
 android.support.design.R$id: int mini
@@ -797,9 +814,13 @@ android.support.design.R$id: int tabMode
 android.support.design.R$id: int text
 android.support.design.R$id: int text2
 android.support.design.R$id: int textSpacerNoButtons
+android.support.design.R$id: int textSpacerNoTitle
 android.support.design.R$id: int text_input_password_toggle
+android.support.design.R$id: int textinput_counter
+android.support.design.R$id: int textinput_error
 android.support.design.R$id: int time
 android.support.design.R$id: int title
+android.support.design.R$id: int titleDividerNoCustom
 android.support.design.R$id: int title_template
 android.support.design.R$id: int top
 android.support.design.R$id: int topPanel
@@ -809,6 +830,7 @@ android.support.design.R$id: int transition_scene_layoutid_cache
 android.support.design.R$id: int up
 android.support.design.R$id: int useLogo
 android.support.design.R$id: int view_offset_helper
+android.support.design.R$id: int visible
 android.support.design.R$id: int withText
 android.support.design.R$id: int wrap_content
 android.support.design.R$integer: int abc_config_activityDefaultDur
@@ -817,6 +839,8 @@ android.support.design.R$integer: int app_bar_elevation_anim_duration
 android.support.design.R$integer: int bottom_sheet_slide_duration
 android.support.design.R$integer: int cancel_button_image_alpha
 android.support.design.R$integer: int design_snackbar_text_max_lines
+android.support.design.R$integer: int hide_password_duration
+android.support.design.R$integer: int show_password_duration
 android.support.design.R$integer: int status_bar_notification_info_maxnum
 android.support.design.R$layout: int abc_action_bar_title_item
 android.support.design.R$layout: int abc_action_bar_up_container
@@ -829,6 +853,7 @@ android.support.design.R$layout: int abc_activity_chooser_view
 android.support.design.R$layout: int abc_activity_chooser_view_list_item
 android.support.design.R$layout: int abc_alert_dialog_button_bar_material
 android.support.design.R$layout: int abc_alert_dialog_material
+android.support.design.R$layout: int abc_alert_dialog_title_material
 android.support.design.R$layout: int abc_dialog_title_material
 android.support.design.R$layout: int abc_expanded_menu_layout
 android.support.design.R$layout: int abc_list_menu_item_checkbox
@@ -911,6 +936,11 @@ android.support.design.R$string: int abc_toolbar_collapse_description
 android.support.design.R$string: int appbar_scrolling_view_behavior
 android.support.design.R$string: int bottom_sheet_behavior
 android.support.design.R$string: int character_counter_pattern
+android.support.design.R$string: int password_toggle_content_description
+android.support.design.R$string: int path_password_eye
+android.support.design.R$string: int path_password_eye_mask_strike_through
+android.support.design.R$string: int path_password_eye_mask_visible
+android.support.design.R$string: int path_password_strike_through
 android.support.design.R$string: int search_menu_title
 android.support.design.R$string: int status_bar_notification_info_overflow
 android.support.design.R$style: int AlertDialog_AppCompat
@@ -959,6 +989,8 @@ android.support.design.R$style: int Base_TextAppearance_AppCompat_Widget_ActionB
 android.support.design.R$style: int Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle
 android.support.design.R$style: int Base_TextAppearance_AppCompat_Widget_ActionMode_Title
 android.support.design.R$style: int Base_TextAppearance_AppCompat_Widget_Button
+android.support.design.R$style: int Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored
+android.support.design.R$style: int Base_TextAppearance_AppCompat_Widget_Button_Colored
 android.support.design.R$style: int Base_TextAppearance_AppCompat_Widget_Button_Inverse
 android.support.design.R$style: int Base_TextAppearance_AppCompat_Widget_DropDownItem
 android.support.design.R$style: int Base_TextAppearance_AppCompat_Widget_PopupMenu_Header
@@ -1146,6 +1178,8 @@ android.support.design.R$style: int TextAppearance_AppCompat_Widget_ActionMode_S
 android.support.design.R$style: int TextAppearance_AppCompat_Widget_ActionMode_Title
 android.support.design.R$style: int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse
 android.support.design.R$style: int TextAppearance_AppCompat_Widget_Button
+android.support.design.R$style: int TextAppearance_AppCompat_Widget_Button_Borderless_Colored
+android.support.design.R$style: int TextAppearance_AppCompat_Widget_Button_Colored
 android.support.design.R$style: int TextAppearance_AppCompat_Widget_Button_Inverse
 android.support.design.R$style: int TextAppearance_AppCompat_Widget_DropDownItem
 android.support.design.R$style: int TextAppearance_AppCompat_Widget_PopupMenu_Header
@@ -1338,6 +1372,7 @@ android.support.design.R$styleable: int AlertDialog_buttonPanelSideLayout
 android.support.design.R$styleable: int AlertDialog_listItemLayout
 android.support.design.R$styleable: int AlertDialog_listLayout
 android.support.design.R$styleable: int AlertDialog_multiChoiceItemLayout
+android.support.design.R$styleable: int AlertDialog_showTitle
 android.support.design.R$styleable: int AlertDialog_singleChoiceItemLayout
 android.support.design.R$styleable: int[] AppBarLayout
 android.support.design.R$styleable: int[] AppBarLayoutStates
@@ -1633,6 +1668,9 @@ android.support.design.R$styleable: int PopupWindowBackgroundState_state_above_a
 android.support.design.R$styleable: int PopupWindow_android_popupAnimationStyle
 android.support.design.R$styleable: int PopupWindow_android_popupBackground
 android.support.design.R$styleable: int PopupWindow_overlapAnchor
+android.support.design.R$styleable: int[] RecycleListView
+android.support.design.R$styleable: int RecycleListView_paddingBottomNoButtons
+android.support.design.R$styleable: int RecycleListView_paddingTopNoTitle
 android.support.design.R$styleable: int[] RecyclerView
 android.support.design.R$styleable: int RecyclerView_android_descendantFocusability
 android.support.design.R$styleable: int RecyclerView_android_orientation
@@ -1845,6 +1883,11 @@ android.support.design.internal.ScrimInsetsFrameLayout: void draw(android.graphi
 android.support.design.internal.ScrimInsetsFrameLayout: void onAttachedToWindow()
 android.support.design.internal.ScrimInsetsFrameLayout: void onDetachedFromWindow()
 android.support.design.internal.ScrimInsetsFrameLayout: void onInsetsChanged(android.support.v4.view.WindowInsetsCompat)
+android.support.design.internal.SnackbarContentLayout
+android.support.design.internal.SnackbarContentLayout: SnackbarContentLayout(android.content.Context)
+android.support.design.internal.SnackbarContentLayout: SnackbarContentLayout(android.content.Context,android.util.AttributeSet)
+android.support.design.internal.SnackbarContentLayout: android.widget.TextView getMessageView()
+android.support.design.internal.SnackbarContentLayout: android.widget.Button getActionView()
 android.support.design.widget.AnimationUtils
 android.support.design.widget.AnimationUtils: android.view.animation.Interpolator LINEAR_INTERPOLATOR
 android.support.design.widget.AnimationUtils: android.view.animation.Interpolator FAST_OUT_SLOW_IN_INTERPOLATOR
@@ -2045,6 +2088,133 @@ android.support.design.widget.AppBarLayout$ScrollingViewBehavior: int getTopAndB
 android.support.design.widget.AppBarLayout$ScrollingViewBehavior: boolean setLeftAndRightOffset(int)
 android.support.design.widget.AppBarLayout$ScrollingViewBehavior: boolean setTopAndBottomOffset(int)
 android.support.design.widget.AppBarLayout$ScrollingViewBehavior: boolean onLayoutChild(android.support.design.widget.CoordinatorLayout,android.view.View,int)
+android.support.design.widget.BaseTransientBottomBar
+android.support.design.widget.BaseTransientBottomBar: int LENGTH_INDEFINITE
+android.support.design.widget.BaseTransientBottomBar: int LENGTH_SHORT
+android.support.design.widget.BaseTransientBottomBar: int LENGTH_LONG
+android.support.design.widget.BaseTransientBottomBar: int ANIMATION_DURATION
+android.support.design.widget.BaseTransientBottomBar: int ANIMATION_FADE_DURATION
+android.support.design.widget.BaseTransientBottomBar: android.os.Handler sHandler
+android.support.design.widget.BaseTransientBottomBar: int MSG_SHOW
+android.support.design.widget.BaseTransientBottomBar: int MSG_DISMISS
+android.support.design.widget.BaseTransientBottomBar: android.view.ViewGroup mTargetParent
+android.support.design.widget.BaseTransientBottomBar: android.content.Context mContext
+android.support.design.widget.BaseTransientBottomBar: android.support.design.widget.BaseTransientBottomBar$SnackbarBaseLayout mView
+android.support.design.widget.BaseTransientBottomBar: android.support.design.widget.BaseTransientBottomBar$ContentViewCallback mContentViewCallback
+android.support.design.widget.BaseTransientBottomBar: int mDuration
+android.support.design.widget.BaseTransientBottomBar: java.util.List mCallbacks
+android.support.design.widget.BaseTransientBottomBar: android.view.accessibility.AccessibilityManager mAccessibilityManager
+android.support.design.widget.BaseTransientBottomBar: android.support.design.widget.SnackbarManager$Callback mManagerCallback
+android.support.design.widget.BaseTransientBottomBar: BaseTransientBottomBar(android.view.ViewGroup,android.view.View,android.support.design.widget.BaseTransientBottomBar$ContentViewCallback)
+android.support.design.widget.BaseTransientBottomBar: android.support.design.widget.BaseTransientBottomBar setDuration(int)
+android.support.design.widget.BaseTransientBottomBar: int getDuration()
+android.support.design.widget.BaseTransientBottomBar: android.content.Context getContext()
+android.support.design.widget.BaseTransientBottomBar: android.view.View getView()
+android.support.design.widget.BaseTransientBottomBar: void show()
+android.support.design.widget.BaseTransientBottomBar: void dismiss()
+android.support.design.widget.BaseTransientBottomBar: void dispatchDismiss(int)
+android.support.design.widget.BaseTransientBottomBar: android.support.design.widget.BaseTransientBottomBar addCallback(android.support.design.widget.BaseTransientBottomBar$BaseCallback)
+android.support.design.widget.BaseTransientBottomBar: android.support.design.widget.BaseTransientBottomBar removeCallback(android.support.design.widget.BaseTransientBottomBar$BaseCallback)
+android.support.design.widget.BaseTransientBottomBar: boolean isShown()
+android.support.design.widget.BaseTransientBottomBar: boolean isShownOrQueued()
+android.support.design.widget.BaseTransientBottomBar: void showView()
+android.support.design.widget.BaseTransientBottomBar: void animateViewIn()
+android.support.design.widget.BaseTransientBottomBar: void animateViewOut(int)
+android.support.design.widget.BaseTransientBottomBar: void hideView(int)
+android.support.design.widget.BaseTransientBottomBar: void onViewShown()
+android.support.design.widget.BaseTransientBottomBar: void onViewHidden(int)
+android.support.design.widget.BaseTransientBottomBar: boolean shouldAnimate()
+android.support.design.widget.BaseTransientBottomBar: android.support.design.widget.BaseTransientBottomBar$ContentViewCallback access$000(android.support.design.widget.BaseTransientBottomBar)
+android.support.design.widget.BaseTransientBottomBar: void <clinit>()
+android.support.design.widget.BaseTransientBottomBar$1
+android.support.design.widget.BaseTransientBottomBar$1: BaseTransientBottomBar$1()
+android.support.design.widget.BaseTransientBottomBar$1: boolean handleMessage(android.os.Message)
+android.support.design.widget.BaseTransientBottomBar$10
+android.support.design.widget.BaseTransientBottomBar$10: int val$event
+android.support.design.widget.BaseTransientBottomBar$10: android.support.design.widget.BaseTransientBottomBar this$0
+android.support.design.widget.BaseTransientBottomBar$10: BaseTransientBottomBar$10(android.support.design.widget.BaseTransientBottomBar,int)
+android.support.design.widget.BaseTransientBottomBar$10: void onAnimationEnd(android.view.animation.Animation)
+android.support.design.widget.BaseTransientBottomBar$10: void onAnimationStart(android.view.animation.Animation)
+android.support.design.widget.BaseTransientBottomBar$10: void onAnimationRepeat(android.view.animation.Animation)
+android.support.design.widget.BaseTransientBottomBar$2
+android.support.design.widget.BaseTransientBottomBar$2: android.support.design.widget.BaseTransientBottomBar this$0
+android.support.design.widget.BaseTransientBottomBar$2: BaseTransientBottomBar$2(android.support.design.widget.BaseTransientBottomBar)
+android.support.design.widget.BaseTransientBottomBar$2: android.support.v4.view.WindowInsetsCompat onApplyWindowInsets(android.view.View,android.support.v4.view.WindowInsetsCompat)
+android.support.design.widget.BaseTransientBottomBar$3
+android.support.design.widget.BaseTransientBottomBar$3: android.support.design.widget.BaseTransientBottomBar this$0
+android.support.design.widget.BaseTransientBottomBar$3: BaseTransientBottomBar$3(android.support.design.widget.BaseTransientBottomBar)
+android.support.design.widget.BaseTransientBottomBar$3: void show()
+android.support.design.widget.BaseTransientBottomBar$3: void dismiss(int)
+android.support.design.widget.BaseTransientBottomBar$4
+android.support.design.widget.BaseTransientBottomBar$4: android.support.design.widget.BaseTransientBottomBar this$0
+android.support.design.widget.BaseTransientBottomBar$4: BaseTransientBottomBar$4(android.support.design.widget.BaseTransientBottomBar)
+android.support.design.widget.BaseTransientBottomBar$4: void onDismiss(android.view.View)
+android.support.design.widget.BaseTransientBottomBar$4: void onDragStateChanged(int)
+android.support.design.widget.BaseTransientBottomBar$5
+android.support.design.widget.BaseTransientBottomBar$5: android.support.design.widget.BaseTransientBottomBar this$0
+android.support.design.widget.BaseTransientBottomBar$5: BaseTransientBottomBar$5(android.support.design.widget.BaseTransientBottomBar)
+android.support.design.widget.BaseTransientBottomBar$5: void onViewAttachedToWindow(android.view.View)
+android.support.design.widget.BaseTransientBottomBar$5: void onViewDetachedFromWindow(android.view.View)
+android.support.design.widget.BaseTransientBottomBar$5$1
+android.support.design.widget.BaseTransientBottomBar$5$1: android.support.design.widget.BaseTransientBottomBar$5 this$1
+android.support.design.widget.BaseTransientBottomBar$5$1: BaseTransientBottomBar$5$1(android.support.design.widget.BaseTransientBottomBar$5)
+android.support.design.widget.BaseTransientBottomBar$5$1: void run()
+android.support.design.widget.BaseTransientBottomBar$6
+android.support.design.widget.BaseTransientBottomBar$6: android.support.design.widget.BaseTransientBottomBar this$0
+android.support.design.widget.BaseTransientBottomBar$6: BaseTransientBottomBar$6(android.support.design.widget.BaseTransientBottomBar)
+android.support.design.widget.BaseTransientBottomBar$6: void onLayoutChange(android.view.View,int,int,int,int)
+android.support.design.widget.BaseTransientBottomBar$7
+android.support.design.widget.BaseTransientBottomBar$7: android.support.design.widget.BaseTransientBottomBar this$0
+android.support.design.widget.BaseTransientBottomBar$7: BaseTransientBottomBar$7(android.support.design.widget.BaseTransientBottomBar)
+android.support.design.widget.BaseTransientBottomBar$7: void onAnimationStart(android.view.View)
+android.support.design.widget.BaseTransientBottomBar$7: void onAnimationEnd(android.view.View)
+android.support.design.widget.BaseTransientBottomBar$8
+android.support.design.widget.BaseTransientBottomBar$8: android.support.design.widget.BaseTransientBottomBar this$0
+android.support.design.widget.BaseTransientBottomBar$8: BaseTransientBottomBar$8(android.support.design.widget.BaseTransientBottomBar)
+android.support.design.widget.BaseTransientBottomBar$8: void onAnimationEnd(android.view.animation.Animation)
+android.support.design.widget.BaseTransientBottomBar$8: void onAnimationStart(android.view.animation.Animation)
+android.support.design.widget.BaseTransientBottomBar$8: void onAnimationRepeat(android.view.animation.Animation)
+android.support.design.widget.BaseTransientBottomBar$9
+android.support.design.widget.BaseTransientBottomBar$9: int val$event
+android.support.design.widget.BaseTransientBottomBar$9: android.support.design.widget.BaseTransientBottomBar this$0
+android.support.design.widget.BaseTransientBottomBar$9: BaseTransientBottomBar$9(android.support.design.widget.BaseTransientBottomBar,int)
+android.support.design.widget.BaseTransientBottomBar$9: void onAnimationStart(android.view.View)
+android.support.design.widget.BaseTransientBottomBar$9: void onAnimationEnd(android.view.View)
+android.support.design.widget.BaseTransientBottomBar$BaseCallback
+android.support.design.widget.BaseTransientBottomBar$BaseCallback: int DISMISS_EVENT_SWIPE
+android.support.design.widget.BaseTransientBottomBar$BaseCallback: int DISMISS_EVENT_ACTION
+android.support.design.widget.BaseTransientBottomBar$BaseCallback: int DISMISS_EVENT_TIMEOUT
+android.support.design.widget.BaseTransientBottomBar$BaseCallback: int DISMISS_EVENT_MANUAL
+android.support.design.widget.BaseTransientBottomBar$BaseCallback: int DISMISS_EVENT_CONSECUTIVE
+android.support.design.widget.BaseTransientBottomBar$BaseCallback: BaseTransientBottomBar$BaseCallback()
+android.support.design.widget.BaseTransientBottomBar$BaseCallback: void onDismissed(java.lang.Object,int)
+android.support.design.widget.BaseTransientBottomBar$BaseCallback: void onShown(java.lang.Object)
+android.support.design.widget.BaseTransientBottomBar$BaseCallback$DismissEvent
+android.support.design.widget.BaseTransientBottomBar$Behavior
+android.support.design.widget.BaseTransientBottomBar$Behavior: android.support.design.widget.BaseTransientBottomBar this$0
+android.support.design.widget.BaseTransientBottomBar$Behavior: BaseTransientBottomBar$Behavior(android.support.design.widget.BaseTransientBottomBar)
+android.support.design.widget.BaseTransientBottomBar$Behavior: boolean canSwipeDismissView(android.view.View)
+android.support.design.widget.BaseTransientBottomBar$Behavior: boolean onInterceptTouchEvent(android.support.design.widget.CoordinatorLayout,android.support.design.widget.BaseTransientBottomBar$SnackbarBaseLayout,android.view.MotionEvent)
+android.support.design.widget.BaseTransientBottomBar$Behavior: boolean onInterceptTouchEvent(android.support.design.widget.CoordinatorLayout,android.view.View,android.view.MotionEvent)
+android.support.design.widget.BaseTransientBottomBar$ContentViewCallback
+android.support.design.widget.BaseTransientBottomBar$ContentViewCallback: void animateContentIn(int,int)
+android.support.design.widget.BaseTransientBottomBar$ContentViewCallback: void animateContentOut(int,int)
+android.support.design.widget.BaseTransientBottomBar$Duration
+android.support.design.widget.BaseTransientBottomBar$OnAttachStateChangeListener
+android.support.design.widget.BaseTransientBottomBar$OnAttachStateChangeListener: void onViewAttachedToWindow(android.view.View)
+android.support.design.widget.BaseTransientBottomBar$OnAttachStateChangeListener: void onViewDetachedFromWindow(android.view.View)
+android.support.design.widget.BaseTransientBottomBar$OnLayoutChangeListener
+android.support.design.widget.BaseTransientBottomBar$OnLayoutChangeListener: void onLayoutChange(android.view.View,int,int,int,int)
+android.support.design.widget.BaseTransientBottomBar$SnackbarBaseLayout
+android.support.design.widget.BaseTransientBottomBar$SnackbarBaseLayout: android.support.design.widget.BaseTransientBottomBar$OnLayoutChangeListener mOnLayoutChangeListener
+android.support.design.widget.BaseTransientBottomBar$SnackbarBaseLayout: android.support.design.widget.BaseTransientBottomBar$OnAttachStateChangeListener mOnAttachStateChangeListener
+android.support.design.widget.BaseTransientBottomBar$SnackbarBaseLayout: BaseTransientBottomBar$SnackbarBaseLayout(android.content.Context)
+android.support.design.widget.BaseTransientBottomBar$SnackbarBaseLayout: BaseTransientBottomBar$SnackbarBaseLayout(android.content.Context,android.util.AttributeSet)
+android.support.design.widget.BaseTransientBottomBar$SnackbarBaseLayout: void onLayout(boolean,int,int,int,int)
+android.support.design.widget.BaseTransientBottomBar$SnackbarBaseLayout: void onAttachedToWindow()
+android.support.design.widget.BaseTransientBottomBar$SnackbarBaseLayout: void onDetachedFromWindow()
+android.support.design.widget.BaseTransientBottomBar$SnackbarBaseLayout: void setOnLayoutChangeListener(android.support.design.widget.BaseTransientBottomBar$OnLayoutChangeListener)
+android.support.design.widget.BaseTransientBottomBar$SnackbarBaseLayout: void setOnAttachStateChangeListener(android.support.design.widget.BaseTransientBottomBar$OnAttachStateChangeListener)
 android.support.design.widget.BottomNavigationView
 android.support.design.widget.BottomNavigationView: int[] CHECKED_STATE_SET
 android.support.design.widget.BottomNavigationView: int[] DISABLED_STATE_SET
@@ -2204,8 +2374,13 @@ android.support.design.widget.BottomSheetDialog$1: void onClick(android.view.Vie
 android.support.design.widget.BottomSheetDialog$2
 android.support.design.widget.BottomSheetDialog$2: android.support.design.widget.BottomSheetDialog this$0
 android.support.design.widget.BottomSheetDialog$2: BottomSheetDialog$2(android.support.design.widget.BottomSheetDialog)
-android.support.design.widget.BottomSheetDialog$2: void onStateChanged(android.view.View,int)
-android.support.design.widget.BottomSheetDialog$2: void onSlide(android.view.View,float)
+android.support.design.widget.BottomSheetDialog$2: void onInitializeAccessibilityNodeInfo(android.view.View,android.support.v4.view.accessibility.AccessibilityNodeInfoCompat)
+android.support.design.widget.BottomSheetDialog$2: boolean performAccessibilityAction(android.view.View,int,android.os.Bundle)
+android.support.design.widget.BottomSheetDialog$3
+android.support.design.widget.BottomSheetDialog$3: android.support.design.widget.BottomSheetDialog this$0
+android.support.design.widget.BottomSheetDialog$3: BottomSheetDialog$3(android.support.design.widget.BottomSheetDialog)
+android.support.design.widget.BottomSheetDialog$3: void onStateChanged(android.view.View,int)
+android.support.design.widget.BottomSheetDialog$3: void onSlide(android.view.View,float)
 android.support.design.widget.BottomSheetDialogFragment
 android.support.design.widget.BottomSheetDialogFragment: BottomSheetDialogFragment()
 android.support.design.widget.BottomSheetDialogFragment: android.app.Dialog onCreateDialog(android.os.Bundle)
@@ -2361,7 +2536,6 @@ android.support.design.widget.CollapsingToolbarLayout: int mToolbarId
 android.support.design.widget.CollapsingToolbarLayout: android.support.v7.widget.Toolbar mToolbar
 android.support.design.widget.CollapsingToolbarLayout: android.view.View mToolbarDirectChild
 android.support.design.widget.CollapsingToolbarLayout: android.view.View mDummyView
-android.support.design.widget.CollapsingToolbarLayout: int mToolbarDrawIndex
 android.support.design.widget.CollapsingToolbarLayout: int mExpandedMarginStart
 android.support.design.widget.CollapsingToolbarLayout: int mExpandedMarginTop
 android.support.design.widget.CollapsingToolbarLayout: int mExpandedMarginEnd
@@ -2390,7 +2564,7 @@ android.support.design.widget.CollapsingToolbarLayout: void draw(android.graphic
 android.support.design.widget.CollapsingToolbarLayout: boolean drawChild(android.graphics.Canvas,android.view.View,long)
 android.support.design.widget.CollapsingToolbarLayout: void onSizeChanged(int,int,int,int)
 android.support.design.widget.CollapsingToolbarLayout: void ensureToolbar()
-android.support.design.widget.CollapsingToolbarLayout: boolean isToolbarChildDrawnNext(android.view.View)
+android.support.design.widget.CollapsingToolbarLayout: boolean isToolbarChild(android.view.View)
 android.support.design.widget.CollapsingToolbarLayout: android.view.View findDirectChild(android.view.View)
 android.support.design.widget.CollapsingToolbarLayout: void updateDummyView()
 android.support.design.widget.CollapsingToolbarLayout: void onMeasure(int,int)
@@ -2405,6 +2579,7 @@ android.support.design.widget.CollapsingToolbarLayout: void setScrimsShown(boole
 android.support.design.widget.CollapsingToolbarLayout: void setScrimsShown(boolean,boolean)
 android.support.design.widget.CollapsingToolbarLayout: void animateScrim(int)
 android.support.design.widget.CollapsingToolbarLayout: void setScrimAlpha(int)
+android.support.design.widget.CollapsingToolbarLayout: int getScrimAlpha()
 android.support.design.widget.CollapsingToolbarLayout: void setContentScrim(android.graphics.drawable.Drawable)
 android.support.design.widget.CollapsingToolbarLayout: void setContentScrimColor(int)
 android.support.design.widget.CollapsingToolbarLayout: void setContentScrimResource(int)
@@ -2493,14 +2668,11 @@ android.support.design.widget.CoordinatorLayout: int EVENT_PRE_DRAW
 android.support.design.widget.CoordinatorLayout: int EVENT_NESTED_SCROLL
 android.support.design.widget.CoordinatorLayout: int EVENT_VIEW_REMOVED
 android.support.design.widget.CoordinatorLayout: java.util.Comparator TOP_SORTED_CHILDREN_COMPARATOR
+android.support.design.widget.CoordinatorLayout: android.support.v4.util.Pools$Pool sRectPool
 android.support.design.widget.CoordinatorLayout: java.util.List mDependencySortedChildren
 android.support.design.widget.CoordinatorLayout: android.support.design.widget.DirectedAcyclicGraph mChildDag
 android.support.design.widget.CoordinatorLayout: java.util.List mTempList1
 android.support.design.widget.CoordinatorLayout: java.util.List mTempDependenciesList
-android.support.design.widget.CoordinatorLayout: android.graphics.Rect mTempRect1
-android.support.design.widget.CoordinatorLayout: android.graphics.Rect mTempRect2
-android.support.design.widget.CoordinatorLayout: android.graphics.Rect mTempRect3
-android.support.design.widget.CoordinatorLayout: android.graphics.Rect mTempRect4
 android.support.design.widget.CoordinatorLayout: int[] mTempIntPair
 android.support.design.widget.CoordinatorLayout: android.graphics.Paint mScrimPaint
 android.support.design.widget.CoordinatorLayout: boolean mDisallowInterceptReset
@@ -2517,6 +2689,8 @@ android.support.design.widget.CoordinatorLayout: android.graphics.drawable.Drawa
 android.support.design.widget.CoordinatorLayout: android.view.ViewGroup$OnHierarchyChangeListener mOnHierarchyChangeListener
 android.support.design.widget.CoordinatorLayout: android.support.v4.view.OnApplyWindowInsetsListener mApplyWindowInsetsListener
 android.support.design.widget.CoordinatorLayout: android.support.v4.view.NestedScrollingParentHelper mNestedScrollingParentHelper
+android.support.design.widget.CoordinatorLayout: android.graphics.Rect acquireTempRect()
+android.support.design.widget.CoordinatorLayout: void releaseTempRect(android.graphics.Rect)
 android.support.design.widget.CoordinatorLayout: CoordinatorLayout(android.content.Context)
 android.support.design.widget.CoordinatorLayout: CoordinatorLayout(android.content.Context,android.util.AttributeSet)
 android.support.design.widget.CoordinatorLayout: CoordinatorLayout(android.content.Context,android.util.AttributeSet,int)
@@ -2958,6 +3132,7 @@ android.support.design.widget.FloatingActionButtonImpl: android.support.design.w
 android.support.design.widget.FloatingActionButtonImpl: void onPreDraw()
 android.support.design.widget.FloatingActionButtonImpl: void ensurePreDrawListener()
 android.support.design.widget.FloatingActionButtonImpl: android.graphics.drawable.GradientDrawable createShapeDrawable()
+android.support.design.widget.FloatingActionButtonImpl: android.graphics.drawable.GradientDrawable newGradientDrawableForShape()
 android.support.design.widget.FloatingActionButtonImpl: boolean isOrWillBeShown()
 android.support.design.widget.FloatingActionButtonImpl: boolean isOrWillBeHidden()
 android.support.design.widget.FloatingActionButtonImpl: void <clinit>()
@@ -2981,7 +3156,11 @@ android.support.design.widget.FloatingActionButtonLollipop: void onDrawableState
 android.support.design.widget.FloatingActionButtonLollipop: void jumpDrawableToCurrentState()
 android.support.design.widget.FloatingActionButtonLollipop: boolean requirePreDrawListener()
 android.support.design.widget.FloatingActionButtonLollipop: android.support.design.widget.CircularBorderDrawable newCircularDrawable()
+android.support.design.widget.FloatingActionButtonLollipop: android.graphics.drawable.GradientDrawable newGradientDrawableForShape()
 android.support.design.widget.FloatingActionButtonLollipop: void getPadding(android.graphics.Rect)
+android.support.design.widget.FloatingActionButtonLollipop$AlwaysStatefulGradientDrawable
+android.support.design.widget.FloatingActionButtonLollipop$AlwaysStatefulGradientDrawable: FloatingActionButtonLollipop$AlwaysStatefulGradientDrawable()
+android.support.design.widget.FloatingActionButtonLollipop$AlwaysStatefulGradientDrawable: boolean isStateful()
 android.support.design.widget.HeaderBehavior
 android.support.design.widget.HeaderBehavior: int INVALID_POINTER
 android.support.design.widget.HeaderBehavior: java.lang.Runnable mFlingRunnable
@@ -3143,106 +3322,23 @@ android.support.design.widget.Snackbar
 android.support.design.widget.Snackbar: int LENGTH_INDEFINITE
 android.support.design.widget.Snackbar: int LENGTH_SHORT
 android.support.design.widget.Snackbar: int LENGTH_LONG
-android.support.design.widget.Snackbar: int ANIMATION_DURATION
-android.support.design.widget.Snackbar: int ANIMATION_FADE_DURATION
-android.support.design.widget.Snackbar: android.os.Handler sHandler
-android.support.design.widget.Snackbar: int MSG_SHOW
-android.support.design.widget.Snackbar: int MSG_DISMISS
-android.support.design.widget.Snackbar: android.view.ViewGroup mTargetParent
-android.support.design.widget.Snackbar: android.content.Context mContext
-android.support.design.widget.Snackbar: android.support.design.widget.Snackbar$SnackbarLayout mView
-android.support.design.widget.Snackbar: int mDuration
-android.support.design.widget.Snackbar: android.support.design.widget.Snackbar$Callback mCallback
-android.support.design.widget.Snackbar: android.view.accessibility.AccessibilityManager mAccessibilityManager
-android.support.design.widget.Snackbar: android.support.design.widget.SnackbarManager$Callback mManagerCallback
-android.support.design.widget.Snackbar: Snackbar(android.view.ViewGroup)
+android.support.design.widget.Snackbar: android.support.design.widget.BaseTransientBottomBar$BaseCallback mCallback
+android.support.design.widget.Snackbar: Snackbar(android.view.ViewGroup,android.view.View,android.support.design.widget.BaseTransientBottomBar$ContentViewCallback)
 android.support.design.widget.Snackbar: android.support.design.widget.Snackbar make(android.view.View,java.lang.CharSequence,int)
 android.support.design.widget.Snackbar: android.support.design.widget.Snackbar make(android.view.View,int,int)
 android.support.design.widget.Snackbar: android.view.ViewGroup findSuitableParent(android.view.View)
+android.support.design.widget.Snackbar: android.support.design.widget.Snackbar setText(java.lang.CharSequence)
+android.support.design.widget.Snackbar: android.support.design.widget.Snackbar setText(int)
 android.support.design.widget.Snackbar: android.support.design.widget.Snackbar setAction(int,android.view.View$OnClickListener)
 android.support.design.widget.Snackbar: android.support.design.widget.Snackbar setAction(java.lang.CharSequence,android.view.View$OnClickListener)
 android.support.design.widget.Snackbar: android.support.design.widget.Snackbar setActionTextColor(android.content.res.ColorStateList)
 android.support.design.widget.Snackbar: android.support.design.widget.Snackbar setActionTextColor(int)
-android.support.design.widget.Snackbar: android.support.design.widget.Snackbar setText(java.lang.CharSequence)
-android.support.design.widget.Snackbar: android.support.design.widget.Snackbar setText(int)
-android.support.design.widget.Snackbar: android.support.design.widget.Snackbar setDuration(int)
-android.support.design.widget.Snackbar: int getDuration()
-android.support.design.widget.Snackbar: android.view.View getView()
-android.support.design.widget.Snackbar: void show()
-android.support.design.widget.Snackbar: void dismiss()
-android.support.design.widget.Snackbar: void dispatchDismiss(int)
 android.support.design.widget.Snackbar: android.support.design.widget.Snackbar setCallback(android.support.design.widget.Snackbar$Callback)
-android.support.design.widget.Snackbar: boolean isShown()
-android.support.design.widget.Snackbar: boolean isShownOrQueued()
-android.support.design.widget.Snackbar: void showView()
-android.support.design.widget.Snackbar: void animateViewIn()
-android.support.design.widget.Snackbar: void animateViewOut(int)
-android.support.design.widget.Snackbar: void hideView(int)
-android.support.design.widget.Snackbar: void onViewShown()
-android.support.design.widget.Snackbar: void onViewHidden(int)
-android.support.design.widget.Snackbar: boolean shouldAnimate()
-android.support.design.widget.Snackbar: void <clinit>()
 android.support.design.widget.Snackbar$1
-android.support.design.widget.Snackbar$1: Snackbar$1()
-android.support.design.widget.Snackbar$1: boolean handleMessage(android.os.Message)
-android.support.design.widget.Snackbar$10
-android.support.design.widget.Snackbar$10: int val$event
-android.support.design.widget.Snackbar$10: android.support.design.widget.Snackbar this$0
-android.support.design.widget.Snackbar$10: Snackbar$10(android.support.design.widget.Snackbar,int)
-android.support.design.widget.Snackbar$10: void onAnimationEnd(android.view.animation.Animation)
-android.support.design.widget.Snackbar$10: void onAnimationStart(android.view.animation.Animation)
-android.support.design.widget.Snackbar$10: void onAnimationRepeat(android.view.animation.Animation)
-android.support.design.widget.Snackbar$2
-android.support.design.widget.Snackbar$2: android.view.View$OnClickListener val$listener
-android.support.design.widget.Snackbar$2: android.support.design.widget.Snackbar this$0
-android.support.design.widget.Snackbar$2: Snackbar$2(android.support.design.widget.Snackbar,android.view.View$OnClickListener)
-android.support.design.widget.Snackbar$2: void onClick(android.view.View)
-android.support.design.widget.Snackbar$3
-android.support.design.widget.Snackbar$3: android.support.design.widget.Snackbar this$0
-android.support.design.widget.Snackbar$3: Snackbar$3(android.support.design.widget.Snackbar)
-android.support.design.widget.Snackbar$3: void show()
-android.support.design.widget.Snackbar$3: void dismiss(int)
-android.support.design.widget.Snackbar$4
-android.support.design.widget.Snackbar$4: android.support.design.widget.Snackbar this$0
-android.support.design.widget.Snackbar$4: Snackbar$4(android.support.design.widget.Snackbar)
-android.support.design.widget.Snackbar$4: void onDismiss(android.view.View)
-android.support.design.widget.Snackbar$4: void onDragStateChanged(int)
-android.support.design.widget.Snackbar$5
-android.support.design.widget.Snackbar$5: android.support.design.widget.Snackbar this$0
-android.support.design.widget.Snackbar$5: Snackbar$5(android.support.design.widget.Snackbar)
-android.support.design.widget.Snackbar$5: void onViewAttachedToWindow(android.view.View)
-android.support.design.widget.Snackbar$5: void onViewDetachedFromWindow(android.view.View)
-android.support.design.widget.Snackbar$5$1
-android.support.design.widget.Snackbar$5$1: android.support.design.widget.Snackbar$5 this$1
-android.support.design.widget.Snackbar$5$1: Snackbar$5$1(android.support.design.widget.Snackbar$5)
-android.support.design.widget.Snackbar$5$1: void run()
-android.support.design.widget.Snackbar$6
-android.support.design.widget.Snackbar$6: android.support.design.widget.Snackbar this$0
-android.support.design.widget.Snackbar$6: Snackbar$6(android.support.design.widget.Snackbar)
-android.support.design.widget.Snackbar$6: void onLayoutChange(android.view.View,int,int,int,int)
-android.support.design.widget.Snackbar$7
-android.support.design.widget.Snackbar$7: android.support.design.widget.Snackbar this$0
-android.support.design.widget.Snackbar$7: Snackbar$7(android.support.design.widget.Snackbar)
-android.support.design.widget.Snackbar$7: void onAnimationStart(android.view.View)
-android.support.design.widget.Snackbar$7: void onAnimationEnd(android.view.View)
-android.support.design.widget.Snackbar$8
-android.support.design.widget.Snackbar$8: android.support.design.widget.Snackbar this$0
-android.support.design.widget.Snackbar$8: Snackbar$8(android.support.design.widget.Snackbar)
-android.support.design.widget.Snackbar$8: void onAnimationEnd(android.view.animation.Animation)
-android.support.design.widget.Snackbar$8: void onAnimationStart(android.view.animation.Animation)
-android.support.design.widget.Snackbar$8: void onAnimationRepeat(android.view.animation.Animation)
-android.support.design.widget.Snackbar$9
-android.support.design.widget.Snackbar$9: int val$event
-android.support.design.widget.Snackbar$9: android.support.design.widget.Snackbar this$0
-android.support.design.widget.Snackbar$9: Snackbar$9(android.support.design.widget.Snackbar,int)
-android.support.design.widget.Snackbar$9: void onAnimationStart(android.view.View)
-android.support.design.widget.Snackbar$9: void onAnimationEnd(android.view.View)
-android.support.design.widget.Snackbar$Behavior
-android.support.design.widget.Snackbar$Behavior: android.support.design.widget.Snackbar this$0
-android.support.design.widget.Snackbar$Behavior: Snackbar$Behavior(android.support.design.widget.Snackbar)
-android.support.design.widget.Snackbar$Behavior: boolean canSwipeDismissView(android.view.View)
-android.support.design.widget.Snackbar$Behavior: boolean onInterceptTouchEvent(android.support.design.widget.CoordinatorLayout,android.support.design.widget.Snackbar$SnackbarLayout,android.view.MotionEvent)
-android.support.design.widget.Snackbar$Behavior: boolean onInterceptTouchEvent(android.support.design.widget.CoordinatorLayout,android.view.View,android.view.MotionEvent)
+android.support.design.widget.Snackbar$1: android.view.View$OnClickListener val$listener
+android.support.design.widget.Snackbar$1: android.support.design.widget.Snackbar this$0
+android.support.design.widget.Snackbar$1: Snackbar$1(android.support.design.widget.Snackbar,android.view.View$OnClickListener)
+android.support.design.widget.Snackbar$1: void onClick(android.view.View)
 android.support.design.widget.Snackbar$Callback
 android.support.design.widget.Snackbar$Callback: int DISMISS_EVENT_SWIPE
 android.support.design.widget.Snackbar$Callback: int DISMISS_EVENT_ACTION
@@ -3250,41 +3346,13 @@ android.support.design.widget.Snackbar$Callback: int DISMISS_EVENT_TIMEOUT
 android.support.design.widget.Snackbar$Callback: int DISMISS_EVENT_MANUAL
 android.support.design.widget.Snackbar$Callback: int DISMISS_EVENT_CONSECUTIVE
 android.support.design.widget.Snackbar$Callback: Snackbar$Callback()
-android.support.design.widget.Snackbar$Callback: void onDismissed(android.support.design.widget.Snackbar,int)
 android.support.design.widget.Snackbar$Callback: void onShown(android.support.design.widget.Snackbar)
-android.support.design.widget.Snackbar$Callback$DismissEvent
-android.support.design.widget.Snackbar$Duration
+android.support.design.widget.Snackbar$Callback: void onDismissed(android.support.design.widget.Snackbar,int)
+android.support.design.widget.Snackbar$Callback: void onShown(java.lang.Object)
+android.support.design.widget.Snackbar$Callback: void onDismissed(java.lang.Object,int)
 android.support.design.widget.Snackbar$SnackbarLayout
-android.support.design.widget.Snackbar$SnackbarLayout: android.widget.TextView mMessageView
-android.support.design.widget.Snackbar$SnackbarLayout: android.widget.Button mActionView
-android.support.design.widget.Snackbar$SnackbarLayout: int mMaxWidth
-android.support.design.widget.Snackbar$SnackbarLayout: int mMaxInlineActionWidth
-android.support.design.widget.Snackbar$SnackbarLayout: android.support.design.widget.Snackbar$SnackbarLayout$OnLayoutChangeListener mOnLayoutChangeListener
-android.support.design.widget.Snackbar$SnackbarLayout: android.support.design.widget.Snackbar$SnackbarLayout$OnAttachStateChangeListener mOnAttachStateChangeListener
 android.support.design.widget.Snackbar$SnackbarLayout: Snackbar$SnackbarLayout(android.content.Context)
 android.support.design.widget.Snackbar$SnackbarLayout: Snackbar$SnackbarLayout(android.content.Context,android.util.AttributeSet)
-android.support.design.widget.Snackbar$SnackbarLayout: void onFinishInflate()
-android.support.design.widget.Snackbar$SnackbarLayout: android.widget.TextView getMessageView()
-android.support.design.widget.Snackbar$SnackbarLayout: android.widget.Button getActionView()
-android.support.design.widget.Snackbar$SnackbarLayout: void onMeasure(int,int)
-android.support.design.widget.Snackbar$SnackbarLayout: void animateChildrenIn(int,int)
-android.support.design.widget.Snackbar$SnackbarLayout: void animateChildrenOut(int,int)
-android.support.design.widget.Snackbar$SnackbarLayout: void onLayout(boolean,int,int,int,int)
-android.support.design.widget.Snackbar$SnackbarLayout: void onAttachedToWindow()
-android.support.design.widget.Snackbar$SnackbarLayout: void onDetachedFromWindow()
-android.support.design.widget.Snackbar$SnackbarLayout: void setOnLayoutChangeListener(android.support.design.widget.Snackbar$SnackbarLayout$OnLayoutChangeListener)
-android.support.design.widget.Snackbar$SnackbarLayout: void setOnAttachStateChangeListener(android.support.design.widget.Snackbar$SnackbarLayout$OnAttachStateChangeListener)
-android.support.design.widget.Snackbar$SnackbarLayout: boolean updateViewsWithinLayout(int,int,int)
-android.support.design.widget.Snackbar$SnackbarLayout: void updateTopBottomPadding(android.view.View,int,int)
-android.support.design.widget.Snackbar$SnackbarLayout$1
-android.support.design.widget.Snackbar$SnackbarLayout$1: android.support.design.widget.Snackbar$SnackbarLayout this$0
-android.support.design.widget.Snackbar$SnackbarLayout$1: Snackbar$SnackbarLayout$1(android.support.design.widget.Snackbar$SnackbarLayout)
-android.support.design.widget.Snackbar$SnackbarLayout$1: android.support.v4.view.WindowInsetsCompat onApplyWindowInsets(android.view.View,android.support.v4.view.WindowInsetsCompat)
-android.support.design.widget.Snackbar$SnackbarLayout$OnAttachStateChangeListener
-android.support.design.widget.Snackbar$SnackbarLayout$OnAttachStateChangeListener: void onViewAttachedToWindow(android.view.View)
-android.support.design.widget.Snackbar$SnackbarLayout$OnAttachStateChangeListener: void onViewDetachedFromWindow(android.view.View)
-android.support.design.widget.Snackbar$SnackbarLayout$OnLayoutChangeListener
-android.support.design.widget.Snackbar$SnackbarLayout$OnLayoutChangeListener: void onLayoutChange(android.view.View,int,int,int,int)
 android.support.design.widget.SnackbarManager
 android.support.design.widget.SnackbarManager: int MSG_TIMEOUT
 android.support.design.widget.SnackbarManager: int SHORT_DURATION_MS
@@ -3662,6 +3730,7 @@ android.support.design.widget.TextInputLayout: android.graphics.Paint mTmpPaint
 android.support.design.widget.TextInputLayout: android.graphics.Rect mTmpRect
 android.support.design.widget.TextInputLayout: android.widget.LinearLayout mIndicatorArea
 android.support.design.widget.TextInputLayout: int mIndicatorsAdded
+android.support.design.widget.TextInputLayout: android.graphics.Typeface mTypeface
 android.support.design.widget.TextInputLayout: boolean mErrorEnabled
 android.support.design.widget.TextInputLayout: android.widget.TextView mErrorView
 android.support.design.widget.TextInputLayout: int mErrorTextAppearance
@@ -3692,6 +3761,7 @@ android.support.design.widget.TextInputLayout: boolean mHintAnimationEnabled
 android.support.design.widget.TextInputLayout: android.support.design.widget.ValueAnimatorCompat mAnimator
 android.support.design.widget.TextInputLayout: boolean mHasReconstructedEditTextBackground
 android.support.design.widget.TextInputLayout: boolean mInDrawableStateChanged
+android.support.design.widget.TextInputLayout: boolean mRestoringSavedState
 android.support.design.widget.TextInputLayout: TextInputLayout(android.content.Context)
 android.support.design.widget.TextInputLayout: TextInputLayout(android.content.Context,android.util.AttributeSet)
 android.support.design.widget.TextInputLayout: TextInputLayout(android.content.Context,android.util.AttributeSet,int)
@@ -3712,6 +3782,7 @@ android.support.design.widget.TextInputLayout: void addIndicator(android.widget.
 android.support.design.widget.TextInputLayout: void adjustIndicatorPadding()
 android.support.design.widget.TextInputLayout: void removeIndicator(android.widget.TextView)
 android.support.design.widget.TextInputLayout: void setErrorEnabled(boolean)
+android.support.design.widget.TextInputLayout: void setErrorTextAppearance(int)
 android.support.design.widget.TextInputLayout: boolean isErrorEnabled()
 android.support.design.widget.TextInputLayout: void setError(java.lang.CharSequence)
 android.support.design.widget.TextInputLayout: void setError(java.lang.CharSequence,boolean)
@@ -3726,6 +3797,7 @@ android.support.design.widget.TextInputLayout: void updateEditTextBackground()
 android.support.design.widget.TextInputLayout: void ensureBackgroundDrawableStateWorkaround()
 android.support.design.widget.TextInputLayout: android.os.Parcelable onSaveInstanceState()
 android.support.design.widget.TextInputLayout: void onRestoreInstanceState(android.os.Parcelable)
+android.support.design.widget.TextInputLayout: void dispatchRestoreInstanceState(android.util.SparseArray)
 android.support.design.widget.TextInputLayout: java.lang.CharSequence getError()
 android.support.design.widget.TextInputLayout: boolean isHintAnimationEnabled()
 android.support.design.widget.TextInputLayout: void setHintAnimationEnabled(boolean)
@@ -3753,6 +3825,7 @@ android.support.design.widget.TextInputLayout: void expandHint(boolean)
 android.support.design.widget.TextInputLayout: void animateToExpansionFraction(float)
 android.support.design.widget.TextInputLayout: boolean isHintExpanded()
 android.support.design.widget.TextInputLayout: boolean arrayContains(int[],int)
+android.support.design.widget.TextInputLayout: boolean access$000(android.support.design.widget.TextInputLayout)
 android.support.design.widget.TextInputLayout$1
 android.support.design.widget.TextInputLayout$1: android.support.design.widget.TextInputLayout this$0
 android.support.design.widget.TextInputLayout$1: TextInputLayout$1(android.support.design.widget.TextInputLayout)
@@ -4143,8 +4216,6 @@ android.support.v4.app.Fragment: int STOPPED
 android.support.v4.app.Fragment: int STARTED
 android.support.v4.app.Fragment: int RESUMED
 android.support.v4.app.Fragment: int mState
-android.support.v4.app.Fragment: android.view.View mAnimatingAway
-android.support.v4.app.Fragment: int mStateAfterAnimating
 android.support.v4.app.Fragment: android.os.Bundle mSavedFragmentState
 android.support.v4.app.Fragment: android.util.SparseArray mSavedViewState
 android.support.v4.app.Fragment: int mIndex
@@ -4174,7 +4245,6 @@ android.support.v4.app.Fragment: boolean mRetaining
 android.support.v4.app.Fragment: boolean mHasMenu
 android.support.v4.app.Fragment: boolean mMenuVisible
 android.support.v4.app.Fragment: boolean mCalled
-android.support.v4.app.Fragment: int mNextAnim
 android.support.v4.app.Fragment: android.view.ViewGroup mContainer
 android.support.v4.app.Fragment: android.view.View mView
 android.support.v4.app.Fragment: android.view.View mInnerView
@@ -4183,16 +4253,9 @@ android.support.v4.app.Fragment: boolean mUserVisibleHint
 android.support.v4.app.Fragment: android.support.v4.app.LoaderManagerImpl mLoaderManager
 android.support.v4.app.Fragment: boolean mLoadersStarted
 android.support.v4.app.Fragment: boolean mCheckedForLoaderManager
-android.support.v4.app.Fragment: java.lang.Object mEnterTransition
-android.support.v4.app.Fragment: java.lang.Object mReturnTransition
-android.support.v4.app.Fragment: java.lang.Object mExitTransition
-android.support.v4.app.Fragment: java.lang.Object mReenterTransition
-android.support.v4.app.Fragment: java.lang.Object mSharedElementEnterTransition
-android.support.v4.app.Fragment: java.lang.Object mSharedElementReturnTransition
-android.support.v4.app.Fragment: java.lang.Boolean mAllowReturnTransitionOverlap
-android.support.v4.app.Fragment: java.lang.Boolean mAllowEnterTransitionOverlap
-android.support.v4.app.Fragment: android.support.v4.app.SharedElementCallback mEnterTransitionCallback
-android.support.v4.app.Fragment: android.support.v4.app.SharedElementCallback mExitTransitionCallback
+android.support.v4.app.Fragment: android.support.v4.app.Fragment$AnimationInfo mAnimationInfo
+android.support.v4.app.Fragment: boolean mIsNewlyAdded
+android.support.v4.app.Fragment: boolean mHiddenChanged
 android.support.v4.app.Fragment: Fragment()
 android.support.v4.app.Fragment: android.support.v4.app.Fragment instantiate(android.content.Context,java.lang.String)
 android.support.v4.app.Fragment: android.support.v4.app.Fragment instantiate(android.content.Context,java.lang.String,android.os.Bundle)
@@ -4220,6 +4283,7 @@ android.support.v4.app.Fragment: java.lang.String getString(int)
 android.support.v4.app.Fragment: java.lang.String getString(int,java.lang.Object[])
 android.support.v4.app.Fragment: android.support.v4.app.FragmentManager getFragmentManager()
 android.support.v4.app.Fragment: android.support.v4.app.FragmentManager getChildFragmentManager()
+android.support.v4.app.Fragment: android.support.v4.app.FragmentManager peekChildFragmentManager()
 android.support.v4.app.Fragment: android.support.v4.app.Fragment getParentFragment()
 android.support.v4.app.Fragment: boolean isAdded()
 android.support.v4.app.Fragment: boolean isDetached()
@@ -4301,6 +4365,9 @@ android.support.v4.app.Fragment: void setAllowEnterTransitionOverlap(boolean)
 android.support.v4.app.Fragment: boolean getAllowEnterTransitionOverlap()
 android.support.v4.app.Fragment: void setAllowReturnTransitionOverlap(boolean)
 android.support.v4.app.Fragment: boolean getAllowReturnTransitionOverlap()
+android.support.v4.app.Fragment: void postponeEnterTransition()
+android.support.v4.app.Fragment: void startPostponedEnterTransition()
+android.support.v4.app.Fragment: void callStartTransitionListener()
 android.support.v4.app.Fragment: void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
 android.support.v4.app.Fragment: android.support.v4.app.Fragment findFragmentByWho(java.lang.String)
 android.support.v4.app.Fragment: void instantiateChildFragmentManager()
@@ -4325,6 +4392,23 @@ android.support.v4.app.Fragment: void performReallyStop()
 android.support.v4.app.Fragment: void performDestroyView()
 android.support.v4.app.Fragment: void performDestroy()
 android.support.v4.app.Fragment: void performDetach()
+android.support.v4.app.Fragment: void setOnStartEnterTransitionListener(android.support.v4.app.Fragment$OnStartEnterTransitionListener)
+android.support.v4.app.Fragment: android.support.v4.app.Fragment$AnimationInfo ensureAnimationInfo()
+android.support.v4.app.Fragment: int getNextAnim()
+android.support.v4.app.Fragment: void setNextAnim(int)
+android.support.v4.app.Fragment: int getNextTransition()
+android.support.v4.app.Fragment: void setNextTransition(int,int)
+android.support.v4.app.Fragment: int getNextTransitionStyle()
+android.support.v4.app.Fragment: android.support.v4.app.SharedElementCallback getEnterTransitionCallback()
+android.support.v4.app.Fragment: android.support.v4.app.SharedElementCallback getExitTransitionCallback()
+android.support.v4.app.Fragment: android.view.View getAnimatingAway()
+android.support.v4.app.Fragment: void setAnimatingAway(android.view.View)
+android.support.v4.app.Fragment: int getStateAfterAnimating()
+android.support.v4.app.Fragment: void setStateAfterAnimating(int)
+android.support.v4.app.Fragment: boolean isPostponed()
+android.support.v4.app.Fragment: boolean isHideReplaced()
+android.support.v4.app.Fragment: void setHideReplaced(boolean)
+android.support.v4.app.Fragment: void access$800(android.support.v4.app.Fragment)
 android.support.v4.app.Fragment: void <clinit>()
 android.support.v4.app.Fragment$SavedState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.FragmentActivity: java.lang.String TAG
@@ -4333,7 +4417,6 @@ android.support.v4.app.FragmentActivity: java.lang.String NEXT_CANDIDATE_REQUEST
 android.support.v4.app.FragmentActivity: java.lang.String ALLOCATED_REQUEST_INDICIES_TAG
 android.support.v4.app.FragmentActivity: java.lang.String REQUEST_FRAGMENT_WHO_TAG
 android.support.v4.app.FragmentActivity: int MAX_NUM_PENDING_FRAGMENT_ACTIVITY_RESULTS
-android.support.v4.app.FragmentActivity: int HONEYCOMB
 android.support.v4.app.FragmentActivity: int MSG_REALLY_STOPPED
 android.support.v4.app.FragmentActivity: int MSG_RESUME_PENDING
 android.support.v4.app.FragmentActivity: android.os.Handler mHandler
@@ -4347,7 +4430,6 @@ android.support.v4.app.FragmentActivity: boolean mOptionsMenuInvalidated
 android.support.v4.app.FragmentActivity: boolean mRequestedPermissionsFromFragment
 android.support.v4.app.FragmentActivity: int mNextCandidateRequestIndex
 android.support.v4.app.FragmentActivity: android.support.v4.util.SparseArrayCompat mPendingFragmentActivityResults
-android.support.v4.app.FragmentActivity: android.support.v4.media.session.MediaControllerCompat mMediaController
 android.support.v4.app.FragmentActivity: FragmentActivity()
 android.support.v4.app.FragmentActivity: void onActivityResult(int,int,android.content.Intent)
 android.support.v4.app.FragmentActivity: void onBackPressed()
@@ -4408,6 +4490,10 @@ android.support.v4.app.FragmentManagerState: android.os.Parcelable$Creator CREAT
 android.support.v4.app.FragmentState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.FragmentTabHost: void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener)
 android.support.v4.app.FragmentTabHost$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.SupportActivity: android.support.v4.util.SimpleArrayMap mExtraDataMap
+android.support.v4.app.SupportActivity: SupportActivity()
+android.support.v4.app.SupportActivity: void putExtraData(android.support.v4.app.SupportActivity$ExtraData)
+android.support.v4.app.SupportActivity: android.support.v4.app.SupportActivity$ExtraData getExtraData(java.lang.Class)
 android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status[] values()
 android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status valueOf(java.lang.String)
 android.support.v4.media.MediaBrowserCompat$MediaItem: android.os.Parcelable$Creator CREATOR
@@ -4569,6 +4655,9 @@ android.support.v4.widget.ViewDragHelper$Callback: int clampViewPositionHorizont
 android.support.v4.widget.ViewDragHelper$Callback: int clampViewPositionVertical(android.view.View,int,int)
 android.support.v7.app.ActionBarDrawerToggle$1: void onClick(android.view.View)
 android.support.v7.app.AlertController$1: void onClick(android.view.View)
+android.support.v7.app.AlertController$RecycleListView
+android.support.v7.app.AlertController$RecycleListView: AlertController$RecycleListView(android.content.Context)
+android.support.v7.app.AlertController$RecycleListView: AlertController$RecycleListView(android.content.Context,android.util.AttributeSet)
 android.support.v7.app.AppCompatActivity: android.support.v7.app.AppCompatDelegate mDelegate
 android.support.v7.app.AppCompatActivity: int mThemeId
 android.support.v7.app.AppCompatActivity: boolean mEatKeyUpEvent
@@ -4791,8 +4880,10 @@ android.support.v7.appcompat.R$attr: int navigationContentDescription
 android.support.v7.appcompat.R$attr: int navigationIcon
 android.support.v7.appcompat.R$attr: int navigationMode
 android.support.v7.appcompat.R$attr: int overlapAnchor
+android.support.v7.appcompat.R$attr: int paddingBottomNoButtons
 android.support.v7.appcompat.R$attr: int paddingEnd
 android.support.v7.appcompat.R$attr: int paddingStart
+android.support.v7.appcompat.R$attr: int paddingTopNoTitle
 android.support.v7.appcompat.R$attr: int panelBackground
 android.support.v7.appcompat.R$attr: int panelMenuListTheme
 android.support.v7.appcompat.R$attr: int panelMenuListWidth
@@ -4817,6 +4908,7 @@ android.support.v7.appcompat.R$attr: int selectableItemBackgroundBorderless
 android.support.v7.appcompat.R$attr: int showAsAction
 android.support.v7.appcompat.R$attr: int showDividers
 android.support.v7.appcompat.R$attr: int showText
+android.support.v7.appcompat.R$attr: int showTitle
 android.support.v7.appcompat.R$attr: int singleChoiceItemLayout
 android.support.v7.appcompat.R$attr: int spinBars
 android.support.v7.appcompat.R$attr: int spinnerDropDownItemStyle
@@ -4887,6 +4979,7 @@ android.support.v7.appcompat.R$bool: int abc_config_showMenuShortcutsWhenKeyboar
 android.support.v7.appcompat.R$color: int abc_background_cache_hint_selector_material_dark
 android.support.v7.appcompat.R$color: int abc_background_cache_hint_selector_material_light
 android.support.v7.appcompat.R$color: int abc_btn_colored_borderless_text_material
+android.support.v7.appcompat.R$color: int abc_btn_colored_text_material
 android.support.v7.appcompat.R$color: int abc_color_highlight_material
 android.support.v7.appcompat.R$color: int abc_hint_foreground_material_dark
 android.support.v7.appcompat.R$color: int abc_hint_foreground_material_light
@@ -4996,11 +5089,13 @@ android.support.v7.appcompat.R$dimen: int abc_dialog_fixed_height_major
 android.support.v7.appcompat.R$dimen: int abc_dialog_fixed_height_minor
 android.support.v7.appcompat.R$dimen: int abc_dialog_fixed_width_major
 android.support.v7.appcompat.R$dimen: int abc_dialog_fixed_width_minor
-android.support.v7.appcompat.R$dimen: int abc_dialog_list_padding_vertical_material
+android.support.v7.appcompat.R$dimen: int abc_dialog_list_padding_bottom_no_buttons
+android.support.v7.appcompat.R$dimen: int abc_dialog_list_padding_top_no_title
 android.support.v7.appcompat.R$dimen: int abc_dialog_min_width_major
 android.support.v7.appcompat.R$dimen: int abc_dialog_min_width_minor
 android.support.v7.appcompat.R$dimen: int abc_dialog_padding_material
 android.support.v7.appcompat.R$dimen: int abc_dialog_padding_top_material
+android.support.v7.appcompat.R$dimen: int abc_dialog_title_divider_material
 android.support.v7.appcompat.R$dimen: int abc_disabled_alpha_material_dark
 android.support.v7.appcompat.R$dimen: int abc_disabled_alpha_material_light
 android.support.v7.appcompat.R$dimen: int abc_dropdownitem_icon_width
@@ -5254,8 +5349,10 @@ android.support.v7.appcompat.R$id: int tabMode
 android.support.v7.appcompat.R$id: int text
 android.support.v7.appcompat.R$id: int text2
 android.support.v7.appcompat.R$id: int textSpacerNoButtons
+android.support.v7.appcompat.R$id: int textSpacerNoTitle
 android.support.v7.appcompat.R$id: int time
 android.support.v7.appcompat.R$id: int title
+android.support.v7.appcompat.R$id: int titleDividerNoCustom
 android.support.v7.appcompat.R$id: int title_template
 android.support.v7.appcompat.R$id: int top
 android.support.v7.appcompat.R$id: int topPanel
@@ -5278,6 +5375,7 @@ android.support.v7.appcompat.R$layout: int abc_activity_chooser_view
 android.support.v7.appcompat.R$layout: int abc_activity_chooser_view_list_item
 android.support.v7.appcompat.R$layout: int abc_alert_dialog_button_bar_material
 android.support.v7.appcompat.R$layout: int abc_alert_dialog_material
+android.support.v7.appcompat.R$layout: int abc_alert_dialog_title_material
 android.support.v7.appcompat.R$layout: int abc_dialog_title_material
 android.support.v7.appcompat.R$layout: int abc_expanded_menu_layout
 android.support.v7.appcompat.R$layout: int abc_list_menu_item_checkbox
@@ -5390,6 +5488,8 @@ android.support.v7.appcompat.R$style: int Base_TextAppearance_AppCompat_Widget_A
 android.support.v7.appcompat.R$style: int Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle
 android.support.v7.appcompat.R$style: int Base_TextAppearance_AppCompat_Widget_ActionMode_Title
 android.support.v7.appcompat.R$style: int Base_TextAppearance_AppCompat_Widget_Button
+android.support.v7.appcompat.R$style: int Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored
+android.support.v7.appcompat.R$style: int Base_TextAppearance_AppCompat_Widget_Button_Colored
 android.support.v7.appcompat.R$style: int Base_TextAppearance_AppCompat_Widget_Button_Inverse
 android.support.v7.appcompat.R$style: int Base_TextAppearance_AppCompat_Widget_DropDownItem
 android.support.v7.appcompat.R$style: int Base_TextAppearance_AppCompat_Widget_PopupMenu_Header
@@ -5575,6 +5675,8 @@ android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Widget_Action
 android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Widget_ActionMode_Title
 android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse
 android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Widget_Button
+android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Widget_Button_Borderless_Colored
+android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Widget_Button_Colored
 android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Widget_Button_Inverse
 android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Widget_DropDownItem
 android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Widget_PopupMenu_Header
@@ -5743,6 +5845,7 @@ android.support.v7.appcompat.R$styleable: int AlertDialog_buttonPanelSideLayout
 android.support.v7.appcompat.R$styleable: int AlertDialog_listItemLayout
 android.support.v7.appcompat.R$styleable: int AlertDialog_listLayout
 android.support.v7.appcompat.R$styleable: int AlertDialog_multiChoiceItemLayout
+android.support.v7.appcompat.R$styleable: int AlertDialog_showTitle
 android.support.v7.appcompat.R$styleable: int AlertDialog_singleChoiceItemLayout
 android.support.v7.appcompat.R$styleable: int[] AppCompatImageView
 android.support.v7.appcompat.R$styleable: int AppCompatImageView_android_src
@@ -5957,6 +6060,9 @@ android.support.v7.appcompat.R$styleable: int PopupWindowBackgroundState_state_a
 android.support.v7.appcompat.R$styleable: int PopupWindow_android_popupAnimationStyle
 android.support.v7.appcompat.R$styleable: int PopupWindow_android_popupBackground
 android.support.v7.appcompat.R$styleable: int PopupWindow_overlapAnchor
+android.support.v7.appcompat.R$styleable: int[] RecycleListView
+android.support.v7.appcompat.R$styleable: int RecycleListView_paddingBottomNoButtons
+android.support.v7.appcompat.R$styleable: int RecycleListView_paddingTopNoTitle
 android.support.v7.appcompat.R$styleable: int[] SearchView
 android.support.v7.appcompat.R$styleable: int SearchView_android_focusable
 android.support.v7.appcompat.R$styleable: int SearchView_android_imeOptions
@@ -6207,6 +6313,9 @@ android.support.v7.widget.ActivityChooserView: android.support.v7.widget.ListPop
 android.support.v7.widget.ActivityChooserView$Callbacks: void onClick(android.view.View)
 android.support.v7.widget.ActivityChooserView$InnerLayout
 android.support.v7.widget.ActivityChooserView$InnerLayout: ActivityChooserView$InnerLayout(android.content.Context,android.util.AttributeSet)
+android.support.v7.widget.AlertDialogLayout
+android.support.v7.widget.AlertDialogLayout: AlertDialogLayout(android.content.Context)
+android.support.v7.widget.AlertDialogLayout: AlertDialogLayout(android.content.Context,android.util.AttributeSet)
 android.support.v7.widget.AppCompatAutoCompleteTextView: AppCompatAutoCompleteTextView(android.content.Context)
 android.support.v7.widget.AppCompatAutoCompleteTextView: AppCompatAutoCompleteTextView(android.content.Context,android.util.AttributeSet)
 android.support.v7.widget.AppCompatAutoCompleteTextView: AppCompatAutoCompleteTextView(android.content.Context,android.util.AttributeSet,int)
@@ -6362,6 +6471,7 @@ android.support.v7.widget.LinearLayoutCompat: void setWeightSum(float)
 android.support.v7.widget.LinearLayoutCompat: void setOrientation(int)
 android.support.v7.widget.LinearLayoutCompat: int getOrientation()
 android.support.v7.widget.LinearLayoutCompat: void setGravity(int)
+android.support.v7.widget.LinearLayoutCompat: int getGravity()
 android.support.v7.widget.LinearLayoutCompat: void setHorizontalGravity(int)
 android.support.v7.widget.LinearLayoutCompat: void setVerticalGravity(int)
 android.support.v7.widget.LinearLayoutManager
@@ -6406,6 +6516,7 @@ android.support.v7.widget.RecyclerView: void setItemAnimator(android.support.v7.
 android.support.v7.widget.RecyclerView: android.support.v7.widget.RecyclerView$ItemAnimator getItemAnimator()
 android.support.v7.widget.RecyclerView: boolean getPreserveFocusAfterLayout()
 android.support.v7.widget.RecyclerView: void setPreserveFocusAfterLayout(boolean)
+android.support.v7.widget.RecyclerView: long getNanoTime()
 android.support.v7.widget.RecyclerView: void setNestedScrollingEnabled(boolean)
 android.support.v7.widget.RecyclerView: android.support.v4.view.NestedScrollingChildHelper getScrollingChildHelper()
 android.support.v7.widget.RecyclerView$LayoutManager: RecyclerView$LayoutManager()
@@ -6589,13 +6700,13 @@ com.faendir.lightning_launcher.multitool.R$anim: int abc_slide_in_bottom
 com.faendir.lightning_launcher.multitool.R$anim: int abc_slide_in_top
 com.faendir.lightning_launcher.multitool.R$anim: int abc_slide_out_bottom
 com.faendir.lightning_launcher.multitool.R$anim: int abc_slide_out_top
-com.faendir.lightning_launcher.multitool.R$anim: int design_appbar_state_list_animator
 com.faendir.lightning_launcher.multitool.R$anim: int design_bottom_sheet_slide_in
 com.faendir.lightning_launcher.multitool.R$anim: int design_bottom_sheet_slide_out
 com.faendir.lightning_launcher.multitool.R$anim: int design_fab_in
 com.faendir.lightning_launcher.multitool.R$anim: int design_fab_out
 com.faendir.lightning_launcher.multitool.R$anim: int design_snackbar_in
 com.faendir.lightning_launcher.multitool.R$anim: int design_snackbar_out
+com.faendir.lightning_launcher.multitool.R$animator: int design_appbar_state_list_animator
 com.faendir.lightning_launcher.multitool.R$array: int listCoverModeKeys
 com.faendir.lightning_launcher.multitool.R$array: int list_coverMode
 com.faendir.lightning_launcher.multitool.R$attr: int actionBarDivider
@@ -6833,8 +6944,10 @@ com.faendir.lightning_launcher.multitool.R$attr: int nnf_save_icon_color
 com.faendir.lightning_launcher.multitool.R$attr: int nnf_separator_color
 com.faendir.lightning_launcher.multitool.R$attr: int nnf_toolbarTheme
 com.faendir.lightning_launcher.multitool.R$attr: int overlapAnchor
+com.faendir.lightning_launcher.multitool.R$attr: int paddingBottomNoButtons
 com.faendir.lightning_launcher.multitool.R$attr: int paddingEnd
 com.faendir.lightning_launcher.multitool.R$attr: int paddingStart
+com.faendir.lightning_launcher.multitool.R$attr: int paddingTopNoTitle
 com.faendir.lightning_launcher.multitool.R$attr: int panelBackground
 com.faendir.lightning_launcher.multitool.R$attr: int panelMenuListTheme
 com.faendir.lightning_launcher.multitool.R$attr: int panelMenuListWidth
@@ -6869,6 +6982,7 @@ com.faendir.lightning_launcher.multitool.R$attr: int selectableItemBackgroundBor
 com.faendir.lightning_launcher.multitool.R$attr: int showAsAction
 com.faendir.lightning_launcher.multitool.R$attr: int showDividers
 com.faendir.lightning_launcher.multitool.R$attr: int showText
+com.faendir.lightning_launcher.multitool.R$attr: int showTitle
 com.faendir.lightning_launcher.multitool.R$attr: int singleChoiceItemLayout
 com.faendir.lightning_launcher.multitool.R$attr: int sirl_insetForeground
 com.faendir.lightning_launcher.multitool.R$attr: int siv_insetForeground
@@ -6968,6 +7082,7 @@ com.faendir.lightning_launcher.multitool.R$bool: int isLollipopOrHigher
 com.faendir.lightning_launcher.multitool.R$color: int abc_background_cache_hint_selector_material_dark
 com.faendir.lightning_launcher.multitool.R$color: int abc_background_cache_hint_selector_material_light
 com.faendir.lightning_launcher.multitool.R$color: int abc_btn_colored_borderless_text_material
+com.faendir.lightning_launcher.multitool.R$color: int abc_btn_colored_text_material
 com.faendir.lightning_launcher.multitool.R$color: int abc_color_highlight_material
 com.faendir.lightning_launcher.multitool.R$color: int abc_hint_foreground_material_dark
 com.faendir.lightning_launcher.multitool.R$color: int abc_hint_foreground_material_light
@@ -7406,11 +7521,13 @@ com.faendir.lightning_launcher.multitool.R$dimen: int abc_dialog_fixed_height_ma
 com.faendir.lightning_launcher.multitool.R$dimen: int abc_dialog_fixed_height_minor
 com.faendir.lightning_launcher.multitool.R$dimen: int abc_dialog_fixed_width_major
 com.faendir.lightning_launcher.multitool.R$dimen: int abc_dialog_fixed_width_minor
-com.faendir.lightning_launcher.multitool.R$dimen: int abc_dialog_list_padding_vertical_material
+com.faendir.lightning_launcher.multitool.R$dimen: int abc_dialog_list_padding_bottom_no_buttons
+com.faendir.lightning_launcher.multitool.R$dimen: int abc_dialog_list_padding_top_no_title
 com.faendir.lightning_launcher.multitool.R$dimen: int abc_dialog_min_width_major
 com.faendir.lightning_launcher.multitool.R$dimen: int abc_dialog_min_width_minor
 com.faendir.lightning_launcher.multitool.R$dimen: int abc_dialog_padding_material
 com.faendir.lightning_launcher.multitool.R$dimen: int abc_dialog_padding_top_material
+com.faendir.lightning_launcher.multitool.R$dimen: int abc_dialog_title_divider_material
 com.faendir.lightning_launcher.multitool.R$dimen: int abc_disabled_alpha_material_dark
 com.faendir.lightning_launcher.multitool.R$dimen: int abc_disabled_alpha_material_light
 com.faendir.lightning_launcher.multitool.R$dimen: int abc_dropdownitem_icon_width
@@ -7674,9 +7791,19 @@ com.faendir.lightning_launcher.multitool.R$drawable: int abc_textfield_search_ac
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_textfield_search_default_mtrl_alpha
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_textfield_search_material
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_vector_test
+com.faendir.lightning_launcher.multitool.R$drawable: int avd_hide_password
+com.faendir.lightning_launcher.multitool.R$drawable: int avd_hide_password_1
+com.faendir.lightning_launcher.multitool.R$drawable: int avd_hide_password_2
+com.faendir.lightning_launcher.multitool.R$drawable: int avd_hide_password_3
+com.faendir.lightning_launcher.multitool.R$drawable: int avd_show_password
+com.faendir.lightning_launcher.multitool.R$drawable: int avd_show_password_1
+com.faendir.lightning_launcher.multitool.R$drawable: int avd_show_password_2
+com.faendir.lightning_launcher.multitool.R$drawable: int avd_show_password_3
 com.faendir.lightning_launcher.multitool.R$drawable: int design_bottom_navigation_item_background
 com.faendir.lightning_launcher.multitool.R$drawable: int design_fab_background
 com.faendir.lightning_launcher.multitool.R$drawable: int design_ic_visibility
+com.faendir.lightning_launcher.multitool.R$drawable: int design_ic_visibility_off
+com.faendir.lightning_launcher.multitool.R$drawable: int design_password_eye
 com.faendir.lightning_launcher.multitool.R$drawable: int design_snackbar_background
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_add_white
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_delete_white
@@ -7833,6 +7960,7 @@ com.faendir.lightning_launcher.multitool.R$id: int listMode
 com.faendir.lightning_launcher.multitool.R$id: int list_item
 com.faendir.lightning_launcher.multitool.R$id: int main_frame
 com.faendir.lightning_launcher.multitool.R$id: int main_scriptName
+com.faendir.lightning_launcher.multitool.R$id: int masked
 com.faendir.lightning_launcher.multitool.R$id: int material_drawer_account_header
 com.faendir.lightning_launcher.multitool.R$id: int material_drawer_account_header_background
 com.faendir.lightning_launcher.multitool.R$id: int material_drawer_account_header_current
@@ -7952,6 +8080,7 @@ com.faendir.lightning_launcher.multitool.R$id: int tabMode
 com.faendir.lightning_launcher.multitool.R$id: int text
 com.faendir.lightning_launcher.multitool.R$id: int text2
 com.faendir.lightning_launcher.multitool.R$id: int textSpacerNoButtons
+com.faendir.lightning_launcher.multitool.R$id: int textSpacerNoTitle
 com.faendir.lightning_launcher.multitool.R$id: int textView
 com.faendir.lightning_launcher.multitool.R$id: int textView11
 com.faendir.lightning_launcher.multitool.R$id: int textView12
@@ -7964,9 +8093,12 @@ com.faendir.lightning_launcher.multitool.R$id: int text_artist
 com.faendir.lightning_launcher.multitool.R$id: int text_input_password_toggle
 com.faendir.lightning_launcher.multitool.R$id: int text_message
 com.faendir.lightning_launcher.multitool.R$id: int text_title
+com.faendir.lightning_launcher.multitool.R$id: int textinput_counter
+com.faendir.lightning_launcher.multitool.R$id: int textinput_error
 com.faendir.lightning_launcher.multitool.R$id: int time
 com.faendir.lightning_launcher.multitool.R$id: int timePicker
 com.faendir.lightning_launcher.multitool.R$id: int title
+com.faendir.lightning_launcher.multitool.R$id: int titleDividerNoCustom
 com.faendir.lightning_launcher.multitool.R$id: int title_template
 com.faendir.lightning_launcher.multitool.R$id: int toolbar
 com.faendir.lightning_launcher.multitool.R$id: int top
@@ -7981,6 +8113,7 @@ com.faendir.lightning_launcher.multitool.R$id: int view_noLauncher
 com.faendir.lightning_launcher.multitool.R$id: int view_offset_helper
 com.faendir.lightning_launcher.multitool.R$id: int view_repositoryImporter
 com.faendir.lightning_launcher.multitool.R$id: int view_yesLauncher
+com.faendir.lightning_launcher.multitool.R$id: int visible
 com.faendir.lightning_launcher.multitool.R$id: int withText
 com.faendir.lightning_launcher.multitool.R$id: int wrap_content
 com.faendir.lightning_launcher.multitool.R$integer: int abc_config_activityDefaultDur
@@ -7989,6 +8122,8 @@ com.faendir.lightning_launcher.multitool.R$integer: int app_bar_elevation_anim_d
 com.faendir.lightning_launcher.multitool.R$integer: int bottom_sheet_slide_duration
 com.faendir.lightning_launcher.multitool.R$integer: int cancel_button_image_alpha
 com.faendir.lightning_launcher.multitool.R$integer: int design_snackbar_text_max_lines
+com.faendir.lightning_launcher.multitool.R$integer: int hide_password_duration
+com.faendir.lightning_launcher.multitool.R$integer: int show_password_duration
 com.faendir.lightning_launcher.multitool.R$integer: int status_bar_notification_info_maxnum
 com.faendir.lightning_launcher.multitool.R$layout: int abc_action_bar_title_item
 com.faendir.lightning_launcher.multitool.R$layout: int abc_action_bar_up_container
@@ -8001,6 +8136,7 @@ com.faendir.lightning_launcher.multitool.R$layout: int abc_activity_chooser_view
 com.faendir.lightning_launcher.multitool.R$layout: int abc_activity_chooser_view_list_item
 com.faendir.lightning_launcher.multitool.R$layout: int abc_alert_dialog_button_bar_material
 com.faendir.lightning_launcher.multitool.R$layout: int abc_alert_dialog_material
+com.faendir.lightning_launcher.multitool.R$layout: int abc_alert_dialog_title_material
 com.faendir.lightning_launcher.multitool.R$layout: int abc_dialog_title_material
 com.faendir.lightning_launcher.multitool.R$layout: int abc_expanded_menu_layout
 com.faendir.lightning_launcher.multitool.R$layout: int abc_list_menu_item_checkbox
@@ -8260,6 +8396,11 @@ com.faendir.lightning_launcher.multitool.R$string: int nnf_need_valid_filename
 com.faendir.lightning_launcher.multitool.R$string: int nnf_new_folder
 com.faendir.lightning_launcher.multitool.R$string: int nnf_permission_external_write_denied
 com.faendir.lightning_launcher.multitool.R$string: int nnf_select_something_first
+com.faendir.lightning_launcher.multitool.R$string: int password_toggle_content_description
+com.faendir.lightning_launcher.multitool.R$string: int path_password_eye
+com.faendir.lightning_launcher.multitool.R$string: int path_password_eye_mask_strike_through
+com.faendir.lightning_launcher.multitool.R$string: int path_password_eye_mask_visible
+com.faendir.lightning_launcher.multitool.R$string: int path_password_strike_through
 com.faendir.lightning_launcher.multitool.R$string: int play_store
 com.faendir.lightning_launcher.multitool.R$string: int pref_activePlayers
 com.faendir.lightning_launcher.multitool.R$string: int pref_altControl
@@ -8410,6 +8551,8 @@ com.faendir.lightning_launcher.multitool.R$style: int Base_TextAppearance_AppCom
 com.faendir.lightning_launcher.multitool.R$style: int Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle
 com.faendir.lightning_launcher.multitool.R$style: int Base_TextAppearance_AppCompat_Widget_ActionMode_Title
 com.faendir.lightning_launcher.multitool.R$style: int Base_TextAppearance_AppCompat_Widget_Button
+com.faendir.lightning_launcher.multitool.R$style: int Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored
+com.faendir.lightning_launcher.multitool.R$style: int Base_TextAppearance_AppCompat_Widget_Button_Colored
 com.faendir.lightning_launcher.multitool.R$style: int Base_TextAppearance_AppCompat_Widget_Button_Inverse
 com.faendir.lightning_launcher.multitool.R$style: int Base_TextAppearance_AppCompat_Widget_DropDownItem
 com.faendir.lightning_launcher.multitool.R$style: int Base_TextAppearance_AppCompat_Widget_PopupMenu_Header
@@ -8648,6 +8791,8 @@ com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_W
 com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Widget_ActionMode_Title
 com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse
 com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Widget_Button
+com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Widget_Button_Borderless_Colored
+com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Widget_Button_Colored
 com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Widget_Button_Inverse
 com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Widget_DropDownItem
 com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Widget_PopupMenu_Header
@@ -8842,6 +8987,7 @@ com.faendir.lightning_launcher.multitool.R$styleable: int AlertDialog_buttonPane
 com.faendir.lightning_launcher.multitool.R$styleable: int AlertDialog_listItemLayout
 com.faendir.lightning_launcher.multitool.R$styleable: int AlertDialog_listLayout
 com.faendir.lightning_launcher.multitool.R$styleable: int AlertDialog_multiChoiceItemLayout
+com.faendir.lightning_launcher.multitool.R$styleable: int AlertDialog_showTitle
 com.faendir.lightning_launcher.multitool.R$styleable: int AlertDialog_singleChoiceItemLayout
 com.faendir.lightning_launcher.multitool.R$styleable: int[] AppBarLayout
 com.faendir.lightning_launcher.multitool.R$styleable: int AppBarLayout_android_background
@@ -9186,6 +9332,9 @@ com.faendir.lightning_launcher.multitool.R$styleable: int PopupWindow_android_po
 com.faendir.lightning_launcher.multitool.R$styleable: int PopupWindow_overlapAnchor
 com.faendir.lightning_launcher.multitool.R$styleable: int[] PopupWindowBackgroundState
 com.faendir.lightning_launcher.multitool.R$styleable: int PopupWindowBackgroundState_state_above_anchor
+com.faendir.lightning_launcher.multitool.R$styleable: int[] RecycleListView
+com.faendir.lightning_launcher.multitool.R$styleable: int RecycleListView_paddingBottomNoButtons
+com.faendir.lightning_launcher.multitool.R$styleable: int RecycleListView_paddingTopNoTitle
 com.faendir.lightning_launcher.multitool.R$styleable: int[] RecyclerView
 com.faendir.lightning_launcher.multitool.R$styleable: int RecyclerView_android_descendantFocusability
 com.faendir.lightning_launcher.multitool.R$styleable: int RecyclerView_android_orientation
@@ -10302,7 +10451,6 @@ com.faendir.omniadapter.R$anim: int abc_slide_in_bottom
 com.faendir.omniadapter.R$anim: int abc_slide_in_top
 com.faendir.omniadapter.R$anim: int abc_slide_out_bottom
 com.faendir.omniadapter.R$anim: int abc_slide_out_top
-com.faendir.omniadapter.R$anim: int design_appbar_state_list_animator
 com.faendir.omniadapter.R$anim: int design_bottom_sheet_slide_in
 com.faendir.omniadapter.R$anim: int design_bottom_sheet_slide_out
 com.faendir.omniadapter.R$anim: int design_fab_in
@@ -10744,7 +10892,6 @@ com.faendir.omniadapter.R$dimen: int abc_dialog_fixed_height_major
 com.faendir.omniadapter.R$dimen: int abc_dialog_fixed_height_minor
 com.faendir.omniadapter.R$dimen: int abc_dialog_fixed_width_major
 com.faendir.omniadapter.R$dimen: int abc_dialog_fixed_width_minor
-com.faendir.omniadapter.R$dimen: int abc_dialog_list_padding_vertical_material
 com.faendir.omniadapter.R$dimen: int abc_dialog_min_width_major
 com.faendir.omniadapter.R$dimen: int abc_dialog_min_width_minor
 com.faendir.omniadapter.R$dimen: int abc_dialog_padding_material
@@ -12385,7 +12532,6 @@ com.mikepenz.fastadapter.R$dimen: int abc_dialog_fixed_height_major
 com.mikepenz.fastadapter.R$dimen: int abc_dialog_fixed_height_minor
 com.mikepenz.fastadapter.R$dimen: int abc_dialog_fixed_width_major
 com.mikepenz.fastadapter.R$dimen: int abc_dialog_fixed_width_minor
-com.mikepenz.fastadapter.R$dimen: int abc_dialog_list_padding_vertical_material
 com.mikepenz.fastadapter.R$dimen: int abc_dialog_min_width_major
 com.mikepenz.fastadapter.R$dimen: int abc_dialog_min_width_minor
 com.mikepenz.fastadapter.R$dimen: int abc_dialog_padding_material
@@ -13763,7 +13909,6 @@ com.mikepenz.iconics.core.R$dimen: int abc_dialog_fixed_height_major
 com.mikepenz.iconics.core.R$dimen: int abc_dialog_fixed_height_minor
 com.mikepenz.iconics.core.R$dimen: int abc_dialog_fixed_width_major
 com.mikepenz.iconics.core.R$dimen: int abc_dialog_fixed_width_minor
-com.mikepenz.iconics.core.R$dimen: int abc_dialog_list_padding_vertical_material
 com.mikepenz.iconics.core.R$dimen: int abc_dialog_min_width_major
 com.mikepenz.iconics.core.R$dimen: int abc_dialog_min_width_minor
 com.mikepenz.iconics.core.R$dimen: int abc_dialog_padding_material
@@ -14831,7 +14976,6 @@ com.mikepenz.materialdrawer.R$anim: int abc_slide_in_bottom
 com.mikepenz.materialdrawer.R$anim: int abc_slide_in_top
 com.mikepenz.materialdrawer.R$anim: int abc_slide_out_bottom
 com.mikepenz.materialdrawer.R$anim: int abc_slide_out_top
-com.mikepenz.materialdrawer.R$anim: int design_appbar_state_list_animator
 com.mikepenz.materialdrawer.R$anim: int design_bottom_sheet_slide_in
 com.mikepenz.materialdrawer.R$anim: int design_bottom_sheet_slide_out
 com.mikepenz.materialdrawer.R$anim: int design_fab_in
@@ -15620,7 +15764,6 @@ com.mikepenz.materialdrawer.R$dimen: int abc_dialog_fixed_height_major
 com.mikepenz.materialdrawer.R$dimen: int abc_dialog_fixed_height_minor
 com.mikepenz.materialdrawer.R$dimen: int abc_dialog_fixed_width_major
 com.mikepenz.materialdrawer.R$dimen: int abc_dialog_fixed_width_minor
-com.mikepenz.materialdrawer.R$dimen: int abc_dialog_list_padding_vertical_material
 com.mikepenz.materialdrawer.R$dimen: int abc_dialog_min_width_major
 com.mikepenz.materialdrawer.R$dimen: int abc_dialog_min_width_minor
 com.mikepenz.materialdrawer.R$dimen: int abc_dialog_padding_material
@@ -17803,7 +17946,6 @@ com.mikepenz.materialize.R$dimen: int abc_dialog_fixed_height_major
 com.mikepenz.materialize.R$dimen: int abc_dialog_fixed_height_minor
 com.mikepenz.materialize.R$dimen: int abc_dialog_fixed_width_major
 com.mikepenz.materialize.R$dimen: int abc_dialog_fixed_width_minor
-com.mikepenz.materialize.R$dimen: int abc_dialog_list_padding_vertical_material
 com.mikepenz.materialize.R$dimen: int abc_dialog_min_width_major
 com.mikepenz.materialize.R$dimen: int abc_dialog_min_width_minor
 com.mikepenz.materialize.R$dimen: int abc_dialog_padding_material
@@ -19316,7 +19458,6 @@ com.nononsenseapps.filepicker.R$dimen: int abc_dialog_fixed_height_major
 com.nononsenseapps.filepicker.R$dimen: int abc_dialog_fixed_height_minor
 com.nononsenseapps.filepicker.R$dimen: int abc_dialog_fixed_width_major
 com.nononsenseapps.filepicker.R$dimen: int abc_dialog_fixed_width_minor
-com.nononsenseapps.filepicker.R$dimen: int abc_dialog_list_padding_vertical_material
 com.nononsenseapps.filepicker.R$dimen: int abc_dialog_min_width_major
 com.nononsenseapps.filepicker.R$dimen: int abc_dialog_min_width_minor
 com.nononsenseapps.filepicker.R$dimen: int abc_dialog_padding_material
@@ -20397,7 +20538,6 @@ org.acra.ACRA: java.lang.String PREF_ENABLE_DEVICE_ID
 org.acra.ACRA: java.lang.String PREF_USER_EMAIL_ADDRESS
 org.acra.ACRA: java.lang.String PREF_ALWAYS_ACCEPT
 org.acra.ACRA: java.lang.String PREF_LAST_VERSION_NR
-org.acra.ACRA: java.lang.String PREF__LEGACY_ALREADY_CONVERTED_TO_4_8_0
 org.acra.ACRA: android.app.Application mApplication
 org.acra.ACRA: org.acra.config.ACRAConfiguration configProxy
 org.acra.ACRA: org.acra.ErrorReporter errorReporterSingleton
@@ -20427,7 +20567,6 @@ org.acra.ACRAConstants: java.lang.String APPROVED_SUFFIX
 org.acra.ACRAConstants: java.lang.String SILENT_SUFFIX
 org.acra.ACRAConstants: int MAX_SEND_REPORTS
 org.acra.ACRAConstants: java.lang.String EXTRA_REPORT_FILE
-org.acra.ACRAConstants: java.lang.String EXTRA_REPORT_FILE_NAME
 org.acra.ACRAConstants: java.lang.String EXTRA_REPORT_EXCEPTION
 org.acra.ACRAConstants: java.lang.String EXTRA_REPORT_CONFIG
 org.acra.ACRAConstants: java.lang.String EXTRA_FORCE_CANCEL
@@ -20459,7 +20598,7 @@ org.acra.ACRAConstants: org.acra.ReportField[] DEFAULT_MAIL_REPORT_FIELDS
 org.acra.ACRAConstants: org.acra.ReportField[] DEFAULT_REPORT_FIELDS
 org.acra.ACRAConstants: java.lang.String DATE_TIME_FORMAT_STRING
 org.acra.ACRAConstants: java.lang.String DEFAULT_CERTIFICATE_TYPE
-org.acra.ACRAConstants: java.lang.String NOT_AVAILABLE
+org.acra.ACRAConstants: org.acra.model.Element NOT_AVAILABLE
 org.acra.ACRAConstants: ACRAConstants()
 org.acra.ACRAConstants: void <clinit>()
 org.acra.CrashReportDialog
@@ -20645,6 +20784,7 @@ org.acra.annotation.ReportsCrashes: java.lang.String certificatePath()
 org.acra.annotation.ReportsCrashes: int resCertificate()
 org.acra.annotation.ReportsCrashes: java.lang.String certificateType()
 org.acra.annotation.ReportsCrashes: java.lang.Class retryPolicyClass()
+org.acra.annotation.ReportsCrashes: boolean stopServicesOnCrash()
 org.acra.builder.LastActivityManager
 org.acra.builder.LastActivityManager: java.lang.ref.WeakReference lastActivityCreated
 org.acra.builder.LastActivityManager: LastActivityManager(android.app.Application)
@@ -20688,23 +20828,21 @@ org.acra.builder.ReportBuilder: org.acra.builder.ReportBuilder endApplication()
 org.acra.builder.ReportBuilder: boolean isEndApplication()
 org.acra.builder.ReportBuilder: void build(org.acra.builder.ReportExecutor)
 org.acra.builder.ReportExecutor
-org.acra.builder.ReportExecutor: int THREAD_SLEEP_INTERVAL_MILLIS
 org.acra.builder.ReportExecutor: android.content.Context context
 org.acra.builder.ReportExecutor: org.acra.config.ACRAConfiguration config
 org.acra.builder.ReportExecutor: org.acra.collector.CrashReportDataFactory crashReportDataFactory
-org.acra.builder.ReportExecutor: org.acra.builder.LastActivityManager lastActivityManager
 org.acra.builder.ReportExecutor: java.lang.Thread$UncaughtExceptionHandler defaultExceptionHandler
 org.acra.builder.ReportExecutor: org.acra.builder.ReportPrimer reportPrimer
+org.acra.builder.ReportExecutor: org.acra.util.ProcessFinisher processFinisher
 org.acra.builder.ReportExecutor: boolean enabled
 org.acra.builder.ReportExecutor: int mNotificationCounter
-org.acra.builder.ReportExecutor: ReportExecutor(android.content.Context,org.acra.config.ACRAConfiguration,org.acra.collector.CrashReportDataFactory,org.acra.builder.LastActivityManager,java.lang.Thread$UncaughtExceptionHandler,org.acra.builder.ReportPrimer)
+org.acra.builder.ReportExecutor: ReportExecutor(android.content.Context,org.acra.config.ACRAConfiguration,org.acra.collector.CrashReportDataFactory,java.lang.Thread$UncaughtExceptionHandler,org.acra.builder.ReportPrimer,org.acra.util.ProcessFinisher)
 org.acra.builder.ReportExecutor: void handReportToDefaultExceptionHandler(java.lang.Thread,java.lang.Throwable)
 org.acra.builder.ReportExecutor: boolean isEnabled()
 org.acra.builder.ReportExecutor: void setEnabled(boolean)
 org.acra.builder.ReportExecutor: void execute(org.acra.builder.ReportBuilder)
 org.acra.builder.ReportExecutor: void dialogAndEnd(org.acra.builder.ReportBuilder,java.io.File,boolean)
 org.acra.builder.ReportExecutor: void endApplication(java.lang.Thread,java.lang.Throwable)
-org.acra.builder.ReportExecutor: void finishLastActivity(java.lang.Thread)
 org.acra.builder.ReportExecutor: void startSendingReports(boolean)
 org.acra.builder.ReportExecutor: void createNotification(java.io.File,org.acra.builder.ReportBuilder)
 org.acra.builder.ReportExecutor: java.io.File getReportFileName(org.acra.collector.CrashReportData)
@@ -20731,11 +20869,6 @@ org.acra.builder.ReportExecutor$3
 org.acra.builder.ReportExecutor$3: org.acra.builder.ReportExecutor this$0
 org.acra.builder.ReportExecutor$3: ReportExecutor$3(org.acra.builder.ReportExecutor)
 org.acra.builder.ReportExecutor$3: void run()
-org.acra.builder.ReportExecutor$4
-org.acra.builder.ReportExecutor$4: android.app.Activity val$lastActivity
-org.acra.builder.ReportExecutor$4: org.acra.builder.ReportExecutor this$0
-org.acra.builder.ReportExecutor$4: ReportExecutor$4(org.acra.builder.ReportExecutor,android.app.Activity)
-org.acra.builder.ReportExecutor$4: void run()
 org.acra.builder.ReportExecutor$TimeHelper
 org.acra.builder.ReportExecutor$TimeHelper: java.lang.Long initialTimeMillis
 org.acra.builder.ReportExecutor$TimeHelper: ReportExecutor$TimeHelper()
@@ -20852,7 +20985,7 @@ org.acra.collector.Collector: org.acra.ReportField[] reportFields
 org.acra.collector.Collector: Collector(org.acra.ReportField[])
 org.acra.collector.Collector: org.acra.ReportField[] canCollect()
 org.acra.collector.Collector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
-org.acra.collector.Collector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.Collector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.ConfigurationCollector
 org.acra.collector.ConfigurationCollector: java.lang.String SUFFIX_MASK
 org.acra.collector.ConfigurationCollector: java.lang.String FIELD_SCREENLAYOUT
@@ -20869,14 +21002,14 @@ org.acra.collector.ConfigurationCollector: java.lang.String PREFIX_KEYBOARDHIDDE
 org.acra.collector.ConfigurationCollector: java.lang.String PREFIX_KEYBOARD
 org.acra.collector.ConfigurationCollector: java.lang.String PREFIX_HARDKEYBOARDHIDDEN
 org.acra.collector.ConfigurationCollector: android.content.Context context
-org.acra.collector.ConfigurationCollector: java.lang.String initialConfiguration
-org.acra.collector.ConfigurationCollector: ConfigurationCollector(android.content.Context,java.lang.String)
-org.acra.collector.ConfigurationCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
-org.acra.collector.ConfigurationCollector: java.lang.String configToString(android.content.res.Configuration)
+org.acra.collector.ConfigurationCollector: org.acra.model.Element initialConfiguration
+org.acra.collector.ConfigurationCollector: ConfigurationCollector(android.content.Context,org.acra.model.Element)
+org.acra.collector.ConfigurationCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.ConfigurationCollector: org.acra.model.Element configToElement(android.content.res.Configuration)
 org.acra.collector.ConfigurationCollector: java.util.Map getValueArrays()
-org.acra.collector.ConfigurationCollector: java.lang.String getFieldValueName(java.util.Map,android.content.res.Configuration,java.lang.reflect.Field)
+org.acra.collector.ConfigurationCollector: java.lang.Object getFieldValueName(java.util.Map,android.content.res.Configuration,java.lang.reflect.Field)
 org.acra.collector.ConfigurationCollector: java.lang.String activeFlags(android.util.SparseArray,int)
-org.acra.collector.ConfigurationCollector: java.lang.String collectConfiguration(android.content.Context)
+org.acra.collector.ConfigurationCollector: org.acra.model.Element collectConfiguration(android.content.Context)
 org.acra.collector.ConfigurationCollector$1
 org.acra.collector.ConfigurationCollector$1: int[] $SwitchMap$org$acra$ReportField
 org.acra.collector.ConfigurationCollector$1: void <clinit>()
@@ -20884,6 +21017,9 @@ org.acra.collector.CrashReportData
 org.acra.collector.CrashReportData: long serialVersionUID
 org.acra.collector.CrashReportData: CrashReportData()
 org.acra.collector.CrashReportData: java.lang.String getProperty(org.acra.ReportField)
+org.acra.collector.CrashReportData: void putString(org.acra.ReportField,java.lang.String)
+org.acra.collector.CrashReportData: void putNumber(org.acra.ReportField,java.lang.Number)
+org.acra.collector.CrashReportData: void putBoolean(org.acra.ReportField,boolean)
 org.acra.collector.CrashReportData: org.json.JSONObject toJSON()
 org.acra.collector.CrashReportDataFactory
 org.acra.collector.CrashReportDataFactory: android.content.Context context
@@ -20891,8 +21027,8 @@ org.acra.collector.CrashReportDataFactory: org.acra.config.ACRAConfiguration con
 org.acra.collector.CrashReportDataFactory: android.content.SharedPreferences prefs
 org.acra.collector.CrashReportDataFactory: java.util.Map customParameters
 org.acra.collector.CrashReportDataFactory: java.util.Calendar appStartDate
-org.acra.collector.CrashReportDataFactory: java.lang.String initialConfiguration
-org.acra.collector.CrashReportDataFactory: CrashReportDataFactory(android.content.Context,org.acra.config.ACRAConfiguration,android.content.SharedPreferences,java.util.Calendar,java.lang.String)
+org.acra.collector.CrashReportDataFactory: org.acra.model.Element initialConfiguration
+org.acra.collector.CrashReportDataFactory: CrashReportDataFactory(android.content.Context,org.acra.config.ACRAConfiguration,android.content.SharedPreferences,java.util.Calendar,org.acra.model.Element)
 org.acra.collector.CrashReportDataFactory: java.lang.String putCustomData(java.lang.String,java.lang.String)
 org.acra.collector.CrashReportDataFactory: java.lang.String removeCustomData(java.lang.String)
 org.acra.collector.CrashReportDataFactory: void clearCustomData()
@@ -20902,38 +21038,38 @@ org.acra.collector.CrashReportDataFactory: java.util.List getCollectorsOrdered()
 org.acra.collector.CustomDataCollector
 org.acra.collector.CustomDataCollector: java.util.Map customParameters
 org.acra.collector.CustomDataCollector: CustomDataCollector(java.util.Map)
-org.acra.collector.CustomDataCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
-org.acra.collector.CustomDataCollector: java.lang.String createCustomInfoString(java.util.Map)
+org.acra.collector.CustomDataCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.CustomDataCollector: org.acra.model.Element createCustomInfoElement(java.util.Map)
 org.acra.collector.DeviceFeaturesCollector
 org.acra.collector.DeviceFeaturesCollector: android.content.Context context
 org.acra.collector.DeviceFeaturesCollector: DeviceFeaturesCollector(android.content.Context)
-org.acra.collector.DeviceFeaturesCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.DeviceFeaturesCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.DeviceIdCollector
 org.acra.collector.DeviceIdCollector: android.content.Context context
 org.acra.collector.DeviceIdCollector: org.acra.util.PackageManagerWrapper pm
 org.acra.collector.DeviceIdCollector: android.content.SharedPreferences prefs
 org.acra.collector.DeviceIdCollector: DeviceIdCollector(android.content.Context,org.acra.util.PackageManagerWrapper,android.content.SharedPreferences)
 org.acra.collector.DeviceIdCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
-org.acra.collector.DeviceIdCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.DeviceIdCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.DeviceIdCollector: java.lang.String getDeviceId()
 org.acra.collector.DisplayManagerCollector
 org.acra.collector.DisplayManagerCollector: android.content.Context context
 org.acra.collector.DisplayManagerCollector: android.util.SparseArray flagNames
 org.acra.collector.DisplayManagerCollector: DisplayManagerCollector(android.content.Context)
-org.acra.collector.DisplayManagerCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
-org.acra.collector.DisplayManagerCollector: java.lang.Object collectDisplayData(android.view.Display)
-org.acra.collector.DisplayManagerCollector: java.lang.String collectIsValid(android.view.Display)
-org.acra.collector.DisplayManagerCollector: java.lang.String collectRotation(android.view.Display)
+org.acra.collector.DisplayManagerCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.DisplayManagerCollector: org.json.JSONObject collectDisplayData(android.view.Display)
+org.acra.collector.DisplayManagerCollector: void collectIsValid(android.view.Display,org.json.JSONObject)
+org.acra.collector.DisplayManagerCollector: void collectRotation(android.view.Display,org.json.JSONObject)
 org.acra.collector.DisplayManagerCollector: java.lang.String rotationToString(int)
-org.acra.collector.DisplayManagerCollector: java.lang.String collectRectSize(android.view.Display)
-org.acra.collector.DisplayManagerCollector: java.lang.String collectSize(android.view.Display)
-org.acra.collector.DisplayManagerCollector: java.lang.String collectRealSize(android.view.Display)
-org.acra.collector.DisplayManagerCollector: java.lang.String collectCurrentSizeRange(android.view.Display)
-org.acra.collector.DisplayManagerCollector: java.lang.String collectFlags(android.view.Display)
-org.acra.collector.DisplayManagerCollector: java.lang.String collectName(android.view.Display)
-org.acra.collector.DisplayManagerCollector: java.lang.String collectMetrics(android.view.Display)
-org.acra.collector.DisplayManagerCollector: java.lang.String collectRealMetrics(android.view.Display)
-org.acra.collector.DisplayManagerCollector: java.lang.String collectMetrics(java.lang.String,android.util.DisplayMetrics)
+org.acra.collector.DisplayManagerCollector: void collectRectSize(android.view.Display,org.json.JSONObject)
+org.acra.collector.DisplayManagerCollector: void collectSize(android.view.Display,org.json.JSONObject)
+org.acra.collector.DisplayManagerCollector: void collectRealSize(android.view.Display,org.json.JSONObject)
+org.acra.collector.DisplayManagerCollector: void collectCurrentSizeRange(android.view.Display,org.json.JSONObject)
+org.acra.collector.DisplayManagerCollector: void collectFlags(android.view.Display,org.json.JSONObject)
+org.acra.collector.DisplayManagerCollector: void collectName(android.view.Display,org.json.JSONObject)
+org.acra.collector.DisplayManagerCollector: void collectMetrics(android.view.Display,org.json.JSONObject)
+org.acra.collector.DisplayManagerCollector: void collectRealMetrics(android.view.Display,org.json.JSONObject)
+org.acra.collector.DisplayManagerCollector: void collectMetrics(android.util.DisplayMetrics,org.json.JSONObject)
 org.acra.collector.DisplayManagerCollector: java.lang.String activeFlags(int)
 org.acra.collector.DropBoxCollector
 org.acra.collector.DropBoxCollector: android.content.Context context
@@ -20942,17 +21078,16 @@ org.acra.collector.DropBoxCollector: org.acra.util.PackageManagerWrapper pm
 org.acra.collector.DropBoxCollector: java.lang.String[] SYSTEM_TAGS
 org.acra.collector.DropBoxCollector: java.text.SimpleDateFormat dateFormat
 org.acra.collector.DropBoxCollector: DropBoxCollector(android.content.Context,org.acra.config.ACRAConfiguration,org.acra.util.PackageManagerWrapper)
-org.acra.collector.DropBoxCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.DropBoxCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.DropBoxCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.DropBoxCollector: void <clinit>()
 org.acra.collector.LogCatCollector
-org.acra.collector.LogCatCollector: int DEFAULT_TAIL_COUNT
 org.acra.collector.LogCatCollector: org.acra.config.ACRAConfiguration config
 org.acra.collector.LogCatCollector: org.acra.util.PackageManagerWrapper pm
 org.acra.collector.LogCatCollector: LogCatCollector(org.acra.config.ACRAConfiguration,org.acra.util.PackageManagerWrapper)
-org.acra.collector.LogCatCollector: java.lang.String collectLogCat(java.lang.String)
+org.acra.collector.LogCatCollector: org.acra.model.Element collectLogCat(java.lang.String)
 org.acra.collector.LogCatCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
-org.acra.collector.LogCatCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.LogCatCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.LogCatCollector: java.lang.String streamToString(java.io.InputStream,com.android.internal.util.Predicate,int)
 org.acra.collector.LogCatCollector$1
 org.acra.collector.LogCatCollector$1: java.lang.String val$myPidStr
@@ -20967,7 +21102,7 @@ org.acra.collector.LogFileCollector
 org.acra.collector.LogFileCollector: android.content.Context context
 org.acra.collector.LogFileCollector: org.acra.config.ACRAConfiguration config
 org.acra.collector.LogFileCollector: LogFileCollector(android.content.Context,org.acra.config.ACRAConfiguration)
-org.acra.collector.LogFileCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.LogFileCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.LogFileCollector: java.io.InputStream getStream(org.acra.file.Directory,java.lang.String)
 org.acra.collector.LogFileCollector$1
 org.acra.collector.LogFileCollector$1: int[] $SwitchMap$org$acra$file$Directory
@@ -20987,11 +21122,11 @@ org.acra.collector.MediaCodecListCollector: android.util.SparseArray mMPEG4Level
 org.acra.collector.MediaCodecListCollector: android.util.SparseArray mMPEG4ProfileValues
 org.acra.collector.MediaCodecListCollector: android.util.SparseArray mAACProfileValues
 org.acra.collector.MediaCodecListCollector: MediaCodecListCollector()
-org.acra.collector.MediaCodecListCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.MediaCodecListCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.MediaCodecListCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.MediaCodecListCollector: void prepare()
-org.acra.collector.MediaCodecListCollector: java.lang.String collectMediaCodecList()
-org.acra.collector.MediaCodecListCollector: java.lang.String collectCapabilitiesForType(android.media.MediaCodecInfo,java.lang.String)
+org.acra.collector.MediaCodecListCollector: org.acra.model.Element collectMediaCodecList()
+org.acra.collector.MediaCodecListCollector: org.json.JSONObject collectCapabilitiesForType(android.media.MediaCodecInfo,java.lang.String)
 org.acra.collector.MediaCodecListCollector: org.acra.collector.MediaCodecListCollector$CodecType identifyCodecType(android.media.MediaCodecInfo)
 org.acra.collector.MediaCodecListCollector: void <clinit>()
 org.acra.collector.MediaCodecListCollector$1
@@ -21010,8 +21145,8 @@ org.acra.collector.MediaCodecListCollector$CodecType: void <clinit>()
 org.acra.collector.MemoryInfoCollector
 org.acra.collector.MemoryInfoCollector: MemoryInfoCollector()
 org.acra.collector.MemoryInfoCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
-org.acra.collector.MemoryInfoCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
-org.acra.collector.MemoryInfoCollector: java.lang.String collectMemInfo()
+org.acra.collector.MemoryInfoCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.MemoryInfoCollector: org.acra.model.Element collectMemInfo()
 org.acra.collector.MemoryInfoCollector: long getAvailableInternalMemorySize()
 org.acra.collector.MemoryInfoCollector: long getTotalInternalMemorySize()
 org.acra.collector.MemoryInfoCollector$1
@@ -21020,7 +21155,7 @@ org.acra.collector.MemoryInfoCollector$1: void <clinit>()
 org.acra.collector.PackageManagerCollector
 org.acra.collector.PackageManagerCollector: org.acra.util.PackageManagerWrapper pm
 org.acra.collector.PackageManagerCollector: PackageManagerCollector(org.acra.util.PackageManagerWrapper)
-org.acra.collector.PackageManagerCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.PackageManagerCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.PackageManagerCollector$1
 org.acra.collector.PackageManagerCollector$1: int[] $SwitchMap$org$acra$ReportField
 org.acra.collector.PackageManagerCollector$1: void <clinit>()
@@ -21028,10 +21163,9 @@ org.acra.collector.ReflectionCollector
 org.acra.collector.ReflectionCollector: android.content.Context context
 org.acra.collector.ReflectionCollector: org.acra.config.ACRAConfiguration config
 org.acra.collector.ReflectionCollector: ReflectionCollector(android.content.Context,org.acra.config.ACRAConfiguration)
-org.acra.collector.ReflectionCollector: java.lang.String collectConstants(java.lang.Class,java.lang.String)
-org.acra.collector.ReflectionCollector: java.lang.String collectStaticGettersResults(java.lang.Class)
-org.acra.collector.ReflectionCollector: java.lang.String collectConstants(java.lang.Class)
-org.acra.collector.ReflectionCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.ReflectionCollector: void collectConstants(java.lang.Class,org.json.JSONObject)
+org.acra.collector.ReflectionCollector: void collectStaticGettersResults(java.lang.Class,org.json.JSONObject)
+org.acra.collector.ReflectionCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.ReflectionCollector: java.lang.Class getBuildConfigClass()
 org.acra.collector.ReflectionCollector$1
 org.acra.collector.ReflectionCollector$1: int[] $SwitchMap$org$acra$ReportField
@@ -21041,11 +21175,11 @@ org.acra.collector.SettingsCollector: java.lang.String ERROR
 org.acra.collector.SettingsCollector: android.content.Context context
 org.acra.collector.SettingsCollector: org.acra.config.ACRAConfiguration config
 org.acra.collector.SettingsCollector: SettingsCollector(android.content.Context,org.acra.config.ACRAConfiguration)
-org.acra.collector.SettingsCollector: java.lang.String collectSystemSettings()
-org.acra.collector.SettingsCollector: java.lang.String collectSecureSettings()
-org.acra.collector.SettingsCollector: java.lang.String collectGlobalSettings()
+org.acra.collector.SettingsCollector: org.acra.model.Element collectSystemSettings()
+org.acra.collector.SettingsCollector: org.acra.model.Element collectSecureSettings()
+org.acra.collector.SettingsCollector: org.acra.model.Element collectGlobalSettings()
 org.acra.collector.SettingsCollector: boolean isAuthorized(java.lang.reflect.Field)
-org.acra.collector.SettingsCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.SettingsCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.SettingsCollector$1
 org.acra.collector.SettingsCollector$1: int[] $SwitchMap$org$acra$ReportField
 org.acra.collector.SettingsCollector$1: void <clinit>()
@@ -21054,9 +21188,9 @@ org.acra.collector.SharedPreferencesCollector: android.content.Context context
 org.acra.collector.SharedPreferencesCollector: org.acra.config.ACRAConfiguration config
 org.acra.collector.SharedPreferencesCollector: android.content.SharedPreferences prefs
 org.acra.collector.SharedPreferencesCollector: SharedPreferencesCollector(android.content.Context,org.acra.config.ACRAConfiguration,android.content.SharedPreferences)
-org.acra.collector.SharedPreferencesCollector: java.lang.String collect()
+org.acra.collector.SharedPreferencesCollector: org.acra.model.Element collect()
 org.acra.collector.SharedPreferencesCollector: boolean filteredKey(java.lang.String)
-org.acra.collector.SharedPreferencesCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.SharedPreferencesCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.SharedPreferencesCollector$1
 org.acra.collector.SharedPreferencesCollector$1: int[] $SwitchMap$org$acra$ReportField
 org.acra.collector.SharedPreferencesCollector$1: void <clinit>()
@@ -21064,7 +21198,7 @@ org.acra.collector.SimpleValuesCollector
 org.acra.collector.SimpleValuesCollector: android.content.Context context
 org.acra.collector.SimpleValuesCollector: SimpleValuesCollector(android.content.Context)
 org.acra.collector.SimpleValuesCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
-org.acra.collector.SimpleValuesCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.SimpleValuesCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.SimpleValuesCollector: java.lang.String getApplicationFilePath()
 org.acra.collector.SimpleValuesCollector: java.lang.String getLocalIpAddress()
 org.acra.collector.SimpleValuesCollector$1
@@ -21073,7 +21207,7 @@ org.acra.collector.SimpleValuesCollector$1: void <clinit>()
 org.acra.collector.StacktraceCollector
 org.acra.collector.StacktraceCollector: StacktraceCollector()
 org.acra.collector.StacktraceCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
-org.acra.collector.StacktraceCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.StacktraceCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.StacktraceCollector: java.lang.String getStackTrace(java.lang.String,java.lang.Throwable)
 org.acra.collector.StacktraceCollector: java.lang.String getStackTraceHash(java.lang.Throwable)
 org.acra.collector.StacktraceCollector$1
@@ -21081,12 +21215,12 @@ org.acra.collector.StacktraceCollector$1: int[] $SwitchMap$org$acra$ReportField
 org.acra.collector.StacktraceCollector$1: void <clinit>()
 org.acra.collector.ThreadCollector
 org.acra.collector.ThreadCollector: ThreadCollector()
-org.acra.collector.ThreadCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.ThreadCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.TimeCollector
 org.acra.collector.TimeCollector: java.util.Calendar appStartDate
 org.acra.collector.TimeCollector: TimeCollector(java.util.Calendar)
 org.acra.collector.TimeCollector: boolean shouldCollect(java.util.Set,org.acra.ReportField,org.acra.builder.ReportBuilder)
-org.acra.collector.TimeCollector: java.lang.String collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.TimeCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.TimeCollector: java.lang.String getTimeString(java.util.Calendar)
 org.acra.collector.TimeCollector$1
 org.acra.collector.TimeCollector$1: int[] $SwitchMap$org$acra$ReportField
@@ -21144,6 +21278,7 @@ org.acra.config.ACRAConfiguration: int resCertificate
 org.acra.config.ACRAConfiguration: java.lang.String certificatePath
 org.acra.config.ACRAConfiguration: java.lang.String certificateType
 org.acra.config.ACRAConfiguration: java.lang.Class retryPolicyClass
+org.acra.config.ACRAConfiguration: boolean stopServicesOnCrash
 org.acra.config.ACRAConfiguration: ACRAConfiguration(org.acra.config.ConfigurationBuilder)
 org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableMap getHttpHeaders()
 org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet getReportFields()
@@ -21197,6 +21332,7 @@ org.acra.config.ACRAConfiguration: int resCertificate()
 org.acra.config.ACRAConfiguration: java.lang.String certificatePath()
 org.acra.config.ACRAConfiguration: java.lang.String certificateType()
 org.acra.config.ACRAConfiguration: java.lang.Class retryPolicyClass()
+org.acra.config.ACRAConfiguration: boolean stopServicesOnCrash()
 org.acra.config.ACRAConfigurationException
 org.acra.config.ACRAConfigurationException: long serialVersionUID
 org.acra.config.ACRAConfigurationException: ACRAConfigurationException(java.lang.String)
@@ -21256,6 +21392,7 @@ org.acra.config.ConfigurationBuilder: java.lang.Integer resCertificate
 org.acra.config.ConfigurationBuilder: java.lang.String certificatePath
 org.acra.config.ConfigurationBuilder: java.lang.String certificateType
 org.acra.config.ConfigurationBuilder: java.lang.Class retryPolicyClass
+org.acra.config.ConfigurationBuilder: java.lang.Boolean stopServicesOnCrash
 org.acra.config.ConfigurationBuilder: ConfigurationBuilder(android.app.Application)
 org.acra.config.ConfigurationBuilder: org.acra.config.ACRAConfiguration build()
 org.acra.config.ConfigurationBuilder: void checkValidity(java.lang.Class[])
@@ -21314,6 +21451,7 @@ org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setCe
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setReportSenderFactoryClasses(java.lang.Class[])
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setReportPrimerClass(java.lang.Class)
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setRetryPolicyClass(java.lang.Class)
+org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setStopServicesOnCrash(boolean)
 org.acra.config.ConfigurationBuilder: java.lang.String[] additionalDropBoxTags()
 org.acra.config.ConfigurationBuilder: java.lang.String[] additionalSharedPreferences()
 org.acra.config.ConfigurationBuilder: java.lang.Class annotationType()
@@ -21367,6 +21505,7 @@ org.acra.config.ConfigurationBuilder: java.lang.String certificatePath()
 org.acra.config.ConfigurationBuilder: java.lang.String certificateType()
 org.acra.config.ConfigurationBuilder: java.util.Map httpHeaders()
 org.acra.config.ConfigurationBuilder: java.lang.Class retryPolicyClass()
+org.acra.config.ConfigurationBuilder: boolean stopServicesOnCrash()
 org.acra.config.ConfigurationBuilder$1
 org.acra.config.ConfigurationBuilder$1: int[] $SwitchMap$org$acra$ReportingInteractionMode
 org.acra.config.ConfigurationBuilder$1: void <clinit>()
@@ -21424,18 +21563,10 @@ org.acra.file.CrashReportFileNameParser: CrashReportFileNameParser()
 org.acra.file.CrashReportFileNameParser: boolean isSilent(java.lang.String)
 org.acra.file.CrashReportFileNameParser: boolean isApproved(java.lang.String)
 org.acra.file.CrashReportPersister
-org.acra.file.CrashReportPersister: int NONE
-org.acra.file.CrashReportPersister: int SLASH
-org.acra.file.CrashReportPersister: int UNICODE
-org.acra.file.CrashReportPersister: int CONTINUE
-org.acra.file.CrashReportPersister: int KEY_DONE
-org.acra.file.CrashReportPersister: int IGNORE
-org.acra.file.CrashReportPersister: java.lang.String LINE_SEPARATOR
+org.acra.file.CrashReportPersister: java.lang.String CHARSET
 org.acra.file.CrashReportPersister: CrashReportPersister()
 org.acra.file.CrashReportPersister: org.acra.collector.CrashReportData load(java.io.File)
 org.acra.file.CrashReportPersister: void store(org.acra.collector.CrashReportData,java.io.File)
-org.acra.file.CrashReportPersister: org.acra.collector.CrashReportData load(java.io.Reader)
-org.acra.file.CrashReportPersister: void dumpString(java.lang.StringBuilder,java.lang.String,boolean)
 org.acra.file.Directory
 org.acra.file.Directory: org.acra.file.Directory FILES_LEGACY
 org.acra.file.Directory: org.acra.file.Directory FILES
@@ -21463,6 +21594,24 @@ org.acra.file.ReportLocator: java.io.File getUnapprovedFolder()
 org.acra.file.ReportLocator: java.io.File[] getUnapprovedReports()
 org.acra.file.ReportLocator: java.io.File getApprovedFolder()
 org.acra.file.ReportLocator: java.io.File[] getApprovedReports()
+org.acra.legacy.LegacyFileHandler
+org.acra.legacy.LegacyFileHandler: java.lang.String PREF__LEGACY_ALREADY_CONVERTED_TO_4_8_0
+org.acra.legacy.LegacyFileHandler: java.lang.String PREF__LEGACY_ALREADY_CONVERTED_TO_JSON
+org.acra.legacy.LegacyFileHandler: android.content.Context context
+org.acra.legacy.LegacyFileHandler: android.content.SharedPreferences prefs
+org.acra.legacy.LegacyFileHandler: LegacyFileHandler(android.content.Context,android.content.SharedPreferences)
+org.acra.legacy.LegacyFileHandler: void updateToCurrentVersionIfNecessary()
+org.acra.legacy.ReportConverter
+org.acra.legacy.ReportConverter: int NONE
+org.acra.legacy.ReportConverter: int SLASH
+org.acra.legacy.ReportConverter: int UNICODE
+org.acra.legacy.ReportConverter: int CONTINUE
+org.acra.legacy.ReportConverter: int KEY_DONE
+org.acra.legacy.ReportConverter: int IGNORE
+org.acra.legacy.ReportConverter: android.content.Context context
+org.acra.legacy.ReportConverter: ReportConverter(android.content.Context)
+org.acra.legacy.ReportConverter: void convert()
+org.acra.legacy.ReportConverter: org.acra.collector.CrashReportData legacyLoad(java.io.Reader)
 org.acra.legacy.ReportMigrator
 org.acra.legacy.ReportMigrator: android.content.Context context
 org.acra.legacy.ReportMigrator: org.acra.file.CrashReportFileNameParser fileNameParser
@@ -21515,6 +21664,35 @@ org.acra.log.HollowLog: int w(java.lang.String,java.lang.Throwable)
 org.acra.log.HollowLog: int e(java.lang.String,java.lang.String)
 org.acra.log.HollowLog: int e(java.lang.String,java.lang.String,java.lang.Throwable)
 org.acra.log.HollowLog: java.lang.String getStackTraceString(java.lang.Throwable)
+org.acra.model.BooleanElement
+org.acra.model.BooleanElement: boolean content
+org.acra.model.BooleanElement: BooleanElement(boolean)
+org.acra.model.BooleanElement: java.lang.Object value()
+org.acra.model.BooleanElement: java.lang.String[] flatten()
+org.acra.model.BooleanElement: java.lang.String toString()
+org.acra.model.ComplexElement
+org.acra.model.ComplexElement: ComplexElement()
+org.acra.model.ComplexElement: ComplexElement(java.lang.String)
+org.acra.model.ComplexElement: ComplexElement(java.util.Map)
+org.acra.model.ComplexElement: ComplexElement(org.json.JSONObject)
+org.acra.model.ComplexElement: java.lang.String[] getNames(org.json.JSONObject)
+org.acra.model.ComplexElement: java.lang.Object value()
+org.acra.model.ComplexElement: java.lang.String[] flatten()
+org.acra.model.Element
+org.acra.model.Element: java.lang.Object value()
+org.acra.model.Element: java.lang.String[] flatten()
+org.acra.model.NumberElement
+org.acra.model.NumberElement: java.lang.Number content
+org.acra.model.NumberElement: NumberElement(java.lang.Number)
+org.acra.model.NumberElement: java.lang.Object value()
+org.acra.model.NumberElement: java.lang.String[] flatten()
+org.acra.model.NumberElement: java.lang.String toString()
+org.acra.model.StringElement
+org.acra.model.StringElement: java.lang.String content
+org.acra.model.StringElement: StringElement(java.lang.String)
+org.acra.model.StringElement: java.lang.Object value()
+org.acra.model.StringElement: java.lang.String[] flatten()
+org.acra.model.StringElement: java.lang.String toString()
 org.acra.prefs.PrefUtils
 org.acra.prefs.PrefUtils: PrefUtils()
 org.acra.prefs.PrefUtils: void save(android.content.SharedPreferences$Editor)
@@ -21631,7 +21809,6 @@ org.acra.sender.ReportDistributor: ReportDistributor(android.content.Context,org
 org.acra.sender.ReportDistributor: void distribute(java.io.File)
 org.acra.sender.ReportDistributor: void sendCrashReport(org.acra.collector.CrashReportData)
 org.acra.sender.ReportDistributor: org.acra.config.RetryPolicy getRetryPolicy()
-org.acra.sender.ReportDistributor: void deleteFile(java.io.File)
 org.acra.sender.ReportDistributor: boolean isDebuggable()
 org.acra.sender.ReportSender
 org.acra.sender.ReportSender: void send(android.content.Context,org.acra.collector.CrashReportData)
@@ -21690,6 +21867,7 @@ org.acra.util.IOUtils: java.lang.String streamToString(java.io.InputStream,com.a
 org.acra.util.IOUtils: java.lang.String streamToString(java.io.InputStream,int)
 org.acra.util.IOUtils: java.lang.String streamToString(java.io.InputStream,com.android.internal.util.Predicate,int)
 org.acra.util.IOUtils: java.lang.String streamToStringNonBlockingRead(java.io.InputStream,com.android.internal.util.Predicate,int)
+org.acra.util.IOUtils: void deleteReport(java.io.File)
 org.acra.util.IOUtils: void <clinit>()
 org.acra.util.IOUtils$1
 org.acra.util.IOUtils$1: IOUtils$1()
@@ -21702,22 +21880,20 @@ org.acra.util.Installation: Installation()
 org.acra.util.Installation: java.lang.String id(android.content.Context)
 org.acra.util.Installation: java.lang.String readInstallationFile(java.io.File)
 org.acra.util.Installation: void writeInstallationFile(java.io.File)
-org.acra.util.JSONReportBuilder
-org.acra.util.JSONReportBuilder: JSONReportBuilder()
-org.acra.util.JSONReportBuilder: org.json.JSONObject buildJSONReport(org.acra.collector.CrashReportData)
-org.acra.util.JSONReportBuilder: void addJSONFromProperty(org.json.JSONObject,java.lang.String)
-org.acra.util.JSONReportBuilder: java.lang.Object guessType(java.lang.String)
-org.acra.util.JSONReportBuilder: void addJSONSubTree(org.json.JSONObject,java.lang.String[],java.lang.Object)
-org.acra.util.JSONReportBuilder$JSONReportException
-org.acra.util.JSONReportBuilder$JSONReportException: long serialVersionUID
-org.acra.util.JSONReportBuilder$JSONReportException: JSONReportBuilder$JSONReportException(java.lang.String,java.lang.Throwable)
+org.acra.util.JsonUtils
+org.acra.util.JsonUtils: JsonUtils()
+org.acra.util.JsonUtils: org.json.JSONObject toJson(org.acra.collector.CrashReportData)
+org.acra.util.JsonUtils: org.acra.collector.CrashReportData toCrashReportData(org.json.JSONObject)
+org.acra.util.JsonUtils: java.util.List flatten(org.json.JSONObject)
 org.acra.util.NonBlockingBufferedReader
 org.acra.util.NonBlockingBufferedReader: java.util.concurrent.BlockingQueue lines
 org.acra.util.NonBlockingBufferedReader: java.lang.Thread backgroundReaderThread
+org.acra.util.NonBlockingBufferedReader: java.io.IOException exception
 org.acra.util.NonBlockingBufferedReader: NonBlockingBufferedReader(java.io.BufferedReader)
 org.acra.util.NonBlockingBufferedReader: java.lang.String readLine()
 org.acra.util.NonBlockingBufferedReader: void close()
 org.acra.util.NonBlockingBufferedReader: java.util.concurrent.BlockingQueue access$000(org.acra.util.NonBlockingBufferedReader)
+org.acra.util.NonBlockingBufferedReader: java.io.IOException access$102(org.acra.util.NonBlockingBufferedReader,java.io.IOException)
 org.acra.util.NonBlockingBufferedReader$1
 org.acra.util.NonBlockingBufferedReader$1: java.io.BufferedReader val$bufferedReader
 org.acra.util.NonBlockingBufferedReader$1: org.acra.util.NonBlockingBufferedReader this$0
@@ -21728,6 +21904,20 @@ org.acra.util.PackageManagerWrapper: android.content.Context context
 org.acra.util.PackageManagerWrapper: PackageManagerWrapper(android.content.Context)
 org.acra.util.PackageManagerWrapper: boolean hasPermission(java.lang.String)
 org.acra.util.PackageManagerWrapper: android.content.pm.PackageInfo getPackageInfo()
+org.acra.util.ProcessFinisher
+org.acra.util.ProcessFinisher: android.content.Context context
+org.acra.util.ProcessFinisher: org.acra.config.ACRAConfiguration config
+org.acra.util.ProcessFinisher: org.acra.builder.LastActivityManager lastActivityManager
+org.acra.util.ProcessFinisher: ProcessFinisher(android.content.Context,org.acra.config.ACRAConfiguration,org.acra.builder.LastActivityManager)
+org.acra.util.ProcessFinisher: void endApplication(java.lang.Thread)
+org.acra.util.ProcessFinisher: void finishLastActivity(java.lang.Thread)
+org.acra.util.ProcessFinisher: void stopServices()
+org.acra.util.ProcessFinisher: void killProcessAndExit()
+org.acra.util.ProcessFinisher$1
+org.acra.util.ProcessFinisher$1: android.app.Activity val$lastActivity
+org.acra.util.ProcessFinisher$1: org.acra.util.ProcessFinisher this$0
+org.acra.util.ProcessFinisher$1: ProcessFinisher$1(org.acra.util.ProcessFinisher,android.app.Activity)
+org.acra.util.ProcessFinisher$1: void run()
 org.acra.util.ToastSender
 org.acra.util.ToastSender: ToastSender()
 org.acra.util.ToastSender: void sendToast(android.content.Context,int,int)

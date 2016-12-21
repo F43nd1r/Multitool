@@ -9,8 +9,8 @@ android {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 68
-        versionName "2.9.4"
+        versionCode 69
+        versionName "2.9.5"
     }
     buildTypes {
         release {
@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    def supportVersion = "25.0.1"
+    def supportVersion = "25.1.0"
     def streamVersion = "1.5.2"
     compile('com.faendir.lightninglauncher:scriptlib:2.3-SNAPSHOT') {
         changing = true
