@@ -89,7 +89,7 @@ public class FragmentManager {
                         }
                         drawer.openDrawer();
                 }
-                if (currentFragment != null) {
+                if (currentFragment != null && !context.isFinishing()) {
                     manager.beginTransaction().replace(R.id.content_frame, currentFragment).commit();
                     sharedPref.edit().putString(context.getString(R.string.pref_lastFragment), finalName).apply();
                     lastId = request.getId();
@@ -105,8 +105,8 @@ public class FragmentManager {
 
     public boolean loadLastFragment() {
         String fragment = context.getIntent().getStringExtra("mode");
-        if(fragment != null){
-            switch (fragment){
+        if (fragment != null) {
+            switch (fragment) {
                 case "gesture":
                     EventBus.getDefault().post(new SwitchFragmentRequest(R.string.title_gestureLauncher));
                     return true;

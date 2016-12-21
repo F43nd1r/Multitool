@@ -1,4 +1,6 @@
 android.support.annotation.Keep
+android.support.annotation.RestrictTo$Scope: android.support.annotation.RestrictTo$Scope[] values()
+android.support.annotation.RestrictTo$Scope: android.support.annotation.RestrictTo$Scope valueOf(java.lang.String)
 android.support.design.R$anim: int abc_fade_in
 android.support.design.R$anim: int abc_fade_out
 android.support.design.R$anim: int abc_grow_fade_in_from_bottom
@@ -336,6 +338,8 @@ android.support.design.R$color: int abc_background_cache_hint_selector_material_
 android.support.design.R$color: int abc_background_cache_hint_selector_material_light
 android.support.design.R$color: int abc_btn_colored_borderless_text_material
 android.support.design.R$color: int abc_color_highlight_material
+android.support.design.R$color: int abc_hint_foreground_material_dark
+android.support.design.R$color: int abc_hint_foreground_material_light
 android.support.design.R$color: int abc_input_method_navigation_guard
 android.support.design.R$color: int abc_primary_text_disable_only_material_dark
 android.support.design.R$color: int abc_primary_text_disable_only_material_light
@@ -368,6 +372,7 @@ android.support.design.R$color: int bright_foreground_material_dark
 android.support.design.R$color: int bright_foreground_material_light
 android.support.design.R$color: int button_material_dark
 android.support.design.R$color: int button_material_light
+android.support.design.R$color: int design_bottom_navigation_shadow_color
 android.support.design.R$color: int design_error
 android.support.design.R$color: int design_fab_shadow_end_color
 android.support.design.R$color: int design_fab_shadow_mid_color
@@ -388,8 +393,6 @@ android.support.design.R$color: int foreground_material_dark
 android.support.design.R$color: int foreground_material_light
 android.support.design.R$color: int highlighted_text_material_dark
 android.support.design.R$color: int highlighted_text_material_light
-android.support.design.R$color: int hint_foreground_material_dark
-android.support.design.R$color: int hint_foreground_material_light
 android.support.design.R$color: int material_blue_grey_800
 android.support.design.R$color: int material_blue_grey_900
 android.support.design.R$color: int material_blue_grey_950
@@ -402,6 +405,9 @@ android.support.design.R$color: int material_grey_600
 android.support.design.R$color: int material_grey_800
 android.support.design.R$color: int material_grey_850
 android.support.design.R$color: int material_grey_900
+android.support.design.R$color: int notification_action_color_filter
+android.support.design.R$color: int notification_icon_bg_color
+android.support.design.R$color: int notification_material_background_media_default_color
 android.support.design.R$color: int primary_dark_material_dark
 android.support.design.R$color: int primary_dark_material_light
 android.support.design.R$color: int primary_material_dark
@@ -497,9 +503,12 @@ android.support.design.R$dimen: int abc_text_size_title_material_toolbar
 android.support.design.R$dimen: int design_appbar_elevation
 android.support.design.R$dimen: int design_bottom_navigation_active_item_max_width
 android.support.design.R$dimen: int design_bottom_navigation_active_text_size
+android.support.design.R$dimen: int design_bottom_navigation_elevation
 android.support.design.R$dimen: int design_bottom_navigation_height
 android.support.design.R$dimen: int design_bottom_navigation_item_max_width
+android.support.design.R$dimen: int design_bottom_navigation_item_min_width
 android.support.design.R$dimen: int design_bottom_navigation_margin
+android.support.design.R$dimen: int design_bottom_navigation_shadow_height
 android.support.design.R$dimen: int design_bottom_navigation_text_size
 android.support.design.R$dimen: int design_bottom_sheet_modal_elevation
 android.support.design.R$dimen: int design_bottom_sheet_peek_height_min
@@ -534,12 +543,28 @@ android.support.design.R$dimen: int disabled_alpha_material_light
 android.support.design.R$dimen: int highlight_alpha_material_colored
 android.support.design.R$dimen: int highlight_alpha_material_dark
 android.support.design.R$dimen: int highlight_alpha_material_light
+android.support.design.R$dimen: int hint_alpha_material_dark
+android.support.design.R$dimen: int hint_alpha_material_light
+android.support.design.R$dimen: int hint_pressed_alpha_material_dark
+android.support.design.R$dimen: int hint_pressed_alpha_material_light
 android.support.design.R$dimen: int item_touch_helper_max_drag_scroll_per_frame
 android.support.design.R$dimen: int item_touch_helper_swipe_escape_max_velocity
 android.support.design.R$dimen: int item_touch_helper_swipe_escape_velocity
+android.support.design.R$dimen: int notification_action_icon_size
+android.support.design.R$dimen: int notification_action_text_size
+android.support.design.R$dimen: int notification_big_circle_margin
+android.support.design.R$dimen: int notification_content_margin_start
 android.support.design.R$dimen: int notification_large_icon_height
 android.support.design.R$dimen: int notification_large_icon_width
+android.support.design.R$dimen: int notification_main_column_padding_top
+android.support.design.R$dimen: int notification_media_narrow_margin
+android.support.design.R$dimen: int notification_right_icon_size
+android.support.design.R$dimen: int notification_right_side_padding_top
+android.support.design.R$dimen: int notification_small_icon_background_padding
+android.support.design.R$dimen: int notification_small_icon_size_as_large
 android.support.design.R$dimen: int notification_subtext_size
+android.support.design.R$dimen: int notification_top_pad
+android.support.design.R$dimen: int notification_top_pad_large_text
 android.support.design.R$drawable: int abc_ab_share_pack_mtrl_alpha
 android.support.design.R$drawable: int abc_action_bar_item_background_material
 android.support.design.R$drawable: int abc_btn_borderless_material
@@ -623,11 +648,23 @@ android.support.design.R$drawable: int abc_textfield_search_activated_mtrl_alpha
 android.support.design.R$drawable: int abc_textfield_search_default_mtrl_alpha
 android.support.design.R$drawable: int abc_textfield_search_material
 android.support.design.R$drawable: int abc_vector_test
+android.support.design.R$drawable: int design_bottom_navigation_item_background
 android.support.design.R$drawable: int design_fab_background
 android.support.design.R$drawable: int design_ic_visibility
 android.support.design.R$drawable: int design_snackbar_background
 android.support.design.R$drawable: int navigation_empty_icon
+android.support.design.R$drawable: int notification_action_background
+android.support.design.R$drawable: int notification_bg
+android.support.design.R$drawable: int notification_bg_low
+android.support.design.R$drawable: int notification_bg_low_normal
+android.support.design.R$drawable: int notification_bg_low_pressed
+android.support.design.R$drawable: int notification_bg_normal
+android.support.design.R$drawable: int notification_bg_normal_pressed
+android.support.design.R$drawable: int notification_icon_background
 android.support.design.R$drawable: int notification_template_icon_bg
+android.support.design.R$drawable: int notification_template_icon_low_bg
+android.support.design.R$drawable: int notification_tile_bg
+android.support.design.R$drawable: int notify_panel_notification_icon_bg
 android.support.design.R$id: int action0
 android.support.design.R$id: int action_bar
 android.support.design.R$id: int action_bar_activity_content
@@ -636,13 +673,17 @@ android.support.design.R$id: int action_bar_root
 android.support.design.R$id: int action_bar_spinner
 android.support.design.R$id: int action_bar_subtitle
 android.support.design.R$id: int action_bar_title
+android.support.design.R$id: int action_container
 android.support.design.R$id: int action_context_bar
 android.support.design.R$id: int action_divider
+android.support.design.R$id: int action_image
 android.support.design.R$id: int action_menu_divider
 android.support.design.R$id: int action_menu_presenter
 android.support.design.R$id: int action_mode_bar
 android.support.design.R$id: int action_mode_bar_stub
 android.support.design.R$id: int action_mode_close_button
+android.support.design.R$id: int action_text
+android.support.design.R$id: int actions
 android.support.design.R$id: int activity_chooser_view_content
 android.support.design.R$id: int add
 android.support.design.R$id: int alertTitle
@@ -687,10 +728,12 @@ android.support.design.R$id: int fixed
 android.support.design.R$id: int home
 android.support.design.R$id: int homeAsUp
 android.support.design.R$id: int icon
+android.support.design.R$id: int icon_group
 android.support.design.R$id: int ifRoom
 android.support.design.R$id: int image
 android.support.design.R$id: int info
 android.support.design.R$id: int item_touch_helper_previous_elevation
+android.support.design.R$id: int largeLabel
 android.support.design.R$id: int left
 android.support.design.R$id: int line1
 android.support.design.R$id: int line3
@@ -704,6 +747,9 @@ android.support.design.R$id: int navigation_header_container
 android.support.design.R$id: int never
 android.support.design.R$id: int none
 android.support.design.R$id: int normal
+android.support.design.R$id: int notification_background
+android.support.design.R$id: int notification_main_column
+android.support.design.R$id: int notification_main_column_container
 android.support.design.R$id: int parallax
 android.support.design.R$id: int parentPanel
 android.support.design.R$id: int pin
@@ -711,6 +757,8 @@ android.support.design.R$id: int progress_circular
 android.support.design.R$id: int progress_horizontal
 android.support.design.R$id: int radio
 android.support.design.R$id: int right
+android.support.design.R$id: int right_icon
+android.support.design.R$id: int right_side
 android.support.design.R$id: int screen
 android.support.design.R$id: int scroll
 android.support.design.R$id: int scrollIndicatorDown
@@ -732,6 +780,7 @@ android.support.design.R$id: int shortcut
 android.support.design.R$id: int showCustom
 android.support.design.R$id: int showHome
 android.support.design.R$id: int showTitle
+android.support.design.R$id: int smallLabel
 android.support.design.R$id: int snackbar_action
 android.support.design.R$id: int snackbar_text
 android.support.design.R$id: int snap
@@ -755,6 +804,8 @@ android.support.design.R$id: int title_template
 android.support.design.R$id: int top
 android.support.design.R$id: int topPanel
 android.support.design.R$id: int touch_outside
+android.support.design.R$id: int transition_current_scene
+android.support.design.R$id: int transition_scene_layoutid_cache
 android.support.design.R$id: int up
 android.support.design.R$id: int useLogo
 android.support.design.R$id: int view_offset_helper
@@ -793,6 +844,7 @@ android.support.design.R$layout: int abc_screen_toolbar
 android.support.design.R$layout: int abc_search_dropdown_item_icons_2line
 android.support.design.R$layout: int abc_search_view
 android.support.design.R$layout: int abc_select_dialog_material
+android.support.design.R$layout: int design_bottom_navigation_item
 android.support.design.R$layout: int design_bottom_sheet_dialog
 android.support.design.R$layout: int design_layout_snackbar
 android.support.design.R$layout: int design_layout_snackbar_include
@@ -806,12 +858,19 @@ android.support.design.R$layout: int design_navigation_item_subheader
 android.support.design.R$layout: int design_navigation_menu
 android.support.design.R$layout: int design_navigation_menu_item
 android.support.design.R$layout: int design_text_input_password_icon
+android.support.design.R$layout: int notification_action
+android.support.design.R$layout: int notification_action_tombstone
 android.support.design.R$layout: int notification_media_action
 android.support.design.R$layout: int notification_media_cancel_action
 android.support.design.R$layout: int notification_template_big_media
+android.support.design.R$layout: int notification_template_big_media_custom
 android.support.design.R$layout: int notification_template_big_media_narrow
-android.support.design.R$layout: int notification_template_lines
+android.support.design.R$layout: int notification_template_big_media_narrow_custom
+android.support.design.R$layout: int notification_template_custom_big
+android.support.design.R$layout: int notification_template_icon_group
+android.support.design.R$layout: int notification_template_lines_media
 android.support.design.R$layout: int notification_template_media
+android.support.design.R$layout: int notification_template_media_custom
 android.support.design.R$layout: int notification_template_part_chronometer
 android.support.design.R$layout: int notification_template_part_time
 android.support.design.R$layout: int select_dialog_item_material
@@ -1020,6 +1079,10 @@ android.support.design.R$style: int Platform_V11_AppCompat
 android.support.design.R$style: int Platform_V11_AppCompat_Light
 android.support.design.R$style: int Platform_V14_AppCompat
 android.support.design.R$style: int Platform_V14_AppCompat_Light
+android.support.design.R$style: int Platform_V21_AppCompat
+android.support.design.R$style: int Platform_V21_AppCompat_Light
+android.support.design.R$style: int Platform_V25_AppCompat
+android.support.design.R$style: int Platform_V25_AppCompat_Light
 android.support.design.R$style: int Platform_Widget_AppCompat_Spinner
 android.support.design.R$style: int RtlOverlay_DialogWindowTitle_AppCompat
 android.support.design.R$style: int RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
@@ -1055,6 +1118,16 @@ android.support.design.R$style: int TextAppearance_AppCompat_Light_Widget_PopupM
 android.support.design.R$style: int TextAppearance_AppCompat_Medium
 android.support.design.R$style: int TextAppearance_AppCompat_Medium_Inverse
 android.support.design.R$style: int TextAppearance_AppCompat_Menu
+android.support.design.R$style: int TextAppearance_AppCompat_Notification
+android.support.design.R$style: int TextAppearance_AppCompat_Notification_Info
+android.support.design.R$style: int TextAppearance_AppCompat_Notification_Info_Media
+android.support.design.R$style: int TextAppearance_AppCompat_Notification_Line2
+android.support.design.R$style: int TextAppearance_AppCompat_Notification_Line2_Media
+android.support.design.R$style: int TextAppearance_AppCompat_Notification_Media
+android.support.design.R$style: int TextAppearance_AppCompat_Notification_Time
+android.support.design.R$style: int TextAppearance_AppCompat_Notification_Time_Media
+android.support.design.R$style: int TextAppearance_AppCompat_Notification_Title
+android.support.design.R$style: int TextAppearance_AppCompat_Notification_Title_Media
 android.support.design.R$style: int TextAppearance_AppCompat_SearchResult_Subtitle
 android.support.design.R$style: int TextAppearance_AppCompat_SearchResult_Title
 android.support.design.R$style: int TextAppearance_AppCompat_Small
@@ -1182,6 +1255,8 @@ android.support.design.R$style: int Widget_AppCompat_ListPopupWindow
 android.support.design.R$style: int Widget_AppCompat_ListView
 android.support.design.R$style: int Widget_AppCompat_ListView_DropDown
 android.support.design.R$style: int Widget_AppCompat_ListView_Menu
+android.support.design.R$style: int Widget_AppCompat_NotificationActionContainer
+android.support.design.R$style: int Widget_AppCompat_NotificationActionText
 android.support.design.R$style: int Widget_AppCompat_PopupMenu
 android.support.design.R$style: int Widget_AppCompat_PopupMenu_Overflow
 android.support.design.R$style: int Widget_AppCompat_PopupWindow
@@ -1202,6 +1277,7 @@ android.support.design.R$style: int Widget_AppCompat_TextView_SpinnerItem
 android.support.design.R$style: int Widget_AppCompat_Toolbar
 android.support.design.R$style: int Widget_AppCompat_Toolbar_Button_Navigation
 android.support.design.R$style: int Widget_Design_AppBarLayout
+android.support.design.R$style: int Widget_Design_BottomNavigationView
 android.support.design.R$style: int Widget_Design_BottomSheet_Modal
 android.support.design.R$style: int Widget_Design_CollapsingToolbar
 android.support.design.R$style: int Widget_Design_CoordinatorLayout
@@ -1408,6 +1484,12 @@ android.support.design.R$styleable: int AppCompatTheme_windowFixedWidthMinor
 android.support.design.R$styleable: int AppCompatTheme_windowMinWidthMajor
 android.support.design.R$styleable: int AppCompatTheme_windowMinWidthMinor
 android.support.design.R$styleable: int AppCompatTheme_windowNoTitle
+android.support.design.R$styleable: int[] BottomNavigationView
+android.support.design.R$styleable: int BottomNavigationView_elevation
+android.support.design.R$styleable: int BottomNavigationView_itemBackground
+android.support.design.R$styleable: int BottomNavigationView_itemIconTint
+android.support.design.R$styleable: int BottomNavigationView_itemTextColor
+android.support.design.R$styleable: int BottomNavigationView_menu
 android.support.design.R$styleable: int[] BottomSheetBehavior_Layout
 android.support.design.R$styleable: int BottomSheetBehavior_Layout_behavior_hideable
 android.support.design.R$styleable: int BottomSheetBehavior_Layout_behavior_peekHeight
@@ -1632,6 +1714,7 @@ android.support.design.R$styleable: int TextAppearance_android_shadowDx
 android.support.design.R$styleable: int TextAppearance_android_shadowDy
 android.support.design.R$styleable: int TextAppearance_android_shadowRadius
 android.support.design.R$styleable: int TextAppearance_android_textColor
+android.support.design.R$styleable: int TextAppearance_android_textColorHint
 android.support.design.R$styleable: int TextAppearance_android_textSize
 android.support.design.R$styleable: int TextAppearance_android_textStyle
 android.support.design.R$styleable: int TextAppearance_android_typeface
@@ -1697,6 +1780,33 @@ android.support.design.R$styleable: int View_android_theme
 android.support.design.R$styleable: int View_paddingEnd
 android.support.design.R$styleable: int View_paddingStart
 android.support.design.R$styleable: int View_theme
+android.support.design.internal.BaselineLayout
+android.support.design.internal.BaselineLayout: BaselineLayout(android.content.Context)
+android.support.design.internal.BaselineLayout: BaselineLayout(android.content.Context,android.util.AttributeSet)
+android.support.design.internal.BaselineLayout: BaselineLayout(android.content.Context,android.util.AttributeSet,int)
+android.support.design.internal.BaselineLayout: int getBaseline()
+android.support.design.internal.BottomNavigationItemView: void setItemPosition(int)
+android.support.design.internal.BottomNavigationItemView: int getItemPosition()
+android.support.design.internal.BottomNavigationItemView: void setShiftingMode(boolean)
+android.support.design.internal.BottomNavigationItemView: android.support.v7.view.menu.MenuItemImpl getItemData()
+android.support.design.internal.BottomNavigationItemView: void setTitle(java.lang.CharSequence)
+android.support.design.internal.BottomNavigationItemView: void setCheckable(boolean)
+android.support.design.internal.BottomNavigationItemView: void setChecked(boolean)
+android.support.design.internal.BottomNavigationItemView: void setEnabled(boolean)
+android.support.design.internal.BottomNavigationItemView: void setIcon(android.graphics.drawable.Drawable)
+android.support.design.internal.BottomNavigationItemView: void setIconTintList(android.content.res.ColorStateList)
+android.support.design.internal.BottomNavigationItemView: void setTextColor(android.content.res.ColorStateList)
+android.support.design.internal.BottomNavigationItemView: void setItemBackground(int)
+android.support.design.internal.BottomNavigationMenuView: int getWindowAnimations()
+android.support.design.internal.BottomNavigationMenuView: void setIconTintList(android.content.res.ColorStateList)
+android.support.design.internal.BottomNavigationMenuView: android.content.res.ColorStateList getIconTintList()
+android.support.design.internal.BottomNavigationMenuView: void setItemTextColor(android.content.res.ColorStateList)
+android.support.design.internal.BottomNavigationMenuView: android.content.res.ColorStateList getItemTextColor()
+android.support.design.internal.BottomNavigationMenuView: void setItemBackgroundRes(int)
+android.support.design.internal.BottomNavigationMenuView: int getItemBackgroundRes()
+android.support.design.internal.BottomNavigationMenuView: void setPresenter(android.support.design.internal.BottomNavigationPresenter)
+android.support.design.internal.BottomNavigationMenuView: android.support.design.internal.BottomNavigationItemView getNewItem()
+android.support.design.internal.BottomNavigationMenuView$1: void onClick(android.view.View)
 android.support.design.internal.ForegroundLinearLayout: ForegroundLinearLayout(android.content.Context)
 android.support.design.internal.ForegroundLinearLayout: ForegroundLinearLayout(android.content.Context,android.util.AttributeSet)
 android.support.design.internal.ForegroundLinearLayout: ForegroundLinearLayout(android.content.Context,android.util.AttributeSet,int)
@@ -1715,6 +1825,7 @@ android.support.design.internal.NavigationMenuItemView: void setCheckable(boolea
 android.support.design.internal.NavigationMenuItemView: void setChecked(boolean)
 android.support.design.internal.NavigationMenuItemView: void setIcon(android.graphics.drawable.Drawable)
 android.support.design.internal.NavigationMenuItemView: void setIconTintList(android.content.res.ColorStateList)
+android.support.design.internal.NavigationMenuItemView: void setTextAppearance(int)
 android.support.design.internal.NavigationMenuItemView: void setTextColor(android.content.res.ColorStateList)
 android.support.design.internal.NavigationMenuItemView: void setNeedsEmptyIcon(boolean)
 android.support.design.internal.NavigationMenuPresenter$1: void onClick(android.view.View)
@@ -1934,6 +2045,39 @@ android.support.design.widget.AppBarLayout$ScrollingViewBehavior: int getTopAndB
 android.support.design.widget.AppBarLayout$ScrollingViewBehavior: boolean setLeftAndRightOffset(int)
 android.support.design.widget.AppBarLayout$ScrollingViewBehavior: boolean setTopAndBottomOffset(int)
 android.support.design.widget.AppBarLayout$ScrollingViewBehavior: boolean onLayoutChild(android.support.design.widget.CoordinatorLayout,android.view.View,int)
+android.support.design.widget.BottomNavigationView
+android.support.design.widget.BottomNavigationView: int[] CHECKED_STATE_SET
+android.support.design.widget.BottomNavigationView: int[] DISABLED_STATE_SET
+android.support.design.widget.BottomNavigationView: android.support.v7.view.menu.MenuBuilder mMenu
+android.support.design.widget.BottomNavigationView: android.support.design.internal.BottomNavigationMenuView mMenuView
+android.support.design.widget.BottomNavigationView: android.support.design.internal.BottomNavigationPresenter mPresenter
+android.support.design.widget.BottomNavigationView: android.view.MenuInflater mMenuInflater
+android.support.design.widget.BottomNavigationView: android.support.design.widget.BottomNavigationView$OnNavigationItemSelectedListener mListener
+android.support.design.widget.BottomNavigationView: BottomNavigationView(android.content.Context)
+android.support.design.widget.BottomNavigationView: BottomNavigationView(android.content.Context,android.util.AttributeSet)
+android.support.design.widget.BottomNavigationView: BottomNavigationView(android.content.Context,android.util.AttributeSet,int)
+android.support.design.widget.BottomNavigationView: void setOnNavigationItemSelectedListener(android.support.design.widget.BottomNavigationView$OnNavigationItemSelectedListener)
+android.support.design.widget.BottomNavigationView: android.view.Menu getMenu()
+android.support.design.widget.BottomNavigationView: void inflateMenu(int)
+android.support.design.widget.BottomNavigationView: int getMaxItemCount()
+android.support.design.widget.BottomNavigationView: android.content.res.ColorStateList getItemIconTintList()
+android.support.design.widget.BottomNavigationView: void setItemIconTintList(android.content.res.ColorStateList)
+android.support.design.widget.BottomNavigationView: android.content.res.ColorStateList getItemTextColor()
+android.support.design.widget.BottomNavigationView: void setItemTextColor(android.content.res.ColorStateList)
+android.support.design.widget.BottomNavigationView: int getItemBackgroundResource()
+android.support.design.widget.BottomNavigationView: void setItemBackgroundResource(int)
+android.support.design.widget.BottomNavigationView: void addCompatibilityTopDivider(android.content.Context)
+android.support.design.widget.BottomNavigationView: android.view.MenuInflater getMenuInflater()
+android.support.design.widget.BottomNavigationView: android.content.res.ColorStateList createDefaultColorStateList(int)
+android.support.design.widget.BottomNavigationView: android.support.design.widget.BottomNavigationView$OnNavigationItemSelectedListener access$000(android.support.design.widget.BottomNavigationView)
+android.support.design.widget.BottomNavigationView: void <clinit>()
+android.support.design.widget.BottomNavigationView$1
+android.support.design.widget.BottomNavigationView$1: android.support.design.widget.BottomNavigationView this$0
+android.support.design.widget.BottomNavigationView$1: BottomNavigationView$1(android.support.design.widget.BottomNavigationView)
+android.support.design.widget.BottomNavigationView$1: boolean onMenuItemSelected(android.support.v7.view.menu.MenuBuilder,android.view.MenuItem)
+android.support.design.widget.BottomNavigationView$1: void onMenuModeChange(android.support.v7.view.menu.MenuBuilder)
+android.support.design.widget.BottomNavigationView$OnNavigationItemSelectedListener
+android.support.design.widget.BottomNavigationView$OnNavigationItemSelectedListener: boolean onNavigationItemSelected(android.view.MenuItem)
 android.support.design.widget.BottomSheetBehavior
 android.support.design.widget.BottomSheetBehavior: int STATE_DRAGGING
 android.support.design.widget.BottomSheetBehavior: int STATE_SETTLING
@@ -1992,6 +2136,7 @@ android.support.design.widget.BottomSheetBehavior: android.view.View findScrolli
 android.support.design.widget.BottomSheetBehavior: float getYVelocity()
 android.support.design.widget.BottomSheetBehavior: void startSettlingAnimation(android.view.View,int)
 android.support.design.widget.BottomSheetBehavior: void dispatchOnSlide(int)
+android.support.design.widget.BottomSheetBehavior: int getPeekHeightMin()
 android.support.design.widget.BottomSheetBehavior: android.support.design.widget.BottomSheetBehavior from(android.view.View)
 android.support.design.widget.BottomSheetBehavior$1
 android.support.design.widget.BottomSheetBehavior$1: android.view.View val$child
@@ -2610,6 +2755,7 @@ android.support.design.widget.FloatingActionButton: FloatingActionButton(android
 android.support.design.widget.FloatingActionButton: FloatingActionButton(android.content.Context,android.util.AttributeSet)
 android.support.design.widget.FloatingActionButton: FloatingActionButton(android.content.Context,android.util.AttributeSet,int)
 android.support.design.widget.FloatingActionButton: void onMeasure(int,int)
+android.support.design.widget.FloatingActionButton: int getRippleColor()
 android.support.design.widget.FloatingActionButton: void setRippleColor(int)
 android.support.design.widget.FloatingActionButton: android.content.res.ColorStateList getBackgroundTintList()
 android.support.design.widget.FloatingActionButton: void setBackgroundTintList(android.content.res.ColorStateList)
@@ -2964,7 +3110,7 @@ android.support.design.widget.ShadowDrawableWrapper: int mShadowEndColor
 android.support.design.widget.ShadowDrawableWrapper: boolean mAddPaddingForCorners
 android.support.design.widget.ShadowDrawableWrapper: float mRotation
 android.support.design.widget.ShadowDrawableWrapper: boolean mPrintedShadowClipWarning
-android.support.design.widget.ShadowDrawableWrapper: ShadowDrawableWrapper(android.content.res.Resources,android.graphics.drawable.Drawable,float,float,float)
+android.support.design.widget.ShadowDrawableWrapper: ShadowDrawableWrapper(android.content.Context,android.graphics.drawable.Drawable,float,float,float)
 android.support.design.widget.ShadowDrawableWrapper: int toEven(float)
 android.support.design.widget.ShadowDrawableWrapper: void setAddPaddingForCorners(boolean)
 android.support.design.widget.ShadowDrawableWrapper: void setAlpha(int)
@@ -3861,6 +4007,47 @@ android.support.design.widget.VisibilityAwareImageButton: VisibilityAwareImageBu
 android.support.design.widget.VisibilityAwareImageButton: void setVisibility(int)
 android.support.design.widget.VisibilityAwareImageButton: void internalSetVisibility(int,boolean)
 android.support.design.widget.VisibilityAwareImageButton: int getUserSetVisibility()
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: int getStrokeColor()
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: void setStrokeColor(int)
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: float getStrokeWidth()
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: void setStrokeWidth(float)
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: float getStrokeAlpha()
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: void setStrokeAlpha(float)
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: int getFillColor()
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: void setFillColor(int)
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: float getFillAlpha()
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: void setFillAlpha(float)
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: float getTrimPathStart()
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: void setTrimPathStart(float)
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: float getTrimPathEnd()
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: void setTrimPathEnd(float)
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: float getTrimPathOffset()
+android.support.graphics.drawable.VectorDrawableCompat$VFullPath: void setTrimPathOffset(float)
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: java.lang.String getGroupName()
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: android.graphics.Matrix getLocalMatrix()
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: float getRotation()
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: void setRotation(float)
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: float getPivotX()
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: void setPivotX(float)
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: float getPivotY()
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: void setPivotY(float)
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: float getScaleX()
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: void setScaleX(float)
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: float getScaleY()
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: void setScaleY(float)
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: float getTranslateX()
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: void setTranslateX(float)
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: float getTranslateY()
+android.support.graphics.drawable.VectorDrawableCompat$VGroup: void setTranslateY(float)
+android.support.graphics.drawable.VectorDrawableCompat$VPath: java.lang.String getPathName()
+android.support.graphics.drawable.VectorDrawableCompat$VPath: android.support.graphics.drawable.PathParser$PathDataNode[] getPathData()
+android.support.graphics.drawable.VectorDrawableCompat$VPath: void setPathData(android.support.graphics.drawable.PathParser$PathDataNode[])
+android.support.graphics.drawable.VectorDrawableCompat$VPathRenderer: void setRootAlpha(int)
+android.support.graphics.drawable.VectorDrawableCompat$VPathRenderer: int getRootAlpha()
+android.support.graphics.drawable.VectorDrawableCompat$VPathRenderer: void setAlpha(float)
+android.support.graphics.drawable.VectorDrawableCompat$VPathRenderer: float getAlpha()
+android.support.graphics.drawable.VectorDrawableCompat$VectorDrawableCompatState: int getChangingConfigurations()
+android.support.graphics.drawable.VectorDrawableCompat$VectorDrawableDelegateState: int getChangingConfigurations()
 android.support.percent.PercentRelativeLayout
 android.support.percent.PercentRelativeLayout: PercentRelativeLayout(android.content.Context)
 android.support.percent.PercentRelativeLayout: PercentRelativeLayout(android.content.Context,android.util.AttributeSet)
@@ -3886,6 +4073,8 @@ android.support.percent.R$styleable: int PercentLayout_Layout_layout_marginRight
 android.support.percent.R$styleable: int PercentLayout_Layout_layout_marginStartPercent
 android.support.percent.R$styleable: int PercentLayout_Layout_layout_marginTopPercent
 android.support.percent.R$styleable: int PercentLayout_Layout_layout_widthPercent
+android.support.transition.R$id: int transition_current_scene
+android.support.transition.R$id: int transition_scene_layoutid_cache
 android.support.v4.app.BackStackState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.BaseFragmentActivityGingerbread: boolean mStartedIntentSenderFromFragment
 android.support.v4.app.BaseFragmentActivityGingerbread: BaseFragmentActivityGingerbread()
@@ -4347,6 +4536,8 @@ android.support.v4.widget.Space: Space(android.content.Context,android.util.Attr
 android.support.v4.widget.Space: Space(android.content.Context)
 android.support.v4.widget.SwipeRefreshLayout: void setEnabled(boolean)
 android.support.v4.widget.SwipeRefreshLayout: void setColorViewAlpha(int)
+android.support.v4.widget.SwipeRefreshLayout: int getProgressViewStartOffset()
+android.support.v4.widget.SwipeRefreshLayout: int getProgressViewEndOffset()
 android.support.v4.widget.SwipeRefreshLayout: void setSize(int)
 android.support.v4.widget.SwipeRefreshLayout: void setOnRefreshListener(android.support.v4.widget.SwipeRefreshLayout$OnRefreshListener)
 android.support.v4.widget.SwipeRefreshLayout: void setRefreshing(boolean)
@@ -4697,6 +4888,8 @@ android.support.v7.appcompat.R$color: int abc_background_cache_hint_selector_mat
 android.support.v7.appcompat.R$color: int abc_background_cache_hint_selector_material_light
 android.support.v7.appcompat.R$color: int abc_btn_colored_borderless_text_material
 android.support.v7.appcompat.R$color: int abc_color_highlight_material
+android.support.v7.appcompat.R$color: int abc_hint_foreground_material_dark
+android.support.v7.appcompat.R$color: int abc_hint_foreground_material_light
 android.support.v7.appcompat.R$color: int abc_input_method_navigation_guard
 android.support.v7.appcompat.R$color: int abc_primary_text_disable_only_material_dark
 android.support.v7.appcompat.R$color: int abc_primary_text_disable_only_material_light
@@ -4737,8 +4930,6 @@ android.support.v7.appcompat.R$color: int foreground_material_dark
 android.support.v7.appcompat.R$color: int foreground_material_light
 android.support.v7.appcompat.R$color: int highlighted_text_material_dark
 android.support.v7.appcompat.R$color: int highlighted_text_material_light
-android.support.v7.appcompat.R$color: int hint_foreground_material_dark
-android.support.v7.appcompat.R$color: int hint_foreground_material_light
 android.support.v7.appcompat.R$color: int material_blue_grey_800
 android.support.v7.appcompat.R$color: int material_blue_grey_900
 android.support.v7.appcompat.R$color: int material_blue_grey_950
@@ -4751,6 +4942,9 @@ android.support.v7.appcompat.R$color: int material_grey_600
 android.support.v7.appcompat.R$color: int material_grey_800
 android.support.v7.appcompat.R$color: int material_grey_850
 android.support.v7.appcompat.R$color: int material_grey_900
+android.support.v7.appcompat.R$color: int notification_action_color_filter
+android.support.v7.appcompat.R$color: int notification_icon_bg_color
+android.support.v7.appcompat.R$color: int notification_material_background_media_default_color
 android.support.v7.appcompat.R$color: int primary_dark_material_dark
 android.support.v7.appcompat.R$color: int primary_dark_material_light
 android.support.v7.appcompat.R$color: int primary_material_dark
@@ -4848,9 +5042,25 @@ android.support.v7.appcompat.R$dimen: int disabled_alpha_material_light
 android.support.v7.appcompat.R$dimen: int highlight_alpha_material_colored
 android.support.v7.appcompat.R$dimen: int highlight_alpha_material_dark
 android.support.v7.appcompat.R$dimen: int highlight_alpha_material_light
+android.support.v7.appcompat.R$dimen: int hint_alpha_material_dark
+android.support.v7.appcompat.R$dimen: int hint_alpha_material_light
+android.support.v7.appcompat.R$dimen: int hint_pressed_alpha_material_dark
+android.support.v7.appcompat.R$dimen: int hint_pressed_alpha_material_light
+android.support.v7.appcompat.R$dimen: int notification_action_icon_size
+android.support.v7.appcompat.R$dimen: int notification_action_text_size
+android.support.v7.appcompat.R$dimen: int notification_big_circle_margin
+android.support.v7.appcompat.R$dimen: int notification_content_margin_start
 android.support.v7.appcompat.R$dimen: int notification_large_icon_height
 android.support.v7.appcompat.R$dimen: int notification_large_icon_width
+android.support.v7.appcompat.R$dimen: int notification_main_column_padding_top
+android.support.v7.appcompat.R$dimen: int notification_media_narrow_margin
+android.support.v7.appcompat.R$dimen: int notification_right_icon_size
+android.support.v7.appcompat.R$dimen: int notification_right_side_padding_top
+android.support.v7.appcompat.R$dimen: int notification_small_icon_background_padding
+android.support.v7.appcompat.R$dimen: int notification_small_icon_size_as_large
 android.support.v7.appcompat.R$dimen: int notification_subtext_size
+android.support.v7.appcompat.R$dimen: int notification_top_pad
+android.support.v7.appcompat.R$dimen: int notification_top_pad_large_text
 android.support.v7.appcompat.R$drawable: int abc_ab_share_pack_mtrl_alpha
 android.support.v7.appcompat.R$drawable: int abc_action_bar_item_background_material
 android.support.v7.appcompat.R$drawable: int abc_btn_borderless_material
@@ -4934,7 +5144,18 @@ android.support.v7.appcompat.R$drawable: int abc_textfield_search_activated_mtrl
 android.support.v7.appcompat.R$drawable: int abc_textfield_search_default_mtrl_alpha
 android.support.v7.appcompat.R$drawable: int abc_textfield_search_material
 android.support.v7.appcompat.R$drawable: int abc_vector_test
+android.support.v7.appcompat.R$drawable: int notification_action_background
+android.support.v7.appcompat.R$drawable: int notification_bg
+android.support.v7.appcompat.R$drawable: int notification_bg_low
+android.support.v7.appcompat.R$drawable: int notification_bg_low_normal
+android.support.v7.appcompat.R$drawable: int notification_bg_low_pressed
+android.support.v7.appcompat.R$drawable: int notification_bg_normal
+android.support.v7.appcompat.R$drawable: int notification_bg_normal_pressed
+android.support.v7.appcompat.R$drawable: int notification_icon_background
 android.support.v7.appcompat.R$drawable: int notification_template_icon_bg
+android.support.v7.appcompat.R$drawable: int notification_template_icon_low_bg
+android.support.v7.appcompat.R$drawable: int notification_tile_bg
+android.support.v7.appcompat.R$drawable: int notify_panel_notification_icon_bg
 android.support.v7.appcompat.R$id: int action0
 android.support.v7.appcompat.R$id: int action_bar
 android.support.v7.appcompat.R$id: int action_bar_activity_content
@@ -4943,13 +5164,17 @@ android.support.v7.appcompat.R$id: int action_bar_root
 android.support.v7.appcompat.R$id: int action_bar_spinner
 android.support.v7.appcompat.R$id: int action_bar_subtitle
 android.support.v7.appcompat.R$id: int action_bar_title
+android.support.v7.appcompat.R$id: int action_container
 android.support.v7.appcompat.R$id: int action_context_bar
 android.support.v7.appcompat.R$id: int action_divider
+android.support.v7.appcompat.R$id: int action_image
 android.support.v7.appcompat.R$id: int action_menu_divider
 android.support.v7.appcompat.R$id: int action_menu_presenter
 android.support.v7.appcompat.R$id: int action_mode_bar
 android.support.v7.appcompat.R$id: int action_mode_bar_stub
 android.support.v7.appcompat.R$id: int action_mode_close_button
+android.support.v7.appcompat.R$id: int action_text
+android.support.v7.appcompat.R$id: int actions
 android.support.v7.appcompat.R$id: int activity_chooser_view_content
 android.support.v7.appcompat.R$id: int add
 android.support.v7.appcompat.R$id: int alertTitle
@@ -4975,6 +5200,7 @@ android.support.v7.appcompat.R$id: int expanded_menu
 android.support.v7.appcompat.R$id: int home
 android.support.v7.appcompat.R$id: int homeAsUp
 android.support.v7.appcompat.R$id: int icon
+android.support.v7.appcompat.R$id: int icon_group
 android.support.v7.appcompat.R$id: int ifRoom
 android.support.v7.appcompat.R$id: int image
 android.support.v7.appcompat.R$id: int info
@@ -4988,10 +5214,15 @@ android.support.v7.appcompat.R$id: int multiply
 android.support.v7.appcompat.R$id: int never
 android.support.v7.appcompat.R$id: int none
 android.support.v7.appcompat.R$id: int normal
+android.support.v7.appcompat.R$id: int notification_background
+android.support.v7.appcompat.R$id: int notification_main_column
+android.support.v7.appcompat.R$id: int notification_main_column_container
 android.support.v7.appcompat.R$id: int parentPanel
 android.support.v7.appcompat.R$id: int progress_circular
 android.support.v7.appcompat.R$id: int progress_horizontal
 android.support.v7.appcompat.R$id: int radio
+android.support.v7.appcompat.R$id: int right_icon
+android.support.v7.appcompat.R$id: int right_side
 android.support.v7.appcompat.R$id: int screen
 android.support.v7.appcompat.R$id: int scrollIndicatorDown
 android.support.v7.appcompat.R$id: int scrollIndicatorUp
@@ -5062,12 +5293,19 @@ android.support.v7.appcompat.R$layout: int abc_screen_toolbar
 android.support.v7.appcompat.R$layout: int abc_search_dropdown_item_icons_2line
 android.support.v7.appcompat.R$layout: int abc_search_view
 android.support.v7.appcompat.R$layout: int abc_select_dialog_material
+android.support.v7.appcompat.R$layout: int notification_action
+android.support.v7.appcompat.R$layout: int notification_action_tombstone
 android.support.v7.appcompat.R$layout: int notification_media_action
 android.support.v7.appcompat.R$layout: int notification_media_cancel_action
 android.support.v7.appcompat.R$layout: int notification_template_big_media
+android.support.v7.appcompat.R$layout: int notification_template_big_media_custom
 android.support.v7.appcompat.R$layout: int notification_template_big_media_narrow
-android.support.v7.appcompat.R$layout: int notification_template_lines
+android.support.v7.appcompat.R$layout: int notification_template_big_media_narrow_custom
+android.support.v7.appcompat.R$layout: int notification_template_custom_big
+android.support.v7.appcompat.R$layout: int notification_template_icon_group
+android.support.v7.appcompat.R$layout: int notification_template_lines_media
 android.support.v7.appcompat.R$layout: int notification_template_media
+android.support.v7.appcompat.R$layout: int notification_template_media_custom
 android.support.v7.appcompat.R$layout: int notification_template_part_chronometer
 android.support.v7.appcompat.R$layout: int notification_template_part_time
 android.support.v7.appcompat.R$layout: int select_dialog_item_material
@@ -5270,6 +5508,10 @@ android.support.v7.appcompat.R$style: int Platform_V11_AppCompat
 android.support.v7.appcompat.R$style: int Platform_V11_AppCompat_Light
 android.support.v7.appcompat.R$style: int Platform_V14_AppCompat
 android.support.v7.appcompat.R$style: int Platform_V14_AppCompat_Light
+android.support.v7.appcompat.R$style: int Platform_V21_AppCompat
+android.support.v7.appcompat.R$style: int Platform_V21_AppCompat_Light
+android.support.v7.appcompat.R$style: int Platform_V25_AppCompat
+android.support.v7.appcompat.R$style: int Platform_V25_AppCompat_Light
 android.support.v7.appcompat.R$style: int Platform_Widget_AppCompat_Spinner
 android.support.v7.appcompat.R$style: int RtlOverlay_DialogWindowTitle_AppCompat
 android.support.v7.appcompat.R$style: int RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
@@ -5305,6 +5547,16 @@ android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Light_Widget_
 android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Medium
 android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Medium_Inverse
 android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Menu
+android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Notification
+android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Notification_Info
+android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Notification_Info_Media
+android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Notification_Line2
+android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Notification_Line2_Media
+android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Notification_Media
+android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Notification_Time
+android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Notification_Time_Media
+android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Notification_Title
+android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Notification_Title_Media
 android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_SearchResult_Subtitle
 android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_SearchResult_Title
 android.support.v7.appcompat.R$style: int TextAppearance_AppCompat_Small
@@ -5419,6 +5671,8 @@ android.support.v7.appcompat.R$style: int Widget_AppCompat_ListPopupWindow
 android.support.v7.appcompat.R$style: int Widget_AppCompat_ListView
 android.support.v7.appcompat.R$style: int Widget_AppCompat_ListView_DropDown
 android.support.v7.appcompat.R$style: int Widget_AppCompat_ListView_Menu
+android.support.v7.appcompat.R$style: int Widget_AppCompat_NotificationActionContainer
+android.support.v7.appcompat.R$style: int Widget_AppCompat_NotificationActionText
 android.support.v7.appcompat.R$style: int Widget_AppCompat_PopupMenu
 android.support.v7.appcompat.R$style: int Widget_AppCompat_PopupMenu_Overflow
 android.support.v7.appcompat.R$style: int Widget_AppCompat_PopupWindow
@@ -5748,6 +6002,7 @@ android.support.v7.appcompat.R$styleable: int TextAppearance_android_shadowDx
 android.support.v7.appcompat.R$styleable: int TextAppearance_android_shadowDy
 android.support.v7.appcompat.R$styleable: int TextAppearance_android_shadowRadius
 android.support.v7.appcompat.R$styleable: int TextAppearance_android_textColor
+android.support.v7.appcompat.R$styleable: int TextAppearance_android_textColorHint
 android.support.v7.appcompat.R$styleable: int TextAppearance_android_textSize
 android.support.v7.appcompat.R$styleable: int TextAppearance_android_textStyle
 android.support.v7.appcompat.R$styleable: int TextAppearance_android_typeface
@@ -6125,6 +6380,7 @@ android.support.v7.widget.RecyclerView: android.support.v7.widget.RecyclerViewAc
 android.support.v7.widget.RecyclerView: void setAccessibilityDelegateCompat(android.support.v7.widget.RecyclerViewAccessibilityDelegate)
 android.support.v7.widget.RecyclerView: void setHasFixedSize(boolean)
 android.support.v7.widget.RecyclerView: void setClipToPadding(boolean)
+android.support.v7.widget.RecyclerView: boolean getClipToPadding()
 android.support.v7.widget.RecyclerView: void setScrollingTouchSlop(int)
 android.support.v7.widget.RecyclerView: void setAdapter(android.support.v7.widget.RecyclerView$Adapter)
 android.support.v7.widget.RecyclerView: android.support.v7.widget.RecyclerView$Adapter getAdapter()
@@ -6713,6 +6969,8 @@ com.faendir.lightning_launcher.multitool.R$color: int abc_background_cache_hint_
 com.faendir.lightning_launcher.multitool.R$color: int abc_background_cache_hint_selector_material_light
 com.faendir.lightning_launcher.multitool.R$color: int abc_btn_colored_borderless_text_material
 com.faendir.lightning_launcher.multitool.R$color: int abc_color_highlight_material
+com.faendir.lightning_launcher.multitool.R$color: int abc_hint_foreground_material_dark
+com.faendir.lightning_launcher.multitool.R$color: int abc_hint_foreground_material_light
 com.faendir.lightning_launcher.multitool.R$color: int abc_input_method_navigation_guard
 com.faendir.lightning_launcher.multitool.R$color: int abc_primary_text_disable_only_material_dark
 com.faendir.lightning_launcher.multitool.R$color: int abc_primary_text_disable_only_material_light
@@ -6750,6 +7008,7 @@ com.faendir.lightning_launcher.multitool.R$color: int colorAccent
 com.faendir.lightning_launcher.multitool.R$color: int colorPrimary
 com.faendir.lightning_launcher.multitool.R$color: int colorPrimaryDark
 com.faendir.lightning_launcher.multitool.R$color: int colorPrimaryLight
+com.faendir.lightning_launcher.multitool.R$color: int design_bottom_navigation_shadow_color
 com.faendir.lightning_launcher.multitool.R$color: int design_error
 com.faendir.lightning_launcher.multitool.R$color: int design_fab_shadow_end_color
 com.faendir.lightning_launcher.multitool.R$color: int design_fab_shadow_mid_color
@@ -6770,8 +7029,6 @@ com.faendir.lightning_launcher.multitool.R$color: int foreground_material_dark
 com.faendir.lightning_launcher.multitool.R$color: int foreground_material_light
 com.faendir.lightning_launcher.multitool.R$color: int highlighted_text_material_dark
 com.faendir.lightning_launcher.multitool.R$color: int highlighted_text_material_light
-com.faendir.lightning_launcher.multitool.R$color: int hint_foreground_material_dark
-com.faendir.lightning_launcher.multitool.R$color: int hint_foreground_material_light
 com.faendir.lightning_launcher.multitool.R$color: int material_blue_grey_800
 com.faendir.lightning_launcher.multitool.R$color: int material_blue_grey_900
 com.faendir.lightning_launcher.multitool.R$color: int material_blue_grey_950
@@ -7091,6 +7348,9 @@ com.faendir.lightning_launcher.multitool.R$color: int md_yellow_A400
 com.faendir.lightning_launcher.multitool.R$color: int md_yellow_A700
 com.faendir.lightning_launcher.multitool.R$color: int nnf_dark_separator_color
 com.faendir.lightning_launcher.multitool.R$color: int nnf_light_separator_color
+com.faendir.lightning_launcher.multitool.R$color: int notification_action_color_filter
+com.faendir.lightning_launcher.multitool.R$color: int notification_icon_bg_color
+com.faendir.lightning_launcher.multitool.R$color: int notification_material_background_media_default_color
 com.faendir.lightning_launcher.multitool.R$color: int primary
 com.faendir.lightning_launcher.multitool.R$color: int primary_dark
 com.faendir.lightning_launcher.multitool.R$color: int primary_dark_material_dark
@@ -7192,9 +7452,12 @@ com.faendir.lightning_launcher.multitool.R$dimen: int activity_vertical_margin
 com.faendir.lightning_launcher.multitool.R$dimen: int design_appbar_elevation
 com.faendir.lightning_launcher.multitool.R$dimen: int design_bottom_navigation_active_item_max_width
 com.faendir.lightning_launcher.multitool.R$dimen: int design_bottom_navigation_active_text_size
+com.faendir.lightning_launcher.multitool.R$dimen: int design_bottom_navigation_elevation
 com.faendir.lightning_launcher.multitool.R$dimen: int design_bottom_navigation_height
 com.faendir.lightning_launcher.multitool.R$dimen: int design_bottom_navigation_item_max_width
+com.faendir.lightning_launcher.multitool.R$dimen: int design_bottom_navigation_item_min_width
 com.faendir.lightning_launcher.multitool.R$dimen: int design_bottom_navigation_margin
+com.faendir.lightning_launcher.multitool.R$dimen: int design_bottom_navigation_shadow_height
 com.faendir.lightning_launcher.multitool.R$dimen: int design_bottom_navigation_text_size
 com.faendir.lightning_launcher.multitool.R$dimen: int design_bottom_sheet_modal_elevation
 com.faendir.lightning_launcher.multitool.R$dimen: int design_bottom_sheet_peek_height_min
@@ -7229,6 +7492,10 @@ com.faendir.lightning_launcher.multitool.R$dimen: int disabled_alpha_material_li
 com.faendir.lightning_launcher.multitool.R$dimen: int highlight_alpha_material_colored
 com.faendir.lightning_launcher.multitool.R$dimen: int highlight_alpha_material_dark
 com.faendir.lightning_launcher.multitool.R$dimen: int highlight_alpha_material_light
+com.faendir.lightning_launcher.multitool.R$dimen: int hint_alpha_material_dark
+com.faendir.lightning_launcher.multitool.R$dimen: int hint_alpha_material_light
+com.faendir.lightning_launcher.multitool.R$dimen: int hint_pressed_alpha_material_dark
+com.faendir.lightning_launcher.multitool.R$dimen: int hint_pressed_alpha_material_light
 com.faendir.lightning_launcher.multitool.R$dimen: int item_touch_helper_max_drag_scroll_per_frame
 com.faendir.lightning_launcher.multitool.R$dimen: int item_touch_helper_swipe_escape_max_velocity
 com.faendir.lightning_launcher.multitool.R$dimen: int item_touch_helper_swipe_escape_velocity
@@ -7308,9 +7575,21 @@ com.faendir.lightning_launcher.multitool.R$dimen: int materialize_typography_dis
 com.faendir.lightning_launcher.multitool.R$dimen: int materialize_typography_headline
 com.faendir.lightning_launcher.multitool.R$dimen: int materialize_typography_subheading
 com.faendir.lightning_launcher.multitool.R$dimen: int materialize_typography_title
+com.faendir.lightning_launcher.multitool.R$dimen: int notification_action_icon_size
+com.faendir.lightning_launcher.multitool.R$dimen: int notification_action_text_size
+com.faendir.lightning_launcher.multitool.R$dimen: int notification_big_circle_margin
+com.faendir.lightning_launcher.multitool.R$dimen: int notification_content_margin_start
 com.faendir.lightning_launcher.multitool.R$dimen: int notification_large_icon_height
 com.faendir.lightning_launcher.multitool.R$dimen: int notification_large_icon_width
+com.faendir.lightning_launcher.multitool.R$dimen: int notification_main_column_padding_top
+com.faendir.lightning_launcher.multitool.R$dimen: int notification_media_narrow_margin
+com.faendir.lightning_launcher.multitool.R$dimen: int notification_right_icon_size
+com.faendir.lightning_launcher.multitool.R$dimen: int notification_right_side_padding_top
+com.faendir.lightning_launcher.multitool.R$dimen: int notification_small_icon_background_padding
+com.faendir.lightning_launcher.multitool.R$dimen: int notification_small_icon_size_as_large
 com.faendir.lightning_launcher.multitool.R$dimen: int notification_subtext_size
+com.faendir.lightning_launcher.multitool.R$dimen: int notification_top_pad
+com.faendir.lightning_launcher.multitool.R$dimen: int notification_top_pad_large_text
 com.faendir.lightning_launcher.multitool.R$dimen: int tool_bar_top_padding
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_ab_share_pack_mtrl_alpha
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_action_bar_item_background_material
@@ -7395,6 +7674,7 @@ com.faendir.lightning_launcher.multitool.R$drawable: int abc_textfield_search_ac
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_textfield_search_default_mtrl_alpha
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_textfield_search_material
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_vector_test
+com.faendir.lightning_launcher.multitool.R$drawable: int design_bottom_navigation_item_background
 com.faendir.lightning_launcher.multitool.R$drawable: int design_fab_background
 com.faendir.lightning_launcher.multitool.R$drawable: int design_ic_visibility
 com.faendir.lightning_launcher.multitool.R$drawable: int design_snackbar_background
@@ -7418,7 +7698,18 @@ com.faendir.lightning_launcher.multitool.R$drawable: int navigation_empty_icon
 com.faendir.lightning_launcher.multitool.R$drawable: int nnf_ic_create_new_folder_white_24dp
 com.faendir.lightning_launcher.multitool.R$drawable: int nnf_ic_folder_black_48dp
 com.faendir.lightning_launcher.multitool.R$drawable: int nnf_ic_save_black_24dp
+com.faendir.lightning_launcher.multitool.R$drawable: int notification_action_background
+com.faendir.lightning_launcher.multitool.R$drawable: int notification_bg
+com.faendir.lightning_launcher.multitool.R$drawable: int notification_bg_low
+com.faendir.lightning_launcher.multitool.R$drawable: int notification_bg_low_normal
+com.faendir.lightning_launcher.multitool.R$drawable: int notification_bg_low_pressed
+com.faendir.lightning_launcher.multitool.R$drawable: int notification_bg_normal
+com.faendir.lightning_launcher.multitool.R$drawable: int notification_bg_normal_pressed
+com.faendir.lightning_launcher.multitool.R$drawable: int notification_icon_background
 com.faendir.lightning_launcher.multitool.R$drawable: int notification_template_icon_bg
+com.faendir.lightning_launcher.multitool.R$drawable: int notification_template_icon_low_bg
+com.faendir.lightning_launcher.multitool.R$drawable: int notification_tile_bg
+com.faendir.lightning_launcher.multitool.R$drawable: int notify_panel_notification_icon_bg
 com.faendir.lightning_launcher.multitool.R$drawable: int round_button
 com.faendir.lightning_launcher.multitool.R$id: int action0
 com.faendir.lightning_launcher.multitool.R$id: int action_add_gesture
@@ -7430,12 +7721,14 @@ com.faendir.lightning_launcher.multitool.R$id: int action_bar_root
 com.faendir.lightning_launcher.multitool.R$id: int action_bar_spinner
 com.faendir.lightning_launcher.multitool.R$id: int action_bar_subtitle
 com.faendir.lightning_launcher.multitool.R$id: int action_bar_title
+com.faendir.lightning_launcher.multitool.R$id: int action_container
 com.faendir.lightning_launcher.multitool.R$id: int action_context_bar
 com.faendir.lightning_launcher.multitool.R$id: int action_divider
 com.faendir.lightning_launcher.multitool.R$id: int action_edit
 com.faendir.lightning_launcher.multitool.R$id: int action_export
 com.faendir.lightning_launcher.multitool.R$id: int action_format
 com.faendir.lightning_launcher.multitool.R$id: int action_help
+com.faendir.lightning_launcher.multitool.R$id: int action_image
 com.faendir.lightning_launcher.multitool.R$id: int action_import
 com.faendir.lightning_launcher.multitool.R$id: int action_menu_divider
 com.faendir.lightning_launcher.multitool.R$id: int action_menu_presenter
@@ -7445,6 +7738,8 @@ com.faendir.lightning_launcher.multitool.R$id: int action_mode_close_button
 com.faendir.lightning_launcher.multitool.R$id: int action_rename
 com.faendir.lightning_launcher.multitool.R$id: int action_restore
 com.faendir.lightning_launcher.multitool.R$id: int action_search
+com.faendir.lightning_launcher.multitool.R$id: int action_text
+com.faendir.lightning_launcher.multitool.R$id: int actions
 com.faendir.lightning_launcher.multitool.R$id: int activity_chooser_view_content
 com.faendir.lightning_launcher.multitool.R$id: int add
 com.faendir.lightning_launcher.multitool.R$id: int alertTitle
@@ -7517,6 +7812,7 @@ com.faendir.lightning_launcher.multitool.R$id: int gesture_view
 com.faendir.lightning_launcher.multitool.R$id: int home
 com.faendir.lightning_launcher.multitool.R$id: int homeAsUp
 com.faendir.lightning_launcher.multitool.R$id: int icon
+com.faendir.lightning_launcher.multitool.R$id: int icon_group
 com.faendir.lightning_launcher.multitool.R$id: int iconics_tag_id
 com.faendir.lightning_launcher.multitool.R$id: int ifRoom
 com.faendir.lightning_launcher.multitool.R$id: int image
@@ -7528,6 +7824,7 @@ com.faendir.lightning_launcher.multitool.R$id: int image_player
 com.faendir.lightning_launcher.multitool.R$id: int info
 com.faendir.lightning_launcher.multitool.R$id: int item_icon
 com.faendir.lightning_launcher.multitool.R$id: int item_touch_helper_previous_elevation
+com.faendir.lightning_launcher.multitool.R$id: int largeLabel
 com.faendir.lightning_launcher.multitool.R$id: int left
 com.faendir.lightning_launcher.multitool.R$id: int line1
 com.faendir.lightning_launcher.multitool.R$id: int line3
@@ -7601,6 +7898,9 @@ com.faendir.lightning_launcher.multitool.R$id: int nnf_picker_toolbar
 com.faendir.lightning_launcher.multitool.R$id: int nnf_text_filename
 com.faendir.lightning_launcher.multitool.R$id: int none
 com.faendir.lightning_launcher.multitool.R$id: int normal
+com.faendir.lightning_launcher.multitool.R$id: int notification_background
+com.faendir.lightning_launcher.multitool.R$id: int notification_main_column
+com.faendir.lightning_launcher.multitool.R$id: int notification_main_column_container
 com.faendir.lightning_launcher.multitool.R$id: int parallax
 com.faendir.lightning_launcher.multitool.R$id: int parentPanel
 com.faendir.lightning_launcher.multitool.R$id: int pin
@@ -7609,6 +7909,8 @@ com.faendir.lightning_launcher.multitool.R$id: int progress_circular
 com.faendir.lightning_launcher.multitool.R$id: int progress_horizontal
 com.faendir.lightning_launcher.multitool.R$id: int radio
 com.faendir.lightning_launcher.multitool.R$id: int right
+com.faendir.lightning_launcher.multitool.R$id: int right_icon
+com.faendir.lightning_launcher.multitool.R$id: int right_side
 com.faendir.lightning_launcher.multitool.R$id: int screen
 com.faendir.lightning_launcher.multitool.R$id: int scroll
 com.faendir.lightning_launcher.multitool.R$id: int scrollIndicatorDown
@@ -7632,6 +7934,7 @@ com.faendir.lightning_launcher.multitool.R$id: int shortcuts
 com.faendir.lightning_launcher.multitool.R$id: int showCustom
 com.faendir.lightning_launcher.multitool.R$id: int showHome
 com.faendir.lightning_launcher.multitool.R$id: int showTitle
+com.faendir.lightning_launcher.multitool.R$id: int smallLabel
 com.faendir.lightning_launcher.multitool.R$id: int snackbar_action
 com.faendir.lightning_launcher.multitool.R$id: int snackbar_text
 com.faendir.lightning_launcher.multitool.R$id: int snap
@@ -7669,6 +7972,8 @@ com.faendir.lightning_launcher.multitool.R$id: int toolbar
 com.faendir.lightning_launcher.multitool.R$id: int top
 com.faendir.lightning_launcher.multitool.R$id: int topPanel
 com.faendir.lightning_launcher.multitool.R$id: int touch_outside
+com.faendir.lightning_launcher.multitool.R$id: int transition_current_scene
+com.faendir.lightning_launcher.multitool.R$id: int transition_scene_layoutid_cache
 com.faendir.lightning_launcher.multitool.R$id: int txt
 com.faendir.lightning_launcher.multitool.R$id: int up
 com.faendir.lightning_launcher.multitool.R$id: int useLogo
@@ -7716,6 +8021,7 @@ com.faendir.lightning_launcher.multitool.R$layout: int activity_dialog
 com.faendir.lightning_launcher.multitool.R$layout: int content_gesture
 com.faendir.lightning_launcher.multitool.R$layout: int content_intent_chooser
 com.faendir.lightning_launcher.multitool.R$layout: int content_main
+com.faendir.lightning_launcher.multitool.R$layout: int design_bottom_navigation_item
 com.faendir.lightning_launcher.multitool.R$layout: int design_bottom_sheet_dialog
 com.faendir.lightning_launcher.multitool.R$layout: int design_layout_snackbar
 com.faendir.lightning_launcher.multitool.R$layout: int design_layout_snackbar_include
@@ -7761,12 +8067,19 @@ com.faendir.lightning_launcher.multitool.R$layout: int nnf_dialog_folder_name
 com.faendir.lightning_launcher.multitool.R$layout: int nnf_filepicker_listitem_checkable
 com.faendir.lightning_launcher.multitool.R$layout: int nnf_filepicker_listitem_dir
 com.faendir.lightning_launcher.multitool.R$layout: int nnf_fragment_filepicker
+com.faendir.lightning_launcher.multitool.R$layout: int notification_action
+com.faendir.lightning_launcher.multitool.R$layout: int notification_action_tombstone
 com.faendir.lightning_launcher.multitool.R$layout: int notification_media_action
 com.faendir.lightning_launcher.multitool.R$layout: int notification_media_cancel_action
 com.faendir.lightning_launcher.multitool.R$layout: int notification_template_big_media
+com.faendir.lightning_launcher.multitool.R$layout: int notification_template_big_media_custom
 com.faendir.lightning_launcher.multitool.R$layout: int notification_template_big_media_narrow
-com.faendir.lightning_launcher.multitool.R$layout: int notification_template_lines
+com.faendir.lightning_launcher.multitool.R$layout: int notification_template_big_media_narrow_custom
+com.faendir.lightning_launcher.multitool.R$layout: int notification_template_custom_big
+com.faendir.lightning_launcher.multitool.R$layout: int notification_template_icon_group
+com.faendir.lightning_launcher.multitool.R$layout: int notification_template_lines_media
 com.faendir.lightning_launcher.multitool.R$layout: int notification_template_media
+com.faendir.lightning_launcher.multitool.R$layout: int notification_template_media_custom
 com.faendir.lightning_launcher.multitool.R$layout: int notification_template_part_chronometer
 com.faendir.lightning_launcher.multitool.R$layout: int notification_template_part_time
 com.faendir.lightning_launcher.multitool.R$layout: int preference_backup_time
@@ -7788,6 +8101,8 @@ com.faendir.lightning_launcher.multitool.R$raw: int drawer_setup
 com.faendir.lightning_launcher.multitool.R$raw: int gesture
 com.faendir.lightning_launcher.multitool.R$raw: int gesture_menu
 com.faendir.lightning_launcher.multitool.R$raw: int gesture_setup
+com.faendir.lightning_launcher.multitool.R$raw: int immersive
+com.faendir.lightning_launcher.multitool.R$raw: int immersive_setup
 com.faendir.lightning_launcher.multitool.R$raw: int multitool
 com.faendir.lightning_launcher.multitool.R$raw: int music_command
 com.faendir.lightning_launcher.multitool.R$raw: int music_launch
@@ -8012,6 +8327,7 @@ com.faendir.lightning_launcher.multitool.R$string: int title_format
 com.faendir.lightning_launcher.multitool.R$string: int title_gestureLauncher
 com.faendir.lightning_launcher.multitool.R$string: int title_help
 com.faendir.lightning_launcher.multitool.R$string: int title_hiddenApps
+com.faendir.lightning_launcher.multitool.R$string: int title_immersive
 com.faendir.lightning_launcher.multitool.R$string: int title_import
 com.faendir.lightning_launcher.multitool.R$string: int title_info
 com.faendir.lightning_launcher.multitool.R$string: int title_keepSorted
@@ -8265,6 +8581,10 @@ com.faendir.lightning_launcher.multitool.R$style: int Platform_V11_AppCompat
 com.faendir.lightning_launcher.multitool.R$style: int Platform_V11_AppCompat_Light
 com.faendir.lightning_launcher.multitool.R$style: int Platform_V14_AppCompat
 com.faendir.lightning_launcher.multitool.R$style: int Platform_V14_AppCompat_Light
+com.faendir.lightning_launcher.multitool.R$style: int Platform_V21_AppCompat
+com.faendir.lightning_launcher.multitool.R$style: int Platform_V21_AppCompat_Light
+com.faendir.lightning_launcher.multitool.R$style: int Platform_V25_AppCompat
+com.faendir.lightning_launcher.multitool.R$style: int Platform_V25_AppCompat_Light
 com.faendir.lightning_launcher.multitool.R$style: int Platform_Widget_AppCompat_Spinner
 com.faendir.lightning_launcher.multitool.R$style: int RtlOverlay_DialogWindowTitle_AppCompat
 com.faendir.lightning_launcher.multitool.R$style: int RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
@@ -8300,6 +8620,16 @@ com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_L
 com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Medium
 com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Medium_Inverse
 com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Menu
+com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Notification
+com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Notification_Info
+com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Notification_Info_Media
+com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Notification_Line2
+com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Notification_Line2_Media
+com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Notification_Media
+com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Notification_Time
+com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Notification_Time_Media
+com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Notification_Title
+com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Notification_Title_Media
 com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_SearchResult_Subtitle
 com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_SearchResult_Title
 com.faendir.lightning_launcher.multitool.R$style: int TextAppearance_AppCompat_Small
@@ -8428,6 +8758,8 @@ com.faendir.lightning_launcher.multitool.R$style: int Widget_AppCompat_ListPopup
 com.faendir.lightning_launcher.multitool.R$style: int Widget_AppCompat_ListView
 com.faendir.lightning_launcher.multitool.R$style: int Widget_AppCompat_ListView_DropDown
 com.faendir.lightning_launcher.multitool.R$style: int Widget_AppCompat_ListView_Menu
+com.faendir.lightning_launcher.multitool.R$style: int Widget_AppCompat_NotificationActionContainer
+com.faendir.lightning_launcher.multitool.R$style: int Widget_AppCompat_NotificationActionText
 com.faendir.lightning_launcher.multitool.R$style: int Widget_AppCompat_PopupMenu
 com.faendir.lightning_launcher.multitool.R$style: int Widget_AppCompat_PopupMenu_Overflow
 com.faendir.lightning_launcher.multitool.R$style: int Widget_AppCompat_PopupWindow
@@ -8448,6 +8780,7 @@ com.faendir.lightning_launcher.multitool.R$style: int Widget_AppCompat_TextView_
 com.faendir.lightning_launcher.multitool.R$style: int Widget_AppCompat_Toolbar
 com.faendir.lightning_launcher.multitool.R$style: int Widget_AppCompat_Toolbar_Button_Navigation
 com.faendir.lightning_launcher.multitool.R$style: int Widget_Design_AppBarLayout
+com.faendir.lightning_launcher.multitool.R$style: int Widget_Design_BottomNavigationView
 com.faendir.lightning_launcher.multitool.R$style: int Widget_Design_BottomSheet_Modal
 com.faendir.lightning_launcher.multitool.R$style: int Widget_Design_CollapsingToolbar
 com.faendir.lightning_launcher.multitool.R$style: int Widget_Design_CoordinatorLayout
@@ -8659,6 +8992,12 @@ com.faendir.lightning_launcher.multitool.R$styleable: int[] BezelImageView
 com.faendir.lightning_launcher.multitool.R$styleable: int BezelImageView_biv_drawCircularShadow
 com.faendir.lightning_launcher.multitool.R$styleable: int BezelImageView_biv_maskDrawable
 com.faendir.lightning_launcher.multitool.R$styleable: int BezelImageView_biv_selectorOnPress
+com.faendir.lightning_launcher.multitool.R$styleable: int[] BottomNavigationView
+com.faendir.lightning_launcher.multitool.R$styleable: int BottomNavigationView_elevation
+com.faendir.lightning_launcher.multitool.R$styleable: int BottomNavigationView_itemBackground
+com.faendir.lightning_launcher.multitool.R$styleable: int BottomNavigationView_itemIconTint
+com.faendir.lightning_launcher.multitool.R$styleable: int BottomNavigationView_itemTextColor
+com.faendir.lightning_launcher.multitool.R$styleable: int BottomNavigationView_menu
 com.faendir.lightning_launcher.multitool.R$styleable: int[] BottomSheetBehavior_Layout
 com.faendir.lightning_launcher.multitool.R$styleable: int BottomSheetBehavior_Layout_behavior_hideable
 com.faendir.lightning_launcher.multitool.R$styleable: int BottomSheetBehavior_Layout_behavior_peekHeight
@@ -8932,6 +9271,7 @@ com.faendir.lightning_launcher.multitool.R$styleable: int TextAppearance_android
 com.faendir.lightning_launcher.multitool.R$styleable: int TextAppearance_android_shadowDy
 com.faendir.lightning_launcher.multitool.R$styleable: int TextAppearance_android_shadowRadius
 com.faendir.lightning_launcher.multitool.R$styleable: int TextAppearance_android_textColor
+com.faendir.lightning_launcher.multitool.R$styleable: int TextAppearance_android_textColorHint
 com.faendir.lightning_launcher.multitool.R$styleable: int TextAppearance_android_textSize
 com.faendir.lightning_launcher.multitool.R$styleable: int TextAppearance_android_textStyle
 com.faendir.lightning_launcher.multitool.R$styleable: int TextAppearance_android_typeface
@@ -9008,6 +9348,10 @@ com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: 
 com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$1: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$2: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$3: void onClick(android.content.DialogInterface,int)
+com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$5: void onClick(android.content.DialogInterface,int)
+com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$6: void onClick(android.content.DialogInterface,int)
+com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$8: void onClick(android.content.DialogInterface,int)
+com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$9: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.drawer.RestorePreference
 com.faendir.lightning_launcher.multitool.drawer.RestorePreference: RestorePreference(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity
@@ -9025,12 +9369,13 @@ com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void onGesture
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void onClick(android.view.View)
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void onActivityResult(int,int,android.content.Intent)
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void confirm()
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void lambda$onNewIntent$0()
+com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void lambda$onNewIntent$0(android.gesture.Gesture)
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1: com.faendir.lightning_launcher.multitool.gesture.GestureActivity arg$1
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1: GestureActivity$$Lambda$1(com.faendir.lightning_launcher.multitool.gesture.GestureActivity)
+com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1: android.gesture.Gesture arg$2
+com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1: GestureActivity$$Lambda$1(com.faendir.lightning_launcher.multitool.gesture.GestureActivity,android.gesture.Gesture)
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1: void run()
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1: java.lang.Runnable lambdaFactory$(com.faendir.lightning_launcher.multitool.gesture.GestureActivity)
+com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1: java.lang.Runnable lambdaFactory$(com.faendir.lightning_launcher.multitool.gesture.GestureActivity,android.gesture.Gesture)
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: int ADD
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: int EDIT
@@ -9107,7 +9452,7 @@ com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void setGesture(an
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void removeGesture(android.content.Context)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.content.Intent getIntent()
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void setIntent(android.content.Intent)
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo: java.lang.String getText()
+com.faendir.lightning_launcher.multitool.gesture.GestureInfo: java.lang.String getLabel()
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void setLabel(java.lang.String)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: boolean hasUuid(java.util.UUID)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: java.util.UUID getUuid()
@@ -9116,8 +9461,7 @@ com.faendir.lightning_launcher.multitool.gesture.GestureInfo: int describeConten
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void writeToParcel(android.os.Parcel,int)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: com.faendir.omniadapter.model.Component$State getState()
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void lambda$getGesture$0(java.util.ArrayList)
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo: GestureInfo(android.content.Intent,java.lang.String,android.os.ParcelUuid,com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1)
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.gesture.Gesture access$102(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,android.gesture.Gesture)
+com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.gesture.Gesture access$002(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,android.gesture.Gesture)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void <clinit>()
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo$$Lambda$1
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo$$Lambda$1: com.faendir.lightning_launcher.multitool.gesture.GestureInfo arg$1
@@ -9135,7 +9479,6 @@ com.faendir.lightning_launcher.multitool.gesture.GestureUtils: java.lang.String 
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils: java.lang.String GESTURES
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils: GestureUtils()
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void delete(android.content.Context,java.util.List,java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void edit(android.app.Activity,com.faendir.lightning_launcher.multitool.gesture.GestureInfo,java.util.List)
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void updateSavedGestures(java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager)
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void exportGestures(android.content.Context,android.net.Uri,com.faendir.lightning_launcher.multitool.util.FileManager)
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void export(android.content.Context,java.io.File,java.io.File,java.io.File)
@@ -9194,13 +9537,13 @@ com.faendir.lightning_launcher.multitool.gesture.LightningGestureView$$Lambda$1:
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView$$Lambda$1: java8.util.function.Predicate lambdaFactory$(java.util.UUID)
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary global
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.gesture.GestureLibrary library
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: java.io.File file
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: long lastModified
+com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: java.io.FileDescriptor file
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.gesture.GestureLibrary getGlobal(android.content.Context)
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: java.io.File getFile()
+com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: java.io.File getFile(android.content.Context)
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: SingletonGestureLibrary(android.content.Context)
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.gesture.GestureLibrary get()
+com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: boolean save()
+com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: boolean load()
 com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment: void onButtonClick(com.faendir.lightning_launcher.multitool.event.ClickEvent)
 com.faendir.lightning_launcher.multitool.music.DummyNotificationListener
 com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: DummyNotificationListener()
@@ -9567,8 +9910,6 @@ com.faendir.lightning_launcher.multitool.settings.PlayersPreference: PlayersPref
 com.faendir.lightning_launcher.multitool.settings.TrialPreference
 com.faendir.lightning_launcher.multitool.settings.TrialPreference: TrialPreference(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.settings.TrialPreference: void onClick()
-com.faendir.lightning_launcher.multitool.settings.TrialPreference$$Lambda$2: void onClick(android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.settings.TrialPreference$$Lambda$3: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.settings.VersionPreference
 com.faendir.lightning_launcher.multitool.settings.VersionPreference: VersionPreference(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.util.BaseActivity: int layoutRes
@@ -9578,6 +9919,8 @@ com.faendir.lightning_launcher.multitool.util.BaseActivity: void onCreate(androi
 com.faendir.lightning_launcher.multitool.util.BaseActivity: void initLayout()
 com.faendir.lightning_launcher.multitool.util.BaseActivity: android.support.v7.widget.Toolbar initToolbar()
 com.faendir.lightning_launcher.multitool.util.BaseActivity: android.support.v7.widget.Toolbar getToolbar()
+com.faendir.lightning_launcher.multitool.util.DataProvider
+com.faendir.lightning_launcher.multitool.util.DataProvider: DataProvider()
 com.faendir.lightning_launcher.multitool.util.FragmentManager: void onSwitchFragmentRequest(com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest)
 com.faendir.lightning_launcher.multitool.util.IntentChooser
 com.faendir.lightning_launcher.multitool.util.IntentChooser: IntentChooser()
@@ -9595,8 +9938,6 @@ com.faendir.lightning_launcher.multitool.util.IntentInfo: java.lang.String getTe
 com.faendir.lightning_launcher.multitool.util.IntentInfo: boolean isIndirect()
 com.faendir.lightning_launcher.multitool.util.IntentInfo: int compareTo(com.faendir.lightning_launcher.multitool.util.IntentInfo)
 com.faendir.lightning_launcher.multitool.util.IntentInfo: int compareTo(java.lang.Object)
-com.faendir.lightning_launcher.multitool.util.PreferenceProvider
-com.faendir.lightning_launcher.multitool.util.PreferenceProvider: PreferenceProvider()
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: ResetReportPrimer()
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: void primeReport(android.content.Context,org.acra.builder.ReportBuilder)
@@ -10340,8 +10681,6 @@ com.faendir.omniadapter.R$color: int foreground_material_dark
 com.faendir.omniadapter.R$color: int foreground_material_light
 com.faendir.omniadapter.R$color: int highlighted_text_material_dark
 com.faendir.omniadapter.R$color: int highlighted_text_material_light
-com.faendir.omniadapter.R$color: int hint_foreground_material_dark
-com.faendir.omniadapter.R$color: int hint_foreground_material_light
 com.faendir.omniadapter.R$color: int material_blue_grey_800
 com.faendir.omniadapter.R$color: int material_blue_grey_900
 com.faendir.omniadapter.R$color: int material_blue_grey_950
@@ -10762,7 +11101,6 @@ com.faendir.omniadapter.R$layout: int notification_media_action
 com.faendir.omniadapter.R$layout: int notification_media_cancel_action
 com.faendir.omniadapter.R$layout: int notification_template_big_media
 com.faendir.omniadapter.R$layout: int notification_template_big_media_narrow
-com.faendir.omniadapter.R$layout: int notification_template_lines
 com.faendir.omniadapter.R$layout: int notification_template_media
 com.faendir.omniadapter.R$layout: int notification_template_part_chronometer
 com.faendir.omniadapter.R$layout: int notification_template_part_time
@@ -11984,8 +12322,6 @@ com.mikepenz.fastadapter.R$color: int foreground_material_dark
 com.mikepenz.fastadapter.R$color: int foreground_material_light
 com.mikepenz.fastadapter.R$color: int highlighted_text_material_dark
 com.mikepenz.fastadapter.R$color: int highlighted_text_material_light
-com.mikepenz.fastadapter.R$color: int hint_foreground_material_dark
-com.mikepenz.fastadapter.R$color: int hint_foreground_material_light
 com.mikepenz.fastadapter.R$color: int material_blue_grey_800
 com.mikepenz.fastadapter.R$color: int material_blue_grey_900
 com.mikepenz.fastadapter.R$color: int material_blue_grey_950
@@ -12311,7 +12647,6 @@ com.mikepenz.fastadapter.R$layout: int notification_media_action
 com.mikepenz.fastadapter.R$layout: int notification_media_cancel_action
 com.mikepenz.fastadapter.R$layout: int notification_template_big_media
 com.mikepenz.fastadapter.R$layout: int notification_template_big_media_narrow
-com.mikepenz.fastadapter.R$layout: int notification_template_lines
 com.mikepenz.fastadapter.R$layout: int notification_template_media
 com.mikepenz.fastadapter.R$layout: int notification_template_part_chronometer
 com.mikepenz.fastadapter.R$layout: int notification_template_part_time
@@ -13365,8 +13700,6 @@ com.mikepenz.iconics.core.R$color: int foreground_material_dark
 com.mikepenz.iconics.core.R$color: int foreground_material_light
 com.mikepenz.iconics.core.R$color: int highlighted_text_material_dark
 com.mikepenz.iconics.core.R$color: int highlighted_text_material_light
-com.mikepenz.iconics.core.R$color: int hint_foreground_material_dark
-com.mikepenz.iconics.core.R$color: int hint_foreground_material_light
 com.mikepenz.iconics.core.R$color: int material_blue_grey_800
 com.mikepenz.iconics.core.R$color: int material_blue_grey_900
 com.mikepenz.iconics.core.R$color: int material_blue_grey_950
@@ -13689,7 +14022,6 @@ com.mikepenz.iconics.core.R$layout: int notification_media_action
 com.mikepenz.iconics.core.R$layout: int notification_media_cancel_action
 com.mikepenz.iconics.core.R$layout: int notification_template_big_media
 com.mikepenz.iconics.core.R$layout: int notification_template_big_media_narrow
-com.mikepenz.iconics.core.R$layout: int notification_template_lines
 com.mikepenz.iconics.core.R$layout: int notification_template_media
 com.mikepenz.iconics.core.R$layout: int notification_template_part_chronometer
 com.mikepenz.iconics.core.R$layout: int notification_template_part_time
@@ -14917,8 +15249,6 @@ com.mikepenz.materialdrawer.R$color: int foreground_material_dark
 com.mikepenz.materialdrawer.R$color: int foreground_material_light
 com.mikepenz.materialdrawer.R$color: int highlighted_text_material_dark
 com.mikepenz.materialdrawer.R$color: int highlighted_text_material_light
-com.mikepenz.materialdrawer.R$color: int hint_foreground_material_dark
-com.mikepenz.materialdrawer.R$color: int hint_foreground_material_light
 com.mikepenz.materialdrawer.R$color: int material_blue_grey_800
 com.mikepenz.materialdrawer.R$color: int material_blue_grey_900
 com.mikepenz.materialdrawer.R$color: int material_blue_grey_950
@@ -15793,7 +16123,6 @@ com.mikepenz.materialdrawer.R$layout: int notification_media_action
 com.mikepenz.materialdrawer.R$layout: int notification_media_cancel_action
 com.mikepenz.materialdrawer.R$layout: int notification_template_big_media
 com.mikepenz.materialdrawer.R$layout: int notification_template_big_media_narrow
-com.mikepenz.materialdrawer.R$layout: int notification_template_lines
 com.mikepenz.materialdrawer.R$layout: int notification_template_media
 com.mikepenz.materialdrawer.R$layout: int notification_template_part_chronometer
 com.mikepenz.materialdrawer.R$layout: int notification_template_part_time
@@ -17127,8 +17456,6 @@ com.mikepenz.materialize.R$color: int foreground_material_dark
 com.mikepenz.materialize.R$color: int foreground_material_light
 com.mikepenz.materialize.R$color: int highlighted_text_material_dark
 com.mikepenz.materialize.R$color: int highlighted_text_material_light
-com.mikepenz.materialize.R$color: int hint_foreground_material_dark
-com.mikepenz.materialize.R$color: int hint_foreground_material_light
 com.mikepenz.materialize.R$color: int material_blue_grey_800
 com.mikepenz.materialize.R$color: int material_blue_grey_900
 com.mikepenz.materialize.R$color: int material_blue_grey_950
@@ -17767,7 +18094,6 @@ com.mikepenz.materialize.R$layout: int notification_media_action
 com.mikepenz.materialize.R$layout: int notification_media_cancel_action
 com.mikepenz.materialize.R$layout: int notification_template_big_media
 com.mikepenz.materialize.R$layout: int notification_template_big_media_narrow
-com.mikepenz.materialize.R$layout: int notification_template_lines
 com.mikepenz.materialize.R$layout: int notification_template_media
 com.mikepenz.materialize.R$layout: int notification_template_part_chronometer
 com.mikepenz.materialize.R$layout: int notification_template_part_time
@@ -18925,8 +19251,6 @@ com.nononsenseapps.filepicker.R$color: int foreground_material_dark
 com.nononsenseapps.filepicker.R$color: int foreground_material_light
 com.nononsenseapps.filepicker.R$color: int highlighted_text_material_dark
 com.nononsenseapps.filepicker.R$color: int highlighted_text_material_light
-com.nononsenseapps.filepicker.R$color: int hint_foreground_material_dark
-com.nononsenseapps.filepicker.R$color: int hint_foreground_material_light
 com.nononsenseapps.filepicker.R$color: int material_blue_grey_800
 com.nononsenseapps.filepicker.R$color: int material_blue_grey_900
 com.nononsenseapps.filepicker.R$color: int material_blue_grey_950
@@ -19283,7 +19607,6 @@ com.nononsenseapps.filepicker.R$layout: int notification_media_action
 com.nononsenseapps.filepicker.R$layout: int notification_media_cancel_action
 com.nononsenseapps.filepicker.R$layout: int notification_template_big_media
 com.nononsenseapps.filepicker.R$layout: int notification_template_big_media_narrow
-com.nononsenseapps.filepicker.R$layout: int notification_template_lines
 com.nononsenseapps.filepicker.R$layout: int notification_template_media
 com.nononsenseapps.filepicker.R$layout: int notification_template_part_chronometer
 com.nononsenseapps.filepicker.R$layout: int notification_template_part_time
