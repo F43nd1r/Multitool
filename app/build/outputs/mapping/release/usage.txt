@@ -5594,6 +5594,8 @@ com.faendir.lightning_launcher.multitool.music.MusicManager:
     private static final int ACTION_PLAY_PAUSE
     private static final int ACTION_NEXT
     private static final int ACTION_PREVIOUS
+com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler$$Lambda$2
+com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler$$Lambda$3
 com.faendir.lightning_launcher.multitool.settings.PreferenceListener:
     75:76:void addPreference(android.preference.Preference,java.lang.Runnable,boolean)
     97:98:void addPreferenceForSummary(android.preference.Preference,java.lang.Runnable,boolean)

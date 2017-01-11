@@ -120,13 +120,16 @@ public class MusicManager extends Service {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mediaSessionManager = (MediaSessionManager) getSystemService(Context.MEDIA_SESSION_SERVICE);
         }
-        notificationListener = new ComponentName(this, DummyNotificationListener.class);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            notificationListener = new ComponentName(this, DummyNotificationListener.class);
+        }
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         billingManager = new BaseBillingManager(this);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void updateCurrentInfo(MediaController controller, Bitmap albumArt, String title, String album, String artist) {
+        if(controller == null) return;
         this.currentController = new WeakReference<>(controller);
         this.albumArt = albumArt;
         this.title = title;

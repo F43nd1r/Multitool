@@ -20144,15 +20144,15 @@ com.faendir.lightning_launcher.multitool.music.MusicManager -> com.faendir.light
     android.media.session.MediaSessionManager$OnActiveSessionsChangedListener sessionsChangedListener -> o
     101:111:void <init>() -> <init>
     115:115:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    120:126:void onCreate() -> onCreate
-    130:137:void updateCurrentInfo(android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> a
-    141:180:void onActiveSessionsChanged(java.util.List) -> a
-    183:187:void startDefaultPlayerWithKeyCode(int) -> a
-    191:203:void sendKeyCodeToPlayer(int,java.lang.String) -> a
-    207:209:android.os.IBinder onBind(android.content.Intent) -> onBind
-    214:241:void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
-    245:249:void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
-    136:136:void lambda$updateCurrentInfo$0(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
+    120:128:void onCreate() -> onCreate
+    132:140:void updateCurrentInfo(android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> a
+    144:183:void onActiveSessionsChanged(java.util.List) -> a
+    186:190:void startDefaultPlayerWithKeyCode(int) -> a
+    194:206:void sendKeyCodeToPlayer(int,java.lang.String) -> a
+    210:212:android.os.IBinder onBind(android.content.Intent) -> onBind
+    217:244:void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
+    248:252:void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
+    139:139:void lambda$updateCurrentInfo$0(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
     67:67:java.util.List access$300() -> a
     67:67:java.lang.ref.WeakReference access$400(com.faendir.lightning_launcher.multitool.music.MusicManager) -> a
     67:67:org.apache.commons.collections4.BidiMap access$500(com.faendir.lightning_launcher.multitool.music.MusicManager) -> b
@@ -20187,66 +20187,66 @@ com.faendir.lightning_launcher.multitool.music.MusicManager$$Lambda$3 -> com.fae
     java8.util.function.Consumer lambdaFactory$() -> a
 com.faendir.lightning_launcher.multitool.music.MusicManager$1 -> com.faendir.lightning_launcher.multitool.music.MusicManager$1:
     com.faendir.lightning_launcher.multitool.music.MusicManager this$0 -> a
-    220:220:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,android.os.Handler) -> <init>
-    223:229:void onReceiveResult(int,android.os.Bundle) -> onReceiveResult
+    223:223:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,android.os.Handler) -> <init>
+    226:232:void onReceiveResult(int,android.os.Bundle) -> onReceiveResult
 com.faendir.lightning_launcher.multitool.music.MusicManager$BinderWrapper -> com.faendir.lightning_launcher.multitool.music.MusicManager$a:
     android.os.Messenger messenger -> a
-    475:477:void <init>(android.os.IBinder) -> <init>
-    480:487:void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
-    490:497:void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
-    500:506:void togglePlay() -> a
-    509:515:void next() -> b
-    518:524:void previous() -> c
+    478:480:void <init>(android.os.IBinder) -> <init>
+    483:490:void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
+    493:500:void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
+    503:509:void togglePlay() -> a
+    512:518:void next() -> b
+    521:527:void previous() -> c
 com.faendir.lightning_launcher.multitool.music.MusicManager$Callback -> com.faendir.lightning_launcher.multitool.music.MusicManager$b:
     android.media.MediaMetadata metadata -> b
     android.media.session.PlaybackState playbackState -> c
     android.graphics.Bitmap bitmap -> d
     boolean hasRequestedAlbumArt -> e
     com.faendir.lightning_launcher.multitool.music.MusicManager this$0 -> a
-    252:252:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager) -> <init>
-    260:264:void onPlaybackStateChanged(android.media.session.PlaybackState) -> onPlaybackStateChanged
-    268:271:void onMetadataChanged(android.media.MediaMetadata) -> onMetadataChanged
-    274:287:void update() -> b
-    291:306:android.graphics.Bitmap loadBitmapForKeys(java.lang.String[]) -> a
-    310:317:void push() -> c
-    320:323:void recycle() -> a
-    252:252:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
-    252:252:void access$200(com.faendir.lightning_launcher.multitool.music.MusicManager$Callback) -> a
+    255:255:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager) -> <init>
+    263:267:void onPlaybackStateChanged(android.media.session.PlaybackState) -> onPlaybackStateChanged
+    271:274:void onMetadataChanged(android.media.MediaMetadata) -> onMetadataChanged
+    277:290:void update() -> b
+    294:309:android.graphics.Bitmap loadBitmapForKeys(java.lang.String[]) -> a
+    313:320:void push() -> c
+    323:326:void recycle() -> a
+    255:255:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
+    255:255:void access$200(com.faendir.lightning_launcher.multitool.music.MusicManager$Callback) -> a
 com.faendir.lightning_launcher.multitool.music.MusicManager$Listener -> com.faendir.lightning_launcher.multitool.music.MusicManager$c:
     void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
 com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler -> com.faendir.lightning_launcher.multitool.music.MusicManager$d:
     java.lang.ref.WeakReference musicManager -> a
     boolean hasDisplayedToast -> b
-    328:333:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager) -> <init>
-    337:407:void handleMessage(android.os.Message) -> handleMessage
-    411:413:boolean isAlternativeControl(android.media.session.MediaController) -> a
-    417:434:android.os.Looper getNewPreparedLooper() -> a
-    419:425:void lambda$getNewPreparedLooper$2(java.util.concurrent.atomic.AtomicReference) -> a
-    352:352:void lambda$handleMessage$1(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
-    351:351:boolean lambda$handleMessage$0(android.os.Message,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
-    326:326:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
+    331:336:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager) -> <init>
+    340:410:void handleMessage(android.os.Message) -> handleMessage
+    414:416:boolean isAlternativeControl(android.media.session.MediaController) -> a
+    420:437:android.os.Looper getNewPreparedLooper() -> a
+    422:428:void lambda$getNewPreparedLooper$2(java.util.concurrent.atomic.AtomicReference) -> a
+    355:355:void lambda$handleMessage$1(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
+    354:354:boolean lambda$handleMessage$0(android.os.Message,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
+    329:329:void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
 com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler$$Lambda$1 -> com.faendir.lightning_launcher.multitool.music.g:
     android.os.Message arg$1 -> a
     void <init>(android.os.Message) -> <init>
     boolean test(java.lang.Object) -> test
     java8.util.function.Predicate lambdaFactory$(android.os.Message) -> a
-com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler$$Lambda$2 -> com.faendir.lightning_launcher.multitool.music.h:
+com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler$$Lambda$4 -> com.faendir.lightning_launcher.multitool.music.h:
     com.faendir.lightning_launcher.multitool.music.MusicManager arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager) -> <init>
     void accept(java.lang.Object) -> accept
     java8.util.function.Consumer lambdaFactory$(com.faendir.lightning_launcher.multitool.music.MusicManager) -> a
-com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler$$Lambda$3 -> com.faendir.lightning_launcher.multitool.music.i:
+com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler$$Lambda$5 -> com.faendir.lightning_launcher.multitool.music.i:
     java.util.concurrent.atomic.AtomicReference arg$1 -> a
     void <init>(java.util.concurrent.atomic.AtomicReference) -> <init>
     void run() -> run
     java.lang.Runnable lambdaFactory$(java.util.concurrent.atomic.AtomicReference) -> a
 com.faendir.lightning_launcher.multitool.music.MusicManager$MessengerListener -> com.faendir.lightning_launcher.multitool.music.MusicManager$e:
     android.os.Messenger messenger -> a
-    441:443:void <init>(android.os.Messenger) -> <init>
-    447:461:void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
-    464:464:boolean hasMessenger(android.os.Messenger) -> a
-    438:438:void <init>(android.os.Messenger,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
-    438:438:boolean access$1500(com.faendir.lightning_launcher.multitool.music.MusicManager$MessengerListener,android.os.Messenger) -> a
+    444:446:void <init>(android.os.Messenger) -> <init>
+    450:464:void updateCurrentInfo(android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    467:467:boolean hasMessenger(android.os.Messenger) -> a
+    441:441:void <init>(android.os.Messenger,com.faendir.lightning_launcher.multitool.music.MusicManager$1) -> <init>
+    441:441:boolean access$1500(com.faendir.lightning_launcher.multitool.music.MusicManager$MessengerListener,android.os.Messenger) -> a
 com.faendir.lightning_launcher.multitool.scriptmanager.Folder -> com.faendir.lightning_launcher.multitool.scriptmanager.Folder:
     java.lang.String name -> name
     17:19:void <init>(java.lang.String) -> <init>
