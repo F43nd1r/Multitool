@@ -20,6 +20,10 @@ if (data != null && data != "") {
             var script = LL.getScriptById(transfer.script.id);
             if (script != null) script.setText(transfer.script.code);
             break;
+        case "TOGGLE_DISABLE":
+            var script = LL.getScriptById(transfer.script.id);
+            if(script != null) script.setFlag(Script.FLAG_DISABLED, !script.hasFlag(Script.FLAG_DISABLED));
+            break;
     }
 }
 var s = LL.getAllScriptMatching(Script.FLAG_ALL);

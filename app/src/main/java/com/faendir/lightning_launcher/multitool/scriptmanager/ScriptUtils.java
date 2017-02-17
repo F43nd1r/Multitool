@@ -191,6 +191,7 @@ final class ScriptUtils {
         if (file.exists() && file.canRead()) {
             try (FileReader reader = new FileReader(file)) {
                 char[] buffer = new char[(int) file.length()];
+                //noinspection ResultOfMethodCallIgnored
                 reader.read(buffer);
                 restoreDialog(scriptManager, context, listManager, new String(buffer), file.getName());
             } catch (IOException e) {
@@ -258,6 +259,17 @@ final class ScriptUtils {
         scriptManager.getAsyncExecutorService()
                 .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager))
                 .start();
+    }
+
+    public static void toggleDisable(final ScriptManager scriptManager, final ListManager listManager, Script item){
+            final Transfer transfer = new Transfer(Transfer.TOGGLE_DISABLE);
+            transfer.script = item;
+            scriptManager.getAsyncExecutorService()
+                    .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager))
+                    .start();
+        item.setFlags(item.getFlags() ^ Loader.FLAG_DISABLED);
+        listManager.changed(item);
+        listManager.deselectAll();
     }
 
 

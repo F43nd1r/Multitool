@@ -29,6 +29,7 @@ public class Loader extends Activity {
     private static final String DRAWER = PKG + ".LoadDrawer";
     private static final String IMMERSIVE = PKG + ".toggleImmersive";
 
+    public static final int FLAG_DISABLED = 1;
     public static final int FLAG_APP_MENU = 2;
     public static final int FLAG_ITEM_MENU = 4;
     public static final int FLAG_CUSTOM_MENU = 8;

@@ -77,6 +77,7 @@ public class TrialPreference extends Preference {
 
     @Override
     protected void onPrepareForRemoval() {
+        super.onPrepareForRemoval();
         billingManager.release();
     }
 }

@@ -14,7 +14,8 @@ import java.util.Set;
 import java8.util.stream.StreamSupport;
 
 /**
- * Created by Lukas on 13.11.2016.
+ * @author F43nd1r
+ * @since 13.11.2016
  */
 
 public class RestorePreference extends MultiSelectListPreference {

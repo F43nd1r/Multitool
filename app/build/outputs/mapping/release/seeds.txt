@@ -4256,6 +4256,7 @@ android.support.v4.app.Fragment: boolean mCheckedForLoaderManager
 android.support.v4.app.Fragment: android.support.v4.app.Fragment$AnimationInfo mAnimationInfo
 android.support.v4.app.Fragment: boolean mIsNewlyAdded
 android.support.v4.app.Fragment: boolean mHiddenChanged
+android.support.v4.app.Fragment: float mPostponedAlpha
 android.support.v4.app.Fragment: Fragment()
 android.support.v4.app.Fragment: android.support.v4.app.Fragment instantiate(android.content.Context,java.lang.String)
 android.support.v4.app.Fragment: android.support.v4.app.Fragment instantiate(android.content.Context,java.lang.String,android.os.Bundle)
@@ -6409,6 +6410,7 @@ android.support.v7.widget.AppCompatSpinner: android.content.res.ColorStateList g
 android.support.v7.widget.AppCompatSpinner: void setSupportBackgroundTintMode(android.graphics.PorterDuff$Mode)
 android.support.v7.widget.AppCompatSpinner: android.graphics.PorterDuff$Mode getSupportBackgroundTintMode()
 android.support.v7.widget.AppCompatSpinner: void setAdapter(android.widget.Adapter)
+android.support.v7.widget.AppCompatTextView
 android.support.v7.widget.AppCompatTextView: AppCompatTextView(android.content.Context)
 android.support.v7.widget.AppCompatTextView: AppCompatTextView(android.content.Context,android.util.AttributeSet)
 android.support.v7.widget.AppCompatTextView: AppCompatTextView(android.content.Context,android.util.AttributeSet,int)
@@ -6676,10 +6678,10 @@ android.support.v7.widget.ViewStubCompat: void setLayoutInflater(android.view.La
 android.support.v7.widget.ViewStubCompat: android.view.LayoutInflater getLayoutInflater()
 android.support.v7.widget.ViewStubCompat: void setVisibility(int)
 android.support.v7.widget.ViewStubCompat: void setOnInflateListener(android.support.v7.widget.ViewStubCompat$OnInflateListener)
+com.anjlab.android.iab.v3.PurchaseData: android.os.Parcelable$Creator CREATOR
 com.anjlab.android.iab.v3.PurchaseInfo: android.os.Parcelable$Creator CREATOR
-com.anjlab.android.iab.v3.PurchaseInfo$PurchaseState: com.anjlab.android.iab.v3.PurchaseInfo$PurchaseState[] values()
-com.anjlab.android.iab.v3.PurchaseInfo$PurchaseState: com.anjlab.android.iab.v3.PurchaseInfo$PurchaseState valueOf(java.lang.String)
-com.anjlab.android.iab.v3.PurchaseInfo$ResponseData: android.os.Parcelable$Creator CREATOR
+com.anjlab.android.iab.v3.PurchaseState: com.anjlab.android.iab.v3.PurchaseState[] values()
+com.anjlab.android.iab.v3.PurchaseState: com.anjlab.android.iab.v3.PurchaseState valueOf(java.lang.String)
 com.anjlab.android.iab.v3.SkuDetails: android.os.Parcelable$Creator CREATOR
 com.anjlab.android.iab.v3.TransactionDetails: android.os.Parcelable$Creator CREATOR
 com.faendir.lightning_launcher.multitool.Loader
@@ -7850,6 +7852,7 @@ com.faendir.lightning_launcher.multitool.R$id: int action_bar_subtitle
 com.faendir.lightning_launcher.multitool.R$id: int action_bar_title
 com.faendir.lightning_launcher.multitool.R$id: int action_container
 com.faendir.lightning_launcher.multitool.R$id: int action_context_bar
+com.faendir.lightning_launcher.multitool.R$id: int action_disable
 com.faendir.lightning_launcher.multitool.R$id: int action_divider
 com.faendir.lightning_launcher.multitool.R$id: int action_edit
 com.faendir.lightning_launcher.multitool.R$id: int action_export
@@ -7984,6 +7987,7 @@ com.faendir.lightning_launcher.multitool.R$id: int material_drawer_inner_shadow
 com.faendir.lightning_launcher.multitool.R$id: int material_drawer_item_container
 com.faendir.lightning_launcher.multitool.R$id: int material_drawer_item_divider
 com.faendir.lightning_launcher.multitool.R$id: int material_drawer_item_expandable
+com.faendir.lightning_launcher.multitool.R$id: int material_drawer_item_expandable_badge
 com.faendir.lightning_launcher.multitool.R$id: int material_drawer_item_mini
 com.faendir.lightning_launcher.multitool.R$id: int material_drawer_item_mini_profile
 com.faendir.lightning_launcher.multitool.R$id: int material_drawer_item_primary
@@ -8184,6 +8188,7 @@ com.faendir.lightning_launcher.multitool.R$layout: int material_drawer_header
 com.faendir.lightning_launcher.multitool.R$layout: int material_drawer_item_container
 com.faendir.lightning_launcher.multitool.R$layout: int material_drawer_item_divider
 com.faendir.lightning_launcher.multitool.R$layout: int material_drawer_item_expandable
+com.faendir.lightning_launcher.multitool.R$layout: int material_drawer_item_expandable_badge
 com.faendir.lightning_launcher.multitool.R$layout: int material_drawer_item_mini
 com.faendir.lightning_launcher.multitool.R$layout: int material_drawer_item_mini_profile
 com.faendir.lightning_launcher.multitool.R$layout: int material_drawer_item_primary
@@ -8372,7 +8377,9 @@ com.faendir.lightning_launcher.multitool.R$string: int link_googlePlus
 com.faendir.lightning_launcher.multitool.R$string: int material_drawer_close
 com.faendir.lightning_launcher.multitool.R$string: int material_drawer_open
 com.faendir.lightning_launcher.multitool.R$string: int menu_backup
+com.faendir.lightning_launcher.multitool.R$string: int menu_disable
 com.faendir.lightning_launcher.multitool.R$string: int menu_edit
+com.faendir.lightning_launcher.multitool.R$string: int menu_enable
 com.faendir.lightning_launcher.multitool.R$string: int menu_format
 com.faendir.lightning_launcher.multitool.R$string: int menu_rename
 com.faendir.lightning_launcher.multitool.R$string: int menu_restore
@@ -9518,7 +9525,7 @@ com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void onGesture
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void onClick(android.view.View)
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void onActivityResult(int,int,android.content.Intent)
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void confirm()
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void lambda$onNewIntent$0(android.gesture.Gesture)
+com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void lambda$onNewIntent$0(com.faendir.lightning_launcher.multitool.gesture.GestureActivity,android.gesture.Gesture)
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1: com.faendir.lightning_launcher.multitool.gesture.GestureActivity arg$1
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1: android.gesture.Gesture arg$2
@@ -9553,8 +9560,8 @@ com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean isSele
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean shouldMove(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int)
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void bindView(android.view.View,com.faendir.omniadapter.model.Component,int)
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean lambda$onActionPersisted$3(com.faendir.omniadapter.model.ChangeInformation)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void lambda$onActivityResult$2(android.net.Uri)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void lambda$onActivityResult$1(android.net.Uri)
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void lambda$onActivityResult$2(com.faendir.lightning_launcher.multitool.gesture.GestureFragment,android.net.Uri)
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void lambda$onActivityResult$1(com.faendir.lightning_launcher.multitool.gesture.GestureFragment,android.net.Uri)
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean lambda$onCreateView$0(com.faendir.lightning_launcher.multitool.gesture.GestureInfo)
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$1
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$1: com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$1 instance
@@ -9609,7 +9616,7 @@ com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.graphics.d
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: int describeContents()
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void writeToParcel(android.os.Parcel,int)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: com.faendir.omniadapter.model.Component$State getState()
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void lambda$getGesture$0(java.util.ArrayList)
+com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void lambda$getGesture$0(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,java.util.ArrayList)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.gesture.Gesture access$002(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,android.gesture.Gesture)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void <clinit>()
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo$$Lambda$1
@@ -9735,7 +9742,7 @@ com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void onPostEx
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void onProgressUpdate(java.lang.Object[])
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void onPostExecute(java.lang.Object)
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: java.lang.Object doInBackground(java.lang.Object[])
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void lambda$onPreExecute$0(android.content.DialogInterface,int)
+com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void lambda$onPreExecute$0(com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask,android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void <clinit>()
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$1
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$1: com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask arg$1
@@ -9813,11 +9820,11 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: java.util.Li
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: java.lang.String toString()
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean isSelectable(com.faendir.omniadapter.model.Component)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void bindView(android.view.View,com.faendir.omniadapter.model.Component,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void lambda$onActionPersisted$9(com.faendir.lightning_launcher.multitool.scriptmanager.Script)
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void lambda$onActionPersisted$9(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: com.faendir.lightning_launcher.multitool.scriptmanager.Script lambda$onActionPersisted$8(com.faendir.omniadapter.model.ChangeInformation)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean lambda$onActionPersisted$7(com.faendir.omniadapter.model.ChangeInformation)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean lambda$exists$6(com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void lambda$setAsContentOf$5(android.view.ViewGroup)
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean lambda$exists$6(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem)
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void lambda$setAsContentOf$5(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean lambda$updateFrom$4(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.Folder)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean lambda$updateFrom$3(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean lambda$updateFrom$2(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem)
@@ -9900,12 +9907,11 @@ com.faendir.lightning_launcher.multitool.scriptmanager.Script: void setFlags(int
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: boolean equals(java.lang.Object)
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: int hashCode()
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: int compareTo(com.faendir.lightning_launcher.multitool.scriptmanager.Script)
-com.faendir.lightning_launcher.multitool.scriptmanager.Script: void setId(int)
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: java.lang.String getCode()
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: int getFlags()
-com.faendir.lightning_launcher.multitool.scriptmanager.Script: void fillFrom(com.faendir.lightning_launcher.multitool.scriptmanager.Script)
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: java.lang.String getPath()
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: void setPath(java.lang.String)
+com.faendir.lightning_launcher.multitool.scriptmanager.Script: boolean isDisabled()
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: int compareTo(java.lang.Object)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem: java.lang.String getName()
@@ -9928,8 +9934,8 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: vo
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void loadFromLauncher()
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void handleScriptResult(java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void onReloadButton(com.faendir.lightning_launcher.multitool.event.ClickEvent)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void lambda$onActivityResult$1(android.net.Uri)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void lambda$onCreate$0()
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void lambda$onActivityResult$1(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment,android.net.Uri)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void lambda$onCreate$0(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void access$lambda$0(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment,java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$1
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$1: com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment arg$1
@@ -9970,6 +9976,8 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void restore
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void restoreDialog(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String,java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void prepareRestore(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String,java.lang.String,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void restore(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void toggleDisable(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void lambda$toggleDisable$9(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void lambda$restore$8(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void lambda$prepareRestore$7(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script,android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void lambda$restoreDialog$6(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String,android.widget.EditText,int,android.content.DialogInterface,int)
@@ -9986,6 +9994,11 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$1: an
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$1: ScriptUtils$$Lambda$1(android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.widget.EditText)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$1: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$1: android.content.DialogInterface$OnClickListener lambdaFactory$(android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.widget.EditText)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$10
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$10: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$1
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$10: ScriptUtils$$Lambda$10(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$10: void onResult(java.lang.Object)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$10: com.faendir.lightning_launcher.scriptlib.ResultCallback lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$2
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$2: java.util.regex.Pattern arg$1
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$2: java.lang.StringBuilder arg$2
@@ -10045,7 +10058,7 @@ com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: java.lang.Strin
 com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: java.lang.String DELETE
 com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: java.lang.String RESTORE
 com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: java.lang.String SET_CODE
-com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: java.lang.String PRETTIFY
+com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: java.lang.String TOGGLE_DISABLE
 com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: com.faendir.lightning_launcher.multitool.scriptmanager.Script script
 com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: java.lang.String request
 com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: Transfer(java.lang.String)
@@ -12429,6 +12442,8 @@ com.mikepenz.fastadapter.R$color: int abc_background_cache_hint_selector_materia
 com.mikepenz.fastadapter.R$color: int abc_background_cache_hint_selector_material_light
 com.mikepenz.fastadapter.R$color: int abc_btn_colored_borderless_text_material
 com.mikepenz.fastadapter.R$color: int abc_color_highlight_material
+com.mikepenz.fastadapter.R$color: int abc_hint_foreground_material_dark
+com.mikepenz.fastadapter.R$color: int abc_hint_foreground_material_light
 com.mikepenz.fastadapter.R$color: int abc_input_method_navigation_guard
 com.mikepenz.fastadapter.R$color: int abc_primary_text_disable_only_material_dark
 com.mikepenz.fastadapter.R$color: int abc_primary_text_disable_only_material_light
@@ -12481,6 +12496,9 @@ com.mikepenz.fastadapter.R$color: int material_grey_600
 com.mikepenz.fastadapter.R$color: int material_grey_800
 com.mikepenz.fastadapter.R$color: int material_grey_850
 com.mikepenz.fastadapter.R$color: int material_grey_900
+com.mikepenz.fastadapter.R$color: int notification_action_color_filter
+com.mikepenz.fastadapter.R$color: int notification_icon_bg_color
+com.mikepenz.fastadapter.R$color: int notification_material_background_media_default_color
 com.mikepenz.fastadapter.R$color: int primary_dark_material_dark
 com.mikepenz.fastadapter.R$color: int primary_dark_material_light
 com.mikepenz.fastadapter.R$color: int primary_material_dark
@@ -12577,12 +12595,28 @@ com.mikepenz.fastadapter.R$dimen: int disabled_alpha_material_light
 com.mikepenz.fastadapter.R$dimen: int highlight_alpha_material_colored
 com.mikepenz.fastadapter.R$dimen: int highlight_alpha_material_dark
 com.mikepenz.fastadapter.R$dimen: int highlight_alpha_material_light
+com.mikepenz.fastadapter.R$dimen: int hint_alpha_material_dark
+com.mikepenz.fastadapter.R$dimen: int hint_alpha_material_light
+com.mikepenz.fastadapter.R$dimen: int hint_pressed_alpha_material_dark
+com.mikepenz.fastadapter.R$dimen: int hint_pressed_alpha_material_light
 com.mikepenz.fastadapter.R$dimen: int item_touch_helper_max_drag_scroll_per_frame
 com.mikepenz.fastadapter.R$dimen: int item_touch_helper_swipe_escape_max_velocity
 com.mikepenz.fastadapter.R$dimen: int item_touch_helper_swipe_escape_velocity
+com.mikepenz.fastadapter.R$dimen: int notification_action_icon_size
+com.mikepenz.fastadapter.R$dimen: int notification_action_text_size
+com.mikepenz.fastadapter.R$dimen: int notification_big_circle_margin
+com.mikepenz.fastadapter.R$dimen: int notification_content_margin_start
 com.mikepenz.fastadapter.R$dimen: int notification_large_icon_height
 com.mikepenz.fastadapter.R$dimen: int notification_large_icon_width
+com.mikepenz.fastadapter.R$dimen: int notification_main_column_padding_top
+com.mikepenz.fastadapter.R$dimen: int notification_media_narrow_margin
+com.mikepenz.fastadapter.R$dimen: int notification_right_icon_size
+com.mikepenz.fastadapter.R$dimen: int notification_right_side_padding_top
+com.mikepenz.fastadapter.R$dimen: int notification_small_icon_background_padding
+com.mikepenz.fastadapter.R$dimen: int notification_small_icon_size_as_large
 com.mikepenz.fastadapter.R$dimen: int notification_subtext_size
+com.mikepenz.fastadapter.R$dimen: int notification_top_pad
+com.mikepenz.fastadapter.R$dimen: int notification_top_pad_large_text
 com.mikepenz.fastadapter.R$drawable: int abc_ab_share_pack_mtrl_alpha
 com.mikepenz.fastadapter.R$drawable: int abc_action_bar_item_background_material
 com.mikepenz.fastadapter.R$drawable: int abc_btn_borderless_material
@@ -12654,13 +12688,30 @@ com.mikepenz.fastadapter.R$drawable: int abc_switch_track_mtrl_alpha
 com.mikepenz.fastadapter.R$drawable: int abc_tab_indicator_material
 com.mikepenz.fastadapter.R$drawable: int abc_tab_indicator_mtrl_alpha
 com.mikepenz.fastadapter.R$drawable: int abc_text_cursor_material
+com.mikepenz.fastadapter.R$drawable: int abc_text_select_handle_left_mtrl_dark
+com.mikepenz.fastadapter.R$drawable: int abc_text_select_handle_left_mtrl_light
+com.mikepenz.fastadapter.R$drawable: int abc_text_select_handle_middle_mtrl_dark
+com.mikepenz.fastadapter.R$drawable: int abc_text_select_handle_middle_mtrl_light
+com.mikepenz.fastadapter.R$drawable: int abc_text_select_handle_right_mtrl_dark
+com.mikepenz.fastadapter.R$drawable: int abc_text_select_handle_right_mtrl_light
 com.mikepenz.fastadapter.R$drawable: int abc_textfield_activated_mtrl_alpha
 com.mikepenz.fastadapter.R$drawable: int abc_textfield_default_mtrl_alpha
 com.mikepenz.fastadapter.R$drawable: int abc_textfield_search_activated_mtrl_alpha
 com.mikepenz.fastadapter.R$drawable: int abc_textfield_search_default_mtrl_alpha
 com.mikepenz.fastadapter.R$drawable: int abc_textfield_search_material
 com.mikepenz.fastadapter.R$drawable: int abc_vector_test
+com.mikepenz.fastadapter.R$drawable: int notification_action_background
+com.mikepenz.fastadapter.R$drawable: int notification_bg
+com.mikepenz.fastadapter.R$drawable: int notification_bg_low
+com.mikepenz.fastadapter.R$drawable: int notification_bg_low_normal
+com.mikepenz.fastadapter.R$drawable: int notification_bg_low_pressed
+com.mikepenz.fastadapter.R$drawable: int notification_bg_normal
+com.mikepenz.fastadapter.R$drawable: int notification_bg_normal_pressed
+com.mikepenz.fastadapter.R$drawable: int notification_icon_background
 com.mikepenz.fastadapter.R$drawable: int notification_template_icon_bg
+com.mikepenz.fastadapter.R$drawable: int notification_template_icon_low_bg
+com.mikepenz.fastadapter.R$drawable: int notification_tile_bg
+com.mikepenz.fastadapter.R$drawable: int notify_panel_notification_icon_bg
 com.mikepenz.fastadapter.R$id: int action0
 com.mikepenz.fastadapter.R$id: int action_bar
 com.mikepenz.fastadapter.R$id: int action_bar_activity_content
@@ -12669,13 +12720,17 @@ com.mikepenz.fastadapter.R$id: int action_bar_root
 com.mikepenz.fastadapter.R$id: int action_bar_spinner
 com.mikepenz.fastadapter.R$id: int action_bar_subtitle
 com.mikepenz.fastadapter.R$id: int action_bar_title
+com.mikepenz.fastadapter.R$id: int action_container
 com.mikepenz.fastadapter.R$id: int action_context_bar
 com.mikepenz.fastadapter.R$id: int action_divider
+com.mikepenz.fastadapter.R$id: int action_image
 com.mikepenz.fastadapter.R$id: int action_menu_divider
 com.mikepenz.fastadapter.R$id: int action_menu_presenter
 com.mikepenz.fastadapter.R$id: int action_mode_bar
 com.mikepenz.fastadapter.R$id: int action_mode_bar_stub
 com.mikepenz.fastadapter.R$id: int action_mode_close_button
+com.mikepenz.fastadapter.R$id: int action_text
+com.mikepenz.fastadapter.R$id: int actions
 com.mikepenz.fastadapter.R$id: int activity_chooser_view_content
 com.mikepenz.fastadapter.R$id: int add
 com.mikepenz.fastadapter.R$id: int alertTitle
@@ -12701,6 +12756,7 @@ com.mikepenz.fastadapter.R$id: int expanded_menu
 com.mikepenz.fastadapter.R$id: int home
 com.mikepenz.fastadapter.R$id: int homeAsUp
 com.mikepenz.fastadapter.R$id: int icon
+com.mikepenz.fastadapter.R$id: int icon_group
 com.mikepenz.fastadapter.R$id: int ifRoom
 com.mikepenz.fastadapter.R$id: int image
 com.mikepenz.fastadapter.R$id: int info
@@ -12715,10 +12771,15 @@ com.mikepenz.fastadapter.R$id: int multiply
 com.mikepenz.fastadapter.R$id: int never
 com.mikepenz.fastadapter.R$id: int none
 com.mikepenz.fastadapter.R$id: int normal
+com.mikepenz.fastadapter.R$id: int notification_background
+com.mikepenz.fastadapter.R$id: int notification_main_column
+com.mikepenz.fastadapter.R$id: int notification_main_column_container
 com.mikepenz.fastadapter.R$id: int parentPanel
 com.mikepenz.fastadapter.R$id: int progress_circular
 com.mikepenz.fastadapter.R$id: int progress_horizontal
 com.mikepenz.fastadapter.R$id: int radio
+com.mikepenz.fastadapter.R$id: int right_icon
+com.mikepenz.fastadapter.R$id: int right_side
 com.mikepenz.fastadapter.R$id: int screen
 com.mikepenz.fastadapter.R$id: int scrollIndicatorDown
 com.mikepenz.fastadapter.R$id: int scrollIndicatorUp
@@ -12789,11 +12850,19 @@ com.mikepenz.fastadapter.R$layout: int abc_screen_toolbar
 com.mikepenz.fastadapter.R$layout: int abc_search_dropdown_item_icons_2line
 com.mikepenz.fastadapter.R$layout: int abc_search_view
 com.mikepenz.fastadapter.R$layout: int abc_select_dialog_material
+com.mikepenz.fastadapter.R$layout: int notification_action
+com.mikepenz.fastadapter.R$layout: int notification_action_tombstone
 com.mikepenz.fastadapter.R$layout: int notification_media_action
 com.mikepenz.fastadapter.R$layout: int notification_media_cancel_action
 com.mikepenz.fastadapter.R$layout: int notification_template_big_media
+com.mikepenz.fastadapter.R$layout: int notification_template_big_media_custom
 com.mikepenz.fastadapter.R$layout: int notification_template_big_media_narrow
+com.mikepenz.fastadapter.R$layout: int notification_template_big_media_narrow_custom
+com.mikepenz.fastadapter.R$layout: int notification_template_custom_big
+com.mikepenz.fastadapter.R$layout: int notification_template_icon_group
+com.mikepenz.fastadapter.R$layout: int notification_template_lines_media
 com.mikepenz.fastadapter.R$layout: int notification_template_media
+com.mikepenz.fastadapter.R$layout: int notification_template_media_custom
 com.mikepenz.fastadapter.R$layout: int notification_template_part_chronometer
 com.mikepenz.fastadapter.R$layout: int notification_template_part_time
 com.mikepenz.fastadapter.R$layout: int select_dialog_item_material
@@ -13008,6 +13077,10 @@ com.mikepenz.fastadapter.R$style: int Platform_V11_AppCompat
 com.mikepenz.fastadapter.R$style: int Platform_V11_AppCompat_Light
 com.mikepenz.fastadapter.R$style: int Platform_V14_AppCompat
 com.mikepenz.fastadapter.R$style: int Platform_V14_AppCompat_Light
+com.mikepenz.fastadapter.R$style: int Platform_V21_AppCompat
+com.mikepenz.fastadapter.R$style: int Platform_V21_AppCompat_Light
+com.mikepenz.fastadapter.R$style: int Platform_V25_AppCompat
+com.mikepenz.fastadapter.R$style: int Platform_V25_AppCompat_Light
 com.mikepenz.fastadapter.R$style: int Platform_Widget_AppCompat_Spinner
 com.mikepenz.fastadapter.R$style: int RtlOverlay_DialogWindowTitle_AppCompat
 com.mikepenz.fastadapter.R$style: int RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
@@ -13043,6 +13116,16 @@ com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_Light_Widget_Popu
 com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_Medium
 com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_Medium_Inverse
 com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_Menu
+com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_Notification
+com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_Notification_Info
+com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_Notification_Info_Media
+com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_Notification_Line2
+com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_Notification_Line2_Media
+com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_Notification_Media
+com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_Notification_Time
+com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_Notification_Time_Media
+com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_Notification_Title
+com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_Notification_Title_Media
 com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_SearchResult_Subtitle
 com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_SearchResult_Title
 com.mikepenz.fastadapter.R$style: int TextAppearance_AppCompat_Small
@@ -13157,6 +13240,8 @@ com.mikepenz.fastadapter.R$style: int Widget_AppCompat_ListPopupWindow
 com.mikepenz.fastadapter.R$style: int Widget_AppCompat_ListView
 com.mikepenz.fastadapter.R$style: int Widget_AppCompat_ListView_DropDown
 com.mikepenz.fastadapter.R$style: int Widget_AppCompat_ListView_Menu
+com.mikepenz.fastadapter.R$style: int Widget_AppCompat_NotificationActionContainer
+com.mikepenz.fastadapter.R$style: int Widget_AppCompat_NotificationActionText
 com.mikepenz.fastadapter.R$style: int Widget_AppCompat_PopupMenu
 com.mikepenz.fastadapter.R$style: int Widget_AppCompat_PopupMenu_Overflow
 com.mikepenz.fastadapter.R$style: int Widget_AppCompat_PopupWindow
@@ -13493,6 +13578,7 @@ com.mikepenz.fastadapter.R$styleable: int TextAppearance_android_shadowDx
 com.mikepenz.fastadapter.R$styleable: int TextAppearance_android_shadowDy
 com.mikepenz.fastadapter.R$styleable: int TextAppearance_android_shadowRadius
 com.mikepenz.fastadapter.R$styleable: int TextAppearance_android_textColor
+com.mikepenz.fastadapter.R$styleable: int TextAppearance_android_textColorHint
 com.mikepenz.fastadapter.R$styleable: int TextAppearance_android_textSize
 com.mikepenz.fastadapter.R$styleable: int TextAppearance_android_textStyle
 com.mikepenz.fastadapter.R$styleable: int TextAppearance_android_typeface
@@ -13542,8 +13628,7 @@ com.mikepenz.fastadapter.R$styleable: int View_paddingEnd
 com.mikepenz.fastadapter.R$styleable: int View_paddingStart
 com.mikepenz.fastadapter.R$styleable: int View_theme
 com.mikepenz.fastadapter.helpers.ClickListenerHelper$1: void onClick(android.view.View)
-com.mikepenz.fastadapter.helpers.ClickListenerHelper$2: void onClick(android.view.View)
-com.mikepenz.fastadapter.helpers.ClickListenerHelper$OnClickListener: void onClick(android.view.View,int,com.mikepenz.fastadapter.IItem)
+com.mikepenz.fastadapter.listeners.ClickEventHook: void onClick(android.view.View,int,com.mikepenz.fastadapter.FastAdapter,com.mikepenz.fastadapter.IItem)
 com.mikepenz.iconics.core.R$anim: int abc_fade_in
 com.mikepenz.iconics.core.R$anim: int abc_fade_out
 com.mikepenz.iconics.core.R$anim: int abc_grow_fade_in_from_bottom
@@ -15336,6 +15421,8 @@ com.mikepenz.materialdrawer.R$color: int abc_background_cache_hint_selector_mate
 com.mikepenz.materialdrawer.R$color: int abc_background_cache_hint_selector_material_light
 com.mikepenz.materialdrawer.R$color: int abc_btn_colored_borderless_text_material
 com.mikepenz.materialdrawer.R$color: int abc_color_highlight_material
+com.mikepenz.materialdrawer.R$color: int abc_hint_foreground_material_dark
+com.mikepenz.materialdrawer.R$color: int abc_hint_foreground_material_light
 com.mikepenz.materialdrawer.R$color: int abc_input_method_navigation_guard
 com.mikepenz.materialdrawer.R$color: int abc_primary_text_disable_only_material_dark
 com.mikepenz.materialdrawer.R$color: int abc_primary_text_disable_only_material_light
@@ -15373,6 +15460,7 @@ com.mikepenz.materialdrawer.R$color: int colorAccent
 com.mikepenz.materialdrawer.R$color: int colorPrimary
 com.mikepenz.materialdrawer.R$color: int colorPrimaryDark
 com.mikepenz.materialdrawer.R$color: int colorPrimaryLight
+com.mikepenz.materialdrawer.R$color: int design_bottom_navigation_shadow_color
 com.mikepenz.materialdrawer.R$color: int design_error
 com.mikepenz.materialdrawer.R$color: int design_fab_shadow_end_color
 com.mikepenz.materialdrawer.R$color: int design_fab_shadow_mid_color
@@ -15710,6 +15798,9 @@ com.mikepenz.materialdrawer.R$color: int md_yellow_A100
 com.mikepenz.materialdrawer.R$color: int md_yellow_A200
 com.mikepenz.materialdrawer.R$color: int md_yellow_A400
 com.mikepenz.materialdrawer.R$color: int md_yellow_A700
+com.mikepenz.materialdrawer.R$color: int notification_action_color_filter
+com.mikepenz.materialdrawer.R$color: int notification_icon_bg_color
+com.mikepenz.materialdrawer.R$color: int notification_material_background_media_default_color
 com.mikepenz.materialdrawer.R$color: int primary
 com.mikepenz.materialdrawer.R$color: int primary_dark
 com.mikepenz.materialdrawer.R$color: int primary_dark_material_dark
@@ -15807,9 +15898,12 @@ com.mikepenz.materialdrawer.R$dimen: int abc_text_size_title_material_toolbar
 com.mikepenz.materialdrawer.R$dimen: int design_appbar_elevation
 com.mikepenz.materialdrawer.R$dimen: int design_bottom_navigation_active_item_max_width
 com.mikepenz.materialdrawer.R$dimen: int design_bottom_navigation_active_text_size
+com.mikepenz.materialdrawer.R$dimen: int design_bottom_navigation_elevation
 com.mikepenz.materialdrawer.R$dimen: int design_bottom_navigation_height
 com.mikepenz.materialdrawer.R$dimen: int design_bottom_navigation_item_max_width
+com.mikepenz.materialdrawer.R$dimen: int design_bottom_navigation_item_min_width
 com.mikepenz.materialdrawer.R$dimen: int design_bottom_navigation_margin
+com.mikepenz.materialdrawer.R$dimen: int design_bottom_navigation_shadow_height
 com.mikepenz.materialdrawer.R$dimen: int design_bottom_navigation_text_size
 com.mikepenz.materialdrawer.R$dimen: int design_bottom_sheet_modal_elevation
 com.mikepenz.materialdrawer.R$dimen: int design_bottom_sheet_peek_height_min
@@ -15844,6 +15938,10 @@ com.mikepenz.materialdrawer.R$dimen: int disabled_alpha_material_light
 com.mikepenz.materialdrawer.R$dimen: int highlight_alpha_material_colored
 com.mikepenz.materialdrawer.R$dimen: int highlight_alpha_material_dark
 com.mikepenz.materialdrawer.R$dimen: int highlight_alpha_material_light
+com.mikepenz.materialdrawer.R$dimen: int hint_alpha_material_dark
+com.mikepenz.materialdrawer.R$dimen: int hint_alpha_material_light
+com.mikepenz.materialdrawer.R$dimen: int hint_pressed_alpha_material_dark
+com.mikepenz.materialdrawer.R$dimen: int hint_pressed_alpha_material_light
 com.mikepenz.materialdrawer.R$dimen: int item_touch_helper_max_drag_scroll_per_frame
 com.mikepenz.materialdrawer.R$dimen: int item_touch_helper_swipe_escape_max_velocity
 com.mikepenz.materialdrawer.R$dimen: int item_touch_helper_swipe_escape_velocity
@@ -15923,9 +16021,21 @@ com.mikepenz.materialdrawer.R$dimen: int materialize_typography_display1
 com.mikepenz.materialdrawer.R$dimen: int materialize_typography_headline
 com.mikepenz.materialdrawer.R$dimen: int materialize_typography_subheading
 com.mikepenz.materialdrawer.R$dimen: int materialize_typography_title
+com.mikepenz.materialdrawer.R$dimen: int notification_action_icon_size
+com.mikepenz.materialdrawer.R$dimen: int notification_action_text_size
+com.mikepenz.materialdrawer.R$dimen: int notification_big_circle_margin
+com.mikepenz.materialdrawer.R$dimen: int notification_content_margin_start
 com.mikepenz.materialdrawer.R$dimen: int notification_large_icon_height
 com.mikepenz.materialdrawer.R$dimen: int notification_large_icon_width
+com.mikepenz.materialdrawer.R$dimen: int notification_main_column_padding_top
+com.mikepenz.materialdrawer.R$dimen: int notification_media_narrow_margin
+com.mikepenz.materialdrawer.R$dimen: int notification_right_icon_size
+com.mikepenz.materialdrawer.R$dimen: int notification_right_side_padding_top
+com.mikepenz.materialdrawer.R$dimen: int notification_small_icon_background_padding
+com.mikepenz.materialdrawer.R$dimen: int notification_small_icon_size_as_large
 com.mikepenz.materialdrawer.R$dimen: int notification_subtext_size
+com.mikepenz.materialdrawer.R$dimen: int notification_top_pad
+com.mikepenz.materialdrawer.R$dimen: int notification_top_pad_large_text
 com.mikepenz.materialdrawer.R$dimen: int tool_bar_top_padding
 com.mikepenz.materialdrawer.R$drawable: int abc_ab_share_pack_mtrl_alpha
 com.mikepenz.materialdrawer.R$drawable: int abc_action_bar_item_background_material
@@ -15998,12 +16108,19 @@ com.mikepenz.materialdrawer.R$drawable: int abc_switch_track_mtrl_alpha
 com.mikepenz.materialdrawer.R$drawable: int abc_tab_indicator_material
 com.mikepenz.materialdrawer.R$drawable: int abc_tab_indicator_mtrl_alpha
 com.mikepenz.materialdrawer.R$drawable: int abc_text_cursor_material
+com.mikepenz.materialdrawer.R$drawable: int abc_text_select_handle_left_mtrl_dark
+com.mikepenz.materialdrawer.R$drawable: int abc_text_select_handle_left_mtrl_light
+com.mikepenz.materialdrawer.R$drawable: int abc_text_select_handle_middle_mtrl_dark
+com.mikepenz.materialdrawer.R$drawable: int abc_text_select_handle_middle_mtrl_light
+com.mikepenz.materialdrawer.R$drawable: int abc_text_select_handle_right_mtrl_dark
+com.mikepenz.materialdrawer.R$drawable: int abc_text_select_handle_right_mtrl_light
 com.mikepenz.materialdrawer.R$drawable: int abc_textfield_activated_mtrl_alpha
 com.mikepenz.materialdrawer.R$drawable: int abc_textfield_default_mtrl_alpha
 com.mikepenz.materialdrawer.R$drawable: int abc_textfield_search_activated_mtrl_alpha
 com.mikepenz.materialdrawer.R$drawable: int abc_textfield_search_default_mtrl_alpha
 com.mikepenz.materialdrawer.R$drawable: int abc_textfield_search_material
 com.mikepenz.materialdrawer.R$drawable: int abc_vector_test
+com.mikepenz.materialdrawer.R$drawable: int design_bottom_navigation_item_background
 com.mikepenz.materialdrawer.R$drawable: int design_fab_background
 com.mikepenz.materialdrawer.R$drawable: int design_ic_visibility
 com.mikepenz.materialdrawer.R$drawable: int design_snackbar_background
@@ -16014,7 +16131,18 @@ com.mikepenz.materialdrawer.R$drawable: int material_drawer_shadow_left
 com.mikepenz.materialdrawer.R$drawable: int material_drawer_shadow_right
 com.mikepenz.materialdrawer.R$drawable: int material_drawer_shadow_top
 com.mikepenz.materialdrawer.R$drawable: int navigation_empty_icon
+com.mikepenz.materialdrawer.R$drawable: int notification_action_background
+com.mikepenz.materialdrawer.R$drawable: int notification_bg
+com.mikepenz.materialdrawer.R$drawable: int notification_bg_low
+com.mikepenz.materialdrawer.R$drawable: int notification_bg_low_normal
+com.mikepenz.materialdrawer.R$drawable: int notification_bg_low_pressed
+com.mikepenz.materialdrawer.R$drawable: int notification_bg_normal
+com.mikepenz.materialdrawer.R$drawable: int notification_bg_normal_pressed
+com.mikepenz.materialdrawer.R$drawable: int notification_icon_background
 com.mikepenz.materialdrawer.R$drawable: int notification_template_icon_bg
+com.mikepenz.materialdrawer.R$drawable: int notification_template_icon_low_bg
+com.mikepenz.materialdrawer.R$drawable: int notification_tile_bg
+com.mikepenz.materialdrawer.R$drawable: int notify_panel_notification_icon_bg
 com.mikepenz.materialdrawer.R$id: int action0
 com.mikepenz.materialdrawer.R$id: int action_bar
 com.mikepenz.materialdrawer.R$id: int action_bar_activity_content
@@ -16023,13 +16151,17 @@ com.mikepenz.materialdrawer.R$id: int action_bar_root
 com.mikepenz.materialdrawer.R$id: int action_bar_spinner
 com.mikepenz.materialdrawer.R$id: int action_bar_subtitle
 com.mikepenz.materialdrawer.R$id: int action_bar_title
+com.mikepenz.materialdrawer.R$id: int action_container
 com.mikepenz.materialdrawer.R$id: int action_context_bar
 com.mikepenz.materialdrawer.R$id: int action_divider
+com.mikepenz.materialdrawer.R$id: int action_image
 com.mikepenz.materialdrawer.R$id: int action_menu_divider
 com.mikepenz.materialdrawer.R$id: int action_menu_presenter
 com.mikepenz.materialdrawer.R$id: int action_mode_bar
 com.mikepenz.materialdrawer.R$id: int action_mode_bar_stub
 com.mikepenz.materialdrawer.R$id: int action_mode_close_button
+com.mikepenz.materialdrawer.R$id: int action_text
+com.mikepenz.materialdrawer.R$id: int actions
 com.mikepenz.materialdrawer.R$id: int activity_chooser_view_content
 com.mikepenz.materialdrawer.R$id: int add
 com.mikepenz.materialdrawer.R$id: int alertTitle
@@ -16075,11 +16207,13 @@ com.mikepenz.materialdrawer.R$id: int fixed
 com.mikepenz.materialdrawer.R$id: int home
 com.mikepenz.materialdrawer.R$id: int homeAsUp
 com.mikepenz.materialdrawer.R$id: int icon
+com.mikepenz.materialdrawer.R$id: int icon_group
 com.mikepenz.materialdrawer.R$id: int iconics_tag_id
 com.mikepenz.materialdrawer.R$id: int ifRoom
 com.mikepenz.materialdrawer.R$id: int image
 com.mikepenz.materialdrawer.R$id: int info
 com.mikepenz.materialdrawer.R$id: int item_touch_helper_previous_elevation
+com.mikepenz.materialdrawer.R$id: int largeLabel
 com.mikepenz.materialdrawer.R$id: int left
 com.mikepenz.materialdrawer.R$id: int line1
 com.mikepenz.materialdrawer.R$id: int line3
@@ -16108,6 +16242,7 @@ com.mikepenz.materialdrawer.R$id: int material_drawer_inner_shadow
 com.mikepenz.materialdrawer.R$id: int material_drawer_item_container
 com.mikepenz.materialdrawer.R$id: int material_drawer_item_divider
 com.mikepenz.materialdrawer.R$id: int material_drawer_item_expandable
+com.mikepenz.materialdrawer.R$id: int material_drawer_item_expandable_badge
 com.mikepenz.materialdrawer.R$id: int material_drawer_item_mini
 com.mikepenz.materialdrawer.R$id: int material_drawer_item_mini_profile
 com.mikepenz.materialdrawer.R$id: int material_drawer_item_primary
@@ -16139,6 +16274,9 @@ com.mikepenz.materialdrawer.R$id: int navigation_header_container
 com.mikepenz.materialdrawer.R$id: int never
 com.mikepenz.materialdrawer.R$id: int none
 com.mikepenz.materialdrawer.R$id: int normal
+com.mikepenz.materialdrawer.R$id: int notification_background
+com.mikepenz.materialdrawer.R$id: int notification_main_column
+com.mikepenz.materialdrawer.R$id: int notification_main_column_container
 com.mikepenz.materialdrawer.R$id: int parallax
 com.mikepenz.materialdrawer.R$id: int parentPanel
 com.mikepenz.materialdrawer.R$id: int pin
@@ -16146,6 +16284,8 @@ com.mikepenz.materialdrawer.R$id: int progress_circular
 com.mikepenz.materialdrawer.R$id: int progress_horizontal
 com.mikepenz.materialdrawer.R$id: int radio
 com.mikepenz.materialdrawer.R$id: int right
+com.mikepenz.materialdrawer.R$id: int right_icon
+com.mikepenz.materialdrawer.R$id: int right_side
 com.mikepenz.materialdrawer.R$id: int screen
 com.mikepenz.materialdrawer.R$id: int scroll
 com.mikepenz.materialdrawer.R$id: int scrollIndicatorDown
@@ -16167,6 +16307,7 @@ com.mikepenz.materialdrawer.R$id: int shortcut
 com.mikepenz.materialdrawer.R$id: int showCustom
 com.mikepenz.materialdrawer.R$id: int showHome
 com.mikepenz.materialdrawer.R$id: int showTitle
+com.mikepenz.materialdrawer.R$id: int smallLabel
 com.mikepenz.materialdrawer.R$id: int snackbar_action
 com.mikepenz.materialdrawer.R$id: int snackbar_text
 com.mikepenz.materialdrawer.R$id: int snap
@@ -16190,6 +16331,8 @@ com.mikepenz.materialdrawer.R$id: int title_template
 com.mikepenz.materialdrawer.R$id: int top
 com.mikepenz.materialdrawer.R$id: int topPanel
 com.mikepenz.materialdrawer.R$id: int touch_outside
+com.mikepenz.materialdrawer.R$id: int transition_current_scene
+com.mikepenz.materialdrawer.R$id: int transition_scene_layoutid_cache
 com.mikepenz.materialdrawer.R$id: int up
 com.mikepenz.materialdrawer.R$id: int useLogo
 com.mikepenz.materialdrawer.R$id: int view_offset_helper
@@ -16228,6 +16371,7 @@ com.mikepenz.materialdrawer.R$layout: int abc_screen_toolbar
 com.mikepenz.materialdrawer.R$layout: int abc_search_dropdown_item_icons_2line
 com.mikepenz.materialdrawer.R$layout: int abc_search_view
 com.mikepenz.materialdrawer.R$layout: int abc_select_dialog_material
+com.mikepenz.materialdrawer.R$layout: int design_bottom_navigation_item
 com.mikepenz.materialdrawer.R$layout: int design_bottom_sheet_dialog
 com.mikepenz.materialdrawer.R$layout: int design_layout_snackbar
 com.mikepenz.materialdrawer.R$layout: int design_layout_snackbar_include
@@ -16248,6 +16392,7 @@ com.mikepenz.materialdrawer.R$layout: int material_drawer_header
 com.mikepenz.materialdrawer.R$layout: int material_drawer_item_container
 com.mikepenz.materialdrawer.R$layout: int material_drawer_item_divider
 com.mikepenz.materialdrawer.R$layout: int material_drawer_item_expandable
+com.mikepenz.materialdrawer.R$layout: int material_drawer_item_expandable_badge
 com.mikepenz.materialdrawer.R$layout: int material_drawer_item_mini
 com.mikepenz.materialdrawer.R$layout: int material_drawer_item_mini_profile
 com.mikepenz.materialdrawer.R$layout: int material_drawer_item_primary
@@ -16262,11 +16407,19 @@ com.mikepenz.materialdrawer.R$layout: int material_drawer_item_toggle
 com.mikepenz.materialdrawer.R$layout: int material_drawer_recycler_view
 com.mikepenz.materialdrawer.R$layout: int material_drawer_slider
 com.mikepenz.materialdrawer.R$layout: int materialize
+com.mikepenz.materialdrawer.R$layout: int notification_action
+com.mikepenz.materialdrawer.R$layout: int notification_action_tombstone
 com.mikepenz.materialdrawer.R$layout: int notification_media_action
 com.mikepenz.materialdrawer.R$layout: int notification_media_cancel_action
 com.mikepenz.materialdrawer.R$layout: int notification_template_big_media
+com.mikepenz.materialdrawer.R$layout: int notification_template_big_media_custom
 com.mikepenz.materialdrawer.R$layout: int notification_template_big_media_narrow
+com.mikepenz.materialdrawer.R$layout: int notification_template_big_media_narrow_custom
+com.mikepenz.materialdrawer.R$layout: int notification_template_custom_big
+com.mikepenz.materialdrawer.R$layout: int notification_template_icon_group
+com.mikepenz.materialdrawer.R$layout: int notification_template_lines_media
 com.mikepenz.materialdrawer.R$layout: int notification_template_media
+com.mikepenz.materialdrawer.R$layout: int notification_template_media_custom
 com.mikepenz.materialdrawer.R$layout: int notification_template_part_chronometer
 com.mikepenz.materialdrawer.R$layout: int notification_template_part_time
 com.mikepenz.materialdrawer.R$layout: int select_dialog_item_material
@@ -16574,6 +16727,10 @@ com.mikepenz.materialdrawer.R$style: int Platform_V11_AppCompat
 com.mikepenz.materialdrawer.R$style: int Platform_V11_AppCompat_Light
 com.mikepenz.materialdrawer.R$style: int Platform_V14_AppCompat
 com.mikepenz.materialdrawer.R$style: int Platform_V14_AppCompat_Light
+com.mikepenz.materialdrawer.R$style: int Platform_V21_AppCompat
+com.mikepenz.materialdrawer.R$style: int Platform_V21_AppCompat_Light
+com.mikepenz.materialdrawer.R$style: int Platform_V25_AppCompat
+com.mikepenz.materialdrawer.R$style: int Platform_V25_AppCompat_Light
 com.mikepenz.materialdrawer.R$style: int Platform_Widget_AppCompat_Spinner
 com.mikepenz.materialdrawer.R$style: int RtlOverlay_DialogWindowTitle_AppCompat
 com.mikepenz.materialdrawer.R$style: int RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
@@ -16609,6 +16766,16 @@ com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_Light_Widget_P
 com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_Medium
 com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_Medium_Inverse
 com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_Menu
+com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_Notification
+com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_Notification_Info
+com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_Notification_Info_Media
+com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_Notification_Line2
+com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_Notification_Line2_Media
+com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_Notification_Media
+com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_Notification_Time
+com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_Notification_Time_Media
+com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_Notification_Title
+com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_Notification_Title_Media
 com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_SearchResult_Subtitle
 com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_SearchResult_Title
 com.mikepenz.materialdrawer.R$style: int TextAppearance_AppCompat_Small
@@ -16736,6 +16903,8 @@ com.mikepenz.materialdrawer.R$style: int Widget_AppCompat_ListPopupWindow
 com.mikepenz.materialdrawer.R$style: int Widget_AppCompat_ListView
 com.mikepenz.materialdrawer.R$style: int Widget_AppCompat_ListView_DropDown
 com.mikepenz.materialdrawer.R$style: int Widget_AppCompat_ListView_Menu
+com.mikepenz.materialdrawer.R$style: int Widget_AppCompat_NotificationActionContainer
+com.mikepenz.materialdrawer.R$style: int Widget_AppCompat_NotificationActionText
 com.mikepenz.materialdrawer.R$style: int Widget_AppCompat_PopupMenu
 com.mikepenz.materialdrawer.R$style: int Widget_AppCompat_PopupMenu_Overflow
 com.mikepenz.materialdrawer.R$style: int Widget_AppCompat_PopupWindow
@@ -16756,6 +16925,7 @@ com.mikepenz.materialdrawer.R$style: int Widget_AppCompat_TextView_SpinnerItem
 com.mikepenz.materialdrawer.R$style: int Widget_AppCompat_Toolbar
 com.mikepenz.materialdrawer.R$style: int Widget_AppCompat_Toolbar_Button_Navigation
 com.mikepenz.materialdrawer.R$style: int Widget_Design_AppBarLayout
+com.mikepenz.materialdrawer.R$style: int Widget_Design_BottomNavigationView
 com.mikepenz.materialdrawer.R$style: int Widget_Design_BottomSheet_Modal
 com.mikepenz.materialdrawer.R$style: int Widget_Design_CollapsingToolbar
 com.mikepenz.materialdrawer.R$style: int Widget_Design_CoordinatorLayout
@@ -16967,6 +17137,12 @@ com.mikepenz.materialdrawer.R$styleable: int[] BezelImageView
 com.mikepenz.materialdrawer.R$styleable: int BezelImageView_biv_drawCircularShadow
 com.mikepenz.materialdrawer.R$styleable: int BezelImageView_biv_maskDrawable
 com.mikepenz.materialdrawer.R$styleable: int BezelImageView_biv_selectorOnPress
+com.mikepenz.materialdrawer.R$styleable: int[] BottomNavigationView
+com.mikepenz.materialdrawer.R$styleable: int BottomNavigationView_elevation
+com.mikepenz.materialdrawer.R$styleable: int BottomNavigationView_itemBackground
+com.mikepenz.materialdrawer.R$styleable: int BottomNavigationView_itemIconTint
+com.mikepenz.materialdrawer.R$styleable: int BottomNavigationView_itemTextColor
+com.mikepenz.materialdrawer.R$styleable: int BottomNavigationView_menu
 com.mikepenz.materialdrawer.R$styleable: int[] BottomSheetBehavior_Layout
 com.mikepenz.materialdrawer.R$styleable: int BottomSheetBehavior_Layout_behavior_hideable
 com.mikepenz.materialdrawer.R$styleable: int BottomSheetBehavior_Layout_behavior_peekHeight
@@ -17227,6 +17403,7 @@ com.mikepenz.materialdrawer.R$styleable: int TextAppearance_android_shadowDx
 com.mikepenz.materialdrawer.R$styleable: int TextAppearance_android_shadowDy
 com.mikepenz.materialdrawer.R$styleable: int TextAppearance_android_shadowRadius
 com.mikepenz.materialdrawer.R$styleable: int TextAppearance_android_textColor
+com.mikepenz.materialdrawer.R$styleable: int TextAppearance_android_textColorHint
 com.mikepenz.materialdrawer.R$styleable: int TextAppearance_android_textSize
 com.mikepenz.materialdrawer.R$styleable: int TextAppearance_android_textStyle
 com.mikepenz.materialdrawer.R$styleable: int TextAppearance_android_typeface

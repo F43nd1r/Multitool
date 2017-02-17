@@ -12,6 +12,10 @@
         android:title="@string/menu_rename"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/action_disable"
+        android:title="@string/menu_disable"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/action_backup"
         android:title="@string/menu_backup"
         app:showAsAction="never"/>

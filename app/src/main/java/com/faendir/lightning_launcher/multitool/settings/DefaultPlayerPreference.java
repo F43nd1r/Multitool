@@ -14,7 +14,8 @@ import java8.util.stream.Collectors;
 import java8.util.stream.StreamSupport;
 
 /**
- * Created by Lukas on 08.11.2016.
+ * @author F43nd1r
+ * @since 08.11.2016
  */
 
 public class DefaultPlayerPreference extends ListPreference implements SummaryPreference {

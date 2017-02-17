@@ -3,14 +3,14 @@ apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '24.0.3'
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 70
-        versionName "2.9.6"
+        versionCode 71
+        versionName "2.9.7"
     }
     buildTypes {
         release {
@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    def supportVersion = "25.1.0"
+    def supportVersion = "25.1.1"
     def streamVersion = "1.5.2"
     compile('com.faendir.lightninglauncher:scriptlib:2.3-SNAPSHOT') {
         changing = true
@@ -50,8 +50,8 @@ dependencies {
     compile 'com.faendir:acra:4.9.2-SNAPSHOT'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'org.apache.commons:commons-collections4:4.1'
-    compile 'com.anjlab.android.iab.v3:library:1.0.33'
-    compile 'com.mikepenz:materialdrawer:5.6.0'
+    compile 'com.anjlab.android.iab.v3:library:1.0.38'
+    compile 'com.mikepenz:materialdrawer:5.8.1'
     compile "net.sourceforge.streamsupport:streamsupport:$streamVersion"
     compile "net.sourceforge.streamsupport:streamsupport-cfuture:$streamVersion"
     compile "net.sourceforge.streamsupport:streamsupport-atomic:$streamVersion"

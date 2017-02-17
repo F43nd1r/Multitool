@@ -1,18 +1,21 @@
 package com.faendir.lightning_launcher.multitool.scriptmanager;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.view.ActionMode;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
@@ -179,11 +182,14 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
 
     @Override
     public void bindView(View view, ScriptItem item, int level) {
-        TextView txt = ((TextView) view);
+        AppCompatTextView txt = (AppCompatTextView) view;
         txt.setText(item.getName());
+        boolean isScript = item instanceof Script;
         //noinspection deprecation
-        Drawable icon = context.getResources().getDrawable(item instanceof Folder ? R.drawable.ic_folder_white : R.drawable.ic_file_white);
-        txt.setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null);
+        Drawable icon = DrawableCompat.wrap(context.getResources().getDrawable(isScript ? R.drawable.ic_file_white : R.drawable.ic_folder_white));
+        DrawableCompat.setTint(icon, isScript && ((Script) item).isDisabled() ? Color.RED : Color.WHITE);
+        DrawableCompat.setTintMode(icon, PorterDuff.Mode.SRC_IN);
+        txt.setCompoundDrawablesWithIntrinsicBounds(icon.mutate(), null, null, null);
     }
 
     @Override
@@ -197,10 +203,16 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
         int selectionMode = getSelectionMode();
         if (selectionMode == ListManager.NONE) mode.finish();
-        menu.findItem(R.id.action_rename).setVisible(selectionMode == ListManager.ONE_GROUP || selectionMode == ListManager.ONE_SCRIPT);
-        menu.findItem(R.id.action_edit).setVisible(selectionMode == ListManager.ONE_SCRIPT);
-        menu.findItem(R.id.action_backup).setVisible(selectionMode == ListManager.ONLY_SCRIPTS || selectionMode == ListManager.ONE_SCRIPT);
-        menu.findItem(R.id.action_format).setVisible(selectionMode == ListManager.ONLY_SCRIPTS || selectionMode == ListManager.ONE_SCRIPT);
+        final boolean isOneScript = selectionMode == ListManager.ONE_SCRIPT;
+        final boolean onlyScripts = isOneScript || selectionMode == ListManager.ONLY_SCRIPTS;
+        menu.findItem(R.id.action_rename).setVisible(selectionMode == ListManager.ONE_GROUP || isOneScript);
+        menu.findItem(R.id.action_edit).setVisible(isOneScript);
+        menu.findItem(R.id.action_backup).setVisible(onlyScripts);
+        menu.findItem(R.id.action_format).setVisible(onlyScripts);
+        MenuItem disable = menu.findItem(R.id.action_disable).setVisible(isOneScript);
+        if (isOneScript) {
+            disable.setTitle(((Script) getSelectedItems().get(0)).isDisabled() ? R.string.menu_enable : R.string.menu_disable);
+        }
         return true;
     }
 
@@ -224,6 +236,9 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
                 break;
             case R.id.action_format:
                 ScriptUtils.format(scriptManager, context, this, selectedItems);
+                break;
+            case R.id.action_disable:
+                ScriptUtils.toggleDisable(scriptManager, this, (Script) selectedItems.get(0));
                 break;
         }
         return true;

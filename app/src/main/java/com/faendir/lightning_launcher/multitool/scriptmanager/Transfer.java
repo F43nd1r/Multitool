@@ -10,7 +10,7 @@ class Transfer {
     public static final String DELETE = "DELETE";
     public static final String RESTORE = "RESTORE";
     public static final String SET_CODE = "SET_CODE";
-    public static final String PRETTIFY = "PRETTIFY";
+    public static final String TOGGLE_DISABLE = "TOGGLE_DISABLE";
 
 
     public Script script;

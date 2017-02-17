@@ -45,8 +45,11 @@ android.support.annotation.VisibleForTesting
 android.support.annotation.WorkerThread
 android.support.annotation.XmlRes
 android.support.compat.BuildConfig
+android.support.compat.R
 android.support.coreui.BuildConfig
+android.support.coreui.R
 android.support.coreutils.BuildConfig
+android.support.coreutils.R
 android.support.design.BuildConfig
 android.support.design.R:
     9:9:public R()
@@ -102,6 +105,7 @@ android.support.design.internal.TextScale:
     private static final java.lang.String PROPNAME_SCALE
 android.support.design.internal.package-info
 android.support.fragment.BuildConfig
+android.support.fragment.R
 android.support.graphics.drawable.AndroidResources:
     static final int styleable_VectorDrawable_alpha
     static final int styleable_VectorDrawable_autoMirrored
@@ -153,6 +157,7 @@ android.support.graphics.drawable.PathParser:
     63:73:public static android.graphics.Path createPathFromPathData(java.lang.String)
 android.support.graphics.drawable.PathParser$PathDataNode:
     336:340:public void interpolatePathDataNode(android.support.graphics.drawable.PathParser$PathDataNode,android.support.graphics.drawable.PathParser$PathDataNode,float)
+android.support.graphics.drawable.R
 android.support.graphics.drawable.TypedArrayUtils:
     private static final java.lang.String NAMESPACE
     21:21:TypedArrayUtils()
@@ -183,7 +188,9 @@ android.support.graphics.drawable.VectorDrawableCompat$VPath:
 android.support.graphics.drawable.VectorDrawableCompat$VectorDrawableCompatState:
     int[] mCachedThemeAttrs
 android.support.graphics.drawable.animated.BuildConfig
+android.support.graphics.drawable.animated.R
 android.support.mediacompat.BuildConfig
+android.support.mediacompat.R
 android.support.percent.BuildConfig
 android.support.percent.PercentFrameLayout
 android.support.percent.PercentFrameLayout$LayoutParams
@@ -483,6 +490,7 @@ android.support.transition.VisibilityPort:
     private static final java.lang.String PROPNAME_VISIBILITY
     private static final java.lang.String PROPNAME_PARENT
 android.support.v4.BuildConfig
+android.support.v4.R
 android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat
 android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat$AccessibilityServiceInfoIcsImpl
 android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat$AccessibilityServiceInfoJellyBeanImpl
@@ -569,21 +577,21 @@ android.support.v4.app.BackStackRecord:
     486:486:public android.support.v4.app.FragmentTransaction setCustomAnimations(int,int)
     492:496:public android.support.v4.app.FragmentTransaction setCustomAnimations(int,int,int,int)
     501:502:public android.support.v4.app.FragmentTransaction setTransition(int)
-    507:521:public android.support.v4.app.FragmentTransaction addSharedElement(android.view.View,java.lang.String)
-    526:527:public android.support.v4.app.FragmentTransaction setTransitionStyle(int)
-    532:538:public android.support.v4.app.FragmentTransaction addToBackStack(java.lang.String)
-    543:543:public boolean isAddToBackStackAllowed()
-    548:553:public android.support.v4.app.FragmentTransaction disallowAddToBackStack()
-    558:560:public android.support.v4.app.FragmentTransaction setBreadCrumbTitle(int)
-    565:567:public android.support.v4.app.FragmentTransaction setBreadCrumbTitle(java.lang.CharSequence)
-    572:574:public android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(int)
-    579:581:public android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(java.lang.CharSequence)
-    613:615:public void commitNow()
-    619:621:public void commitNowAllowingStateLoss()
-    625:626:public android.support.v4.app.FragmentTransaction setAllowOptimization(boolean)
-    889:889:public int getTransition()
-    893:893:public int getTransitionStyle()
-    898:898:public boolean isEmpty()
+    507:527:public android.support.v4.app.FragmentTransaction addSharedElement(android.view.View,java.lang.String)
+    532:533:public android.support.v4.app.FragmentTransaction setTransitionStyle(int)
+    538:544:public android.support.v4.app.FragmentTransaction addToBackStack(java.lang.String)
+    549:549:public boolean isAddToBackStackAllowed()
+    554:559:public android.support.v4.app.FragmentTransaction disallowAddToBackStack()
+    564:566:public android.support.v4.app.FragmentTransaction setBreadCrumbTitle(int)
+    571:573:public android.support.v4.app.FragmentTransaction setBreadCrumbTitle(java.lang.CharSequence)
+    578:580:public android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(int)
+    585:587:public android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(java.lang.CharSequence)
+    619:621:public void commitNow()
+    625:627:public void commitNowAllowingStateLoss()
+    631:632:public android.support.v4.app.FragmentTransaction setAllowOptimization(boolean)
+    918:918:public int getTransition()
+    922:922:public int getTransitionStyle()
+    927:927:public boolean isEmpty()
 android.support.v4.app.BundleCompat:
     29:29:private BundleCompat()
     54:59:public static void putBinder(android.os.Bundle,java.lang.String,android.os.IBinder)
@@ -598,7 +606,7 @@ android.support.v4.app.BundleCompatJellybeanMR2:
     35:36:public static void putBinder(android.os.Bundle,java.lang.String,android.os.IBinder)
 android.support.v4.app.BundleUtil
 android.support.v4.app.Fragment$SavedState:
-    332:334:Fragment$SavedState(android.os.Bundle)
+    337:339:Fragment$SavedState(android.os.Bundle)
 android.support.v4.app.FragmentActivity$HostCallbacks:
     1041:1042:public void onStartActivityFromFragment(android.support.v4.app.Fragment,android.content.Intent,int)
 android.support.v4.app.FragmentController:
@@ -614,7 +622,7 @@ android.support.v4.app.FragmentHostCallback:
     275:279:void doLoaderRetain()
 android.support.v4.app.FragmentManager:
     public static final int POP_BACK_STACK_INCLUSIVE
-    164:164:public android.support.v4.app.FragmentTransaction openTransaction()
+    165:165:public android.support.v4.app.FragmentTransaction openTransaction()
     public abstract boolean executePendingTransactions()
     public abstract android.support.v4.app.Fragment findFragmentById(int)
     public abstract void popBackStack()
@@ -632,11 +640,11 @@ android.support.v4.app.FragmentManager:
     public abstract boolean isDestroyed()
     public abstract void registerFragmentLifecycleCallbacks(android.support.v4.app.FragmentManager$FragmentLifecycleCallbacks,boolean)
     public abstract void unregisterFragmentLifecycleCallbacks(android.support.v4.app.FragmentManager$FragmentLifecycleCallbacks)
-    403:404:public static void enableDebugLogging(boolean)
+    404:405:public static void enableDebugLogging(boolean)
 android.support.v4.app.FragmentManager$BackStackEntry
 android.support.v4.app.FragmentManager$FragmentLifecycleCallbacks:
     final synthetic android.support.v4.app.FragmentManager this$0
-    410:410:public FragmentManager$FragmentLifecycleCallbacks(android.support.v4.app.FragmentManager)
+    411:411:public FragmentManager$FragmentLifecycleCallbacks(android.support.v4.app.FragmentManager)
 android.support.v4.app.FragmentManagerImpl:
     static final java.lang.String TAG
     static final java.lang.String TARGET_REQUEST_CODE_STATE_TAG
@@ -651,26 +659,26 @@ android.support.v4.app.FragmentManagerImpl:
     public static final int ANIM_STYLE_CLOSE_EXIT
     public static final int ANIM_STYLE_FADE_ENTER
     public static final int ANIM_STYLE_FADE_EXIT
-    762:764:public boolean executePendingTransactions()
-    769:770:public void popBackStack()
-    780:781:public void popBackStack(java.lang.String,int)
-    785:786:public boolean popBackStackImmediate(java.lang.String,int)
-    799:804:public boolean popBackStackImmediate(int,int)
-    834:834:public int getBackStackEntryCount()
-    839:839:public android.support.v4.app.FragmentManager$BackStackEntry getBackStackEntryAt(int)
-    844:848:public void addOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
-    852:855:public void removeOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
-    886:886:public java.util.List getFragments()
-    891:899:public android.support.v4.app.Fragment$SavedState saveFragmentInstanceState(android.support.v4.app.Fragment)
-    904:904:public boolean isDestroyed()
-    1965:1976:public void execSingleAction(android.support.v4.app.FragmentManagerImpl$OpGenerator,boolean)
-    3009:3013:public void registerFragmentLifecycleCallbacks(android.support.v4.app.FragmentManager$FragmentLifecycleCallbacks,boolean)
-    3016:3028:public void unregisterFragmentLifecycleCallbacks(android.support.v4.app.FragmentManager$FragmentLifecycleCallbacks)
+    763:765:public boolean executePendingTransactions()
+    770:771:public void popBackStack()
+    781:782:public void popBackStack(java.lang.String,int)
+    786:787:public boolean popBackStackImmediate(java.lang.String,int)
+    800:805:public boolean popBackStackImmediate(int,int)
+    835:835:public int getBackStackEntryCount()
+    840:840:public android.support.v4.app.FragmentManager$BackStackEntry getBackStackEntryAt(int)
+    845:849:public void addOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
+    853:856:public void removeOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
+    887:887:public java.util.List getFragments()
+    892:900:public android.support.v4.app.Fragment$SavedState saveFragmentInstanceState(android.support.v4.app.Fragment)
+    905:905:public boolean isDestroyed()
+    1975:1986:public void execSingleAction(android.support.v4.app.FragmentManagerImpl$OpGenerator,boolean)
+    3065:3069:public void registerFragmentLifecycleCallbacks(android.support.v4.app.FragmentManager$FragmentLifecycleCallbacks,boolean)
+    3072:3084:public void unregisterFragmentLifecycleCallbacks(android.support.v4.app.FragmentManager$FragmentLifecycleCallbacks)
 android.support.v4.app.FragmentManagerImpl$FragmentTag:
     public static final int Fragment_id
     public static final int Fragment_name
     public static final int Fragment_tag
-    3404:3404:FragmentManagerImpl$FragmentTag()
+    3460:3460:FragmentManagerImpl$FragmentTag()
 android.support.v4.app.FragmentPagerAdapter
 android.support.v4.app.FragmentStatePagerAdapter
 android.support.v4.app.FragmentTabHost
@@ -710,9 +718,9 @@ android.support.v4.app.FragmentTransaction:
     public abstract void commitNow()
     public abstract void commitNowAllowingStateLoss()
 android.support.v4.app.FragmentTransition:
-    38:1095:FragmentTransition()
+    37:1116:FragmentTransition()
 android.support.v4.app.FragmentTransitionCompat21:
-    35:35:FragmentTransitionCompat21()
+    34:34:FragmentTransitionCompat21()
 android.support.v4.app.INotificationSideChannel
 android.support.v4.app.INotificationSideChannel$Stub
 android.support.v4.app.INotificationSideChannel$Stub$Proxy
@@ -2161,8 +2169,17 @@ android.support.v4.text.util.LinkifyCompat$LinkifyMask
 android.support.v4.util.ArrayMap:
     130:130:public boolean containsAll(java.util.Collection)
     151:151:public boolean removeAll(java.util.Collection)
-android.support.v4.util.ArraySet
-android.support.v4.util.ArraySet$1
+android.support.v4.util.ArraySet:
+    private static final boolean DEBUG
+    private static final java.lang.String TAG
+    private static final int BASE_SIZE
+    private static final int CACHE_SIZE
+    243:244:public ArraySet(int)
+    262:266:public ArraySet(android.support.v4.util.ArraySet)
+    270:274:public ArraySet(java.util.Collection)
+    409:430:public void append(java.lang.Object)
+    437:450:public void addAll(android.support.v4.util.ArraySet)
+    533:541:public boolean removeAll(android.support.v4.util.ArraySet)
 android.support.v4.util.AtomicFile
 android.support.v4.util.CircularArray
 android.support.v4.util.CircularIntArray
@@ -4984,14 +5001,14 @@ android.support.v7.widget.LinearLayoutManager:
     223:224:public void setRecycleChildrenOnDetach(boolean)
     315:315:public boolean getStackFromEnd()
     368:368:public boolean getReverseLayout()
-    1134:1135:public void setSmoothScrollbarEnabled(boolean)
-    1145:1145:public boolean isSmoothScrollbarEnabled()
-    1261:1262:public void setInitialPrefetchItemCount(int)
-    1277:1277:public int getInitialItemPrefetchCount()
-    1816:1817:public int findFirstCompletelyVisibleItemPosition()
-    1856:1857:public int findLastCompletelyVisibleItemPosition()
-    1935:1942:private void logChildren()
-    1955:1992:void validateChildOrder()
+    1142:1143:public void setSmoothScrollbarEnabled(boolean)
+    1153:1153:public boolean isSmoothScrollbarEnabled()
+    1269:1270:public void setInitialPrefetchItemCount(int)
+    1285:1285:public int getInitialItemPrefetchCount()
+    1824:1825:public int findFirstCompletelyVisibleItemPosition()
+    1864:1865:public int findLastCompletelyVisibleItemPosition()
+    1943:1950:private void logChildren()
+    1963:2000:void validateChildOrder()
 android.support.v7.widget.LinearLayoutManager$LayoutState:
     static final java.lang.String TAG
     static final int LAYOUT_START
@@ -5000,7 +5017,7 @@ android.support.v7.widget.LinearLayoutManager$LayoutState:
     static final int ITEM_DIRECTION_HEAD
     static final int ITEM_DIRECTION_TAIL
     static final int SCROLLING_OFFSET_NaN
-    2213:2215:void log()
+    2221:2223:void log()
 android.support.v7.widget.LinearSmoothScroller:
     private static final java.lang.String TAG
     private static final boolean DEBUG
@@ -5104,104 +5121,104 @@ android.support.v7.widget.RecyclerView:
     public static final int SCROLL_STATE_DRAGGING
     public static final int SCROLL_STATE_SETTLING
     static final long FOREVER_NS
-    887:887:public boolean hasFixedSize()
-    961:965:public void swapAdapter(android.support.v7.widget.RecyclerView$Adapter,boolean)
-    1111:1114:public void clearOnChildAttachStateChangeListeners()
-    1488:1491:public void removeOnScrollListener(android.support.v7.widget.RecyclerView$OnScrollListener)
-    1497:1500:public void clearOnScrollListeners()
-    1942:1942:public boolean isLayoutFrozen()
-    2500:2508:void assertInLayoutOrScroll(java.lang.String)
-    3899:3899:public boolean isAnimating()
-    4094:4103:public void invalidateItemDecorations()
-    4204:4204:public int getChildPosition(android.view.View)
-    4240:4244:public long getChildItemId(android.view.View)
-    4253:4253:public android.support.v7.widget.RecyclerView$ViewHolder findViewHolderForPosition(int)
-    4276:4276:public android.support.v7.widget.RecyclerView$ViewHolder findViewHolderForLayoutPosition(int)
-    4462:4463:public void getDecoratedBoundsWithMargins(android.view.View,android.graphics.Rect)
+    897:897:public boolean hasFixedSize()
+    971:975:public void swapAdapter(android.support.v7.widget.RecyclerView$Adapter,boolean)
+    1121:1124:public void clearOnChildAttachStateChangeListeners()
+    1498:1501:public void removeOnScrollListener(android.support.v7.widget.RecyclerView$OnScrollListener)
+    1507:1510:public void clearOnScrollListeners()
+    1952:1952:public boolean isLayoutFrozen()
+    2510:2518:void assertInLayoutOrScroll(java.lang.String)
+    3928:3928:public boolean isAnimating()
+    4123:4132:public void invalidateItemDecorations()
+    4233:4233:public int getChildPosition(android.view.View)
+    4269:4273:public long getChildItemId(android.view.View)
+    4282:4282:public android.support.v7.widget.RecyclerView$ViewHolder findViewHolderForPosition(int)
+    4305:4305:public android.support.v7.widget.RecyclerView$ViewHolder findViewHolderForLayoutPosition(int)
+    4491:4492:public void getDecoratedBoundsWithMargins(android.view.View,android.graphics.Rect)
 android.support.v7.widget.RecyclerView$Adapter:
-    6603:6604:public final void notifyItemChanged(int,java.lang.Object)
+    6632:6633:public final void notifyItemChanged(int,java.lang.Object)
 android.support.v7.widget.RecyclerView$ItemAnimator:
     public static final int FLAG_CHANGED
     public static final int FLAG_REMOVED
     public static final int FLAG_INVALIDATED
     public static final int FLAG_MOVED
     public static final int FLAG_APPEARED_IN_PRE_LAYOUT
-    11598:11599:public void setMoveDuration(long)
-    11616:11617:public void setAddDuration(long)
-    11634:11635:public void setRemoveDuration(long)
-    11652:11653:public void setChangeDuration(long)
-    12028:12029:public final void dispatchAnimationStarted(android.support.v7.widget.RecyclerView$ViewHolder)
-    12040:12040:public void onAnimationStarted(android.support.v7.widget.RecyclerView$ViewHolder)
+    11627:11628:public void setMoveDuration(long)
+    11645:11646:public void setAddDuration(long)
+    11663:11664:public void setRemoveDuration(long)
+    11681:11682:public void setChangeDuration(long)
+    12057:12058:public final void dispatchAnimationStarted(android.support.v7.widget.RecyclerView$ViewHolder)
+    12069:12069:public void onAnimationStarted(android.support.v7.widget.RecyclerView$ViewHolder)
 android.support.v7.widget.RecyclerView$ItemAnimator$AdapterChanges
 android.support.v7.widget.RecyclerView$ItemAnimator$ItemHolderInfo:
     public int changeFlags
 android.support.v7.widget.RecyclerView$LayoutManager:
-    6974:6977:public void assertInLayoutOrScroll(java.lang.String)
-    7093:7093:public boolean isAutoMeasureEnabled()
-    7140:7147:public final void setItemPrefetchEnabled(boolean)
-    7244:7247:public void postOnAnimation(java.lang.Runnable)
-    7595:7598:public void endAnimation(android.view.View)
-    7745:7749:public void removeAllViews()
-    7779:7779:public int getItemViewType(android.view.View)
-    7857:7861:public void detachView(android.view.View)
-    7931:7932:public void attachView(android.view.View)
-    7941:7942:public void removeDetachedView(android.view.View)
-    7970:7972:public void detachAndScrapView(android.view.View,android.support.v7.widget.RecyclerView$Recycler)
-    7984:7986:public void detachAndScrapViewAt(int,android.support.v7.widget.RecyclerView$Recycler)
-    8126:8126:public int getPaddingStart()
-    8135:8135:public int getPaddingEnd()
-    8145:8145:public boolean isFocused()
-    8155:8155:public boolean hasFocus()
-    8185:8186:public int getItemCount()
-    8230:8238:public void ignoreView(android.view.View)
-    8250:8254:public void stopIgnoringView(android.view.View)
-    8342:8356:public void measureChild(android.view.View,int,int)
-    8396:8396:public boolean isMeasurementCacheEnabled()
-    8408:8409:public void setMeasurementCacheEnabled(boolean)
-    8475:8501:public static int getChildMeasureSpec(int,int,int,boolean)
-    8621:8624:public void layoutDecorated(android.view.View,int,int,int,int)
+    7003:7006:public void assertInLayoutOrScroll(java.lang.String)
+    7122:7122:public boolean isAutoMeasureEnabled()
+    7169:7176:public final void setItemPrefetchEnabled(boolean)
+    7273:7276:public void postOnAnimation(java.lang.Runnable)
+    7624:7627:public void endAnimation(android.view.View)
+    7774:7778:public void removeAllViews()
+    7808:7808:public int getItemViewType(android.view.View)
+    7886:7890:public void detachView(android.view.View)
+    7960:7961:public void attachView(android.view.View)
+    7970:7971:public void removeDetachedView(android.view.View)
+    7999:8001:public void detachAndScrapView(android.view.View,android.support.v7.widget.RecyclerView$Recycler)
+    8013:8015:public void detachAndScrapViewAt(int,android.support.v7.widget.RecyclerView$Recycler)
+    8155:8155:public int getPaddingStart()
+    8164:8164:public int getPaddingEnd()
+    8174:8174:public boolean isFocused()
+    8184:8184:public boolean hasFocus()
+    8214:8215:public int getItemCount()
+    8259:8267:public void ignoreView(android.view.View)
+    8279:8283:public void stopIgnoringView(android.view.View)
+    8371:8385:public void measureChild(android.view.View,int,int)
+    8425:8425:public boolean isMeasurementCacheEnabled()
+    8437:8438:public void setMeasurementCacheEnabled(boolean)
+    8504:8530:public static int getChildMeasureSpec(int,int,int,boolean)
+    8650:8653:public void layoutDecorated(android.view.View,int,int,int,int)
 android.support.v7.widget.RecyclerView$LayoutParams:
-    10523:10523:public boolean viewNeedsUpdate()
-    10563:10563:public int getViewPosition()
-    10585:10585:public int getViewAdapterPosition()
+    10552:10552:public boolean viewNeedsUpdate()
+    10592:10592:public int getViewPosition()
+    10614:10614:public int getViewAdapterPosition()
 android.support.v7.widget.RecyclerView$OnFlingListener:
-    11453:11453:public RecyclerView$OnFlingListener()
+    11482:11482:public RecyclerView$OnFlingListener()
 android.support.v7.widget.RecyclerView$RecycledViewPool:
     private static final int DEFAULT_MAX_SCRAP
-    4950:4958:public void setMaxRecycledViews(int,int)
-    4964:4964:public int getRecycledViewCount(int)
-    4977:4984:int size()
+    4979:4987:public void setMaxRecycledViews(int,int)
+    4993:4993:public int getRecycledViewCount(int)
+    5006:5013:int size()
 android.support.v7.widget.RecyclerView$Recycler:
     static final int DEFAULT_CACHE_SIZE
-    5284:5313:public void bindViewToPosition(android.view.View,int)
-    5612:5613:void recycleViewInternal(android.view.View)
+    5313:5342:public void bindViewToPosition(android.view.View,int)
+    5641:5642:void recycleViewInternal(android.view.View)
 android.support.v7.widget.RecyclerView$SimpleOnItemTouchListener
 android.support.v7.widget.RecyclerView$SmoothScroller:
-    10798:10799:public void instantScrollToPosition(int)
+    10827:10828:public void instantScrollToPosition(int)
 android.support.v7.widget.RecyclerView$SmoothScroller$Action:
     public static final int UNDEFINED_DURATION
-    10894:10895:public RecyclerView$SmoothScroller$Action(int,int,int)
-    10976:10976:public int getDx()
-    10980:10982:public void setDx(int)
-    10985:10985:public int getDy()
-    10989:10991:public void setDy(int)
-    10994:10994:public int getDuration()
-    10998:11000:public void setDuration(int)
-    11003:11003:public android.view.animation.Interpolator getInterpolator()
-    11013:11015:public void setInterpolator(android.view.animation.Interpolator)
+    10923:10924:public RecyclerView$SmoothScroller$Action(int,int,int)
+    11005:11005:public int getDx()
+    11009:11011:public void setDx(int)
+    11014:11014:public int getDy()
+    11018:11020:public void setDy(int)
+    11023:11023:public int getDuration()
+    11027:11029:public void setDuration(int)
+    11032:11032:public android.view.animation.Interpolator getInterpolator()
+    11042:11044:public void setInterpolator(android.view.animation.Interpolator)
 android.support.v7.widget.RecyclerView$State:
     static final int STEP_START
     static final int STEP_LAYOUT
     static final int STEP_ANIMATIONS
-    11255:11262:android.support.v7.widget.RecyclerView$State reset()
-    11296:11296:public boolean isMeasuring()
-    11326:11326:public boolean willRunSimpleAnimations()
-    11335:11339:public void remove(int)
-    11350:11353:public java.lang.Object get(int)
-    11365:11369:public void put(int,java.lang.Object)
-    11396:11396:public boolean didStructureChange()
+    11284:11291:android.support.v7.widget.RecyclerView$State reset()
+    11325:11325:public boolean isMeasuring()
+    11355:11355:public boolean willRunSimpleAnimations()
+    11364:11368:public void remove(int)
+    11379:11382:public java.lang.Object get(int)
+    11394:11398:public void put(int,java.lang.Object)
+    11425:11425:public boolean didStructureChange()
 android.support.v7.widget.RecyclerView$ViewCacheExtension:
-    6173:6173:public RecyclerView$ViewCacheExtension()
+    6202:6202:public RecyclerView$ViewCacheExtension()
 android.support.v7.widget.RecyclerView$ViewHolder:
     static final int FLAG_BOUND
     static final int FLAG_UPDATE
@@ -5217,8 +5234,8 @@ android.support.v7.widget.RecyclerView$ViewHolder:
     static final int FLAG_APPEARED_IN_PRE_LAYOUT
     static final int PENDING_ACCESSIBILITY_STATE_NOT_SET
     static final int FLAG_BOUNCED_FROM_HIDDEN_LIST
-    10077:10077:public final int getPosition()
-    10188:10189:void stopIgnoring()
+    10106:10106:public final int getPosition()
+    10217:10218:void stopIgnoring()
 android.support.v7.widget.RtlSpacingHelper:
     public static final int UNDEFINED
 android.support.v7.widget.ScrollbarHelper:
@@ -5252,25 +5269,25 @@ android.support.v7.widget.SearchView:
     private android.text.TextWatcher mTextWatcher
     288:289:public SearchView(android.content.Context)
     292:293:public SearchView(android.content.Context,android.util.AttributeSet)
-    137:1760:public SearchView(android.content.Context,android.util.AttributeSet,int)
+    137:1756:public SearchView(android.content.Context,android.util.AttributeSet,int)
     407:414:private void addOnLayoutChangeListenerToDropDownAnchorSDK11()
     417:424:private void addOnLayoutChangeListenerToDropDownAnchorBase()
-    696:696:public boolean isIconfiedByDefault()
-    746:746:public boolean isSubmitButtonEnabled()
-    776:776:public boolean isQueryRefinementEnabled()
-    990:1001:void updateFocusedState()
-    1098:1137:boolean onSuggestionsKey(android.view.View,int,android.view.KeyEvent)
-    1229:1240:void onTextChanged(java.lang.CharSequence)
-    1291:1310:void onVoiceClicked()
-    1415:1436:void adjustDropDownSizeAndPosition()
-    1439:1446:boolean onItemClicked(int,int,java.lang.String)
-    1450:1455:boolean onItemSelected(int)
-    1495:1515:private void rewriteQueryFromSuggestion(int)
-    1528:1538:private boolean launchSuggestion(int,int,java.lang.String)
-    1545:1555:private void launchIntent(android.content.Intent)
-    1618:1622:private android.content.Intent createVoiceWebSearchIntent(android.content.Intent,android.app.SearchableInfo)
-    1633:1688:private android.content.Intent createVoiceAppSearchIntent(android.content.Intent,android.app.SearchableInfo)
-    1707:1743:private android.content.Intent createIntentFromSuggestion(android.database.Cursor,int,java.lang.String)
+    692:692:public boolean isIconfiedByDefault()
+    742:742:public boolean isSubmitButtonEnabled()
+    772:772:public boolean isQueryRefinementEnabled()
+    986:997:void updateFocusedState()
+    1094:1133:boolean onSuggestionsKey(android.view.View,int,android.view.KeyEvent)
+    1225:1236:void onTextChanged(java.lang.CharSequence)
+    1287:1306:void onVoiceClicked()
+    1411:1432:void adjustDropDownSizeAndPosition()
+    1435:1442:boolean onItemClicked(int,int,java.lang.String)
+    1446:1451:boolean onItemSelected(int)
+    1491:1511:private void rewriteQueryFromSuggestion(int)
+    1524:1534:private boolean launchSuggestion(int,int,java.lang.String)
+    1541:1551:private void launchIntent(android.content.Intent)
+    1614:1618:private android.content.Intent createVoiceWebSearchIntent(android.content.Intent,android.app.SearchableInfo)
+    1629:1684:private android.content.Intent createVoiceAppSearchIntent(android.content.Intent,android.app.SearchableInfo)
+    1703:1739:private android.content.Intent createIntentFromSuggestion(android.database.Cursor,int,java.lang.String)
 android.support.v7.widget.SearchView$1
 android.support.v7.widget.SearchView$10
 android.support.v7.widget.SearchView$11
@@ -5284,15 +5301,15 @@ android.support.v7.widget.SearchView$7
 android.support.v7.widget.SearchView$8
 android.support.v7.widget.SearchView$9
 android.support.v7.widget.SearchView$AutoCompleteTextViewReflector:
-    2079:2089:void showSoftInputUnchecked(android.view.inputmethod.InputMethodManager,android.view.View,int)
+    2075:2085:void showSoftInputUnchecked(android.view.inputmethod.InputMethodManager,android.view.View,int)
 android.support.v7.widget.SearchView$OnQueryTextListener:
     public abstract boolean onQueryTextChange(java.lang.String)
 android.support.v7.widget.SearchView$OnSuggestionListener:
     public abstract boolean onSuggestionSelect(int)
     public abstract boolean onSuggestionClick(int)
 android.support.v7.widget.SearchView$SearchAutoComplete:
-    1915:1915:private boolean isEmpty()
-    1875:1875:static synthetic boolean access$000(android.support.v7.widget.SearchView$SearchAutoComplete)
+    1911:1911:private boolean isEmpty()
+    1871:1871:static synthetic boolean access$000(android.support.v7.widget.SearchView$SearchAutoComplete)
 android.support.v7.widget.ShareActionProvider
 android.support.v7.widget.ShareActionProvider$OnShareTargetSelectedListener
 android.support.v7.widget.ShareActionProvider$ShareActivityChooserModelPolicy
@@ -5324,20 +5341,20 @@ android.support.v7.widget.StaggeredGridLayoutManager:
     1023:1032:public int[] findLastVisibleItemPositions(int[])
     1055:1064:public int[] findLastCompletelyVisibleItemPositions(int[])
     2066:2072:public void scrollToPositionWithOffset(int,int)
-    2234:2234:public int getOrientation()
+    2242:2242:public int getOrientation()
 android.support.v7.widget.StaggeredGridLayoutManager$LayoutParams:
     public static final int INVALID_SPAN_ID
-    2384:2385:public StaggeredGridLayoutManager$LayoutParams(android.support.v7.widget.RecyclerView$LayoutParams)
-    2396:2397:public void setFullSpan(boolean)
+    2392:2393:public StaggeredGridLayoutManager$LayoutParams(android.support.v7.widget.RecyclerView$LayoutParams)
+    2404:2405:public void setFullSpan(boolean)
 android.support.v7.widget.StaggeredGridLayoutManager$LazySpanLookup:
     private static final int MIN_SIZE
 android.support.v7.widget.StaggeredGridLayoutManager$Span:
     static final int INVALID_LINE
-    2612:2614:public int findFirstVisibleItemPosition()
-    2618:2620:public int findFirstCompletelyVisibleItemPosition()
-    2624:2626:public int findLastVisibleItemPosition()
-    2630:2632:public int findLastCompletelyVisibleItemPosition()
-    2636:2653:int findOneVisibleChild(int,int,boolean)
+    2620:2622:public int findFirstVisibleItemPosition()
+    2626:2628:public int findFirstCompletelyVisibleItemPosition()
+    2632:2634:public int findLastVisibleItemPosition()
+    2638:2640:public int findLastCompletelyVisibleItemPosition()
+    2644:2661:int findOneVisibleChild(int,int,boolean)
 android.support.v7.widget.SuggestionsAdapter:
     private static final boolean DBG
     private static final java.lang.String LOG_TAG
@@ -5471,6 +5488,7 @@ android.support.v7.widget.helper.ItemTouchUIUtilImpl:
 android.support.v7.widget.util.SortedListAdapterCallback:
     52:53:public void onMoved(int,int)
 ch.acra.acra.BuildConfig
+ch.acra.acra.R
 com.android.vending.billing.IInAppBillingService$Stub:
     private static final java.lang.String DESCRIPTOR
     static final int TRANSACTION_isBillingSupported
@@ -5488,8 +5506,8 @@ com.anjlab.android.iab.v3.BillingCache:
     private static final java.lang.String ENTRY_DELIMITER
     private static final java.lang.String LINE_DELIMITER
     private static final java.lang.String VERSION_KEY
-    95:100:public void remove(java.lang.String)
-    120:120:public java.util.List getContents()
+    95:100:void remove(java.lang.String)
+    120:120:java.util.List getContents()
 com.anjlab.android.iab.v3.BillingProcessor:
     private static final int PURCHASE_FLOW_REQUEST_CODE
     private static final java.lang.String LOG_TAG
@@ -5498,33 +5516,30 @@ com.anjlab.android.iab.v3.BillingProcessor:
     private static final java.lang.String MANAGED_PRODUCTS_CACHE_KEY
     private static final java.lang.String SUBSCRIPTIONS_CACHE_KEY
     private static final java.lang.String PURCHASE_PAYLOAD_CACHE_KEY
+    private boolean isOneTimePurchasesSupported
     private boolean isSubsUpdateSupported
-    149:149:public java.util.List listOwnedProducts()
-    153:153:public java.util.List listOwnedSubscriptions()
-    196:196:public boolean subscribe(android.app.Activity,java.lang.String)
-    200:200:public boolean purchase(android.app.Activity,java.lang.String,java.lang.String)
-    204:204:public boolean subscribe(android.app.Activity,java.lang.String,java.lang.String)
-    209:218:public boolean isSubscriptionUpdateSupported()
-    231:236:public boolean updateSubscription(android.app.Activity,java.lang.String,java.lang.String)
-    249:251:public boolean updateSubscription(android.app.Activity,java.util.List,java.lang.String)
-    351:372:public boolean consumePurchase(java.lang.String)
-    376:381:private com.anjlab.android.iab.v3.SkuDetails getSkuDetails(java.lang.String,java.lang.String)
-    385:414:private java.util.List getSkuDetails(java.util.ArrayList,java.lang.String)
-    418:418:public com.anjlab.android.iab.v3.SkuDetails getPurchaseListingDetails(java.lang.String)
-    422:422:public com.anjlab.android.iab.v3.SkuDetails getSubscriptionListingDetails(java.lang.String)
-    426:426:public java.util.List getPurchaseListingDetails(java.util.ArrayList)
-    430:430:public java.util.List getSubscriptionListingDetails(java.util.ArrayList)
-    503:506:public boolean isValidTransactionDetails(com.anjlab.android.iab.v3.TransactionDetails)
-    526:529:public static boolean isIabServiceAvailable(android.content.Context)
+    150:152:public static boolean isIabServiceAvailable(android.content.Context)
+    179:179:public java.util.List listOwnedProducts()
+    183:183:public java.util.List listOwnedSubscriptions()
+    226:226:public boolean subscribe(android.app.Activity,java.lang.String)
+    230:230:public boolean purchase(android.app.Activity,java.lang.String,java.lang.String)
+    234:234:public boolean subscribe(android.app.Activity,java.lang.String,java.lang.String)
+    238:247:public boolean isOneTimePurchaseSupported()
+    252:261:public boolean isSubscriptionUpdateSupported()
+    274:279:public boolean updateSubscription(android.app.Activity,java.lang.String,java.lang.String)
+    292:294:public boolean updateSubscription(android.app.Activity,java.util.List,java.lang.String)
+    394:415:public boolean consumePurchase(java.lang.String)
+    419:424:private com.anjlab.android.iab.v3.SkuDetails getSkuDetails(java.lang.String,java.lang.String)
+    428:457:private java.util.List getSkuDetails(java.util.ArrayList,java.lang.String)
+    461:461:public com.anjlab.android.iab.v3.SkuDetails getPurchaseListingDetails(java.lang.String)
+    465:465:public com.anjlab.android.iab.v3.SkuDetails getSubscriptionListingDetails(java.lang.String)
+    469:469:public java.util.List getPurchaseListingDetails(java.util.ArrayList)
+    473:473:public java.util.List getSubscriptionListingDetails(java.util.ArrayList)
+    562:565:public boolean isValidTransactionDetails(com.anjlab.android.iab.v3.TransactionDetails)
 com.anjlab.android.iab.v3.BuildConfig
 com.anjlab.android.iab.v3.Constants
 com.anjlab.android.iab.v3.PurchaseInfo:
     private static final java.lang.String LOG_TAG
-    106:116:public static com.anjlab.android.iab.v3.PurchaseInfo$PurchaseState getPurchaseState(int)
-    122:136:public com.anjlab.android.iab.v3.PurchaseInfo$ResponseData parseResponseData()
-com.anjlab.android.iab.v3.PurchaseInfo$PurchaseState
-com.anjlab.android.iab.v3.PurchaseInfo$ResponseData
-com.anjlab.android.iab.v3.PurchaseInfo$ResponseData$1
 com.anjlab.android.iab.v3.Security:
     private static final java.lang.String TAG
     private static final java.lang.String KEY_FACTORY_ALGORITHM
@@ -5547,6 +5562,7 @@ com.faendir.lightning_launcher.multitool.Loader:
     private static final java.lang.String MUSIC_WIDGET
     private static final java.lang.String DRAWER
     private static final java.lang.String IMMERSIVE
+    public static final int FLAG_DISABLED
     public static final int FLAG_APP_MENU
     public static final int FLAG_ITEM_MENU
     public static final int FLAG_CUSTOM_MENU
@@ -5578,7 +5594,7 @@ com.faendir.lightning_launcher.multitool.R$raw
 com.faendir.lightning_launcher.multitool.R$string
 com.faendir.lightning_launcher.multitool.R$style
 com.faendir.lightning_launcher.multitool.R$styleable:
-    4581:4581:public R$styleable()
+    4586:4586:public R$styleable()
 com.faendir.lightning_launcher.multitool.R$xml
 com.faendir.lightning_launcher.multitool.backup.BackupUtils:
     33:33:public BackupUtils()
@@ -5594,8 +5610,8 @@ com.faendir.lightning_launcher.multitool.music.MusicManager:
     private static final int ACTION_PLAY_PAUSE
     private static final int ACTION_NEXT
     private static final int ACTION_PREVIOUS
-com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler$$Lambda$2
-com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler$$Lambda$3
+com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler$$Lambda$4
+com.faendir.lightning_launcher.multitool.music.MusicManager$LocalHandler$$Lambda$5
 com.faendir.lightning_launcher.multitool.settings.PreferenceListener:
     75:76:void addPreference(android.preference.Preference,java.lang.Runnable,boolean)
     97:98:void addPreferenceForSummary(android.preference.Preference,java.lang.Runnable,boolean)
@@ -5614,7 +5630,7 @@ com.faendir.lightning_launcher.multitool.util.FileManager$IntentTypeAdapter:
 com.faendir.lightning_launcher.multitool.util.FileManagerFactory:
     16:17:private FileManagerFactory()
 com.faendir.lightning_launcher.multitool.util.Utils:
-    24:25:private Utils()
+    25:26:private Utils()
 com.faendir.omniadapter.ActionModeHelper
 com.faendir.omniadapter.ActionModeHelper$1
 com.faendir.omniadapter.BuildConfig
@@ -5978,37 +5994,46 @@ com.google.gson.stream.MalformedJsonException:
     39:43:public MalformedJsonException(java.lang.Throwable)
 com.mikepenz.fastadapter.AbstractAdapter:
     106:106:public com.mikepenz.fastadapter.IItem getItem(int)
+    251:252:public void clearMappedTypes()
 com.mikepenz.fastadapter.BuildConfig
 com.mikepenz.fastadapter.FastAdapter:
     protected static final java.lang.String BUNDLE_SELECTIONS
     protected static final java.lang.String BUNDLE_EXPANDED
-    101:102:public com.mikepenz.fastadapter.FastAdapter withOnPreClickListener(com.mikepenz.fastadapter.FastAdapter$OnClickListener)
-    123:124:public com.mikepenz.fastadapter.FastAdapter withOnPreLongClickListener(com.mikepenz.fastadapter.FastAdapter$OnLongClickListener)
-    134:135:public com.mikepenz.fastadapter.FastAdapter withOnTouchListener(com.mikepenz.fastadapter.FastAdapter$OnTouchListener)
-    145:146:public com.mikepenz.fastadapter.FastAdapter withOnCreateViewHolderListener(com.mikepenz.fastadapter.FastAdapter$OnCreateViewHolderListener)
-    156:157:public com.mikepenz.fastadapter.FastAdapter withOnBindViewHolderListener(com.mikepenz.fastadapter.FastAdapter$OnBindViewHolderListener)
-    170:171:public com.mikepenz.fastadapter.FastAdapter withSelectWithItemUpdate(boolean)
-    234:234:public boolean isSelectable()
-    252:253:public com.mikepenz.fastadapter.FastAdapter withOnlyOneExpandedItem(boolean)
-    260:260:public boolean isOnlyOneExpandedItem()
-    521:541:public int getPosition(com.mikepenz.fastadapter.IItem)
-    680:705:public int getExpandedItemsCount(int,int)
-    822:826:public java.util.Set getSelectedItems()
-    835:848:public void toggleSelection(int)
-    928:931:public void select(java.lang.Iterable)
-    1000:1001:public void select()
-    1009:1023:public void select(boolean)
-    1076:1104:public java.util.List deleteAllSelectedItems()
-    1191:1192:public void collapse()
-    1419:1420:public void notifyAdapterItemInserted(int)
-    1451:1452:public void notifyAdapterItemRemoved(int)
-    1479:1493:public void notifyAdapterItemMoved(int,int)
-    1501:1502:public void notifyAdapterItemChanged(int)
-    1511:1512:public void notifyAdapterItemChanged(int,java.lang.Object)
-    1566:1576:public void notifyAdapterSubItemsChanged(int)
-    1587:1597:public int notifyAdapterSubItemsChanged(int,int)
+    102:106:public com.mikepenz.fastadapter.FastAdapter withItemEvent(com.mikepenz.fastadapter.listeners.EventHook)
+    127:128:public com.mikepenz.fastadapter.FastAdapter withOnPreClickListener(com.mikepenz.fastadapter.FastAdapter$OnClickListener)
+    149:150:public com.mikepenz.fastadapter.FastAdapter withOnPreLongClickListener(com.mikepenz.fastadapter.FastAdapter$OnLongClickListener)
+    160:161:public com.mikepenz.fastadapter.FastAdapter withOnTouchListener(com.mikepenz.fastadapter.FastAdapter$OnTouchListener)
+    171:172:public com.mikepenz.fastadapter.FastAdapter withOnCreateViewHolderListener(com.mikepenz.fastadapter.FastAdapter$OnCreateViewHolderListener)
+    182:183:public com.mikepenz.fastadapter.FastAdapter withOnBindViewHolderListener(com.mikepenz.fastadapter.FastAdapter$OnBindViewHolderListener)
+    196:197:public com.mikepenz.fastadapter.FastAdapter withSelectWithItemUpdate(boolean)
+    264:265:public com.mikepenz.fastadapter.FastAdapter withLegacyBindViewMode(boolean)
+    275:276:public com.mikepenz.fastadapter.FastAdapter withSelectionListener(com.mikepenz.fastadapter.ISelectionListener)
+    283:283:public boolean isSelectable()
+    301:302:public com.mikepenz.fastadapter.FastAdapter withOnlyOneExpandedItem(boolean)
+    309:309:public boolean isOnlyOneExpandedItem()
+    417:418:public void clearTypeInstance()
+    594:598:public int getPosition(com.mikepenz.fastadapter.IItem)
+    608:622:public int getPosition(long)
+    761:786:public int getExpandedItemsCount(int,int)
+    903:907:public java.util.Set getSelectedItems()
+    916:929:public void toggleSelection(int)
+    1012:1015:public void select(java.lang.Iterable)
+    1089:1090:public void select()
+    1098:1111:public void select(boolean)
+    1167:1194:public java.util.List deleteAllSelectedItems()
+    1281:1282:public void collapse()
+    1424:1425:public void expand()
+    1433:1437:public void expand(boolean)
+    1528:1529:public void notifyAdapterItemInserted(int)
+    1560:1561:public void notifyAdapterItemRemoved(int)
+    1588:1602:public void notifyAdapterItemMoved(int,int)
+    1610:1611:public void notifyAdapterItemChanged(int)
+    1620:1621:public void notifyAdapterItemChanged(int,java.lang.Object)
+    1675:1689:public void notifyAdapterSubItemsChanged(int)
+    1700:1710:public int notifyAdapterSubItemsChanged(int,int)
 com.mikepenz.fastadapter.IAdapter:
     public abstract int getAdapterPosition(com.mikepenz.fastadapter.IItem)
+    public abstract int getAdapterPosition(long)
     public abstract int getItemCount()
     public abstract com.mikepenz.fastadapter.IItem getItem(int)
 com.mikepenz.fastadapter.IClickable:
@@ -6028,13 +6053,14 @@ com.mikepenz.fastadapter.IItem:
     public abstract android.view.View generateView(android.content.Context,android.view.ViewGroup)
     public abstract boolean equals(int)
 com.mikepenz.fastadapter.IItemAdapter:
-    public abstract java.lang.Object setSubItems(com.mikepenz.fastadapter.IExpandable,java.util.List)
+    public abstract com.mikepenz.fastadapter.IItem setSubItems(com.mikepenz.fastadapter.IItem,java.util.List)
     public abstract com.mikepenz.fastadapter.IItemAdapter set(java.util.List)
     public abstract com.mikepenz.fastadapter.IItemAdapter add(java.util.List)
     public varargs abstract com.mikepenz.fastadapter.IItemAdapter add(int,com.mikepenz.fastadapter.IItem[])
     public abstract com.mikepenz.fastadapter.IItemAdapter set(int,com.mikepenz.fastadapter.IItem)
     public abstract com.mikepenz.fastadapter.IItemAdapter remove(int)
     public abstract com.mikepenz.fastadapter.IItemAdapter clear()
+com.mikepenz.fastadapter.ISubItem
 com.mikepenz.fastadapter.R
 com.mikepenz.fastadapter.R$anim
 com.mikepenz.fastadapter.R$attr
@@ -6048,85 +6074,62 @@ com.mikepenz.fastadapter.R$layout
 com.mikepenz.fastadapter.R$string
 com.mikepenz.fastadapter.R$style
 com.mikepenz.fastadapter.R$styleable
-com.mikepenz.fastadapter.adapters.AbstractWrapAdapter
-com.mikepenz.fastadapter.adapters.FastItemAdapter:
-    private final com.mikepenz.fastadapter.adapters.ItemAdapter mItemAdapter
-    16:23:public FastItemAdapter()
-    31:31:public com.mikepenz.fastadapter.adapters.ItemAdapter getItemAdapter()
-    41:42:public com.mikepenz.fastadapter.adapters.FastItemAdapter withUseIdDistributor(boolean)
-    49:49:public android.widget.Filter getItemFilter()
-    59:60:public com.mikepenz.fastadapter.adapters.FastItemAdapter withFilterPredicate(com.mikepenz.fastadapter.IItemAdapter$Predicate)
-    69:70:public void filter(java.lang.CharSequence)
-    76:76:public int getOrder()
-    83:83:public int getAdapterItemCount()
-    91:91:public java.util.List getAdapterItems()
-    101:101:public int getAdapterPosition(com.mikepenz.fastadapter.IItem)
-    111:111:public int getGlobalPosition(int)
-    119:119:public com.mikepenz.fastadapter.IItem getAdapterItem(int)
-    131:131:public java.lang.Object setSubItems(com.mikepenz.fastadapter.IExpandable,java.util.List)
-    140:141:public com.mikepenz.fastadapter.adapters.FastItemAdapter set(java.util.List)
-    150:151:public com.mikepenz.fastadapter.adapters.FastItemAdapter setNewList(java.util.List)
-    161:162:public final varargs com.mikepenz.fastadapter.adapters.FastItemAdapter add(com.mikepenz.fastadapter.IItem[])
-    171:172:public com.mikepenz.fastadapter.adapters.FastItemAdapter add(java.util.List)
-    183:184:public final varargs com.mikepenz.fastadapter.adapters.FastItemAdapter add(int,com.mikepenz.fastadapter.IItem[])
-    194:195:public com.mikepenz.fastadapter.adapters.FastItemAdapter add(int,java.util.List)
-    205:206:public com.mikepenz.fastadapter.adapters.FastItemAdapter set(int,com.mikepenz.fastadapter.IItem)
-    215:216:public com.mikepenz.fastadapter.adapters.FastItemAdapter add(com.mikepenz.fastadapter.IItem)
-    226:227:public com.mikepenz.fastadapter.adapters.FastItemAdapter add(int,com.mikepenz.fastadapter.IItem)
-    238:239:public com.mikepenz.fastadapter.adapters.FastItemAdapter move(int,int)
-    248:249:public com.mikepenz.fastadapter.adapters.FastItemAdapter remove(int)
-    259:260:public com.mikepenz.fastadapter.adapters.FastItemAdapter removeItemRange(int,int)
-    267:268:public com.mikepenz.fastadapter.adapters.FastItemAdapter clear()
-com.mikepenz.fastadapter.adapters.GenericFastItemAdapter
 com.mikepenz.fastadapter.adapters.GenericItemAdapter
 com.mikepenz.fastadapter.adapters.GenericItemAdapter$ReflectionBasedItemFactory
 com.mikepenz.fastadapter.adapters.ItemAdapter:
-    43:44:public com.mikepenz.fastadapter.adapters.ItemAdapter withUseIdDistributor(boolean)
-    51:51:public boolean isUseIdDistributor()
-    64:65:public com.mikepenz.fastadapter.adapters.ItemAdapter withItemFilter(android.widget.Filter)
-    72:72:public android.widget.Filter getItemFilter()
-    85:86:public com.mikepenz.fastadapter.adapters.ItemAdapter withFilterPredicate(com.mikepenz.fastadapter.IItemAdapter$Predicate)
-    95:96:public void filter(java.lang.CharSequence)
-    103:104:public com.mikepenz.fastadapter.adapters.ItemAdapter withItemFilterListener(com.mikepenz.fastadapter.adapters.ItemAdapter$ItemFilterListener)
-    128:128:public com.mikepenz.fastadapter.adapters.ItemAdapter withComparator(java.util.Comparator)
-    140:148:public com.mikepenz.fastadapter.adapters.ItemAdapter withComparator(java.util.Comparator,boolean)
-    156:156:public java.util.Comparator getComparator()
-    191:197:public int getAdapterPosition(com.mikepenz.fastadapter.IItem)
-    228:231:public java.lang.Object setSubItems(com.mikepenz.fastadapter.IExpandable,java.util.List)
-    300:377:public com.mikepenz.fastadapter.adapters.ItemAdapter set(java.util.List,com.mikepenz.fastadapter.utils.DiffCallback,boolean)
-    442:442:public final varargs com.mikepenz.fastadapter.adapters.ItemAdapter add(int,com.mikepenz.fastadapter.IItem[])
-    471:478:public com.mikepenz.fastadapter.adapters.ItemAdapter set(int,com.mikepenz.fastadapter.IItem)
-    489:494:public com.mikepenz.fastadapter.adapters.ItemAdapter move(int,int)
-    503:505:public com.mikepenz.fastadapter.adapters.ItemAdapter remove(int)
-    533:536:public com.mikepenz.fastadapter.adapters.ItemAdapter clear()
-    29:29:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter clear()
-    29:29:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter remove(int)
-    29:29:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter set(int,com.mikepenz.fastadapter.IItem)
-    29:29:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter add(int,com.mikepenz.fastadapter.IItem[])
-    29:29:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter add(java.util.List)
-    29:29:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter set(java.util.List)
-com.mikepenz.fastadapter.adapters.ItemAdapter$1
-com.mikepenz.fastadapter.adapters.ItemAdapter$2
+    40:41:public com.mikepenz.fastadapter.adapters.ItemAdapter withUseIdDistributor(boolean)
+    48:48:public boolean isUseIdDistributor()
+    61:62:public com.mikepenz.fastadapter.adapters.ItemAdapter withItemFilter(android.widget.Filter)
+    69:69:public android.widget.Filter getItemFilter()
+    82:83:public com.mikepenz.fastadapter.adapters.ItemAdapter withFilterPredicate(com.mikepenz.fastadapter.IItemAdapter$Predicate)
+    92:93:public void filter(java.lang.CharSequence)
+    100:101:public com.mikepenz.fastadapter.adapters.ItemAdapter withItemFilterListener(com.mikepenz.fastadapter.adapters.ItemAdapter$ItemFilterListener)
+    125:125:public com.mikepenz.fastadapter.adapters.ItemAdapter withComparator(java.util.Comparator)
+    137:145:public com.mikepenz.fastadapter.adapters.ItemAdapter withComparator(java.util.Comparator,boolean)
+    153:153:public java.util.Comparator getComparator()
+    188:188:public int getAdapterPosition(com.mikepenz.fastadapter.IItem)
+    199:204:public int getAdapterPosition(long)
+    235:238:public com.mikepenz.fastadapter.IItem setSubItems(com.mikepenz.fastadapter.IItem,java.util.List)
+    324:326:public void remapMappedTypes()
+    368:368:public final varargs com.mikepenz.fastadapter.adapters.ItemAdapter add(int,com.mikepenz.fastadapter.IItem[])
+    397:404:public com.mikepenz.fastadapter.adapters.ItemAdapter set(int,com.mikepenz.fastadapter.IItem)
+    415:420:public com.mikepenz.fastadapter.adapters.ItemAdapter move(int,int)
+    429:431:public com.mikepenz.fastadapter.adapters.ItemAdapter remove(int)
+    459:462:public com.mikepenz.fastadapter.adapters.ItemAdapter clear()
+    26:26:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter clear()
+    26:26:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter remove(int)
+    26:26:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter set(int,com.mikepenz.fastadapter.IItem)
+    26:26:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter add(int,com.mikepenz.fastadapter.IItem[])
+    26:26:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter add(java.util.List)
+    26:26:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter set(java.util.List)
+    26:26:static synthetic boolean access$200(com.mikepenz.fastadapter.adapters.ItemAdapter)
 com.mikepenz.fastadapter.adapters.ItemAdapter$ItemFilter:
-    590:590:public java.lang.CharSequence getConstraint()
-    611:623:public java.util.Set getSelections()
-    633:644:public java.util.Set getSelectedItems()
-com.mikepenz.fastadapter.helpers.ClickListenerHelper
-com.mikepenz.fastadapter.helpers.ClickListenerHelper$1
-com.mikepenz.fastadapter.helpers.ClickListenerHelper$2
-com.mikepenz.fastadapter.helpers.ClickListenerHelper$OnClickListener
+    516:516:public java.lang.CharSequence getConstraint()
+    537:548:public java.util.Set getSelections()
+    558:568:public java.util.Set getSelectedItems()
+    579:579:public final varargs com.mikepenz.fastadapter.adapters.ItemAdapter add(com.mikepenz.fastadapter.IItem[])
+    589:597:public com.mikepenz.fastadapter.adapters.ItemAdapter add(java.util.List)
+    609:609:public final varargs com.mikepenz.fastadapter.adapters.ItemAdapter add(int,com.mikepenz.fastadapter.IItem[])
+    619:627:public com.mikepenz.fastadapter.adapters.ItemAdapter add(int,java.util.List)
+    638:646:public com.mikepenz.fastadapter.adapters.ItemAdapter set(int,com.mikepenz.fastadapter.IItem)
+    658:666:public com.mikepenz.fastadapter.adapters.ItemAdapter move(int,int)
+    676:681:public com.mikepenz.fastadapter.adapters.ItemAdapter remove(int)
+    692:704:public com.mikepenz.fastadapter.adapters.ItemAdapter removeRange(int,int)
+    712:718:public com.mikepenz.fastadapter.adapters.ItemAdapter clear()
+com.mikepenz.fastadapter.helpers.ClickListenerHelper:
+    27:36:public ClickListenerHelper(com.mikepenz.fastadapter.FastAdapter)
+    27:45:public ClickListenerHelper(com.mikepenz.fastadapter.FastAdapter,java.util.List)
+    51:51:public java.util.List getEventHooks()
+    62:63:public com.mikepenz.fastadapter.helpers.ClickListenerHelper setEventHooks(java.util.List)
+    74:75:public com.mikepenz.fastadapter.helpers.ClickListenerHelper addEventHook(com.mikepenz.fastadapter.listeners.EventHook)
 com.mikepenz.fastadapter.items.AbstractItem
 com.mikepenz.fastadapter.items.AbstractItem$ReflectionBasedViewHolderFactory
 com.mikepenz.fastadapter.items.GenericAbstractItem
 com.mikepenz.fastadapter.utils.AdapterUtil:
     18:18:public AdapterUtil()
-com.mikepenz.fastadapter.utils.DiffCallback
-com.mikepenz.fastadapter.utils.DiffCallbackImpl
-com.mikepenz.fastadapter.utils.FastAdapterUIUtils
 com.mikepenz.fastadapter.utils.Function
 com.mikepenz.fastadapter.utils.IdDistributor:
     13:13:public IdDistributor()
-com.mikepenz.fastadapter.utils.RecyclerViewCacheUtil
 com.mikepenz.iconics.Iconics:
     74:78:private static java.util.HashMap init(android.content.Context,java.util.HashMap)
     88:89:public static boolean registerFont(com.mikepenz.iconics.typeface.ITypeface)
@@ -6534,6 +6537,7 @@ com.mikepenz.materialdrawer.MiniDrawer:
     public static final int ITEM
     private android.widget.LinearLayout mContainer
     private android.support.v7.widget.RecyclerView mRecyclerView
+    protected com.mikepenz.fastadapter.adapters.ItemAdapter mItemAdapter
     private com.mikepenz.materialdrawer.MiniDrawer$OnMiniDrawerItemClickListener mOnMiniDrawerItemClickListener
     private com.mikepenz.fastadapter.FastAdapter$OnClickListener mOnMiniDrawerItemOnClickListener
     private com.mikepenz.fastadapter.FastAdapter$OnLongClickListener mOnMiniDrawerItemLongClickListener
@@ -6556,16 +6560,16 @@ com.mikepenz.materialdrawer.MiniDrawer:
     270:270:public com.mikepenz.fastadapter.FastAdapter$OnLongClickListener getOnMiniDrawerItemLongClickListener()
     281:290:public com.mikepenz.materialdrawer.model.interfaces.IDrawerItem generateMiniDrawerItem(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
     300:305:public int getMiniDrawerType(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
-    315:357:public android.view.View build(android.content.Context)
-    365:378:public void onProfileClick()
-    426:437:public void updateItem(long)
-    443:522:public void createItems()
-    530:530:private java.util.List getDrawerItems()
-    33:33:static synthetic com.mikepenz.materialdrawer.MiniDrawer$OnMiniDrawerItemClickListener access$000(com.mikepenz.materialdrawer.MiniDrawer)
-    33:33:static synthetic com.mikepenz.materialdrawer.AccountHeader access$100(com.mikepenz.materialdrawer.MiniDrawer)
-    33:33:static synthetic com.mikepenz.materialdrawer.Drawer access$200(com.mikepenz.materialdrawer.MiniDrawer)
-    33:33:static synthetic java.util.List access$300(com.mikepenz.materialdrawer.MiniDrawer)
-    33:33:static synthetic com.mikepenz.materialdrawer.interfaces.ICrossfader access$400(com.mikepenz.materialdrawer.MiniDrawer)
+    315:358:public android.view.View build(android.content.Context)
+    366:379:public void onProfileClick()
+    427:438:public void updateItem(long)
+    444:523:public void createItems()
+    531:531:private java.util.List getDrawerItems()
+    32:32:static synthetic com.mikepenz.materialdrawer.MiniDrawer$OnMiniDrawerItemClickListener access$000(com.mikepenz.materialdrawer.MiniDrawer)
+    32:32:static synthetic com.mikepenz.materialdrawer.AccountHeader access$100(com.mikepenz.materialdrawer.MiniDrawer)
+    32:32:static synthetic com.mikepenz.materialdrawer.Drawer access$200(com.mikepenz.materialdrawer.MiniDrawer)
+    32:32:static synthetic java.util.List access$300(com.mikepenz.materialdrawer.MiniDrawer)
+    32:32:static synthetic com.mikepenz.materialdrawer.interfaces.ICrossfader access$400(com.mikepenz.materialdrawer.MiniDrawer)
 com.mikepenz.materialdrawer.MiniDrawer$1
 com.mikepenz.materialdrawer.MiniDrawer$OnMiniDrawerItemClickListener
 com.mikepenz.materialdrawer.R:
@@ -6577,20 +6581,20 @@ com.mikepenz.materialdrawer.R$bool
 com.mikepenz.materialdrawer.R$color:
     382:382:public R$color()
 com.mikepenz.materialdrawer.R$dimen:
-    785:785:public R$dimen()
+    791:791:public R$dimen()
 com.mikepenz.materialdrawer.R$drawable:
-    981:981:public R$drawable()
+    1006:1006:public R$drawable()
 com.mikepenz.materialdrawer.R$id:
-    1071:1071:public R$id()
+    1114:1114:public R$id()
 com.mikepenz.materialdrawer.R$integer
 com.mikepenz.materialdrawer.R$layout:
-    1262:1262:public R$layout()
+    1320:1320:public R$layout()
 com.mikepenz.materialdrawer.R$string:
-    1335:1335:public R$string()
+    1403:1403:public R$string()
 com.mikepenz.materialdrawer.R$style:
-    1424:1424:public R$style()
+    1492:1492:public R$style()
 com.mikepenz.materialdrawer.R$styleable:
-    1832:1832:public R$styleable()
+    1917:1917:public R$styleable()
 com.mikepenz.materialdrawer.holder.BadgeStyle:
     34:36:public com.mikepenz.materialdrawer.holder.BadgeStyle withGradientDrawable(int)
     40:40:public android.graphics.drawable.Drawable getBadgeBackground()
@@ -6665,16 +6669,21 @@ com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem:
     20:20:public bridge synthetic java.lang.Object withBadge(java.lang.String)
 com.mikepenz.materialdrawer.model.AbstractDrawerItem:
     protected java.lang.Object mTag
+    private com.mikepenz.materialdrawer.model.interfaces.IDrawerItem mParent
     61:62:public java.lang.Object withTag(java.lang.Object)
     70:70:public java.lang.Object getTag()
     83:84:public java.lang.Object withEnabled(boolean)
     156:157:public java.lang.Object withOnDrawerItemClickListener(com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener)
     163:163:public com.mikepenz.materialdrawer.model.interfaces.OnPostBindViewListener getOnPostBindViewListener()
     173:174:public java.lang.Object withPostOnBindViewListener(com.mikepenz.materialdrawer.model.interfaces.OnPostBindViewListener)
-    199:200:public java.lang.Object withSubItems(java.util.List)
-    273:275:public android.view.View generateView(android.content.Context)
-    312:312:public boolean equals(long)
-    316:316:public boolean equals(int)
+    197:197:public com.mikepenz.materialdrawer.model.interfaces.IDrawerItem getParent()
+    208:209:public com.mikepenz.materialdrawer.model.interfaces.IDrawerItem withParent(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
+    222:223:public java.lang.Object withSubItems(java.util.List)
+    297:299:public android.view.View generateView(android.content.Context)
+    352:352:public boolean equals(long)
+    356:356:public boolean equals(int)
+    25:25:public bridge synthetic java.lang.Object withParent(com.mikepenz.fastadapter.IItem)
+    25:25:public bridge synthetic com.mikepenz.fastadapter.IItem getParent()
 com.mikepenz.materialdrawer.model.AbstractSwitchableDrawerItem
 com.mikepenz.materialdrawer.model.AbstractSwitchableDrawerItem$1
 com.mikepenz.materialdrawer.model.AbstractSwitchableDrawerItem$2
@@ -6727,6 +6736,10 @@ com.mikepenz.materialdrawer.model.DividerDrawerItem
 com.mikepenz.materialdrawer.model.DividerDrawerItem$1
 com.mikepenz.materialdrawer.model.DividerDrawerItem$ItemFactory
 com.mikepenz.materialdrawer.model.DividerDrawerItem$ViewHolder
+com.mikepenz.materialdrawer.model.ExpandableBadgeDrawerItem
+com.mikepenz.materialdrawer.model.ExpandableBadgeDrawerItem$1
+com.mikepenz.materialdrawer.model.ExpandableBadgeDrawerItem$ItemFactory
+com.mikepenz.materialdrawer.model.ExpandableBadgeDrawerItem$ViewHolder
 com.mikepenz.materialdrawer.model.ExpandableDrawerItem
 com.mikepenz.materialdrawer.model.ExpandableDrawerItem$1
 com.mikepenz.materialdrawer.model.ExpandableDrawerItem$ItemFactory
@@ -6768,6 +6781,8 @@ com.mikepenz.materialdrawer.model.interfaces.IDrawerItem:
     public abstract int getType()
     public abstract android.view.View generateView(android.content.Context)
     public abstract android.support.v7.widget.RecyclerView$ViewHolder getViewHolder(android.view.ViewGroup)
+    public abstract void unbindView(android.support.v7.widget.RecyclerView$ViewHolder)
+    public abstract void bindView(android.support.v7.widget.RecyclerView$ViewHolder,java.util.List)
     public abstract boolean equals(long)
 com.mikepenz.materialdrawer.model.interfaces.IProfile:
     public abstract java.lang.Object withName(java.lang.String)

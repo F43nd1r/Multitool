@@ -69,7 +69,6 @@ public class FileManager<T> {
         return Collections.emptyList();
     }
 
-    @SuppressWarnings("ResultOfMethodCallIgnored")
     public void write(@NonNull List<T> items) {
         try (Writer writer = new BufferedWriter(new FileWriter(file))) {
             gson.toJson(items.toArray(), clazz, writer);

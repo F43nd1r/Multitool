@@ -2,6 +2,7 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 
 import android.support.annotation.NonNull;
 
+import com.faendir.lightning_launcher.multitool.Loader;
 import com.faendir.omniadapter.model.Leaf;
 
 
@@ -10,6 +11,7 @@ import com.faendir.omniadapter.model.Leaf;
  * Represents a script
  */
 public class Script extends Leaf implements Comparable<Script>, ScriptItem {
+    @SuppressWarnings("unused")
     private int id;
     private String name;
     private String code;
@@ -59,10 +61,6 @@ public class Script extends Leaf implements Comparable<Script>, ScriptItem {
         return getName().toLowerCase().compareTo(another.getName().toLowerCase());
     }
 
-    private void setId(int id) {
-        this.id = id;
-    }
-
     public String getCode() {
         return code;
     }
@@ -71,19 +69,15 @@ public class Script extends Leaf implements Comparable<Script>, ScriptItem {
         return flags;
     }
 
-    public void fillFrom(Script script){
-        setName(script.getName());
-        setId(script.getId());
-        setCode(script.getCode());
-        setFlags(script.getFlags());
-        setPath(script.getPath());
-    }
-
     public String getPath() {
         return path;
     }
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public boolean isDisabled() {
+        return (flags & Loader.FLAG_DISABLED) != 0;
     }
 }
