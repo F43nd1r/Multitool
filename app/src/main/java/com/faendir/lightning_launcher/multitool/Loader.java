@@ -28,6 +28,7 @@ public class Loader extends Activity {
     private static final String MUSIC_WIDGET = PKG + ".LoadMusicWidget";
     private static final String DRAWER = PKG + ".LoadDrawer";
     private static final String IMMERSIVE = PKG + ".toggleImmersive";
+    private static final String ANIMATION = PKG + ".LoadAnimation";
 
     public static final int FLAG_DISABLED = 1;
     public static final int FLAG_APP_MENU = 2;
@@ -62,6 +63,10 @@ public class Loader extends Activity {
                 break;
             case IMMERSIVE:
                 setupCheck(R.string.title_immersive, R.raw.immersive_setup);
+                break;
+            case ANIMATION:
+                setupCheck(R.string.title_animation, R.raw.animation_setup);
+                break;
         }
     }
 

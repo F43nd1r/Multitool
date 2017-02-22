@@ -8235,6 +8235,8 @@ com.faendir.lightning_launcher.multitool.R$menu: int menu_music_widget
 com.faendir.lightning_launcher.multitool.R$menu: int menu_scriptmanager
 com.faendir.lightning_launcher.multitool.R$menu: int picker_actions
 com.faendir.lightning_launcher.multitool.R$mipmap: int ic_multitool
+com.faendir.lightning_launcher.multitool.R$raw: int animation
+com.faendir.lightning_launcher.multitool.R$raw: int animation_setup
 com.faendir.lightning_launcher.multitool.R$raw: int backup
 com.faendir.lightning_launcher.multitool.R$raw: int drawer
 com.faendir.lightning_launcher.multitool.R$raw: int drawer_menu
@@ -8457,6 +8459,7 @@ com.faendir.lightning_launcher.multitool.R$string: int title_activePlayers
 com.faendir.lightning_launcher.multitool.R$string: int title_activity_gesture
 com.faendir.lightning_launcher.multitool.R$string: int title_activity_intent_chooser
 com.faendir.lightning_launcher.multitool.R$string: int title_altControl
+com.faendir.lightning_launcher.multitool.R$string: int title_animation
 com.faendir.lightning_launcher.multitool.R$string: int title_apps
 com.faendir.lightning_launcher.multitool.R$string: int title_backup
 com.faendir.lightning_launcher.multitool.R$string: int title_backupDir

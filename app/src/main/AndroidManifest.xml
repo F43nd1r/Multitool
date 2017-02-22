@@ -103,6 +103,15 @@
                 <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE"/>
             </intent-filter>
         </activity-alias>
+        <activity-alias
+            android:name=".LoadAnimation"
+            android:exported="true"
+            android:label="@string/title_animation"
+            android:targetActivity=".Loader">
+            <intent-filter>
+                <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE"/>
+            </intent-filter>
+        </activity-alias>
 
         <service
             android:name=".music.DummyNotificationListener"

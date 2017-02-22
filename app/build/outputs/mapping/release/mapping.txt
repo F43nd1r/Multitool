@@ -19113,15 +19113,15 @@ com.faendir.lightning_launcher.multitool.BuildConfig -> com.faendir.lightning_la
 com.faendir.lightning_launcher.multitool.Loader -> com.faendir.lightning_launcher.multitool.Loader:
     com.faendir.lightning_launcher.multitool.billing.BillingManager billingManager -> a
     24:24:void <init>() -> <init>
-    47:66:void onCreate(android.os.Bundle) -> onCreate
-    69:70:void setupCheck(int,int) -> a
-    73:89:void check(int,int,boolean,int,java.lang.String,boolean) -> a
-    92:101:void setResult(int,boolean,int,java.lang.String) -> a
-    105:109:void onDestroy() -> onDestroy
-    112:123:boolean checkLightningVersion() -> a
-    75:83:void lambda$check$2(com.faendir.lightning_launcher.multitool.Loader,int,int,boolean,int,java.lang.String,boolean) -> a
-    78:78:void lambda$null$1(com.faendir.lightning_launcher.multitool.Loader,int,int,boolean,int,java.lang.String) -> a
-    78:78:void lambda$null$0(com.faendir.lightning_launcher.multitool.Loader,int,int,boolean,int,java.lang.String) -> b
+    48:71:void onCreate(android.os.Bundle) -> onCreate
+    74:75:void setupCheck(int,int) -> a
+    78:94:void check(int,int,boolean,int,java.lang.String,boolean) -> a
+    97:106:void setResult(int,boolean,int,java.lang.String) -> a
+    110:114:void onDestroy() -> onDestroy
+    117:128:boolean checkLightningVersion() -> a
+    80:88:void lambda$check$2(com.faendir.lightning_launcher.multitool.Loader,int,int,boolean,int,java.lang.String,boolean) -> a
+    83:83:void lambda$null$1(com.faendir.lightning_launcher.multitool.Loader,int,int,boolean,int,java.lang.String) -> a
+    83:83:void lambda$null$0(com.faendir.lightning_launcher.multitool.Loader,int,int,boolean,int,java.lang.String) -> b
 com.faendir.lightning_launcher.multitool.Loader$$Lambda$1 -> com.faendir.lightning_launcher.multitool.b:
     com.faendir.lightning_launcher.multitool.Loader arg$1 -> a
     int arg$2 -> b
@@ -19734,7 +19734,7 @@ com.faendir.lightning_launcher.multitool.R$styleable -> com.faendir.lightning_la
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
-    4653:12051:void <clinit>() -> <clinit>
+    4647:12045:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.backup.BackupService -> com.faendir.lightning_launcher.multitool.backup.BackupService:
     19:21:void <init>() -> <init>
     25:31:void onHandleIntent(android.content.Intent) -> onHandleIntent
@@ -19768,21 +19768,21 @@ com.faendir.lightning_launcher.multitool.billing.BaseBillingManager -> com.faend
     com.anjlab.android.iab.v3.BillingProcessor billingProcessor -> d
     java.util.Map expiration -> a
     org.apache.commons.collections4.BidiMap mapping -> b
-    49:61:void <init>(android.content.Context) -> <init>
-    66:66:void onProductPurchased(java.lang.String,com.anjlab.android.iab.v3.TransactionDetails) -> a
-    71:71:void onPurchaseHistoryRestored() -> a
-    75:75:void onBillingError(int,java.lang.Throwable) -> a
-    79:83:void onBillingInitialized() -> b
-    86:86:com.anjlab.android.iab.v3.BillingProcessor getBillingProcessor() -> c
-    90:91:void release() -> d
-    95:99:boolean isBoughtOrTrial(int) -> a
-    104:107:boolean isBought(int) -> b
-    112:116:com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState isTrial(int) -> c
-    121:128:java.util.Calendar getExpiration(int) -> d
-    133:144:long getExpiration(java.lang.String) -> b
-    148:158:com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState isTrial(java.lang.String) -> a
-    164:179:int networkRequest(java.lang.String,int) -> a
-    184:192:void waitForInit() -> e
+    50:63:void <init>(android.content.Context) -> <init>
+    68:68:void onProductPurchased(java.lang.String,com.anjlab.android.iab.v3.TransactionDetails) -> a
+    73:73:void onPurchaseHistoryRestored() -> a
+    77:77:void onBillingError(int,java.lang.Throwable) -> a
+    81:85:void onBillingInitialized() -> b
+    88:88:com.anjlab.android.iab.v3.BillingProcessor getBillingProcessor() -> c
+    92:93:void release() -> d
+    97:101:boolean isBoughtOrTrial(int) -> a
+    106:109:boolean isBought(int) -> b
+    114:118:com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState isTrial(int) -> c
+    123:130:java.util.Calendar getExpiration(int) -> d
+    135:146:long getExpiration(java.lang.String) -> b
+    150:160:com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState isTrial(java.lang.String) -> a
+    166:181:int networkRequest(java.lang.String,int) -> a
+    186:194:void waitForInit() -> e
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState -> com.faendir.lightning_launcher.multitool.a.a$a:
     com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState NOT_STARTED -> a
     com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState ONGOING -> b

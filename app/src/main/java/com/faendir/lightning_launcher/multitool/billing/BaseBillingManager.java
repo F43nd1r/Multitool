@@ -40,6 +40,7 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
 
     private static final String MUSIC_WIDGET = "music_widget";
     private static final String DRAWER = "drawer";
+    private static final String ANIMATION = "animation";
     static final int SEVEN_DAYS_IN_SECONDS = 60 * 60 * 24 * 7;
     private final Context context;
     private final BillingProcessor billingProcessor;
@@ -58,6 +59,7 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
         mapping = new DualHashBidiMap<>();
         mapping.put(R.string.title_musicWidget, MUSIC_WIDGET);
         mapping.put(R.string.title_drawer, DRAWER);
+        mapping.put(R.string.title_animation, ANIMATION);
     }
 
     @Override
