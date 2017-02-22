@@ -47,7 +47,7 @@ dependencies {
     compile "com.android.support:percent:$supportVersion"
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'com.nononsenseapps:filepicker:3.1.0'
-    compile 'com.faendir:acra:4.9.2-SNAPSHOT'
+    compile 'com.faendir:acra:4.9.3-SNAPSHOT'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'org.apache.commons:commons-collections4:4.1'
     compile 'com.anjlab.android.iab.v3:library:1.0.38'
