@@ -1,6 +1,7 @@
 package com.faendir.lightning_launcher.multitool.util;
 
 import android.content.ContentProvider;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.os.ParcelUuid;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.gesture.GestureInfo;
@@ -31,6 +33,9 @@ import java.util.Map;
 
 import java8.util.function.BiConsumer;
 import java8.util.stream.StreamSupport;
+
+import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
+import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
 
 /**
  * Provides various data (including SharedPreferences) to LL
@@ -75,12 +80,13 @@ public class DataProvider extends ContentProvider {
         try {
             return context.getContentResolver().openFileDescriptor(getContentUri(DataProvider.LIBRARY), "").getFileDescriptor();
         } catch (FileNotFoundException e) {
+            if (DEBUG) Log.d(LOG_TAG, "Did not find gesture file");
             return new FileDescriptor();
         }
     }
 
     private static Uri getContentUri(String suffix) {
-        return Uri.parse("content://" + DataProvider.AUTHORITY + "/" + suffix);
+        return new Uri.Builder().scheme(ContentResolver.SCHEME_CONTENT).authority(AUTHORITY).path(suffix).build();
     }
 
     @Override
@@ -165,7 +171,7 @@ public class DataProvider extends ContentProvider {
     @Override
     public ParcelFileDescriptor openFile(@NonNull Uri uri, @NonNull String mode) throws FileNotFoundException {
         if (URI_MATCHER.match(uri) == GESTURE_LIBRARY) {
-            return ParcelFileDescriptor.open(SingletonGestureLibrary.getFile(getContext()), ParcelFileDescriptor.MODE_READ_WRITE);
+            return ParcelFileDescriptor.open(SingletonGestureLibrary.getFile(getContext()), ParcelFileDescriptor.MODE_READ_WRITE | ParcelFileDescriptor.MODE_CREATE);
         }
         return super.openFile(uri, mode);
     }

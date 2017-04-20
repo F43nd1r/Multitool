@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    def supportVersion = "25.1.1"
+    def supportVersion = "25.3.1"
     def streamVersion = "1.5.2"
     compile('com.faendir.lightninglauncher:scriptlib:2.3-SNAPSHOT') {
         changing = true

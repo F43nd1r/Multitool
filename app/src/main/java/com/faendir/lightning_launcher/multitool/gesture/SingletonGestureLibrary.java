@@ -36,11 +36,15 @@ public final class SingletonGestureLibrary extends GestureLibrary {
         return new File(context.getFilesDir(), "gestureLibrary");
     }
 
-    private final FileDescriptor file;
+    private final Context context;
 
     private SingletonGestureLibrary(Context context) {
-        file = DataProvider.getGestureLibraryFile(context);
+        this.context = context;
         if (DEBUG) Log.d(LOG_TAG, "Created Gesture Library");
+    }
+
+    private FileDescriptor getFile(){
+        return DataProvider.getGestureLibraryFile(context);
     }
 
     private GestureLibrary get() {
@@ -53,21 +57,26 @@ public final class SingletonGestureLibrary extends GestureLibrary {
 
         boolean result = false;
         try {
+            FileDescriptor file = getFile();
             mStore.save(new FileOutputStream(file), true);
+            file.sync();
             result = true;
         } catch (IOException e) {
-            if(DEBUG) Log.d(LOG_TAG, "Could not save the gesture library in " + file, e);
+            if (DEBUG) Log.d(LOG_TAG, "Could not save the gesture library", e);
         }
         return result;
     }
 
     public boolean load() {
+
         boolean result = false;
-        try {
-            mStore.load(new FileInputStream(file), true);
+        try (FileInputStream in = new FileInputStream(getFile())) {
+            if (in.available() > 0) {
+                mStore.load(in, false);
+            }
             result = true;
         } catch (IOException e) {
-            if(DEBUG) Log.d(LOG_TAG, "Could not load the gesture library from " + file, e);
+            if (DEBUG) Log.d(LOG_TAG, "Could not load the gesture library", e);
         }
         return result;
     }

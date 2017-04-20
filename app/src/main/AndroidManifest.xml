@@ -107,7 +107,8 @@
             android:name=".LoadAnimation"
             android:exported="true"
             android:label="@string/title_animation"
-            android:targetActivity=".Loader">
+            android:targetActivity=".Loader"
+            android:enabled="false">
             <intent-filter>
                 <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE"/>
             </intent-filter>
