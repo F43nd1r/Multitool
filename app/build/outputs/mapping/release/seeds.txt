@@ -1844,7 +1844,9 @@ android.support.design.internal.BottomNavigationMenuView: void setItemBackground
 android.support.design.internal.BottomNavigationMenuView: int getItemBackgroundRes()
 android.support.design.internal.BottomNavigationMenuView: void setPresenter(android.support.design.internal.BottomNavigationPresenter)
 android.support.design.internal.BottomNavigationMenuView: android.support.design.internal.BottomNavigationItemView getNewItem()
+android.support.design.internal.BottomNavigationMenuView: int getSelectedItemId()
 android.support.design.internal.BottomNavigationMenuView$1: void onClick(android.view.View)
+android.support.design.internal.BottomNavigationPresenter$SavedState: android.os.Parcelable$Creator CREATOR
 android.support.design.internal.ForegroundLinearLayout: ForegroundLinearLayout(android.content.Context)
 android.support.design.internal.ForegroundLinearLayout: ForegroundLinearLayout(android.content.Context,android.util.AttributeSet)
 android.support.design.internal.ForegroundLinearLayout: ForegroundLinearLayout(android.content.Context,android.util.AttributeSet,int)
@@ -1908,6 +1910,7 @@ android.support.design.widget.AppBarLayout: int PENDING_ACTION_NONE
 android.support.design.widget.AppBarLayout: int PENDING_ACTION_EXPANDED
 android.support.design.widget.AppBarLayout: int PENDING_ACTION_COLLAPSED
 android.support.design.widget.AppBarLayout: int PENDING_ACTION_ANIMATE_ENABLED
+android.support.design.widget.AppBarLayout: int PENDING_ACTION_FORCE
 android.support.design.widget.AppBarLayout: int INVALID_SCROLL_RANGE
 android.support.design.widget.AppBarLayout: int mTotalScrollRange
 android.support.design.widget.AppBarLayout: int mDownPreScrollRange
@@ -1930,6 +1933,7 @@ android.support.design.widget.AppBarLayout: void invalidateScrollRanges()
 android.support.design.widget.AppBarLayout: void setOrientation(int)
 android.support.design.widget.AppBarLayout: void setExpanded(boolean)
 android.support.design.widget.AppBarLayout: void setExpanded(boolean,boolean)
+android.support.design.widget.AppBarLayout: void setExpanded(boolean,boolean,boolean)
 android.support.design.widget.AppBarLayout: boolean checkLayoutParams(android.view.ViewGroup$LayoutParams)
 android.support.design.widget.AppBarLayout: android.support.design.widget.AppBarLayout$LayoutParams generateDefaultLayoutParams()
 android.support.design.widget.AppBarLayout: android.support.design.widget.AppBarLayout$LayoutParams generateLayoutParams(android.util.AttributeSet)
@@ -1995,7 +1999,7 @@ android.support.design.widget.AppBarLayout$Behavior: int getScrollRangeForDragFl
 android.support.design.widget.AppBarLayout$Behavior: int setHeaderTopBottomOffset(android.support.design.widget.CoordinatorLayout,android.support.design.widget.AppBarLayout,int,int,int)
 android.support.design.widget.AppBarLayout$Behavior: boolean isOffsetAnimatorRunning()
 android.support.design.widget.AppBarLayout$Behavior: int interpolateOffset(android.support.design.widget.AppBarLayout,int)
-android.support.design.widget.AppBarLayout$Behavior: void updateAppBarLayoutDrawableState(android.support.design.widget.CoordinatorLayout,android.support.design.widget.AppBarLayout,int,int)
+android.support.design.widget.AppBarLayout$Behavior: void updateAppBarLayoutDrawableState(android.support.design.widget.CoordinatorLayout,android.support.design.widget.AppBarLayout,int,int,boolean)
 android.support.design.widget.AppBarLayout$Behavior: boolean shouldJumpElevationState(android.support.design.widget.CoordinatorLayout,android.support.design.widget.AppBarLayout)
 android.support.design.widget.AppBarLayout$Behavior: android.view.View getAppBarChildOnOffset(android.support.design.widget.AppBarLayout,int)
 android.support.design.widget.AppBarLayout$Behavior: int getTopBottomOffsetForScrollingSibling()
@@ -2218,15 +2222,18 @@ android.support.design.widget.BaseTransientBottomBar$SnackbarBaseLayout: void se
 android.support.design.widget.BottomNavigationView
 android.support.design.widget.BottomNavigationView: int[] CHECKED_STATE_SET
 android.support.design.widget.BottomNavigationView: int[] DISABLED_STATE_SET
+android.support.design.widget.BottomNavigationView: int MENU_PRESENTER_ID
 android.support.design.widget.BottomNavigationView: android.support.v7.view.menu.MenuBuilder mMenu
 android.support.design.widget.BottomNavigationView: android.support.design.internal.BottomNavigationMenuView mMenuView
 android.support.design.widget.BottomNavigationView: android.support.design.internal.BottomNavigationPresenter mPresenter
 android.support.design.widget.BottomNavigationView: android.view.MenuInflater mMenuInflater
-android.support.design.widget.BottomNavigationView: android.support.design.widget.BottomNavigationView$OnNavigationItemSelectedListener mListener
+android.support.design.widget.BottomNavigationView: android.support.design.widget.BottomNavigationView$OnNavigationItemSelectedListener mSelectedListener
+android.support.design.widget.BottomNavigationView: android.support.design.widget.BottomNavigationView$OnNavigationItemReselectedListener mReselectedListener
 android.support.design.widget.BottomNavigationView: BottomNavigationView(android.content.Context)
 android.support.design.widget.BottomNavigationView: BottomNavigationView(android.content.Context,android.util.AttributeSet)
 android.support.design.widget.BottomNavigationView: BottomNavigationView(android.content.Context,android.util.AttributeSet,int)
 android.support.design.widget.BottomNavigationView: void setOnNavigationItemSelectedListener(android.support.design.widget.BottomNavigationView$OnNavigationItemSelectedListener)
+android.support.design.widget.BottomNavigationView: void setOnNavigationItemReselectedListener(android.support.design.widget.BottomNavigationView$OnNavigationItemReselectedListener)
 android.support.design.widget.BottomNavigationView: android.view.Menu getMenu()
 android.support.design.widget.BottomNavigationView: void inflateMenu(int)
 android.support.design.widget.BottomNavigationView: int getMaxItemCount()
@@ -2236,18 +2243,39 @@ android.support.design.widget.BottomNavigationView: android.content.res.ColorSta
 android.support.design.widget.BottomNavigationView: void setItemTextColor(android.content.res.ColorStateList)
 android.support.design.widget.BottomNavigationView: int getItemBackgroundResource()
 android.support.design.widget.BottomNavigationView: void setItemBackgroundResource(int)
+android.support.design.widget.BottomNavigationView: int getSelectedItemId()
+android.support.design.widget.BottomNavigationView: void setSelectedItemId(int)
 android.support.design.widget.BottomNavigationView: void addCompatibilityTopDivider(android.content.Context)
 android.support.design.widget.BottomNavigationView: android.view.MenuInflater getMenuInflater()
 android.support.design.widget.BottomNavigationView: android.content.res.ColorStateList createDefaultColorStateList(int)
-android.support.design.widget.BottomNavigationView: android.support.design.widget.BottomNavigationView$OnNavigationItemSelectedListener access$000(android.support.design.widget.BottomNavigationView)
+android.support.design.widget.BottomNavigationView: android.os.Parcelable onSaveInstanceState()
+android.support.design.widget.BottomNavigationView: void onRestoreInstanceState(android.os.Parcelable)
+android.support.design.widget.BottomNavigationView: android.support.design.widget.BottomNavigationView$OnNavigationItemReselectedListener access$000(android.support.design.widget.BottomNavigationView)
+android.support.design.widget.BottomNavigationView: android.support.design.widget.BottomNavigationView$OnNavigationItemSelectedListener access$100(android.support.design.widget.BottomNavigationView)
 android.support.design.widget.BottomNavigationView: void <clinit>()
 android.support.design.widget.BottomNavigationView$1
 android.support.design.widget.BottomNavigationView$1: android.support.design.widget.BottomNavigationView this$0
 android.support.design.widget.BottomNavigationView$1: BottomNavigationView$1(android.support.design.widget.BottomNavigationView)
 android.support.design.widget.BottomNavigationView$1: boolean onMenuItemSelected(android.support.v7.view.menu.MenuBuilder,android.view.MenuItem)
 android.support.design.widget.BottomNavigationView$1: void onMenuModeChange(android.support.v7.view.menu.MenuBuilder)
+android.support.design.widget.BottomNavigationView$OnNavigationItemReselectedListener
+android.support.design.widget.BottomNavigationView$OnNavigationItemReselectedListener: void onNavigationItemReselected(android.view.MenuItem)
 android.support.design.widget.BottomNavigationView$OnNavigationItemSelectedListener
 android.support.design.widget.BottomNavigationView$OnNavigationItemSelectedListener: boolean onNavigationItemSelected(android.view.MenuItem)
+android.support.design.widget.BottomNavigationView$SavedState
+android.support.design.widget.BottomNavigationView$SavedState: android.os.Bundle menuPresenterState
+android.support.design.widget.BottomNavigationView$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.design.widget.BottomNavigationView$SavedState: BottomNavigationView$SavedState(android.os.Parcelable)
+android.support.design.widget.BottomNavigationView$SavedState: BottomNavigationView$SavedState(android.os.Parcel,java.lang.ClassLoader)
+android.support.design.widget.BottomNavigationView$SavedState: void writeToParcel(android.os.Parcel,int)
+android.support.design.widget.BottomNavigationView$SavedState: void readFromParcel(android.os.Parcel,java.lang.ClassLoader)
+android.support.design.widget.BottomNavigationView$SavedState: void <clinit>()
+android.support.design.widget.BottomNavigationView$SavedState$1
+android.support.design.widget.BottomNavigationView$SavedState$1: BottomNavigationView$SavedState$1()
+android.support.design.widget.BottomNavigationView$SavedState$1: android.support.design.widget.BottomNavigationView$SavedState createFromParcel(android.os.Parcel,java.lang.ClassLoader)
+android.support.design.widget.BottomNavigationView$SavedState$1: android.support.design.widget.BottomNavigationView$SavedState[] newArray(int)
+android.support.design.widget.BottomNavigationView$SavedState$1: java.lang.Object[] newArray(int)
+android.support.design.widget.BottomNavigationView$SavedState$1: java.lang.Object createFromParcel(android.os.Parcel,java.lang.ClassLoader)
 android.support.design.widget.BottomSheetBehavior
 android.support.design.widget.BottomSheetBehavior: int STATE_DRAGGING
 android.support.design.widget.BottomSheetBehavior: int STATE_SETTLING
@@ -2363,6 +2391,7 @@ android.support.design.widget.BottomSheetDialog: void onCreate(android.os.Bundle
 android.support.design.widget.BottomSheetDialog: void setContentView(android.view.View)
 android.support.design.widget.BottomSheetDialog: void setContentView(android.view.View,android.view.ViewGroup$LayoutParams)
 android.support.design.widget.BottomSheetDialog: void setCancelable(boolean)
+android.support.design.widget.BottomSheetDialog: void onStart()
 android.support.design.widget.BottomSheetDialog: void setCanceledOnTouchOutside(boolean)
 android.support.design.widget.BottomSheetDialog: android.view.View wrapInBottomSheet(int,android.view.View,android.view.ViewGroup$LayoutParams)
 android.support.design.widget.BottomSheetDialog: boolean shouldWindowCloseOnTouchOutside()
@@ -3353,6 +3382,7 @@ android.support.design.widget.Snackbar$Callback: void onDismissed(java.lang.Obje
 android.support.design.widget.Snackbar$SnackbarLayout
 android.support.design.widget.Snackbar$SnackbarLayout: Snackbar$SnackbarLayout(android.content.Context)
 android.support.design.widget.Snackbar$SnackbarLayout: Snackbar$SnackbarLayout(android.content.Context,android.util.AttributeSet)
+android.support.design.widget.Snackbar$SnackbarLayout: void onMeasure(int,int)
 android.support.design.widget.SnackbarManager
 android.support.design.widget.SnackbarManager: int MSG_TIMEOUT
 android.support.design.widget.SnackbarManager: int SHORT_DURATION_MS
@@ -3368,8 +3398,8 @@ android.support.design.widget.SnackbarManager: void show(int,android.support.des
 android.support.design.widget.SnackbarManager: void dismiss(android.support.design.widget.SnackbarManager$Callback,int)
 android.support.design.widget.SnackbarManager: void onDismissed(android.support.design.widget.SnackbarManager$Callback)
 android.support.design.widget.SnackbarManager: void onShown(android.support.design.widget.SnackbarManager$Callback)
-android.support.design.widget.SnackbarManager: void cancelTimeout(android.support.design.widget.SnackbarManager$Callback)
-android.support.design.widget.SnackbarManager: void restoreTimeout(android.support.design.widget.SnackbarManager$Callback)
+android.support.design.widget.SnackbarManager: void pauseTimeout(android.support.design.widget.SnackbarManager$Callback)
+android.support.design.widget.SnackbarManager: void restoreTimeoutIfPaused(android.support.design.widget.SnackbarManager$Callback)
 android.support.design.widget.SnackbarManager: boolean isCurrent(android.support.design.widget.SnackbarManager$Callback)
 android.support.design.widget.SnackbarManager: boolean isCurrentOrNext(android.support.design.widget.SnackbarManager$Callback)
 android.support.design.widget.SnackbarManager: void showNextSnackbarLocked()
@@ -3388,6 +3418,7 @@ android.support.design.widget.SnackbarManager$Callback: void dismiss(int)
 android.support.design.widget.SnackbarManager$SnackbarRecord
 android.support.design.widget.SnackbarManager$SnackbarRecord: java.lang.ref.WeakReference callback
 android.support.design.widget.SnackbarManager$SnackbarRecord: int duration
+android.support.design.widget.SnackbarManager$SnackbarRecord: boolean paused
 android.support.design.widget.SnackbarManager$SnackbarRecord: SnackbarManager$SnackbarRecord(int,android.support.design.widget.SnackbarManager$Callback)
 android.support.design.widget.SnackbarManager$SnackbarRecord: boolean isSnackbar(android.support.design.widget.SnackbarManager$Callback)
 android.support.design.widget.StateListAnimator
@@ -3574,6 +3605,8 @@ android.support.design.widget.TabLayout: int dpToPx(int)
 android.support.design.widget.TabLayout: void onMeasure(int,int)
 android.support.design.widget.TabLayout: void removeTabViewAt(int)
 android.support.design.widget.TabLayout: void animateToTab(int)
+android.support.design.widget.TabLayout: void ensureScrollAnimator()
+android.support.design.widget.TabLayout: void setScrollAnimatorListener(android.support.design.widget.ValueAnimatorCompat$AnimatorListener)
 android.support.design.widget.TabLayout: void setSelectedTabView(int)
 android.support.design.widget.TabLayout: void selectTab(android.support.design.widget.TabLayout$Tab)
 android.support.design.widget.TabLayout: void selectTab(android.support.design.widget.TabLayout$Tab,boolean)
@@ -3771,6 +3804,7 @@ android.support.design.widget.TextInputLayout: android.graphics.Typeface getType
 android.support.design.widget.TextInputLayout: void setEditText(android.widget.EditText)
 android.support.design.widget.TextInputLayout: void updateInputLayoutMargins()
 android.support.design.widget.TextInputLayout: void updateLabelState(boolean)
+android.support.design.widget.TextInputLayout: void updateLabelState(boolean,boolean)
 android.support.design.widget.TextInputLayout: android.widget.EditText getEditText()
 android.support.design.widget.TextInputLayout: void setHint(java.lang.CharSequence)
 android.support.design.widget.TextInputLayout: void setHintInternal(java.lang.CharSequence)
@@ -6678,6 +6712,7 @@ android.support.v7.widget.ViewStubCompat: void setLayoutInflater(android.view.La
 android.support.v7.widget.ViewStubCompat: android.view.LayoutInflater getLayoutInflater()
 android.support.v7.widget.ViewStubCompat: void setVisibility(int)
 android.support.v7.widget.ViewStubCompat: void setOnInflateListener(android.support.v7.widget.ViewStubCompat$OnInflateListener)
+ch.acra.acra.R$string: int not_used
 com.anjlab.android.iab.v3.PurchaseData: android.os.Parcelable$Creator CREATOR
 com.anjlab.android.iab.v3.PurchaseInfo: android.os.Parcelable$Creator CREATOR
 com.anjlab.android.iab.v3.PurchaseState: com.anjlab.android.iab.v3.PurchaseState[] values()
@@ -8405,6 +8440,7 @@ com.faendir.lightning_launcher.multitool.R$string: int nnf_need_valid_filename
 com.faendir.lightning_launcher.multitool.R$string: int nnf_new_folder
 com.faendir.lightning_launcher.multitool.R$string: int nnf_permission_external_write_denied
 com.faendir.lightning_launcher.multitool.R$string: int nnf_select_something_first
+com.faendir.lightning_launcher.multitool.R$string: int not_used
 com.faendir.lightning_launcher.multitool.R$string: int password_toggle_content_description
 com.faendir.lightning_launcher.multitool.R$string: int path_password_eye
 com.faendir.lightning_launcher.multitool.R$string: int path_password_eye_mask_strike_through
@@ -9696,10 +9732,11 @@ com.faendir.lightning_launcher.multitool.gesture.LightningGestureView$$Lambda$1:
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView$$Lambda$1: java8.util.function.Predicate lambdaFactory$(java.util.UUID)
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary global
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: java.io.FileDescriptor file
+com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.content.Context context
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.gesture.GestureLibrary getGlobal(android.content.Context)
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: java.io.File getFile(android.content.Context)
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: SingletonGestureLibrary(android.content.Context)
+com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: java.io.FileDescriptor getFile()
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.gesture.GestureLibrary get()
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: boolean save()
 com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: boolean load()
@@ -20779,6 +20816,7 @@ org.acra.ACRAConstants: org.acra.ReportField[] DEFAULT_REPORT_FIELDS
 org.acra.ACRAConstants: java.lang.String DATE_TIME_FORMAT_STRING
 org.acra.ACRAConstants: java.lang.String DEFAULT_CERTIFICATE_TYPE
 org.acra.ACRAConstants: org.acra.model.Element NOT_AVAILABLE
+org.acra.ACRAConstants: java.lang.String UTF8
 org.acra.ACRAConstants: ACRAConstants()
 org.acra.ACRAConstants: void <clinit>()
 org.acra.CrashReportDialog
@@ -20805,7 +20843,6 @@ org.acra.ErrorReporter: void checkReportsOnApplicationStart()
 org.acra.ErrorReporter: void handleException(java.lang.Throwable,boolean)
 org.acra.ErrorReporter: void handleException(java.lang.Throwable)
 org.acra.ErrorReporter: void performDeprecatedReportPriming()
-org.acra.ErrorReporter: org.acra.builder.ReportPrimer getReportPrimer(org.acra.config.ACRAConfiguration)
 org.acra.ErrorReporter$1
 org.acra.ErrorReporter$1: org.acra.ErrorReporter this$0
 org.acra.ErrorReporter$1: ErrorReporter$1(org.acra.ErrorReporter)
@@ -20913,7 +20950,7 @@ org.acra.ReportingInteractionMode: ReportingInteractionMode(java.lang.String,int
 org.acra.ReportingInteractionMode: void <clinit>()
 org.acra.annotation.ReportsCrashes
 org.acra.annotation.ReportsCrashes: java.lang.String formUri()
-org.acra.annotation.ReportsCrashes: org.acra.ReportingInteractionMode mode()
+org.acra.annotation.ReportsCrashes: org.acra.ReportingInteractionMode reportingInteractionMode()
 org.acra.annotation.ReportsCrashes: int resDialogPositiveButtonText()
 org.acra.annotation.ReportsCrashes: int resDialogNegativeButtonText()
 org.acra.annotation.ReportsCrashes: int resDialogCommentPrompt()
@@ -20965,6 +21002,27 @@ org.acra.annotation.ReportsCrashes: int resCertificate()
 org.acra.annotation.ReportsCrashes: java.lang.String certificateType()
 org.acra.annotation.ReportsCrashes: java.lang.Class retryPolicyClass()
 org.acra.annotation.ReportsCrashes: boolean stopServicesOnCrash()
+org.acra.annotation.ReportsCrashes: java.lang.String[] attachmentUris()
+org.acra.annotation.ReportsCrashes: java.lang.Class attachmentUriProvider()
+org.acra.annotation.ReportsCrashes: boolean reportAsFile()
+org.acra.attachment.AcraContentProvider
+org.acra.attachment.AcraContentProvider: java.lang.String[] COLUMNS
+org.acra.attachment.AcraContentProvider: java.lang.String authority
+org.acra.attachment.AcraContentProvider: AcraContentProvider()
+org.acra.attachment.AcraContentProvider: boolean onCreate()
+org.acra.attachment.AcraContentProvider: android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)
+org.acra.attachment.AcraContentProvider: java.io.File getFileForUri(android.net.Uri)
+org.acra.attachment.AcraContentProvider: java.lang.String getType(android.net.Uri)
+org.acra.attachment.AcraContentProvider: android.net.Uri insert(android.net.Uri,android.content.ContentValues)
+org.acra.attachment.AcraContentProvider: int delete(android.net.Uri,java.lang.String,java.lang.String[])
+org.acra.attachment.AcraContentProvider: int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[])
+org.acra.attachment.AcraContentProvider: android.os.ParcelFileDescriptor openFile(android.net.Uri,java.lang.String)
+org.acra.attachment.AcraContentProvider: void <clinit>()
+org.acra.attachment.AttachmentUriProvider
+org.acra.attachment.AttachmentUriProvider: java.util.ArrayList getAttachments(android.content.Context,org.acra.config.ACRAConfiguration)
+org.acra.attachment.DefaultAttachmentProvider
+org.acra.attachment.DefaultAttachmentProvider: DefaultAttachmentProvider()
+org.acra.attachment.DefaultAttachmentProvider: java.util.ArrayList getAttachments(android.content.Context,org.acra.config.ACRAConfiguration)
 org.acra.builder.LastActivityManager
 org.acra.builder.LastActivityManager: java.lang.ref.WeakReference lastActivityCreated
 org.acra.builder.LastActivityManager: LastActivityManager(android.app.Application)
@@ -21284,9 +21342,6 @@ org.acra.collector.LogFileCollector: org.acra.config.ACRAConfiguration config
 org.acra.collector.LogFileCollector: LogFileCollector(android.content.Context,org.acra.config.ACRAConfiguration)
 org.acra.collector.LogFileCollector: org.acra.model.Element collect(org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.LogFileCollector: java.io.InputStream getStream(org.acra.file.Directory,java.lang.String)
-org.acra.collector.LogFileCollector$1
-org.acra.collector.LogFileCollector$1: int[] $SwitchMap$org$acra$file$Directory
-org.acra.collector.LogFileCollector$1: void <clinit>()
 org.acra.collector.MediaCodecListCollector
 org.acra.collector.MediaCodecListCollector: java.lang.String COLOR_FORMAT_PREFIX
 org.acra.collector.MediaCodecListCollector: java.lang.String[] MPEG4_TYPES
@@ -21406,286 +21461,301 @@ org.acra.collector.TimeCollector$1
 org.acra.collector.TimeCollector$1: int[] $SwitchMap$org$acra$ReportField
 org.acra.collector.TimeCollector$1: void <clinit>()
 org.acra.config.ACRAConfiguration
-org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet additionalDropBoxTags
-org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet additionalSharedPreferences
-org.acra.config.ACRAConfiguration: int connectionTimeout
-org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet reportContent
-org.acra.config.ACRAConfiguration: boolean deleteUnapprovedReportsOnApplicationStart
-org.acra.config.ACRAConfiguration: boolean deleteOldUnsentReportsOnApplicationStart
-org.acra.config.ACRAConfiguration: int dropboxCollectionMinutes
-org.acra.config.ACRAConfiguration: boolean alsoReportToAndroidFramework
-org.acra.config.ACRAConfiguration: java.lang.String formUri
-org.acra.config.ACRAConfiguration: java.lang.String formUriBasicAuthLogin
-org.acra.config.ACRAConfiguration: java.lang.String formUriBasicAuthPassword
-org.acra.config.ACRAConfiguration: boolean includeDropBoxSystemTags
-org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList logcatArguments
-org.acra.config.ACRAConfiguration: java.lang.String mailTo
-org.acra.config.ACRAConfiguration: org.acra.ReportingInteractionMode reportingInteractionMode
-org.acra.config.ACRAConfiguration: java.lang.Class reportDialogClass
 org.acra.config.ACRAConfiguration: java.lang.Class reportPrimerClass
-org.acra.config.ACRAConfiguration: int resDialogPositiveButtonText
-org.acra.config.ACRAConfiguration: int resDialogNegativeButtonText
 org.acra.config.ACRAConfiguration: int resDialogCommentPrompt
-org.acra.config.ACRAConfiguration: int resDialogEmailPrompt
-org.acra.config.ACRAConfiguration: int resDialogIcon
-org.acra.config.ACRAConfiguration: int resDialogOkToast
-org.acra.config.ACRAConfiguration: int resDialogText
-org.acra.config.ACRAConfiguration: int resDialogTitle
-org.acra.config.ACRAConfiguration: int resDialogTheme
-org.acra.config.ACRAConfiguration: int resNotifIcon
-org.acra.config.ACRAConfiguration: int resNotifText
-org.acra.config.ACRAConfiguration: int resNotifTickerText
-org.acra.config.ACRAConfiguration: int resNotifTitle
-org.acra.config.ACRAConfiguration: int resToastText
-org.acra.config.ACRAConfiguration: int sharedPreferencesMode
-org.acra.config.ACRAConfiguration: java.lang.String sharedPreferencesName
-org.acra.config.ACRAConfiguration: int socketTimeout
-org.acra.config.ACRAConfiguration: boolean logcatFilterByPid
-org.acra.config.ACRAConfiguration: boolean nonBlockingReadForLogcat
-org.acra.config.ACRAConfiguration: boolean sendReportsInDevMode
-org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet excludeMatchingSharedPreferencesKeys
-org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet excludeMatchingSettingsKeys
-org.acra.config.ACRAConfiguration: java.lang.Class buildConfigClass
-org.acra.config.ACRAConfiguration: java.lang.String applicationLogFile
-org.acra.config.ACRAConfiguration: int applicationLogFileLines
-org.acra.config.ACRAConfiguration: org.acra.file.Directory applicationLogFileDir
-org.acra.config.ACRAConfiguration: org.acra.sender.HttpSender$Method httpMethod
-org.acra.config.ACRAConfiguration: org.acra.sender.HttpSender$Type reportType
+org.acra.config.ACRAConfiguration: int resDialogPositiveButtonText
 org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableMap httpHeaders
-org.acra.config.ACRAConfiguration: java.lang.Class keyStoreFactoryClass
-org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet reportSenderFactoryClasses
-org.acra.config.ACRAConfiguration: int resCertificate
+org.acra.config.ACRAConfiguration: org.acra.sender.HttpSender$Type reportType
 org.acra.config.ACRAConfiguration: java.lang.String certificatePath
-org.acra.config.ACRAConfiguration: java.lang.String certificateType
-org.acra.config.ACRAConfiguration: java.lang.Class retryPolicyClass
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList excludeMatchingSettingsKeys
+org.acra.config.ACRAConfiguration: org.acra.file.Directory applicationLogFileDir
+org.acra.config.ACRAConfiguration: java.lang.String formUriBasicAuthPassword
 org.acra.config.ACRAConfiguration: boolean stopServicesOnCrash
+org.acra.config.ACRAConfiguration: java.lang.String formUri
+org.acra.config.ACRAConfiguration: int socketTimeout
+org.acra.config.ACRAConfiguration: int resNotifIcon
+org.acra.config.ACRAConfiguration: java.lang.String mailTo
+org.acra.config.ACRAConfiguration: java.lang.Class buildConfigClass
+org.acra.config.ACRAConfiguration: boolean sendReportsInDevMode
+org.acra.config.ACRAConfiguration: int resNotifText
+org.acra.config.ACRAConfiguration: java.lang.String sharedPreferencesName
+org.acra.config.ACRAConfiguration: org.acra.ReportingInteractionMode reportingInteractionMode
+org.acra.config.ACRAConfiguration: int dropboxCollectionMinutes
+org.acra.config.ACRAConfiguration: boolean deleteUnapprovedReportsOnApplicationStart
+org.acra.config.ACRAConfiguration: int resDialogNegativeButtonText
+org.acra.config.ACRAConfiguration: int resDialogOkToast
+org.acra.config.ACRAConfiguration: boolean includeDropBoxSystemTags
+org.acra.config.ACRAConfiguration: int resDialogText
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList excludeMatchingSharedPreferencesKeys
+org.acra.config.ACRAConfiguration: java.lang.String certificateType
+org.acra.config.ACRAConfiguration: boolean reportAsFile
+org.acra.config.ACRAConfiguration: int sharedPreferencesMode
+org.acra.config.ACRAConfiguration: int resNotifTickerText
+org.acra.config.ACRAConfiguration: int resDialogTitle
+org.acra.config.ACRAConfiguration: int resNotifTitle
+org.acra.config.ACRAConfiguration: int resDialogIcon
+org.acra.config.ACRAConfiguration: boolean deleteOldUnsentReportsOnApplicationStart
+org.acra.config.ACRAConfiguration: boolean logcatFilterByPid
+org.acra.config.ACRAConfiguration: java.lang.Class reportDialogClass
+org.acra.config.ACRAConfiguration: org.acra.sender.HttpSender$Method httpMethod
+org.acra.config.ACRAConfiguration: java.lang.Class keyStoreFactoryClass
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList additionalSharedPreferences
+org.acra.config.ACRAConfiguration: int resDialogTheme
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList logcatArguments
+org.acra.config.ACRAConfiguration: int resToastText
+org.acra.config.ACRAConfiguration: java.lang.String applicationLogFile
+org.acra.config.ACRAConfiguration: java.lang.Class retryPolicyClass
+org.acra.config.ACRAConfiguration: int resCertificate
+org.acra.config.ACRAConfiguration: int connectionTimeout
+org.acra.config.ACRAConfiguration: boolean alsoReportToAndroidFramework
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList additionalDropBoxTags
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet reportContent
+org.acra.config.ACRAConfiguration: int resDialogEmailPrompt
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList attachmentUris
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList reportSenderFactoryClasses
+org.acra.config.ACRAConfiguration: int applicationLogFileLines
+org.acra.config.ACRAConfiguration: java.lang.String formUriBasicAuthLogin
+org.acra.config.ACRAConfiguration: boolean nonBlockingReadForLogcat
+org.acra.config.ACRAConfiguration: java.lang.Class attachmentUriProvider
 org.acra.config.ACRAConfiguration: ACRAConfiguration(org.acra.config.ConfigurationBuilder)
-org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableMap getHttpHeaders()
-org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet getReportFields()
-org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet additionalDropBoxTags()
-org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet additionalSharedPreferences()
-org.acra.config.ACRAConfiguration: int connectionTimeout()
-org.acra.config.ACRAConfiguration: boolean deleteUnapprovedReportsOnApplicationStart()
-org.acra.config.ACRAConfiguration: boolean deleteOldUnsentReportsOnApplicationStart()
-org.acra.config.ACRAConfiguration: int dropboxCollectionMinutes()
-org.acra.config.ACRAConfiguration: boolean alsoReportToAndroidFramework()
-org.acra.config.ACRAConfiguration: java.lang.String formUri()
-org.acra.config.ACRAConfiguration: java.lang.String formUriBasicAuthLogin()
-org.acra.config.ACRAConfiguration: java.lang.String formUriBasicAuthPassword()
-org.acra.config.ACRAConfiguration: boolean includeDropBoxSystemTags()
-org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList logcatArguments()
-org.acra.config.ACRAConfiguration: java.lang.String mailTo()
-org.acra.config.ACRAConfiguration: org.acra.ReportingInteractionMode mode()
-org.acra.config.ACRAConfiguration: int resDialogPositiveButtonText()
-org.acra.config.ACRAConfiguration: int resDialogNegativeButtonText()
-org.acra.config.ACRAConfiguration: int resDialogCommentPrompt()
-org.acra.config.ACRAConfiguration: int resDialogEmailPrompt()
-org.acra.config.ACRAConfiguration: int resDialogIcon()
-org.acra.config.ACRAConfiguration: int resDialogOkToast()
-org.acra.config.ACRAConfiguration: int resDialogText()
-org.acra.config.ACRAConfiguration: int resDialogTitle()
-org.acra.config.ACRAConfiguration: int resDialogTheme()
-org.acra.config.ACRAConfiguration: int resNotifIcon()
-org.acra.config.ACRAConfiguration: int resNotifText()
-org.acra.config.ACRAConfiguration: int resNotifTickerText()
-org.acra.config.ACRAConfiguration: int resNotifTitle()
-org.acra.config.ACRAConfiguration: int resToastText()
-org.acra.config.ACRAConfiguration: int sharedPreferencesMode()
-org.acra.config.ACRAConfiguration: java.lang.String sharedPreferencesName()
-org.acra.config.ACRAConfiguration: int socketTimeout()
-org.acra.config.ACRAConfiguration: boolean logcatFilterByPid()
-org.acra.config.ACRAConfiguration: boolean nonBlockingReadForLogcat()
-org.acra.config.ACRAConfiguration: boolean sendReportsInDevMode()
-org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet excludeMatchingSharedPreferencesKeys()
-org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet excludeMatchingSettingsKeys()
-org.acra.config.ACRAConfiguration: java.lang.Class buildConfigClass()
-org.acra.config.ACRAConfiguration: java.lang.String applicationLogFile()
-org.acra.config.ACRAConfiguration: int applicationLogFileLines()
-org.acra.config.ACRAConfiguration: org.acra.file.Directory applicationLogFileDir()
-org.acra.config.ACRAConfiguration: java.lang.Class reportDialogClass()
 org.acra.config.ACRAConfiguration: java.lang.Class reportPrimerClass()
-org.acra.config.ACRAConfiguration: org.acra.sender.HttpSender$Method httpMethod()
+org.acra.config.ACRAConfiguration: int resDialogCommentPrompt()
+org.acra.config.ACRAConfiguration: int resDialogPositiveButtonText()
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableMap httpHeaders()
 org.acra.config.ACRAConfiguration: org.acra.sender.HttpSender$Type reportType()
-org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet reportSenderFactoryClasses()
-org.acra.config.ACRAConfiguration: java.lang.Class keyStoreFactoryClass()
-org.acra.config.ACRAConfiguration: int resCertificate()
 org.acra.config.ACRAConfiguration: java.lang.String certificatePath()
-org.acra.config.ACRAConfiguration: java.lang.String certificateType()
-org.acra.config.ACRAConfiguration: java.lang.Class retryPolicyClass()
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList excludeMatchingSettingsKeys()
+org.acra.config.ACRAConfiguration: org.acra.file.Directory applicationLogFileDir()
+org.acra.config.ACRAConfiguration: java.lang.String formUriBasicAuthPassword()
 org.acra.config.ACRAConfiguration: boolean stopServicesOnCrash()
+org.acra.config.ACRAConfiguration: java.lang.String formUri()
+org.acra.config.ACRAConfiguration: int socketTimeout()
+org.acra.config.ACRAConfiguration: int resNotifIcon()
+org.acra.config.ACRAConfiguration: java.lang.String mailTo()
+org.acra.config.ACRAConfiguration: java.lang.Class buildConfigClass()
+org.acra.config.ACRAConfiguration: boolean sendReportsInDevMode()
+org.acra.config.ACRAConfiguration: int resNotifText()
+org.acra.config.ACRAConfiguration: java.lang.String sharedPreferencesName()
+org.acra.config.ACRAConfiguration: org.acra.ReportingInteractionMode reportingInteractionMode()
+org.acra.config.ACRAConfiguration: int dropboxCollectionMinutes()
+org.acra.config.ACRAConfiguration: boolean deleteUnapprovedReportsOnApplicationStart()
+org.acra.config.ACRAConfiguration: int resDialogNegativeButtonText()
+org.acra.config.ACRAConfiguration: int resDialogOkToast()
+org.acra.config.ACRAConfiguration: boolean includeDropBoxSystemTags()
+org.acra.config.ACRAConfiguration: int resDialogText()
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList excludeMatchingSharedPreferencesKeys()
+org.acra.config.ACRAConfiguration: java.lang.String certificateType()
+org.acra.config.ACRAConfiguration: boolean reportAsFile()
+org.acra.config.ACRAConfiguration: int sharedPreferencesMode()
+org.acra.config.ACRAConfiguration: int resNotifTickerText()
+org.acra.config.ACRAConfiguration: int resDialogTitle()
+org.acra.config.ACRAConfiguration: int resNotifTitle()
+org.acra.config.ACRAConfiguration: int resDialogIcon()
+org.acra.config.ACRAConfiguration: boolean deleteOldUnsentReportsOnApplicationStart()
+org.acra.config.ACRAConfiguration: boolean logcatFilterByPid()
+org.acra.config.ACRAConfiguration: java.lang.Class reportDialogClass()
+org.acra.config.ACRAConfiguration: org.acra.sender.HttpSender$Method httpMethod()
+org.acra.config.ACRAConfiguration: java.lang.Class keyStoreFactoryClass()
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList additionalSharedPreferences()
+org.acra.config.ACRAConfiguration: int resDialogTheme()
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList logcatArguments()
+org.acra.config.ACRAConfiguration: int resToastText()
+org.acra.config.ACRAConfiguration: java.lang.String applicationLogFile()
+org.acra.config.ACRAConfiguration: java.lang.Class retryPolicyClass()
+org.acra.config.ACRAConfiguration: int resCertificate()
+org.acra.config.ACRAConfiguration: int connectionTimeout()
+org.acra.config.ACRAConfiguration: boolean alsoReportToAndroidFramework()
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList additionalDropBoxTags()
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableSet reportContent()
+org.acra.config.ACRAConfiguration: int resDialogEmailPrompt()
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList attachmentUris()
+org.acra.config.ACRAConfiguration: org.acra.collections.ImmutableList reportSenderFactoryClasses()
+org.acra.config.ACRAConfiguration: int applicationLogFileLines()
+org.acra.config.ACRAConfiguration: java.lang.String formUriBasicAuthLogin()
+org.acra.config.ACRAConfiguration: boolean nonBlockingReadForLogcat()
+org.acra.config.ACRAConfiguration: java.lang.Class attachmentUriProvider()
 org.acra.config.ACRAConfigurationException
 org.acra.config.ACRAConfigurationException: long serialVersionUID
 org.acra.config.ACRAConfigurationException: ACRAConfigurationException(java.lang.String)
 org.acra.config.ACRAConfigurationException: ACRAConfigurationException(java.lang.String,java.lang.Throwable)
+org.acra.config.BaseConfigurationBuilder
+org.acra.config.BaseConfigurationBuilder: java.lang.String formUri
+org.acra.config.BaseConfigurationBuilder: org.acra.ReportingInteractionMode reportingInteractionMode
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer resDialogPositiveButtonText
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer resDialogNegativeButtonText
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer resDialogCommentPrompt
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer resDialogEmailPrompt
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer resDialogIcon
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer resDialogOkToast
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer resDialogText
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer resDialogTitle
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer resDialogTheme
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer resNotifIcon
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer resNotifText
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer resNotifTickerText
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer resNotifTitle
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer resToastText
+org.acra.config.BaseConfigurationBuilder: java.lang.String sharedPreferencesName
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer sharedPreferencesMode
+org.acra.config.BaseConfigurationBuilder: java.lang.Boolean includeDropBoxSystemTags
+org.acra.config.BaseConfigurationBuilder: java.lang.String[] additionalDropBoxTags
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer dropboxCollectionMinutes
+org.acra.config.BaseConfigurationBuilder: java.lang.String[] logcatArguments
+org.acra.config.BaseConfigurationBuilder: java.lang.String formUriBasicAuthLogin
+org.acra.config.BaseConfigurationBuilder: java.lang.String formUriBasicAuthPassword
+org.acra.config.BaseConfigurationBuilder: org.acra.ReportField[] customReportContent
+org.acra.config.BaseConfigurationBuilder: java.lang.String mailTo
+org.acra.config.BaseConfigurationBuilder: java.lang.Boolean deleteUnapprovedReportsOnApplicationStart
+org.acra.config.BaseConfigurationBuilder: java.lang.Boolean deleteOldUnsentReportsOnApplicationStart
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer connectionTimeout
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer socketTimeout
+org.acra.config.BaseConfigurationBuilder: java.lang.Boolean alsoReportToAndroidFramework
+org.acra.config.BaseConfigurationBuilder: java.lang.String[] additionalSharedPreferences
+org.acra.config.BaseConfigurationBuilder: java.lang.Boolean logcatFilterByPid
+org.acra.config.BaseConfigurationBuilder: java.lang.Boolean nonBlockingReadForLogcat
+org.acra.config.BaseConfigurationBuilder: java.lang.Boolean sendReportsInDevMode
+org.acra.config.BaseConfigurationBuilder: java.lang.String[] excludeMatchingSharedPreferencesKeys
+org.acra.config.BaseConfigurationBuilder: java.lang.String[] excludeMatchingSettingsKeys
+org.acra.config.BaseConfigurationBuilder: java.lang.Class buildConfigClass
+org.acra.config.BaseConfigurationBuilder: java.lang.Class[] reportSenderFactoryClasses
+org.acra.config.BaseConfigurationBuilder: java.lang.String applicationLogFile
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer applicationLogFileLines
+org.acra.config.BaseConfigurationBuilder: org.acra.file.Directory applicationLogFileDir
+org.acra.config.BaseConfigurationBuilder: java.lang.Class reportDialogClass
+org.acra.config.BaseConfigurationBuilder: java.lang.Class reportPrimerClass
+org.acra.config.BaseConfigurationBuilder: org.acra.sender.HttpSender$Method httpMethod
+org.acra.config.BaseConfigurationBuilder: org.acra.sender.HttpSender$Type reportType
+org.acra.config.BaseConfigurationBuilder: java.lang.Class keyStoreFactoryClass
+org.acra.config.BaseConfigurationBuilder: java.lang.String certificatePath
+org.acra.config.BaseConfigurationBuilder: java.lang.Integer resCertificate
+org.acra.config.BaseConfigurationBuilder: java.lang.String certificateType
+org.acra.config.BaseConfigurationBuilder: java.lang.Class retryPolicyClass
+org.acra.config.BaseConfigurationBuilder: java.lang.Boolean stopServicesOnCrash
+org.acra.config.BaseConfigurationBuilder: java.lang.String[] attachmentUris
+org.acra.config.BaseConfigurationBuilder: java.lang.Class attachmentUriProvider
+org.acra.config.BaseConfigurationBuilder: java.lang.Boolean reportAsFile
+org.acra.config.BaseConfigurationBuilder: BaseConfigurationBuilder(android.app.Application)
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setFormUri(java.lang.String)
+org.acra.config.BaseConfigurationBuilder: java.lang.String formUri()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setReportingInteractionMode(org.acra.ReportingInteractionMode)
+org.acra.config.BaseConfigurationBuilder: org.acra.ReportingInteractionMode reportingInteractionMode()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setResDialogPositiveButtonText(int)
+org.acra.config.BaseConfigurationBuilder: int resDialogPositiveButtonText()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setResDialogNegativeButtonText(int)
+org.acra.config.BaseConfigurationBuilder: int resDialogNegativeButtonText()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setResDialogCommentPrompt(int)
+org.acra.config.BaseConfigurationBuilder: int resDialogCommentPrompt()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setResDialogEmailPrompt(int)
+org.acra.config.BaseConfigurationBuilder: int resDialogEmailPrompt()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setResDialogIcon(int)
+org.acra.config.BaseConfigurationBuilder: int resDialogIcon()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setResDialogOkToast(int)
+org.acra.config.BaseConfigurationBuilder: int resDialogOkToast()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setResDialogText(int)
+org.acra.config.BaseConfigurationBuilder: int resDialogText()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setResDialogTitle(int)
+org.acra.config.BaseConfigurationBuilder: int resDialogTitle()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setResDialogTheme(int)
+org.acra.config.BaseConfigurationBuilder: int resDialogTheme()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setResNotifIcon(int)
+org.acra.config.BaseConfigurationBuilder: int resNotifIcon()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setResNotifText(int)
+org.acra.config.BaseConfigurationBuilder: int resNotifText()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setResNotifTickerText(int)
+org.acra.config.BaseConfigurationBuilder: int resNotifTickerText()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setResNotifTitle(int)
+org.acra.config.BaseConfigurationBuilder: int resNotifTitle()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setResToastText(int)
+org.acra.config.BaseConfigurationBuilder: int resToastText()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setSharedPreferencesName(java.lang.String)
+org.acra.config.BaseConfigurationBuilder: java.lang.String sharedPreferencesName()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setSharedPreferencesMode(int)
+org.acra.config.BaseConfigurationBuilder: int sharedPreferencesMode()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setIncludeDropBoxSystemTags(boolean)
+org.acra.config.BaseConfigurationBuilder: boolean includeDropBoxSystemTags()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setAdditionalDropBoxTags(java.lang.String[])
+org.acra.config.BaseConfigurationBuilder: java.lang.String[] additionalDropBoxTags()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setDropboxCollectionMinutes(int)
+org.acra.config.BaseConfigurationBuilder: int dropboxCollectionMinutes()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setLogcatArguments(java.lang.String[])
+org.acra.config.BaseConfigurationBuilder: java.lang.String[] logcatArguments()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setFormUriBasicAuthLogin(java.lang.String)
+org.acra.config.BaseConfigurationBuilder: java.lang.String formUriBasicAuthLogin()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setFormUriBasicAuthPassword(java.lang.String)
+org.acra.config.BaseConfigurationBuilder: java.lang.String formUriBasicAuthPassword()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setCustomReportContent(org.acra.ReportField[])
+org.acra.config.BaseConfigurationBuilder: org.acra.ReportField[] customReportContent()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setMailTo(java.lang.String)
+org.acra.config.BaseConfigurationBuilder: java.lang.String mailTo()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setDeleteUnapprovedReportsOnApplicationStart(boolean)
+org.acra.config.BaseConfigurationBuilder: boolean deleteUnapprovedReportsOnApplicationStart()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setDeleteOldUnsentReportsOnApplicationStart(boolean)
+org.acra.config.BaseConfigurationBuilder: boolean deleteOldUnsentReportsOnApplicationStart()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setConnectionTimeout(int)
+org.acra.config.BaseConfigurationBuilder: int connectionTimeout()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setSocketTimeout(int)
+org.acra.config.BaseConfigurationBuilder: int socketTimeout()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setAlsoReportToAndroidFramework(boolean)
+org.acra.config.BaseConfigurationBuilder: boolean alsoReportToAndroidFramework()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setAdditionalSharedPreferences(java.lang.String[])
+org.acra.config.BaseConfigurationBuilder: java.lang.String[] additionalSharedPreferences()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setLogcatFilterByPid(boolean)
+org.acra.config.BaseConfigurationBuilder: boolean logcatFilterByPid()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setNonBlockingReadForLogcat(boolean)
+org.acra.config.BaseConfigurationBuilder: boolean nonBlockingReadForLogcat()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setSendReportsInDevMode(boolean)
+org.acra.config.BaseConfigurationBuilder: boolean sendReportsInDevMode()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setExcludeMatchingSharedPreferencesKeys(java.lang.String[])
+org.acra.config.BaseConfigurationBuilder: java.lang.String[] excludeMatchingSharedPreferencesKeys()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setExcludeMatchingSettingsKeys(java.lang.String[])
+org.acra.config.BaseConfigurationBuilder: java.lang.String[] excludeMatchingSettingsKeys()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setBuildConfigClass(java.lang.Class)
+org.acra.config.BaseConfigurationBuilder: java.lang.Class buildConfigClass()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setReportSenderFactoryClasses(java.lang.Class[])
+org.acra.config.BaseConfigurationBuilder: java.lang.Class[] reportSenderFactoryClasses()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setApplicationLogFile(java.lang.String)
+org.acra.config.BaseConfigurationBuilder: java.lang.String applicationLogFile()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setApplicationLogFileLines(int)
+org.acra.config.BaseConfigurationBuilder: int applicationLogFileLines()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setApplicationLogFileDir(org.acra.file.Directory)
+org.acra.config.BaseConfigurationBuilder: org.acra.file.Directory applicationLogFileDir()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setReportDialogClass(java.lang.Class)
+org.acra.config.BaseConfigurationBuilder: java.lang.Class reportDialogClass()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setReportPrimerClass(java.lang.Class)
+org.acra.config.BaseConfigurationBuilder: java.lang.Class reportPrimerClass()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setHttpMethod(org.acra.sender.HttpSender$Method)
+org.acra.config.BaseConfigurationBuilder: org.acra.sender.HttpSender$Method httpMethod()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setReportType(org.acra.sender.HttpSender$Type)
+org.acra.config.BaseConfigurationBuilder: org.acra.sender.HttpSender$Type reportType()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setKeyStoreFactoryClass(java.lang.Class)
+org.acra.config.BaseConfigurationBuilder: java.lang.Class keyStoreFactoryClass()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setCertificatePath(java.lang.String)
+org.acra.config.BaseConfigurationBuilder: java.lang.String certificatePath()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setResCertificate(int)
+org.acra.config.BaseConfigurationBuilder: int resCertificate()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setCertificateType(java.lang.String)
+org.acra.config.BaseConfigurationBuilder: java.lang.String certificateType()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setRetryPolicyClass(java.lang.Class)
+org.acra.config.BaseConfigurationBuilder: java.lang.Class retryPolicyClass()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setStopServicesOnCrash(boolean)
+org.acra.config.BaseConfigurationBuilder: boolean stopServicesOnCrash()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setAttachmentUris(java.lang.String[])
+org.acra.config.BaseConfigurationBuilder: java.lang.String[] attachmentUris()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setAttachmentUriProvider(java.lang.Class)
+org.acra.config.BaseConfigurationBuilder: java.lang.Class attachmentUriProvider()
+org.acra.config.BaseConfigurationBuilder: org.acra.config.BaseConfigurationBuilder setReportAsFile(boolean)
+org.acra.config.BaseConfigurationBuilder: boolean reportAsFile()
 org.acra.config.ConfigurationBuilder
-org.acra.config.ConfigurationBuilder: java.lang.Class annotationType
-org.acra.config.ConfigurationBuilder: java.lang.String[] additionalDropBoxTags
-org.acra.config.ConfigurationBuilder: java.lang.String[] additionalSharedPreferences
-org.acra.config.ConfigurationBuilder: java.lang.Integer connectionTimeout
-org.acra.config.ConfigurationBuilder: org.acra.ReportField[] customReportContent
-org.acra.config.ConfigurationBuilder: java.util.Map reportContentChanges
-org.acra.config.ConfigurationBuilder: java.lang.Boolean deleteUnapprovedReportsOnApplicationStart
-org.acra.config.ConfigurationBuilder: java.lang.Boolean deleteOldUnsentReportsOnApplicationStart
-org.acra.config.ConfigurationBuilder: java.lang.Integer dropboxCollectionMinutes
-org.acra.config.ConfigurationBuilder: java.lang.Boolean alsoReportToAndroidFramework
-org.acra.config.ConfigurationBuilder: java.lang.String formUri
-org.acra.config.ConfigurationBuilder: java.lang.String formUriBasicAuthLogin
-org.acra.config.ConfigurationBuilder: java.lang.String formUriBasicAuthPassword
-org.acra.config.ConfigurationBuilder: java.lang.Boolean includeDropBoxSystemTags
-org.acra.config.ConfigurationBuilder: java.lang.String[] logcatArguments
-org.acra.config.ConfigurationBuilder: java.lang.String mailTo
-org.acra.config.ConfigurationBuilder: org.acra.ReportingInteractionMode reportingInteractionMode
-org.acra.config.ConfigurationBuilder: java.lang.Class reportDialogClass
-org.acra.config.ConfigurationBuilder: java.lang.Class reportPrimerClass
-org.acra.config.ConfigurationBuilder: java.lang.Integer resDialogPositiveButtonText
-org.acra.config.ConfigurationBuilder: java.lang.Integer resDialogNegativeButtonText
-org.acra.config.ConfigurationBuilder: java.lang.Integer resDialogCommentPrompt
-org.acra.config.ConfigurationBuilder: java.lang.Integer resDialogEmailPrompt
-org.acra.config.ConfigurationBuilder: java.lang.Integer resDialogIcon
-org.acra.config.ConfigurationBuilder: java.lang.Integer resDialogOkToast
-org.acra.config.ConfigurationBuilder: java.lang.Integer resDialogText
-org.acra.config.ConfigurationBuilder: java.lang.Integer resDialogTitle
-org.acra.config.ConfigurationBuilder: java.lang.Integer resDialogTheme
-org.acra.config.ConfigurationBuilder: java.lang.Integer resNotifIcon
-org.acra.config.ConfigurationBuilder: java.lang.Integer resNotifText
-org.acra.config.ConfigurationBuilder: java.lang.Integer resNotifTickerText
-org.acra.config.ConfigurationBuilder: java.lang.Integer resNotifTitle
-org.acra.config.ConfigurationBuilder: java.lang.Integer resToastText
-org.acra.config.ConfigurationBuilder: java.lang.Integer sharedPreferencesMode
-org.acra.config.ConfigurationBuilder: java.lang.String sharedPreferencesName
-org.acra.config.ConfigurationBuilder: java.lang.Integer socketTimeout
-org.acra.config.ConfigurationBuilder: java.lang.Boolean logcatFilterByPid
-org.acra.config.ConfigurationBuilder: java.lang.Boolean nonBlockingReadForLogcat
-org.acra.config.ConfigurationBuilder: java.lang.Boolean sendReportsInDevMode
-org.acra.config.ConfigurationBuilder: java.lang.String[] excludeMatchingSharedPreferencesKeys
-org.acra.config.ConfigurationBuilder: java.lang.String[] excludeMatchingSettingsKeys
-org.acra.config.ConfigurationBuilder: java.lang.Class buildConfigClass
-org.acra.config.ConfigurationBuilder: java.lang.String applicationLogFile
-org.acra.config.ConfigurationBuilder: java.lang.Integer applicationLogFileLines
-org.acra.config.ConfigurationBuilder: org.acra.file.Directory applicationLogFileDir
-org.acra.config.ConfigurationBuilder: org.acra.sender.HttpSender$Method httpMethod
-org.acra.config.ConfigurationBuilder: org.acra.sender.HttpSender$Type reportType
 org.acra.config.ConfigurationBuilder: java.util.Map httpHeaders
-org.acra.config.ConfigurationBuilder: java.lang.Class keyStoreFactoryClass
-org.acra.config.ConfigurationBuilder: java.lang.Class[] reportSenderFactoryClasses
-org.acra.config.ConfigurationBuilder: java.lang.Integer resCertificate
-org.acra.config.ConfigurationBuilder: java.lang.String certificatePath
-org.acra.config.ConfigurationBuilder: java.lang.String certificateType
-org.acra.config.ConfigurationBuilder: java.lang.Class retryPolicyClass
-org.acra.config.ConfigurationBuilder: java.lang.Boolean stopServicesOnCrash
+org.acra.config.ConfigurationBuilder: java.util.Map reportContentChanges
 org.acra.config.ConfigurationBuilder: ConfigurationBuilder(android.app.Application)
 org.acra.config.ConfigurationBuilder: org.acra.config.ACRAConfiguration build()
 org.acra.config.ConfigurationBuilder: void checkValidity(java.lang.Class[])
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setHttpHeaders(java.util.Map)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setAdditionalDropboxTags(java.lang.String[])
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setAdditionalSharedPreferences(java.lang.String[])
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setConnectionTimeout(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setCustomReportContent(org.acra.ReportField[])
 org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setReportField(org.acra.ReportField,boolean)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setDeleteUnapprovedReportsOnApplicationStart(boolean)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setDeleteOldUnsentReportsOnApplicationStart(boolean)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setDropboxCollectionMinutes(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setAlsoReportToAndroidFramework(boolean)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setFormUri(java.lang.String)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setFormUriBasicAuthLogin(java.lang.String)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setFormUriBasicAuthPassword(java.lang.String)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setIncludeDropboxSystemTags(boolean)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setLogcatArguments(java.lang.String[])
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setMailTo(java.lang.String)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setMode(org.acra.ReportingInteractionMode)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setReportingInteractionMode(org.acra.ReportingInteractionMode)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setResDialogPositiveButtonText(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setResDialogNegativeButtonText(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setReportDialogClass(java.lang.Class)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setResDialogCommentPrompt(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setResDialogEmailPrompt(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setResDialogIcon(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setResDialogOkToast(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setResDialogText(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setResDialogTitle(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setResDialogTheme(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setResNotifIcon(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setResNotifText(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setResNotifTickerText(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setResNotifTitle(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setResToastText(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setSharedPreferenceMode(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setSharedPreferenceName(java.lang.String)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setSocketTimeout(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setLogcatFilterByPid(boolean)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setNonBlockingReadForLogcat(boolean)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setSendReportsInDevMode(boolean)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setSendReportsAtShutdown(boolean)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setExcludeMatchingSharedPreferencesKeys(java.lang.String[])
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setExcludeMatchingSettingsKeys(java.lang.String[])
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setBuildConfigClass(java.lang.Class)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setApplicationLogFile(java.lang.String)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setApplicationLogFileLines(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setApplicationLogFileDir(org.acra.file.Directory)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setHttpMethod(org.acra.sender.HttpSender$Method)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setReportType(org.acra.sender.HttpSender$Type)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setKeyStoreFactoryClass(java.lang.Class)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setCertificate(int)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setCertificate(java.lang.String)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setCertificateType(java.lang.String)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setReportSenderFactoryClasses(java.lang.Class[])
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setReportPrimerClass(java.lang.Class)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setRetryPolicyClass(java.lang.Class)
-org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setStopServicesOnCrash(boolean)
-org.acra.config.ConfigurationBuilder: java.lang.String[] additionalDropBoxTags()
-org.acra.config.ConfigurationBuilder: java.lang.String[] additionalSharedPreferences()
-org.acra.config.ConfigurationBuilder: java.lang.Class annotationType()
-org.acra.config.ConfigurationBuilder: int connectionTimeout()
-org.acra.config.ConfigurationBuilder: java.util.Set reportContent()
-org.acra.config.ConfigurationBuilder: boolean deleteUnapprovedReportsOnApplicationStart()
-org.acra.config.ConfigurationBuilder: boolean deleteOldUnsentReportsOnApplicationStart()
-org.acra.config.ConfigurationBuilder: int dropboxCollectionMinutes()
-org.acra.config.ConfigurationBuilder: boolean alsoReportToAndroidFramework()
-org.acra.config.ConfigurationBuilder: java.lang.String formUri()
-org.acra.config.ConfigurationBuilder: java.lang.String formUriBasicAuthLogin()
-org.acra.config.ConfigurationBuilder: java.lang.String formUriBasicAuthPassword()
-org.acra.config.ConfigurationBuilder: boolean includeDropBoxSystemTags()
-org.acra.config.ConfigurationBuilder: java.lang.String[] logcatArguments()
-org.acra.config.ConfigurationBuilder: java.lang.String mailTo()
-org.acra.config.ConfigurationBuilder: org.acra.ReportingInteractionMode reportingInteractionMode()
-org.acra.config.ConfigurationBuilder: int resDialogPositiveButtonText()
-org.acra.config.ConfigurationBuilder: int resDialogNegativeButtonText()
-org.acra.config.ConfigurationBuilder: int resDialogCommentPrompt()
-org.acra.config.ConfigurationBuilder: int resDialogEmailPrompt()
-org.acra.config.ConfigurationBuilder: int resDialogIcon()
-org.acra.config.ConfigurationBuilder: int resDialogOkToast()
-org.acra.config.ConfigurationBuilder: int resDialogText()
-org.acra.config.ConfigurationBuilder: int resDialogTitle()
-org.acra.config.ConfigurationBuilder: int resDialogTheme()
-org.acra.config.ConfigurationBuilder: int resNotifIcon()
-org.acra.config.ConfigurationBuilder: int resNotifText()
-org.acra.config.ConfigurationBuilder: int resNotifTickerText()
-org.acra.config.ConfigurationBuilder: int resNotifTitle()
-org.acra.config.ConfigurationBuilder: int resToastText()
-org.acra.config.ConfigurationBuilder: int sharedPreferencesMode()
-org.acra.config.ConfigurationBuilder: java.lang.String sharedPreferencesName()
-org.acra.config.ConfigurationBuilder: int socketTimeout()
-org.acra.config.ConfigurationBuilder: boolean logcatFilterByPid()
-org.acra.config.ConfigurationBuilder: boolean nonBlockingReadForLogcat()
-org.acra.config.ConfigurationBuilder: boolean sendReportsInDevMode()
-org.acra.config.ConfigurationBuilder: java.lang.String[] excludeMatchingSharedPreferencesKeys()
-org.acra.config.ConfigurationBuilder: java.lang.String[] excludeMatchingSettingsKeys()
-org.acra.config.ConfigurationBuilder: java.lang.Class buildConfigClass()
-org.acra.config.ConfigurationBuilder: java.lang.String applicationLogFile()
-org.acra.config.ConfigurationBuilder: int applicationLogFileLines()
-org.acra.config.ConfigurationBuilder: org.acra.file.Directory applicationLogFileDir()
-org.acra.config.ConfigurationBuilder: java.lang.Class reportDialogClass()
-org.acra.config.ConfigurationBuilder: java.lang.Class reportPrimerClass()
-org.acra.config.ConfigurationBuilder: org.acra.sender.HttpSender$Method httpMethod()
-org.acra.config.ConfigurationBuilder: org.acra.sender.HttpSender$Type reportType()
-org.acra.config.ConfigurationBuilder: java.lang.Class[] reportSenderFactoryClasses()
-org.acra.config.ConfigurationBuilder: java.lang.Class keyStoreFactoryClass()
-org.acra.config.ConfigurationBuilder: int resCertificate()
-org.acra.config.ConfigurationBuilder: java.lang.String certificatePath()
-org.acra.config.ConfigurationBuilder: java.lang.String certificateType()
+org.acra.config.ConfigurationBuilder: org.acra.config.ConfigurationBuilder setHttpHeaders(java.util.Map)
 org.acra.config.ConfigurationBuilder: java.util.Map httpHeaders()
-org.acra.config.ConfigurationBuilder: java.lang.Class retryPolicyClass()
-org.acra.config.ConfigurationBuilder: boolean stopServicesOnCrash()
+org.acra.config.ConfigurationBuilder: org.acra.ReportField[] customReportContent()
+org.acra.config.ConfigurationBuilder: java.util.Set reportContent()
 org.acra.config.ConfigurationBuilder$1
 org.acra.config.ConfigurationBuilder$1: int[] $SwitchMap$org$acra$ReportingInteractionMode
 org.acra.config.ConfigurationBuilder$1: void <clinit>()
@@ -21743,7 +21813,6 @@ org.acra.file.CrashReportFileNameParser: CrashReportFileNameParser()
 org.acra.file.CrashReportFileNameParser: boolean isSilent(java.lang.String)
 org.acra.file.CrashReportFileNameParser: boolean isApproved(java.lang.String)
 org.acra.file.CrashReportPersister
-org.acra.file.CrashReportPersister: java.lang.String CHARSET
 org.acra.file.CrashReportPersister: CrashReportPersister()
 org.acra.file.CrashReportPersister: org.acra.collector.CrashReportData load(java.io.File)
 org.acra.file.CrashReportPersister: void store(org.acra.collector.CrashReportData,java.io.File)
@@ -21760,7 +21829,33 @@ org.acra.file.Directory: org.acra.file.Directory[] $VALUES
 org.acra.file.Directory: org.acra.file.Directory[] values()
 org.acra.file.Directory: org.acra.file.Directory valueOf(java.lang.String)
 org.acra.file.Directory: Directory(java.lang.String,int)
+org.acra.file.Directory: java.io.File getFile(android.content.Context,java.lang.String)
+org.acra.file.Directory: Directory(java.lang.String,int,org.acra.file.Directory$1)
 org.acra.file.Directory: void <clinit>()
+org.acra.file.Directory$1
+org.acra.file.Directory$1: Directory$1(java.lang.String,int)
+org.acra.file.Directory$1: java.io.File getFile(android.content.Context,java.lang.String)
+org.acra.file.Directory$2
+org.acra.file.Directory$2: Directory$2(java.lang.String,int)
+org.acra.file.Directory$2: java.io.File getFile(android.content.Context,java.lang.String)
+org.acra.file.Directory$3
+org.acra.file.Directory$3: Directory$3(java.lang.String,int)
+org.acra.file.Directory$3: java.io.File getFile(android.content.Context,java.lang.String)
+org.acra.file.Directory$4
+org.acra.file.Directory$4: Directory$4(java.lang.String,int)
+org.acra.file.Directory$4: java.io.File getFile(android.content.Context,java.lang.String)
+org.acra.file.Directory$5
+org.acra.file.Directory$5: Directory$5(java.lang.String,int)
+org.acra.file.Directory$5: java.io.File getFile(android.content.Context,java.lang.String)
+org.acra.file.Directory$6
+org.acra.file.Directory$6: Directory$6(java.lang.String,int)
+org.acra.file.Directory$6: java.io.File getFile(android.content.Context,java.lang.String)
+org.acra.file.Directory$7
+org.acra.file.Directory$7: Directory$7(java.lang.String,int)
+org.acra.file.Directory$7: java.io.File getFile(android.content.Context,java.lang.String)
+org.acra.file.Directory$8
+org.acra.file.Directory$8: Directory$8(java.lang.String,int)
+org.acra.file.Directory$8: java.io.File getFile(android.content.Context,java.lang.String)
 org.acra.file.LastModifiedComparator
 org.acra.file.LastModifiedComparator: LastModifiedComparator()
 org.acra.file.LastModifiedComparator: int compare(java.io.File,java.io.File)
@@ -21774,6 +21869,59 @@ org.acra.file.ReportLocator: java.io.File getUnapprovedFolder()
 org.acra.file.ReportLocator: java.io.File[] getUnapprovedReports()
 org.acra.file.ReportLocator: java.io.File getApprovedFolder()
 org.acra.file.ReportLocator: java.io.File[] getApprovedReports()
+org.acra.http.BaseHttpRequest
+org.acra.http.BaseHttpRequest: org.acra.config.ACRAConfiguration config
+org.acra.http.BaseHttpRequest: android.content.Context context
+org.acra.http.BaseHttpRequest: org.acra.sender.HttpSender$Method method
+org.acra.http.BaseHttpRequest: java.lang.String login
+org.acra.http.BaseHttpRequest: java.lang.String password
+org.acra.http.BaseHttpRequest: int connectionTimeOut
+org.acra.http.BaseHttpRequest: int socketTimeOut
+org.acra.http.BaseHttpRequest: java.util.Map headers
+org.acra.http.BaseHttpRequest: BaseHttpRequest(org.acra.config.ACRAConfiguration,android.content.Context,org.acra.sender.HttpSender$Method,java.lang.String,java.lang.String,int,int,java.util.Map)
+org.acra.http.BaseHttpRequest: void send(java.net.URL,java.lang.Object)
+org.acra.http.BaseHttpRequest: java.net.HttpURLConnection createConnection(java.net.URL)
+org.acra.http.BaseHttpRequest: void configureHttps(javax.net.ssl.HttpsURLConnection)
+org.acra.http.BaseHttpRequest: void configureTimeouts(java.net.HttpURLConnection,int,int)
+org.acra.http.BaseHttpRequest: void configureHeaders(java.net.HttpURLConnection,java.lang.String,java.lang.String,java.util.Map,java.lang.Object)
+org.acra.http.BaseHttpRequest: java.lang.String getContentType(android.content.Context,java.lang.Object)
+org.acra.http.BaseHttpRequest: void writeContent(java.net.HttpURLConnection,org.acra.sender.HttpSender$Method,java.lang.Object)
+org.acra.http.BaseHttpRequest: byte[] asBytes(java.lang.Object)
+org.acra.http.BaseHttpRequest: void handleResponse(int,java.lang.String)
+org.acra.http.BinaryHttpRequest
+org.acra.http.BinaryHttpRequest: android.content.Context context
+org.acra.http.BinaryHttpRequest: BinaryHttpRequest(org.acra.config.ACRAConfiguration,android.content.Context,org.acra.sender.HttpSender$Method,java.lang.String,java.lang.String,int,int,java.util.Map)
+org.acra.http.BinaryHttpRequest: java.lang.String getContentType(android.content.Context,android.net.Uri)
+org.acra.http.BinaryHttpRequest: byte[] asBytes(android.net.Uri)
+org.acra.http.BinaryHttpRequest: byte[] asBytes(java.lang.Object)
+org.acra.http.BinaryHttpRequest: java.lang.String getContentType(android.content.Context,java.lang.Object)
+org.acra.http.DefaultHttpRequest
+org.acra.http.DefaultHttpRequest: org.acra.sender.HttpSender$Type type
+org.acra.http.DefaultHttpRequest: DefaultHttpRequest(org.acra.config.ACRAConfiguration,android.content.Context,org.acra.sender.HttpSender$Method,org.acra.sender.HttpSender$Type,java.lang.String,java.lang.String,int,int,java.util.Map)
+org.acra.http.DefaultHttpRequest: java.lang.String getContentType(android.content.Context,java.lang.String)
+org.acra.http.DefaultHttpRequest: byte[] asBytes(java.lang.String)
+org.acra.http.DefaultHttpRequest: byte[] asBytes(java.lang.Object)
+org.acra.http.DefaultHttpRequest: java.lang.String getContentType(android.content.Context,java.lang.Object)
+org.acra.http.HttpRequest
+org.acra.http.HttpRequest: void send(java.net.URL,java.lang.Object)
+org.acra.http.HttpUtils
+org.acra.http.HttpUtils: HttpUtils()
+org.acra.http.HttpUtils: byte[] uriToByteArray(android.content.Context,android.net.Uri)
+org.acra.http.HttpUtils: java.lang.String getParamsAsFormString(java.util.Map)
+org.acra.http.HttpUtils: java.lang.String getFileNameFromUri(android.content.Context,android.net.Uri)
+org.acra.http.HttpUtils: java.lang.String getMimeType(android.content.Context,android.net.Uri)
+org.acra.http.HttpUtils: java.lang.String guessMimeType(android.net.Uri)
+org.acra.http.MultipartHttpRequest
+org.acra.http.MultipartHttpRequest: java.lang.String BOUNDARY
+org.acra.http.MultipartHttpRequest: char NEW_LINE
+org.acra.http.MultipartHttpRequest: java.lang.String CONTENT_TYPE
+org.acra.http.MultipartHttpRequest: android.content.Context context
+org.acra.http.MultipartHttpRequest: org.acra.sender.HttpSender$Type type
+org.acra.http.MultipartHttpRequest: MultipartHttpRequest(org.acra.config.ACRAConfiguration,android.content.Context,org.acra.sender.HttpSender$Type,java.lang.String,java.lang.String,int,int,java.util.Map)
+org.acra.http.MultipartHttpRequest: java.lang.String getContentType(android.content.Context,android.util.Pair)
+org.acra.http.MultipartHttpRequest: byte[] asBytes(android.util.Pair)
+org.acra.http.MultipartHttpRequest: byte[] asBytes(java.lang.Object)
+org.acra.http.MultipartHttpRequest: java.lang.String getContentType(android.content.Context,java.lang.Object)
 org.acra.legacy.LegacyFileHandler
 org.acra.legacy.LegacyFileHandler: java.lang.String PREF__LEGACY_ALREADY_CONVERTED_TO_4_8_0
 org.acra.legacy.LegacyFileHandler: java.lang.String PREF__LEGACY_ALREADY_CONVERTED_TO_JSON
@@ -21929,6 +22077,9 @@ org.acra.sender.EmailIntentSender
 org.acra.sender.EmailIntentSender: org.acra.config.ACRAConfiguration config
 org.acra.sender.EmailIntentSender: EmailIntentSender(org.acra.config.ACRAConfiguration)
 org.acra.sender.EmailIntentSender: void send(android.content.Context,org.acra.collector.CrashReportData)
+org.acra.sender.EmailIntentSender: java.util.List buildInitialIntents(android.content.Context,android.content.pm.PackageManager,android.content.Intent,android.content.Intent,java.util.List)
+org.acra.sender.EmailIntentSender: void showChooser(android.content.Context,java.util.List)
+org.acra.sender.EmailIntentSender: void grantPermission(android.content.Context,android.content.Intent,java.lang.String,java.util.List)
 org.acra.sender.EmailIntentSender: java.lang.String buildBody(org.acra.collector.CrashReportData)
 org.acra.sender.EmailIntentSenderFactory
 org.acra.sender.EmailIntentSenderFactory: EmailIntentSenderFactory()
@@ -21941,14 +22092,20 @@ org.acra.sender.HttpSender: org.acra.sender.HttpSender$Method mMethod
 org.acra.sender.HttpSender: org.acra.sender.HttpSender$Type mType
 org.acra.sender.HttpSender: java.lang.String mUsername
 org.acra.sender.HttpSender: java.lang.String mPassword
+org.acra.sender.HttpSender: HttpSender(org.acra.config.ACRAConfiguration,org.acra.sender.HttpSender$Method,org.acra.sender.HttpSender$Type)
 org.acra.sender.HttpSender: HttpSender(org.acra.config.ACRAConfiguration,org.acra.sender.HttpSender$Method,org.acra.sender.HttpSender$Type,java.util.Map)
 org.acra.sender.HttpSender: HttpSender(org.acra.config.ACRAConfiguration,org.acra.sender.HttpSender$Method,org.acra.sender.HttpSender$Type,java.lang.String,java.util.Map)
 org.acra.sender.HttpSender: void setBasicAuth(java.lang.String,java.lang.String)
 org.acra.sender.HttpSender: void send(android.content.Context,org.acra.collector.CrashReportData)
+org.acra.sender.HttpSender: void sendHttpRequests(org.acra.config.ACRAConfiguration,android.content.Context,org.acra.sender.HttpSender$Method,org.acra.sender.HttpSender$Type,java.lang.String,java.lang.String,int,int,java.util.Map,java.lang.String,java.net.URL,java.util.List)
+org.acra.sender.HttpSender: void sendWithoutAttachments(org.acra.config.ACRAConfiguration,android.content.Context,org.acra.sender.HttpSender$Method,org.acra.sender.HttpSender$Type,java.lang.String,java.lang.String,int,int,java.util.Map,java.lang.String,java.net.URL)
+org.acra.sender.HttpSender: void postMultipart(org.acra.config.ACRAConfiguration,android.content.Context,org.acra.sender.HttpSender$Type,java.lang.String,java.lang.String,int,int,java.util.Map,java.lang.String,java.net.URL,java.util.List)
+org.acra.sender.HttpSender: void putAttachment(org.acra.config.ACRAConfiguration,android.content.Context,java.lang.String,java.lang.String,int,int,java.util.Map,java.net.URL,android.net.Uri)
+org.acra.sender.HttpSender: org.json.JSONObject convertToJson(org.acra.collector.CrashReportData)
+org.acra.sender.HttpSender: java.util.Map convertToForm(org.acra.collector.CrashReportData)
 org.acra.sender.HttpSender: java.util.Map remap(java.util.Map)
 org.acra.sender.HttpSender: boolean isNull(java.lang.String)
 org.acra.sender.HttpSender$1
-org.acra.sender.HttpSender$1: int[] $SwitchMap$org$acra$sender$HttpSender$Type
 org.acra.sender.HttpSender$1: int[] $SwitchMap$org$acra$sender$HttpSender$Method
 org.acra.sender.HttpSender$1: void <clinit>()
 org.acra.sender.HttpSender$Method
@@ -21958,23 +22115,33 @@ org.acra.sender.HttpSender$Method: org.acra.sender.HttpSender$Method[] $VALUES
 org.acra.sender.HttpSender$Method: org.acra.sender.HttpSender$Method[] values()
 org.acra.sender.HttpSender$Method: org.acra.sender.HttpSender$Method valueOf(java.lang.String)
 org.acra.sender.HttpSender$Method: HttpSender$Method(java.lang.String,int)
+org.acra.sender.HttpSender$Method: java.net.URL createURL(java.lang.String,org.acra.collector.CrashReportData)
+org.acra.sender.HttpSender$Method: HttpSender$Method(java.lang.String,int,org.acra.sender.HttpSender$1)
 org.acra.sender.HttpSender$Method: void <clinit>()
+org.acra.sender.HttpSender$Method$1
+org.acra.sender.HttpSender$Method$1: HttpSender$Method$1(java.lang.String,int)
+org.acra.sender.HttpSender$Method$1: java.net.URL createURL(java.lang.String,org.acra.collector.CrashReportData)
+org.acra.sender.HttpSender$Method$2
+org.acra.sender.HttpSender$Method$2: HttpSender$Method$2(java.lang.String,int)
+org.acra.sender.HttpSender$Method$2: java.net.URL createURL(java.lang.String,org.acra.collector.CrashReportData)
 org.acra.sender.HttpSender$Type
 org.acra.sender.HttpSender$Type: org.acra.sender.HttpSender$Type FORM
 org.acra.sender.HttpSender$Type: org.acra.sender.HttpSender$Type JSON
+org.acra.sender.HttpSender$Type: java.lang.String contentType
 org.acra.sender.HttpSender$Type: org.acra.sender.HttpSender$Type[] $VALUES
 org.acra.sender.HttpSender$Type: org.acra.sender.HttpSender$Type[] values()
 org.acra.sender.HttpSender$Type: org.acra.sender.HttpSender$Type valueOf(java.lang.String)
-org.acra.sender.HttpSender$Type: HttpSender$Type(java.lang.String,int)
+org.acra.sender.HttpSender$Type: HttpSender$Type(java.lang.String,int,java.lang.String)
 org.acra.sender.HttpSender$Type: java.lang.String getContentType()
-org.acra.sender.HttpSender$Type: HttpSender$Type(java.lang.String,int,org.acra.sender.HttpSender$1)
+org.acra.sender.HttpSender$Type: java.lang.String convertReport(org.acra.sender.HttpSender,org.acra.collector.CrashReportData)
+org.acra.sender.HttpSender$Type: HttpSender$Type(java.lang.String,int,java.lang.String,org.acra.sender.HttpSender$1)
 org.acra.sender.HttpSender$Type: void <clinit>()
 org.acra.sender.HttpSender$Type$1
-org.acra.sender.HttpSender$Type$1: HttpSender$Type$1(java.lang.String,int)
-org.acra.sender.HttpSender$Type$1: java.lang.String getContentType()
+org.acra.sender.HttpSender$Type$1: HttpSender$Type$1(java.lang.String,int,java.lang.String)
+org.acra.sender.HttpSender$Type$1: java.lang.String convertReport(org.acra.sender.HttpSender,org.acra.collector.CrashReportData)
 org.acra.sender.HttpSender$Type$2
-org.acra.sender.HttpSender$Type$2: HttpSender$Type$2(java.lang.String,int)
-org.acra.sender.HttpSender$Type$2: java.lang.String getContentType()
+org.acra.sender.HttpSender$Type$2: HttpSender$Type$2(java.lang.String,int,java.lang.String)
+org.acra.sender.HttpSender$Type$2: java.lang.String convertReport(org.acra.sender.HttpSender,org.acra.collector.CrashReportData)
 org.acra.sender.HttpSenderFactory
 org.acra.sender.HttpSenderFactory: HttpSenderFactory()
 org.acra.sender.HttpSenderFactory: org.acra.sender.ReportSender create(android.content.Context,org.acra.config.ACRAConfiguration)
@@ -21988,7 +22155,6 @@ org.acra.sender.ReportDistributor: java.util.List reportSenders
 org.acra.sender.ReportDistributor: ReportDistributor(android.content.Context,org.acra.config.ACRAConfiguration,java.util.List)
 org.acra.sender.ReportDistributor: void distribute(java.io.File)
 org.acra.sender.ReportDistributor: void sendCrashReport(org.acra.collector.CrashReportData)
-org.acra.sender.ReportDistributor: org.acra.config.RetryPolicy getRetryPolicy()
 org.acra.sender.ReportDistributor: boolean isDebuggable()
 org.acra.sender.ReportSender
 org.acra.sender.ReportSender: void send(android.content.Context,org.acra.collector.CrashReportData)
@@ -22020,22 +22186,6 @@ org.acra.util.ApplicationStartupProcessor: void deleteAllUnapprovedReportsBarOne
 org.acra.util.ApplicationStartupProcessor: void sendApprovedReports()
 org.acra.util.ApplicationStartupProcessor: int getAppVersion()
 org.acra.util.ApplicationStartupProcessor: boolean hasNonSilentApprovedReports(java.io.File[])
-org.acra.util.HttpRequest
-org.acra.util.HttpRequest: java.lang.String UTF8
-org.acra.util.HttpRequest: org.acra.config.ACRAConfiguration config
-org.acra.util.HttpRequest: java.lang.String login
-org.acra.util.HttpRequest: java.lang.String password
-org.acra.util.HttpRequest: int connectionTimeOut
-org.acra.util.HttpRequest: int socketTimeOut
-org.acra.util.HttpRequest: java.util.Map headers
-org.acra.util.HttpRequest: HttpRequest(org.acra.config.ACRAConfiguration)
-org.acra.util.HttpRequest: void setLogin(java.lang.String)
-org.acra.util.HttpRequest: void setPassword(java.lang.String)
-org.acra.util.HttpRequest: void setConnectionTimeOut(int)
-org.acra.util.HttpRequest: void setSocketTimeOut(int)
-org.acra.util.HttpRequest: void setHeaders(java.util.Map)
-org.acra.util.HttpRequest: void send(android.content.Context,java.net.URL,org.acra.sender.HttpSender$Method,java.lang.String,org.acra.sender.HttpSender$Type)
-org.acra.util.HttpRequest: java.lang.String getParamsAsFormString(java.util.Map)
 org.acra.util.IOUtils
 org.acra.util.IOUtils: com.android.internal.util.Predicate DEFAULT_FILTER
 org.acra.util.IOUtils: int NO_LIMIT
@@ -22060,6 +22210,10 @@ org.acra.util.Installation: Installation()
 org.acra.util.Installation: java.lang.String id(android.content.Context)
 org.acra.util.Installation: java.lang.String readInstallationFile(java.io.File)
 org.acra.util.Installation: void writeInstallationFile(java.io.File)
+org.acra.util.InstanceCreator
+org.acra.util.InstanceCreator: InstanceCreator()
+org.acra.util.InstanceCreator: java.lang.Object create(java.lang.Class,java.lang.Object)
+org.acra.util.InstanceCreator: java.util.List create(java.util.Collection)
 org.acra.util.JsonUtils
 org.acra.util.JsonUtils: JsonUtils()
 org.acra.util.JsonUtils: org.json.JSONObject toJson(org.acra.collector.CrashReportData)
