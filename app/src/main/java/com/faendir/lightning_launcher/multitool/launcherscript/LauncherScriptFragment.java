@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
-import com.faendir.lightning_launcher.scriptlib.BindResult;
+import com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader;
 import com.trianguloy.llscript.repository.aidl.Script;
@@ -102,22 +102,24 @@ public class LauncherScriptFragment extends Fragment {
                 saveName();
                 changeText(getString(R.string.button_repositoryImporter_importing));
                 ScriptManager manager = new ScriptManager(getActivity());
-                if(MultiTool.DEBUG) manager.enableDebug();
-                manager.getAsyncExecutorService()
-                        .setBindResultHandler(result -> {
-                            if (result != BindResult.OK && isAdded()) {
-                                getActivity().runOnUiThread(() -> changeText(getString(R.string.button_repositoryImporter_importError)));
-                            }
-                        })
+                if (MultiTool.DEBUG) manager.enableDebug();
+                manager.getAsyncExecutorService(new BaseExceptionHandler(getActivity()) {
+                    @Override
+                    protected void onUnhandledException(Exception e) {
+                        if (isAdded()) {
+                            getActivity().runOnUiThread(() -> changeText(getString(R.string.button_repositoryImporter_importError)));
+                        }
+                    }
+                })
                         .add(new ScriptLoader(new Script(getActivity(),
                                 R.raw.multitool,
                                 nameTextView.getText().toString(),
                                 Script.FLAG_APP_MENU + Script.FLAG_ITEM_MENU,
                                 getActivity().getPackageName().replace('.', '/'))), result -> {
-                                    if (isAdded()) {
-                                        getActivity().runOnUiThread(() -> changeText(getString(R.string.button_repositoryImporter_importOk)));
-                                    }
-                                })
+                            if (isAdded()) {
+                                getActivity().runOnUiThread(() -> changeText(getString(R.string.button_repositoryImporter_importOk)));
+                            }
+                        })
                         .start();
                 break;
             }

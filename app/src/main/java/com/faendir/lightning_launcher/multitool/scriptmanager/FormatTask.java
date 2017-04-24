@@ -81,11 +81,13 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
                 script.setCode(code); //set the text to the script
                 Transfer transfer = new Transfer(Transfer.SET_CODE);
                 transfer.script = script;
-                String result = scriptManager.execute(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data",  Utils.GSON.toJson(transfer)));
-                if (result != null) {
-                    List<Script> scripts = Arrays.asList(Utils.GSON.fromJson(result, Script[].class));
-                    listManager.updateFrom(scripts);
-                }
+                scriptManager.getAsyncExecutorService().add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)),
+                        result -> {
+                            if (result != null) {
+                                List<Script> scripts = Arrays.asList(Utils.GSON.fromJson(result, Script[].class));
+                                listManager.updateFrom(scripts);
+                            }
+                        }).start();
             }
         }
         return null;

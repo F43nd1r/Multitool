@@ -20303,15 +20303,14 @@ com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment -
     68:75:void checkLauncher() -> b
     79:81:void onPause() -> onPause
     85:86:void saveName() -> c
-    91:127:void onButtonClick(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onButtonClick
-    131:136:boolean isPackageInstalled(java.lang.String,android.content.Context) -> a
-    141:142:void changeText(java.lang.String) -> a
-    146:148:void onStart() -> onStart
-    152:154:void onStop() -> onStop
-    117:120:void lambda$onButtonClick$3(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment,java.lang.Integer) -> a
-    118:118:void lambda$null$2(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment) -> a
-    108:111:void lambda$onButtonClick$1(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment,com.faendir.lightning_launcher.scriptlib.BindResult) -> a
-    109:109:void lambda$null$0(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment) -> b
+    91:129:void onButtonClick(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onButtonClick
+    133:138:boolean isPackageInstalled(java.lang.String,android.content.Context) -> a
+    143:144:void changeText(java.lang.String) -> a
+    148:150:void onStart() -> onStart
+    154:156:void onStop() -> onStop
+    119:122:void lambda$onButtonClick$1(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment,java.lang.Integer) -> a
+    120:120:void lambda$null$0(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment) -> a
+    31:31:void access$000(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment,java.lang.String) -> a
 com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment$$Lambda$1 -> com.faendir.lightning_launcher.multitool.c.b:
     com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment) -> <init>
@@ -20320,18 +20319,18 @@ com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment$$
 com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment$$Lambda$2 -> com.faendir.lightning_launcher.multitool.c.c:
     com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment) -> <init>
-    void onResult(java.lang.Object) -> onResult
-    com.faendir.lightning_launcher.scriptlib.ResultCallback lambdaFactory$(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment) -> a
-com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment$$Lambda$3 -> com.faendir.lightning_launcher.multitool.c.d:
-    com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment arg$1 -> a
-    void <init>(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment) -> <init>
     void run() -> run
     java.lang.Runnable lambdaFactory$(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment) -> a
-com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment$$Lambda$4 -> com.faendir.lightning_launcher.multitool.c.e:
-    com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment arg$1 -> a
-    void <init>(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment) -> <init>
+com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment$1 -> com.faendir.lightning_launcher.multitool.c.a$1:
+    com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment this$0 -> a
+    106:106:void <init>(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment,android.content.Context) -> <init>
+    109:112:void onUnhandledException(java.lang.Exception) -> onUnhandledException
+    110:110:void lambda$onUnhandledException$0(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment$1) -> a
+com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment$1$$Lambda$1 -> com.faendir.lightning_launcher.multitool.c.d:
+    com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment$1 arg$1 -> a
+    void <init>(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment$1) -> <init>
     void run() -> run
-    java.lang.Runnable lambdaFactory$(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment) -> a
+    java.lang.Runnable lambdaFactory$(com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment$1) -> a
 com.faendir.lightning_launcher.multitool.music.DummyNotificationListener -> com.faendir.lightning_launcher.multitool.music.DummyNotificationListener:
     18:18:void <init>() -> <init>
     22:22:void onNotificationPosted(android.service.notification.StatusBarNotification) -> onNotificationPosted
@@ -20529,16 +20528,17 @@ com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask -> com.faendir
     44:48:void <init>(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager) -> <init>
     53:62:void onPreExecute() -> onPreExecute
     66:71:void onProgressUpdate(com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress[]) -> onProgressUpdate
-    75:91:java.lang.Void doInBackground(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem[]) -> doInBackground
-    95:174:java.lang.String beautify(java.lang.String) -> beautify
-    178:191:void checkOperators(java.lang.StringBuilder,char) -> checkOperators
-    194:202:boolean caseBeforeLast(java.lang.StringBuilder) -> caseBeforeLast
-    206:224:boolean endsWithCaseOrReturn(java.lang.StringBuilder) -> endsWithCaseOrReturn
-    229:232:void indentLine(java.util.Deque,int,java.lang.String,int,java.lang.StringBuilder) -> indentLine
-    236:238:void onPostExecute(java.lang.Void) -> onPostExecute
+    75:93:java.lang.Void doInBackground(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem[]) -> doInBackground
+    97:176:java.lang.String beautify(java.lang.String) -> beautify
+    180:193:void checkOperators(java.lang.StringBuilder,char) -> checkOperators
+    196:204:boolean caseBeforeLast(java.lang.StringBuilder) -> caseBeforeLast
+    208:226:boolean endsWithCaseOrReturn(java.lang.StringBuilder) -> endsWithCaseOrReturn
+    231:234:void indentLine(java.util.Deque,int,java.lang.String,int,java.lang.StringBuilder) -> indentLine
+    238:240:void onPostExecute(java.lang.Void) -> onPostExecute
     24:24:void onProgressUpdate(java.lang.Object[]) -> onProgressUpdate
     24:24:void onPostExecute(java.lang.Object) -> onPostExecute
     24:24:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    86:90:void lambda$doInBackground$1(com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask,java.lang.String) -> lambda$doInBackground$1
     59:59:void lambda$onPreExecute$0(com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask,android.content.DialogInterface,int) -> lambda$onPreExecute$0
     30:35:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$1 -> com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$1:
@@ -20546,17 +20546,22 @@ com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$1 -> c
     void <init>(com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask) -> <init>
     void onClick(android.content.DialogInterface,int) -> onClick
     android.content.DialogInterface$OnClickListener lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask) -> lambdaFactory$
+com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$2 -> com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$2:
+    com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask arg$1 -> arg$1
+    void <init>(com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask) -> <init>
+    void onResult(java.lang.Object) -> onResult
+    com.faendir.lightning_launcher.scriptlib.ResultCallback lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask) -> lambdaFactory$
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress -> com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress:
     java.lang.String title -> title
     java.lang.Integer max -> max
     java.lang.Integer progress -> progress
-    246:250:void <init>(java.lang.Integer,java.lang.Integer,java.lang.String) -> <init>
-    253:253:boolean hasTitle() -> hasTitle
-    257:257:boolean hasMax() -> hasMax
-    261:261:boolean hasProgress() -> hasProgress
-    265:265:java.lang.String getTitle() -> getTitle
-    269:269:java.lang.Integer getProgress() -> getProgress
-    273:273:java.lang.Integer getMax() -> getMax
+    248:252:void <init>(java.lang.Integer,java.lang.Integer,java.lang.String) -> <init>
+    255:255:boolean hasTitle() -> hasTitle
+    259:259:boolean hasMax() -> hasMax
+    263:263:boolean hasProgress() -> hasProgress
+    267:267:java.lang.String getTitle() -> getTitle
+    271:271:java.lang.Integer getProgress() -> getProgress
+    275:275:java.lang.Integer getMax() -> getMax
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2 -> com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2:
     java.lang.String ONE_LINE_COMMENT -> ONE_LINE_COMMENT
     char LINE_BREAK_CHAR -> LINE_BREAK_CHAR
@@ -20596,35 +20601,36 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ListManager -> com.faendi
     86:87:void fireUpdateActionMode() -> fireUpdateActionMode
     90:91:void deselectAll() -> deselectAll
     94:95:void changed(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> changed
-    98:156:void updateFrom(java.util.List) -> updateFrom
-    159:163:void setAsContentOf(android.view.ViewGroup) -> setAsContentOf
-    166:166:com.faendir.omniadapter.model.DeepObservableList getItems() -> getItems
-    170:170:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> exists
-    174:175:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.omniadapter.model.DeepObservableList) -> exists
-    180:180:android.view.View createView(android.view.ViewGroup,int) -> createView
-    185:193:void bindView(android.view.View,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int) -> bindView
-    197:199:boolean onCreateActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> onCreateActionMode
-    204:216:boolean onPrepareActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> onPrepareActionMode
-    221:244:boolean onActionItemClicked(android.support.v7.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
-    249:250:void onDestroyActionMode(android.support.v7.view.ActionMode) -> onDestroyActionMode
-    254:255:void onSelectionChanged(java.util.List) -> onSelectionChanged
-    259:260:void onSelectionCleared() -> onSelectionCleared
-    264:266:void onActionPersisted(java.util.List) -> onActionPersisted
-    270:270:void onActionReverted(java.util.List) -> onActionReverted
-    274:274:boolean isSelectable(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> isSelectable
-    290:295:int getSelectionMode() -> getSelectionMode
-    300:300:java.util.List getSelectedItems() -> getSelectedItems
-    305:305:java.lang.String toString() -> toString
+    98:162:void updateFrom(java.util.List) -> updateFrom
+    165:169:void setAsContentOf(android.view.ViewGroup) -> setAsContentOf
+    172:172:com.faendir.omniadapter.model.DeepObservableList getItems() -> getItems
+    176:176:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> exists
+    180:181:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.omniadapter.model.DeepObservableList) -> exists
+    186:186:android.view.View createView(android.view.ViewGroup,int) -> createView
+    191:199:void bindView(android.view.View,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int) -> bindView
+    203:205:boolean onCreateActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> onCreateActionMode
+    210:222:boolean onPrepareActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> onPrepareActionMode
+    227:250:boolean onActionItemClicked(android.support.v7.view.ActionMode,android.view.MenuItem) -> onActionItemClicked
+    255:256:void onDestroyActionMode(android.support.v7.view.ActionMode) -> onDestroyActionMode
+    260:261:void onSelectionChanged(java.util.List) -> onSelectionChanged
+    265:266:void onSelectionCleared() -> onSelectionCleared
+    270:272:void onActionPersisted(java.util.List) -> onActionPersisted
+    276:276:void onActionReverted(java.util.List) -> onActionReverted
+    280:280:boolean isSelectable(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> isSelectable
+    296:301:int getSelectionMode() -> getSelectionMode
+    306:306:java.util.List getSelectedItems() -> getSelectedItems
+    311:311:java.lang.String toString() -> toString
     45:45:boolean isSelectable(com.faendir.omniadapter.model.Component) -> isSelectable
     45:45:void bindView(android.view.View,com.faendir.omniadapter.model.Component,int) -> bindView
-    265:265:void lambda$onActionPersisted$9(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> lambda$onActionPersisted$9
-    265:265:com.faendir.lightning_launcher.multitool.scriptmanager.Script lambda$onActionPersisted$8(com.faendir.omniadapter.model.ChangeInformation) -> lambda$onActionPersisted$8
-    264:264:boolean lambda$onActionPersisted$7(com.faendir.omniadapter.model.ChangeInformation) -> lambda$onActionPersisted$7
-    174:175:boolean lambda$exists$6(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> lambda$exists$6
-    160:162:void lambda$setAsContentOf$5(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup) -> lambda$setAsContentOf$5
-    134:134:boolean lambda$updateFrom$4(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.Folder) -> lambda$updateFrom$4
-    133:133:boolean lambda$updateFrom$3(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> lambda$updateFrom$3
-    115:115:boolean lambda$updateFrom$2(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> lambda$updateFrom$2
+    271:271:void lambda$onActionPersisted$10(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> lambda$onActionPersisted$10
+    271:271:com.faendir.lightning_launcher.multitool.scriptmanager.Script lambda$onActionPersisted$9(com.faendir.omniadapter.model.ChangeInformation) -> lambda$onActionPersisted$9
+    270:270:boolean lambda$onActionPersisted$8(com.faendir.omniadapter.model.ChangeInformation) -> lambda$onActionPersisted$8
+    180:181:boolean lambda$exists$7(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> lambda$exists$7
+    166:168:void lambda$setAsContentOf$6(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup) -> lambda$setAsContentOf$6
+    140:140:boolean lambda$updateFrom$5(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.Folder) -> lambda$updateFrom$5
+    139:139:boolean lambda$updateFrom$4(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> lambda$updateFrom$4
+    118:118:boolean lambda$updateFrom$3(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.Folder) -> lambda$updateFrom$3
+    118:118:boolean lambda$updateFrom$2(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> lambda$updateFrom$2
     101:104:void lambda$updateFrom$1(java.util.List,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int) -> lambda$updateFrom$1
     61:70:int lambda$new$0(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> lambda$new$0
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$1 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$1:
@@ -20634,12 +20640,24 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$1 -> 
     void <clinit>() -> <clinit>
     java.util.Comparator lambdaFactory$() -> lambdaFactory$
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$10 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$10:
-    com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$10 instance -> instance
+    com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$1 -> arg$1
+    com.faendir.lightning_launcher.multitool.scriptmanager.Script arg$2 -> arg$2
+    void <init>(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> <init>
+    boolean test(java.lang.Object) -> test
+    java8.util.function.Predicate lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> lambdaFactory$
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$11 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$11:
+    com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$11 instance -> instance
+    void <init>() -> <init>
+    boolean test(java.lang.Object) -> test
+    void <clinit>() -> <clinit>
+    java8.util.function.Predicate lambdaFactory$() -> lambdaFactory$
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$12 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$12:
+    com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$12 instance -> instance
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object) -> apply
     void <clinit>() -> <clinit>
     java8.util.function.Function lambdaFactory$() -> lambdaFactory$
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$11 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$11:
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$13 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$13:
     com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$1 -> arg$1
     void <init>(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager) -> <init>
     void accept(java.lang.Object) -> accept
@@ -20650,44 +20668,43 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$2 -> 
     void visit(java.lang.Object,int) -> visit
     com.faendir.omniadapter.model.DeepObservableList$ComponentVisitor lambdaFactory$(java.util.List) -> lambdaFactory$
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$3 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$3:
-    java.lang.String arg$1 -> arg$1
-    void <init>(java.lang.String) -> <init>
-    boolean test(java.lang.Object) -> test
-    java8.util.function.Predicate lambdaFactory$(java.lang.String) -> lambdaFactory$
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$4 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$4:
-    com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$4 instance -> instance
+    com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$3 instance -> instance
     void <init>() -> <init>
     boolean test(java.lang.Object) -> test
     void <clinit>() -> <clinit>
     java8.util.function.Predicate lambdaFactory$() -> lambdaFactory$
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$5 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$5:
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$4 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$4:
     java.lang.Class arg$1 -> arg$1
     void <init>(java.lang.Class) -> <init>
     java.lang.Object apply(java.lang.Object) -> apply
     java8.util.function.Function lambdaFactory$(java.lang.Class) -> lambdaFactory$
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$6 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$6:
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$5 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$5:
     java.lang.String arg$1 -> arg$1
     void <init>(java.lang.String) -> <init>
     boolean test(java.lang.Object) -> test
     java8.util.function.Predicate lambdaFactory$(java.lang.String) -> lambdaFactory$
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$6 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$6:
+    com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$6 instance -> instance
+    void <init>() -> <init>
+    boolean test(java.lang.Object) -> test
+    void <clinit>() -> <clinit>
+    java8.util.function.Predicate lambdaFactory$() -> lambdaFactory$
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$7 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$7:
+    java.lang.Class arg$1 -> arg$1
+    void <init>(java.lang.Class) -> <init>
+    java.lang.Object apply(java.lang.Object) -> apply
+    java8.util.function.Function lambdaFactory$(java.lang.Class) -> lambdaFactory$
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$8 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$8:
+    java.lang.String arg$1 -> arg$1
+    void <init>(java.lang.String) -> <init>
+    boolean test(java.lang.Object) -> test
+    java8.util.function.Predicate lambdaFactory$(java.lang.String) -> lambdaFactory$
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$9 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$9:
     com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$1 -> arg$1
     android.view.ViewGroup arg$2 -> arg$2
     void <init>(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup) -> <init>
     void run() -> run
     java.lang.Runnable lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup) -> lambdaFactory$
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$8 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$8:
-    com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$1 -> arg$1
-    com.faendir.lightning_launcher.multitool.scriptmanager.Script arg$2 -> arg$2
-    void <init>(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> <init>
-    boolean test(java.lang.Object) -> test
-    java8.util.function.Predicate lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> lambdaFactory$
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$9 -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$9:
-    com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$9 instance -> instance
-    void <init>() -> <init>
-    boolean test(java.lang.Object) -> test
-    void <clinit>() -> <clinit>
-    java8.util.function.Predicate lambdaFactory$() -> lambdaFactory$
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$SelectionMode -> com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$SelectionMode:
 com.faendir.lightning_launcher.multitool.scriptmanager.Script -> com.faendir.lightning_launcher.multitool.scriptmanager.Script:
     int id -> id
@@ -20719,39 +20736,29 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment -> 
     android.widget.FrameLayout layout -> layout
     com.faendir.lightning_launcher.multitool.scriptmanager.ListManager listManager -> listManager
     com.faendir.lightning_launcher.scriptlib.ScriptManager scriptManager -> scriptManager
-    boolean stopAutoLoad -> stopAutoLoad
-    41:48:void <init>() -> <init>
-    52:68:void onCreate(android.os.Bundle) -> onCreate
-    73:74:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    79:82:void onStart() -> onStart
-    86:91:void onStop() -> onStop
-    95:96:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
-    100:119:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    124:127:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    130:133:void loadFromLauncher() -> loadFromLauncher
-    136:142:void handleScriptResult(java.lang.String) -> handleScriptResult
-    146:150:void onReloadButton(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onReloadButton
-    125:125:void lambda$onActivityResult$1(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment,android.net.Uri) -> lambda$onActivityResult$1
-    56:63:void lambda$onCreate$0(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment) -> lambda$onCreate$0
+    41:41:void <init>() -> <init>
+    51:58:void onCreate(android.os.Bundle) -> onCreate
+    63:64:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    69:72:void onStart() -> onStart
+    76:78:void onStop() -> onStop
+    82:83:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
+    87:106:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    111:114:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    117:120:void loadFromLauncher() -> loadFromLauncher
+    123:129:void handleScriptResult(java.lang.String) -> handleScriptResult
+    133:137:void onReloadButton(com.faendir.lightning_launcher.multitool.event.ClickEvent) -> onReloadButton
+    112:112:void lambda$onActivityResult$0(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment,android.net.Uri) -> lambda$onActivityResult$0
     void access$lambda$0(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment,java.lang.String) -> access$lambda$0
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$1 -> com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$1:
     com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment arg$1 -> arg$1
     void <init>(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment) -> <init>
-    void run() -> run
-    java.lang.Runnable lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment) -> lambdaFactory$
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2 -> com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2:
-    com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment arg$1 -> arg$1
-    void <init>(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment) -> <init>
     void accept(java.lang.Object) -> accept
     java8.util.function.Consumer lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment) -> lambdaFactory$
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$3 -> com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$3:
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2 -> com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2:
     com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment arg$1 -> arg$1
     void <init>(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment) -> <init>
     void onResult(java.lang.Object) -> onResult
     com.faendir.lightning_launcher.scriptlib.ResultCallback lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment) -> lambdaFactory$
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$1 -> com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$1:
-    int[] $SwitchMap$com$faendir$lightning_launcher$scriptlib$BindResult -> $SwitchMap$com$faendir$lightning_launcher$scriptlib$BindResult
-    56:56:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils -> com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils:
     java.lang.String FLAGS -> FLAGS
     java.lang.String APP -> APP
@@ -20878,14 +20885,14 @@ com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$1
     void <init>(com.faendir.lightning_launcher.multitool.settings.BackupTimePreference) -> <init>
     void accept(java.lang.Object) -> accept
     java8.util.function.Consumer lambdaFactory$(com.faendir.lightning_launcher.multitool.settings.BackupTimePreference) -> a
-com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$4 -> com.faendir.lightning_launcher.multitool.settings.b:
-    com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$4 instance -> a
+com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$2 -> com.faendir.lightning_launcher.multitool.settings.b:
+    com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$2 instance -> a
     void <init>() -> <init>
     boolean test(java.lang.Object) -> test
     void <clinit>() -> <clinit>
     java8.util.function.Predicate lambdaFactory$() -> a
-com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$5 -> com.faendir.lightning_launcher.multitool.settings.c:
-    com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$5 instance -> a
+com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$3 -> com.faendir.lightning_launcher.multitool.settings.c:
+    com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$3 instance -> a
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object) -> apply
     void <clinit>() -> <clinit>
@@ -21294,34 +21301,76 @@ com.faendir.lightning_launcher.scriptlib.Action -> com.faendir.lightning_launche
     int HIDE_FLOATING_DESKTOP -> HIDE_FLOATING_DESKTOP
     int OPEN_HIERARCHY_SCREEN -> OPEN_HIERARCHY_SCREEN
 com.faendir.lightning_launcher.scriptlib.AsyncExecutorService -> com.faendir.lightning_launcher.scriptlib.AsyncExecutorService:
-    com.faendir.lightning_launcher.scriptlib.ServiceManager serviceManager -> serviceManager
-    java.util.LinkedHashMap map -> map
-    com.faendir.lightning_launcher.scriptlib.ResultCallback bindResultHandler -> bindResultHandler
+    android.content.Context context -> context
+    com.faendir.lightning_launcher.scriptlib.ServiceManager2 serviceManager -> serviceManager
+    com.faendir.lightning_launcher.scriptlib.ExceptionHandler exceptionHandler -> exceptionHandler
+    com.faendir.lightning_launcher.scriptlib.Logger logger -> logger
+    java.util.List list -> list
     boolean keepAlive -> keepAlive
-    24:29:void <init>(com.faendir.lightning_launcher.scriptlib.ServiceManager,com.faendir.lightning_launcher.scriptlib.ResponseManager) -> <init>
-    32:54:void start() -> start
-    57:57:com.faendir.lightning_launcher.scriptlib.AsyncExecutorService add(com.faendir.lightning_launcher.scriptlib.executor.Executor) -> add
-    61:62:com.faendir.lightning_launcher.scriptlib.AsyncExecutorService add(com.faendir.lightning_launcher.scriptlib.executor.Executor,com.faendir.lightning_launcher.scriptlib.ResultCallback) -> add
-    66:67:com.faendir.lightning_launcher.scriptlib.AsyncExecutorService setKeepAliveAfterwards(boolean) -> setKeepAliveAfterwards
-    71:72:com.faendir.lightning_launcher.scriptlib.AsyncExecutorService setBindResultHandler(com.faendir.lightning_launcher.scriptlib.ResultCallback) -> setBindResultHandler
-    18:18:com.faendir.lightning_launcher.scriptlib.ServiceManager access$000(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService) -> access$000
-    18:18:com.faendir.lightning_launcher.scriptlib.ResultCallback access$100(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService) -> access$100
-    18:18:java.util.LinkedHashMap access$200(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService) -> access$200
-    18:18:boolean access$300(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService) -> access$300
+    com.trianguloy.llscript.repository.aidl.ILightningService lightningService -> lightningService
+    29:36:void <init>(android.content.Context,com.faendir.lightning_launcher.scriptlib.ServiceManager2,com.faendir.lightning_launcher.scriptlib.ExceptionHandler,com.faendir.lightning_launcher.scriptlib.Logger) -> <init>
+    39:50:void start() -> start
+    53:53:com.faendir.lightning_launcher.scriptlib.AsyncExecutorService add(com.faendir.lightning_launcher.scriptlib.executor.Executor) -> add
+    57:58:com.faendir.lightning_launcher.scriptlib.AsyncExecutorService add(com.faendir.lightning_launcher.scriptlib.executor.Executor,com.faendir.lightning_launcher.scriptlib.ResultCallback) -> add
+    62:63:com.faendir.lightning_launcher.scriptlib.AsyncExecutorService setKeepAliveAfterwards(boolean) -> setKeepAliveAfterwards
+    67:69:void unbind() -> unbind
+    72:77:void next() -> next
+    80:88:void execute(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$ExecutorWithCallback) -> execute
+    19:19:com.trianguloy.llscript.repository.aidl.ILightningService access$002(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService,com.trianguloy.llscript.repository.aidl.ILightningService) -> access$002
+    19:19:void access$100(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService) -> access$100
+    19:19:java.util.List access$300(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService) -> access$300
 com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$1 -> com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$1:
     com.faendir.lightning_launcher.scriptlib.AsyncExecutorService this$0 -> this$0
-    32:32:void <init>(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService) -> <init>
-    35:52:void run() -> run
-com.faendir.lightning_launcher.scriptlib.BindResult -> com.faendir.lightning_launcher.scriptlib.BindResult:
-    com.faendir.lightning_launcher.scriptlib.BindResult OK -> OK
-    com.faendir.lightning_launcher.scriptlib.BindResult PERMISSION_NOT_GRANTED -> PERMISSION_NOT_GRANTED
-    com.faendir.lightning_launcher.scriptlib.BindResult REPOSITORY_IMPORTER_MISSING -> REPOSITORY_IMPORTER_MISSING
-    com.faendir.lightning_launcher.scriptlib.BindResult REPOSITORY_IMPORTER_OUTDATED -> REPOSITORY_IMPORTER_OUTDATED
-    com.faendir.lightning_launcher.scriptlib.BindResult[] $VALUES -> $VALUES
-    9:9:com.faendir.lightning_launcher.scriptlib.BindResult[] values() -> values
-    9:9:com.faendir.lightning_launcher.scriptlib.BindResult valueOf(java.lang.String) -> valueOf
-    9:9:void <init>(java.lang.String,int) -> <init>
-    9:13:void <clinit>() -> <clinit>
+    42:42:void <init>(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService) -> <init>
+    45:47:void onResult(com.trianguloy.llscript.repository.aidl.ILightningService) -> onResult
+    42:42:void onResult(java.lang.Object) -> onResult
+com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$2 -> com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$2:
+    com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$ExecutorWithCallback val$entry -> val$entry
+    com.faendir.lightning_launcher.scriptlib.AsyncExecutorService this$0 -> this$0
+    80:80:void <init>(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService,com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$ExecutorWithCallback) -> <init>
+    83:86:void onResult(java.lang.Object) -> onResult
+com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$ExecutorWithCallback -> com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$ExecutorWithCallback:
+    com.faendir.lightning_launcher.scriptlib.executor.Executor executor -> executor
+    com.faendir.lightning_launcher.scriptlib.ResultCallback resultCallback -> resultCallback
+    94:97:void <init>(com.faendir.lightning_launcher.scriptlib.executor.Executor,com.faendir.lightning_launcher.scriptlib.ResultCallback) -> <init>
+    100:100:com.faendir.lightning_launcher.scriptlib.executor.Executor getExecutor() -> getExecutor
+    104:104:com.faendir.lightning_launcher.scriptlib.ResultCallback getResultCallback() -> getResultCallback
+    90:90:void <init>(com.faendir.lightning_launcher.scriptlib.executor.Executor,com.faendir.lightning_launcher.scriptlib.ResultCallback,com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$1) -> <init>
+com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler -> com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler:
+    android.net.Uri URI -> URI
+    android.net.Uri ALTERNATIVE_URI -> ALTERNATIVE_URI
+    android.content.Context context -> context
+    boolean useLightTheme -> useLightTheme
+    int customTheme -> customTheme
+    41:42:void <init>(android.content.Context) -> <init>
+    45:46:void <init>(android.content.Context,boolean) -> <init>
+    49:50:void <init>(android.content.Context,int) -> <init>
+    52:56:void <init>(android.content.Context,boolean,int) -> <init>
+    60:73:com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder getThemedBuilder() -> getThemedBuilder
+    77:84:void permissionNotGranted() -> permissionNotGranted
+    87:89:void outdatedImporter() -> outdatedImporter
+    92:93:void noImporter() -> noImporter
+    96:102:void confirmUpdate(android.os.ResultReceiver) -> confirmUpdate
+    105:137:void askForInstallation(int,int) -> askForInstallation
+    141:164:void onException(java.lang.Exception) -> onException
+    167:168:void onUnhandledException(java.lang.Exception) -> onUnhandledException
+    30:30:android.content.Context access$000(com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler) -> access$000
+    30:30:android.net.Uri access$100() -> access$100
+    30:30:android.net.Uri access$200() -> access$200
+    32:33:void <clinit>() -> <clinit>
+com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$1 -> com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$1:
+    com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler this$0 -> this$0
+    77:77:void <init>(com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler) -> <init>
+    80:82:void run() -> run
+com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$2 -> com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$2:
+    com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler this$0 -> this$0
+    109:109:void <init>(com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler,android.os.Handler) -> <init>
+    112:134:void onReceiveResult(int,android.os.Bundle) -> onReceiveResult
+com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$3 -> com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$3:
+    com.faendir.lightning_launcher.scriptlib.exception.FailureException val$failureException -> val$failureException
+    com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler this$0 -> this$0
+    150:150:void <init>(com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler,android.os.Handler,com.faendir.lightning_launcher.scriptlib.exception.FailureException) -> <init>
+    153:158:void onReceiveResult(int,android.os.Bundle) -> onReceiveResult
 com.faendir.lightning_launcher.scriptlib.BuildConfig -> com.faendir.lightning_launcher.scriptlib.BuildConfig:
     boolean DEBUG -> DEBUG
     java.lang.String APPLICATION_ID -> APPLICATION_ID
@@ -21330,14 +21379,6 @@ com.faendir.lightning_launcher.scriptlib.BuildConfig -> com.faendir.lightning_la
     int VERSION_CODE -> VERSION_CODE
     java.lang.String VERSION_NAME -> VERSION_NAME
     6:6:void <init>() -> <init>
-com.faendir.lightning_launcher.scriptlib.DefaultBindResultHandler -> com.faendir.lightning_launcher.scriptlib.DefaultBindResultHandler:
-    com.faendir.lightning_launcher.scriptlib.ResponseManager responseManager -> responseManager
-    12:14:void <init>(com.faendir.lightning_launcher.scriptlib.ResponseManager) -> <init>
-    18:31:void onResult(com.faendir.lightning_launcher.scriptlib.BindResult) -> onResult
-    9:9:void onResult(java.lang.Object) -> onResult
-com.faendir.lightning_launcher.scriptlib.DefaultBindResultHandler$1 -> com.faendir.lightning_launcher.scriptlib.DefaultBindResultHandler$1:
-    int[] $SwitchMap$com$faendir$lightning_launcher$scriptlib$BindResult -> $SwitchMap$com$faendir$lightning_launcher$scriptlib$BindResult
-    18:18:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.scriptlib.DefaultLogger -> com.faendir.lightning_launcher.scriptlib.DefaultLogger:
     boolean debug -> debug
     java.lang.String TAG -> TAG
@@ -21371,24 +21412,27 @@ com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder -> com.faendir.l
     96:96:com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder setButtons(int,int,android.os.ResultReceiver) -> setButtons
     100:103:com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder setButtons(java.lang.String,java.lang.String,android.os.ResultReceiver) -> setButtons
     107:109:void show() -> show
+com.faendir.lightning_launcher.scriptlib.ExceptionHandler -> com.faendir.lightning_launcher.scriptlib.ExceptionHandler:
+    void onException(java.lang.Exception) -> onException
 com.faendir.lightning_launcher.scriptlib.Logger -> com.faendir.lightning_launcher.scriptlib.Logger:
     void log(java.lang.String) -> log
     void warn(java.lang.String) -> warn
     void setDebug(boolean) -> setDebug
     boolean getDebug() -> getDebug
 com.faendir.lightning_launcher.scriptlib.PermissionActivity -> com.faendir.lightning_launcher.scriptlib.PermissionActivity:
-    java.lang.String ID -> ID
+    java.lang.String CALLBACK -> CALLBACK
     java.lang.String PERMISSION -> PERMISSION
-    java.util.HashMap callbacks -> callbacks
-    int nextId -> nextId
-    int id -> id
+    android.os.ResultReceiver callback -> callback
     java.lang.String permission -> permission
-    19:19:void <init>() -> <init>
-    27:44:void checkForPermission(android.content.Context,java.lang.String,com.faendir.lightning_launcher.scriptlib.PermissionActivity$PermissionCallback) -> checkForPermission
-    51:58:void onCreate(android.os.Bundle) -> onCreate
-    62:63:void requestPermission() -> requestPermission
-    67:71:void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
-    23:24:void <clinit>() -> <clinit>
+    18:18:void <init>() -> <init>
+    23:43:void checkForPermission(android.content.Context,java.lang.String,com.faendir.lightning_launcher.scriptlib.PermissionActivity$PermissionCallback) -> checkForPermission
+    50:57:void onCreate(android.os.Bundle) -> onCreate
+    61:62:void requestPermission() -> requestPermission
+    66:69:void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
+com.faendir.lightning_launcher.scriptlib.PermissionActivity$1 -> com.faendir.lightning_launcher.scriptlib.PermissionActivity$1:
+    com.faendir.lightning_launcher.scriptlib.PermissionActivity$PermissionCallback val$callback -> val$callback
+    26:26:void <init>(android.os.Handler,com.faendir.lightning_launcher.scriptlib.PermissionActivity$PermissionCallback) -> <init>
+    29:30:void onReceiveResult(int,android.os.Bundle) -> onReceiveResult
 com.faendir.lightning_launcher.scriptlib.PermissionActivity$PermissionCallback -> com.faendir.lightning_launcher.scriptlib.PermissionActivity$PermissionCallback:
     void handlePermissionResult(boolean) -> handlePermissionResult
 com.faendir.lightning_launcher.scriptlib.R -> com.faendir.lightning_launcher.scriptlib.R:
@@ -21415,179 +21459,131 @@ com.faendir.lightning_launcher.scriptlib.R$string -> com.faendir.lightning_launc
 com.faendir.lightning_launcher.scriptlib.R$style -> com.faendir.lightning_launcher.scriptlib.R$style:
     int Transparent -> Transparent
     29:29:void <init>() -> <init>
-com.faendir.lightning_launcher.scriptlib.ResponseManager -> com.faendir.lightning_launcher.scriptlib.ResponseManager:
-    android.net.Uri URI -> URI
-    android.net.Uri ALTERNATIVE_URI -> ALTERNATIVE_URI
-    android.content.Context context -> context
-    boolean askForInstallation -> askForInstallation
-    boolean toastIfPermissionNotGranted -> toastIfPermissionNotGranted
-    boolean useLightTheme -> useLightTheme
-    int customTheme -> customTheme
-    28:35:void <init>(android.content.Context) -> <init>
-    39:52:com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder getThemedBuilder() -> getThemedBuilder
-    56:65:void permissionNotGranted() -> permissionNotGranted
-    68:70:void outdatedImporter() -> outdatedImporter
-    73:74:void noImporter() -> noImporter
-    77:83:void confirmUpdate(android.os.ResultReceiver) -> confirmUpdate
-    86:120:void askForInstallation(int,int) -> askForInstallation
-    123:124:void setAskForInstallation(boolean) -> setAskForInstallation
-    127:128:void setToastIfPermissionNotGranted(boolean) -> setToastIfPermissionNotGranted
-    131:132:void setUseLightTheme(boolean) -> setUseLightTheme
-    135:136:void setCustomTheme(int) -> setCustomTheme
-    22:22:boolean access$000(com.faendir.lightning_launcher.scriptlib.ResponseManager) -> access$000
-    22:22:android.content.Context access$100(com.faendir.lightning_launcher.scriptlib.ResponseManager) -> access$100
-    22:22:android.net.Uri access$200() -> access$200
-    22:22:android.net.Uri access$300() -> access$300
-    24:25:void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.scriptlib.ResponseManager$1 -> com.faendir.lightning_launcher.scriptlib.ResponseManager$1:
-    com.faendir.lightning_launcher.scriptlib.ResponseManager this$0 -> this$0
-    56:56:void <init>(com.faendir.lightning_launcher.scriptlib.ResponseManager) -> <init>
-    59:63:void run() -> run
-com.faendir.lightning_launcher.scriptlib.ResponseManager$2 -> com.faendir.lightning_launcher.scriptlib.ResponseManager$2:
-    com.faendir.lightning_launcher.scriptlib.ResponseManager this$0 -> this$0
-    91:91:void <init>(com.faendir.lightning_launcher.scriptlib.ResponseManager,android.os.Handler) -> <init>
-    94:116:void onReceiveResult(int,android.os.Bundle) -> onReceiveResult
 com.faendir.lightning_launcher.scriptlib.ResultCallback -> com.faendir.lightning_launcher.scriptlib.ResultCallback:
     void onResult(java.lang.Object) -> onResult
 com.faendir.lightning_launcher.scriptlib.ScriptManager -> com.faendir.lightning_launcher.scriptlib.ScriptManager:
     com.faendir.lightning_launcher.scriptlib.Logger logger -> logger
-    com.faendir.lightning_launcher.scriptlib.ResponseManager responseManager -> responseManager
-    com.faendir.lightning_launcher.scriptlib.ServiceManager serviceManager -> serviceManager
-    32:35:void <init>(android.content.Context) -> <init>
-    40:43:com.faendir.lightning_launcher.scriptlib.BindResult bind() -> bind
-    47:49:void unbind() -> unbind
-    63:63:int loadScript(com.trianguloy.llscript.repository.aidl.Script) -> loadScript
-    77:78:int loadScript(com.trianguloy.llscript.repository.aidl.Script,boolean) -> loadScript
-    91:92:void runScript(int,java.lang.String) -> runScript
-    105:107:void runScript(int,java.lang.String,boolean) -> runScript
-    119:120:java.lang.String runScriptForResult(java.lang.String) -> runScriptForResult
-    135:135:java.lang.String runScriptForResult(int,java.lang.String) -> runScriptForResult
-    149:149:java.lang.String runScriptForResult(int,java.util.Map) -> runScriptForResult
-    163:165:void runAction(int,java.lang.String,boolean) -> runAction
-    169:169:java.lang.Object execute(com.faendir.lightning_launcher.scriptlib.executor.Executor) -> execute
-    173:173:com.faendir.lightning_launcher.scriptlib.AsyncExecutorService getAsyncExecutorService() -> getAsyncExecutorService
-    180:181:void enableDebug() -> enableDebug
-    184:184:com.faendir.lightning_launcher.scriptlib.ResponseManager getResponseManager() -> getResponseManager
-    188:190:void setResponseManager(com.faendir.lightning_launcher.scriptlib.ResponseManager) -> setResponseManager
-    198:201:void replaceLogger(com.faendir.lightning_launcher.scriptlib.Logger) -> replaceLogger
-    28:28:void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.scriptlib.ServiceManager -> com.faendir.lightning_launcher.scriptlib.ServiceManager:
+    com.faendir.lightning_launcher.scriptlib.ServiceManager2 serviceManager -> serviceManager
+    android.content.Context context -> context
+    19:22:void <init>(android.content.Context) -> <init>
+    25:25:com.faendir.lightning_launcher.scriptlib.AsyncExecutorService getAsyncExecutorService() -> getAsyncExecutorService
+    29:29:com.faendir.lightning_launcher.scriptlib.AsyncExecutorService getAsyncExecutorService(com.faendir.lightning_launcher.scriptlib.ExceptionHandler) -> getAsyncExecutorService
+    38:39:com.faendir.lightning_launcher.scriptlib.ScriptManager enableDebug() -> enableDebug
+    48:51:void replaceLogger(com.faendir.lightning_launcher.scriptlib.Logger) -> replaceLogger
+    15:15:void <clinit>() -> <clinit>
+com.faendir.lightning_launcher.scriptlib.ServiceManager2 -> com.faendir.lightning_launcher.scriptlib.ServiceManager2:
     java.lang.String INTENT -> INTENT
     int MIN_SERVICE_VERSION -> MIN_SERVICE_VERSION
     android.content.pm.ServiceInfo serviceInfo -> serviceInfo
     int version -> version
     android.content.Context context -> context
-    com.faendir.lightning_launcher.scriptlib.ResponseManager responseManager -> responseManager
-    com.faendir.lightning_launcher.scriptlib.ServiceManager$ImporterConnection connection -> connection
-    boolean isBinding -> isBinding
-    43:68:void <init>(android.content.Context,com.faendir.lightning_launcher.scriptlib.ResponseManager) -> <init>
-    94:115:com.faendir.lightning_launcher.scriptlib.BindResult bind() -> bind
-    121:126:void unbind() -> unbind
-    129:132:void enforceBoundOrBinding() -> enforceBoundOrBinding
-    166:180:com.trianguloy.llscript.repository.aidl.ILightningService getService() -> getService
-    237:259:int loadScript(com.trianguloy.llscript.repository.aidl.Script,boolean) -> loadScript
-    263:270:void runScript(int,java.lang.String,boolean) -> runScript
-    302:319:java.lang.String runScriptForResult(java.lang.String) -> runScriptForResult
-    324:328:void runAction(int,java.lang.String,boolean) -> runAction
-    331:332:void setResponseManager(com.faendir.lightning_launcher.scriptlib.ResponseManager) -> setResponseManager
-    335:335:android.content.Context getContext() -> getContext
-    34:34:android.content.pm.ServiceInfo access$100(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> access$100
-    34:34:com.faendir.lightning_launcher.scriptlib.ServiceManager$ImporterConnection access$200(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> access$200
-    34:34:android.content.Context access$300(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> access$300
-    34:34:boolean access$402(com.faendir.lightning_launcher.scriptlib.ServiceManager,boolean) -> access$402
-    34:34:com.faendir.lightning_launcher.scriptlib.ResponseManager access$1100(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> access$1100
-com.faendir.lightning_launcher.scriptlib.ServiceManager$1 -> com.faendir.lightning_launcher.scriptlib.ServiceManager$1:
-    int[] $SwitchMap$com$trianguloy$llscript$repository$aidl$Failure -> $SwitchMap$com$trianguloy$llscript$repository$aidl$Failure
-    203:203:void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.scriptlib.ServiceManager$ImportCallback -> com.faendir.lightning_launcher.scriptlib.ServiceManager$ImportCallback:
-    com.trianguloy.llscript.repository.aidl.Script script -> script
-    int id -> id
-    boolean running -> running
-    com.faendir.lightning_launcher.scriptlib.ServiceManager this$0 -> this$0
-    185:190:void <init>(com.faendir.lightning_launcher.scriptlib.ServiceManager,com.trianguloy.llscript.repository.aidl.Script) -> <init>
-    194:199:void onFinish(int) -> onFinish
-    203:228:void onFailure(com.trianguloy.llscript.repository.aidl.Failure) -> onFailure
-    231:231:int getId() -> getId
-    183:183:int access$802(com.faendir.lightning_launcher.scriptlib.ServiceManager$ImportCallback,int) -> access$802
-    183:183:com.trianguloy.llscript.repository.aidl.Script access$900(com.faendir.lightning_launcher.scriptlib.ServiceManager$ImportCallback) -> access$900
-    183:183:boolean access$1002(com.faendir.lightning_launcher.scriptlib.ServiceManager$ImportCallback,boolean) -> access$1002
-    183:183:boolean access$1000(com.faendir.lightning_launcher.scriptlib.ServiceManager$ImportCallback) -> access$1000
-com.faendir.lightning_launcher.scriptlib.ServiceManager$ImportCallback$1 -> com.faendir.lightning_launcher.scriptlib.ServiceManager$ImportCallback$1:
-    com.faendir.lightning_launcher.scriptlib.ServiceManager$ImportCallback this$1 -> this$1
-    205:205:void <init>(com.faendir.lightning_launcher.scriptlib.ServiceManager$ImportCallback,android.os.Handler) -> <init>
-    208:218:void onReceiveResult(int,android.os.Bundle) -> onReceiveResult
-com.faendir.lightning_launcher.scriptlib.ServiceManager$ImporterConnection -> com.faendir.lightning_launcher.scriptlib.ServiceManager$ImporterConnection:
-    com.trianguloy.llscript.repository.aidl.ILightningService service -> service
-    com.faendir.lightning_launcher.scriptlib.ServiceManager this$0 -> this$0
-    134:134:void <init>(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> <init>
-    139:145:void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
-    149:151:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
-    154:157:com.trianguloy.llscript.repository.aidl.ILightningService getService() -> getService
-    161:162:void clear() -> clear
-    134:134:void <init>(com.faendir.lightning_launcher.scriptlib.ServiceManager,com.faendir.lightning_launcher.scriptlib.ServiceManager$1) -> <init>
-com.faendir.lightning_launcher.scriptlib.ServiceManager$PermissionCallback -> com.faendir.lightning_launcher.scriptlib.ServiceManager$PermissionCallback:
-    boolean isGranted -> isGranted
-    boolean waitingForGrant -> waitingForGrant
-    com.faendir.lightning_launcher.scriptlib.ServiceManager this$0 -> this$0
-    70:72:void <init>(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> <init>
-    76:90:void handlePermissionResult(boolean) -> handlePermissionResult
-    70:70:void <init>(com.faendir.lightning_launcher.scriptlib.ServiceManager,com.faendir.lightning_launcher.scriptlib.ServiceManager$1) -> <init>
-    70:70:boolean access$600(com.faendir.lightning_launcher.scriptlib.ServiceManager$PermissionCallback) -> access$600
-    70:70:boolean access$700(com.faendir.lightning_launcher.scriptlib.ServiceManager$PermissionCallback) -> access$700
-com.faendir.lightning_launcher.scriptlib.ServiceManager$ResultCallback -> com.faendir.lightning_launcher.scriptlib.ServiceManager$ResultCallback:
-    java.lang.String result -> result
-    boolean running -> running
-    com.faendir.lightning_launcher.scriptlib.ServiceManager this$0 -> this$0
-    272:274:void <init>(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> <init>
-    278:283:void onResult(java.lang.String) -> onResult
-    287:294:void onFailure(com.trianguloy.llscript.repository.aidl.Failure) -> onFailure
-    297:297:java.lang.String getResult() -> getResult
-    272:272:void <init>(com.faendir.lightning_launcher.scriptlib.ServiceManager,com.faendir.lightning_launcher.scriptlib.ServiceManager$1) -> <init>
-    272:272:boolean access$1300(com.faendir.lightning_launcher.scriptlib.ServiceManager$ResultCallback) -> access$1300
+    android.content.ServiceConnection serviceConnection -> serviceConnection
+    34:55:void <init>(android.content.Context) -> <init>
+    58:90:void bind(com.faendir.lightning_launcher.scriptlib.ExceptionHandler,com.faendir.lightning_launcher.scriptlib.ResultCallback) -> bind
+    94:98:void unbind() -> unbind
+    25:25:android.content.pm.ServiceInfo access$000(com.faendir.lightning_launcher.scriptlib.ServiceManager2) -> access$000
+    25:25:android.content.ServiceConnection access$102(com.faendir.lightning_launcher.scriptlib.ServiceManager2,android.content.ServiceConnection) -> access$102
+    25:25:android.content.ServiceConnection access$100(com.faendir.lightning_launcher.scriptlib.ServiceManager2) -> access$100
+    25:25:android.content.Context access$200(com.faendir.lightning_launcher.scriptlib.ServiceManager2) -> access$200
+com.faendir.lightning_launcher.scriptlib.ServiceManager2$1 -> com.faendir.lightning_launcher.scriptlib.ServiceManager2$1:
+    com.faendir.lightning_launcher.scriptlib.ResultCallback val$listener -> val$listener
+    com.faendir.lightning_launcher.scriptlib.ExceptionHandler val$exceptionHandler -> val$exceptionHandler
+    com.faendir.lightning_launcher.scriptlib.ServiceManager2 this$0 -> this$0
+    59:59:void <init>(com.faendir.lightning_launcher.scriptlib.ServiceManager2,com.faendir.lightning_launcher.scriptlib.ResultCallback,com.faendir.lightning_launcher.scriptlib.ExceptionHandler) -> <init>
+    62:82:void handlePermissionResult(boolean) -> handlePermissionResult
+com.faendir.lightning_launcher.scriptlib.ServiceManager2$1$1 -> com.faendir.lightning_launcher.scriptlib.ServiceManager2$1$1:
+    com.faendir.lightning_launcher.scriptlib.ServiceManager2$1 this$1 -> this$1
+    67:67:void <init>(com.faendir.lightning_launcher.scriptlib.ServiceManager2$1) -> <init>
+    70:72:void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    76:76:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+com.faendir.lightning_launcher.scriptlib.exception.BindException -> com.faendir.lightning_launcher.scriptlib.exception.BindException:
+    8:8:void <init>() -> <init>
+com.faendir.lightning_launcher.scriptlib.exception.FailureException -> com.faendir.lightning_launcher.scriptlib.exception.FailureException:
+    com.trianguloy.llscript.repository.aidl.Failure failure -> failure
+    com.faendir.lightning_launcher.scriptlib.exception.FailureException$Retry retry -> retry
+    14:15:void <init>(com.trianguloy.llscript.repository.aidl.Failure) -> <init>
+    18:21:void <init>(com.trianguloy.llscript.repository.aidl.Failure,com.faendir.lightning_launcher.scriptlib.exception.FailureException$Retry) -> <init>
+    24:24:com.trianguloy.llscript.repository.aidl.Failure getFailure() -> getFailure
+    28:28:com.faendir.lightning_launcher.scriptlib.exception.FailureException$Retry getRetry() -> getRetry
+com.faendir.lightning_launcher.scriptlib.exception.FailureException$Retry -> com.faendir.lightning_launcher.scriptlib.exception.FailureException$Retry:
+    void retry() -> retry
+com.faendir.lightning_launcher.scriptlib.exception.PermissionDeniedException -> com.faendir.lightning_launcher.scriptlib.exception.PermissionDeniedException:
+    8:8:void <init>() -> <init>
+com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterException -> com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterException:
+    8:8:void <init>() -> <init>
+com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterMissingException -> com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterMissingException:
+    8:8:void <init>() -> <init>
+com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterOutdatedException -> com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterOutdatedException:
+    8:8:void <init>() -> <init>
 com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor -> com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor:
     int action -> action
     java.lang.String data -> data
     boolean background -> background
-    21:25:void <init>(int) -> <init>
-    28:29:com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor setData(java.lang.String) -> setData
-    33:34:com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor setBackground(boolean) -> setBackground
-    40:41:java.lang.Void execute(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> execute
-    15:15:java.lang.Object execute(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> execute
+    25:29:void <init>(int) -> <init>
+    32:33:com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor setData(java.lang.String) -> setData
+    37:38:com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor setBackground(boolean) -> setBackground
+    45:50:void execute(android.content.Context,com.trianguloy.llscript.repository.aidl.ILightningService,com.faendir.lightning_launcher.scriptlib.ExceptionHandler,com.faendir.lightning_launcher.scriptlib.Logger,com.faendir.lightning_launcher.scriptlib.ResultCallback) -> execute
 com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor -> com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor:
     java.lang.String code -> code
     java.util.Map variables -> variables
     int codeRes -> codeRes
-    27:30:void <init>(java.lang.String) -> <init>
-    32:36:void <init>(int) -> <init>
-    39:43:java.lang.String loadCode(com.faendir.lightning_launcher.scriptlib.ServiceManager,int) -> loadCode
-    47:48:com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor putVariable(java.lang.String,java.lang.String) -> putVariable
-    52:53:com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor putVariables(java.util.Map) -> putVariables
-    60:69:java.lang.String execute(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> execute
-    22:22:java.lang.Object execute(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> execute
+    34:37:void <init>(java.lang.String) -> <init>
+    39:43:void <init>(int) -> <init>
+    46:47:com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor putVariable(java.lang.String,java.lang.String) -> putVariable
+    51:52:com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor putVariables(java.util.Map) -> putVariables
+    58:83:void execute(android.content.Context,com.trianguloy.llscript.repository.aidl.ILightningService,com.faendir.lightning_launcher.scriptlib.ExceptionHandler,com.faendir.lightning_launcher.scriptlib.Logger,com.faendir.lightning_launcher.scriptlib.ResultCallback) -> execute
+com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor$1 -> com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor$1:
+    com.faendir.lightning_launcher.scriptlib.Logger val$logger -> val$logger
+    com.faendir.lightning_launcher.scriptlib.ResultCallback val$listener -> val$listener
+    com.faendir.lightning_launcher.scriptlib.ExceptionHandler val$exceptionHandler -> val$exceptionHandler
+    com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor this$0 -> this$0
+    68:68:void <init>(com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor,com.faendir.lightning_launcher.scriptlib.Logger,com.faendir.lightning_launcher.scriptlib.ResultCallback,com.faendir.lightning_launcher.scriptlib.ExceptionHandler) -> <init>
+    71:73:void onResult(java.lang.String) -> onResult
+    77:78:void onFailure(com.trianguloy.llscript.repository.aidl.Failure) -> onFailure
 com.faendir.lightning_launcher.scriptlib.executor.Executor -> com.faendir.lightning_launcher.scriptlib.executor.Executor:
-    java.lang.Object execute(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> execute
+    void execute(android.content.Context,com.trianguloy.llscript.repository.aidl.ILightningService,com.faendir.lightning_launcher.scriptlib.ExceptionHandler,com.faendir.lightning_launcher.scriptlib.Logger,com.faendir.lightning_launcher.scriptlib.ResultCallback) -> execute
 com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor -> com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor:
     int scriptId -> scriptId
     java.lang.String data -> data
     boolean background -> background
-    19:23:void <init>(int) -> <init>
-    28:29:java.lang.Void execute(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> execute
-    33:34:com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor setBackground(boolean) -> setBackground
-    38:39:com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor setData(java.lang.String) -> setData
-    14:14:java.lang.Object execute(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> execute
+    23:27:void <init>(int) -> <init>
+    30:31:com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor setBackground(boolean) -> setBackground
+    35:36:com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor setData(java.lang.String) -> setData
+    42:51:void execute(android.content.Context,com.trianguloy.llscript.repository.aidl.ILightningService,com.faendir.lightning_launcher.scriptlib.ExceptionHandler,com.faendir.lightning_launcher.scriptlib.Logger,com.faendir.lightning_launcher.scriptlib.ResultCallback) -> execute
 com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader -> com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader:
     com.trianguloy.llscript.repository.aidl.Script script -> script
     boolean forceUpdate -> forceUpdate
     boolean runScript -> runScript
     boolean background -> background
     java.lang.String data -> data
-    22:28:void <init>(com.trianguloy.llscript.repository.aidl.Script) -> <init>
-    31:32:com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setForceUpdate(boolean) -> setForceUpdate
-    36:37:com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunScript(boolean) -> setRunScript
-    41:42:com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunInBackground(boolean) -> setRunInBackground
-    46:47:com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunData(java.lang.String) -> setRunData
-    53:57:java.lang.Integer execute(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> execute
-    15:15:java.lang.Object execute(com.faendir.lightning_launcher.scriptlib.ServiceManager) -> execute
+    29:35:void <init>(com.trianguloy.llscript.repository.aidl.Script) -> <init>
+    38:39:com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setForceUpdate(boolean) -> setForceUpdate
+    43:44:com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunScript(boolean) -> setRunScript
+    48:49:com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunInBackground(boolean) -> setRunInBackground
+    53:54:com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunData(java.lang.String) -> setRunData
+    61:97:void execute(android.content.Context,com.trianguloy.llscript.repository.aidl.ILightningService,com.faendir.lightning_launcher.scriptlib.ExceptionHandler,com.faendir.lightning_launcher.scriptlib.Logger,com.faendir.lightning_launcher.scriptlib.ResultCallback) -> execute
+    22:22:boolean access$000(com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader) -> access$000
+    22:22:java.lang.String access$100(com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader) -> access$100
+    22:22:boolean access$200(com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader) -> access$200
+com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1 -> com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1:
+    com.faendir.lightning_launcher.scriptlib.ResultCallback val$listener -> val$listener
+    com.faendir.lightning_launcher.scriptlib.Logger val$logger -> val$logger
+    android.content.Context val$context -> val$context
+    com.trianguloy.llscript.repository.aidl.ILightningService val$lightningService -> val$lightningService
+    com.faendir.lightning_launcher.scriptlib.ExceptionHandler val$exceptionHandler -> val$exceptionHandler
+    com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader this$0 -> this$0
+    62:62:void <init>(com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader,com.faendir.lightning_launcher.scriptlib.ResultCallback,com.faendir.lightning_launcher.scriptlib.Logger,android.content.Context,com.trianguloy.llscript.repository.aidl.ILightningService,com.faendir.lightning_launcher.scriptlib.ExceptionHandler) -> <init>
+    66:78:void onFinish(int) -> onFinish
+    82:89:void onFailure(com.trianguloy.llscript.repository.aidl.Failure) -> onFailure
+com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1$1 -> com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1$1:
+    com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1 this$1 -> this$1
+    72:72:void <init>(com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1) -> <init>
+    75:75:void onResult(java.lang.Void) -> onResult
+    72:72:void onResult(java.lang.Object) -> onResult
+com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1$2 -> com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1$2:
+    com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1 this$1 -> this$1
+    82:82:void <init>(com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1) -> <init>
+    85:87:void retry() -> retry
 com.faendir.omniadapter.ComponentViewHolder -> com.faendir.omniadapter.a:
     android.view.View view -> n
     com.faendir.omniadapter.model.Component component -> o

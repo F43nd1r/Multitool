@@ -45,22 +45,12 @@ public class ScriptManagerFragment extends Fragment {
     private FrameLayout layout;
     private ListManager listManager;
     private ScriptManager scriptManager;
-    private boolean stopAutoLoad = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         scriptManager = new ScriptManager(getActivity());
         if(DEBUG) scriptManager.enableDebug();
-        new Thread(() -> {
-            switch (scriptManager.bind()) {
-                case OK:
-                    break;
-                default:
-                    stopAutoLoad = true;
-                    break;
-            }
-        }).start();
         sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         listManager = new ListManager(scriptManager, getActivity());
         setHasOptionsMenu(true);
@@ -84,9 +74,6 @@ public class ScriptManagerFragment extends Fragment {
     @Override
     public void onStop() {
         EventBus.getDefault().unregister(this);
-        if (!stopAutoLoad) {
-            scriptManager.unbind();
-        }
         super.onStop();
     }
 

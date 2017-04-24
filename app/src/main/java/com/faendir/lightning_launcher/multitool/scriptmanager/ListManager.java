@@ -111,14 +111,20 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
             String[] pathFolders = path.split("/");
             DeepObservableList<ScriptItem> parent = items;
             for (String folder : pathFolders) {
-                if ("".equals(folder) || StreamSupport.stream(parent)
-                        .filter(item -> item instanceof Folder && ((Folder) item).getRealName().equals(folder))
-                        .findAny().isPresent()) {
+                if ("".equals(folder)) {
                     continue;
                 }
-                Folder f = new Folder(folder);
-                f.getState().setExpanded(true);
-                parent.add(f);
+                Optional<Folder> optional = StreamSupport.stream(parent)
+                        .filter(item -> item instanceof Folder).map(Folder.class::cast).filter(item->item.getRealName().equals(folder))
+                        .findAny();
+                Folder f;
+                if (optional.isPresent()) {
+                    f = optional.get();
+                } else {
+                    f = new Folder(folder);
+                    f.getState().setExpanded(true);
+                    parent.add(f);
+                }
                 parent = f.getRealChildren();
             }
             parent.add(script);
