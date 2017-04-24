@@ -25,7 +25,7 @@ for(var i = 0; i < items.length; i++){
 	    var pinMode = item.getProperties().getString("i.pinMode");
 	    var transformX = pinMode.indexOf("X") == -1;
 	    var transformY = pinMode.indexOf("Y") == -1;
-	    if(transformX || transformY){
+	    if(((transformX || transformY) && animation.partial) || (transformX && transformY)){
 		    var a = item.getRootView().animate().setDuration(0).alpha(animation.alpha);
 		    if(transformX) a.scaleX(animation.scale.x).translationX(animation.translation.x);
 		    if(transformY) a.scaleY(animation.scale.y).translationY(animation.translation.y);
@@ -66,7 +66,8 @@ function getDefault(){
             x:0,
             y:0
         },
-        alpha:1
+        alpha:1,
+        partial:true
     }
 }
 
@@ -110,6 +111,7 @@ function flip(cent, isLeft, isTop){
 
 function shrink(cent, isLeft, isTop){
     var result = getDefault();
+    result.partial = false;
     if(Math.abs(percentX-0.5)<=Math.abs(percentY-0.5)){
         result.scale.x = result.scale.y = isLeft ? 1 - percentX * 0.75 : 0.25 + percentX * 0.75;
         result.translation.x = isLeft ? (cWidth - cent.x) * percentX * 0.75 : (cWidth - cent.x) * (0.75 - percentX * 0.75);
