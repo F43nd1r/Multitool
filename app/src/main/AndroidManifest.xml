@@ -112,6 +112,15 @@
                 <action android:name="net.pierrox.lightning_launcher.script.PLUGIN"/>
             </intent-filter>
         </activity-alias>
+        <activity-alias
+            android:name=".LoadBadge"
+            android:exported="true"
+            android:label="@string/title_badge"
+            android:targetActivity=".Loader">
+            <intent-filter>
+                <action android:name="net.pierrox.lightning_launcher.script.PLUGIN"/>
+            </intent-filter>
+        </activity-alias>
 
         <service
             android:name=".music.DummyNotificationListener"
@@ -125,10 +134,19 @@
             android:exported="true"
             tools:ignore="ExportedService"/>
         <service android:name=".backup.BackupService"/>
+        <service
+            android:name=".badge.BadgeService"
+            android:exported="true"
+            tools:ignore="ExportedService"/>
 
         <receiver android:name=".backup.BootBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".badge.BadgeBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BADGE_COUNT_UPDATE"/>
             </intent-filter>
         </receiver>
 

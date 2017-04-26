@@ -8273,6 +8273,9 @@ com.faendir.lightning_launcher.multitool.R$mipmap: int ic_multitool
 com.faendir.lightning_launcher.multitool.R$raw: int animation
 com.faendir.lightning_launcher.multitool.R$raw: int animation_setup
 com.faendir.lightning_launcher.multitool.R$raw: int backup
+com.faendir.lightning_launcher.multitool.R$raw: int badge_pause
+com.faendir.lightning_launcher.multitool.R$raw: int badge_resume
+com.faendir.lightning_launcher.multitool.R$raw: int badge_setup
 com.faendir.lightning_launcher.multitool.R$raw: int drawer
 com.faendir.lightning_launcher.multitool.R$raw: int drawer_menu
 com.faendir.lightning_launcher.multitool.R$raw: int drawer_setup
@@ -8500,6 +8503,7 @@ com.faendir.lightning_launcher.multitool.R$string: int title_apps
 com.faendir.lightning_launcher.multitool.R$string: int title_backup
 com.faendir.lightning_launcher.multitool.R$string: int title_backupDir
 com.faendir.lightning_launcher.multitool.R$string: int title_backupTime
+com.faendir.lightning_launcher.multitool.R$string: int title_badge
 com.faendir.lightning_launcher.multitool.R$string: int title_buy
 com.faendir.lightning_launcher.multitool.R$string: int title_chooseName
 com.faendir.lightning_launcher.multitool.R$string: int title_confirmUpdate
@@ -8545,6 +8549,7 @@ com.faendir.lightning_launcher.multitool.R$string: int toast_noAction
 com.faendir.lightning_launcher.multitool.R$string: int toast_noGesture
 com.faendir.lightning_launcher.multitool.R$string: int toast_noGestures
 com.faendir.lightning_launcher.multitool.R$string: int toast_noLabel
+com.faendir.lightning_launcher.multitool.R$string: int unread_whatsapp
 com.faendir.lightning_launcher.multitool.R$style: int AlertDialog_AppCompat
 com.faendir.lightning_launcher.multitool.R$style: int AlertDialog_AppCompat_Light
 com.faendir.lightning_launcher.multitool.R$style: int Animation_AppCompat_Dialog
@@ -9538,6 +9543,10 @@ com.faendir.lightning_launcher.multitool.backup.BackupService
 com.faendir.lightning_launcher.multitool.backup.BackupService: BackupService()
 com.faendir.lightning_launcher.multitool.backup.BootBroadcastReceiver
 com.faendir.lightning_launcher.multitool.backup.BootBroadcastReceiver: BootBroadcastReceiver()
+com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver
+com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: BadgeBroadcastReceiver()
+com.faendir.lightning_launcher.multitool.badge.BadgeService
+com.faendir.lightning_launcher.multitool.badge.BadgeService: BadgeService()
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState[] values()
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState valueOf(java.lang.String)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$1: void onClick(android.content.DialogInterface,int)
@@ -10129,6 +10138,7 @@ com.faendir.lightning_launcher.multitool.util.BaseActivity: void onCreate(androi
 com.faendir.lightning_launcher.multitool.util.BaseActivity: void initLayout()
 com.faendir.lightning_launcher.multitool.util.BaseActivity: android.support.v7.widget.Toolbar initToolbar()
 com.faendir.lightning_launcher.multitool.util.BaseActivity: android.support.v7.widget.Toolbar getToolbar()
+com.faendir.lightning_launcher.multitool.util.BaseIpcService: BaseIpcService()
 com.faendir.lightning_launcher.multitool.util.DataProvider
 com.faendir.lightning_launcher.multitool.util.DataProvider: DataProvider()
 com.faendir.lightning_launcher.multitool.util.FragmentManager: void onSwitchFragmentRequest(com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest)

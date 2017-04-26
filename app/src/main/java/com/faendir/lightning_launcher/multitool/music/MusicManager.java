@@ -1,7 +1,6 @@
 package com.faendir.lightning_launcher.multitool.music;
 
 import android.app.AlertDialog;
-import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -17,7 +16,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.Looper;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
@@ -33,6 +31,7 @@ import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.billing.BaseBillingManager;
+import com.faendir.lightning_launcher.multitool.util.BaseIpcService;
 import com.faendir.lightning_launcher.scriptlib.DialogActivity;
 
 import org.acra.ACRA;
@@ -49,7 +48,6 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicReference;
 
 import java8.util.stream.StreamSupport;
 
@@ -64,7 +62,7 @@ import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
  * @author F43nd1r
  */
 
-public class MusicManager extends Service {
+public class MusicManager extends BaseIpcService {
     private static final int ACTION_REGISTER = 1;
     private static final int ACTION_UNREGISTER = 2;
     private static final int ACTION_REGISTER_MESSENGER = 3;
@@ -85,7 +83,6 @@ public class MusicManager extends Service {
 
     private final BidiMap<MediaController, Callback> controllers;
     private final Set<Listener> listeners;
-    private final Messenger messenger;
     private MediaSessionManager mediaSessionManager;
     private ComponentName notificationListener;
     private SharedPreferences sharedPref;
@@ -97,11 +94,11 @@ public class MusicManager extends Service {
     private volatile String packageName;
     private volatile WeakReference<MediaController> currentController;
     private final MediaSessionManager.OnActiveSessionsChangedListener sessionsChangedListener;
+    private boolean hasDisplayedToast = false;
 
     public MusicManager() {
         controllers = new DualHashBidiMap<>();
         listeners = new HashSet<>();
-        messenger = new Messenger(new LocalHandler(this));
         currentController = new WeakReference<>(null);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             sessionsChangedListener = this::onActiveSessionsChanged;
@@ -209,7 +206,86 @@ public class MusicManager extends Service {
     public IBinder onBind(Intent intent) {
         startService(new Intent(this, MusicManager.class));
         if (DEBUG) Log.d(LOG_TAG, "MusicManager bound");
-        return messenger.getBinder();
+        return super.onBind(intent);
+    }
+
+    @Override
+    protected void handleMessage(Message msg) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (billingManager.isBoughtOrTrial(R.string.title_musicWidget)) {
+                MediaController controller = currentController.get();
+                if (DEBUG) Log.d(LOG_TAG, "MusicManager got message " + msg.what);
+                switch (msg.what) {
+                    case ACTION_REGISTER_MESSENGER:
+                        if (msg.replyTo != null) {
+                            registerListener(new MessengerListener(msg.replyTo));
+                        }
+                        break;
+                    case ACTION_UNREGISTER_MESSENGER:
+                        if (msg.replyTo != null) {
+                            StreamSupport.stream(listeners)
+                                    .filter(l -> l instanceof MessengerListener && ((MessengerListener) l).hasMessenger(msg.replyTo))
+                                    .findAny().ifPresent(this::unregisterListener);
+                        }
+                        break;
+                    case ACTION_REGISTER:
+                        if (msg.obj != null && msg.obj instanceof Listener) {
+                            registerListener((Listener) msg.obj);
+                        }
+                        break;
+                    case ACTION_UNREGISTER:
+                        if (msg.obj != null && msg.obj instanceof Listener) {
+                            unregisterListener((Listener) msg.obj);
+                        }
+                        break;
+                    case ACTION_PLAY_PAUSE:
+                        if (controller != null) {
+                            PlaybackState state = controller.getPlaybackState();
+                            if (isAlternativeControl(controller)) {
+                                sendKeyCodeToPlayer(KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE, controller.getPackageName());
+                            } else if (state != null && PLAYING_STATES.contains(state.getState())) {
+                                controller.getTransportControls().pause();
+                            } else {
+                                controller.getTransportControls().play();
+                            }
+                        } else {
+                            startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_PLAY);
+                        }
+                        break;
+                    case ACTION_NEXT:
+                        if (controller != null) {
+                            if (isAlternativeControl(controller)) {
+                                sendKeyCodeToPlayer(KeyEvent.KEYCODE_MEDIA_NEXT, controller.getPackageName());
+                            } else {
+                                controller.getTransportControls().skipToNext();
+                            }
+                        } else {
+                            startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_NEXT);
+                        }
+                        break;
+                    case ACTION_PREVIOUS:
+                        if (controller != null) {
+                            if (isAlternativeControl(controller)) {
+                                sendKeyCodeToPlayer(KeyEvent.KEYCODE_MEDIA_PREVIOUS, controller.getPackageName());
+                            } else {
+                                controller.getTransportControls().skipToPrevious();
+                            }
+                        } else {
+                            startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+                        }
+                        break;
+                }
+            } else if (!hasDisplayedToast) {
+                Toast.makeText(this, "No active trial or purchase found.\nMusic widgets disabled.", Toast.LENGTH_LONG).show();
+                hasDisplayedToast = true;
+            }
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private boolean isAlternativeControl(MediaController controller) {
+        return sharedPref.getStringSet(getString(R.string.pref_altControl), Collections.emptySet())
+                .contains(controller.getPackageName());
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -323,118 +399,6 @@ public class MusicManager extends Service {
             if (bitmap != null) {
                 bitmap.recycle();
             }
-        }
-    }
-
-    private static class LocalHandler extends Handler {
-        private final WeakReference<MusicManager> musicManager;
-        private boolean hasDisplayedToast = false;
-
-        private LocalHandler(MusicManager musicManager) {
-            super(getNewPreparedLooper());
-            this.musicManager = new WeakReference<>(musicManager);
-        }
-
-        @Override
-        public void handleMessage(Message msg) {
-            MusicManager musicManager = this.musicManager.get();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && musicManager != null) {
-                if (musicManager.billingManager.isBoughtOrTrial(R.string.title_musicWidget)) {
-                    MediaController controller = musicManager.currentController.get();
-                    if (DEBUG) Log.d(LOG_TAG, "MusicManager got message " + msg.what);
-                    switch (msg.what) {
-                        case ACTION_REGISTER_MESSENGER:
-                            if (msg.replyTo != null) {
-                                musicManager.registerListener(new MessengerListener(msg.replyTo));
-                            }
-                            break;
-                        case ACTION_UNREGISTER_MESSENGER:
-                            if (msg.replyTo != null) {
-                                StreamSupport.stream(musicManager.listeners)
-                                        .filter(l -> l instanceof MessengerListener && ((MessengerListener) l).hasMessenger(msg.replyTo))
-                                        .findAny().ifPresent(musicManager::unregisterListener);
-                            }
-                            break;
-                        case ACTION_REGISTER:
-                            if (msg.obj != null && msg.obj instanceof Listener) {
-                                musicManager.registerListener((Listener) msg.obj);
-                            }
-                            break;
-                        case ACTION_UNREGISTER:
-                            if (msg.obj != null && msg.obj instanceof Listener) {
-                                musicManager.unregisterListener((Listener) msg.obj);
-                            }
-                            break;
-                        case ACTION_PLAY_PAUSE:
-                            if (controller != null) {
-                                PlaybackState state = controller.getPlaybackState();
-                                if (isAlternativeControl(controller)) {
-                                    musicManager.sendKeyCodeToPlayer(KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE, controller.getPackageName());
-                                } else if (state != null && PLAYING_STATES.contains(state.getState())) {
-                                    controller.getTransportControls().pause();
-                                } else {
-                                    controller.getTransportControls().play();
-                                }
-                            } else {
-                                musicManager.startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_PLAY);
-                            }
-                            break;
-                        case ACTION_NEXT:
-                            if (controller != null) {
-                                if (isAlternativeControl(controller)) {
-                                    musicManager.sendKeyCodeToPlayer(KeyEvent.KEYCODE_MEDIA_NEXT, controller.getPackageName());
-                                } else {
-                                    controller.getTransportControls().skipToNext();
-                                }
-                            } else {
-                                musicManager.startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_NEXT);
-                            }
-                            break;
-                        case ACTION_PREVIOUS:
-                            if (controller != null) {
-                                if (isAlternativeControl(controller)) {
-                                    musicManager.sendKeyCodeToPlayer(KeyEvent.KEYCODE_MEDIA_PREVIOUS, controller.getPackageName());
-                                } else {
-                                    controller.getTransportControls().skipToPrevious();
-                                }
-                            } else {
-                                musicManager.startDefaultPlayerWithKeyCode(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
-                            }
-                            break;
-                    }
-                } else if (!hasDisplayedToast) {
-                    Toast.makeText(musicManager, "No active trial or purchase found.\nMusic widgets disabled.", Toast.LENGTH_LONG).show();
-                    hasDisplayedToast = true;
-                }
-            }
-        }
-
-        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-        private boolean isAlternativeControl(MediaController controller) {
-            return musicManager.get().sharedPref
-                    .getStringSet(musicManager.get().getString(R.string.pref_altControl), Collections.emptySet())
-                    .contains(controller.getPackageName());
-        }
-
-        private static Looper getNewPreparedLooper() {
-            final AtomicReference<Looper> reference = new AtomicReference<>();
-            new Thread(() -> {
-                Looper.prepare();
-                synchronized (reference) {
-                    reference.set(Looper.myLooper());
-                    reference.notifyAll();
-                }
-                Looper.loop();
-            }).start();
-            while (reference.get() == null) {
-                synchronized (reference) {
-                    try {
-                        reference.wait();
-                    } catch (InterruptedException ignored) {
-                    }
-                }
-            }
-            return reference.get();
         }
     }
 

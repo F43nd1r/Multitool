@@ -5700,6 +5700,7 @@ com.faendir.lightning_launcher.multitool.Loader:
     private static final java.lang.String DRAWER
     private static final java.lang.String IMMERSIVE
     private static final java.lang.String ANIMATION
+    private static final java.lang.String BADGE
     public static final int FLAG_DISABLED
     public static final int FLAG_APP_MENU
     public static final int FLAG_ITEM_MENU
@@ -5732,10 +5733,28 @@ com.faendir.lightning_launcher.multitool.R$raw
 com.faendir.lightning_launcher.multitool.R$string
 com.faendir.lightning_launcher.multitool.R$style
 com.faendir.lightning_launcher.multitool.R$styleable:
-    4590:4590:public R$styleable()
+    4595:4595:public R$styleable()
 com.faendir.lightning_launcher.multitool.R$xml
 com.faendir.lightning_launcher.multitool.backup.BackupUtils:
     33:33:public BackupUtils()
+com.faendir.lightning_launcher.multitool.badge.BadgeListener
+com.faendir.lightning_launcher.multitool.badge.BadgeService:
+    public static final java.lang.String BADGE_COUNT
+    public static final java.lang.String PACKAGE_NAME
+    public static final java.lang.String WHATSAPP
+    public static final java.lang.String INTENT_BADGE_COUNT_UPDATE
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub:
+    private static final java.lang.String DESCRIPTOR
+    static final int TRANSACTION_onCountChange
+    16:18:public IBadgeListener$Stub()
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub$Proxy:
+    74:74:public java.lang.String getInterfaceDescriptor()
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub:
+    private static final java.lang.String DESCRIPTOR
+    static final int TRANSACTION_registerListener
+    static final int TRANSACTION_unregisterListener
+    23:30:public static com.faendir.lightning_launcher.multitool.badge.IBadgeService asInterface(android.os.IBinder)
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager:
     private static final java.lang.String MUSIC_WIDGET
     private static final java.lang.String DRAWER

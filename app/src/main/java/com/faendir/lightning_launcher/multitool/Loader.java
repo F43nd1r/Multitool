@@ -29,6 +29,7 @@ public class Loader extends Activity {
     private static final String DRAWER = PKG + ".LoadDrawer";
     private static final String IMMERSIVE = PKG + ".toggleImmersive";
     private static final String ANIMATION = PKG + ".LoadAnimation";
+    private static final String BADGE = PKG + ".LoadBadge";
 
     public static final int FLAG_DISABLED = 1;
     public static final int FLAG_APP_MENU = 2;
@@ -66,6 +67,9 @@ public class Loader extends Activity {
                 break;
             case ANIMATION:
                 setupCheck(R.string.title_animation, R.raw.animation_setup);
+                break;
+            case BADGE:
+                setupCheck(R.string.title_badge, R.raw.badge_setup);
                 break;
         }
     }

@@ -183,4 +183,6 @@
     <string name="title_animation">Animation</string>
     <string name="menu_disable">Disable</string>
     <string name="menu_enable">Enable</string>
+    <string name="unread_whatsapp">unread.whatsapp</string>
+    <string name="title_badge">Badge</string>
 </resources>
