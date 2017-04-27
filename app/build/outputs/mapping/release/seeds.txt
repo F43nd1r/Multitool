@@ -4525,6 +4525,7 @@ android.support.v4.app.FragmentManagerState: android.os.Parcelable$Creator CREAT
 android.support.v4.app.FragmentState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.FragmentTabHost: void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener)
 android.support.v4.app.FragmentTabHost$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.NotificationCompatSideChannelService
 android.support.v4.app.SupportActivity: android.support.v4.util.SimpleArrayMap mExtraDataMap
 android.support.v4.app.SupportActivity: SupportActivity()
 android.support.v4.app.SupportActivity: void putExtraData(android.support.v4.app.SupportActivity$ExtraData)
@@ -4532,6 +4533,10 @@ android.support.v4.app.SupportActivity: android.support.v4.app.SupportActivity$E
 android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status[] values()
 android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status valueOf(java.lang.String)
 android.support.v4.media.MediaBrowserCompat$MediaItem: android.os.Parcelable$Creator CREATOR
+android.support.v4.media.MediaBrowserServiceCompat
+android.support.v4.media.MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor
+android.support.v4.media.MediaBrowserServiceCompatApi23$MediaBrowserServiceAdaptor
+android.support.v4.media.MediaBrowserServiceCompatApi24$MediaBrowserServiceAdaptor
 android.support.v4.media.MediaDescriptionCompat: android.os.Parcelable$Creator CREATOR
 android.support.v4.media.MediaMetadataCompat: android.os.Parcelable$Creator CREATOR
 android.support.v4.media.RatingCompat: android.os.Parcelable$Creator CREATOR
@@ -4693,55 +4698,8 @@ android.support.v7.app.AlertController$1: void onClick(android.view.View)
 android.support.v7.app.AlertController$RecycleListView
 android.support.v7.app.AlertController$RecycleListView: AlertController$RecycleListView(android.content.Context)
 android.support.v7.app.AlertController$RecycleListView: AlertController$RecycleListView(android.content.Context,android.util.AttributeSet)
-android.support.v7.app.AppCompatActivity: android.support.v7.app.AppCompatDelegate mDelegate
-android.support.v7.app.AppCompatActivity: int mThemeId
-android.support.v7.app.AppCompatActivity: boolean mEatKeyUpEvent
-android.support.v7.app.AppCompatActivity: android.content.res.Resources mResources
 android.support.v7.app.AppCompatActivity: AppCompatActivity()
-android.support.v7.app.AppCompatActivity: void onCreate(android.os.Bundle)
-android.support.v7.app.AppCompatActivity: void setTheme(int)
-android.support.v7.app.AppCompatActivity: void onPostCreate(android.os.Bundle)
-android.support.v7.app.AppCompatActivity: android.support.v7.app.ActionBar getSupportActionBar()
-android.support.v7.app.AppCompatActivity: void setSupportActionBar(android.support.v7.widget.Toolbar)
-android.support.v7.app.AppCompatActivity: android.view.MenuInflater getMenuInflater()
-android.support.v7.app.AppCompatActivity: void setContentView(int)
 android.support.v7.app.AppCompatActivity: void setContentView(android.view.View)
-android.support.v7.app.AppCompatActivity: void setContentView(android.view.View,android.view.ViewGroup$LayoutParams)
-android.support.v7.app.AppCompatActivity: void addContentView(android.view.View,android.view.ViewGroup$LayoutParams)
-android.support.v7.app.AppCompatActivity: void onConfigurationChanged(android.content.res.Configuration)
-android.support.v7.app.AppCompatActivity: void onPostResume()
-android.support.v7.app.AppCompatActivity: void onStart()
-android.support.v7.app.AppCompatActivity: void onStop()
-android.support.v7.app.AppCompatActivity: android.view.View findViewById(int)
-android.support.v7.app.AppCompatActivity: boolean onMenuItemSelected(int,android.view.MenuItem)
-android.support.v7.app.AppCompatActivity: void onDestroy()
-android.support.v7.app.AppCompatActivity: void onTitleChanged(java.lang.CharSequence,int)
-android.support.v7.app.AppCompatActivity: boolean supportRequestWindowFeature(int)
-android.support.v7.app.AppCompatActivity: void supportInvalidateOptionsMenu()
-android.support.v7.app.AppCompatActivity: void invalidateOptionsMenu()
-android.support.v7.app.AppCompatActivity: void onSupportActionModeStarted(android.support.v7.view.ActionMode)
-android.support.v7.app.AppCompatActivity: void onSupportActionModeFinished(android.support.v7.view.ActionMode)
-android.support.v7.app.AppCompatActivity: android.support.v7.view.ActionMode onWindowStartingSupportActionMode(android.support.v7.view.ActionMode$Callback)
-android.support.v7.app.AppCompatActivity: android.support.v7.view.ActionMode startSupportActionMode(android.support.v7.view.ActionMode$Callback)
-android.support.v7.app.AppCompatActivity: void setSupportProgressBarVisibility(boolean)
-android.support.v7.app.AppCompatActivity: void setSupportProgressBarIndeterminateVisibility(boolean)
-android.support.v7.app.AppCompatActivity: void setSupportProgressBarIndeterminate(boolean)
-android.support.v7.app.AppCompatActivity: void setSupportProgress(int)
-android.support.v7.app.AppCompatActivity: void onCreateSupportNavigateUpTaskStack(android.support.v4.app.TaskStackBuilder)
-android.support.v7.app.AppCompatActivity: void onPrepareSupportNavigateUpTaskStack(android.support.v4.app.TaskStackBuilder)
-android.support.v7.app.AppCompatActivity: boolean onSupportNavigateUp()
-android.support.v7.app.AppCompatActivity: android.content.Intent getSupportParentActivityIntent()
-android.support.v7.app.AppCompatActivity: boolean supportShouldUpRecreateTask(android.content.Intent)
-android.support.v7.app.AppCompatActivity: void supportNavigateUpTo(android.content.Intent)
-android.support.v7.app.AppCompatActivity: void onContentChanged()
-android.support.v7.app.AppCompatActivity: void onSupportContentChanged()
-android.support.v7.app.AppCompatActivity: android.support.v7.app.ActionBarDrawerToggle$Delegate getDrawerToggleDelegate()
-android.support.v7.app.AppCompatActivity: boolean onMenuOpened(int,android.view.Menu)
-android.support.v7.app.AppCompatActivity: void onPanelClosed(int,android.view.Menu)
-android.support.v7.app.AppCompatActivity: void onSaveInstanceState(android.os.Bundle)
-android.support.v7.app.AppCompatActivity: android.support.v7.app.AppCompatDelegate getDelegate()
-android.support.v7.app.AppCompatActivity: boolean dispatchKeyEvent(android.view.KeyEvent)
-android.support.v7.app.AppCompatActivity: android.content.res.Resources getResources()
 android.support.v7.app.AppCompatDelegateImplV9$PanelFeatureState$SavedState: android.os.Parcelable$Creator CREATOR
 android.support.v7.app.AppCompatDialog: android.support.v7.app.AppCompatDelegate mDelegate
 android.support.v7.app.AppCompatDialog: AppCompatDialog(android.content.Context)
@@ -9545,8 +9503,71 @@ com.faendir.lightning_launcher.multitool.backup.BootBroadcastReceiver
 com.faendir.lightning_launcher.multitool.backup.BootBroadcastReceiver: BootBroadcastReceiver()
 com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver
 com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: BadgeBroadcastReceiver()
+com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: void onReceive(android.content.Context,android.content.Intent)
+com.faendir.lightning_launcher.multitool.badge.BadgeListener
+com.faendir.lightning_launcher.multitool.badge.BadgeListener: java8.util.function.BiConsumer consumer
+com.faendir.lightning_launcher.multitool.badge.BadgeListener: BadgeListener()
+com.faendir.lightning_launcher.multitool.badge.BadgeListener: void onCountChange(int,java.lang.String)
+com.faendir.lightning_launcher.multitool.badge.BadgeListener: void setConsumer(java8.util.function.BiConsumer)
 com.faendir.lightning_launcher.multitool.badge.BadgeService
+com.faendir.lightning_launcher.multitool.badge.BadgeService: java.lang.String BADGE_COUNT
+com.faendir.lightning_launcher.multitool.badge.BadgeService: java.lang.String PACKAGE_NAME
+com.faendir.lightning_launcher.multitool.badge.BadgeService: java.lang.String WHATSAPP
+com.faendir.lightning_launcher.multitool.badge.BadgeService: java.lang.String INTENT_BADGE_COUNT_UPDATE
+com.faendir.lightning_launcher.multitool.badge.BadgeService: android.content.SharedPreferences sharedPref
+com.faendir.lightning_launcher.multitool.badge.BadgeService: java.util.Set listeners
+com.faendir.lightning_launcher.multitool.badge.BadgeService: com.faendir.lightning_launcher.multitool.badge.IBadgeService badgeService
 com.faendir.lightning_launcher.multitool.badge.BadgeService: BadgeService()
+com.faendir.lightning_launcher.multitool.badge.BadgeService: void onCreate()
+com.faendir.lightning_launcher.multitool.badge.BadgeService: int onStartCommand(android.content.Intent,int,int)
+com.faendir.lightning_launcher.multitool.badge.BadgeService: android.os.IBinder onBind(android.content.Intent)
+com.faendir.lightning_launcher.multitool.badge.BadgeService: void lambda$onStartCommand$0(int,java.lang.String,com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
+com.faendir.lightning_launcher.multitool.badge.BadgeService: java.util.Set access$000(com.faendir.lightning_launcher.multitool.badge.BadgeService)
+com.faendir.lightning_launcher.multitool.badge.BadgeService: android.content.SharedPreferences access$100(com.faendir.lightning_launcher.multitool.badge.BadgeService)
+com.faendir.lightning_launcher.multitool.badge.BadgeService$$Lambda$1
+com.faendir.lightning_launcher.multitool.badge.BadgeService$$Lambda$1: int arg$1
+com.faendir.lightning_launcher.multitool.badge.BadgeService$$Lambda$1: java.lang.String arg$2
+com.faendir.lightning_launcher.multitool.badge.BadgeService$$Lambda$1: BadgeService$$Lambda$1(int,java.lang.String)
+com.faendir.lightning_launcher.multitool.badge.BadgeService$$Lambda$1: void accept(java.lang.Object)
+com.faendir.lightning_launcher.multitool.badge.BadgeService$$Lambda$1: java8.util.function.Consumer lambdaFactory$(int,java.lang.String)
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1: com.faendir.lightning_launcher.multitool.badge.BadgeService this$0
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1: BadgeService$1(com.faendir.lightning_launcher.multitool.badge.BadgeService)
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1: void registerListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1: void unregisterListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener: void onCountChange(int,java.lang.String)
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub: java.lang.String DESCRIPTOR
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub: int TRANSACTION_onCountChange
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub: IBadgeListener$Stub()
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub: com.faendir.lightning_launcher.multitool.badge.IBadgeListener asInterface(android.os.IBinder)
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub: android.os.IBinder asBinder()
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub$Proxy
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub$Proxy: android.os.IBinder mRemote
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub$Proxy: IBadgeListener$Stub$Proxy(android.os.IBinder)
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub$Proxy: android.os.IBinder asBinder()
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()
+com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub$Proxy: void onCountChange(int,java.lang.String)
+com.faendir.lightning_launcher.multitool.badge.IBadgeService
+com.faendir.lightning_launcher.multitool.badge.IBadgeService: void registerListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
+com.faendir.lightning_launcher.multitool.badge.IBadgeService: void unregisterListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: java.lang.String DESCRIPTOR
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: int TRANSACTION_registerListener
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: int TRANSACTION_unregisterListener
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: IBadgeService$Stub()
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: com.faendir.lightning_launcher.multitool.badge.IBadgeService asInterface(android.os.IBinder)
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: android.os.IBinder asBinder()
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: android.os.IBinder mRemote
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: IBadgeService$Stub$Proxy(android.os.IBinder)
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: android.os.IBinder asBinder()
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: java.lang.String getInterfaceDescriptor()
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: void registerListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: void unregisterListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState[] values()
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState valueOf(java.lang.String)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$1: void onClick(android.content.DialogInterface,int)
@@ -9556,89 +9577,13 @@ com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$5: void 
 com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$6: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$8: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$9: void onClick(android.content.DialogInterface,int)
+com.faendir.lightning_launcher.multitool.drawer.DrawerFragment
 com.faendir.lightning_launcher.multitool.drawer.RestorePreference
 com.faendir.lightning_launcher.multitool.drawer.RestorePreference: RestorePreference(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity: com.faendir.lightning_launcher.multitool.gesture.GestureInfo info
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity: android.gesture.Gesture gesture
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity: android.widget.Button chooseAction
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity: android.widget.EditText label
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity: android.content.Intent action
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity: android.gesture.GestureOverlayView gestureView
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity: java.lang.String GESTURE
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity: GestureActivity()
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void onCreate(android.os.Bundle)
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void onNewIntent(android.content.Intent)
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void onGesturePerformed(android.gesture.GestureOverlayView,android.gesture.Gesture)
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void onClick(android.view.View)
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void onActivityResult(int,int,android.content.Intent)
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void confirm()
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void lambda$onNewIntent$0(com.faendir.lightning_launcher.multitool.gesture.GestureActivity,android.gesture.Gesture)
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1: com.faendir.lightning_launcher.multitool.gesture.GestureActivity arg$1
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1: android.gesture.Gesture arg$2
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1: GestureActivity$$Lambda$1(com.faendir.lightning_launcher.multitool.gesture.GestureActivity,android.gesture.Gesture)
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1: void run()
-com.faendir.lightning_launcher.multitool.gesture.GestureActivity$$Lambda$1: java.lang.Runnable lambdaFactory$(com.faendir.lightning_launcher.multitool.gesture.GestureActivity,android.gesture.Gesture)
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: int ADD
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: int EDIT
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: int EXPORT
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: int IMPORT
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: java.lang.String INDEX
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: com.faendir.lightning_launcher.multitool.util.FileManager fileManager
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: com.faendir.omniadapter.model.DeepObservableList gestureInfos
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: GestureFragment()
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void onCreate(android.os.Bundle)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean onOptionsItemSelected(android.view.MenuItem)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void onActivityResult(int,int,android.content.Intent)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: android.view.View createView(android.view.ViewGroup,int)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void bindView(android.view.View,com.faendir.lightning_launcher.multitool.gesture.GestureInfo,int)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean shouldMove(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean isSelectable(com.faendir.lightning_launcher.multitool.gesture.GestureInfo)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean shouldSwipe(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,int)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void onActionPersisted(java.util.List)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void onActionReverted(java.util.List)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean allowLongClick(com.faendir.omniadapter.model.Component,int)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void onLongClick(com.faendir.omniadapter.model.Component,int)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean shouldSwipe(com.faendir.omniadapter.model.Component,int)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean isSelectable(com.faendir.omniadapter.model.Component)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean shouldMove(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void bindView(android.view.View,com.faendir.omniadapter.model.Component,int)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean lambda$onActionPersisted$3(com.faendir.omniadapter.model.ChangeInformation)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void lambda$onActivityResult$2(com.faendir.lightning_launcher.multitool.gesture.GestureFragment,android.net.Uri)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: void lambda$onActivityResult$1(com.faendir.lightning_launcher.multitool.gesture.GestureFragment,android.net.Uri)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment: boolean lambda$onCreateView$0(com.faendir.lightning_launcher.multitool.gesture.GestureInfo)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$1
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$1: com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$1 instance
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$1: GestureFragment$$Lambda$1()
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$1: boolean test(java.lang.Object)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$1: void <clinit>()
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$1: java8.util.function.Predicate lambdaFactory$()
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$2
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$2: com.faendir.lightning_launcher.multitool.gesture.GestureFragment arg$1
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$2: GestureFragment$$Lambda$2(com.faendir.lightning_launcher.multitool.gesture.GestureFragment)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$2: void accept(java.lang.Object)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$2: java8.util.function.Consumer lambdaFactory$(com.faendir.lightning_launcher.multitool.gesture.GestureFragment)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$3
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$3: com.faendir.lightning_launcher.multitool.gesture.GestureFragment arg$1
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$3: GestureFragment$$Lambda$3(com.faendir.lightning_launcher.multitool.gesture.GestureFragment)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$3: void accept(java.lang.Object)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$3: java8.util.function.Consumer lambdaFactory$(com.faendir.lightning_launcher.multitool.gesture.GestureFragment)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$4
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$4: com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$4 instance
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$4: GestureFragment$$Lambda$4()
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$4: boolean test(java.lang.Object)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$4: void <clinit>()
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$4: java8.util.function.Predicate lambdaFactory$()
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$5
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$5: com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$5 instance
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$5: GestureFragment$$Lambda$5()
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$5: java.lang.Object apply(java.lang.Object)
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$5: void <clinit>()
-com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$5: java8.util.function.Function lambdaFactory$()
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.content.Intent intent
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.gesture.Gesture gesture
@@ -9667,91 +9612,11 @@ com.faendir.lightning_launcher.multitool.gesture.GestureInfo: com.faendir.omniad
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void lambda$getGesture$0(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,java.util.ArrayList)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.gesture.Gesture access$002(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,android.gesture.Gesture)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void <clinit>()
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo$$Lambda$1
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo$$Lambda$1: com.faendir.lightning_launcher.multitool.gesture.GestureInfo arg$1
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo$$Lambda$1: GestureInfo$$Lambda$1(com.faendir.lightning_launcher.multitool.gesture.GestureInfo)
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo$$Lambda$1: void accept(java.lang.Object)
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo$$Lambda$1: java8.util.function.Consumer lambdaFactory$(com.faendir.lightning_launcher.multitool.gesture.GestureInfo)
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1: GestureInfo$1()
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1: com.faendir.lightning_launcher.multitool.gesture.GestureInfo createFromParcel(android.os.Parcel)
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1: com.faendir.lightning_launcher.multitool.gesture.GestureInfo[] newArray(int)
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1: java.lang.Object[] newArray(int)
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1: java.lang.Object createFromParcel(android.os.Parcel)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: java.lang.String METADATA
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: java.lang.String GESTURES
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: GestureUtils()
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void delete(android.content.Context,java.util.List,java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void updateSavedGestures(java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void exportGestures(android.content.Context,android.net.Uri,com.faendir.lightning_launcher.multitool.util.FileManager)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void export(android.content.Context,java.io.File,java.io.File,java.io.File)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void writeFile(java.io.File,java.io.OutputStream)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void readToFile(java.io.File,java.io.InputStream)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void importGestures(android.content.Context,android.net.Uri,com.faendir.omniadapter.model.DeepObservableList,com.faendir.lightning_launcher.multitool.util.FileManager)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void lambda$importGestures$4(android.content.Context,com.faendir.omniadapter.model.DeepObservableList,android.util.Pair)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: boolean lambda$importGestures$3(android.util.Pair)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: android.util.Pair lambda$importGestures$2(android.gesture.GestureLibrary,com.faendir.lightning_launcher.multitool.gesture.GestureInfo)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void lambda$exportGestures$1(java.io.File,android.content.Context,java.io.File,java.io.File,java.io.File,boolean)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils: void lambda$delete$0(android.content.Context,com.faendir.lightning_launcher.multitool.gesture.GestureInfo)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$1
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$1: android.content.Context arg$1
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$1: GestureUtils$$Lambda$1(android.content.Context)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$1: void accept(java.lang.Object)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$1: java8.util.function.Consumer lambdaFactory$(android.content.Context)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$2
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$2: java.util.List arg$1
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$2: GestureUtils$$Lambda$2(java.util.List)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$2: void accept(java.lang.Object)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$2: java8.util.function.Consumer lambdaFactory$(java.util.List)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$3
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$3: java.io.File arg$1
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$3: android.content.Context arg$2
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$3: java.io.File arg$3
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$3: java.io.File arg$4
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$3: java.io.File arg$5
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$3: GestureUtils$$Lambda$3(java.io.File,android.content.Context,java.io.File,java.io.File,java.io.File)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$3: void handlePermissionResult(boolean)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$3: com.faendir.lightning_launcher.scriptlib.PermissionActivity$PermissionCallback lambdaFactory$(java.io.File,android.content.Context,java.io.File,java.io.File,java.io.File)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$4
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$4: android.gesture.GestureLibrary arg$1
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$4: GestureUtils$$Lambda$4(android.gesture.GestureLibrary)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$4: java.lang.Object apply(java.lang.Object)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$4: java8.util.function.Function lambdaFactory$(android.gesture.GestureLibrary)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$5
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$5: com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$5 instance
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$5: GestureUtils$$Lambda$5()
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$5: boolean test(java.lang.Object)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$5: void <clinit>()
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$5: java8.util.function.Predicate lambdaFactory$()
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$6
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$6: android.content.Context arg$1
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$6: com.faendir.omniadapter.model.DeepObservableList arg$2
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$6: GestureUtils$$Lambda$6(android.content.Context,com.faendir.omniadapter.model.DeepObservableList)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$6: void accept(java.lang.Object)
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$6: java8.util.function.Consumer lambdaFactory$(android.content.Context,com.faendir.omniadapter.model.DeepObservableList)
-com.faendir.lightning_launcher.multitool.gesture.LightningGestureView
-com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: LightningGestureView(android.content.Context)
-com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: void onGesturePerformed(android.gesture.GestureOverlayView,android.gesture.Gesture)
-com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: boolean lambda$onGesturePerformed$0(java.util.UUID,com.faendir.lightning_launcher.multitool.gesture.GestureInfo)
-com.faendir.lightning_launcher.multitool.gesture.LightningGestureView$$Lambda$1
-com.faendir.lightning_launcher.multitool.gesture.LightningGestureView$$Lambda$1: java.util.UUID arg$1
-com.faendir.lightning_launcher.multitool.gesture.LightningGestureView$$Lambda$1: LightningGestureView$$Lambda$1(java.util.UUID)
-com.faendir.lightning_launcher.multitool.gesture.LightningGestureView$$Lambda$1: boolean test(java.lang.Object)
-com.faendir.lightning_launcher.multitool.gesture.LightningGestureView$$Lambda$1: java8.util.function.Predicate lambdaFactory$(java.util.UUID)
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary global
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.content.Context context
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.gesture.GestureLibrary getGlobal(android.content.Context)
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: java.io.File getFile(android.content.Context)
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: SingletonGestureLibrary(android.content.Context)
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: java.io.FileDescriptor getFile()
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: android.gesture.GestureLibrary get()
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: boolean save()
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary: boolean load()
+com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment
 com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment: void onButtonClick(com.faendir.lightning_launcher.multitool.event.ClickEvent)
 com.faendir.lightning_launcher.multitool.music.DummyNotificationListener
 com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: DummyNotificationListener()
+com.faendir.lightning_launcher.multitool.music.MusicFragment
 com.faendir.lightning_launcher.multitool.music.MusicFragment: void onClick(com.faendir.lightning_launcher.multitool.event.ClickEvent)
 com.faendir.lightning_launcher.multitool.music.MusicManager
 com.faendir.lightning_launcher.multitool.music.MusicManager: MusicManager()
@@ -9765,200 +9630,7 @@ com.faendir.lightning_launcher.multitool.scriptmanager.Folder: com.faendir.omnia
 com.faendir.lightning_launcher.multitool.scriptmanager.Folder: com.faendir.omniadapter.model.DeepObservableList getRealChildren()
 com.faendir.lightning_launcher.multitool.scriptmanager.Folder: int compareTo(com.faendir.lightning_launcher.multitool.scriptmanager.Folder)
 com.faendir.lightning_launcher.multitool.scriptmanager.Folder: int compareTo(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: java.lang.String SWITCH
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: java.lang.String CASE
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: java.lang.String RETURN
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: java.lang.String DEFAULT
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: java.util.List OPERATORS
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: java.util.List IGNORE
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: java.util.List SEPARATORS
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: com.faendir.lightning_launcher.scriptlib.ScriptManager scriptManager
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: android.content.Context context
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager listManager
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: android.app.ProgressDialog dialog
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: boolean checkOperators
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: FormatTask(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void onPreExecute()
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void onProgressUpdate(com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress[])
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: java.lang.Void doInBackground(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem[])
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: java.lang.String beautify(java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void checkOperators(java.lang.StringBuilder,char)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: boolean caseBeforeLast(java.lang.StringBuilder)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: boolean endsWithCaseOrReturn(java.lang.StringBuilder)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void indentLine(java.util.Deque,int,java.lang.String,int,java.lang.StringBuilder)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void onPostExecute(java.lang.Void)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void onProgressUpdate(java.lang.Object[])
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void onPostExecute(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: java.lang.Object doInBackground(java.lang.Object[])
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void lambda$doInBackground$1(com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask,java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void lambda$onPreExecute$0(com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask,android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask: void <clinit>()
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$1
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$1: com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$1: FormatTask$$Lambda$1(com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask)
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$1: void onClick(android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$1: android.content.DialogInterface$OnClickListener lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$2
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$2: com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$2: FormatTask$$Lambda$2(com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$2: void onResult(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$2: com.faendir.lightning_launcher.scriptlib.ResultCallback lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress: java.lang.String title
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress: java.lang.Integer max
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress: java.lang.Integer progress
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress: FormatTask$Progress(java.lang.Integer,java.lang.Integer,java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress: boolean hasTitle()
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress: boolean hasMax()
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress: boolean hasProgress()
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress: java.lang.String getTitle()
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress: java.lang.Integer getProgress()
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$Progress: java.lang.Integer getMax()
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: java.lang.String ONE_LINE_COMMENT
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: char LINE_BREAK_CHAR
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: java.lang.String LINE_BREAK
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: java.lang.String MULTI_LINE_COMMENT_START
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: java.lang.String MULTI_LINE_COMMENT_END
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: java.lang.String QUOTATION_MARK
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: java.lang.String APOSTROPHE
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: char DEFAULT_CHAR
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: java.lang.String CASE
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: java.lang.String RETURN
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: java.lang.String TAB
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: java.lang.String SPACE
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: java.lang.String CURLY_BRACKET_OPEN
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: java.lang.String CURLY_BRACKET_CLOSE
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: java.lang.String SWITCH
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: java.util.Map START_END_MAP
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: FormatTask2(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: java.lang.String beautify(java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: boolean endsWith(java.lang.StringBuilder,java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: boolean lastLineContains(java.lang.StringBuilder,java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: void indent(java.lang.StringBuilder,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2: void <clinit>()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: com.faendir.lightning_launcher.scriptlib.ScriptManager scriptManager
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: android.content.Context context
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: android.support.v7.widget.RecyclerView recyclerView
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: com.faendir.omniadapter.OmniAdapter adapter
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: com.faendir.omniadapter.model.DeepObservableList items
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: int NONE
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: int ONE_SCRIPT
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: int ONE_GROUP
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: int ONLY_SCRIPTS
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: int ONLY_GROUPS
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: int BOTH
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: ListManager(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void fireUpdateActionMode()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void deselectAll()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void changed(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void updateFrom(java.util.List)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void setAsContentOf(android.view.ViewGroup)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: com.faendir.omniadapter.model.DeepObservableList getItems()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.omniadapter.model.DeepObservableList)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: android.view.View createView(android.view.ViewGroup,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void bindView(android.view.View,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean onCreateActionMode(android.support.v7.view.ActionMode,android.view.Menu)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean onPrepareActionMode(android.support.v7.view.ActionMode,android.view.Menu)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean onActionItemClicked(android.support.v7.view.ActionMode,android.view.MenuItem)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void onDestroyActionMode(android.support.v7.view.ActionMode)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void onSelectionChanged(java.util.List)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void onSelectionCleared()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void onActionPersisted(java.util.List)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void onActionReverted(java.util.List)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean isSelectable(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: int getSelectionMode()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: java.util.List getSelectedItems()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: java.lang.String toString()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean isSelectable(com.faendir.omniadapter.model.Component)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void bindView(android.view.View,com.faendir.omniadapter.model.Component,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void lambda$onActionPersisted$10(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: com.faendir.lightning_launcher.multitool.scriptmanager.Script lambda$onActionPersisted$9(com.faendir.omniadapter.model.ChangeInformation)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean lambda$onActionPersisted$8(com.faendir.omniadapter.model.ChangeInformation)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean lambda$exists$7(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void lambda$setAsContentOf$6(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean lambda$updateFrom$5(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.Folder)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean lambda$updateFrom$4(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean lambda$updateFrom$3(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.Folder)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: boolean lambda$updateFrom$2(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: void lambda$updateFrom$1(java.util.List,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager: int lambda$new$0(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$1: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$1 instance
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$1: ListManager$$Lambda$1()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$1: int compare(java.lang.Object,java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$1: void <clinit>()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$1: java.util.Comparator lambdaFactory$()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$10
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$10: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$10: com.faendir.lightning_launcher.multitool.scriptmanager.Script arg$2
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$10: ListManager$$Lambda$10(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$10: boolean test(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$10: java8.util.function.Predicate lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$11
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$11: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$11 instance
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$11: ListManager$$Lambda$11()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$11: boolean test(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$11: void <clinit>()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$11: java8.util.function.Predicate lambdaFactory$()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$12
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$12: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$12 instance
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$12: ListManager$$Lambda$12()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$12: java.lang.Object apply(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$12: void <clinit>()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$12: java8.util.function.Function lambdaFactory$()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$13
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$13: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$13: ListManager$$Lambda$13(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$13: void accept(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$13: java8.util.function.Consumer lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$2
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$2: java.util.List arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$2: ListManager$$Lambda$2(java.util.List)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$2: void visit(java.lang.Object,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$2: com.faendir.omniadapter.model.DeepObservableList$ComponentVisitor lambdaFactory$(java.util.List)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$3
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$3: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$3 instance
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$3: ListManager$$Lambda$3()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$3: boolean test(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$3: void <clinit>()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$3: java8.util.function.Predicate lambdaFactory$()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$4
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$4: java.lang.Class arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$4: ListManager$$Lambda$4(java.lang.Class)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$4: java.lang.Object apply(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$4: java8.util.function.Function lambdaFactory$(java.lang.Class)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$5
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$5: java.lang.String arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$5: ListManager$$Lambda$5(java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$5: boolean test(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$5: java8.util.function.Predicate lambdaFactory$(java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$6
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$6: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$6 instance
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$6: ListManager$$Lambda$6()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$6: boolean test(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$6: void <clinit>()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$6: java8.util.function.Predicate lambdaFactory$()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$7
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$7: java.lang.Class arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$7: ListManager$$Lambda$7(java.lang.Class)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$7: java.lang.Object apply(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$7: java8.util.function.Function lambdaFactory$(java.lang.Class)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$8
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$8: java.lang.String arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$8: ListManager$$Lambda$8(java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$8: boolean test(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$8: java8.util.function.Predicate lambdaFactory$(java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$9
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$9: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$9: android.view.ViewGroup arg$2
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$9: ListManager$$Lambda$9(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$9: void run()
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$9: java.lang.Runnable lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup)
-com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$SelectionMode
 com.faendir.lightning_launcher.multitool.scriptmanager.Script
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: int id
 com.faendir.lightning_launcher.multitool.scriptmanager.Script: java.lang.String name
@@ -9984,141 +9656,11 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem: java.lang.String getName()
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem: void setName(java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: android.content.SharedPreferences sharedPref
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: boolean enableMenu
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: android.widget.FrameLayout layout
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager listManager
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: com.faendir.lightning_launcher.scriptlib.ScriptManager scriptManager
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: ScriptManagerFragment()
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void onCreate(android.os.Bundle)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void onStart()
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void onStop()
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: boolean onOptionsItemSelected(android.view.MenuItem)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void onActivityResult(int,int,android.content.Intent)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void loadFromLauncher()
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void handleScriptResult(java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void onReloadButton(com.faendir.lightning_launcher.multitool.event.ClickEvent)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void lambda$onActivityResult$0(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment,android.net.Uri)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void access$lambda$0(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment,java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$1: com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$1: ScriptManagerFragment$$Lambda$1(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$1: void accept(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$1: java8.util.function.Consumer lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2: com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2: ScriptManagerFragment$$Lambda$2(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2: void onResult(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment$$Lambda$2: com.faendir.lightning_launcher.scriptlib.ResultCallback lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: java.lang.String FLAGS
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: java.lang.String APP
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: java.lang.String ITEM
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: java.lang.String CUSTOM
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: java.lang.String NAME
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: ScriptUtils()
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void searchDialog(android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void search(android.content.Context,com.faendir.omniadapter.model.DeepObservableList,java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void renameDialog(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void renameItem(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void updateFrom(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void format(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.util.List)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void backup(android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.util.List)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void backup0(android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.io.File,java.util.List)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void editScript(android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void deleteScript(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void restoreFromFile(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.net.Uri)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void restoreDialog(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String,java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void prepareRestore(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String,java.lang.String,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void restore(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void toggleDisable(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void lambda$toggleDisable$9(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void lambda$restore$8(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void lambda$prepareRestore$7(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script,android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void lambda$restoreDialog$6(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String,android.widget.EditText,int,android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void lambda$deleteScript$5(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void lambda$backup$4(java.io.File,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.util.List,boolean)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void lambda$renameItem$3(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void lambda$renameDialog$2(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,android.widget.EditText,android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void lambda$search$1(java.util.regex.Pattern,java.lang.StringBuilder,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils: void lambda$searchDialog$0(android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.widget.EditText,android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$1: android.content.Context arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$1: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$2
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$1: android.widget.EditText arg$3
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$1: ScriptUtils$$Lambda$1(android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.widget.EditText)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$1: void onClick(android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$1: android.content.DialogInterface$OnClickListener lambdaFactory$(android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.widget.EditText)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$10
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$10: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$10: ScriptUtils$$Lambda$10(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$10: void onResult(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$10: com.faendir.lightning_launcher.scriptlib.ResultCallback lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$2
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$2: java.util.regex.Pattern arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$2: java.lang.StringBuilder arg$2
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$2: ScriptUtils$$Lambda$2(java.util.regex.Pattern,java.lang.StringBuilder)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$2: void visit(java.lang.Object,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$2: com.faendir.omniadapter.model.DeepObservableList$ComponentVisitor lambdaFactory$(java.util.regex.Pattern,java.lang.StringBuilder)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$3
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$3: com.faendir.lightning_launcher.scriptlib.ScriptManager arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$3: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$2
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$3: com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem arg$3
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$3: android.widget.EditText arg$4
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$3: ScriptUtils$$Lambda$3(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,android.widget.EditText)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$3: void onClick(android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$3: android.content.DialogInterface$OnClickListener lambdaFactory$(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,android.widget.EditText)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$4
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$4: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$4: ScriptUtils$$Lambda$4(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$4: void onResult(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$4: com.faendir.lightning_launcher.scriptlib.ResultCallback lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$5
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$5: java.io.File arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$5: android.content.Context arg$2
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$5: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$3
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$5: java.util.List arg$4
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$5: ScriptUtils$$Lambda$5(java.io.File,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.util.List)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$5: void handlePermissionResult(boolean)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$5: com.faendir.lightning_launcher.scriptlib.PermissionActivity$PermissionCallback lambdaFactory$(java.io.File,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.util.List)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$6
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$6: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$6: ScriptUtils$$Lambda$6(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$6: void onResult(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$6: com.faendir.lightning_launcher.scriptlib.ResultCallback lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$7
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$7: com.faendir.lightning_launcher.scriptlib.ScriptManager arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$7: android.content.Context arg$2
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$7: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$3
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$7: java.lang.String arg$4
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$7: android.widget.EditText arg$5
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$7: int arg$6
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$7: ScriptUtils$$Lambda$7(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String,android.widget.EditText,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$7: void onClick(android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$7: android.content.DialogInterface$OnClickListener lambdaFactory$(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,java.lang.String,android.widget.EditText,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$8
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$8: com.faendir.lightning_launcher.scriptlib.ScriptManager arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$8: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$2
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$8: com.faendir.lightning_launcher.multitool.scriptmanager.Script arg$3
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$8: ScriptUtils$$Lambda$8(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$8: void onClick(android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$8: android.content.DialogInterface$OnClickListener lambdaFactory$(com.faendir.lightning_launcher.scriptlib.ScriptManager,com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$9
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$9: com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$1
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$9: ScriptUtils$$Lambda$9(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$9: void onResult(java.lang.Object)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$9: com.faendir.lightning_launcher.scriptlib.ResultCallback lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager)
-com.faendir.lightning_launcher.multitool.scriptmanager.Transfer
-com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: java.lang.String RENAME
-com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: java.lang.String DELETE
-com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: java.lang.String RESTORE
-com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: java.lang.String SET_CODE
-com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: java.lang.String TOGGLE_DISABLE
-com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: com.faendir.lightning_launcher.multitool.scriptmanager.Script script
-com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: java.lang.String request
-com.faendir.lightning_launcher.multitool.scriptmanager.Transfer: Transfer(java.lang.String)
 com.faendir.lightning_launcher.multitool.settings.BackupTimePreference
 com.faendir.lightning_launcher.multitool.settings.BackupTimePreference: BackupTimePreference(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.settings.BackupTimePreference: void onClick(android.view.View)
@@ -10126,18 +9668,14 @@ com.faendir.lightning_launcher.multitool.settings.DefaultPlayerPreference
 com.faendir.lightning_launcher.multitool.settings.DefaultPlayerPreference: DefaultPlayerPreference(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.settings.PlayersPreference
 com.faendir.lightning_launcher.multitool.settings.PlayersPreference: PlayersPreference(android.content.Context,android.util.AttributeSet)
+com.faendir.lightning_launcher.multitool.settings.PrefsFragment
 com.faendir.lightning_launcher.multitool.settings.TrialPreference
 com.faendir.lightning_launcher.multitool.settings.TrialPreference: TrialPreference(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.settings.TrialPreference: void onClick()
 com.faendir.lightning_launcher.multitool.settings.VersionPreference
 com.faendir.lightning_launcher.multitool.settings.VersionPreference: VersionPreference(android.content.Context,android.util.AttributeSet)
-com.faendir.lightning_launcher.multitool.util.BaseActivity: int layoutRes
-com.faendir.lightning_launcher.multitool.util.BaseActivity: android.support.v7.widget.Toolbar toolbar
 com.faendir.lightning_launcher.multitool.util.BaseActivity: BaseActivity(int)
-com.faendir.lightning_launcher.multitool.util.BaseActivity: void onCreate(android.os.Bundle)
-com.faendir.lightning_launcher.multitool.util.BaseActivity: void initLayout()
-com.faendir.lightning_launcher.multitool.util.BaseActivity: android.support.v7.widget.Toolbar initToolbar()
-com.faendir.lightning_launcher.multitool.util.BaseActivity: android.support.v7.widget.Toolbar getToolbar()
+com.faendir.lightning_launcher.multitool.util.BaseIpcService
 com.faendir.lightning_launcher.multitool.util.BaseIpcService: BaseIpcService()
 com.faendir.lightning_launcher.multitool.util.DataProvider
 com.faendir.lightning_launcher.multitool.util.DataProvider: DataProvider()
@@ -10161,199 +9699,16 @@ com.faendir.lightning_launcher.multitool.util.IntentInfo: int compareTo(java.lan
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: ResetReportPrimer()
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: void primeReport(android.content.Context,org.acra.builder.ReportBuilder)
-com.faendir.lightning_launcher.scriptlib.Action
-com.faendir.lightning_launcher.scriptlib.Action: int UNSET
-com.faendir.lightning_launcher.scriptlib.Action: int NOTHING
-com.faendir.lightning_launcher.scriptlib.Action: int APP_DRAWER
-com.faendir.lightning_launcher.scriptlib.Action: int ZOOM_FULL_SCALE
-com.faendir.lightning_launcher.scriptlib.Action: int ZOOM_TO_ORIGIN
-com.faendir.lightning_launcher.scriptlib.Action: int SWITCH_FULL_SCALE_OR_ORIGIN
-com.faendir.lightning_launcher.scriptlib.Action: int SHOW_HIDE_STATUS_BAR
-com.faendir.lightning_launcher.scriptlib.Action: int LAUNCHER_MENU
-com.faendir.lightning_launcher.scriptlib.Action: int EDIT_LAYOUT
-com.faendir.lightning_launcher.scriptlib.Action: int CUSTOMIZE_LAUNCHER
-com.faendir.lightning_launcher.scriptlib.Action: int CUSTOMIZE_PAGE
-com.faendir.lightning_launcher.scriptlib.Action: int CUSTOMIZE_ITEM
-com.faendir.lightning_launcher.scriptlib.Action: int ITEM_MENU
-com.faendir.lightning_launcher.scriptlib.Action: int LAUNCH_ITEM
-com.faendir.lightning_launcher.scriptlib.Action: int SEARCH
-com.faendir.lightning_launcher.scriptlib.Action: int SHOW_HIDE_APP_MENU
-com.faendir.lightning_launcher.scriptlib.Action: int SHOW_HIDE_APP_MENU_STATUS_BAR
-com.faendir.lightning_launcher.scriptlib.Action: int SHOW_NOTIFICATIONS
-com.faendir.lightning_launcher.scriptlib.Action: int PREVIOUS_PAGE
-com.faendir.lightning_launcher.scriptlib.Action: int NEXT_PAGE
-com.faendir.lightning_launcher.scriptlib.Action: int LAUNCH_APP
-com.faendir.lightning_launcher.scriptlib.Action: int MOVE_ITEM
-com.faendir.lightning_launcher.scriptlib.Action: int ADD_ITEM
-com.faendir.lightning_launcher.scriptlib.Action: int LAUNCH_SHORTCUT
-com.faendir.lightning_launcher.scriptlib.Action: int SELECT_WALLPAPER
-com.faendir.lightning_launcher.scriptlib.Action: int GO_HOME
-com.faendir.lightning_launcher.scriptlib.Action: int GO_HOME_ZOOM_TO_ORIGIN
-com.faendir.lightning_launcher.scriptlib.Action: int SELECT_DESKTOP_TO_GO_TO
-com.faendir.lightning_launcher.scriptlib.Action: int RESTART
-com.faendir.lightning_launcher.scriptlib.Action: int CLOSE_TOPMOST_FOLDER
-com.faendir.lightning_launcher.scriptlib.Action: int CLOSE_ALL_FOLDERS
-com.faendir.lightning_launcher.scriptlib.Action: int SEARCH_APP
-com.faendir.lightning_launcher.scriptlib.Action: int OPEN_FOLDER
-com.faendir.lightning_launcher.scriptlib.Action: int GO_DESKTOP_POSITION
-com.faendir.lightning_launcher.scriptlib.Action: int UNLOCK_SCREEN
-com.faendir.lightning_launcher.scriptlib.Action: int RUN_SCRIPT
-com.faendir.lightning_launcher.scriptlib.Action: int BACK
-com.faendir.lightning_launcher.scriptlib.Action: int CUSTOM_MENU
-com.faendir.lightning_launcher.scriptlib.Action: int USER_MENU
-com.faendir.lightning_launcher.scriptlib.Action: int WALLPAPER_TAP
-com.faendir.lightning_launcher.scriptlib.Action: int WALLPAPER_SECONDARY_TAP
-com.faendir.lightning_launcher.scriptlib.Action: int SET_VARIABLE
-com.faendir.lightning_launcher.scriptlib.Action: int SHOW_FLOATING_DESKTOP
-com.faendir.lightning_launcher.scriptlib.Action: int HIDE_FLOATING_DESKTOP
-com.faendir.lightning_launcher.scriptlib.Action: int OPEN_HIERARCHY_SCREEN
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: android.content.Context context
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: com.faendir.lightning_launcher.scriptlib.ServiceManager2 serviceManager
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: com.faendir.lightning_launcher.scriptlib.ExceptionHandler exceptionHandler
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: com.faendir.lightning_launcher.scriptlib.Logger logger
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: java.util.List list
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: boolean keepAlive
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: com.trianguloy.llscript.repository.aidl.ILightningService lightningService
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: AsyncExecutorService(android.content.Context,com.faendir.lightning_launcher.scriptlib.ServiceManager2,com.faendir.lightning_launcher.scriptlib.ExceptionHandler,com.faendir.lightning_launcher.scriptlib.Logger)
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: void start()
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: com.faendir.lightning_launcher.scriptlib.AsyncExecutorService add(com.faendir.lightning_launcher.scriptlib.executor.Executor)
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: com.faendir.lightning_launcher.scriptlib.AsyncExecutorService add(com.faendir.lightning_launcher.scriptlib.executor.Executor,com.faendir.lightning_launcher.scriptlib.ResultCallback)
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: com.faendir.lightning_launcher.scriptlib.AsyncExecutorService setKeepAliveAfterwards(boolean)
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: void unbind()
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: void next()
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: void execute(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$ExecutorWithCallback)
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: com.trianguloy.llscript.repository.aidl.ILightningService access$002(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService,com.trianguloy.llscript.repository.aidl.ILightningService)
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: void access$100(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService)
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService: java.util.List access$300(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService)
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$1
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$1: com.faendir.lightning_launcher.scriptlib.AsyncExecutorService this$0
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$1: AsyncExecutorService$1(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService)
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$1: void onResult(com.trianguloy.llscript.repository.aidl.ILightningService)
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$1: void onResult(java.lang.Object)
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$2
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$2: com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$ExecutorWithCallback val$entry
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$2: com.faendir.lightning_launcher.scriptlib.AsyncExecutorService this$0
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$2: AsyncExecutorService$2(com.faendir.lightning_launcher.scriptlib.AsyncExecutorService,com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$ExecutorWithCallback)
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$2: void onResult(java.lang.Object)
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$ExecutorWithCallback
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$ExecutorWithCallback: com.faendir.lightning_launcher.scriptlib.executor.Executor executor
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$ExecutorWithCallback: com.faendir.lightning_launcher.scriptlib.ResultCallback resultCallback
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$ExecutorWithCallback: AsyncExecutorService$ExecutorWithCallback(com.faendir.lightning_launcher.scriptlib.executor.Executor,com.faendir.lightning_launcher.scriptlib.ResultCallback)
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$ExecutorWithCallback: com.faendir.lightning_launcher.scriptlib.executor.Executor getExecutor()
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$ExecutorWithCallback: com.faendir.lightning_launcher.scriptlib.ResultCallback getResultCallback()
-com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$ExecutorWithCallback: AsyncExecutorService$ExecutorWithCallback(com.faendir.lightning_launcher.scriptlib.executor.Executor,com.faendir.lightning_launcher.scriptlib.ResultCallback,com.faendir.lightning_launcher.scriptlib.AsyncExecutorService$1)
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: android.net.Uri URI
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: android.net.Uri ALTERNATIVE_URI
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: android.content.Context context
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: boolean useLightTheme
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: int customTheme
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: BaseExceptionHandler(android.content.Context)
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: BaseExceptionHandler(android.content.Context,boolean)
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: BaseExceptionHandler(android.content.Context,int)
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: BaseExceptionHandler(android.content.Context,boolean,int)
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder getThemedBuilder()
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: void permissionNotGranted()
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: void outdatedImporter()
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: void noImporter()
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: void confirmUpdate(android.os.ResultReceiver)
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: void askForInstallation(int,int)
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: void onException(java.lang.Exception)
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: void onUnhandledException(java.lang.Exception)
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: android.content.Context access$000(com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler)
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: android.net.Uri access$100()
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: android.net.Uri access$200()
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler: void <clinit>()
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$1
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$1: com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler this$0
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$1: BaseExceptionHandler$1(com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler)
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$1: void run()
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$2
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$2: com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler this$0
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$2: BaseExceptionHandler$2(com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler,android.os.Handler)
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$2: void onReceiveResult(int,android.os.Bundle)
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$3
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$3: com.faendir.lightning_launcher.scriptlib.exception.FailureException val$failureException
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$3: com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler this$0
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$3: BaseExceptionHandler$3(com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler,android.os.Handler,com.faendir.lightning_launcher.scriptlib.exception.FailureException)
-com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler$3: void onReceiveResult(int,android.os.Bundle)
-com.faendir.lightning_launcher.scriptlib.BuildConfig
-com.faendir.lightning_launcher.scriptlib.BuildConfig: boolean DEBUG
-com.faendir.lightning_launcher.scriptlib.BuildConfig: java.lang.String APPLICATION_ID
-com.faendir.lightning_launcher.scriptlib.BuildConfig: java.lang.String BUILD_TYPE
-com.faendir.lightning_launcher.scriptlib.BuildConfig: java.lang.String FLAVOR
-com.faendir.lightning_launcher.scriptlib.BuildConfig: int VERSION_CODE
-com.faendir.lightning_launcher.scriptlib.BuildConfig: java.lang.String VERSION_NAME
-com.faendir.lightning_launcher.scriptlib.BuildConfig: BuildConfig()
-com.faendir.lightning_launcher.scriptlib.DefaultLogger
-com.faendir.lightning_launcher.scriptlib.DefaultLogger: boolean debug
-com.faendir.lightning_launcher.scriptlib.DefaultLogger: java.lang.String TAG
-com.faendir.lightning_launcher.scriptlib.DefaultLogger: DefaultLogger()
-com.faendir.lightning_launcher.scriptlib.DefaultLogger: void log(java.lang.String)
-com.faendir.lightning_launcher.scriptlib.DefaultLogger: void warn(java.lang.String)
-com.faendir.lightning_launcher.scriptlib.DefaultLogger: void setDebug(boolean)
-com.faendir.lightning_launcher.scriptlib.DefaultLogger: boolean getDebug()
 com.faendir.lightning_launcher.scriptlib.DialogActivity
-com.faendir.lightning_launcher.scriptlib.DialogActivity: java.lang.String EXTRA_TITLE
-com.faendir.lightning_launcher.scriptlib.DialogActivity: java.lang.String EXTRA_MESSAGE
-com.faendir.lightning_launcher.scriptlib.DialogActivity: java.lang.String EXTRA_POSITIVE_BUTTON_TEXT
-com.faendir.lightning_launcher.scriptlib.DialogActivity: java.lang.String EXTRA_NEGATIVE_BUTTON_TEXT
-com.faendir.lightning_launcher.scriptlib.DialogActivity: java.lang.String EXTRA_RESULT_RECEIVER
-com.faendir.lightning_launcher.scriptlib.DialogActivity: java.lang.String EXTRA_THEME
-com.faendir.lightning_launcher.scriptlib.DialogActivity: android.os.ResultReceiver resultReceiver
 com.faendir.lightning_launcher.scriptlib.DialogActivity: DialogActivity()
-com.faendir.lightning_launcher.scriptlib.DialogActivity: void onCreate(android.os.Bundle)
 com.faendir.lightning_launcher.scriptlib.DialogActivity: void onClick(android.view.View)
-com.faendir.lightning_launcher.scriptlib.DialogActivity: void sendResult(boolean)
-com.faendir.lightning_launcher.scriptlib.DialogActivity: void onBackPressed()
-com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder
-com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder: android.content.Context context
-com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder: android.content.Intent intent
-com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder: android.os.ResultReceiver resultReceiver
-com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder: DialogActivity$Builder(android.content.Context,int)
-com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder: com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder setTitle(java.lang.String)
-com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder: com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder setTitle(int)
-com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder: com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder setMessage(int)
-com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder: com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder setMessage(java.lang.String)
-com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder: com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder setButtons(int,int,android.os.ResultReceiver)
-com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder: com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder setButtons(java.lang.String,java.lang.String,android.os.ResultReceiver)
-com.faendir.lightning_launcher.scriptlib.DialogActivity$Builder: void show()
-com.faendir.lightning_launcher.scriptlib.ExceptionHandler
-com.faendir.lightning_launcher.scriptlib.ExceptionHandler: void onException(java.lang.Exception)
-com.faendir.lightning_launcher.scriptlib.Logger
-com.faendir.lightning_launcher.scriptlib.Logger: void log(java.lang.String)
-com.faendir.lightning_launcher.scriptlib.Logger: void warn(java.lang.String)
-com.faendir.lightning_launcher.scriptlib.Logger: void setDebug(boolean)
-com.faendir.lightning_launcher.scriptlib.Logger: boolean getDebug()
 com.faendir.lightning_launcher.scriptlib.PermissionActivity
-com.faendir.lightning_launcher.scriptlib.PermissionActivity: java.lang.String CALLBACK
-com.faendir.lightning_launcher.scriptlib.PermissionActivity: java.lang.String PERMISSION
-com.faendir.lightning_launcher.scriptlib.PermissionActivity: android.os.ResultReceiver callback
-com.faendir.lightning_launcher.scriptlib.PermissionActivity: java.lang.String permission
 com.faendir.lightning_launcher.scriptlib.PermissionActivity: PermissionActivity()
-com.faendir.lightning_launcher.scriptlib.PermissionActivity: void checkForPermission(android.content.Context,java.lang.String,com.faendir.lightning_launcher.scriptlib.PermissionActivity$PermissionCallback)
-com.faendir.lightning_launcher.scriptlib.PermissionActivity: void onCreate(android.os.Bundle)
-com.faendir.lightning_launcher.scriptlib.PermissionActivity: void requestPermission()
-com.faendir.lightning_launcher.scriptlib.PermissionActivity: void onRequestPermissionsResult(int,java.lang.String[],int[])
-com.faendir.lightning_launcher.scriptlib.PermissionActivity$1
-com.faendir.lightning_launcher.scriptlib.PermissionActivity$1: com.faendir.lightning_launcher.scriptlib.PermissionActivity$PermissionCallback val$callback
-com.faendir.lightning_launcher.scriptlib.PermissionActivity$1: PermissionActivity$1(android.os.Handler,com.faendir.lightning_launcher.scriptlib.PermissionActivity$PermissionCallback)
-com.faendir.lightning_launcher.scriptlib.PermissionActivity$1: void onReceiveResult(int,android.os.Bundle)
-com.faendir.lightning_launcher.scriptlib.PermissionActivity$PermissionCallback
-com.faendir.lightning_launcher.scriptlib.PermissionActivity$PermissionCallback: void handlePermissionResult(boolean)
-com.faendir.lightning_launcher.scriptlib.R
-com.faendir.lightning_launcher.scriptlib.R: R()
-com.faendir.lightning_launcher.scriptlib.R$id
 com.faendir.lightning_launcher.scriptlib.R$id: int button_negative
 com.faendir.lightning_launcher.scriptlib.R$id: int button_positive
 com.faendir.lightning_launcher.scriptlib.R$id: int constraintLayout2
 com.faendir.lightning_launcher.scriptlib.R$id: int text_message
-com.faendir.lightning_launcher.scriptlib.R$id: R$id()
-com.faendir.lightning_launcher.scriptlib.R$layout
 com.faendir.lightning_launcher.scriptlib.R$layout: int activity_dialog
-com.faendir.lightning_launcher.scriptlib.R$layout: R$layout()
-com.faendir.lightning_launcher.scriptlib.R$string
 com.faendir.lightning_launcher.scriptlib.R$string: int app_name
 com.faendir.lightning_launcher.scriptlib.R$string: int message_confirmUpdate
 com.faendir.lightning_launcher.scriptlib.R$string: int message_missing
@@ -10362,143 +9717,9 @@ com.faendir.lightning_launcher.scriptlib.R$string: int text_noPermission
 com.faendir.lightning_launcher.scriptlib.R$string: int title_confirmUpdate
 com.faendir.lightning_launcher.scriptlib.R$string: int title_missing
 com.faendir.lightning_launcher.scriptlib.R$string: int title_outDated
-com.faendir.lightning_launcher.scriptlib.R$string: R$string()
-com.faendir.lightning_launcher.scriptlib.R$style
 com.faendir.lightning_launcher.scriptlib.R$style: int Transparent
-com.faendir.lightning_launcher.scriptlib.R$style: R$style()
-com.faendir.lightning_launcher.scriptlib.ResultCallback
-com.faendir.lightning_launcher.scriptlib.ResultCallback: void onResult(java.lang.Object)
-com.faendir.lightning_launcher.scriptlib.ScriptManager
-com.faendir.lightning_launcher.scriptlib.ScriptManager: com.faendir.lightning_launcher.scriptlib.Logger logger
-com.faendir.lightning_launcher.scriptlib.ScriptManager: com.faendir.lightning_launcher.scriptlib.ServiceManager2 serviceManager
-com.faendir.lightning_launcher.scriptlib.ScriptManager: android.content.Context context
-com.faendir.lightning_launcher.scriptlib.ScriptManager: ScriptManager(android.content.Context)
-com.faendir.lightning_launcher.scriptlib.ScriptManager: com.faendir.lightning_launcher.scriptlib.AsyncExecutorService getAsyncExecutorService()
-com.faendir.lightning_launcher.scriptlib.ScriptManager: com.faendir.lightning_launcher.scriptlib.AsyncExecutorService getAsyncExecutorService(com.faendir.lightning_launcher.scriptlib.ExceptionHandler)
-com.faendir.lightning_launcher.scriptlib.ScriptManager: com.faendir.lightning_launcher.scriptlib.ScriptManager enableDebug()
-com.faendir.lightning_launcher.scriptlib.ScriptManager: void replaceLogger(com.faendir.lightning_launcher.scriptlib.Logger)
-com.faendir.lightning_launcher.scriptlib.ScriptManager: void <clinit>()
-com.faendir.lightning_launcher.scriptlib.ServiceManager2
-com.faendir.lightning_launcher.scriptlib.ServiceManager2: java.lang.String INTENT
-com.faendir.lightning_launcher.scriptlib.ServiceManager2: int MIN_SERVICE_VERSION
-com.faendir.lightning_launcher.scriptlib.ServiceManager2: android.content.pm.ServiceInfo serviceInfo
-com.faendir.lightning_launcher.scriptlib.ServiceManager2: int version
-com.faendir.lightning_launcher.scriptlib.ServiceManager2: android.content.Context context
-com.faendir.lightning_launcher.scriptlib.ServiceManager2: android.content.ServiceConnection serviceConnection
-com.faendir.lightning_launcher.scriptlib.ServiceManager2: ServiceManager2(android.content.Context)
-com.faendir.lightning_launcher.scriptlib.ServiceManager2: void bind(com.faendir.lightning_launcher.scriptlib.ExceptionHandler,com.faendir.lightning_launcher.scriptlib.ResultCallback)
-com.faendir.lightning_launcher.scriptlib.ServiceManager2: void unbind()
-com.faendir.lightning_launcher.scriptlib.ServiceManager2: android.content.pm.ServiceInfo access$000(com.faendir.lightning_launcher.scriptlib.ServiceManager2)
-com.faendir.lightning_launcher.scriptlib.ServiceManager2: android.content.ServiceConnection access$102(com.faendir.lightning_launcher.scriptlib.ServiceManager2,android.content.ServiceConnection)
-com.faendir.lightning_launcher.scriptlib.ServiceManager2: android.content.ServiceConnection access$100(com.faendir.lightning_launcher.scriptlib.ServiceManager2)
-com.faendir.lightning_launcher.scriptlib.ServiceManager2: android.content.Context access$200(com.faendir.lightning_launcher.scriptlib.ServiceManager2)
-com.faendir.lightning_launcher.scriptlib.ServiceManager2$1
-com.faendir.lightning_launcher.scriptlib.ServiceManager2$1: com.faendir.lightning_launcher.scriptlib.ResultCallback val$listener
-com.faendir.lightning_launcher.scriptlib.ServiceManager2$1: com.faendir.lightning_launcher.scriptlib.ExceptionHandler val$exceptionHandler
-com.faendir.lightning_launcher.scriptlib.ServiceManager2$1: com.faendir.lightning_launcher.scriptlib.ServiceManager2 this$0
-com.faendir.lightning_launcher.scriptlib.ServiceManager2$1: ServiceManager2$1(com.faendir.lightning_launcher.scriptlib.ServiceManager2,com.faendir.lightning_launcher.scriptlib.ResultCallback,com.faendir.lightning_launcher.scriptlib.ExceptionHandler)
-com.faendir.lightning_launcher.scriptlib.ServiceManager2$1: void handlePermissionResult(boolean)
-com.faendir.lightning_launcher.scriptlib.ServiceManager2$1$1
-com.faendir.lightning_launcher.scriptlib.ServiceManager2$1$1: com.faendir.lightning_launcher.scriptlib.ServiceManager2$1 this$1
-com.faendir.lightning_launcher.scriptlib.ServiceManager2$1$1: ServiceManager2$1$1(com.faendir.lightning_launcher.scriptlib.ServiceManager2$1)
-com.faendir.lightning_launcher.scriptlib.ServiceManager2$1$1: void onServiceConnected(android.content.ComponentName,android.os.IBinder)
-com.faendir.lightning_launcher.scriptlib.ServiceManager2$1$1: void onServiceDisconnected(android.content.ComponentName)
-com.faendir.lightning_launcher.scriptlib.exception.BindException
-com.faendir.lightning_launcher.scriptlib.exception.BindException: BindException()
-com.faendir.lightning_launcher.scriptlib.exception.FailureException
-com.faendir.lightning_launcher.scriptlib.exception.FailureException: com.trianguloy.llscript.repository.aidl.Failure failure
-com.faendir.lightning_launcher.scriptlib.exception.FailureException: com.faendir.lightning_launcher.scriptlib.exception.FailureException$Retry retry
-com.faendir.lightning_launcher.scriptlib.exception.FailureException: FailureException(com.trianguloy.llscript.repository.aidl.Failure)
-com.faendir.lightning_launcher.scriptlib.exception.FailureException: FailureException(com.trianguloy.llscript.repository.aidl.Failure,com.faendir.lightning_launcher.scriptlib.exception.FailureException$Retry)
-com.faendir.lightning_launcher.scriptlib.exception.FailureException: com.trianguloy.llscript.repository.aidl.Failure getFailure()
-com.faendir.lightning_launcher.scriptlib.exception.FailureException: com.faendir.lightning_launcher.scriptlib.exception.FailureException$Retry getRetry()
-com.faendir.lightning_launcher.scriptlib.exception.FailureException$Retry
-com.faendir.lightning_launcher.scriptlib.exception.FailureException$Retry: void retry()
-com.faendir.lightning_launcher.scriptlib.exception.PermissionDeniedException
-com.faendir.lightning_launcher.scriptlib.exception.PermissionDeniedException: PermissionDeniedException()
-com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterException
-com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterException: RepositoryImporterException()
-com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterMissingException
-com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterMissingException: RepositoryImporterMissingException()
-com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterOutdatedException
-com.faendir.lightning_launcher.scriptlib.exception.RepositoryImporterOutdatedException: RepositoryImporterOutdatedException()
-com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor
-com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor: int action
-com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor: java.lang.String data
-com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor: boolean background
-com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor: ActionExecutor(int)
-com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor: com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor setData(java.lang.String)
-com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor: com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor setBackground(boolean)
-com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor: void execute(android.content.Context,com.trianguloy.llscript.repository.aidl.ILightningService,com.faendir.lightning_launcher.scriptlib.ExceptionHandler,com.faendir.lightning_launcher.scriptlib.Logger,com.faendir.lightning_launcher.scriptlib.ResultCallback)
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor: java.lang.String code
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor: java.util.Map variables
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor: int codeRes
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor: DirectScriptExecutor(java.lang.String)
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor: DirectScriptExecutor(int)
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor: com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor putVariable(java.lang.String,java.lang.String)
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor: com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor putVariables(java.util.Map)
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor: void execute(android.content.Context,com.trianguloy.llscript.repository.aidl.ILightningService,com.faendir.lightning_launcher.scriptlib.ExceptionHandler,com.faendir.lightning_launcher.scriptlib.Logger,com.faendir.lightning_launcher.scriptlib.ResultCallback)
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor$1
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor$1: com.faendir.lightning_launcher.scriptlib.Logger val$logger
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor$1: com.faendir.lightning_launcher.scriptlib.ResultCallback val$listener
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor$1: com.faendir.lightning_launcher.scriptlib.ExceptionHandler val$exceptionHandler
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor$1: com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor this$0
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor$1: DirectScriptExecutor$1(com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor,com.faendir.lightning_launcher.scriptlib.Logger,com.faendir.lightning_launcher.scriptlib.ResultCallback,com.faendir.lightning_launcher.scriptlib.ExceptionHandler)
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor$1: void onResult(java.lang.String)
-com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor$1: void onFailure(com.trianguloy.llscript.repository.aidl.Failure)
-com.faendir.lightning_launcher.scriptlib.executor.Executor
-com.faendir.lightning_launcher.scriptlib.executor.Executor: void execute(android.content.Context,com.trianguloy.llscript.repository.aidl.ILightningService,com.faendir.lightning_launcher.scriptlib.ExceptionHandler,com.faendir.lightning_launcher.scriptlib.Logger,com.faendir.lightning_launcher.scriptlib.ResultCallback)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor
-com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor: int scriptId
-com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor: java.lang.String data
-com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor: boolean background
-com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor: ScriptExecutor(int)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor: com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor setBackground(boolean)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor: com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor setData(java.lang.String)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptExecutor: void execute(android.content.Context,com.trianguloy.llscript.repository.aidl.ILightningService,com.faendir.lightning_launcher.scriptlib.ExceptionHandler,com.faendir.lightning_launcher.scriptlib.Logger,com.faendir.lightning_launcher.scriptlib.ResultCallback)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: com.trianguloy.llscript.repository.aidl.Script script
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: boolean forceUpdate
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: boolean runScript
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: boolean background
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: java.lang.String data
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: ScriptLoader(com.trianguloy.llscript.repository.aidl.Script)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setForceUpdate(boolean)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunScript(boolean)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunInBackground(boolean)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunData(java.lang.String)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: void execute(android.content.Context,com.trianguloy.llscript.repository.aidl.ILightningService,com.faendir.lightning_launcher.scriptlib.ExceptionHandler,com.faendir.lightning_launcher.scriptlib.Logger,com.faendir.lightning_launcher.scriptlib.ResultCallback)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: boolean access$000(com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: java.lang.String access$100(com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader: boolean access$200(com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1: com.faendir.lightning_launcher.scriptlib.ResultCallback val$listener
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1: com.faendir.lightning_launcher.scriptlib.Logger val$logger
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1: android.content.Context val$context
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1: com.trianguloy.llscript.repository.aidl.ILightningService val$lightningService
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1: com.faendir.lightning_launcher.scriptlib.ExceptionHandler val$exceptionHandler
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1: com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader this$0
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1: ScriptLoader$1(com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader,com.faendir.lightning_launcher.scriptlib.ResultCallback,com.faendir.lightning_launcher.scriptlib.Logger,android.content.Context,com.trianguloy.llscript.repository.aidl.ILightningService,com.faendir.lightning_launcher.scriptlib.ExceptionHandler)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1: void onFinish(int)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1: void onFailure(com.trianguloy.llscript.repository.aidl.Failure)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1$1
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1$1: com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1 this$1
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1$1: ScriptLoader$1$1(com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1$1: void onResult(java.lang.Void)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1$1: void onResult(java.lang.Object)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1$2
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1$2: com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1 this$1
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1$2: ScriptLoader$1$2(com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1)
-com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader$1$2: void retry()
 com.faendir.omniadapter.ComponentViewHolder: void onClick(android.view.View)
 com.faendir.omniadapter.ComponentViewHolder$Listener: void onClick(com.faendir.omniadapter.ComponentViewHolder)
-com.faendir.omniadapter.OmniAdapter$BaseController: OmniAdapter$BaseController()
-com.faendir.omniadapter.OmniAdapter$BaseController: boolean shouldMove(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int)
-com.faendir.omniadapter.OmniAdapter$BaseController: boolean isSelectable(com.faendir.omniadapter.model.Component)
-com.faendir.omniadapter.OmniAdapter$BaseController: boolean shouldSwipe(com.faendir.omniadapter.model.Component,int)
-com.faendir.omniadapter.OmniAdapter$BaseExpandableController: OmniAdapter$BaseExpandableController()
-com.faendir.omniadapter.OmniAdapter$BaseExpandableController: boolean isExpandable(com.faendir.omniadapter.model.Composite)
 com.faendir.omniadapter.OmniAdapterImpl: void onClick(com.faendir.omniadapter.ComponentViewHolder)
 com.faendir.omniadapter.OmniAdapterImpl$SnackbarListener: void onClick(android.view.View)
 com.faendir.omniadapter.R$anim: int abc_fade_in
@@ -20721,20 +19942,6 @@ com.nononsenseapps.filepicker.R$styleable: int View_theme
 com.trianguloy.llscript.repository.aidl.Failure: android.os.Parcelable$Creator CREATOR
 com.trianguloy.llscript.repository.aidl.Failure: com.trianguloy.llscript.repository.aidl.Failure[] values()
 com.trianguloy.llscript.repository.aidl.Failure: com.trianguloy.llscript.repository.aidl.Failure valueOf(java.lang.String)
-com.trianguloy.llscript.repository.aidl.IImportCallback$Stub: java.lang.String DESCRIPTOR
-com.trianguloy.llscript.repository.aidl.IImportCallback$Stub: int TRANSACTION_onFinish
-com.trianguloy.llscript.repository.aidl.IImportCallback$Stub: int TRANSACTION_onFailure
-com.trianguloy.llscript.repository.aidl.IImportCallback$Stub: IImportCallback$Stub()
-com.trianguloy.llscript.repository.aidl.IImportCallback$Stub: com.trianguloy.llscript.repository.aidl.IImportCallback asInterface(android.os.IBinder)
-com.trianguloy.llscript.repository.aidl.IImportCallback$Stub: android.os.IBinder asBinder()
-com.trianguloy.llscript.repository.aidl.IImportCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)
-com.trianguloy.llscript.repository.aidl.IResultCallback$Stub: java.lang.String DESCRIPTOR
-com.trianguloy.llscript.repository.aidl.IResultCallback$Stub: int TRANSACTION_onResult
-com.trianguloy.llscript.repository.aidl.IResultCallback$Stub: int TRANSACTION_onFailure
-com.trianguloy.llscript.repository.aidl.IResultCallback$Stub: IResultCallback$Stub()
-com.trianguloy.llscript.repository.aidl.IResultCallback$Stub: com.trianguloy.llscript.repository.aidl.IResultCallback asInterface(android.os.IBinder)
-com.trianguloy.llscript.repository.aidl.IResultCallback$Stub: android.os.IBinder asBinder()
-com.trianguloy.llscript.repository.aidl.IResultCallback$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)
 com.trianguloy.llscript.repository.aidl.Script: android.os.Parcelable$Creator CREATOR
 java8.util.Comparators$NaturalOrderComparator: java8.util.Comparators$NaturalOrderComparator[] values()
 java8.util.Comparators$NaturalOrderComparator: java8.util.Comparators$NaturalOrderComparator valueOf(java.lang.String)
@@ -22294,5 +21501,7 @@ org.greenrobot.eventbus.ThreadMode: org.greenrobot.eventbus.ThreadMode[] values(
 org.greenrobot.eventbus.ThreadMode: org.greenrobot.eventbus.ThreadMode valueOf(java.lang.String)
 org.greenrobot.eventbus.ThreadMode: ThreadMode(java.lang.String,int)
 org.greenrobot.eventbus.ThreadMode: void <clinit>()
+org.greenrobot.eventbus.util.ErrorDialogFragments$Honeycomb
 org.greenrobot.eventbus.util.ErrorDialogFragments$Honeycomb: void onClick(android.content.DialogInterface,int)
 org.greenrobot.eventbus.util.ErrorDialogFragments$Support: void onClick(android.content.DialogInterface,int)
+org.greenrobot.eventbus.util.ErrorDialogManager$HoneycombManagerFragment

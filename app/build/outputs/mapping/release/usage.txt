@@ -1113,7 +1113,12 @@ android.support.v4.app.NotificationCompatKitKat:
     161:161:public static java.lang.String getGroup(android.app.Notification)
     165:165:public static boolean isGroupSummary(android.app.Notification)
     169:169:public static java.lang.String getSortKey(android.app.Notification)
-android.support.v4.app.NotificationCompatSideChannelService
+android.support.v4.app.NotificationCompatSideChannelService:
+    47:55:public android.os.IBinder onBind(android.content.Intent)
+    public abstract void notify(java.lang.String,int,java.lang.String,android.app.Notification)
+    public abstract void cancel(java.lang.String,int,java.lang.String)
+    public abstract void cancelAll(java.lang.String)
+    113:118:void checkPermission(int,java.lang.String)
 android.support.v4.app.NotificationCompatSideChannelService$NotificationSideChannelStub
 android.support.v4.app.NotificationManagerCompat
 android.support.v4.app.NotificationManagerCompat$CancelTask
@@ -1461,7 +1466,25 @@ android.support.v4.internal.view.SupportMenuItem:
     public static final int SHOW_AS_ACTION_ALWAYS
     public static final int SHOW_AS_ACTION_WITH_TEXT
     public static final int SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW
-android.support.v4.media.MediaBrowserCompat
+android.support.v4.media.MediaBrowserCompat:
+    static final java.lang.String TAG
+    public static final java.lang.String EXTRA_PAGE
+    public static final java.lang.String EXTRA_PAGE_SIZE
+    private final android.support.v4.media.MediaBrowserCompat$MediaBrowserImpl mImpl
+    126:138:public MediaBrowserCompat(android.content.Context,android.content.ComponentName,android.support.v4.media.MediaBrowserCompat$ConnectionCallback,android.os.Bundle)
+    148:149:public void connect()
+    156:157:public void disconnect()
+    163:163:public boolean isConnected()
+    171:171:public android.content.ComponentName getServiceComponent()
+    184:184:public java.lang.String getRoot()
+    194:194:public android.os.Bundle getExtras()
+    209:209:public android.support.v4.media.session.MediaSessionCompat$Token getSessionToken()
+    232:239:public void subscribe(java.lang.String,android.support.v4.media.MediaBrowserCompat$SubscriptionCallback)
+    266:276:public void subscribe(java.lang.String,android.os.Bundle,android.support.v4.media.MediaBrowserCompat$SubscriptionCallback)
+    290:294:public void unsubscribe(java.lang.String)
+    309:316:public void unsubscribe(java.lang.String,android.support.v4.media.MediaBrowserCompat$SubscriptionCallback)
+    327:328:public void getItem(java.lang.String,android.support.v4.media.MediaBrowserCompat$ItemCallback)
+    342:349:public void search(java.lang.String,android.os.Bundle,android.support.v4.media.MediaBrowserCompat$SearchCallback)
 android.support.v4.media.MediaBrowserCompat$CallbackHandler
 android.support.v4.media.MediaBrowserCompat$ConnectionCallback
 android.support.v4.media.MediaBrowserCompat$ConnectionCallback$ConnectionCallbackInternal
@@ -1489,8 +1512,17 @@ android.support.v4.media.MediaBrowserCompat$MediaBrowserImplBase$MediaServiceCon
 android.support.v4.media.MediaBrowserCompat$MediaBrowserImplBase$MediaServiceConnection$1
 android.support.v4.media.MediaBrowserCompat$MediaBrowserImplBase$MediaServiceConnection$2
 android.support.v4.media.MediaBrowserCompat$MediaBrowserServiceCallbackImpl
-android.support.v4.media.MediaBrowserCompat$MediaItem
-android.support.v4.media.MediaBrowserCompat$MediaItem$1
+android.support.v4.media.MediaBrowserCompat$MediaItem:
+    public static final int FLAG_BROWSABLE
+    public static final int FLAG_PLAYABLE
+    392:399:public static android.support.v4.media.MediaBrowserCompat$MediaItem fromMediaItem(java.lang.Object)
+    413:420:public static java.util.List fromMediaItemList(java.util.List)
+    429:438:public MediaBrowserCompat$MediaItem(android.support.v4.media.MediaDescriptionCompat,int)
+    485:485:public int getFlags()
+    493:493:public boolean isBrowsable()
+    501:501:public boolean isPlayable()
+    508:508:public android.support.v4.media.MediaDescriptionCompat getDescription()
+    516:516:public java.lang.String getMediaId()
 android.support.v4.media.MediaBrowserCompat$MediaItem$Flags
 android.support.v4.media.MediaBrowserCompat$SearchCallback
 android.support.v4.media.MediaBrowserCompat$SearchResultReceiver
@@ -1511,14 +1543,35 @@ android.support.v4.media.MediaBrowserCompatApi23$ItemCallbackProxy
 android.support.v4.media.MediaBrowserCompatApi24
 android.support.v4.media.MediaBrowserCompatApi24$SubscriptionCallback
 android.support.v4.media.MediaBrowserCompatApi24$SubscriptionCallbackProxy
-android.support.v4.media.MediaBrowserCompatUtils
+android.support.v4.media.MediaBrowserCompatUtils:
+    28:28:public MediaBrowserCompatUtils()
+    47:76:public static boolean hasDuplicatedItems(android.os.Bundle,android.os.Bundle)
 android.support.v4.media.MediaBrowserProtocol
-android.support.v4.media.MediaBrowserServiceCompat
-android.support.v4.media.MediaBrowserServiceCompat$1
-android.support.v4.media.MediaBrowserServiceCompat$2
-android.support.v4.media.MediaBrowserServiceCompat$3
-android.support.v4.media.MediaBrowserServiceCompat$BrowserRoot
-android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord
+android.support.v4.media.MediaBrowserServiceCompat:
+    static final java.lang.String TAG
+    private android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImpl mImpl
+    public static final java.lang.String SERVICE_INTERFACE
+    public static final java.lang.String KEY_MEDIA_ITEM
+    public static final java.lang.String KEY_SEARCH_RESULTS
+    static final int RESULT_FLAG_OPTION_NOT_HANDLED
+    static final int RESULT_FLAG_ON_LOAD_ITEM_NOT_IMPLEMENTED
+    static final int RESULT_FLAG_ON_SEARCH_NOT_IMPLEMENTED
+    static final int RESULT_ERROR
+    static final int RESULT_OK
+    831:842:public void onCreate()
+    846:846:public android.os.IBinder onBind(android.content.Intent)
+    851:851:public void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
+    992:1000:public void setSessionToken(android.support.v4.media.session.MediaSessionCompat$Token)
+    1007:1007:public android.support.v4.media.session.MediaSessionCompat$Token getSessionToken()
+    1026:1026:public final android.os.Bundle getBrowserRootHints()
+    1038:1042:public void notifyChildrenChanged(java.lang.String)
+    1056:1063:public void notifyChildrenChanged(java.lang.String,android.os.Bundle)
+android.support.v4.media.MediaBrowserServiceCompat$BrowserRoot:
+    public static final java.lang.String EXTRA_RECENT
+    public static final java.lang.String EXTRA_OFFLINE
+    public static final java.lang.String EXTRA_SUGGESTED
+    public static final java.lang.String EXTRA_SUGGESTION_KEYWORDS
+    1338:1345:public MediaBrowserServiceCompat$BrowserRoot(java.lang.String,android.os.Bundle)
 android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImpl
 android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi21
 android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$1
@@ -1530,31 +1583,41 @@ android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi24$
 android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplBase
 android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplBase$1
 android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplBase$2
-android.support.v4.media.MediaBrowserServiceCompat$Result
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$1
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$2
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$3
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$4
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$5
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$6
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$7
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$8
-android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks
-android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacksCompat
-android.support.v4.media.MediaBrowserServiceCompat$ServiceHandler
-android.support.v4.media.MediaBrowserServiceCompatApi21
-android.support.v4.media.MediaBrowserServiceCompatApi21$BrowserRoot
-android.support.v4.media.MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor
-android.support.v4.media.MediaBrowserServiceCompatApi21$ResultWrapper
-android.support.v4.media.MediaBrowserServiceCompatApi21$ServiceCompatProxy
-android.support.v4.media.MediaBrowserServiceCompatApi23
-android.support.v4.media.MediaBrowserServiceCompatApi23$MediaBrowserServiceAdaptor
-android.support.v4.media.MediaBrowserServiceCompatApi23$ServiceCompatProxy
-android.support.v4.media.MediaBrowserServiceCompatApi24
-android.support.v4.media.MediaBrowserServiceCompatApi24$MediaBrowserServiceAdaptor
-android.support.v4.media.MediaBrowserServiceCompatApi24$ResultWrapper
-android.support.v4.media.MediaBrowserServiceCompatApi24$ServiceCompatProxy
+android.support.v4.media.MediaBrowserServiceCompat$Result:
+    557:566:public void detach()
+android.support.v4.media.MediaBrowserServiceCompatApi21:
+    35:111:MediaBrowserServiceCompatApi21()
+    38:38:public static java.lang.Object createService(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi21$ServiceCompatProxy)
+    42:43:public static void onCreate(java.lang.Object)
+    46:46:public static android.os.IBinder onBind(java.lang.Object,android.content.Intent)
+    50:51:public static void setSessionToken(java.lang.Object,java.lang.Object)
+    54:55:public static void notifyChildrenChanged(java.lang.Object,java.lang.String)
+android.support.v4.media.MediaBrowserServiceCompatApi21$BrowserRoot:
+    105:108:MediaBrowserServiceCompatApi21$BrowserRoot(java.lang.String,android.os.Bundle)
+android.support.v4.media.MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor:
+    114:117:MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi21$ServiceCompatProxy)
+android.support.v4.media.MediaBrowserServiceCompatApi21$ResultWrapper:
+    70:81:public void sendResult(java.lang.Object)
+    84:85:public void detach()
+    88:97:java.util.List parcelListToItemList(java.util.List)
+android.support.v4.media.MediaBrowserServiceCompatApi23:
+    28:38:MediaBrowserServiceCompatApi23()
+    31:31:public static java.lang.Object createService(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi23$ServiceCompatProxy)
+android.support.v4.media.MediaBrowserServiceCompatApi23$MediaBrowserServiceAdaptor:
+    41:42:MediaBrowserServiceCompatApi23$MediaBrowserServiceAdaptor(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi23$ServiceCompatProxy)
+android.support.v4.media.MediaBrowserServiceCompatApi24:
+    private static final java.lang.String TAG
+    34:97:MediaBrowserServiceCompatApi24()
+    48:48:public static java.lang.Object createService(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi24$ServiceCompatProxy)
+    52:53:public static void notifyChildrenChanged(java.lang.Object,java.lang.String,android.os.Bundle)
+    56:56:public static android.os.Bundle getBrowserRootHints(java.lang.Object)
+    34:34:static synthetic java.lang.reflect.Field access$000()
+android.support.v4.media.MediaBrowserServiceCompatApi24$MediaBrowserServiceAdaptor:
+    100:101:MediaBrowserServiceCompatApi24$MediaBrowserServiceAdaptor(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi24$ServiceCompatProxy)
+android.support.v4.media.MediaBrowserServiceCompatApi24$ResultWrapper:
+    72:77:public void sendResult(java.util.List,int)
+    80:81:public void detach()
+    84:93:java.util.List parcelListToItemList(java.util.List)
 android.support.v4.media.MediaDescriptionCompat:
     public static final java.lang.String EXTRA_BT_FOLDER_TYPE
     public static final long BT_FOLDER_TYPE_MIXED
@@ -2183,9 +2246,11 @@ android.support.v4.os.CancellationSignal$OnCancelListener
 android.support.v4.os.CancellationSignalCompatJellybean
 android.support.v4.os.EnvironmentCompat
 android.support.v4.os.EnvironmentCompatKitKat
-android.support.v4.os.IResultReceiver
-android.support.v4.os.IResultReceiver$Stub
-android.support.v4.os.IResultReceiver$Stub$Proxy
+android.support.v4.os.IResultReceiver$Stub:
+    private static final java.lang.String DESCRIPTOR
+    static final int TRANSACTION_send
+android.support.v4.os.IResultReceiver$Stub$Proxy:
+    77:77:public java.lang.String getInterfaceDescriptor()
 android.support.v4.os.OperationCanceledException:
     25:26:public OperationCanceledException()
     29:30:public OperationCanceledException(java.lang.String)
@@ -2193,10 +2258,8 @@ android.support.v4.os.ParcelableCompat:
     60:60:private ParcelableCompat()
 android.support.v4.os.ParcelableCompatCreatorHoneycombMR2Stub:
     26:26:ParcelableCompatCreatorHoneycombMR2Stub()
-android.support.v4.os.ResultReceiver
-android.support.v4.os.ResultReceiver$1
-android.support.v4.os.ResultReceiver$MyResultReceiver
-android.support.v4.os.ResultReceiver$MyRunnable
+android.support.v4.os.ResultReceiver:
+    80:83:public ResultReceiver(android.os.Handler)
 android.support.v4.os.TraceCompat:
     61:61:private TraceCompat()
 android.support.v4.os.TraceJellybeanMR2:
@@ -2305,7 +2368,6 @@ android.support.v4.util.LruCache:
     326:326:public final synchronized int evictionCount()
     334:334:public final synchronized java.util.Map snapshot()
 android.support.v4.util.Pair:
-    34:37:public Pair(java.lang.Object,java.lang.Object)
     82:82:public static android.support.v4.util.Pair create(java.lang.Object,java.lang.Object)
 android.support.v4.util.PatternsCompat
 android.support.v4.util.Pools:
@@ -4428,6 +4490,12 @@ android.support.v7.app.AlertDialog$Builder:
     904:905:public android.support.v7.app.AlertDialog$Builder setInverseBackgroundForced(boolean)
     913:914:public android.support.v7.app.AlertDialog$Builder setRecycleOnMeasureEnabled(boolean)
     954:956:public android.support.v7.app.AlertDialog show()
+android.support.v7.app.AppCompatActivity:
+    234:234:public boolean supportRequestWindowFeature(int)
+    300:300:public void setSupportProgressBarVisibility(boolean)
+    307:307:public void setSupportProgressBarIndeterminateVisibility(boolean)
+    314:314:public void setSupportProgressBarIndeterminate(boolean)
+    321:321:public void setSupportProgress(int)
 android.support.v7.app.AppCompatDelegate:
     static final java.lang.String TAG
     public static final int MODE_NIGHT_NO
@@ -5737,29 +5805,25 @@ com.faendir.lightning_launcher.multitool.R$styleable:
 com.faendir.lightning_launcher.multitool.R$xml
 com.faendir.lightning_launcher.multitool.backup.BackupUtils:
     33:33:public BackupUtils()
-com.faendir.lightning_launcher.multitool.badge.BadgeListener
-com.faendir.lightning_launcher.multitool.badge.BadgeService:
-    public static final java.lang.String BADGE_COUNT
-    public static final java.lang.String PACKAGE_NAME
-    public static final java.lang.String WHATSAPP
-    public static final java.lang.String INTENT_BADGE_COUNT_UPDATE
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub:
-    private static final java.lang.String DESCRIPTOR
-    static final int TRANSACTION_onCountChange
-    16:18:public IBadgeListener$Stub()
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub$Proxy:
-    74:74:public java.lang.String getInterfaceDescriptor()
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub:
-    private static final java.lang.String DESCRIPTOR
-    static final int TRANSACTION_registerListener
-    static final int TRANSACTION_unregisterListener
-    23:30:public static com.faendir.lightning_launcher.multitool.badge.IBadgeService asInterface(android.os.IBinder)
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager:
     private static final java.lang.String MUSIC_WIDGET
     private static final java.lang.String DRAWER
     private static final java.lang.String ANIMATION
     static final int SEVEN_DAYS_IN_SECONDS
+com.faendir.lightning_launcher.multitool.gesture.GestureActivity:
+    public static final java.lang.String GESTURE
+com.faendir.lightning_launcher.multitool.gesture.GestureFragment:
+    private static final int ADD
+    private static final int EDIT
+    private static final int EXPORT
+    private static final int IMPORT
+    private static final java.lang.String INDEX
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils:
+    private static final java.lang.String METADATA
+    private static final java.lang.String GESTURES
+    41:42:private GestureUtils()
+com.faendir.lightning_launcher.multitool.gesture.LightningGestureView
+com.faendir.lightning_launcher.multitool.gesture.LightningGestureView$$Lambda$1
 com.faendir.lightning_launcher.multitool.music.MusicManager:
     private static final int ACTION_REGISTER
     private static final int ACTION_UNREGISTER
@@ -5768,6 +5832,33 @@ com.faendir.lightning_launcher.multitool.music.MusicManager:
     private static final int ACTION_PLAY_PAUSE
     private static final int ACTION_NEXT
     private static final int ACTION_PREVIOUS
+com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask:
+    private static final java.lang.String SWITCH
+    private static final java.lang.String CASE
+    private static final java.lang.String RETURN
+    private static final java.lang.String DEFAULT
+com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask2
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager:
+    private static final int NONE
+    private static final int ONE_SCRIPT
+    private static final int ONE_GROUP
+    private static final int ONLY_SCRIPTS
+    private static final int ONLY_GROUPS
+    private static final int BOTH
+com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$SelectionMode
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils:
+    private static final java.lang.String FLAGS
+    private static final java.lang.String APP
+    private static final java.lang.String ITEM
+    private static final java.lang.String CUSTOM
+    private static final java.lang.String NAME
+    37:38:private ScriptUtils()
+com.faendir.lightning_launcher.multitool.scriptmanager.Transfer:
+    public static final java.lang.String RENAME
+    public static final java.lang.String DELETE
+    public static final java.lang.String RESTORE
+    public static final java.lang.String SET_CODE
+    public static final java.lang.String TOGGLE_DISABLE
 com.faendir.lightning_launcher.multitool.settings.PreferenceListener:
     75:76:void addPreference(android.preference.Preference,java.lang.Runnable,boolean)
     97:98:void addPreferenceForSummary(android.preference.Preference,java.lang.Runnable,boolean)
@@ -5781,12 +5872,60 @@ com.faendir.lightning_launcher.multitool.util.DataProvider:
     private static final int SHARED_PREFERENCES
     private static final int GESTURE_LIBRARY
     private static final int GESTURE_INFOS
+    66:76:public static java.util.List getGestureInfos(android.content.Context)
 com.faendir.lightning_launcher.multitool.util.FileManager$IntentTypeAdapter:
     private static final java.lang.String URI
 com.faendir.lightning_launcher.multitool.util.FileManagerFactory:
     16:17:private FileManagerFactory()
 com.faendir.lightning_launcher.multitool.util.Utils:
     25:26:private Utils()
+com.faendir.lightning_launcher.scriptlib.Action
+com.faendir.lightning_launcher.scriptlib.AsyncExecutorService:
+    67:69:public void unbind()
+com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler:
+    45:46:public BaseExceptionHandler(android.content.Context,boolean)
+    49:50:public BaseExceptionHandler(android.content.Context,int)
+com.faendir.lightning_launcher.scriptlib.BuildConfig
+com.faendir.lightning_launcher.scriptlib.DefaultLogger:
+    private static final java.lang.String TAG
+    26:27:public final void setDebug(boolean)
+    31:31:public final boolean getDebug()
+com.faendir.lightning_launcher.scriptlib.DialogActivity:
+    private static final java.lang.String EXTRA_TITLE
+    private static final java.lang.String EXTRA_MESSAGE
+    private static final java.lang.String EXTRA_POSITIVE_BUTTON_TEXT
+    private static final java.lang.String EXTRA_NEGATIVE_BUTTON_TEXT
+    private static final java.lang.String EXTRA_RESULT_RECEIVER
+    private static final java.lang.String EXTRA_THEME
+com.faendir.lightning_launcher.scriptlib.Logger:
+    public abstract void setDebug(boolean)
+    public abstract boolean getDebug()
+com.faendir.lightning_launcher.scriptlib.PermissionActivity:
+    private static final java.lang.String CALLBACK
+    private static final java.lang.String PERMISSION
+com.faendir.lightning_launcher.scriptlib.R:
+    9:9:public R()
+com.faendir.lightning_launcher.scriptlib.R$id:
+    10:10:public R$id()
+com.faendir.lightning_launcher.scriptlib.R$layout:
+    16:16:public R$layout()
+com.faendir.lightning_launcher.scriptlib.R$string:
+    19:19:public R$string()
+com.faendir.lightning_launcher.scriptlib.R$style
+com.faendir.lightning_launcher.scriptlib.ScriptManager:
+    38:39:public com.faendir.lightning_launcher.scriptlib.ScriptManager enableDebug()
+    48:51:public void replaceLogger(com.faendir.lightning_launcher.scriptlib.Logger)
+com.faendir.lightning_launcher.scriptlib.ServiceManager2:
+    private static final java.lang.String INTENT
+    private static final int MIN_SERVICE_VERSION
+com.faendir.lightning_launcher.scriptlib.executor.ActionExecutor
+com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor:
+    34:37:public DirectScriptExecutor(java.lang.String)
+    51:52:public com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor putVariables(java.util.Map)
+com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader:
+    43:44:public com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunScript(boolean)
+    48:49:public com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunInBackground(boolean)
+    53:54:public com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunData(java.lang.String)
 com.faendir.omniadapter.ActionModeHelper
 com.faendir.omniadapter.ActionModeHelper$1
 com.faendir.omniadapter.BuildConfig
@@ -7202,6 +7341,10 @@ com.nononsenseapps.filepicker.R$styleable
 com.nononsenseapps.filepicker.Utils:
     private static final java.lang.String SEP
     10:10:public Utils()
+com.trianguloy.llscript.repository.aidl.IImportCallback$Stub:
+    private static final java.lang.String DESCRIPTOR
+    static final int TRANSACTION_onFinish
+    static final int TRANSACTION_onFailure
 com.trianguloy.llscript.repository.aidl.IImportCallback$Stub$Proxy:
     84:84:public java.lang.String getInterfaceDescriptor()
 com.trianguloy.llscript.repository.aidl.ILightningService$Stub:
@@ -7214,6 +7357,10 @@ com.trianguloy.llscript.repository.aidl.ILightningService$Stub:
     34:34:public android.os.IBinder asBinder()
 com.trianguloy.llscript.repository.aidl.ILightningService$Stub$Proxy:
     116:116:public java.lang.String getInterfaceDescriptor()
+com.trianguloy.llscript.repository.aidl.IResultCallback$Stub:
+    private static final java.lang.String DESCRIPTOR
+    static final int TRANSACTION_onResult
+    static final int TRANSACTION_onFailure
 com.trianguloy.llscript.repository.aidl.IResultCallback$Stub$Proxy:
     84:84:public java.lang.String getInterfaceDescriptor()
 com.trianguloy.llscript.repository.aidl.Script:
@@ -10384,15 +10531,57 @@ org.greenrobot.eventbus.util.AsyncExecutor
 org.greenrobot.eventbus.util.AsyncExecutor$1
 org.greenrobot.eventbus.util.AsyncExecutor$Builder
 org.greenrobot.eventbus.util.AsyncExecutor$RunnableEx
-org.greenrobot.eventbus.util.ErrorDialogConfig
-org.greenrobot.eventbus.util.ErrorDialogFragmentFactory
+org.greenrobot.eventbus.util.ErrorDialogConfig:
+    final android.content.res.Resources resources
+    final int defaultTitleId
+    final int defaultErrorMsgId
+    final org.greenrobot.eventbus.util.ExceptionToResourceMapping mapping
+    boolean logExceptions
+    java.lang.String tagForLoggingExceptions
+    int defaultDialogIconId
+    java.lang.Class defaultEventTypeOnDialogClosed
+    31:41:public ErrorDialogConfig(android.content.res.Resources,int,int)
+    44:45:public org.greenrobot.eventbus.util.ErrorDialogConfig addMapping(java.lang.Class,int)
+    49:54:public int getMessageIdForThrowable(java.lang.Throwable)
+    59:60:public void setDefaultDialogIconId(int)
+    63:64:public void setDefaultEventTypeOnDialogClosed(java.lang.Class)
+    67:68:public void disableExceptionLogging()
+    71:72:public void setTagForLoggingExceptions(java.lang.String)
+    75:76:public void setEventBus(org.greenrobot.eventbus.EventBus)
+org.greenrobot.eventbus.util.ErrorDialogFragmentFactory:
+    31:33:protected ErrorDialogFragmentFactory(org.greenrobot.eventbus.util.ErrorDialogConfig)
+    40:69:protected java.lang.Object prepareErrorFragment(org.greenrobot.eventbus.util.ThrowableFailureEvent,boolean,android.os.Bundle)
+    protected abstract java.lang.Object createErrorFragment(org.greenrobot.eventbus.util.ThrowableFailureEvent,android.os.Bundle)
+    77:77:protected java.lang.String getTitleFor(org.greenrobot.eventbus.util.ThrowableFailureEvent,android.os.Bundle)
+    82:83:protected java.lang.String getMessageFor(org.greenrobot.eventbus.util.ThrowableFailureEvent,android.os.Bundle)
 org.greenrobot.eventbus.util.ErrorDialogFragmentFactory$Honeycomb
 org.greenrobot.eventbus.util.ErrorDialogFragmentFactory$Support
-org.greenrobot.eventbus.util.ErrorDialogFragments
-org.greenrobot.eventbus.util.ErrorDialogFragments$Honeycomb
+org.greenrobot.eventbus.util.ErrorDialogFragments:
+    32:80:public ErrorDialogFragments()
 org.greenrobot.eventbus.util.ErrorDialogFragments$Support
-org.greenrobot.eventbus.util.ErrorDialogManager
-org.greenrobot.eventbus.util.ErrorDialogManager$HoneycombManagerFragment
+org.greenrobot.eventbus.util.ErrorDialogManager:
+    protected static final java.lang.String TAG_ERROR_DIALOG
+    protected static final java.lang.String TAG_ERROR_DIALOG_MANAGER
+    public static final java.lang.String KEY_TITLE
+    public static final java.lang.String KEY_MESSAGE
+    public static final java.lang.String KEY_FINISH_AFTER_DIALOG
+    public static final java.lang.String KEY_ICON_ID
+    public static final java.lang.String KEY_EVENT_TYPE_ON_CLOSE
+    46:118:public ErrorDialogManager()
+    191:192:public static void attachTo(android.app.Activity)
+    196:197:public static void attachTo(android.app.Activity,boolean)
+    201:203:public static void attachTo(android.app.Activity,boolean,android.os.Bundle)
+    206:214:public static void attachTo(android.app.Activity,java.lang.Object,boolean,android.os.Bundle)
+    217:238:private static boolean isSupportActivity(android.app.Activity)
+    242:249:protected static void checkLogException(org.greenrobot.eventbus.util.ThrowableFailureEvent)
+    252:259:private static boolean isInExecutionScope(java.lang.Object,org.greenrobot.eventbus.util.ThrowableFailureEvent)
+    46:46:static synthetic boolean access$000(java.lang.Object,org.greenrobot.eventbus.util.ThrowableFailureEvent)
+org.greenrobot.eventbus.util.ErrorDialogManager$HoneycombManagerFragment:
+    protected boolean finishAfterDialog
+    protected android.os.Bundle argumentsForErrorDialog
+    private java.lang.Object executionScope
+    139:160:public void onEventMainThread(org.greenrobot.eventbus.util.ThrowableFailureEvent)
+    163:174:public static void attachTo(android.app.Activity,java.lang.Object,boolean,android.os.Bundle)
 org.greenrobot.eventbus.util.ErrorDialogManager$SupportManagerFragment
 org.greenrobot.eventbus.util.ExceptionToResourceMapping
 org.greenrobot.eventbus.util.HasExecutionScope

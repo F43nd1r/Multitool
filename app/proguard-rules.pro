@@ -17,14 +17,13 @@
 #}
 -keepattributes Signature, LineNumberTable, SourceFile, *Annotation*, EnclosingMethod
 
--keep class com.faendir.lightning_launcher.multitool.scripting.** {*;}
--keep class com.faendir.lightning_launcher.multitool.scriptmanager.** {*;}
--keep class com.faendir.lightning_launcher.multitool.gesture.** {*;}
--keep class com.faendir.lightning_launcher.multitool.MusicManager {*;}
+-keep class * extends android.app.Fragment
+-keep class * extends android.app.Service
+
+-keep class com.faendir.lightning_launcher.multitool.gesture.GestureInfo {*;}
 -keep class com.faendir.lightning_launcher.multitool.util.ResetReportPrimer {*;}
--keep class com.faendir.lightning_launcher.scriptlib.** {*;}
--keep public class org.acra.** {*;}
--keep public interface org.acra.** {*;}
+-keep class com.faendir.lightning_launcher.multitool.badge.** {*;}
+
 -keep class sun.misc.Unsafe { *; }
 -keep class android.support.design.widget.** { *; }
 -keep interface android.support.design.widget.** { *; }

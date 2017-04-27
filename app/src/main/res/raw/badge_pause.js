@@ -1,5 +1,6 @@
 var event = getEvent();
 var item = event.getItem();
+if(item == null || item.my.connection == null) return;
 var service = item.my.connection.service;
 if (service != null) {
     try {
