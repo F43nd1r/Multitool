@@ -1,3 +1,4 @@
+LL.bindClass("android.app.AlertDialog");
 bindClass("java.lang.Integer");
 var MY_PKG = "com.faendir.lightning_launcher.multitool";
 // install (or update) a script given its id in the package, and its clear name in the launcher data
@@ -24,20 +25,48 @@ var resume = installScript("badge_resume", "resume");
 var pause = installScript("badge_pause", "pause");
 var screen = getActiveScreen();
 var d = getEvent().getContainer();
-var item = d.addShortcut("0", new Intent(), 0, 0);
-item.getProperties().edit().setBoolean("i.onGrid", false).setBoolean("s.iconVisibility", false).setBoolean("s.labelVisibility", true).setBoolean("i.enabled",false)
-    .setEventHandler("i.resumed",EventHandler.RUN_SCRIPT, resume.getId()).setEventHandler("i.paused",EventHandler.RUN_SCRIPT, pause.getId()).commit();
-// use the last screen touch position, if any, as location for the new item
-var x = screen.getLastTouchX();
-var y = screen.getLastTouchY();
-var size = item.getWidth();
-if (x == Integer.MIN_VALUE || y == Integer.MIN_VALUE) {
-    // no previous touch event, use a default position (can happen when using the hardware menu key for instance)
-    x = size;
-    y = size;
-} else {
-    // center around the touch position
-    x -= size / 2;
-    y -= size / 2;
+var context = screen.getContext();
+var builder = new AlertDialog.Builder(context);
+builder.setTitle("For which app do you want to create a badge?");
+builder.setItems(["Whatsapp", "Facebook", "Facebook Messenger", "Telegram", "Skype"], function(dialog,which){
+    switch(which){
+        case 0:
+            createBadge("com.whatsapp");
+            break;
+        case 1:
+            createBadge("com.facebook.katana");
+            break;
+        case 2:
+            createBadge("com.facebook.orca");
+            break;
+        case 3:
+            createBadge("org.telegram.messenger");
+            break;
+        case 4:
+            createBadge("com.skype.raider");
+            break;
+    }
+});
+builder.setNegativeButton("Cancel",null);
+builder.show();
+
+function createBadge(package) {
+    var item = d.addShortcut("0", new Intent(), 0, 0);
+    item.getProperties().edit().setBoolean("i.onGrid", false).setBoolean("s.iconVisibility", false).setBoolean("s.labelVisibility", true).setBoolean("i.enabled",false)
+        .setEventHandler("i.resumed",EventHandler.RUN_SCRIPT, resume.getId()).setEventHandler("i.paused",EventHandler.RUN_SCRIPT, pause.getId()).commit();
+    // use the last screen touch position, if any, as location for the new item
+    var x = screen.getLastTouchX();
+    var y = screen.getLastTouchY();
+    var size = item.getWidth();
+    if (x == Integer.MIN_VALUE || y == Integer.MIN_VALUE) {
+        // no previous touch event, use a default position (can happen when using the hardware menu key for instance)
+        x = size;
+        y = size;
+    } else {
+        // center around the touch position
+        x -= size / 2;
+        y -= size / 2;
+    }
+    item.setPosition(x, y);
+    item.setTag("package", package)
 }
-item.setPosition(x, y);

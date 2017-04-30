@@ -50,8 +50,8 @@ dependencies {
     compile 'com.faendir:acra:4.9.3-SNAPSHOT'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'org.apache.commons:commons-collections4:4.1'
-    compile 'com.anjlab.android.iab.v3:library:1.0.38'
-    compile 'com.mikepenz:materialdrawer:5.8.1'
+    compile 'com.anjlab.android.iab.v3:library:1.0.39'
+    compile 'com.mikepenz:materialdrawer:5.9.0'
     compile "net.sourceforge.streamsupport:streamsupport:$streamVersion"
     compile "net.sourceforge.streamsupport:streamsupport-cfuture:$streamVersion"
     compile "net.sourceforge.streamsupport:streamsupport-atomic:$streamVersion"

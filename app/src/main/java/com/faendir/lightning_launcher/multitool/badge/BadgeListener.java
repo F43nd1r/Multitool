@@ -9,6 +9,7 @@ import java8.util.function.BiConsumer;
  * @since 26.04.2017
  */
 
+@SuppressWarnings("unused")
 public class BadgeListener extends IBadgeListener.Stub {
 
     private BiConsumer<Integer, String> consumer;

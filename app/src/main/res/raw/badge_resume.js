@@ -18,7 +18,9 @@ var item = getEvent().getItem();
 item.my.connection = item.extend();
 item.my.connection.listener = badgeListenerClass.newInstance();
 item.my.connection.listener.setConsumer(function(newCount, packageName){
-        c.runOnUiThread(function(){item.setLabel(newCount + "");});
+        if(packageName == item.getTag("package")){
+            c.runOnUiThread(function(){item.setLabel(newCount + "");});
+        }
     });
 item.my.connection.conn = new ServiceConnection() {
     onServiceConnected: function(name, binder) {

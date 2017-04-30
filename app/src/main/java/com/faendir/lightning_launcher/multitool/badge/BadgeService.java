@@ -21,10 +21,9 @@ import java8.util.stream.StreamSupport;
  */
 
 public class BadgeService extends Service {
-    public static final String BADGE_COUNT = "badge_count";
-    public static final String PACKAGE_NAME = "badge_count_package_name";
-    public static final String WHATSAPP = "com.whatsapp";
-    public static final String INTENT_BADGE_COUNT_UPDATE = "android.intent.action.BADGE_COUNT_UPDATE";
+    private static final String BADGE_COUNT = "badge_count";
+    private static final String PACKAGE_NAME = "badge_count_package_name";
+    private static final String INTENT_BADGE_COUNT_UPDATE = "android.intent.action.BADGE_COUNT_UPDATE";
 
     private SharedPreferences sharedPref;
     private final Set<IBadgeListener> listeners;
@@ -41,19 +40,17 @@ public class BadgeService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if(intent.getAction().equals(INTENT_BADGE_COUNT_UPDATE)){
+        if (intent.getAction().equals(INTENT_BADGE_COUNT_UPDATE)) {
             if (intent.hasExtra(BADGE_COUNT) && intent.hasExtra(PACKAGE_NAME)) {
                 String packageName = intent.getStringExtra(PACKAGE_NAME);
-                if (WHATSAPP.equals(packageName)) {
-                    int count = intent.getIntExtra(BADGE_COUNT, 0);
-                    sharedPref.edit().putInt(getString(R.string.unread_whatsapp), count).apply();
-                    StreamSupport.stream(listeners).forEach(listener -> {
-                        try {
-                            listener.onCountChange(count, packageName);
-                        } catch (RemoteException ignored) {
-                        }
-                    });
-                }
+                int count = intent.getIntExtra(BADGE_COUNT, 0);
+                sharedPref.edit().putInt(getString(R.string.unread_prefix) + packageName, count).apply();
+                StreamSupport.stream(listeners).forEach(listener -> {
+                    try {
+                        listener.onCountChange(count, packageName);
+                    } catch (RemoteException ignored) {
+                    }
+                });
             }
         }
         return START_NOT_STICKY;
@@ -69,7 +66,13 @@ public class BadgeService extends Service {
         @Override
         public void registerListener(IBadgeListener listener) throws RemoteException {
             listeners.add(listener);
-            listener.onCountChange(sharedPref.getInt(getString(R.string.unread_whatsapp), 0), WHATSAPP);
+            String unread = getString(R.string.unread_prefix);
+            StreamSupport.stream(sharedPref.getAll().entrySet()).filter(entry -> entry.getKey().startsWith(unread)).forEach(entry -> {
+                try {
+                    listener.onCountChange((Integer)entry.getValue(), entry.getKey().substring(unread.length()));
+                } catch (RemoteException ignored) {
+                }
+            });
         }
 
         @Override
