@@ -10949,7 +10949,13 @@ android.support.v4.widget.DrawerLayout$SavedState$1 -> android.support.v4.widget
     2048:2048:android.support.v4.widget.DrawerLayout$SavedState[] newArray(int) -> a
     2040:2040:java.lang.Object[] newArray(int) -> newArray
     2040:2040:java.lang.Object createFromParcel(android.os.Parcel,java.lang.ClassLoader) -> createFromParcel
-android.support.v4.widget.DrawerLayout$ViewDragCallback -> android.support.v4.widget.DrawerLayout$i:
+android.support.v4.widget.DrawerLayout$SimpleDrawerListener -> android.support.v4.widget.DrawerLayout$i:
+    274:274:void <init>() -> <init>
+    277:277:void onDrawerSlide(android.view.View,float) -> a
+    281:281:void onDrawerOpened(android.view.View) -> a
+    285:285:void onDrawerClosed(android.view.View) -> b
+    289:289:void onDrawerStateChanged(int) -> a
+android.support.v4.widget.DrawerLayout$ViewDragCallback -> android.support.v4.widget.DrawerLayout$j:
     int mAbsGravity -> b
     android.support.v4.widget.ViewDragHelper mDragger -> c
     java.lang.Runnable mPeekRunnable -> d
@@ -10970,7 +10976,7 @@ android.support.v4.widget.DrawerLayout$ViewDragCallback -> android.support.v4.wi
     2200:2200:int getViewHorizontalDragRange(android.view.View) -> getViewHorizontalDragRange
     2205:2209:int clampViewPositionHorizontal(android.view.View,int,int) -> clampViewPositionHorizontal
     2215:2215:int clampViewPositionVertical(android.view.View,int,int) -> clampViewPositionVertical
-android.support.v4.widget.DrawerLayout$ViewDragCallback$1 -> android.support.v4.widget.DrawerLayout$i$1:
+android.support.v4.widget.DrawerLayout$ViewDragCallback$1 -> android.support.v4.widget.DrawerLayout$j$1:
     android.support.v4.widget.DrawerLayout$ViewDragCallback this$1 -> a
     2057:2057:void <init>(android.support.v4.widget.DrawerLayout$ViewDragCallback) -> <init>
     2059:2060:void run() -> run
@@ -19331,39 +19337,39 @@ com.android.vending.billing.IInAppBillingService$Stub$Proxy -> com.android.a.a.a
     android.os.IBinder mRemote -> a
     218:220:void <init>(android.os.IBinder) -> <init>
     223:223:android.os.IBinder asBinder() -> asBinder
-    240:256:int isBillingSupported(int,java.lang.String,java.lang.String) -> a
-    283:311:android.os.Bundle getSkuDetails(int,java.lang.String,java.lang.String,android.os.Bundle) -> a
-    345:368:android.os.Bundle getBuyIntent(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
-    396:418:android.os.Bundle getPurchases(int,java.lang.String,java.lang.String,java.lang.String) -> a
-    431:447:int consumePurchase(int,java.lang.String,java.lang.String) -> b
-    454:470:int stub(int,java.lang.String,java.lang.String) -> c
-    506:530:android.os.Bundle getBuyIntentToReplaceSkus(int,java.lang.String,java.util.List,java.lang.String,java.lang.String,java.lang.String) -> a
+    231:247:int isBillingSupported(int,java.lang.String,java.lang.String) -> a
+    274:302:android.os.Bundle getSkuDetails(int,java.lang.String,java.lang.String,android.os.Bundle) -> a
+    336:359:android.os.Bundle getBuyIntent(int,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    387:409:android.os.Bundle getPurchases(int,java.lang.String,java.lang.String,java.lang.String) -> a
+    413:429:int consumePurchase(int,java.lang.String,java.lang.String) -> b
+    433:449:int stub(int,java.lang.String,java.lang.String) -> c
+    485:509:android.os.Bundle getBuyIntentToReplaceSkus(int,java.lang.String,java.util.List,java.lang.String,java.lang.String,java.lang.String) -> a
 com.anjlab.android.iab.v3.BillingBase -> com.a.a.a.a.a:
     android.content.Context context -> a
-    26:28:void <init>(android.content.Context) -> <init>
-    31:31:android.content.Context getContext() -> a
-    35:35:java.lang.String getPreferencesBaseKey() -> b
-    39:39:android.content.SharedPreferences getPreferences() -> c
-    43:51:boolean saveString(java.lang.String,java.lang.String) -> a
-    55:58:java.lang.String loadString(java.lang.String,java.lang.String) -> b
-    62:70:boolean saveBoolean(java.lang.String,java.lang.Boolean) -> a
-    74:77:boolean loadBoolean(java.lang.String,boolean) -> a
+    27:29:void <init>(android.content.Context) -> <init>
+    33:33:android.content.Context getContext() -> a
+    38:38:java.lang.String getPreferencesBaseKey() -> b
+    43:43:android.content.SharedPreferences getPreferences() -> c
+    48:56:boolean saveString(java.lang.String,java.lang.String) -> a
+    61:66:java.lang.String loadString(java.lang.String,java.lang.String) -> b
+    71:79:boolean saveBoolean(java.lang.String,java.lang.Boolean) -> a
+    84:89:boolean loadBoolean(java.lang.String,boolean) -> a
 com.anjlab.android.iab.v3.BillingCache -> com.a.a.a.a.b:
     java.util.HashMap data -> a
     java.lang.String cacheKey -> b
     java.lang.String version -> c
-    37:41:void <init>(android.content.Context,java.lang.String) -> <init>
-    44:44:java.lang.String getPreferencesCacheKey() -> d
-    48:48:java.lang.String getPreferencesVersionKey() -> e
-    52:63:void load() -> f
-    66:74:void flush() -> g
-    77:78:boolean includesProduct(java.lang.String) -> a
-    82:83:com.anjlab.android.iab.v3.PurchaseInfo getDetails(java.lang.String) -> b
-    87:92:void put(java.lang.String,java.lang.String,java.lang.String) -> a
-    103:106:void clear() -> c
-    109:109:java.lang.String getCurrentVersion() -> h
-    113:117:void reloadDataIfNeeded() -> i
-    125:125:java.lang.String toString() -> toString
+    39:43:void <init>(android.content.Context,java.lang.String) -> <init>
+    47:47:java.lang.String getPreferencesCacheKey() -> d
+    52:52:java.lang.String getPreferencesVersionKey() -> e
+    57:74:void load() -> f
+    78:88:void flush() -> g
+    92:93:boolean includesProduct(java.lang.String) -> a
+    98:99:com.anjlab.android.iab.v3.PurchaseInfo getDetails(java.lang.String) -> b
+    104:110:void put(java.lang.String,java.lang.String,java.lang.String) -> a
+    124:127:void clear() -> c
+    131:131:java.lang.String getCurrentVersion() -> h
+    136:141:void reloadDataIfNeeded() -> i
+    151:151:java.lang.String toString() -> toString
 com.anjlab.android.iab.v3.BillingProcessor -> com.a.a.a.a.c:
     java.util.Date DATE_MERCHANT_LIMIT_1 -> a
     java.util.Date DATE_MERCHANT_LIMIT_2 -> b
@@ -19375,49 +19381,51 @@ com.anjlab.android.iab.v3.BillingProcessor -> com.a.a.a.a.c:
     com.anjlab.android.iab.v3.BillingProcessor$IBillingHandler eventHandler -> h
     java.lang.String developerMerchantId -> i
     android.content.ServiceConnection serviceConnection -> j
-    119:120:void <init>(android.content.Context,java.lang.String,com.anjlab.android.iab.v3.BillingProcessor$IBillingHandler) -> <init>
-    105:131:void <init>(android.content.Context,java.lang.String,java.lang.String,com.anjlab.android.iab.v3.BillingProcessor$IBillingHandler) -> <init>
-    134:136:android.content.Intent getBindServiceIntent() -> f
-    141:147:void bindPlayServices() -> g
-    156:164:void release() -> c
-    167:167:boolean isInitialized() -> d
-    171:171:boolean isPurchased(java.lang.String) -> a
-    175:175:boolean isSubscribed(java.lang.String) -> b
-    187:212:boolean loadPurchasesByType(java.lang.String,com.anjlab.android.iab.v3.BillingCache) -> a
-    216:218:boolean loadOwnedPurchasesFromGoogle() -> e
-    222:222:boolean purchase(android.app.Activity,java.lang.String) -> a
-    299:299:boolean purchase(android.app.Activity,java.lang.String,java.lang.String,java.lang.String) -> a
-    304:353:boolean purchase(android.app.Activity,java.util.List,java.lang.String,java.lang.String,java.lang.String) -> a
-    365:378:boolean checkMerchant(com.anjlab.android.iab.v3.TransactionDetails) -> a
-    382:390:com.anjlab.android.iab.v3.TransactionDetails getPurchaseTransactionDetails(java.lang.String,com.anjlab.android.iab.v3.BillingCache) -> b
-    477:477:com.anjlab.android.iab.v3.TransactionDetails getPurchaseTransactionDetails(java.lang.String) -> c
-    481:481:com.anjlab.android.iab.v3.TransactionDetails getSubscriptionTransactionDetails(java.lang.String) -> d
-    485:495:java.lang.String getDeveloperPayloadFromPurchaseData(org.json.JSONObject) -> a
-    499:499:boolean validateDeveloperPayload(java.lang.String,java.lang.String) -> c
-    503:545:boolean handleActivityResult(int,int,android.content.Intent) -> a
-    554:556:boolean verifyPurchaseSignature(java.lang.String,java.lang.String,java.lang.String) -> a
-    569:569:boolean isPurchaseHistoryRestored() -> h
-    573:574:void setPurchaseHistoryRestored() -> i
-    577:578:void savePurchasePayload(java.lang.String) -> e
-    581:581:java.lang.String getPurchasePayload() -> j
+    149:150:void <init>(android.content.Context,java.lang.String,com.anjlab.android.iab.v3.BillingProcessor$IBillingHandler) -> <init>
+    155:156:void <init>(android.content.Context,java.lang.String,java.lang.String,com.anjlab.android.iab.v3.BillingProcessor$IBillingHandler) -> <init>
+    112:172:void <init>(android.content.Context,java.lang.String,java.lang.String,com.anjlab.android.iab.v3.BillingProcessor$IBillingHandler,boolean) -> <init>
+    185:187:android.content.Intent getBindServiceIntent() -> f
+    194:201:void bindPlayServices() -> g
+    212:224:void release() -> c
+    228:228:boolean isInitialized() -> d
+    233:233:boolean isPurchased(java.lang.String) -> a
+    238:238:boolean isSubscribed(java.lang.String) -> b
+    253:293:boolean loadPurchasesByType(java.lang.String,com.anjlab.android.iab.v3.BillingCache) -> a
+    298:300:boolean loadOwnedPurchasesFromGoogle() -> e
+    305:305:boolean purchase(android.app.Activity,java.lang.String) -> a
+    408:408:boolean purchase(android.app.Activity,java.lang.String,java.lang.String,java.lang.String) -> a
+    414:501:boolean purchase(android.app.Activity,java.util.List,java.lang.String,java.lang.String,java.lang.String) -> a
+    514:537:boolean checkMerchant(com.anjlab.android.iab.v3.TransactionDetails) -> a
+    542:554:com.anjlab.android.iab.v3.TransactionDetails getPurchaseTransactionDetails(java.lang.String,com.anjlab.android.iab.v3.BillingCache) -> b
+    672:672:com.anjlab.android.iab.v3.TransactionDetails getPurchaseTransactionDetails(java.lang.String) -> c
+    677:677:com.anjlab.android.iab.v3.TransactionDetails getSubscriptionTransactionDetails(java.lang.String) -> d
+    682:692:java.lang.String getDeveloperPayloadFromPurchaseData(org.json.JSONObject) -> a
+    697:697:boolean validateDeveloperPayload(java.lang.String,java.lang.String) -> c
+    702:766:boolean handleActivityResult(int,int,android.content.Intent) -> a
+    778:783:boolean verifyPurchaseSignature(java.lang.String,java.lang.String,java.lang.String) -> a
+    797:797:boolean isPurchaseHistoryRestored() -> h
+    802:803:void setPurchaseHistoryRestored() -> i
+    807:808:void savePurchasePayload(java.lang.String) -> e
+    812:812:java.lang.String getPurchasePayload() -> j
+    817:821:void reportBillingError(int,java.lang.Throwable) -> a
     43:43:boolean access$000(com.anjlab.android.iab.v3.BillingProcessor) -> a
     43:43:void access$100(com.anjlab.android.iab.v3.BillingProcessor) -> b
     43:43:com.anjlab.android.iab.v3.BillingProcessor$IBillingHandler access$200(com.anjlab.android.iab.v3.BillingProcessor) -> c
     43:43:com.android.vending.billing.IInAppBillingService access$302(com.anjlab.android.iab.v3.BillingProcessor,com.android.vending.billing.IInAppBillingService) -> a
-    59:60:void <clinit>() -> <clinit>
+    60:61:void <clinit>() -> <clinit>
 com.anjlab.android.iab.v3.BillingProcessor$1 -> com.a.a.a.a.c$1:
     com.anjlab.android.iab.v3.BillingProcessor this$0 -> a
-    105:105:void <init>(com.anjlab.android.iab.v3.BillingProcessor) -> <init>
-    108:109:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
-    113:115:void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    113:113:void <init>(com.anjlab.android.iab.v3.BillingProcessor) -> <init>
+    117:118:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+    123:125:void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
 com.anjlab.android.iab.v3.BillingProcessor$HistoryInitializationTask -> com.a.a.a.a.c$a:
     com.anjlab.android.iab.v3.BillingProcessor this$0 -> a
-    80:80:void <init>(com.anjlab.android.iab.v3.BillingProcessor) -> <init>
-    85:89:java.lang.Boolean doInBackground(java.lang.Void[]) -> a
-    95:102:void onPostExecute(java.lang.Boolean) -> a
-    80:80:void onPostExecute(java.lang.Object) -> onPostExecute
-    80:80:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-    80:80:void <init>(com.anjlab.android.iab.v3.BillingProcessor,com.anjlab.android.iab.v3.BillingProcessor$1) -> <init>
+    81:81:void <init>(com.anjlab.android.iab.v3.BillingProcessor) -> <init>
+    86:91:java.lang.Boolean doInBackground(java.lang.Void[]) -> a
+    97:109:void onPostExecute(java.lang.Boolean) -> a
+    81:81:void onPostExecute(java.lang.Object) -> onPostExecute
+    81:81:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    81:81:void <init>(com.anjlab.android.iab.v3.BillingProcessor,com.anjlab.android.iab.v3.BillingProcessor$1) -> <init>
 com.anjlab.android.iab.v3.BillingProcessor$IBillingHandler -> com.a.a.a.a.c$b:
     void onProductPurchased(java.lang.String,com.anjlab.android.iab.v3.TransactionDetails) -> a
     void onPurchaseHistoryRestored() -> a
@@ -19433,34 +19441,34 @@ com.anjlab.android.iab.v3.PurchaseData -> com.a.a.a.a.d:
     java.lang.String purchaseToken -> g
     boolean autoRenewing -> h
     android.os.Parcelable$Creator CREATOR -> CREATOR
-    36:36:int describeContents() -> describeContents
-    41:49:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-    51:52:void <init>() -> <init>
-    54:65:void <init>(android.os.Parcel) -> <init>
-    67:67:void <clinit>() -> <clinit>
+    37:37:int describeContents() -> describeContents
+    43:51:void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    54:55:void <init>() -> <init>
+    58:70:void <init>(android.os.Parcel) -> <init>
+    72:72:void <clinit>() -> <clinit>
 com.anjlab.android.iab.v3.PurchaseData$1 -> com.a.a.a.a.d$1:
-    67:67:void <init>() -> <init>
-    69:69:com.anjlab.android.iab.v3.PurchaseData createFromParcel(android.os.Parcel) -> a
-    73:73:com.anjlab.android.iab.v3.PurchaseData[] newArray(int) -> a
-    67:67:java.lang.Object[] newArray(int) -> newArray
-    67:67:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    74:74:void <init>() -> <init>
+    77:77:com.anjlab.android.iab.v3.PurchaseData createFromParcel(android.os.Parcel) -> a
+    82:82:com.anjlab.android.iab.v3.PurchaseData[] newArray(int) -> a
+    74:74:java.lang.Object[] newArray(int) -> newArray
+    74:74:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
 com.anjlab.android.iab.v3.PurchaseInfo -> com.a.a.a.a.e:
     java.lang.String responseData -> a
     java.lang.String signature -> b
     com.anjlab.android.iab.v3.PurchaseData purchaseData -> c
     android.os.Parcelable$Creator CREATOR -> CREATOR
-    42:46:void <init>(java.lang.String,java.lang.String) -> <init>
-    54:68:com.anjlab.android.iab.v3.PurchaseData parseResponseData() -> a
-    74:74:int describeContents() -> describeContents
-    79:81:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-    83:87:void <init>(android.os.Parcel) -> <init>
-    89:89:void <clinit>() -> <clinit>
+    44:48:void <init>(java.lang.String,java.lang.String) -> <init>
+    58:74:com.anjlab.android.iab.v3.PurchaseData parseResponseData() -> a
+    81:81:int describeContents() -> describeContents
+    87:89:void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    92:96:void <init>(android.os.Parcel) -> <init>
+    98:98:void <clinit>() -> <clinit>
 com.anjlab.android.iab.v3.PurchaseInfo$1 -> com.a.a.a.a.e$1:
-    89:89:void <init>() -> <init>
-    91:91:com.anjlab.android.iab.v3.PurchaseInfo createFromParcel(android.os.Parcel) -> a
-    95:95:com.anjlab.android.iab.v3.PurchaseInfo[] newArray(int) -> a
-    89:89:java.lang.Object[] newArray(int) -> newArray
-    89:89:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    100:100:void <init>() -> <init>
+    103:103:com.anjlab.android.iab.v3.PurchaseInfo createFromParcel(android.os.Parcel) -> a
+    108:108:com.anjlab.android.iab.v3.PurchaseInfo[] newArray(int) -> a
+    100:100:java.lang.Object[] newArray(int) -> newArray
+    100:100:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
 com.anjlab.android.iab.v3.PurchaseState -> com.a.a.a.a.f:
     com.anjlab.android.iab.v3.PurchaseState PurchasedSuccessfully -> a
     com.anjlab.android.iab.v3.PurchaseState Canceled -> b
@@ -19472,9 +19480,9 @@ com.anjlab.android.iab.v3.PurchaseState -> com.a.a.a.a.f:
     18:18:void <init>(java.lang.String,int) -> <init>
     18:23:void <clinit>() -> <clinit>
 com.anjlab.android.iab.v3.Security -> com.a.a.a.a.g:
-    57:74:boolean verifyPurchase(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
-    86:96:java.security.PublicKey generatePublicKey(java.lang.String) -> a
-    112:129:boolean verify(java.security.PublicKey,java.lang.String,java.lang.String) -> a
+    61:80:boolean verifyPurchase(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    94:110:java.security.PublicKey generatePublicKey(java.lang.String) -> a
+    128:154:boolean verify(java.security.PublicKey,java.lang.String,java.lang.String) -> a
 com.anjlab.android.iab.v3.TransactionDetails -> com.a.a.a.a.h:
     java.lang.String productId -> a
     java.lang.String orderId -> b
@@ -19482,20 +19490,20 @@ com.anjlab.android.iab.v3.TransactionDetails -> com.a.a.a.a.h:
     java.util.Date purchaseTime -> d
     com.anjlab.android.iab.v3.PurchaseInfo purchaseInfo -> e
     android.os.Parcelable$Creator CREATOR -> CREATOR
-    53:59:void <init>(com.anjlab.android.iab.v3.PurchaseInfo) -> <init>
-    63:63:java.lang.String toString() -> toString
-    68:73:boolean equals(java.lang.Object) -> equals
-    78:78:int hashCode() -> hashCode
-    83:83:int describeContents() -> describeContents
-    88:89:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-    91:97:void <init>(android.os.Parcel) -> <init>
-    99:99:void <clinit>() -> <clinit>
+    56:62:void <init>(com.anjlab.android.iab.v3.PurchaseInfo) -> <init>
+    67:67:java.lang.String toString() -> toString
+    78:89:boolean equals(java.lang.Object) -> equals
+    95:95:int hashCode() -> hashCode
+    101:101:int describeContents() -> describeContents
+    107:108:void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    111:117:void <init>(android.os.Parcel) -> <init>
+    119:119:void <clinit>() -> <clinit>
 com.anjlab.android.iab.v3.TransactionDetails$1 -> com.a.a.a.a.h$1:
-    99:99:void <init>() -> <init>
-    101:101:com.anjlab.android.iab.v3.TransactionDetails createFromParcel(android.os.Parcel) -> a
-    105:105:com.anjlab.android.iab.v3.TransactionDetails[] newArray(int) -> a
-    99:99:java.lang.Object[] newArray(int) -> newArray
-    99:99:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    121:121:void <init>() -> <init>
+    124:124:com.anjlab.android.iab.v3.TransactionDetails createFromParcel(android.os.Parcel) -> a
+    129:129:com.anjlab.android.iab.v3.TransactionDetails[] newArray(int) -> a
+    121:121:java.lang.Object[] newArray(int) -> newArray
+    121:121:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
 com.faendir.lightning_launcher.multitool.BuildConfig -> com.faendir.lightning_launcher.multitool.a:
 com.faendir.lightning_launcher.multitool.Loader -> com.faendir.lightning_launcher.multitool.Loader:
     com.faendir.lightning_launcher.multitool.billing.BillingManager billingManager -> a
@@ -20155,22 +20163,21 @@ com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver -> com.fae
     16:19:void onReceive(android.content.Context,android.content.Intent) -> onReceive
 com.faendir.lightning_launcher.multitool.badge.BadgeListener -> com.faendir.lightning_launcher.multitool.badge.BadgeListener:
     java8.util.function.BiConsumer consumer -> consumer
-    16:17:void <init>() -> <init>
-    20:21:void onCountChange(int,java.lang.String) -> onCountChange
-    24:25:void setConsumer(java8.util.function.BiConsumer) -> setConsumer
+    17:18:void <init>() -> <init>
+    21:22:void onCountChange(int,java.lang.String) -> onCountChange
+    25:26:void setConsumer(java8.util.function.BiConsumer) -> setConsumer
 com.faendir.lightning_launcher.multitool.badge.BadgeService -> com.faendir.lightning_launcher.multitool.badge.BadgeService:
     java.lang.String BADGE_COUNT -> BADGE_COUNT
     java.lang.String PACKAGE_NAME -> PACKAGE_NAME
-    java.lang.String WHATSAPP -> WHATSAPP
     java.lang.String INTENT_BADGE_COUNT_UPDATE -> INTENT_BADGE_COUNT_UPDATE
     android.content.SharedPreferences sharedPref -> sharedPref
     java.util.Set listeners -> listeners
     com.faendir.lightning_launcher.multitool.badge.IBadgeService badgeService -> badgeService
-    32:68:void <init>() -> <init>
-    38:40:void onCreate() -> onCreate
-    44:59:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    65:65:android.os.IBinder onBind(android.content.Intent) -> onBind
-    52:55:void lambda$onStartCommand$0(int,java.lang.String,com.faendir.lightning_launcher.multitool.badge.IBadgeListener) -> lambda$onStartCommand$0
+    31:65:void <init>() -> <init>
+    37:39:void onCreate() -> onCreate
+    43:56:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    62:62:android.os.IBinder onBind(android.content.Intent) -> onBind
+    50:53:void lambda$onStartCommand$0(int,java.lang.String,com.faendir.lightning_launcher.multitool.badge.IBadgeListener) -> lambda$onStartCommand$0
     23:23:java.util.Set access$000(com.faendir.lightning_launcher.multitool.badge.BadgeService) -> access$000
     23:23:android.content.SharedPreferences access$100(com.faendir.lightning_launcher.multitool.badge.BadgeService) -> access$100
 com.faendir.lightning_launcher.multitool.badge.BadgeService$$Lambda$1 -> com.faendir.lightning_launcher.multitool.badge.BadgeService$$Lambda$1:
@@ -20181,9 +20188,22 @@ com.faendir.lightning_launcher.multitool.badge.BadgeService$$Lambda$1 -> com.fae
     java8.util.function.Consumer lambdaFactory$(int,java.lang.String) -> lambdaFactory$
 com.faendir.lightning_launcher.multitool.badge.BadgeService$1 -> com.faendir.lightning_launcher.multitool.badge.BadgeService$1:
     com.faendir.lightning_launcher.multitool.badge.BadgeService this$0 -> this$0
-    68:68:void <init>(com.faendir.lightning_launcher.multitool.badge.BadgeService) -> <init>
-    71:73:void registerListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener) -> registerListener
-    77:78:void unregisterListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener) -> unregisterListener
+    65:65:void <init>(com.faendir.lightning_launcher.multitool.badge.BadgeService) -> <init>
+    68:76:void registerListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener) -> registerListener
+    80:81:void unregisterListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener) -> unregisterListener
+    72:75:void lambda$registerListener$1(com.faendir.lightning_launcher.multitool.badge.IBadgeListener,java.lang.String,java.util.Map$Entry) -> lambda$registerListener$1
+    70:70:boolean lambda$registerListener$0(java.lang.String,java.util.Map$Entry) -> lambda$registerListener$0
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$1 -> com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$1:
+    java.lang.String arg$1 -> arg$1
+    void <init>(java.lang.String) -> <init>
+    boolean test(java.lang.Object) -> test
+    java8.util.function.Predicate lambdaFactory$(java.lang.String) -> lambdaFactory$
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$2 -> com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$2:
+    com.faendir.lightning_launcher.multitool.badge.IBadgeListener arg$1 -> arg$1
+    java.lang.String arg$2 -> arg$2
+    void <init>(com.faendir.lightning_launcher.multitool.badge.IBadgeListener,java.lang.String) -> <init>
+    void accept(java.lang.Object) -> accept
+    java8.util.function.Consumer lambdaFactory$(com.faendir.lightning_launcher.multitool.badge.IBadgeListener,java.lang.String) -> lambdaFactory$
 com.faendir.lightning_launcher.multitool.badge.IBadgeListener -> com.faendir.lightning_launcher.multitool.badge.IBadgeListener:
     void onCountChange(int,java.lang.String) -> onCountChange
 com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub -> com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub:
@@ -20428,32 +20448,32 @@ com.faendir.lightning_launcher.multitool.gesture.GestureFragment -> com.faendir.
     com.faendir.lightning_launcher.multitool.util.FileManager fileManager -> a
     com.faendir.omniadapter.model.DeepObservableList gestureInfos -> b
     40:40:void <init>() -> <init>
-    53:57:void onCreate(android.os.Bundle) -> onCreate
-    62:76:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
-    81:83:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
-    87:117:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
-    122:150:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    154:154:android.view.View createView(android.view.ViewGroup,int) -> a
-    159:163:void bindView(android.view.View,com.faendir.lightning_launcher.multitool.gesture.GestureInfo,int) -> a
-    167:167:boolean shouldMove(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int) -> a
-    172:172:boolean isSelectable(com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> a
-    177:177:boolean shouldSwipe(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,int) -> a
-    182:186:void onActionPersisted(java.util.List) -> a
-    190:190:void onActionReverted(java.util.List) -> b
-    194:194:boolean allowLongClick(com.faendir.omniadapter.model.Component,int) -> a
-    199:203:void onLongClick(com.faendir.omniadapter.model.Component,int) -> b
+    53:56:void onCreate(android.os.Bundle) -> onCreate
+    61:75:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    80:82:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
+    86:116:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    121:149:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    153:153:android.view.View createView(android.view.ViewGroup,int) -> a
+    158:162:void bindView(android.view.View,com.faendir.lightning_launcher.multitool.gesture.GestureInfo,int) -> a
+    166:166:boolean shouldMove(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int) -> a
+    171:171:boolean isSelectable(com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> a
+    176:176:boolean shouldSwipe(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,int) -> a
+    181:185:void onActionPersisted(java.util.List) -> a
+    189:189:void onActionReverted(java.util.List) -> b
+    193:193:boolean allowLongClick(com.faendir.omniadapter.model.Component,int) -> a
+    198:202:void onLongClick(com.faendir.omniadapter.model.Component,int) -> b
     40:40:boolean shouldSwipe(com.faendir.omniadapter.model.Component,int) -> c
     40:40:boolean isSelectable(com.faendir.omniadapter.model.Component) -> a
     40:40:boolean shouldMove(com.faendir.omniadapter.model.Component,com.faendir.omniadapter.model.DeepObservableList,int,com.faendir.omniadapter.model.DeepObservableList,int) -> a
     40:40:void bindView(android.view.View,com.faendir.omniadapter.model.Component,int) -> a
-    183:183:boolean lambda$onActionPersisted$3(com.faendir.omniadapter.model.ChangeInformation) -> a
-    144:144:void lambda$onActivityResult$2(com.faendir.lightning_launcher.multitool.gesture.GestureFragment,android.net.Uri) -> a
-    140:140:void lambda$onActivityResult$1(com.faendir.lightning_launcher.multitool.gesture.GestureFragment,android.net.Uri) -> b
-    65:65:boolean lambda$onCreateView$0(com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> b
+    182:182:boolean lambda$onActionPersisted$3(com.faendir.omniadapter.model.ChangeInformation) -> a
+    143:143:void lambda$onActivityResult$2(com.faendir.lightning_launcher.multitool.gesture.GestureFragment,android.net.Uri) -> a
+    139:139:void lambda$onActivityResult$1(com.faendir.lightning_launcher.multitool.gesture.GestureFragment,android.net.Uri) -> b
+    64:64:boolean lambda$onCreateView$0(com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> b
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$1 -> com.faendir.lightning_launcher.multitool.gesture.b:
     com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$1 instance -> a
     void <init>() -> <init>
-    boolean test(java.lang.Object) -> a
+    boolean test(java.lang.Object) -> test
     void <clinit>() -> <clinit>
     java8.util.function.Predicate lambdaFactory$() -> a
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$2 -> com.faendir.lightning_launcher.multitool.gesture.c:
@@ -20469,7 +20489,7 @@ com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$3 -> co
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$4 -> com.faendir.lightning_launcher.multitool.gesture.e:
     com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$4 instance -> a
     void <init>() -> <init>
-    boolean test(java.lang.Object) -> a
+    boolean test(java.lang.Object) -> test
     void <clinit>() -> <clinit>
     java8.util.function.Predicate lambdaFactory$() -> a
 com.faendir.lightning_launcher.multitool.gesture.GestureFragment$$Lambda$5 -> com.faendir.lightning_launcher.multitool.gesture.f:
@@ -20486,50 +20506,51 @@ com.faendir.lightning_launcher.multitool.gesture.GestureInfo -> com.faendir.ligh
     android.os.ParcelUuid uuid -> uuid
     com.faendir.omniadapter.model.Component$State state -> state
     android.os.Parcelable$Creator CREATOR -> CREATOR
-    44:47:void <init>() -> <init>
-    50:51:void <init>(android.content.Intent,java.lang.String) -> <init>
-    53:62:void <init>(android.content.Intent,java.lang.String,android.os.ParcelUuid) -> <init>
-    65:65:boolean isInvalid() -> isInvalid
-    70:74:android.gesture.Gesture getGesture(android.content.Context) -> getGesture
-    78:87:void setGesture(android.content.Context,android.gesture.Gesture) -> setGesture
-    90:93:void removeGesture(android.content.Context) -> removeGesture
-    96:96:android.content.Intent getIntent() -> getIntent
-    100:101:void setIntent(android.content.Intent) -> setIntent
-    104:104:java.lang.String getLabel() -> getLabel
-    108:109:void setLabel(java.lang.String) -> setLabel
-    112:112:boolean hasUuid(java.util.UUID) -> hasUuid
-    116:116:java.util.UUID getUuid() -> getUuid
-    120:130:android.graphics.drawable.Drawable getImage(android.content.Context) -> getImage
-    135:135:int describeContents() -> describeContents
-    140:144:void writeToParcel(android.os.Parcel,int) -> writeToParcel
-    169:169:com.faendir.omniadapter.model.Component$State getState() -> getState
-    72:72:void lambda$getGesture$0(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,java.util.ArrayList) -> lambda$getGesture$0
-    31:31:android.gesture.Gesture access$002(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,android.gesture.Gesture) -> access$002
-    146:146:void <clinit>() -> <clinit>
+    43:46:void <init>() -> <init>
+    49:50:void <init>(android.content.Intent,java.lang.String) -> <init>
+    52:61:void <init>(android.content.Intent,java.lang.String,android.os.ParcelUuid) -> <init>
+    64:64:boolean isInvalid() -> isInvalid
+    69:73:android.gesture.Gesture getGesture(android.content.Context) -> getGesture
+    77:86:void setGesture(android.content.Context,android.gesture.Gesture) -> setGesture
+    89:92:void removeGesture(android.content.Context) -> removeGesture
+    95:95:android.content.Intent getIntent() -> getIntent
+    99:100:void setIntent(android.content.Intent) -> setIntent
+    103:103:java.lang.String getLabel() -> getLabel
+    107:108:void setLabel(java.lang.String) -> setLabel
+    111:111:boolean hasUuid(java.util.UUID) -> hasUuid
+    115:115:java.util.UUID getUuid() -> getUuid
+    119:129:android.graphics.drawable.Drawable getImage(android.content.Context) -> getImage
+    134:134:int describeContents() -> describeContents
+    139:143:void writeToParcel(android.os.Parcel,int) -> writeToParcel
+    168:168:com.faendir.omniadapter.model.Component$State getState() -> getState
+    71:71:void lambda$getGesture$0(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,java.util.ArrayList) -> lambda$getGesture$0
+    30:30:android.gesture.Gesture access$002(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,android.gesture.Gesture) -> access$002
+    145:145:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo$$Lambda$1 -> com.faendir.lightning_launcher.multitool.gesture.g:
     com.faendir.lightning_launcher.multitool.gesture.GestureInfo arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> <init>
     void accept(java.lang.Object) -> accept
     java8.util.function.Consumer lambdaFactory$(com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> a
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1 -> com.faendir.lightning_launcher.multitool.gesture.GestureInfo$1:
-    146:146:void <init>() -> <init>
-    149:157:com.faendir.lightning_launcher.multitool.gesture.GestureInfo createFromParcel(android.os.Parcel) -> a
-    162:162:com.faendir.lightning_launcher.multitool.gesture.GestureInfo[] newArray(int) -> a
-    146:146:java.lang.Object[] newArray(int) -> newArray
-    146:146:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+    145:145:void <init>() -> <init>
+    148:156:com.faendir.lightning_launcher.multitool.gesture.GestureInfo createFromParcel(android.os.Parcel) -> a
+    161:161:com.faendir.lightning_launcher.multitool.gesture.GestureInfo[] newArray(int) -> a
+    145:145:java.lang.Object[] newArray(int) -> newArray
+    145:145:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils -> com.faendir.lightning_launcher.multitool.gesture.h:
-    45:47:void delete(android.content.Context,java.util.List,java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager) -> a
-    50:51:void updateSavedGestures(java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager) -> a
-    57:76:void exportGestures(android.content.Context,android.net.Uri,com.faendir.lightning_launcher.multitool.util.FileManager) -> a
-    79:88:void export(android.content.Context,java.io.File,java.io.File,java.io.File) -> a
-    91:98:void writeFile(java.io.File,java.io.OutputStream) -> a
-    101:108:void readToFile(java.io.File,java.io.InputStream) -> a
-    111:145:void importGestures(android.content.Context,android.net.Uri,com.faendir.omniadapter.model.DeepObservableList,com.faendir.lightning_launcher.multitool.util.FileManager) -> a
-    131:133:void lambda$importGestures$4(android.content.Context,com.faendir.omniadapter.model.DeepObservableList,android.util.Pair) -> a
-    130:130:boolean lambda$importGestures$3(android.util.Pair) -> a
-    129:129:android.util.Pair lambda$importGestures$2(android.gesture.GestureLibrary,com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> a
-    64:69:void lambda$exportGestures$1(java.io.File,android.content.Context,java.io.File,java.io.File,java.io.File,boolean) -> a
-    45:45:void lambda$delete$0(android.content.Context,com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> a
+    49:51:void delete(android.content.Context,java.util.List,java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager) -> a
+    54:55:void updateSavedGestures(java.util.List,com.faendir.lightning_launcher.multitool.util.FileManager) -> a
+    61:80:void exportGestures(android.content.Context,android.net.Uri) -> a
+    83:92:void export(android.content.Context,java.io.File,java.io.FileDescriptor,java.io.FileDescriptor) -> a
+    95:102:void writeFile(java.io.FileDescriptor,java.io.OutputStream) -> a
+    105:112:void readToFile(java.io.File,java.io.InputStream) -> a
+    115:156:void importGestures(android.content.Context,android.net.Uri,com.faendir.omniadapter.model.DeepObservableList,com.faendir.lightning_launcher.multitool.util.FileManager) -> a
+    142:144:void lambda$importGestures$5(android.content.Context,com.faendir.omniadapter.model.DeepObservableList,android.util.Pair) -> a
+    141:141:boolean lambda$importGestures$4(android.util.Pair) -> a
+    140:140:android.util.Pair lambda$importGestures$3(android.gesture.GestureLibrary,com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> a
+    130:132:java.io.FileDescriptor lambda$importGestures$2(java.io.File) -> a
+    68:73:void lambda$exportGestures$1(java.io.File,android.content.Context,java.io.File,java.io.FileDescriptor,java.io.FileDescriptor,boolean) -> a
+    49:49:void lambda$delete$0(android.content.Context,com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> a
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$1 -> com.faendir.lightning_launcher.multitool.gesture.i:
     android.content.Context arg$1 -> a
     void <init>(android.content.Context) -> <init>
@@ -20544,38 +20565,45 @@ com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$3 -> com.f
     java.io.File arg$1 -> a
     android.content.Context arg$2 -> b
     java.io.File arg$3 -> c
-    java.io.File arg$4 -> d
-    java.io.File arg$5 -> e
-    void <init>(java.io.File,android.content.Context,java.io.File,java.io.File,java.io.File) -> <init>
+    java.io.FileDescriptor arg$4 -> d
+    java.io.FileDescriptor arg$5 -> e
+    void <init>(java.io.File,android.content.Context,java.io.File,java.io.FileDescriptor,java.io.FileDescriptor) -> <init>
     void handlePermissionResult(boolean) -> a
-    com.faendir.lightning_launcher.scriptlib.PermissionActivity$PermissionCallback lambdaFactory$(java.io.File,android.content.Context,java.io.File,java.io.File,java.io.File) -> a
+    com.faendir.lightning_launcher.scriptlib.PermissionActivity$PermissionCallback lambdaFactory$(java.io.File,android.content.Context,java.io.File,java.io.FileDescriptor,java.io.FileDescriptor) -> a
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$4 -> com.faendir.lightning_launcher.multitool.gesture.l:
+    java.io.File arg$1 -> a
+    void <init>(java.io.File) -> <init>
+    java.lang.Object get() -> a
+    java8.util.function.Supplier lambdaFactory$(java.io.File) -> a
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$5 -> com.faendir.lightning_launcher.multitool.gesture.m:
     android.gesture.GestureLibrary arg$1 -> a
     void <init>(android.gesture.GestureLibrary) -> <init>
     java.lang.Object apply(java.lang.Object) -> a
     java8.util.function.Function lambdaFactory$(android.gesture.GestureLibrary) -> a
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$5 -> com.faendir.lightning_launcher.multitool.gesture.m:
-    com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$5 instance -> a
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$6 -> com.faendir.lightning_launcher.multitool.gesture.n:
+    com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$6 instance -> a
     void <init>() -> <init>
-    boolean test(java.lang.Object) -> a
+    boolean test(java.lang.Object) -> test
     void <clinit>() -> <clinit>
     java8.util.function.Predicate lambdaFactory$() -> a
-com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$6 -> com.faendir.lightning_launcher.multitool.gesture.n:
+com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$7 -> com.faendir.lightning_launcher.multitool.gesture.o:
     android.content.Context arg$1 -> a
     com.faendir.omniadapter.model.DeepObservableList arg$2 -> b
     void <init>(android.content.Context,com.faendir.omniadapter.model.DeepObservableList) -> <init>
     void accept(java.lang.Object) -> accept
     java8.util.function.Consumer lambdaFactory$(android.content.Context,com.faendir.omniadapter.model.DeepObservableList) -> a
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary -> com.faendir.lightning_launcher.multitool.gesture.o:
-    com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary global -> a
+com.faendir.lightning_launcher.multitool.gesture.SingleStoreGestureLibrary -> com.faendir.lightning_launcher.multitool.gesture.p:
+    android.gesture.GestureStore gestureStore -> a
     android.content.Context context -> b
-    28:32:android.gesture.GestureLibrary getGlobal(android.content.Context) -> a
-    36:36:java.io.File getFile(android.content.Context) -> b
+    30:36:com.faendir.lightning_launcher.multitool.gesture.SingleStoreGestureLibrary getInstance(android.content.Context) -> a
     41:44:void <init>(android.content.Context) -> <init>
-    47:47:java.io.FileDescriptor getFile() -> a
-    51:52:android.gesture.GestureLibrary get() -> b
-    56:67:boolean save() -> save
-    72:81:boolean load() -> load
+    47:47:boolean save() -> a
+    51:61:boolean save(android.content.Context) -> b
+    65:72:void load(android.content.Context) -> c
+    79:82:void addGesture(java.lang.String,android.gesture.Gesture) -> a
+    85:88:void removeGesture(java.lang.String,android.gesture.Gesture) -> b
+    91:94:void removeEntry(java.lang.String) -> a
+    97:97:java.util.ArrayList getGestures(java.lang.String) -> b
 com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment -> com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment:
     android.widget.TextView nameTextView -> a
     android.content.SharedPreferences shareprefs -> b
@@ -20724,7 +20752,7 @@ com.faendir.lightning_launcher.multitool.music.MusicManager$$Lambda$3 -> com.fae
 com.faendir.lightning_launcher.multitool.music.MusicManager$$Lambda$4 -> com.faendir.lightning_launcher.multitool.music.f:
     android.os.Message arg$1 -> a
     void <init>(android.os.Message) -> <init>
-    boolean test(java.lang.Object) -> a
+    boolean test(java.lang.Object) -> test
     java8.util.function.Predicate lambdaFactory$(android.os.Message) -> a
 com.faendir.lightning_launcher.multitool.music.MusicManager$$Lambda$5 -> com.faendir.lightning_launcher.multitool.music.g:
     com.faendir.lightning_launcher.multitool.music.MusicManager arg$1 -> a
@@ -20829,42 +20857,41 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ListManager -> com.faendi
     android.support.v7.widget.RecyclerView recyclerView -> c
     com.faendir.omniadapter.OmniAdapter adapter -> d
     com.faendir.omniadapter.model.DeepObservableList items -> e
-    54:83:void <init>(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context) -> <init>
-    86:87:void fireUpdateActionMode() -> d
-    90:91:void deselectAll() -> a
-    94:95:void changed(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> a
-    98:162:void updateFrom(java.util.List) -> c
-    165:169:void setAsContentOf(android.view.ViewGroup) -> a
-    172:172:com.faendir.omniadapter.model.DeepObservableList getItems() -> b
-    176:176:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> a
-    180:181:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.omniadapter.model.DeepObservableList) -> a
-    186:186:android.view.View createView(android.view.ViewGroup,int) -> a
-    191:199:void bindView(android.view.View,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int) -> a
-    203:205:boolean onCreateActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> a
-    210:222:boolean onPrepareActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> b
-    227:250:boolean onActionItemClicked(android.support.v7.view.ActionMode,android.view.MenuItem) -> a
-    255:256:void onDestroyActionMode(android.support.v7.view.ActionMode) -> a
-    260:261:void onSelectionChanged(java.util.List) -> d
-    265:266:void onSelectionCleared() -> c
-    270:272:void onActionPersisted(java.util.List) -> a
-    276:276:void onActionReverted(java.util.List) -> b
-    280:280:boolean isSelectable(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> b
-    296:301:int getSelectionMode() -> e
-    306:306:java.util.List getSelectedItems() -> f
-    311:311:java.lang.String toString() -> toString
-    45:45:boolean isSelectable(com.faendir.omniadapter.model.Component) -> a
-    45:45:void bindView(android.view.View,com.faendir.omniadapter.model.Component,int) -> a
-    271:271:void lambda$onActionPersisted$10(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> a
-    271:271:com.faendir.lightning_launcher.multitool.scriptmanager.Script lambda$onActionPersisted$9(com.faendir.omniadapter.model.ChangeInformation) -> a
-    270:270:boolean lambda$onActionPersisted$8(com.faendir.omniadapter.model.ChangeInformation) -> b
-    180:181:boolean lambda$exists$7(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> a
-    166:168:void lambda$setAsContentOf$6(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup) -> a
-    140:140:boolean lambda$updateFrom$5(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.Folder) -> a
-    139:139:boolean lambda$updateFrom$4(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> c
-    118:118:boolean lambda$updateFrom$3(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.Folder) -> b
-    118:118:boolean lambda$updateFrom$2(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> d
-    101:104:void lambda$updateFrom$1(java.util.List,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int) -> a
-    61:70:int lambda$new$0(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> a
+    53:82:void <init>(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context) -> <init>
+    85:86:void fireUpdateActionMode() -> d
+    89:90:void deselectAll() -> a
+    93:94:void changed(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> a
+    97:161:void updateFrom(java.util.List) -> c
+    164:168:void setAsContentOf(android.view.ViewGroup) -> a
+    171:171:com.faendir.omniadapter.model.DeepObservableList getItems() -> b
+    175:175:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> a
+    179:180:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.omniadapter.model.DeepObservableList) -> a
+    185:185:android.view.View createView(android.view.ViewGroup,int) -> a
+    190:198:void bindView(android.view.View,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int) -> a
+    202:204:boolean onCreateActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> a
+    209:221:boolean onPrepareActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> b
+    226:249:boolean onActionItemClicked(android.support.v7.view.ActionMode,android.view.MenuItem) -> a
+    254:255:void onDestroyActionMode(android.support.v7.view.ActionMode) -> a
+    259:260:void onSelectionChanged(java.util.List) -> d
+    264:265:void onSelectionCleared() -> c
+    269:271:void onActionPersisted(java.util.List) -> a
+    275:275:void onActionReverted(java.util.List) -> b
+    279:279:boolean isSelectable(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> b
+    295:300:int getSelectionMode() -> e
+    305:305:java.util.List getSelectedItems() -> f
+    44:44:boolean isSelectable(com.faendir.omniadapter.model.Component) -> a
+    44:44:void bindView(android.view.View,com.faendir.omniadapter.model.Component,int) -> a
+    270:270:void lambda$onActionPersisted$10(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> a
+    270:270:com.faendir.lightning_launcher.multitool.scriptmanager.Script lambda$onActionPersisted$9(com.faendir.omniadapter.model.ChangeInformation) -> a
+    269:269:boolean lambda$onActionPersisted$8(com.faendir.omniadapter.model.ChangeInformation) -> b
+    179:180:boolean lambda$exists$7(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> a
+    165:167:void lambda$setAsContentOf$6(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup) -> a
+    139:139:boolean lambda$updateFrom$5(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.Folder) -> a
+    138:138:boolean lambda$updateFrom$4(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> c
+    117:117:boolean lambda$updateFrom$3(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.Folder) -> b
+    117:117:boolean lambda$updateFrom$2(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> d
+    100:103:void lambda$updateFrom$1(java.util.List,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int) -> a
+    60:69:int lambda$new$0(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> a
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$1 -> com.faendir.lightning_launcher.multitool.scriptmanager.e:
     com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$1 instance -> a
     void <init>() -> <init>
@@ -20875,12 +20902,12 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$10 ->
     com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$1 -> a
     com.faendir.lightning_launcher.multitool.scriptmanager.Script arg$2 -> b
     void <init>(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> <init>
-    boolean test(java.lang.Object) -> a
+    boolean test(java.lang.Object) -> test
     java8.util.function.Predicate lambdaFactory$(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> a
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$11 -> com.faendir.lightning_launcher.multitool.scriptmanager.g:
     com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$11 instance -> a
     void <init>() -> <init>
-    boolean test(java.lang.Object) -> a
+    boolean test(java.lang.Object) -> test
     void <clinit>() -> <clinit>
     java8.util.function.Predicate lambdaFactory$() -> a
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$12 -> com.faendir.lightning_launcher.multitool.scriptmanager.h:
@@ -20902,7 +20929,7 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$2 -> 
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$3 -> com.faendir.lightning_launcher.multitool.scriptmanager.k:
     com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$3 instance -> a
     void <init>() -> <init>
-    boolean test(java.lang.Object) -> a
+    boolean test(java.lang.Object) -> test
     void <clinit>() -> <clinit>
     java8.util.function.Predicate lambdaFactory$() -> a
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$4 -> com.faendir.lightning_launcher.multitool.scriptmanager.l:
@@ -20913,12 +20940,12 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$4 -> 
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$5 -> com.faendir.lightning_launcher.multitool.scriptmanager.m:
     java.lang.String arg$1 -> a
     void <init>(java.lang.String) -> <init>
-    boolean test(java.lang.Object) -> a
+    boolean test(java.lang.Object) -> test
     java8.util.function.Predicate lambdaFactory$(java.lang.String) -> a
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$6 -> com.faendir.lightning_launcher.multitool.scriptmanager.n:
     com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$6 instance -> a
     void <init>() -> <init>
-    boolean test(java.lang.Object) -> a
+    boolean test(java.lang.Object) -> test
     void <clinit>() -> <clinit>
     java8.util.function.Predicate lambdaFactory$() -> a
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$7 -> com.faendir.lightning_launcher.multitool.scriptmanager.o:
@@ -20929,7 +20956,7 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$7 -> 
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$8 -> com.faendir.lightning_launcher.multitool.scriptmanager.p:
     java.lang.String arg$1 -> a
     void <init>(java.lang.String) -> <init>
-    boolean test(java.lang.Object) -> a
+    boolean test(java.lang.Object) -> test
     java8.util.function.Predicate lambdaFactory$(java.lang.String) -> a
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$9 -> com.faendir.lightning_launcher.multitool.scriptmanager.q:
     com.faendir.lightning_launcher.multitool.scriptmanager.ListManager arg$1 -> a
@@ -21108,7 +21135,7 @@ com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$1
 com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$2 -> com.faendir.lightning_launcher.multitool.settings.b:
     com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$2 instance -> a
     void <init>() -> <init>
-    boolean test(java.lang.Object) -> a
+    boolean test(java.lang.Object) -> test
     void <clinit>() -> <clinit>
     java8.util.function.Predicate lambdaFactory$() -> a
 com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$3 -> com.faendir.lightning_launcher.multitool.settings.c:
@@ -21199,7 +21226,7 @@ com.faendir.lightning_launcher.multitool.settings.PlayersPreference$$Lambda$6 ->
 com.faendir.lightning_launcher.multitool.settings.PlayersPreference$$Lambda$7 -> com.faendir.lightning_launcher.multitool.settings.o:
     com.faendir.lightning_launcher.multitool.settings.PlayersPreference$$Lambda$7 instance -> a
     void <init>() -> <init>
-    boolean test(java.lang.Object) -> a
+    boolean test(java.lang.Object) -> test
     void <clinit>() -> <clinit>
     java8.util.function.Predicate lambdaFactory$() -> a
 com.faendir.lightning_launcher.multitool.settings.PlayersPreference$$Lambda$8 -> com.faendir.lightning_launcher.multitool.settings.p:
@@ -21321,23 +21348,23 @@ com.faendir.lightning_launcher.multitool.util.BaseIpcService$LocalHandler$$Lambd
 com.faendir.lightning_launcher.multitool.util.DataProvider -> com.faendir.lightning_launcher.multitool.util.DataProvider:
     android.content.UriMatcher URI_MATCHER -> a
     android.content.SharedPreferences sharedPref -> b
-    58:63:void <init>() -> <init>
-    81:84:java.io.FileDescriptor getGestureLibraryFile(android.content.Context) -> a
-    89:89:android.net.Uri getContentUri(java.lang.String) -> a
-    94:97:boolean onCreate() -> onCreate
-    104:120:android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String) -> query
-    126:126:java.lang.String getType(android.net.Uri) -> getType
-    132:132:android.net.Uri insert(android.net.Uri,android.content.ContentValues) -> insert
-    137:137:int delete(android.net.Uri,java.lang.String,java.lang.String[]) -> delete
-    142:158:int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) -> update
-    162:167:boolean setIfTypeMatch(java.util.Map$Entry,java.lang.Class,java8.util.function.BiConsumer) -> a
-    173:176:android.os.ParcelFileDescriptor openFile(android.net.Uri,java.lang.String) -> openFile
-    116:116:void lambda$query$0(android.database.MatrixCursor,com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> a
+    52:57:void <init>() -> <init>
+    61:64:java.io.FileDescriptor getGestureLibraryFile(android.content.Context) -> a
+    70:73:java.io.FileDescriptor getGestureInfoFile(android.content.Context) -> b
+    78:78:android.net.Uri getContentUri(java.lang.String) -> a
+    83:86:boolean onCreate() -> onCreate
+    93:103:android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String) -> query
+    109:109:java.lang.String getType(android.net.Uri) -> getType
+    115:115:android.net.Uri insert(android.net.Uri,android.content.ContentValues) -> insert
+    120:120:int delete(android.net.Uri,java.lang.String,java.lang.String[]) -> delete
+    125:141:int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) -> update
+    145:150:boolean setIfTypeMatch(java.util.Map$Entry,java.lang.Class,java8.util.function.BiConsumer) -> a
+    156:162:android.os.ParcelFileDescriptor openFile(android.net.Uri,java.lang.String) -> openFile
 com.faendir.lightning_launcher.multitool.util.DataProvider$$Lambda$1 -> com.faendir.lightning_launcher.multitool.util.c:
-    android.database.MatrixCursor arg$1 -> a
-    void <init>(android.database.MatrixCursor) -> <init>
-    void accept(java.lang.Object) -> accept
-    java8.util.function.Consumer lambdaFactory$(android.database.MatrixCursor) -> a
+    android.content.SharedPreferences$Editor arg$1 -> a
+    void <init>(android.content.SharedPreferences$Editor) -> <init>
+    void accept(java.lang.Object,java.lang.Object) -> a
+    java8.util.function.BiConsumer lambdaFactory$(android.content.SharedPreferences$Editor) -> a
 com.faendir.lightning_launcher.multitool.util.DataProvider$$Lambda$2 -> com.faendir.lightning_launcher.multitool.util.d:
     android.content.SharedPreferences$Editor arg$1 -> a
     void <init>(android.content.SharedPreferences$Editor) -> <init>
@@ -21353,42 +21380,40 @@ com.faendir.lightning_launcher.multitool.util.DataProvider$$Lambda$4 -> com.faen
     void <init>(android.content.SharedPreferences$Editor) -> <init>
     void accept(java.lang.Object,java.lang.Object) -> a
     java8.util.function.BiConsumer lambdaFactory$(android.content.SharedPreferences$Editor) -> a
-com.faendir.lightning_launcher.multitool.util.DataProvider$$Lambda$5 -> com.faendir.lightning_launcher.multitool.util.g:
-    android.content.SharedPreferences$Editor arg$1 -> a
-    void <init>(android.content.SharedPreferences$Editor) -> <init>
-    void accept(java.lang.Object,java.lang.Object) -> a
-    java8.util.function.BiConsumer lambdaFactory$(android.content.SharedPreferences$Editor) -> a
-com.faendir.lightning_launcher.multitool.util.DrawableProvider -> com.faendir.lightning_launcher.multitool.util.h:
+com.faendir.lightning_launcher.multitool.util.DrawableProvider -> com.faendir.lightning_launcher.multitool.util.g:
     android.graphics.drawable.Drawable getDrawable() -> a
-com.faendir.lightning_launcher.multitool.util.DrawerManager -> com.faendir.lightning_launcher.multitool.util.i:
+com.faendir.lightning_launcher.multitool.util.DrawerManager -> com.faendir.lightning_launcher.multitool.util.h:
     android.content.Context context -> a
     com.mikepenz.materialdrawer.Drawer drawer -> b
     25:29:void <init>(android.content.Context,com.mikepenz.materialdrawer.Drawer) -> <init>
     32:36:boolean closeDrawer() -> a
     41:45:boolean openDrawer() -> b
     51:82:boolean onItemClick(android.view.View,int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem) -> a
-com.faendir.lightning_launcher.multitool.util.FileManager -> com.faendir.lightning_launcher.multitool.util.j:
+com.faendir.lightning_launcher.multitool.util.FileManager -> com.faendir.lightning_launcher.multitool.util.i:
     java.lang.Class clazz -> a
-    java.io.File file -> b
-    com.google.gson.Gson gson -> c
-    35:41:void <init>(java.io.File,java.lang.Class) -> <init>
-    47:52:void allowGlobalRead(java.io.File) -> a
-    55:56:void allowGlobalRead() -> a
-    60:69:java.util.List read() -> b
-    73:79:void write(java.util.List) -> a
-    82:82:java.io.File getFile() -> c
-com.faendir.lightning_launcher.multitool.util.FileManager$1 -> com.faendir.lightning_launcher.multitool.util.j$1:
-com.faendir.lightning_launcher.multitool.util.FileManager$FatalFileException -> com.faendir.lightning_launcher.multitool.util.j$a:
-    87:88:void <init>(java.lang.Exception) -> <init>
-com.faendir.lightning_launcher.multitool.util.FileManager$IntentTypeAdapter -> com.faendir.lightning_launcher.multitool.util.j$b:
-    91:91:void <init>() -> <init>
-    96:104:void write(com.google.gson.stream.JsonWriter,android.content.Intent) -> a
-    108:119:android.content.Intent read(com.google.gson.stream.JsonReader) -> a
-    91:91:java.lang.Object read(com.google.gson.stream.JsonReader) -> b
-    91:91:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> a
-    91:91:void <init>(com.faendir.lightning_launcher.multitool.util.FileManager$1) -> <init>
-com.faendir.lightning_launcher.multitool.util.FileManagerFactory -> com.faendir.lightning_launcher.multitool.util.k:
-    21:21:com.faendir.lightning_launcher.multitool.util.FileManager createGestureFileManager(android.content.Context) -> a
+    com.google.gson.Gson gson -> b
+    java8.util.function.Supplier fileDescriptorSupplier -> c
+    36:42:void <init>(java8.util.function.Supplier,java.lang.Class) -> <init>
+    46:56:java.util.List read() -> a
+    60:66:void write(java.util.List) -> a
+com.faendir.lightning_launcher.multitool.util.FileManager$1 -> com.faendir.lightning_launcher.multitool.util.i$1:
+com.faendir.lightning_launcher.multitool.util.FileManager$FatalFileException -> com.faendir.lightning_launcher.multitool.util.i$a:
+    70:71:void <init>(java.lang.Exception) -> <init>
+com.faendir.lightning_launcher.multitool.util.FileManager$IntentTypeAdapter -> com.faendir.lightning_launcher.multitool.util.i$b:
+    74:74:void <init>() -> <init>
+    79:87:void write(com.google.gson.stream.JsonWriter,android.content.Intent) -> a
+    91:102:android.content.Intent read(com.google.gson.stream.JsonReader) -> a
+    74:74:java.lang.Object read(com.google.gson.stream.JsonReader) -> b
+    74:74:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> a
+    74:74:void <init>(com.faendir.lightning_launcher.multitool.util.FileManager$1) -> <init>
+com.faendir.lightning_launcher.multitool.util.FileManagerFactory -> com.faendir.lightning_launcher.multitool.util.j:
+    19:19:com.faendir.lightning_launcher.multitool.util.FileManager createGestureFileManager(android.content.Context) -> a
+    19:19:java.io.FileDescriptor lambda$createGestureFileManager$0(android.content.Context) -> b
+com.faendir.lightning_launcher.multitool.util.FileManagerFactory$$Lambda$1 -> com.faendir.lightning_launcher.multitool.util.k:
+    android.content.Context arg$1 -> a
+    void <init>(android.content.Context) -> <init>
+    java.lang.Object get() -> a
+    java8.util.function.Supplier lambdaFactory$(android.content.Context) -> a
 com.faendir.lightning_launcher.multitool.util.FragmentManager -> com.faendir.lightning_launcher.multitool.util.l:
     com.faendir.lightning_launcher.multitool.MainActivity context -> a
     android.app.FragmentManager manager -> b
@@ -21467,25 +21492,18 @@ com.faendir.lightning_launcher.multitool.util.ResolveInfoDrawableProvider -> com
     android.content.pm.ResolveInfo info -> b
     17:20:void <init>(android.content.pm.PackageManager,android.content.pm.ResolveInfo) -> <init>
     24:24:android.graphics.drawable.Drawable getDrawable() -> a
-com.faendir.lightning_launcher.multitool.util.ToStringBuilder -> com.faendir.lightning_launcher.multitool.util.q:
-    java.lang.StringBuilder builder -> a
-    boolean isFirstAttribute -> b
-    16:20:void <init>(java.lang.String) -> <init>
-    23:24:void <init>(java.lang.Object) -> <init>
-    27:37:com.faendir.lightning_launcher.multitool.util.ToStringBuilder append(java.lang.String,java.lang.Object) -> a
-    41:41:java.lang.String build() -> a
-com.faendir.lightning_launcher.multitool.util.Utils -> com.faendir.lightning_launcher.multitool.util.r:
+com.faendir.lightning_launcher.multitool.util.Utils -> com.faendir.lightning_launcher.multitool.util.q:
     com.google.gson.Gson GSON -> a
     30:52:java.util.List getFilePickerActivityResult(android.content.Intent) -> a
     43:43:boolean lambda$getFilePickerActivityResult$0(java.lang.String) -> a
     23:23:void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.multitool.util.Utils$$Lambda$1 -> com.faendir.lightning_launcher.multitool.util.s:
+com.faendir.lightning_launcher.multitool.util.Utils$$Lambda$1 -> com.faendir.lightning_launcher.multitool.util.r:
     com.faendir.lightning_launcher.multitool.util.Utils$$Lambda$1 instance -> a
     void <init>() -> <init>
-    boolean test(java.lang.Object) -> a
+    boolean test(java.lang.Object) -> test
     void <clinit>() -> <clinit>
     java8.util.function.Predicate lambdaFactory$() -> a
-com.faendir.lightning_launcher.multitool.util.Utils$$Lambda$2 -> com.faendir.lightning_launcher.multitool.util.t:
+com.faendir.lightning_launcher.multitool.util.Utils$$Lambda$2 -> com.faendir.lightning_launcher.multitool.util.s:
     com.faendir.lightning_launcher.multitool.util.Utils$$Lambda$2 instance -> a
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object) -> a
@@ -23888,9 +23906,9 @@ com.mikepenz.fastadapter.AbstractAdapter -> com.mikepenz.a.a:
     231:236:void mapPossibleTypes(java.lang.Iterable) -> a
     244:245:void mapPossibleType(com.mikepenz.fastadapter.IItem) -> a
 com.mikepenz.fastadapter.FastAdapter -> com.mikepenz.a.b:
-    android.support.v4.util.ArrayMap mAdapters -> a
-    android.support.v4.util.ArrayMap mTypeInstances -> b
-    java.util.NavigableMap mAdapterSizes -> c
+    android.util.SparseArray mAdapters -> a
+    android.util.SparseArray mTypeInstances -> b
+    android.util.SparseArray mAdapterSizes -> c
     int mGlobalSize -> d
     boolean mSelectWithItemUpdate -> e
     boolean mMultiSelect -> f
@@ -23900,7 +23918,7 @@ com.mikepenz.fastadapter.FastAdapter -> com.mikepenz.a.b:
     boolean mOnlyOneExpandedItem -> j
     boolean mPositionBasedStateManagement -> k
     boolean mLegacyBindViewMode -> l
-    java.util.SortedSet mSelections -> m
+    java.util.Set mSelections -> m
     android.util.SparseIntArray mExpanded -> n
     com.mikepenz.fastadapter.helpers.ClickListenerHelper clickListenerHelper -> o
     com.mikepenz.fastadapter.FastAdapter$OnClickListener mOnPreClickListener -> p
@@ -23911,93 +23929,100 @@ com.mikepenz.fastadapter.FastAdapter -> com.mikepenz.a.b:
     com.mikepenz.fastadapter.ISelectionListener mSelectionListener -> u
     com.mikepenz.fastadapter.FastAdapter$OnCreateViewHolderListener mOnCreateViewHolderListener -> v
     com.mikepenz.fastadapter.FastAdapter$OnBindViewHolderListener mOnBindViewHolderListener -> w
-    39:92:void <init>() -> <init>
-    116:117:com.mikepenz.fastadapter.FastAdapter withOnClickListener(com.mikepenz.fastadapter.FastAdapter$OnClickListener) -> a
-    138:139:com.mikepenz.fastadapter.FastAdapter withOnLongClickListener(com.mikepenz.fastadapter.FastAdapter$OnLongClickListener) -> a
-    207:208:com.mikepenz.fastadapter.FastAdapter withMultiSelect(boolean) -> a
-    218:219:com.mikepenz.fastadapter.FastAdapter withSelectOnLongClick(boolean) -> c
-    229:230:com.mikepenz.fastadapter.FastAdapter withAllowDeselection(boolean) -> d
-    240:241:com.mikepenz.fastadapter.FastAdapter withSelectable(boolean) -> e
-    252:253:com.mikepenz.fastadapter.FastAdapter withPositionBasedStateManagement(boolean) -> f
-    290:290:boolean isPositionBasedStateManagement() -> b
-    322:322:com.mikepenz.fastadapter.FastAdapter withSavedInstanceState(android.os.Bundle) -> a
-    336:377:com.mikepenz.fastadapter.FastAdapter withSavedInstanceState(android.os.Bundle,java.lang.String) -> a
-    386:390:void registerAdapter(com.mikepenz.fastadapter.AbstractAdapter) -> a
-    398:401:void registerTypeInstance(com.mikepenz.fastadapter.IItem) -> a
-    410:410:com.mikepenz.fastadapter.IItem getTypeInstance(int) -> f
-    428:428:int getHolderAdapterPosition(android.support.v7.widget.RecyclerView$ViewHolder) -> e
-    440:544:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> b
-    557:561:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> a
-    572:574:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int,java.util.List) -> a
-    583:585:void onViewRecycled(android.support.v7.widget.RecyclerView$ViewHolder) -> a
-    633:638:com.mikepenz.fastadapter.IItem getItem(int) -> g
-    649:660:com.mikepenz.fastadapter.FastAdapter$RelativeInfo getRelativeInfo(int) -> h
-    671:675:com.mikepenz.fastadapter.IAdapter getAdapter(int) -> i
-    686:686:int getItemViewType(int) -> b
-    697:697:long getItemId(int) -> a
-    706:706:int getItemCount() -> a
-    717:733:int getPreItemCountByOrder(int) -> j
-    745:750:int getPreItemCount(int) -> k
-    799:799:android.os.Bundle saveInstanceState(android.os.Bundle) -> b
-    812:849:android.os.Bundle saveInstanceState(android.os.Bundle,java.lang.String) -> b
-    856:871:void cacheSizes() -> k
-    883:894:java.util.Set getSelections() -> c
-    938:1004:void handleSelection(android.view.View,com.mikepenz.fastadapter.IItem,int) -> a
-    1023:1024:void select(int) -> l
-    1033:1034:void select(int,boolean) -> a
-    1044:1067:void select(int,boolean,boolean) -> a
-    1073:1083:void deselect() -> g
-    1119:1123:void deselect(java.lang.Iterable) -> a
-    1131:1132:void deselect(int) -> m
-    1142:1159:void deselect(int,java.util.Iterator) -> a
-    1210:1221:android.util.SparseIntArray getExpanded() -> h
-    1230:1252:int[] getExpandedItems() -> i
-    1261:1275:void toggleExpandable(int) -> n
-    1290:1294:void collapse(boolean) -> g
-    1303:1304:void collapse(int) -> o
-    1313:1385:void collapse(int,boolean) -> b
-    1388:1396:void internalCollapse(int,boolean) -> d
-    1399:1418:void internalCollapse(com.mikepenz.fastadapter.IExpandable,int,boolean) -> a
-    1445:1446:void expand(int) -> p
-    1456:1497:void expand(int,boolean) -> c
-    1509:1520:void notifyAdapterDataSetChanged() -> j
-    1540:1552:void notifyAdapterItemRangeInserted(int,int) -> e
-    1571:1578:void notifyAdapterItemRangeRemoved(int,int) -> f
-    1630:1631:void notifyAdapterItemRangeChanged(int,int) -> g
-    1641:1664:void notifyAdapterItemRangeChanged(int,int,java.lang.Object) -> b
-    33:33:com.mikepenz.fastadapter.FastAdapter$OnClickListener access$000(com.mikepenz.fastadapter.FastAdapter) -> a
-    33:33:boolean access$100(com.mikepenz.fastadapter.FastAdapter) -> b
-    33:33:boolean access$200(com.mikepenz.fastadapter.FastAdapter) -> c
-    33:33:void access$300(com.mikepenz.fastadapter.FastAdapter,android.view.View,com.mikepenz.fastadapter.IItem,int) -> a
-    33:33:boolean access$400(com.mikepenz.fastadapter.FastAdapter) -> d
-    33:33:com.mikepenz.fastadapter.FastAdapter$OnClickListener access$500(com.mikepenz.fastadapter.FastAdapter) -> e
-    33:33:com.mikepenz.fastadapter.FastAdapter$OnLongClickListener access$600(com.mikepenz.fastadapter.FastAdapter) -> f
-    33:33:com.mikepenz.fastadapter.FastAdapter$OnLongClickListener access$700(com.mikepenz.fastadapter.FastAdapter) -> g
-    33:33:com.mikepenz.fastadapter.FastAdapter$OnTouchListener access$800(com.mikepenz.fastadapter.FastAdapter) -> h
-    33:33:com.mikepenz.fastadapter.helpers.ClickListenerHelper access$900(com.mikepenz.fastadapter.FastAdapter) -> i
+    com.mikepenz.fastadapter.listeners.ClickEventHook fastAdapterViewClickListener -> x
+    com.mikepenz.fastadapter.listeners.LongClickEventHook fastAdapterViewLongClickListener -> y
+    com.mikepenz.fastadapter.listeners.TouchEventHook fastAdapterViewTouchListener -> z
+    85:89:int floorIndex(android.util.SparseArray,int) -> a
+    36:523:void <init>() -> <init>
+    119:120:com.mikepenz.fastadapter.FastAdapter withOnClickListener(com.mikepenz.fastadapter.FastAdapter$OnClickListener) -> a
+    141:142:com.mikepenz.fastadapter.FastAdapter withOnLongClickListener(com.mikepenz.fastadapter.FastAdapter$OnLongClickListener) -> a
+    210:211:com.mikepenz.fastadapter.FastAdapter withMultiSelect(boolean) -> a
+    221:222:com.mikepenz.fastadapter.FastAdapter withSelectOnLongClick(boolean) -> c
+    232:233:com.mikepenz.fastadapter.FastAdapter withAllowDeselection(boolean) -> d
+    243:244:com.mikepenz.fastadapter.FastAdapter withSelectable(boolean) -> e
+    255:256:com.mikepenz.fastadapter.FastAdapter withPositionBasedStateManagement(boolean) -> f
+    293:293:boolean isPositionBasedStateManagement() -> b
+    325:325:com.mikepenz.fastadapter.FastAdapter withSavedInstanceState(android.os.Bundle) -> a
+    339:381:com.mikepenz.fastadapter.FastAdapter withSavedInstanceState(android.os.Bundle,java.lang.String) -> a
+    390:394:void registerAdapter(com.mikepenz.fastadapter.AbstractAdapter) -> a
+    402:405:void registerTypeInstance(com.mikepenz.fastadapter.IItem) -> a
+    414:414:com.mikepenz.fastadapter.IItem getTypeInstance(int) -> f
+    432:432:int getHolderAdapterPosition(android.support.v7.widget.RecyclerView$ViewHolder) -> e
+    543:554:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> b
+    567:571:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> a
+    582:584:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int,java.util.List) -> a
+    593:595:void onViewRecycled(android.support.v7.widget.RecyclerView$ViewHolder) -> a
+    604:606:void onViewDetachedFromWindow(android.support.v7.widget.RecyclerView$ViewHolder) -> d
+    615:617:void onViewAttachedToWindow(android.support.v7.widget.RecyclerView$ViewHolder) -> c
+    665:670:com.mikepenz.fastadapter.IItem getItem(int) -> g
+    681:692:com.mikepenz.fastadapter.FastAdapter$RelativeInfo getRelativeInfo(int) -> h
+    703:707:com.mikepenz.fastadapter.IAdapter getAdapter(int) -> i
+    718:718:int getItemViewType(int) -> b
+    729:729:long getItemId(int) -> a
+    738:738:int getItemCount() -> a
+    749:766:int getPreItemCountByOrder(int) -> j
+    778:783:int getPreItemCount(int) -> k
+    832:832:android.os.Bundle saveInstanceState(android.os.Bundle) -> b
+    845:882:android.os.Bundle saveInstanceState(android.os.Bundle,java.lang.String) -> b
+    889:906:void cacheSizes() -> k
+    918:929:java.util.Set getSelections() -> c
+    974:1040:void handleSelection(android.view.View,com.mikepenz.fastadapter.IItem,int) -> a
+    1059:1060:void select(int) -> l
+    1069:1070:void select(int,boolean) -> a
+    1080:1103:void select(int,boolean,boolean) -> a
+    1109:1122:void deselect() -> g
+    1162:1166:void deselect(java.lang.Iterable) -> a
+    1174:1175:void deselect(int) -> m
+    1185:1201:void deselect(int,java.util.Iterator) -> a
+    1252:1263:android.util.SparseIntArray getExpanded() -> h
+    1272:1294:int[] getExpandedItems() -> i
+    1303:1317:void toggleExpandable(int) -> n
+    1332:1336:void collapse(boolean) -> g
+    1345:1346:void collapse(int) -> o
+    1355:1427:void collapse(int,boolean) -> b
+    1430:1438:void internalCollapse(int,boolean) -> d
+    1441:1460:void internalCollapse(com.mikepenz.fastadapter.IExpandable,int,boolean) -> a
+    1487:1488:void expand(int) -> p
+    1498:1539:void expand(int,boolean) -> c
+    1551:1562:void notifyAdapterDataSetChanged() -> j
+    1582:1594:void notifyAdapterItemRangeInserted(int,int) -> e
+    1613:1620:void notifyAdapterItemRangeRemoved(int,int) -> f
+    1672:1673:void notifyAdapterItemRangeChanged(int,int) -> g
+    1683:1706:void notifyAdapterItemRangeChanged(int,int,java.lang.Object) -> b
+    30:30:com.mikepenz.fastadapter.FastAdapter$OnClickListener access$000(com.mikepenz.fastadapter.FastAdapter) -> a
+    30:30:boolean access$100(com.mikepenz.fastadapter.FastAdapter) -> b
+    30:30:boolean access$200(com.mikepenz.fastadapter.FastAdapter) -> c
+    30:30:void access$300(com.mikepenz.fastadapter.FastAdapter,android.view.View,com.mikepenz.fastadapter.IItem,int) -> a
+    30:30:boolean access$400(com.mikepenz.fastadapter.FastAdapter) -> d
+    30:30:com.mikepenz.fastadapter.FastAdapter$OnClickListener access$500(com.mikepenz.fastadapter.FastAdapter) -> e
+    30:30:com.mikepenz.fastadapter.FastAdapter$OnLongClickListener access$600(com.mikepenz.fastadapter.FastAdapter) -> f
+    30:30:com.mikepenz.fastadapter.FastAdapter$OnLongClickListener access$700(com.mikepenz.fastadapter.FastAdapter) -> g
+    30:30:com.mikepenz.fastadapter.FastAdapter$OnTouchListener access$800(com.mikepenz.fastadapter.FastAdapter) -> h
+    30:30:com.mikepenz.fastadapter.helpers.ClickListenerHelper access$900(com.mikepenz.fastadapter.FastAdapter) -> i
 com.mikepenz.fastadapter.FastAdapter$1 -> com.mikepenz.a.b$1:
-    android.support.v7.widget.RecyclerView$ViewHolder val$holder -> a
-    com.mikepenz.fastadapter.FastAdapter this$0 -> b
-    443:443:void <init>(com.mikepenz.fastadapter.FastAdapter,android.support.v7.widget.RecyclerView$ViewHolder) -> <init>
-    446:496:void onClick(android.view.View) -> onClick
+    com.mikepenz.fastadapter.FastAdapter this$0 -> a
+    438:438:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
+    441:489:void onClick(android.view.View,int,com.mikepenz.fastadapter.FastAdapter,com.mikepenz.fastadapter.IItem) -> onClick
 com.mikepenz.fastadapter.FastAdapter$2 -> com.mikepenz.a.b$2:
-    android.support.v7.widget.RecyclerView$ViewHolder val$holder -> a
-    com.mikepenz.fastadapter.FastAdapter this$0 -> b
-    500:500:void <init>(com.mikepenz.fastadapter.FastAdapter,android.support.v7.widget.RecyclerView$ViewHolder) -> <init>
-    503:525:boolean onLongClick(android.view.View) -> onLongClick
+    com.mikepenz.fastadapter.FastAdapter this$0 -> a
+    495:495:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
+    498:516:boolean onLongClick(android.view.View,int,com.mikepenz.fastadapter.FastAdapter,com.mikepenz.fastadapter.IItem) -> a
 com.mikepenz.fastadapter.FastAdapter$3 -> com.mikepenz.a.b$3:
-    android.support.v7.widget.RecyclerView$ViewHolder val$holder -> a
-    com.mikepenz.fastadapter.FastAdapter this$0 -> b
-    530:530:void <init>(com.mikepenz.fastadapter.FastAdapter,android.support.v7.widget.RecyclerView$ViewHolder) -> <init>
-    533:540:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    com.mikepenz.fastadapter.FastAdapter this$0 -> a
+    523:523:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
+    526:530:boolean onTouch(android.view.View,android.view.MotionEvent,int,com.mikepenz.fastadapter.FastAdapter,com.mikepenz.fastadapter.IItem) -> a
 com.mikepenz.fastadapter.FastAdapter$OnBindViewHolderListener -> com.mikepenz.a.b$a:
     void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int,java.util.List) -> a
     void unBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> a
+    void onViewAttachedToWindow(android.support.v7.widget.RecyclerView$ViewHolder,int) -> b
+    void onViewDetachedFromWindow(android.support.v7.widget.RecyclerView$ViewHolder,int) -> c
 com.mikepenz.fastadapter.FastAdapter$OnBindViewHolderListenerImpl -> com.mikepenz.a.b$b:
     com.mikepenz.fastadapter.FastAdapter this$0 -> a
-    1823:1823:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
-    1833:1837:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int,java.util.List) -> a
-    1847:1853:void unBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> a
+    1881:1881:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
+    1891:1895:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int,java.util.List) -> a
+    1905:1911:void unBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> a
+    1921:1929:void onViewAttachedToWindow(android.support.v7.widget.RecyclerView$ViewHolder,int) -> b
+    1939:1943:void onViewDetachedFromWindow(android.support.v7.widget.RecyclerView$ViewHolder,int) -> c
 com.mikepenz.fastadapter.FastAdapter$OnClickListener -> com.mikepenz.a.b$c:
     boolean onClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.fastadapter.IItem,int) -> onClick
 com.mikepenz.fastadapter.FastAdapter$OnCreateViewHolderListener -> com.mikepenz.a.b$d:
@@ -24005,9 +24030,9 @@ com.mikepenz.fastadapter.FastAdapter$OnCreateViewHolderListener -> com.mikepenz.
     android.support.v7.widget.RecyclerView$ViewHolder onPostCreateViewHolder(android.support.v7.widget.RecyclerView$ViewHolder) -> a
 com.mikepenz.fastadapter.FastAdapter$OnCreateViewHolderListenerImpl -> com.mikepenz.a.b$e:
     com.mikepenz.fastadapter.FastAdapter this$0 -> a
-    1776:1776:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
-    1786:1786:android.support.v7.widget.RecyclerView$ViewHolder onPreCreateViewHolder(android.view.ViewGroup,int) -> a
-    1797:1800:android.support.v7.widget.RecyclerView$ViewHolder onPostCreateViewHolder(android.support.v7.widget.RecyclerView$ViewHolder) -> a
+    1818:1818:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
+    1828:1828:android.support.v7.widget.RecyclerView$ViewHolder onPreCreateViewHolder(android.view.ViewGroup,int) -> a
+    1839:1842:android.support.v7.widget.RecyclerView$ViewHolder onPostCreateViewHolder(android.support.v7.widget.RecyclerView$ViewHolder) -> a
 com.mikepenz.fastadapter.FastAdapter$OnLongClickListener -> com.mikepenz.a.b$f:
     boolean onLongClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.fastadapter.IItem,int) -> a
 com.mikepenz.fastadapter.FastAdapter$OnTouchListener -> com.mikepenz.a.b$g:
@@ -24016,7 +24041,7 @@ com.mikepenz.fastadapter.FastAdapter$RelativeInfo -> com.mikepenz.a.b$h:
     com.mikepenz.fastadapter.IAdapter adapter -> a
     com.mikepenz.fastadapter.IItem item -> b
     int position -> c
-    1859:1862:void <init>() -> <init>
+    1949:1952:void <init>() -> <init>
 com.mikepenz.fastadapter.IAdapter -> com.mikepenz.a.c:
     com.mikepenz.fastadapter.FastAdapter getFastAdapter() -> b
     int getOrder() -> c
@@ -24044,6 +24069,8 @@ com.mikepenz.fastadapter.IItem -> com.mikepenz.a.g:
     android.support.v7.widget.RecyclerView$ViewHolder getViewHolder(android.view.ViewGroup) -> a
     void bindView(android.support.v7.widget.RecyclerView$ViewHolder,java.util.List) -> a
     void unbindView(android.support.v7.widget.RecyclerView$ViewHolder) -> a
+    void attachToWindow(android.support.v7.widget.RecyclerView$ViewHolder) -> b
+    void detachFromWindow(android.support.v7.widget.RecyclerView$ViewHolder) -> c
 com.mikepenz.fastadapter.IItemAdapter -> com.mikepenz.a.h:
     com.mikepenz.fastadapter.IItemAdapter setNewList(java.util.List) -> a
     com.mikepenz.fastadapter.IItemAdapter add(com.mikepenz.fastadapter.IItem[]) -> a
@@ -24066,93 +24093,104 @@ com.mikepenz.fastadapter.adapters.ItemAdapter -> com.mikepenz.a.a.c:
     com.mikepenz.fastadapter.IItemAdapter$Predicate mFilterPredicate -> f
     com.mikepenz.fastadapter.adapters.ItemAdapter$ItemFilterListener mItemFilterListener -> a
     java.util.Comparator mComparator -> b
-    26:469:void <init>() -> <init>
+    26:52:void <init>() -> <init>
+    69:69:android.widget.Filter getItemFilter() -> g
     161:161:int getOrder() -> c
     169:169:int getAdapterItemCount() -> d
     177:177:java.util.List getAdapterItems() -> e
     214:214:int getGlobalPosition(int) -> d
     223:223:com.mikepenz.fastadapter.IItem getAdapterItem(int) -> c
-    249:295:com.mikepenz.fastadapter.adapters.ItemAdapter set(java.util.List) -> b
-    304:317:com.mikepenz.fastadapter.adapters.ItemAdapter setNewList(java.util.List) -> c
-    335:335:com.mikepenz.fastadapter.adapters.ItemAdapter add(com.mikepenz.fastadapter.IItem[]) -> b
-    344:357:com.mikepenz.fastadapter.adapters.ItemAdapter add(java.util.List) -> d
-    378:387:com.mikepenz.fastadapter.adapters.ItemAdapter add(int,java.util.List) -> b
-    442:452:com.mikepenz.fastadapter.adapters.ItemAdapter removeRange(int,int) -> e
+    253:304:com.mikepenz.fastadapter.adapters.ItemAdapter set(java.util.List,boolean) -> a
+    313:331:com.mikepenz.fastadapter.adapters.ItemAdapter setNewList(java.util.List) -> b
+    349:349:com.mikepenz.fastadapter.adapters.ItemAdapter add(com.mikepenz.fastadapter.IItem[]) -> b
+    358:371:com.mikepenz.fastadapter.adapters.ItemAdapter add(java.util.List) -> c
+    392:401:com.mikepenz.fastadapter.adapters.ItemAdapter add(int,java.util.List) -> b
+    456:466:com.mikepenz.fastadapter.adapters.ItemAdapter removeRange(int,int) -> e
     26:26:com.mikepenz.fastadapter.IItemAdapter removeRange(int,int) -> a_
     26:26:com.mikepenz.fastadapter.IItemAdapter add(int,java.util.List) -> a
     26:26:com.mikepenz.fastadapter.IItemAdapter add(com.mikepenz.fastadapter.IItem[]) -> a
     26:26:com.mikepenz.fastadapter.IItemAdapter setNewList(java.util.List) -> a
     26:26:java.util.List access$000(com.mikepenz.fastadapter.adapters.ItemAdapter) -> a
     26:26:com.mikepenz.fastadapter.IItemAdapter$Predicate access$100(com.mikepenz.fastadapter.adapters.ItemAdapter) -> b
+    26:26:com.mikepenz.fastadapter.adapters.ItemAdapter access$200(com.mikepenz.fastadapter.adapters.ItemAdapter,java.util.List,boolean) -> a
 com.mikepenz.fastadapter.adapters.ItemAdapter$ItemFilter -> com.mikepenz.a.a.c$a:
     java.util.List mOriginalItems -> b
     java.lang.CharSequence mConstraint -> c
     com.mikepenz.fastadapter.adapters.ItemAdapter this$0 -> a
-    469:469:void <init>(com.mikepenz.fastadapter.adapters.ItemAdapter) -> <init>
-    476:512:android.widget.Filter$FilterResults performFiltering(java.lang.CharSequence) -> performFiltering
-    522:529:void publishResults(java.lang.CharSequence,android.widget.Filter$FilterResults) -> publishResults
+    483:483:void <init>(com.mikepenz.fastadapter.adapters.ItemAdapter) -> <init>
+    489:532:android.widget.Filter$FilterResults performFiltering(java.lang.CharSequence) -> performFiltering
+    536:536:java.lang.CharSequence getConstraint() -> a
+    542:549:void publishResults(java.lang.CharSequence,android.widget.Filter$FilterResults) -> publishResults
 com.mikepenz.fastadapter.adapters.ItemAdapter$ItemFilterListener -> com.mikepenz.a.a.c$b:
     void itemsFiltered() -> a
 com.mikepenz.fastadapter.helpers.ClickListenerHelper -> com.mikepenz.a.b.a:
     com.mikepenz.fastadapter.FastAdapter mFastAdapter -> a
     java.util.List eventHooks -> b
-    85:133:void bind(android.support.v7.widget.RecyclerView$ViewHolder) -> a
-    22:22:com.mikepenz.fastadapter.FastAdapter access$000(com.mikepenz.fastadapter.helpers.ClickListenerHelper) -> a
+    28:37:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
+    86:99:void bind(android.support.v7.widget.RecyclerView$ViewHolder) -> a
+    109:154:void attachToView(com.mikepenz.fastadapter.listeners.EventHook,android.support.v7.widget.RecyclerView$ViewHolder,android.view.View) -> a
+    23:23:com.mikepenz.fastadapter.FastAdapter access$000(com.mikepenz.fastadapter.helpers.ClickListenerHelper) -> a
 com.mikepenz.fastadapter.helpers.ClickListenerHelper$1 -> com.mikepenz.a.b.a$1:
     android.support.v7.widget.RecyclerView$ViewHolder val$viewHolder -> a
     com.mikepenz.fastadapter.listeners.EventHook val$event -> b
     com.mikepenz.fastadapter.helpers.ClickListenerHelper this$0 -> c
-    91:91:void <init>(com.mikepenz.fastadapter.helpers.ClickListenerHelper,android.support.v7.widget.RecyclerView$ViewHolder,com.mikepenz.fastadapter.listeners.EventHook) -> <init>
-    94:100:void onClick(android.view.View) -> onClick
+    110:110:void <init>(com.mikepenz.fastadapter.helpers.ClickListenerHelper,android.support.v7.widget.RecyclerView$ViewHolder,com.mikepenz.fastadapter.listeners.EventHook) -> <init>
+    114:120:void onClick(android.view.View) -> onClick
 com.mikepenz.fastadapter.helpers.ClickListenerHelper$2 -> com.mikepenz.a.b.a$2:
     android.support.v7.widget.RecyclerView$ViewHolder val$viewHolder -> a
     com.mikepenz.fastadapter.listeners.EventHook val$event -> b
     com.mikepenz.fastadapter.helpers.ClickListenerHelper this$0 -> c
-    103:103:void <init>(com.mikepenz.fastadapter.helpers.ClickListenerHelper,android.support.v7.widget.RecyclerView$ViewHolder,com.mikepenz.fastadapter.listeners.EventHook) -> <init>
-    106:112:boolean onLongClick(android.view.View) -> onLongClick
+    123:123:void <init>(com.mikepenz.fastadapter.helpers.ClickListenerHelper,android.support.v7.widget.RecyclerView$ViewHolder,com.mikepenz.fastadapter.listeners.EventHook) -> <init>
+    127:133:boolean onLongClick(android.view.View) -> onLongClick
 com.mikepenz.fastadapter.helpers.ClickListenerHelper$3 -> com.mikepenz.a.b.a$3:
     android.support.v7.widget.RecyclerView$ViewHolder val$viewHolder -> a
     com.mikepenz.fastadapter.listeners.EventHook val$event -> b
     com.mikepenz.fastadapter.helpers.ClickListenerHelper this$0 -> c
-    116:116:void <init>(com.mikepenz.fastadapter.helpers.ClickListenerHelper,android.support.v7.widget.RecyclerView$ViewHolder,com.mikepenz.fastadapter.listeners.EventHook) -> <init>
-    120:126:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    137:137:void <init>(com.mikepenz.fastadapter.helpers.ClickListenerHelper,android.support.v7.widget.RecyclerView$ViewHolder,com.mikepenz.fastadapter.listeners.EventHook) -> <init>
+    141:147:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.mikepenz.fastadapter.listeners.ClickEventHook -> com.mikepenz.a.c.a:
-    8:8:void <init>() -> <init>
+    13:13:void <init>() -> <init>
     void onClick(android.view.View,int,com.mikepenz.fastadapter.FastAdapter,com.mikepenz.fastadapter.IItem) -> onClick
+    19:19:android.view.View onBind(android.support.v7.widget.RecyclerView$ViewHolder) -> a
+    25:25:java.util.List onBindMany(android.support.v7.widget.RecyclerView$ViewHolder) -> b
 com.mikepenz.fastadapter.listeners.CustomEventHook -> com.mikepenz.a.c.b:
-    9:9:void <init>() -> <init>
-    void onEvent(com.mikepenz.fastadapter.FastAdapter,android.support.v7.widget.RecyclerView$ViewHolder,android.view.View) -> a
+    13:13:void <init>() -> <init>
+    void onEvent(android.view.View,android.support.v7.widget.RecyclerView$ViewHolder,com.mikepenz.fastadapter.FastAdapter) -> a
 com.mikepenz.fastadapter.listeners.EventHook -> com.mikepenz.a.c.c:
     android.view.View onBind(android.support.v7.widget.RecyclerView$ViewHolder) -> a
+    java.util.List onBindMany(android.support.v7.widget.RecyclerView$ViewHolder) -> b
 com.mikepenz.fastadapter.listeners.LongClickEventHook -> com.mikepenz.a.c.d:
-    8:8:void <init>() -> <init>
+    13:13:void <init>() -> <init>
     boolean onLongClick(android.view.View,int,com.mikepenz.fastadapter.FastAdapter,com.mikepenz.fastadapter.IItem) -> a
+    19:19:android.view.View onBind(android.support.v7.widget.RecyclerView$ViewHolder) -> a
+    25:25:java.util.List onBindMany(android.support.v7.widget.RecyclerView$ViewHolder) -> b
 com.mikepenz.fastadapter.listeners.TouchEventHook -> com.mikepenz.a.c.e:
-    9:9:void <init>() -> <init>
+    14:14:void <init>() -> <init>
     boolean onTouch(android.view.View,android.view.MotionEvent,int,com.mikepenz.fastadapter.FastAdapter,com.mikepenz.fastadapter.IItem) -> a
+    20:20:android.view.View onBind(android.support.v7.widget.RecyclerView$ViewHolder) -> a
+    26:26:java.util.List onBindMany(android.support.v7.widget.RecyclerView$ViewHolder) -> b
 com.mikepenz.fastadapter.utils.AdapterUtil -> com.mikepenz.a.d.a:
-    28:43:void handleStates(com.mikepenz.fastadapter.FastAdapter,int,int) -> a
-    55:78:java.util.SortedSet adjustPosition(java.util.Set,int,int,int) -> a
-    91:114:android.util.SparseIntArray adjustPosition(android.util.SparseIntArray,int,int,int) -> a
-    124:137:void restoreSubItemSelectionStatesForAlternativeStateManagement(com.mikepenz.fastadapter.IItem,java.util.List) -> a
-    146:159:void findSubItemSelections(com.mikepenz.fastadapter.IItem,java.util.List) -> b
-    168:175:java.util.List getAllItems(com.mikepenz.fastadapter.FastAdapter) -> a
-    185:194:void addAllSubItems(com.mikepenz.fastadapter.IItem,java.util.List) -> c
+    27:42:void handleStates(com.mikepenz.fastadapter.FastAdapter,int,int) -> a
+    54:77:java.util.Set adjustPosition(java.util.Set,int,int,int) -> a
+    90:113:android.util.SparseIntArray adjustPosition(android.util.SparseIntArray,int,int,int) -> a
+    123:136:void restoreSubItemSelectionStatesForAlternativeStateManagement(com.mikepenz.fastadapter.IItem,java.util.List) -> a
+    145:158:void findSubItemSelections(com.mikepenz.fastadapter.IItem,java.util.List) -> b
+    167:174:java.util.List getAllItems(com.mikepenz.fastadapter.FastAdapter) -> a
+    184:193:void addAllSubItems(com.mikepenz.fastadapter.IItem,java.util.List) -> c
 com.mikepenz.fastadapter.utils.IdDistributor -> com.mikepenz.a.d.b:
     java.util.concurrent.atomic.AtomicLong idDistributor -> a
     23:26:java.util.List checkIds(java.util.List) -> a
     36:39:com.mikepenz.fastadapter.IIdentifyable[] checkIds(com.mikepenz.fastadapter.IIdentifyable[]) -> a
     49:52:com.mikepenz.fastadapter.IIdentifyable checkId(com.mikepenz.fastadapter.IIdentifyable) -> a
     14:14:void <clinit>() -> <clinit>
-com.mikepenz.fastadapter.utils.ViewHolderFactory -> com.mikepenz.a.d.c:
-    android.support.v7.widget.RecyclerView$ViewHolder create(android.view.View) -> a
 com.mikepenz.iconics.Iconics -> com.mikepenz.iconics.a:
     java.lang.String TAG -> a
     boolean INIT_DONE -> b
     java.util.HashMap FONTS -> c
-    52:64:void init(android.content.Context) -> a
-    111:112:com.mikepenz.iconics.typeface.ITypeface findFont(android.content.Context,java.lang.String) -> a
-    125:127:void <init>() -> <init>
+    52:65:void init(android.content.Context) -> a
+    100:103:void validateFont(com.mikepenz.iconics.typeface.ITypeface) -> a
+    124:125:com.mikepenz.iconics.typeface.ITypeface findFont(android.content.Context,java.lang.String) -> a
+    138:140:void <init>() -> <init>
     41:44:void <clinit>() -> <clinit>
 com.mikepenz.iconics.IconicsDrawable -> com.mikepenz.iconics.b:
     android.content.Context mContext -> a
@@ -24289,6 +24327,7 @@ com.mikepenz.iconics.core.R$styleable -> com.mikepenz.iconics.a.a$a:
     int AlertDialog_listItemLayout -> AlertDialog_listItemLayout
     int AlertDialog_listLayout -> AlertDialog_listLayout
     int AlertDialog_multiChoiceItemLayout -> AlertDialog_multiChoiceItemLayout
+    int AlertDialog_showTitle -> AlertDialog_showTitle
     int AlertDialog_singleChoiceItemLayout -> AlertDialog_singleChoiceItemLayout
     int[] AppCompatImageView -> AppCompatImageView
     int AppCompatImageView_android_src -> AppCompatImageView_android_src
@@ -24523,6 +24562,9 @@ com.mikepenz.iconics.core.R$styleable -> com.mikepenz.iconics.a.a$a:
     int PopupWindow_android_popupAnimationStyle -> PopupWindow_android_popupAnimationStyle
     int PopupWindow_android_popupBackground -> PopupWindow_android_popupBackground
     int PopupWindow_overlapAnchor -> PopupWindow_overlapAnchor
+    int[] RecycleListView -> RecycleListView
+    int RecycleListView_paddingBottomNoButtons -> RecycleListView_paddingBottomNoButtons
+    int RecycleListView_paddingTopNoTitle -> RecycleListView_paddingTopNoTitle
     int[] SearchView -> SearchView
     int SearchView_android_focusable -> SearchView_android_focusable
     int SearchView_android_imeOptions -> SearchView_android_imeOptions
@@ -24568,6 +24610,7 @@ com.mikepenz.iconics.core.R$styleable -> com.mikepenz.iconics.a.a$a:
     int TextAppearance_android_shadowDy -> TextAppearance_android_shadowDy
     int TextAppearance_android_shadowRadius -> TextAppearance_android_shadowRadius
     int TextAppearance_android_textColor -> TextAppearance_android_textColor
+    int TextAppearance_android_textColorHint -> TextAppearance_android_textColorHint
     int TextAppearance_android_textSize -> TextAppearance_android_textSize
     int TextAppearance_android_textStyle -> TextAppearance_android_textStyle
     int TextAppearance_android_typeface -> TextAppearance_android_typeface
@@ -24616,7 +24659,7 @@ com.mikepenz.iconics.core.R$styleable -> com.mikepenz.iconics.a.a$a:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1040:1409:void <clinit>() -> <clinit>
+    1126:1500:void <clinit>() -> <clinit>
 com.mikepenz.iconics.typeface.IIcon -> com.mikepenz.iconics.b.a:
     char getCharacter() -> a
     com.mikepenz.iconics.typeface.ITypeface getTypeface() -> b
@@ -24696,25 +24739,25 @@ com.mikepenz.materialdrawer.Drawer -> com.mikepenz.materialdrawer.c:
     com.mikepenz.materialdrawer.Drawer$OnDrawerItemLongClickListener originalOnDrawerItemLongClickListener -> c
     java.util.List originalDrawerItems -> d
     android.os.Bundle originalDrawerState -> e
-    62:64:void <init>(com.mikepenz.materialdrawer.DrawerBuilder) -> <init>
-    126:129:void openDrawer() -> a
-    135:138:void closeDrawer() -> b
-    147:150:boolean isDrawerOpen() -> c
-    225:225:com.mikepenz.fastadapter.FastAdapter getAdapter() -> d
-    261:261:java.util.List getDrawerItems() -> e
-    354:354:android.view.View getStickyFooter() -> f
-    363:363:android.view.View getStickyFooterShadow() -> k
-    404:404:int getPosition(long) -> a
-    501:501:boolean setSelection(long) -> b
-    567:585:boolean setSelectionAtPosition(int,boolean) -> a
-    787:791:void setItems(java.util.List,boolean) -> a
-    893:894:void setOnDrawerItemClickListener(com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener) -> a
-    906:906:com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener getOnDrawerItemClickListener() -> g
-    924:925:void setOnDrawerItemLongClickListener(com.mikepenz.materialdrawer.Drawer$OnDrawerItemLongClickListener) -> a
-    933:933:com.mikepenz.materialdrawer.Drawer$OnDrawerItemLongClickListener getOnDrawerItemLongClickListener() -> h
-    948:948:boolean switchedDrawerContent() -> i
-    969:991:void switchDrawerContent(com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener,com.mikepenz.materialdrawer.Drawer$OnDrawerItemLongClickListener,java.util.List,int) -> a
-    997:1025:void resetDrawerContent() -> j
+    67:69:void <init>(com.mikepenz.materialdrawer.DrawerBuilder) -> <init>
+    131:134:void openDrawer() -> a
+    140:143:void closeDrawer() -> b
+    152:155:boolean isDrawerOpen() -> c
+    230:230:com.mikepenz.fastadapter.FastAdapter getAdapter() -> d
+    266:266:java.util.List getDrawerItems() -> e
+    359:359:android.view.View getStickyFooter() -> f
+    368:368:android.view.View getStickyFooterShadow() -> k
+    409:409:int getPosition(long) -> a
+    506:506:boolean setSelection(long) -> b
+    572:590:boolean setSelectionAtPosition(int,boolean) -> a
+    792:796:void setItems(java.util.List,boolean) -> a
+    898:899:void setOnDrawerItemClickListener(com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener) -> a
+    911:911:com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener getOnDrawerItemClickListener() -> g
+    929:930:void setOnDrawerItemLongClickListener(com.mikepenz.materialdrawer.Drawer$OnDrawerItemLongClickListener) -> a
+    938:938:com.mikepenz.materialdrawer.Drawer$OnDrawerItemLongClickListener getOnDrawerItemLongClickListener() -> h
+    953:953:boolean switchedDrawerContent() -> i
+    974:996:void switchDrawerContent(com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener,com.mikepenz.materialdrawer.Drawer$OnDrawerItemLongClickListener,java.util.List,int) -> a
+    1002:1030:void resetDrawerContent() -> j
 com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener -> com.mikepenz.materialdrawer.c$a:
     boolean onItemClick(android.view.View,int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem) -> a
 com.mikepenz.materialdrawer.Drawer$OnDrawerItemLongClickListener -> com.mikepenz.materialdrawer.c$b:
@@ -24735,7 +24778,7 @@ com.mikepenz.materialdrawer.DrawerBuilder -> com.mikepenz.materialdrawer.d:
     com.mikepenz.materialize.Materialize mMaterialize -> g
     boolean mTranslucentStatusBar -> h
     java.lang.Boolean mDisplayBelowStatusBar -> i
-    boolean mInnerShadow -> ap
+    boolean mInnerShadow -> aq
     android.support.v7.widget.Toolbar mToolbar -> j
     boolean mTranslucentNavigationBar -> k
     boolean mTranslucentNavigationBarProgrammatically -> l
@@ -24791,71 +24834,78 @@ com.mikepenz.materialdrawer.DrawerBuilder -> com.mikepenz.materialdrawer.d:
     com.mikepenz.materialdrawer.Drawer$OnDrawerItemLongClickListener mOnDrawerItemLongClickListener -> aj
     com.mikepenz.materialdrawer.Drawer$OnDrawerNavigationListener mOnDrawerNavigationListener -> ak
     boolean mShowDrawerOnFirstLaunch -> al
-    boolean mGenerateMiniDrawer -> am
-    com.mikepenz.materialdrawer.MiniDrawer mMiniDrawer -> an
-    android.os.Bundle mSavedInstance -> ao
-    71:1195:void <init>() -> <init>
-    71:1195:void <init>(android.app.Activity) -> <init>
-    195:196:com.mikepenz.materialdrawer.DrawerBuilder withToolbar(android.support.v7.widget.Toolbar) -> a
-    319:333:com.mikepenz.materialdrawer.DrawerBuilder withDrawerLayout(int) -> a
-    828:829:com.mikepenz.materialdrawer.DrawerBuilder withSelectedItem(long) -> a
-    906:916:com.mikepenz.fastadapter.FastAdapter getAdapter() -> a
-    920:920:com.mikepenz.fastadapter.IItemAdapter getItemAdapter() -> b
-    924:924:com.mikepenz.fastadapter.IItemAdapter getHeaderAdapter() -> c
-    928:928:com.mikepenz.fastadapter.IItemAdapter getFooterAdapter() -> d
-    981:982:com.mikepenz.materialdrawer.DrawerBuilder addDrawerItems(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem[]) -> a
-    1006:1012:com.mikepenz.materialdrawer.DrawerBuilder addStickyDrawerItems(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem[]) -> b
-    1085:1086:com.mikepenz.materialdrawer.DrawerBuilder withCloseOnClick(boolean) -> a
-    1229:1242:void handleShowOnFirstLaunch() -> i
-    1250:1288:com.mikepenz.materialdrawer.Drawer build() -> e
-    1364:1460:void handleDrawerNavigation(android.app.Activity,boolean) -> a
-    1469:1509:com.mikepenz.materialdrawer.Drawer buildView() -> f
-    1571:1771:void createContent() -> j
-    1777:1793:void closeDrawerDelayed() -> g
-    1802:1802:com.mikepenz.materialdrawer.model.interfaces.IDrawerItem getDrawerItem(int) -> b
-    1820:1826:void resetStickyFooterSelection() -> h
+    boolean mShowDrawerUntilDraggedOpened -> am
+    boolean mGenerateMiniDrawer -> an
+    com.mikepenz.materialdrawer.MiniDrawer mMiniDrawer -> ao
+    android.os.Bundle mSavedInstance -> ap
+    70:1211:void <init>() -> <init>
+    70:1211:void <init>(android.app.Activity) -> <init>
+    194:195:com.mikepenz.materialdrawer.DrawerBuilder withToolbar(android.support.v7.widget.Toolbar) -> a
+    318:332:com.mikepenz.materialdrawer.DrawerBuilder withDrawerLayout(int) -> a
+    827:828:com.mikepenz.materialdrawer.DrawerBuilder withSelectedItem(long) -> a
+    908:918:com.mikepenz.fastadapter.FastAdapter getAdapter() -> a
+    922:922:com.mikepenz.fastadapter.IItemAdapter getItemAdapter() -> b
+    926:926:com.mikepenz.fastadapter.IItemAdapter getHeaderAdapter() -> c
+    930:930:com.mikepenz.fastadapter.IItemAdapter getFooterAdapter() -> d
+    983:984:com.mikepenz.materialdrawer.DrawerBuilder addDrawerItems(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem[]) -> a
+    1008:1014:com.mikepenz.materialdrawer.DrawerBuilder addStickyDrawerItems(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem[]) -> b
+    1087:1088:com.mikepenz.materialdrawer.DrawerBuilder withCloseOnClick(boolean) -> a
+    1245:1288:void handleShowOnLaunch() -> i
+    1296:1334:com.mikepenz.materialdrawer.Drawer build() -> e
+    1410:1506:void handleDrawerNavigation(android.app.Activity,boolean) -> a
+    1515:1555:com.mikepenz.materialdrawer.Drawer buildView() -> f
+    1617:1817:void createContent() -> j
+    1823:1839:void closeDrawerDelayed() -> g
+    1848:1848:com.mikepenz.materialdrawer.model.interfaces.IDrawerItem getDrawerItem(int) -> b
+    1866:1872:void resetStickyFooterSelection() -> h
 com.mikepenz.materialdrawer.DrawerBuilder$1 -> com.mikepenz.materialdrawer.d$1:
-    com.mikepenz.materialdrawer.DrawerBuilder this$0 -> a
-    1364:1364:void <init>(com.mikepenz.materialdrawer.DrawerBuilder) -> <init>
-    1367:1379:void onClick(android.view.View) -> onClick
-com.mikepenz.materialdrawer.DrawerBuilder$2 -> com.mikepenz.materialdrawer.d$2:
+    boolean hasBeenDragged -> a
+    android.content.SharedPreferences val$preferences -> b
     com.mikepenz.materialdrawer.DrawerBuilder this$0 -> c
-    1388:1388:void <init>(com.mikepenz.materialdrawer.DrawerBuilder,android.app.Activity,android.support.v4.widget.DrawerLayout,android.support.v7.widget.Toolbar,int,int) -> <init>
-    1391:1395:void onDrawerOpened(android.view.View) -> a
-    1399:1403:void onDrawerClosed(android.view.View) -> b
-    1407:1416:void onDrawerSlide(android.view.View,float) -> a
-com.mikepenz.materialdrawer.DrawerBuilder$3 -> com.mikepenz.materialdrawer.d$3:
+    1263:1264:void <init>(com.mikepenz.materialdrawer.DrawerBuilder,android.content.SharedPreferences) -> <init>
+    1268:1284:void onDrawerStateChanged(int) -> a
+com.mikepenz.materialdrawer.DrawerBuilder$2 -> com.mikepenz.materialdrawer.d$2:
     com.mikepenz.materialdrawer.DrawerBuilder this$0 -> a
-    1432:1432:void <init>(com.mikepenz.materialdrawer.DrawerBuilder) -> <init>
-    1435:1438:void onDrawerSlide(android.view.View,float) -> a
-    1442:1445:void onDrawerOpened(android.view.View) -> a
-    1449:1452:void onDrawerClosed(android.view.View) -> b
-    1457:1457:void onDrawerStateChanged(int) -> a
+    1410:1410:void <init>(com.mikepenz.materialdrawer.DrawerBuilder) -> <init>
+    1413:1425:void onClick(android.view.View) -> onClick
+com.mikepenz.materialdrawer.DrawerBuilder$3 -> com.mikepenz.materialdrawer.d$3:
+    com.mikepenz.materialdrawer.DrawerBuilder this$0 -> c
+    1434:1434:void <init>(com.mikepenz.materialdrawer.DrawerBuilder,android.app.Activity,android.support.v4.widget.DrawerLayout,android.support.v7.widget.Toolbar,int,int) -> <init>
+    1437:1441:void onDrawerOpened(android.view.View) -> a
+    1445:1449:void onDrawerClosed(android.view.View) -> b
+    1453:1462:void onDrawerSlide(android.view.View,float) -> a
 com.mikepenz.materialdrawer.DrawerBuilder$4 -> com.mikepenz.materialdrawer.d$4:
     com.mikepenz.materialdrawer.DrawerBuilder this$0 -> a
-    1657:1657:void <init>(com.mikepenz.materialdrawer.DrawerBuilder) -> <init>
-    1660:1662:void onClick(android.view.View) -> onClick
+    1478:1478:void <init>(com.mikepenz.materialdrawer.DrawerBuilder) -> <init>
+    1481:1484:void onDrawerSlide(android.view.View,float) -> a
+    1488:1491:void onDrawerOpened(android.view.View) -> a
+    1495:1498:void onDrawerClosed(android.view.View) -> b
+    1503:1503:void onDrawerStateChanged(int) -> a
 com.mikepenz.materialdrawer.DrawerBuilder$5 -> com.mikepenz.materialdrawer.d$5:
     com.mikepenz.materialdrawer.DrawerBuilder this$0 -> a
-    1690:1690:void <init>(com.mikepenz.materialdrawer.DrawerBuilder) -> <init>
-    1693:1737:boolean onClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int) -> onClick
-    1690:1690:boolean onClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.fastadapter.IItem,int) -> onClick
-com.mikepenz.materialdrawer.DrawerBuilder$5$1 -> com.mikepenz.materialdrawer.d$5$1:
+    1703:1703:void <init>(com.mikepenz.materialdrawer.DrawerBuilder) -> <init>
+    1706:1708:void onClick(android.view.View) -> onClick
+com.mikepenz.materialdrawer.DrawerBuilder$6 -> com.mikepenz.materialdrawer.d$6:
+    com.mikepenz.materialdrawer.DrawerBuilder this$0 -> a
+    1736:1736:void <init>(com.mikepenz.materialdrawer.DrawerBuilder) -> <init>
+    1739:1783:boolean onClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int) -> onClick
+    1736:1736:boolean onClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.fastadapter.IItem,int) -> onClick
+com.mikepenz.materialdrawer.DrawerBuilder$6$1 -> com.mikepenz.materialdrawer.d$6$1:
     android.view.View val$view -> a
     int val$position -> b
     com.mikepenz.materialdrawer.model.interfaces.IDrawerItem val$item -> c
-    com.mikepenz.materialdrawer.DrawerBuilder$5 this$1 -> d
-    1709:1709:void <init>(com.mikepenz.materialdrawer.DrawerBuilder$5,android.view.View,int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem) -> <init>
-    1712:1713:void run() -> run
-com.mikepenz.materialdrawer.DrawerBuilder$6 -> com.mikepenz.materialdrawer.d$6:
-    com.mikepenz.materialdrawer.DrawerBuilder this$0 -> a
-    1741:1741:void <init>(com.mikepenz.materialdrawer.DrawerBuilder) -> <init>
-    1744:1747:boolean onLongClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int) -> a
-    1741:1741:boolean onLongClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.fastadapter.IItem,int) -> a
+    com.mikepenz.materialdrawer.DrawerBuilder$6 this$1 -> d
+    1755:1755:void <init>(com.mikepenz.materialdrawer.DrawerBuilder$6,android.view.View,int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem) -> <init>
+    1758:1759:void run() -> run
 com.mikepenz.materialdrawer.DrawerBuilder$7 -> com.mikepenz.materialdrawer.d$7:
     com.mikepenz.materialdrawer.DrawerBuilder this$0 -> a
-    1779:1779:void <init>(com.mikepenz.materialdrawer.DrawerBuilder) -> <init>
-    1782:1787:void run() -> run
+    1787:1787:void <init>(com.mikepenz.materialdrawer.DrawerBuilder) -> <init>
+    1790:1793:boolean onLongClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int) -> a
+    1787:1787:boolean onLongClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.fastadapter.IItem,int) -> a
+com.mikepenz.materialdrawer.DrawerBuilder$8 -> com.mikepenz.materialdrawer.d$8:
+    com.mikepenz.materialdrawer.DrawerBuilder this$0 -> a
+    1825:1825:void <init>(com.mikepenz.materialdrawer.DrawerBuilder) -> <init>
+    1828:1833:void run() -> run
 com.mikepenz.materialdrawer.DrawerUtils -> com.mikepenz.materialdrawer.e:
     34:75:void onFooterDrawerItemClick(com.mikepenz.materialdrawer.DrawerBuilder,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,android.view.View,java.lang.Boolean) -> a
     85:95:void setStickyFooterSelection(com.mikepenz.materialdrawer.DrawerBuilder,int,java.lang.Boolean) -> a
@@ -25104,8 +25154,10 @@ com.mikepenz.materialdrawer.R$attr -> com.mikepenz.materialdrawer.g$a:
     int navigationIcon -> navigationIcon
     int navigationMode -> navigationMode
     int overlapAnchor -> overlapAnchor
+    int paddingBottomNoButtons -> paddingBottomNoButtons
     int paddingEnd -> paddingEnd
     int paddingStart -> paddingStart
+    int paddingTopNoTitle -> paddingTopNoTitle
     int panelBackground -> panelBackground
     int panelMenuListTheme -> panelMenuListTheme
     int panelMenuListWidth -> panelMenuListWidth
@@ -25140,6 +25192,7 @@ com.mikepenz.materialdrawer.R$attr -> com.mikepenz.materialdrawer.g$a:
     int showAsAction -> showAsAction
     int showDividers -> showDividers
     int showText -> showText
+    int showTitle -> showTitle
     int singleChoiceItemLayout -> singleChoiceItemLayout
     int sirl_insetForeground -> sirl_insetForeground
     int siv_insetForeground -> siv_insetForeground
@@ -25234,6 +25287,7 @@ com.mikepenz.materialdrawer.R$color -> com.mikepenz.materialdrawer.g$b:
     int abc_background_cache_hint_selector_material_dark -> abc_background_cache_hint_selector_material_dark
     int abc_background_cache_hint_selector_material_light -> abc_background_cache_hint_selector_material_light
     int abc_btn_colored_borderless_text_material -> abc_btn_colored_borderless_text_material
+    int abc_btn_colored_text_material -> abc_btn_colored_text_material
     int abc_color_highlight_material -> abc_color_highlight_material
     int abc_hint_foreground_material_dark -> abc_hint_foreground_material_dark
     int abc_hint_foreground_material_light -> abc_hint_foreground_material_light
@@ -25670,10 +25724,13 @@ com.mikepenz.materialdrawer.R$dimen -> com.mikepenz.materialdrawer.g$c:
     int abc_dialog_fixed_height_minor -> abc_dialog_fixed_height_minor
     int abc_dialog_fixed_width_major -> abc_dialog_fixed_width_major
     int abc_dialog_fixed_width_minor -> abc_dialog_fixed_width_minor
+    int abc_dialog_list_padding_bottom_no_buttons -> abc_dialog_list_padding_bottom_no_buttons
+    int abc_dialog_list_padding_top_no_title -> abc_dialog_list_padding_top_no_title
     int abc_dialog_min_width_major -> abc_dialog_min_width_major
     int abc_dialog_min_width_minor -> abc_dialog_min_width_minor
     int abc_dialog_padding_material -> abc_dialog_padding_material
     int abc_dialog_padding_top_material -> abc_dialog_padding_top_material
+    int abc_dialog_title_divider_material -> abc_dialog_title_divider_material
     int abc_disabled_alpha_material_dark -> abc_disabled_alpha_material_dark
     int abc_disabled_alpha_material_light -> abc_disabled_alpha_material_light
     int abc_dropdownitem_icon_width -> abc_dropdownitem_icon_width
@@ -25936,9 +25993,19 @@ com.mikepenz.materialdrawer.R$drawable -> com.mikepenz.materialdrawer.g$d:
     int abc_textfield_search_default_mtrl_alpha -> abc_textfield_search_default_mtrl_alpha
     int abc_textfield_search_material -> abc_textfield_search_material
     int abc_vector_test -> abc_vector_test
+    int avd_hide_password -> avd_hide_password
+    int avd_hide_password_1 -> avd_hide_password_1
+    int avd_hide_password_2 -> avd_hide_password_2
+    int avd_hide_password_3 -> avd_hide_password_3
+    int avd_show_password -> avd_show_password
+    int avd_show_password_1 -> avd_show_password_1
+    int avd_show_password_2 -> avd_show_password_2
+    int avd_show_password_3 -> avd_show_password_3
     int design_bottom_navigation_item_background -> design_bottom_navigation_item_background
     int design_fab_background -> design_fab_background
     int design_ic_visibility -> design_ic_visibility
+    int design_ic_visibility_off -> design_ic_visibility_off
+    int design_password_eye -> design_password_eye
     int design_snackbar_background -> design_snackbar_background
     int material_drawer_badge -> material_drawer_badge
     int material_drawer_circle_mask -> material_drawer_circle_mask
@@ -26036,6 +26103,7 @@ com.mikepenz.materialdrawer.R$id -> com.mikepenz.materialdrawer.g$e:
     int line3 -> line3
     int listMode -> listMode
     int list_item -> list_item
+    int masked -> masked
     int material_drawer_account_header -> material_drawer_account_header
     int material_drawer_account_header_background -> material_drawer_account_header_background
     int material_drawer_account_header_current -> material_drawer_account_header_current
@@ -26141,9 +26209,13 @@ com.mikepenz.materialdrawer.R$id -> com.mikepenz.materialdrawer.g$e:
     int text -> text
     int text2 -> text2
     int textSpacerNoButtons -> textSpacerNoButtons
+    int textSpacerNoTitle -> textSpacerNoTitle
     int text_input_password_toggle -> text_input_password_toggle
+    int textinput_counter -> textinput_counter
+    int textinput_error -> textinput_error
     int time -> time
     int title -> title
+    int titleDividerNoCustom -> titleDividerNoCustom
     int title_template -> title_template
     int top -> top
     int topPanel -> topPanel
@@ -26153,6 +26225,7 @@ com.mikepenz.materialdrawer.R$id -> com.mikepenz.materialdrawer.g$e:
     int up -> up
     int useLogo -> useLogo
     int view_offset_helper -> view_offset_helper
+    int visible -> visible
     int withText -> withText
     int wrap_content -> wrap_content
 com.mikepenz.materialdrawer.R$layout -> com.mikepenz.materialdrawer.g$f:
@@ -26167,6 +26240,7 @@ com.mikepenz.materialdrawer.R$layout -> com.mikepenz.materialdrawer.g$f:
     int abc_activity_chooser_view_list_item -> abc_activity_chooser_view_list_item
     int abc_alert_dialog_button_bar_material -> abc_alert_dialog_button_bar_material
     int abc_alert_dialog_material -> abc_alert_dialog_material
+    int abc_alert_dialog_title_material -> abc_alert_dialog_title_material
     int abc_dialog_title_material -> abc_dialog_title_material
     int abc_expanded_menu_layout -> abc_expanded_menu_layout
     int abc_list_menu_item_checkbox -> abc_list_menu_item_checkbox
@@ -26323,6 +26397,11 @@ com.mikepenz.materialdrawer.R$string -> com.mikepenz.materialdrawer.g$g:
     int library_materialize_year -> library_materialize_year
     int material_drawer_close -> material_drawer_close
     int material_drawer_open -> material_drawer_open
+    int password_toggle_content_description -> password_toggle_content_description
+    int path_password_eye -> path_password_eye
+    int path_password_eye_mask_strike_through -> path_password_eye_mask_strike_through
+    int path_password_eye_mask_visible -> path_password_eye_mask_visible
+    int path_password_strike_through -> path_password_strike_through
     int search_menu_title -> search_menu_title
     int status_bar_notification_info_overflow -> status_bar_notification_info_overflow
 com.mikepenz.materialdrawer.R$style -> com.mikepenz.materialdrawer.g$h:
@@ -26372,6 +26451,8 @@ com.mikepenz.materialdrawer.R$style -> com.mikepenz.materialdrawer.g$h:
     int Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle -> Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle
     int Base_TextAppearance_AppCompat_Widget_ActionMode_Title -> Base_TextAppearance_AppCompat_Widget_ActionMode_Title
     int Base_TextAppearance_AppCompat_Widget_Button -> Base_TextAppearance_AppCompat_Widget_Button
+    int Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored -> Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored
+    int Base_TextAppearance_AppCompat_Widget_Button_Colored -> Base_TextAppearance_AppCompat_Widget_Button_Colored
     int Base_TextAppearance_AppCompat_Widget_Button_Inverse -> Base_TextAppearance_AppCompat_Widget_Button_Inverse
     int Base_TextAppearance_AppCompat_Widget_DropDownItem -> Base_TextAppearance_AppCompat_Widget_DropDownItem
     int Base_TextAppearance_AppCompat_Widget_PopupMenu_Header -> Base_TextAppearance_AppCompat_Widget_PopupMenu_Header
@@ -26607,6 +26688,8 @@ com.mikepenz.materialdrawer.R$style -> com.mikepenz.materialdrawer.g$h:
     int TextAppearance_AppCompat_Widget_ActionMode_Title -> TextAppearance_AppCompat_Widget_ActionMode_Title
     int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse -> TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse
     int TextAppearance_AppCompat_Widget_Button -> TextAppearance_AppCompat_Widget_Button
+    int TextAppearance_AppCompat_Widget_Button_Borderless_Colored -> TextAppearance_AppCompat_Widget_Button_Borderless_Colored
+    int TextAppearance_AppCompat_Widget_Button_Colored -> TextAppearance_AppCompat_Widget_Button_Colored
     int TextAppearance_AppCompat_Widget_Button_Inverse -> TextAppearance_AppCompat_Widget_Button_Inverse
     int TextAppearance_AppCompat_Widget_DropDownItem -> TextAppearance_AppCompat_Widget_DropDownItem
     int TextAppearance_AppCompat_Widget_PopupMenu_Header -> TextAppearance_AppCompat_Widget_PopupMenu_Header
@@ -26801,6 +26884,7 @@ com.mikepenz.materialdrawer.R$styleable -> com.mikepenz.materialdrawer.g$i:
     int AlertDialog_listItemLayout -> AlertDialog_listItemLayout
     int AlertDialog_listLayout -> AlertDialog_listLayout
     int AlertDialog_multiChoiceItemLayout -> AlertDialog_multiChoiceItemLayout
+    int AlertDialog_showTitle -> AlertDialog_showTitle
     int AlertDialog_singleChoiceItemLayout -> AlertDialog_singleChoiceItemLayout
     int[] AppBarLayout -> AppBarLayout
     int[] AppBarLayoutStates -> AppBarLayoutStates
@@ -27132,6 +27216,9 @@ com.mikepenz.materialdrawer.R$styleable -> com.mikepenz.materialdrawer.g$i:
     int PopupWindow_android_popupAnimationStyle -> PopupWindow_android_popupAnimationStyle
     int PopupWindow_android_popupBackground -> PopupWindow_android_popupBackground
     int PopupWindow_overlapAnchor -> PopupWindow_overlapAnchor
+    int[] RecycleListView -> RecycleListView
+    int RecycleListView_paddingBottomNoButtons -> RecycleListView_paddingBottomNoButtons
+    int RecycleListView_paddingTopNoTitle -> RecycleListView_paddingTopNoTitle
     int[] RecyclerView -> RecyclerView
     int RecyclerView_android_descendantFocusability -> RecyclerView_android_descendantFocusability
     int RecyclerView_android_orientation -> RecyclerView_android_orientation
@@ -27283,7 +27370,7 @@ com.mikepenz.materialdrawer.R$styleable -> com.mikepenz.materialdrawer.g$i:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1918:2442:void <clinit>() -> <clinit>
+    1956:2484:void <clinit>() -> <clinit>
 com.mikepenz.materialdrawer.holder.BadgeStyle -> com.mikepenz.materialdrawer.a.a:
     int mGradientDrawable -> a
     android.graphics.drawable.Drawable mBadgeBackground -> b
@@ -27339,53 +27426,54 @@ com.mikepenz.materialdrawer.interfaces.ICrossfader -> com.mikepenz.materialdrawe
 com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem -> com.mikepenz.materialdrawer.d.a:
     com.mikepenz.materialdrawer.holder.StringHolder mBadge -> a
     com.mikepenz.materialdrawer.holder.BadgeStyle mBadgeStyle -> b
-    20:22:void <init>() -> <init>
-    58:58:int getType() -> h
-    64:64:int getLayoutRes() -> i
-    69:92:void bindView(com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem$ViewHolder,java.util.List) -> a
-    96:96:com.mikepenz.fastadapter.utils.ViewHolderFactory getFactory() -> j
-    20:20:void bindView(android.support.v7.widget.RecyclerView$ViewHolder,java.util.List) -> a
-com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem$ItemFactory -> com.mikepenz.materialdrawer.d.a$a:
-    99:99:void <init>() -> <init>
-    101:101:com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem$ViewHolder create(android.view.View) -> b
-    99:99:android.support.v7.widget.RecyclerView$ViewHolder create(android.view.View) -> a
-com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem$ViewHolder -> com.mikepenz.materialdrawer.d.a$b:
+    18:20:void <init>() -> <init>
+    56:56:int getType() -> h
+    62:62:int getLayoutRes() -> i
+    67:90:void bindView(com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem$ViewHolder,java.util.List) -> a
+    94:94:com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem$ViewHolder getViewHolder(android.view.View) -> a
+    18:18:android.support.v7.widget.RecyclerView$ViewHolder getViewHolder(android.view.View) -> b
+    18:18:void bindView(android.support.v7.widget.RecyclerView$ViewHolder,java.util.List) -> a
+com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem$ViewHolder -> com.mikepenz.materialdrawer.d.a$a:
     android.view.View badgeContainer -> r
     android.widget.TextView badge -> s
-    110:113:void <init>(android.view.View) -> <init>
-    105:105:android.widget.TextView access$000(com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem$ViewHolder) -> a
-    105:105:android.view.View access$100(com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem$ViewHolder) -> b
+    102:105:void <init>(android.view.View) -> <init>
+    97:97:android.widget.TextView access$000(com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem$ViewHolder) -> a
+    97:97:android.view.View access$100(com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem$ViewHolder) -> b
 com.mikepenz.materialdrawer.model.AbstractDrawerItem -> com.mikepenz.materialdrawer.d.b:
     long mIdentifier -> c
     boolean mEnabled -> d
     boolean mSelected -> e
     boolean mSelectable -> f
-    com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener mOnDrawerItemClickListener -> g
-    com.mikepenz.materialdrawer.model.interfaces.OnPostBindViewListener mOnPostBindViewListener -> h
-    java.util.List mSubItems -> i
+    boolean mSelectedBackgroundAnimated -> g
+    com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener mOnDrawerItemClickListener -> h
+    com.mikepenz.materialdrawer.model.interfaces.OnPostBindViewListener mOnPostBindViewListener -> i
+    java.util.List mSubItems -> j
     boolean mExpanded -> a
-    25:249:void <init>() -> <init>
-    36:37:java.lang.Object withIdentifier(long) -> a
-    48:48:long getIdentifier() -> d
-    92:92:boolean isEnabled() -> e
-    106:107:java.lang.Object withSetSelected(boolean) -> b
-    115:115:boolean isSelected() -> f
-    129:130:java.lang.Object withSelectable(boolean) -> c
-    138:138:boolean isSelectable() -> g
-    144:144:com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener getOnDrawerItemClickListener() -> k
-    184:187:void onPostBindView(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,android.view.View) -> a
-    233:237:java.lang.Object withSubItems(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem[]) -> a
-    245:245:java.util.List getSubItems() -> b
-    257:258:java.lang.Object withIsExpanded(boolean) -> a
-    266:266:boolean isExpanded() -> a
-    277:277:boolean isAutoExpanding() -> c
-    com.mikepenz.fastadapter.utils.ViewHolderFactory getFactory() -> j
-    311:313:android.view.View generateView(android.content.Context,android.view.ViewGroup) -> a
-    319:320:void bindView(android.support.v7.widget.RecyclerView$ViewHolder,java.util.List) -> a
-    330:330:void unbindView(android.support.v7.widget.RecyclerView$ViewHolder) -> a
-    341:341:android.support.v7.widget.RecyclerView$ViewHolder getViewHolder(android.view.ViewGroup) -> a
-    367:370:boolean equals(java.lang.Object) -> equals
-    380:380:int hashCode() -> hashCode
+    24:269:void <init>() -> <init>
+    35:36:java.lang.Object withIdentifier(long) -> a
+    47:47:long getIdentifier() -> d
+    91:91:boolean isEnabled() -> e
+    105:106:java.lang.Object withSetSelected(boolean) -> b
+    114:114:boolean isSelected() -> f
+    128:129:java.lang.Object withSelectable(boolean) -> c
+    137:137:boolean isSelectable() -> g
+    158:158:boolean isSelectedBackgroundAnimated() -> j
+    164:164:com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener getOnDrawerItemClickListener() -> k
+    204:207:void onPostBindView(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,android.view.View) -> a
+    253:257:java.lang.Object withSubItems(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem[]) -> a
+    265:265:java.util.List getSubItems() -> b
+    277:278:java.lang.Object withIsExpanded(boolean) -> a
+    286:286:boolean isExpanded() -> a
+    297:297:boolean isAutoExpanding() -> c
+    322:324:android.view.View generateView(android.content.Context,android.view.ViewGroup) -> a
+    330:331:void bindView(android.support.v7.widget.RecyclerView$ViewHolder,java.util.List) -> a
+    341:341:void unbindView(android.support.v7.widget.RecyclerView$ViewHolder) -> a
+    351:351:void attachToWindow(android.support.v7.widget.RecyclerView$ViewHolder) -> b
+    361:361:void detachFromWindow(android.support.v7.widget.RecyclerView$ViewHolder) -> c
+    371:371:android.support.v7.widget.RecyclerView$ViewHolder getViewHolder(android.view.ViewGroup) -> a
+    android.support.v7.widget.RecyclerView$ViewHolder getViewHolder(android.view.View) -> b
+    405:408:boolean equals(java.lang.Object) -> equals
+    418:418:int hashCode() -> hashCode
 com.mikepenz.materialdrawer.model.BaseDescribeableDrawerItem -> com.mikepenz.materialdrawer.d.c:
     com.mikepenz.materialdrawer.holder.StringHolder description -> a
     com.mikepenz.materialdrawer.holder.ColorHolder descriptionTextColor -> b
@@ -27394,20 +27482,20 @@ com.mikepenz.materialdrawer.model.BaseDescribeableDrawerItem -> com.mikepenz.mat
     48:48:com.mikepenz.materialdrawer.holder.ColorHolder getDescriptionTextColor() -> m
     57:106:void bindViewHelper(com.mikepenz.materialdrawer.model.BaseViewHolder) -> a
 com.mikepenz.materialdrawer.model.BaseDrawerItem -> com.mikepenz.materialdrawer.d.d:
-    com.mikepenz.materialdrawer.holder.ImageHolder icon -> j
-    com.mikepenz.materialdrawer.holder.ImageHolder selectedIcon -> k
-    com.mikepenz.materialdrawer.holder.StringHolder name -> l
-    boolean iconTinted -> m
-    com.mikepenz.materialdrawer.holder.ColorHolder selectedColor -> n
-    com.mikepenz.materialdrawer.holder.ColorHolder textColor -> o
-    com.mikepenz.materialdrawer.holder.ColorHolder selectedTextColor -> p
-    com.mikepenz.materialdrawer.holder.ColorHolder disabledTextColor -> q
-    com.mikepenz.materialdrawer.holder.ColorHolder iconColor -> r
-    com.mikepenz.materialdrawer.holder.ColorHolder selectedIconColor -> s
-    com.mikepenz.materialdrawer.holder.ColorHolder disabledIconColor -> t
-    android.graphics.Typeface typeface -> u
-    android.util.Pair colorStateList -> v
-    int level -> w
+    com.mikepenz.materialdrawer.holder.ImageHolder icon -> k
+    com.mikepenz.materialdrawer.holder.ImageHolder selectedIcon -> l
+    com.mikepenz.materialdrawer.holder.StringHolder name -> m
+    boolean iconTinted -> n
+    com.mikepenz.materialdrawer.holder.ColorHolder selectedColor -> o
+    com.mikepenz.materialdrawer.holder.ColorHolder textColor -> p
+    com.mikepenz.materialdrawer.holder.ColorHolder selectedTextColor -> q
+    com.mikepenz.materialdrawer.holder.ColorHolder disabledTextColor -> r
+    com.mikepenz.materialdrawer.holder.ColorHolder iconColor -> s
+    com.mikepenz.materialdrawer.holder.ColorHolder selectedIconColor -> t
+    com.mikepenz.materialdrawer.holder.ColorHolder disabledIconColor -> u
+    android.graphics.Typeface typeface -> v
+    android.util.Pair colorStateList -> w
+    int level -> x
     29:49:void <init>() -> <init>
     100:101:java.lang.Object withName(int) -> a
     215:215:com.mikepenz.materialdrawer.holder.ColorHolder getSelectedColor() -> n
@@ -27437,37 +27525,34 @@ com.mikepenz.materialdrawer.model.BaseViewHolder -> com.mikepenz.materialdrawer.
 com.mikepenz.materialdrawer.model.ContainerDrawerItem -> com.mikepenz.materialdrawer.d.f:
     com.mikepenz.materialdrawer.holder.DimenHolder mHeight -> a
     android.view.View mView -> b
-    com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position mViewPosition -> j
-    boolean mDivider -> k
-    20:57:void <init>() -> <init>
-    25:26:com.mikepenz.materialdrawer.model.ContainerDrawerItem withHeight(com.mikepenz.materialdrawer.holder.DimenHolder) -> a
-    36:37:com.mikepenz.materialdrawer.model.ContainerDrawerItem withView(android.view.View) -> a
-    53:54:com.mikepenz.materialdrawer.model.ContainerDrawerItem withViewPosition(com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position) -> a
-    60:61:com.mikepenz.materialdrawer.model.ContainerDrawerItem withDivider(boolean) -> d
-    70:70:int getType() -> h
-    76:76:int getLayoutRes() -> i
-    81:132:void bindView(com.mikepenz.materialdrawer.model.ContainerDrawerItem$ViewHolder,java.util.List) -> a
-    136:136:com.mikepenz.fastadapter.utils.ViewHolderFactory getFactory() -> j
-    20:20:void bindView(android.support.v7.widget.RecyclerView$ViewHolder,java.util.List) -> a
+    com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position mViewPosition -> k
+    boolean mDivider -> l
+    19:56:void <init>() -> <init>
+    24:25:com.mikepenz.materialdrawer.model.ContainerDrawerItem withHeight(com.mikepenz.materialdrawer.holder.DimenHolder) -> a
+    35:36:com.mikepenz.materialdrawer.model.ContainerDrawerItem withView(android.view.View) -> a
+    52:53:com.mikepenz.materialdrawer.model.ContainerDrawerItem withViewPosition(com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position) -> a
+    59:60:com.mikepenz.materialdrawer.model.ContainerDrawerItem withDivider(boolean) -> d
+    69:69:int getType() -> h
+    75:75:int getLayoutRes() -> i
+    80:131:void bindView(com.mikepenz.materialdrawer.model.ContainerDrawerItem$ViewHolder,java.util.List) -> a
+    135:135:com.mikepenz.materialdrawer.model.ContainerDrawerItem$ViewHolder getViewHolder(android.view.View) -> c
+    19:19:android.support.v7.widget.RecyclerView$ViewHolder getViewHolder(android.view.View) -> b
+    19:19:void bindView(android.support.v7.widget.RecyclerView$ViewHolder,java.util.List) -> a
 com.mikepenz.materialdrawer.model.ContainerDrawerItem$1 -> com.mikepenz.materialdrawer.d.f$1:
-com.mikepenz.materialdrawer.model.ContainerDrawerItem$ItemFactory -> com.mikepenz.materialdrawer.d.f$a:
-    139:139:void <init>() -> <init>
-    141:141:com.mikepenz.materialdrawer.model.ContainerDrawerItem$ViewHolder create(android.view.View) -> b
-    139:139:android.support.v7.widget.RecyclerView$ViewHolder create(android.view.View) -> a
-com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position -> com.mikepenz.materialdrawer.d.f$b:
+com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position -> com.mikepenz.materialdrawer.d.f$a:
     com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position TOP -> a
     com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position BOTTOM -> b
     com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position NONE -> c
     com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position[] $VALUES -> d
-    44:44:com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position[] values() -> values
-    44:44:com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position valueOf(java.lang.String) -> valueOf
-    44:44:void <init>(java.lang.String,int) -> <init>
-    44:47:void <clinit>() -> <clinit>
-com.mikepenz.materialdrawer.model.ContainerDrawerItem$ViewHolder -> com.mikepenz.materialdrawer.d.f$c:
+    43:43:com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position[] values() -> values
+    43:43:com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position valueOf(java.lang.String) -> valueOf
+    43:43:void <init>(java.lang.String,int) -> <init>
+    43:46:void <clinit>() -> <clinit>
+com.mikepenz.materialdrawer.model.ContainerDrawerItem$ViewHolder -> com.mikepenz.materialdrawer.d.f$b:
     android.view.View view -> n
-    149:151:void <init>(android.view.View) -> <init>
-    145:145:android.view.View access$000(com.mikepenz.materialdrawer.model.ContainerDrawerItem$ViewHolder) -> a
-    145:145:void <init>(android.view.View,com.mikepenz.materialdrawer.model.ContainerDrawerItem$1) -> <init>
+    142:144:void <init>(android.view.View) -> <init>
+    138:138:android.view.View access$000(com.mikepenz.materialdrawer.model.ContainerDrawerItem$ViewHolder) -> a
+    138:138:void <init>(android.view.View,com.mikepenz.materialdrawer.model.ContainerDrawerItem$1) -> <init>
 com.mikepenz.materialdrawer.model.PrimaryDrawerItem -> com.mikepenz.materialdrawer.d.g:
     6:6:void <init>() -> <init>
 com.mikepenz.materialdrawer.model.SecondaryDrawerItem -> com.mikepenz.materialdrawer.d.h:
@@ -27478,35 +27563,32 @@ com.mikepenz.materialdrawer.model.SecondaryDrawerItem -> com.mikepenz.materialdr
 com.mikepenz.materialdrawer.model.SectionDrawerItem -> com.mikepenz.materialdrawer.d.i:
     com.mikepenz.materialdrawer.holder.StringHolder name -> a
     boolean divider -> b
-    com.mikepenz.materialdrawer.holder.ColorHolder textColor -> j
-    android.graphics.Typeface typeface -> k
-    24:31:void <init>() -> <init>
-    44:45:com.mikepenz.materialdrawer.model.SectionDrawerItem withName(int) -> a
-    69:69:boolean hasDivider() -> l
-    73:73:com.mikepenz.materialdrawer.holder.ColorHolder getTextColor() -> m
-    77:77:com.mikepenz.materialdrawer.holder.StringHolder getName() -> n
-    82:82:boolean isEnabled() -> e
-    87:87:boolean isSelected() -> f
-    92:92:int getType() -> h
-    98:98:int getLayoutRes() -> i
-    103:103:android.graphics.Typeface getTypeface() -> o
-    108:142:void bindView(com.mikepenz.materialdrawer.model.SectionDrawerItem$ViewHolder,java.util.List) -> a
-    146:146:com.mikepenz.fastadapter.utils.ViewHolderFactory getFactory() -> j
-    24:24:void bindView(android.support.v7.widget.RecyclerView$ViewHolder,java.util.List) -> a
+    com.mikepenz.materialdrawer.holder.ColorHolder textColor -> k
+    android.graphics.Typeface typeface -> l
+    23:30:void <init>() -> <init>
+    43:44:com.mikepenz.materialdrawer.model.SectionDrawerItem withName(int) -> a
+    68:68:boolean hasDivider() -> l
+    72:72:com.mikepenz.materialdrawer.holder.ColorHolder getTextColor() -> m
+    76:76:com.mikepenz.materialdrawer.holder.StringHolder getName() -> n
+    81:81:boolean isEnabled() -> e
+    86:86:boolean isSelected() -> f
+    91:91:int getType() -> h
+    97:97:int getLayoutRes() -> i
+    102:102:android.graphics.Typeface getTypeface() -> o
+    107:141:void bindView(com.mikepenz.materialdrawer.model.SectionDrawerItem$ViewHolder,java.util.List) -> a
+    145:145:com.mikepenz.materialdrawer.model.SectionDrawerItem$ViewHolder getViewHolder(android.view.View) -> a
+    23:23:android.support.v7.widget.RecyclerView$ViewHolder getViewHolder(android.view.View) -> b
+    23:23:void bindView(android.support.v7.widget.RecyclerView$ViewHolder,java.util.List) -> a
 com.mikepenz.materialdrawer.model.SectionDrawerItem$1 -> com.mikepenz.materialdrawer.d.i$1:
-com.mikepenz.materialdrawer.model.SectionDrawerItem$ItemFactory -> com.mikepenz.materialdrawer.d.i$a:
-    149:149:void <init>() -> <init>
-    151:151:com.mikepenz.materialdrawer.model.SectionDrawerItem$ViewHolder create(android.view.View) -> b
-    149:149:android.support.v7.widget.RecyclerView$ViewHolder create(android.view.View) -> a
-com.mikepenz.materialdrawer.model.SectionDrawerItem$ViewHolder -> com.mikepenz.materialdrawer.d.i$b:
+com.mikepenz.materialdrawer.model.SectionDrawerItem$ViewHolder -> com.mikepenz.materialdrawer.d.i$a:
     android.view.View view -> n
     android.view.View divider -> o
     android.widget.TextView name -> p
-    161:165:void <init>(android.view.View) -> <init>
-    155:155:android.view.View access$000(com.mikepenz.materialdrawer.model.SectionDrawerItem$ViewHolder) -> a
-    155:155:android.widget.TextView access$100(com.mikepenz.materialdrawer.model.SectionDrawerItem$ViewHolder) -> b
-    155:155:android.view.View access$200(com.mikepenz.materialdrawer.model.SectionDrawerItem$ViewHolder) -> c
-    155:155:void <init>(android.view.View,com.mikepenz.materialdrawer.model.SectionDrawerItem$1) -> <init>
+    154:158:void <init>(android.view.View) -> <init>
+    148:148:android.view.View access$000(com.mikepenz.materialdrawer.model.SectionDrawerItem$ViewHolder) -> a
+    148:148:android.widget.TextView access$100(com.mikepenz.materialdrawer.model.SectionDrawerItem$ViewHolder) -> b
+    148:148:android.view.View access$200(com.mikepenz.materialdrawer.model.SectionDrawerItem$ViewHolder) -> c
+    148:148:void <init>(android.view.View,com.mikepenz.materialdrawer.model.SectionDrawerItem$1) -> <init>
 com.mikepenz.materialdrawer.model.interfaces.IDrawerItem -> com.mikepenz.materialdrawer.d.a.a:
     boolean isEnabled() -> e
     boolean isSelected() -> f
@@ -27526,8 +27608,8 @@ com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader -> com.mikepenz.mater
     9:9:void <init>() -> <init>
     12:12:void set(android.widget.ImageView,android.net.Uri,android.graphics.drawable.Drawable) -> a
     17:20:void set(android.widget.ImageView,android.net.Uri,android.graphics.drawable.Drawable,java.lang.String) -> a
-    28:28:android.graphics.drawable.Drawable placeholder(android.content.Context) -> a
-    33:33:android.graphics.drawable.Drawable placeholder(android.content.Context,java.lang.String) -> a
+    27:27:android.graphics.drawable.Drawable placeholder(android.content.Context) -> a
+    32:32:android.graphics.drawable.Drawable placeholder(android.content.Context,java.lang.String) -> a
 com.mikepenz.materialdrawer.util.DrawerImageLoader -> com.mikepenz.materialdrawer.e.b:
     com.mikepenz.materialdrawer.util.DrawerImageLoader SINGLETON -> a
     com.mikepenz.materialdrawer.util.DrawerImageLoader$IDrawerImageLoader imageLoader -> b
@@ -27761,8 +27843,10 @@ com.mikepenz.materialize.R$attr -> com.mikepenz.materialize.c$a:
     int navigationIcon -> navigationIcon
     int navigationMode -> navigationMode
     int overlapAnchor -> overlapAnchor
+    int paddingBottomNoButtons -> paddingBottomNoButtons
     int paddingEnd -> paddingEnd
     int paddingStart -> paddingStart
+    int paddingTopNoTitle -> paddingTopNoTitle
     int panelBackground -> panelBackground
     int panelMenuListTheme -> panelMenuListTheme
     int panelMenuListWidth -> panelMenuListWidth
@@ -27787,6 +27871,7 @@ com.mikepenz.materialize.R$attr -> com.mikepenz.materialize.c$a:
     int showAsAction -> showAsAction
     int showDividers -> showDividers
     int showText -> showText
+    int showTitle -> showTitle
     int singleChoiceItemLayout -> singleChoiceItemLayout
     int sirl_insetForeground -> sirl_insetForeground
     int siv_insetForeground -> siv_insetForeground
@@ -27855,7 +27940,10 @@ com.mikepenz.materialize.R$color -> com.mikepenz.materialize.c$b:
     int abc_background_cache_hint_selector_material_dark -> abc_background_cache_hint_selector_material_dark
     int abc_background_cache_hint_selector_material_light -> abc_background_cache_hint_selector_material_light
     int abc_btn_colored_borderless_text_material -> abc_btn_colored_borderless_text_material
+    int abc_btn_colored_text_material -> abc_btn_colored_text_material
     int abc_color_highlight_material -> abc_color_highlight_material
+    int abc_hint_foreground_material_dark -> abc_hint_foreground_material_dark
+    int abc_hint_foreground_material_light -> abc_hint_foreground_material_light
     int abc_input_method_navigation_guard -> abc_input_method_navigation_guard
     int abc_primary_text_disable_only_material_dark -> abc_primary_text_disable_only_material_dark
     int abc_primary_text_disable_only_material_light -> abc_primary_text_disable_only_material_light
@@ -28194,6 +28282,9 @@ com.mikepenz.materialize.R$color -> com.mikepenz.materialize.c$b:
     int md_yellow_A200 -> md_yellow_A200
     int md_yellow_A400 -> md_yellow_A400
     int md_yellow_A700 -> md_yellow_A700
+    int notification_action_color_filter -> notification_action_color_filter
+    int notification_icon_bg_color -> notification_icon_bg_color
+    int notification_material_background_media_default_color -> notification_material_background_media_default_color
     int primary -> primary
     int primary_dark -> primary_dark
     int primary_dark_material_dark -> primary_dark_material_dark
@@ -28249,10 +28340,13 @@ com.mikepenz.materialize.R$dimen -> com.mikepenz.materialize.c$c:
     int abc_dialog_fixed_height_minor -> abc_dialog_fixed_height_minor
     int abc_dialog_fixed_width_major -> abc_dialog_fixed_width_major
     int abc_dialog_fixed_width_minor -> abc_dialog_fixed_width_minor
+    int abc_dialog_list_padding_bottom_no_buttons -> abc_dialog_list_padding_bottom_no_buttons
+    int abc_dialog_list_padding_top_no_title -> abc_dialog_list_padding_top_no_title
     int abc_dialog_min_width_major -> abc_dialog_min_width_major
     int abc_dialog_min_width_minor -> abc_dialog_min_width_minor
     int abc_dialog_padding_material -> abc_dialog_padding_material
     int abc_dialog_padding_top_material -> abc_dialog_padding_top_material
+    int abc_dialog_title_divider_material -> abc_dialog_title_divider_material
     int abc_disabled_alpha_material_dark -> abc_disabled_alpha_material_dark
     int abc_disabled_alpha_material_light -> abc_disabled_alpha_material_light
     int abc_dropdownitem_icon_width -> abc_dropdownitem_icon_width
@@ -28294,6 +28388,10 @@ com.mikepenz.materialize.R$dimen -> com.mikepenz.materialize.c$c:
     int highlight_alpha_material_colored -> highlight_alpha_material_colored
     int highlight_alpha_material_dark -> highlight_alpha_material_dark
     int highlight_alpha_material_light -> highlight_alpha_material_light
+    int hint_alpha_material_dark -> hint_alpha_material_dark
+    int hint_alpha_material_light -> hint_alpha_material_light
+    int hint_pressed_alpha_material_dark -> hint_pressed_alpha_material_dark
+    int hint_pressed_alpha_material_light -> hint_pressed_alpha_material_light
     int materialize_avatar -> materialize_avatar
     int materialize_baseline_grid -> materialize_baseline_grid
     int materialize_baseline_grid_small -> materialize_baseline_grid_small
@@ -28323,9 +28421,21 @@ com.mikepenz.materialize.R$dimen -> com.mikepenz.materialize.c$c:
     int materialize_typography_headline -> materialize_typography_headline
     int materialize_typography_subheading -> materialize_typography_subheading
     int materialize_typography_title -> materialize_typography_title
+    int notification_action_icon_size -> notification_action_icon_size
+    int notification_action_text_size -> notification_action_text_size
+    int notification_big_circle_margin -> notification_big_circle_margin
+    int notification_content_margin_start -> notification_content_margin_start
     int notification_large_icon_height -> notification_large_icon_height
     int notification_large_icon_width -> notification_large_icon_width
+    int notification_main_column_padding_top -> notification_main_column_padding_top
+    int notification_media_narrow_margin -> notification_media_narrow_margin
+    int notification_right_icon_size -> notification_right_icon_size
+    int notification_right_side_padding_top -> notification_right_side_padding_top
+    int notification_small_icon_background_padding -> notification_small_icon_background_padding
+    int notification_small_icon_size_as_large -> notification_small_icon_size_as_large
     int notification_subtext_size -> notification_subtext_size
+    int notification_top_pad -> notification_top_pad
+    int notification_top_pad_large_text -> notification_top_pad_large_text
     int tool_bar_top_padding -> tool_bar_top_padding
 com.mikepenz.materialize.R$id -> com.mikepenz.materialize.c$d:
     int action0 -> action0
@@ -28336,13 +28446,17 @@ com.mikepenz.materialize.R$id -> com.mikepenz.materialize.c$d:
     int action_bar_spinner -> action_bar_spinner
     int action_bar_subtitle -> action_bar_subtitle
     int action_bar_title -> action_bar_title
+    int action_container -> action_container
     int action_context_bar -> action_context_bar
     int action_divider -> action_divider
+    int action_image -> action_image
     int action_menu_divider -> action_menu_divider
     int action_menu_presenter -> action_menu_presenter
     int action_mode_bar -> action_mode_bar
     int action_mode_bar_stub -> action_mode_bar_stub
     int action_mode_close_button -> action_mode_close_button
+    int action_text -> action_text
+    int actions -> actions
     int activity_chooser_view_content -> activity_chooser_view_content
     int add -> add
     int alertTitle -> alertTitle
@@ -28369,6 +28483,7 @@ com.mikepenz.materialize.R$id -> com.mikepenz.materialize.c$d:
     int home -> home
     int homeAsUp -> homeAsUp
     int icon -> icon
+    int icon_group -> icon_group
     int ifRoom -> ifRoom
     int image -> image
     int info -> info
@@ -28383,10 +28498,15 @@ com.mikepenz.materialize.R$id -> com.mikepenz.materialize.c$d:
     int never -> never
     int none -> none
     int normal -> normal
+    int notification_background -> notification_background
+    int notification_main_column -> notification_main_column
+    int notification_main_column_container -> notification_main_column_container
     int parentPanel -> parentPanel
     int progress_circular -> progress_circular
     int progress_horizontal -> progress_horizontal
     int radio -> radio
+    int right_icon -> right_icon
+    int right_side -> right_side
     int screen -> screen
     int scrollIndicatorDown -> scrollIndicatorDown
     int scrollIndicatorUp -> scrollIndicatorUp
@@ -28418,8 +28538,10 @@ com.mikepenz.materialize.R$id -> com.mikepenz.materialize.c$d:
     int text -> text
     int text2 -> text2
     int textSpacerNoButtons -> textSpacerNoButtons
+    int textSpacerNoTitle -> textSpacerNoTitle
     int time -> time
     int title -> title
+    int titleDividerNoCustom -> titleDividerNoCustom
     int title_template -> title_template
     int top -> top
     int topPanel -> topPanel
@@ -28439,6 +28561,7 @@ com.mikepenz.materialize.R$layout -> com.mikepenz.materialize.c$e:
     int abc_activity_chooser_view_list_item -> abc_activity_chooser_view_list_item
     int abc_alert_dialog_button_bar_material -> abc_alert_dialog_button_bar_material
     int abc_alert_dialog_material -> abc_alert_dialog_material
+    int abc_alert_dialog_title_material -> abc_alert_dialog_title_material
     int abc_dialog_title_material -> abc_dialog_title_material
     int abc_expanded_menu_layout -> abc_expanded_menu_layout
     int abc_list_menu_item_checkbox -> abc_list_menu_item_checkbox
@@ -28455,11 +28578,19 @@ com.mikepenz.materialize.R$layout -> com.mikepenz.materialize.c$e:
     int abc_search_view -> abc_search_view
     int abc_select_dialog_material -> abc_select_dialog_material
     int materialize -> materialize
+    int notification_action -> notification_action
+    int notification_action_tombstone -> notification_action_tombstone
     int notification_media_action -> notification_media_action
     int notification_media_cancel_action -> notification_media_cancel_action
     int notification_template_big_media -> notification_template_big_media
+    int notification_template_big_media_custom -> notification_template_big_media_custom
     int notification_template_big_media_narrow -> notification_template_big_media_narrow
+    int notification_template_big_media_narrow_custom -> notification_template_big_media_narrow_custom
+    int notification_template_custom_big -> notification_template_custom_big
+    int notification_template_icon_group -> notification_template_icon_group
+    int notification_template_lines_media -> notification_template_lines_media
     int notification_template_media -> notification_template_media
+    int notification_template_media_custom -> notification_template_media_custom
     int notification_template_part_chronometer -> notification_template_part_chronometer
     int notification_template_part_time -> notification_template_part_time
     int select_dialog_item_material -> select_dialog_item_material
@@ -28512,6 +28643,8 @@ com.mikepenz.materialize.R$style -> com.mikepenz.materialize.c$f:
     int Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle -> Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle
     int Base_TextAppearance_AppCompat_Widget_ActionMode_Title -> Base_TextAppearance_AppCompat_Widget_ActionMode_Title
     int Base_TextAppearance_AppCompat_Widget_Button -> Base_TextAppearance_AppCompat_Widget_Button
+    int Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored -> Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored
+    int Base_TextAppearance_AppCompat_Widget_Button_Colored -> Base_TextAppearance_AppCompat_Widget_Button_Colored
     int Base_TextAppearance_AppCompat_Widget_Button_Inverse -> Base_TextAppearance_AppCompat_Widget_Button_Inverse
     int Base_TextAppearance_AppCompat_Widget_DropDownItem -> Base_TextAppearance_AppCompat_Widget_DropDownItem
     int Base_TextAppearance_AppCompat_Widget_PopupMenu_Header -> Base_TextAppearance_AppCompat_Widget_PopupMenu_Header
@@ -28663,6 +28796,10 @@ com.mikepenz.materialize.R$style -> com.mikepenz.materialize.c$f:
     int Platform_V11_AppCompat_Light -> Platform_V11_AppCompat_Light
     int Platform_V14_AppCompat -> Platform_V14_AppCompat
     int Platform_V14_AppCompat_Light -> Platform_V14_AppCompat_Light
+    int Platform_V21_AppCompat -> Platform_V21_AppCompat
+    int Platform_V21_AppCompat_Light -> Platform_V21_AppCompat_Light
+    int Platform_V25_AppCompat -> Platform_V25_AppCompat
+    int Platform_V25_AppCompat_Light -> Platform_V25_AppCompat_Light
     int Platform_Widget_AppCompat_Spinner -> Platform_Widget_AppCompat_Spinner
     int RtlOverlay_DialogWindowTitle_AppCompat -> RtlOverlay_DialogWindowTitle_AppCompat
     int RtlOverlay_Widget_AppCompat_ActionBar_TitleItem -> RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
@@ -28698,6 +28835,16 @@ com.mikepenz.materialize.R$style -> com.mikepenz.materialize.c$f:
     int TextAppearance_AppCompat_Medium -> TextAppearance_AppCompat_Medium
     int TextAppearance_AppCompat_Medium_Inverse -> TextAppearance_AppCompat_Medium_Inverse
     int TextAppearance_AppCompat_Menu -> TextAppearance_AppCompat_Menu
+    int TextAppearance_AppCompat_Notification -> TextAppearance_AppCompat_Notification
+    int TextAppearance_AppCompat_Notification_Info -> TextAppearance_AppCompat_Notification_Info
+    int TextAppearance_AppCompat_Notification_Info_Media -> TextAppearance_AppCompat_Notification_Info_Media
+    int TextAppearance_AppCompat_Notification_Line2 -> TextAppearance_AppCompat_Notification_Line2
+    int TextAppearance_AppCompat_Notification_Line2_Media -> TextAppearance_AppCompat_Notification_Line2_Media
+    int TextAppearance_AppCompat_Notification_Media -> TextAppearance_AppCompat_Notification_Media
+    int TextAppearance_AppCompat_Notification_Time -> TextAppearance_AppCompat_Notification_Time
+    int TextAppearance_AppCompat_Notification_Time_Media -> TextAppearance_AppCompat_Notification_Time_Media
+    int TextAppearance_AppCompat_Notification_Title -> TextAppearance_AppCompat_Notification_Title
+    int TextAppearance_AppCompat_Notification_Title_Media -> TextAppearance_AppCompat_Notification_Title_Media
     int TextAppearance_AppCompat_SearchResult_Subtitle -> TextAppearance_AppCompat_SearchResult_Subtitle
     int TextAppearance_AppCompat_SearchResult_Title -> TextAppearance_AppCompat_SearchResult_Title
     int TextAppearance_AppCompat_Small -> TextAppearance_AppCompat_Small
@@ -28716,6 +28863,8 @@ com.mikepenz.materialize.R$style -> com.mikepenz.materialize.c$f:
     int TextAppearance_AppCompat_Widget_ActionMode_Title -> TextAppearance_AppCompat_Widget_ActionMode_Title
     int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse -> TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse
     int TextAppearance_AppCompat_Widget_Button -> TextAppearance_AppCompat_Widget_Button
+    int TextAppearance_AppCompat_Widget_Button_Borderless_Colored -> TextAppearance_AppCompat_Widget_Button_Borderless_Colored
+    int TextAppearance_AppCompat_Widget_Button_Colored -> TextAppearance_AppCompat_Widget_Button_Colored
     int TextAppearance_AppCompat_Widget_Button_Inverse -> TextAppearance_AppCompat_Widget_Button_Inverse
     int TextAppearance_AppCompat_Widget_DropDownItem -> TextAppearance_AppCompat_Widget_DropDownItem
     int TextAppearance_AppCompat_Widget_PopupMenu_Header -> TextAppearance_AppCompat_Widget_PopupMenu_Header
@@ -28812,6 +28961,8 @@ com.mikepenz.materialize.R$style -> com.mikepenz.materialize.c$f:
     int Widget_AppCompat_ListView -> Widget_AppCompat_ListView
     int Widget_AppCompat_ListView_DropDown -> Widget_AppCompat_ListView_DropDown
     int Widget_AppCompat_ListView_Menu -> Widget_AppCompat_ListView_Menu
+    int Widget_AppCompat_NotificationActionContainer -> Widget_AppCompat_NotificationActionContainer
+    int Widget_AppCompat_NotificationActionText -> Widget_AppCompat_NotificationActionText
     int Widget_AppCompat_PopupMenu -> Widget_AppCompat_PopupMenu
     int Widget_AppCompat_PopupMenu_Overflow -> Widget_AppCompat_PopupMenu_Overflow
     int Widget_AppCompat_PopupWindow -> Widget_AppCompat_PopupWindow
@@ -28884,6 +29035,7 @@ com.mikepenz.materialize.R$styleable -> com.mikepenz.materialize.c$g:
     int AlertDialog_listItemLayout -> AlertDialog_listItemLayout
     int AlertDialog_listLayout -> AlertDialog_listLayout
     int AlertDialog_multiChoiceItemLayout -> AlertDialog_multiChoiceItemLayout
+    int AlertDialog_showTitle -> AlertDialog_showTitle
     int AlertDialog_singleChoiceItemLayout -> AlertDialog_singleChoiceItemLayout
     int[] AppCompatImageView -> AppCompatImageView
     int AppCompatImageView_android_src -> AppCompatImageView_android_src
@@ -29099,6 +29251,9 @@ com.mikepenz.materialize.R$styleable -> com.mikepenz.materialize.c$g:
     int PopupWindow_android_popupAnimationStyle -> PopupWindow_android_popupAnimationStyle
     int PopupWindow_android_popupBackground -> PopupWindow_android_popupBackground
     int PopupWindow_overlapAnchor -> PopupWindow_overlapAnchor
+    int[] RecycleListView -> RecycleListView
+    int RecycleListView_paddingBottomNoButtons -> RecycleListView_paddingBottomNoButtons
+    int RecycleListView_paddingTopNoTitle -> RecycleListView_paddingTopNoTitle
     int[] ScrimInsetsRelativeLayout -> ScrimInsetsRelativeLayout
     int ScrimInsetsRelativeLayout_sirl_insetForeground -> ScrimInsetsRelativeLayout_sirl_insetForeground
     int[] ScrimInsetsView -> ScrimInsetsView
@@ -29148,6 +29303,7 @@ com.mikepenz.materialize.R$styleable -> com.mikepenz.materialize.c$g:
     int TextAppearance_android_shadowDy -> TextAppearance_android_shadowDy
     int TextAppearance_android_shadowRadius -> TextAppearance_android_shadowRadius
     int TextAppearance_android_textColor -> TextAppearance_android_textColor
+    int TextAppearance_android_textColorHint -> TextAppearance_android_textColorHint
     int TextAppearance_android_textSize -> TextAppearance_android_textSize
     int TextAppearance_android_textStyle -> TextAppearance_android_textStyle
     int TextAppearance_android_typeface -> TextAppearance_android_typeface
@@ -29196,7 +29352,7 @@ com.mikepenz.materialize.R$styleable -> com.mikepenz.materialize.c$g:
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    1378:1732:void <clinit>() -> <clinit>
+    1464:1823:void <clinit>() -> <clinit>
 com.mikepenz.materialize.drawable.PressedEffectStateListDrawable -> com.mikepenz.materialize.a.a:
     int color -> a
     int selectionColor -> b
@@ -29256,10 +29412,10 @@ com.mikepenz.materialize.util.UIUtils -> com.mikepenz.materialize.c.b:
     213:216:void setTranslucentNavigationFlag(android.app.Activity,boolean) -> b
     225:233:void setFlag(android.app.Activity,int,boolean) -> a
     243:246:android.graphics.drawable.StateListDrawable getIconStateList(android.graphics.drawable.Drawable,android.graphics.drawable.Drawable) -> a
-    259:269:android.graphics.drawable.StateListDrawable getSelectableBackground(android.content.Context,int,boolean) -> a
-    306:309:int getSelectableBackgroundRes(android.content.Context) -> d
-    320:321:android.graphics.drawable.Drawable getSelectableBackground(android.content.Context) -> e
-    332:333:int getScreenWidth(android.content.Context) -> f
+    259:273:android.graphics.drawable.StateListDrawable getSelectableBackground(android.content.Context,int,boolean) -> a
+    310:313:int getSelectableBackgroundRes(android.content.Context) -> d
+    324:325:android.graphics.drawable.Drawable getSelectableBackground(android.content.Context) -> e
+    336:337:int getScreenWidth(android.content.Context) -> f
 com.mikepenz.materialize.view.IScrimInsetsLayout -> com.mikepenz.materialize.view.a:
     android.view.ViewGroup getView() -> getView
     void setInsetForeground(int) -> setInsetForeground
@@ -31034,7 +31190,7 @@ java8.util.function.LongConsumer -> a.b.b.k:
 java8.util.function.LongFunction -> a.b.b.l:
     java.lang.Object apply(long) -> a
 java8.util.function.Predicate -> a.b.b.m:
-    boolean test(java.lang.Object) -> a
+    boolean test(java.lang.Object) -> test
 java8.util.function.Supplier -> a.b.b.n:
     java.lang.Object get() -> a
 java8.util.stream.AbstractPipeline -> a.b.c.a:
@@ -31240,7 +31396,7 @@ java8.util.stream.FindOps -> a.b.c.r:
 java8.util.stream.FindOps$$Lambda$1 -> a.b.c.s:
     java8.util.stream.FindOps$$Lambda$1 instance -> a
     void <init>() -> <init>
-    boolean test(java.lang.Object) -> a
+    boolean test(java.lang.Object) -> test
     void <clinit>() -> <clinit>
     java8.util.function.Predicate lambdaFactory$() -> a
 java8.util.stream.FindOps$$Lambda$2 -> a.b.c.t:

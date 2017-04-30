@@ -4141,7 +4141,6 @@ android.support.v4.widget.DrawerLayout$LayoutParams:
     private static final int FLAG_IS_OPENING
     private static final int FLAG_IS_CLOSING
     2242:2244:public DrawerLayout$LayoutParams(int,int,int)
-android.support.v4.widget.DrawerLayout$SimpleDrawerListener
 android.support.v4.widget.DrawerLayoutCompatApi21:
     35:90:DrawerLayoutCompatApi21()
 android.support.v4.widget.EdgeEffectCompatIcs:
@@ -5711,8 +5710,8 @@ com.anjlab.android.iab.v3.BillingCache:
     private static final java.lang.String ENTRY_DELIMITER
     private static final java.lang.String LINE_DELIMITER
     private static final java.lang.String VERSION_KEY
-    95:100:void remove(java.lang.String)
-    120:120:java.util.List getContents()
+    114:120:void remove(java.lang.String)
+    145:145:java.util.List getContents()
 com.anjlab.android.iab.v3.BillingProcessor:
     private static final int PURCHASE_FLOW_REQUEST_CODE
     private static final java.lang.String LOG_TAG
@@ -5723,24 +5722,27 @@ com.anjlab.android.iab.v3.BillingProcessor:
     private static final java.lang.String PURCHASE_PAYLOAD_CACHE_KEY
     private boolean isOneTimePurchasesSupported
     private boolean isSubsUpdateSupported
-    150:152:public static boolean isIabServiceAvailable(android.content.Context)
-    179:179:public java.util.List listOwnedProducts()
-    183:183:public java.util.List listOwnedSubscriptions()
-    226:226:public boolean subscribe(android.app.Activity,java.lang.String)
-    230:230:public boolean purchase(android.app.Activity,java.lang.String,java.lang.String)
-    234:234:public boolean subscribe(android.app.Activity,java.lang.String,java.lang.String)
-    238:247:public boolean isOneTimePurchaseSupported()
-    252:261:public boolean isSubscriptionUpdateSupported()
-    274:279:public boolean updateSubscription(android.app.Activity,java.lang.String,java.lang.String)
-    292:294:public boolean updateSubscription(android.app.Activity,java.util.List,java.lang.String)
-    394:415:public boolean consumePurchase(java.lang.String)
-    419:424:private com.anjlab.android.iab.v3.SkuDetails getSkuDetails(java.lang.String,java.lang.String)
-    428:457:private java.util.List getSkuDetails(java.util.ArrayList,java.lang.String)
-    461:461:public com.anjlab.android.iab.v3.SkuDetails getPurchaseListingDetails(java.lang.String)
-    465:465:public com.anjlab.android.iab.v3.SkuDetails getSubscriptionListingDetails(java.lang.String)
-    469:469:public java.util.List getPurchaseListingDetails(java.util.ArrayList)
-    473:473:public java.util.List getSubscriptionListingDetails(java.util.ArrayList)
-    562:565:public boolean isValidTransactionDetails(com.anjlab.android.iab.v3.TransactionDetails)
+    134:134:public static com.anjlab.android.iab.v3.BillingProcessor newBillingProcessor(android.content.Context,java.lang.String,com.anjlab.android.iab.v3.BillingProcessor$IBillingHandler)
+    144:144:public static com.anjlab.android.iab.v3.BillingProcessor newBillingProcessor(android.content.Context,java.lang.String,java.lang.String,com.anjlab.android.iab.v3.BillingProcessor$IBillingHandler)
+    180:181:public void initialize()
+    205:207:public static boolean isIabServiceAvailable(android.content.Context)
+    243:243:public java.util.List listOwnedProducts()
+    248:248:public java.util.List listOwnedSubscriptions()
+    310:310:public boolean subscribe(android.app.Activity,java.lang.String)
+    315:315:public boolean purchase(android.app.Activity,java.lang.String,java.lang.String)
+    320:320:public boolean subscribe(android.app.Activity,java.lang.String,java.lang.String)
+    325:340:public boolean isOneTimePurchaseSupported()
+    346:363:public boolean isSubscriptionUpdateSupported()
+    377:383:public boolean updateSubscription(android.app.Activity,java.lang.String,java.lang.String)
+    398:402:public boolean updateSubscription(android.app.Activity,java.util.List,java.lang.String)
+    559:589:public boolean consumePurchase(java.lang.String)
+    594:601:private com.anjlab.android.iab.v3.SkuDetails getSkuDetails(java.lang.String,java.lang.String)
+    606:647:private java.util.List getSkuDetails(java.util.ArrayList,java.lang.String)
+    652:652:public com.anjlab.android.iab.v3.SkuDetails getPurchaseListingDetails(java.lang.String)
+    657:657:public com.anjlab.android.iab.v3.SkuDetails getSubscriptionListingDetails(java.lang.String)
+    662:662:public java.util.List getPurchaseListingDetails(java.util.ArrayList)
+    667:667:public java.util.List getSubscriptionListingDetails(java.util.ArrayList)
+    789:792:public boolean isValidTransactionDetails(com.anjlab.android.iab.v3.TransactionDetails)
 com.anjlab.android.iab.v3.BuildConfig
 com.anjlab.android.iab.v3.Constants
 com.anjlab.android.iab.v3.PurchaseInfo:
@@ -5821,9 +5823,12 @@ com.faendir.lightning_launcher.multitool.gesture.GestureFragment:
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils:
     private static final java.lang.String METADATA
     private static final java.lang.String GESTURES
-    41:42:private GestureUtils()
+    45:46:private GestureUtils()
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView$$Lambda$1
+com.faendir.lightning_launcher.multitool.gesture.SingleStoreGestureLibrary:
+    75:75:java.util.ArrayList recognize(android.gesture.Gesture)
+com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary
 com.faendir.lightning_launcher.multitool.music.MusicManager:
     private static final int ACTION_REGISTER
     private static final int ACTION_UNREGISTER
@@ -5869,14 +5874,16 @@ com.faendir.lightning_launcher.multitool.util.DataProvider:
     private static final java.lang.String AUTHORITY
     private static final java.lang.String LIBRARY
     private static final java.lang.String INFOS
+    private static final java.lang.String PREF
     private static final int SHARED_PREFERENCES
     private static final int GESTURE_LIBRARY
     private static final int GESTURE_INFOS
-    66:76:public static java.util.List getGestureInfos(android.content.Context)
+com.faendir.lightning_launcher.multitool.util.DataProvider$$Lambda$5
 com.faendir.lightning_launcher.multitool.util.FileManager$IntentTypeAdapter:
     private static final java.lang.String URI
 com.faendir.lightning_launcher.multitool.util.FileManagerFactory:
-    16:17:private FileManagerFactory()
+    14:15:private FileManagerFactory()
+com.faendir.lightning_launcher.multitool.util.ToStringBuilder
 com.faendir.lightning_launcher.multitool.util.Utils:
     25:26:private Utils()
 com.faendir.lightning_launcher.scriptlib.Action
@@ -6294,38 +6301,38 @@ com.mikepenz.fastadapter.BuildConfig
 com.mikepenz.fastadapter.FastAdapter:
     protected static final java.lang.String BUNDLE_SELECTIONS
     protected static final java.lang.String BUNDLE_EXPANDED
-    102:106:public com.mikepenz.fastadapter.FastAdapter withItemEvent(com.mikepenz.fastadapter.listeners.EventHook)
-    127:128:public com.mikepenz.fastadapter.FastAdapter withOnPreClickListener(com.mikepenz.fastadapter.FastAdapter$OnClickListener)
-    149:150:public com.mikepenz.fastadapter.FastAdapter withOnPreLongClickListener(com.mikepenz.fastadapter.FastAdapter$OnLongClickListener)
-    160:161:public com.mikepenz.fastadapter.FastAdapter withOnTouchListener(com.mikepenz.fastadapter.FastAdapter$OnTouchListener)
-    171:172:public com.mikepenz.fastadapter.FastAdapter withOnCreateViewHolderListener(com.mikepenz.fastadapter.FastAdapter$OnCreateViewHolderListener)
-    182:183:public com.mikepenz.fastadapter.FastAdapter withOnBindViewHolderListener(com.mikepenz.fastadapter.FastAdapter$OnBindViewHolderListener)
-    196:197:public com.mikepenz.fastadapter.FastAdapter withSelectWithItemUpdate(boolean)
-    264:265:public com.mikepenz.fastadapter.FastAdapter withLegacyBindViewMode(boolean)
-    275:276:public com.mikepenz.fastadapter.FastAdapter withSelectionListener(com.mikepenz.fastadapter.ISelectionListener)
-    283:283:public boolean isSelectable()
-    301:302:public com.mikepenz.fastadapter.FastAdapter withOnlyOneExpandedItem(boolean)
-    309:309:public boolean isOnlyOneExpandedItem()
-    417:418:public void clearTypeInstance()
-    594:598:public int getPosition(com.mikepenz.fastadapter.IItem)
-    608:622:public int getPosition(long)
-    761:786:public int getExpandedItemsCount(int,int)
-    903:907:public java.util.Set getSelectedItems()
-    916:929:public void toggleSelection(int)
-    1012:1015:public void select(java.lang.Iterable)
-    1089:1090:public void select()
-    1098:1111:public void select(boolean)
-    1167:1194:public java.util.List deleteAllSelectedItems()
-    1281:1282:public void collapse()
-    1424:1425:public void expand()
-    1433:1437:public void expand(boolean)
-    1528:1529:public void notifyAdapterItemInserted(int)
-    1560:1561:public void notifyAdapterItemRemoved(int)
-    1588:1602:public void notifyAdapterItemMoved(int,int)
-    1610:1611:public void notifyAdapterItemChanged(int)
-    1620:1621:public void notifyAdapterItemChanged(int,java.lang.Object)
-    1675:1689:public void notifyAdapterSubItemsChanged(int)
-    1700:1710:public int notifyAdapterSubItemsChanged(int,int)
+    108:109:public com.mikepenz.fastadapter.FastAdapter withItemEvent(com.mikepenz.fastadapter.listeners.EventHook)
+    130:131:public com.mikepenz.fastadapter.FastAdapter withOnPreClickListener(com.mikepenz.fastadapter.FastAdapter$OnClickListener)
+    152:153:public com.mikepenz.fastadapter.FastAdapter withOnPreLongClickListener(com.mikepenz.fastadapter.FastAdapter$OnLongClickListener)
+    163:164:public com.mikepenz.fastadapter.FastAdapter withOnTouchListener(com.mikepenz.fastadapter.FastAdapter$OnTouchListener)
+    174:175:public com.mikepenz.fastadapter.FastAdapter withOnCreateViewHolderListener(com.mikepenz.fastadapter.FastAdapter$OnCreateViewHolderListener)
+    185:186:public com.mikepenz.fastadapter.FastAdapter withOnBindViewHolderListener(com.mikepenz.fastadapter.FastAdapter$OnBindViewHolderListener)
+    199:200:public com.mikepenz.fastadapter.FastAdapter withSelectWithItemUpdate(boolean)
+    267:268:public com.mikepenz.fastadapter.FastAdapter withLegacyBindViewMode(boolean)
+    278:279:public com.mikepenz.fastadapter.FastAdapter withSelectionListener(com.mikepenz.fastadapter.ISelectionListener)
+    286:286:public boolean isSelectable()
+    304:305:public com.mikepenz.fastadapter.FastAdapter withOnlyOneExpandedItem(boolean)
+    312:312:public boolean isOnlyOneExpandedItem()
+    421:422:public void clearTypeInstance()
+    626:630:public int getPosition(com.mikepenz.fastadapter.IItem)
+    640:654:public int getPosition(long)
+    794:819:public int getExpandedItemsCount(int,int)
+    938:943:public java.util.Set getSelectedItems()
+    952:965:public void toggleSelection(int)
+    1048:1051:public void select(java.lang.Iterable)
+    1128:1129:public void select()
+    1137:1154:public void select(boolean)
+    1209:1236:public java.util.List deleteAllSelectedItems()
+    1323:1324:public void collapse()
+    1466:1467:public void expand()
+    1475:1479:public void expand(boolean)
+    1570:1571:public void notifyAdapterItemInserted(int)
+    1602:1603:public void notifyAdapterItemRemoved(int)
+    1630:1644:public void notifyAdapterItemMoved(int,int)
+    1652:1653:public void notifyAdapterItemChanged(int)
+    1662:1663:public void notifyAdapterItemChanged(int,java.lang.Object)
+    1717:1731:public void notifyAdapterSubItemsChanged(int)
+    1742:1752:public int notifyAdapterSubItemsChanged(int,int)
 com.mikepenz.fastadapter.IAdapter:
     public abstract int getAdapterPosition(com.mikepenz.fastadapter.IItem)
     public abstract int getAdapterPosition(long)
@@ -6356,6 +6363,7 @@ com.mikepenz.fastadapter.IItemAdapter:
     public abstract com.mikepenz.fastadapter.IItemAdapter remove(int)
     public abstract com.mikepenz.fastadapter.IItemAdapter clear()
 com.mikepenz.fastadapter.ISubItem
+com.mikepenz.fastadapter.ISwipeable
 com.mikepenz.fastadapter.R
 com.mikepenz.fastadapter.R$anim
 com.mikepenz.fastadapter.R$attr
@@ -6370,12 +6378,10 @@ com.mikepenz.fastadapter.R$string
 com.mikepenz.fastadapter.R$style
 com.mikepenz.fastadapter.R$styleable
 com.mikepenz.fastadapter.adapters.GenericItemAdapter
-com.mikepenz.fastadapter.adapters.GenericItemAdapter$ReflectionBasedItemFactory
 com.mikepenz.fastadapter.adapters.ItemAdapter:
     40:41:public com.mikepenz.fastadapter.adapters.ItemAdapter withUseIdDistributor(boolean)
     48:48:public boolean isUseIdDistributor()
     61:62:public com.mikepenz.fastadapter.adapters.ItemAdapter withItemFilter(android.widget.Filter)
-    69:69:public android.widget.Filter getItemFilter()
     82:83:public com.mikepenz.fastadapter.adapters.ItemAdapter withFilterPredicate(com.mikepenz.fastadapter.IItemAdapter$Predicate)
     92:93:public void filter(java.lang.CharSequence)
     100:101:public com.mikepenz.fastadapter.adapters.ItemAdapter withItemFilterListener(com.mikepenz.fastadapter.adapters.ItemAdapter$ItemFilterListener)
@@ -6385,55 +6391,59 @@ com.mikepenz.fastadapter.adapters.ItemAdapter:
     188:188:public int getAdapterPosition(com.mikepenz.fastadapter.IItem)
     199:204:public int getAdapterPosition(long)
     235:238:public com.mikepenz.fastadapter.IItem setSubItems(com.mikepenz.fastadapter.IItem,java.util.List)
-    324:326:public void remapMappedTypes()
-    368:368:public final varargs com.mikepenz.fastadapter.adapters.ItemAdapter add(int,com.mikepenz.fastadapter.IItem[])
-    397:404:public com.mikepenz.fastadapter.adapters.ItemAdapter set(int,com.mikepenz.fastadapter.IItem)
-    415:420:public com.mikepenz.fastadapter.adapters.ItemAdapter move(int,int)
-    429:431:public com.mikepenz.fastadapter.adapters.ItemAdapter remove(int)
-    459:462:public com.mikepenz.fastadapter.adapters.ItemAdapter clear()
+    249:249:public com.mikepenz.fastadapter.adapters.ItemAdapter set(java.util.List)
+    338:340:public void remapMappedTypes()
+    382:382:public final varargs com.mikepenz.fastadapter.adapters.ItemAdapter add(int,com.mikepenz.fastadapter.IItem[])
+    411:418:public com.mikepenz.fastadapter.adapters.ItemAdapter set(int,com.mikepenz.fastadapter.IItem)
+    429:434:public com.mikepenz.fastadapter.adapters.ItemAdapter move(int,int)
+    443:445:public com.mikepenz.fastadapter.adapters.ItemAdapter remove(int)
+    473:476:public com.mikepenz.fastadapter.adapters.ItemAdapter clear()
     26:26:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter clear()
     26:26:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter remove(int)
     26:26:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter set(int,com.mikepenz.fastadapter.IItem)
     26:26:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter add(int,com.mikepenz.fastadapter.IItem[])
     26:26:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter add(java.util.List)
     26:26:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter set(java.util.List)
-    26:26:static synthetic boolean access$200(com.mikepenz.fastadapter.adapters.ItemAdapter)
+    26:26:static synthetic boolean access$300(com.mikepenz.fastadapter.adapters.ItemAdapter)
 com.mikepenz.fastadapter.adapters.ItemAdapter$ItemFilter:
-    516:516:public java.lang.CharSequence getConstraint()
-    537:548:public java.util.Set getSelections()
-    558:568:public java.util.Set getSelectedItems()
-    579:579:public final varargs com.mikepenz.fastadapter.adapters.ItemAdapter add(com.mikepenz.fastadapter.IItem[])
-    589:597:public com.mikepenz.fastadapter.adapters.ItemAdapter add(java.util.List)
-    609:609:public final varargs com.mikepenz.fastadapter.adapters.ItemAdapter add(int,com.mikepenz.fastadapter.IItem[])
-    619:627:public com.mikepenz.fastadapter.adapters.ItemAdapter add(int,java.util.List)
-    638:646:public com.mikepenz.fastadapter.adapters.ItemAdapter set(int,com.mikepenz.fastadapter.IItem)
-    658:666:public com.mikepenz.fastadapter.adapters.ItemAdapter move(int,int)
-    676:681:public com.mikepenz.fastadapter.adapters.ItemAdapter remove(int)
-    692:704:public com.mikepenz.fastadapter.adapters.ItemAdapter removeRange(int,int)
-    712:718:public com.mikepenz.fastadapter.adapters.ItemAdapter clear()
+    557:568:public java.util.Set getSelections()
+    578:588:public java.util.Set getSelectedItems()
+    599:599:public int getAdapterPosition(com.mikepenz.fastadapter.IItem)
+    609:614:public int getAdapterPosition(long)
+    624:624:public final varargs com.mikepenz.fastadapter.adapters.ItemAdapter add(com.mikepenz.fastadapter.IItem[])
+    634:642:public com.mikepenz.fastadapter.adapters.ItemAdapter add(java.util.List)
+    654:654:public final varargs com.mikepenz.fastadapter.adapters.ItemAdapter add(int,com.mikepenz.fastadapter.IItem[])
+    664:672:public com.mikepenz.fastadapter.adapters.ItemAdapter add(int,java.util.List)
+    683:691:public com.mikepenz.fastadapter.adapters.ItemAdapter set(int,com.mikepenz.fastadapter.IItem)
+    703:713:public com.mikepenz.fastadapter.adapters.ItemAdapter move(int,int)
+    723:728:public com.mikepenz.fastadapter.adapters.ItemAdapter remove(int)
+    739:751:public com.mikepenz.fastadapter.adapters.ItemAdapter removeRange(int,int)
+    759:764:public com.mikepenz.fastadapter.adapters.ItemAdapter clear()
 com.mikepenz.fastadapter.helpers.ClickListenerHelper:
-    27:36:public ClickListenerHelper(com.mikepenz.fastadapter.FastAdapter)
-    27:45:public ClickListenerHelper(com.mikepenz.fastadapter.FastAdapter,java.util.List)
-    51:51:public java.util.List getEventHooks()
-    62:63:public com.mikepenz.fastadapter.helpers.ClickListenerHelper setEventHooks(java.util.List)
-    74:75:public com.mikepenz.fastadapter.helpers.ClickListenerHelper addEventHook(com.mikepenz.fastadapter.listeners.EventHook)
+    28:46:public ClickListenerHelper(com.mikepenz.fastadapter.FastAdapter,java.util.List)
+    52:52:public java.util.List getEventHooks()
+    63:64:public com.mikepenz.fastadapter.helpers.ClickListenerHelper setEventHooks(java.util.List)
+    75:76:public com.mikepenz.fastadapter.helpers.ClickListenerHelper addEventHook(com.mikepenz.fastadapter.listeners.EventHook)
+    163:163:public static varargs java.util.List toList(android.view.View[])
 com.mikepenz.fastadapter.items.AbstractItem
-com.mikepenz.fastadapter.items.AbstractItem$ReflectionBasedViewHolderFactory
 com.mikepenz.fastadapter.items.GenericAbstractItem
+com.mikepenz.fastadapter.listeners.CustomEventHook:
+    19:19:public android.view.View onBind(android.support.v7.widget.RecyclerView$ViewHolder)
+    25:25:public java.util.List onBindMany(android.support.v7.widget.RecyclerView$ViewHolder)
 com.mikepenz.fastadapter.utils.AdapterUtil:
-    18:18:public AdapterUtil()
+    17:17:public AdapterUtil()
 com.mikepenz.fastadapter.utils.Function
 com.mikepenz.fastadapter.utils.IdDistributor:
     13:13:public IdDistributor()
 com.mikepenz.iconics.Iconics:
-    74:78:private static java.util.HashMap init(android.content.Context,java.util.HashMap)
-    88:89:public static boolean registerFont(com.mikepenz.iconics.typeface.ITypeface)
-    99:100:public static java.util.Collection getRegisteredFonts(android.content.Context)
-    122:122:public static com.mikepenz.iconics.typeface.ITypeface findFont(com.mikepenz.iconics.typeface.IIcon)
-    139:139:public static android.text.Spanned style(android.content.Context,android.text.Spanned)
-    155:166:public static android.text.Spanned style(android.content.Context,java.util.HashMap,android.text.Spanned,java.util.List,java.util.HashMap)
-    177:178:public static void styleEditable(android.content.Context,android.text.Editable)
-    191:198:public static void styleEditable(android.content.Context,java.util.HashMap,android.text.Editable,java.util.List,java.util.HashMap)
+    75:79:private static java.util.HashMap init(android.content.Context,java.util.HashMap)
+    89:92:public static boolean registerFont(com.mikepenz.iconics.typeface.ITypeface)
+    112:113:public static java.util.Collection getRegisteredFonts(android.content.Context)
+    135:135:public static com.mikepenz.iconics.typeface.ITypeface findFont(com.mikepenz.iconics.typeface.IIcon)
+    152:152:public static android.text.Spanned style(android.content.Context,android.text.Spanned)
+    168:179:public static android.text.Spanned style(android.content.Context,java.util.HashMap,android.text.Spanned,java.util.List,java.util.HashMap)
+    190:191:public static void styleEditable(android.content.Context,android.text.Editable)
+    204:211:public static void styleEditable(android.content.Context,java.util.HashMap,android.text.Editable,java.util.List,java.util.HashMap)
 com.mikepenz.iconics.Iconics$IconicsBuilder
 com.mikepenz.iconics.Iconics$IconicsBuilderString
 com.mikepenz.iconics.Iconics$IconicsBuilderView
@@ -6494,7 +6504,7 @@ com.mikepenz.iconics.core.R$layout
 com.mikepenz.iconics.core.R$string
 com.mikepenz.iconics.core.R$style
 com.mikepenz.iconics.core.R$styleable:
-    1039:1039:public R$styleable()
+    1125:1125:public R$styleable()
 com.mikepenz.iconics.typeface.GenericFont
 com.mikepenz.iconics.typeface.GenericFont$Icon
 com.mikepenz.iconics.typeface.IIcon:
@@ -6682,143 +6692,145 @@ com.mikepenz.materialdrawer.Drawer:
     protected static final java.lang.String BUNDLE_DRAWER_CONTENT_SWITCHED
     protected static final java.lang.String BUNDLE_DRAWER_CONTENT_SWITCHED_APPENDED
     protected static final java.lang.String PREF_USER_LEARNED_DRAWER
+    protected static final java.lang.String PREF_USER_OPENED_DRAWER_BY_DRAGGING
     private android.widget.FrameLayout mContentView
-    73:73:protected com.mikepenz.materialdrawer.DrawerBuilder getDrawerBuilder()
-    82:82:public android.support.v4.widget.DrawerLayout getDrawerLayout()
-    94:95:public void setToolbar(android.app.Activity,android.support.v7.widget.Toolbar)
-    107:109:public void setToolbar(android.app.Activity,android.support.v7.widget.Toolbar,boolean)
-    117:120:public void setActionBarDrawerToggle(android.support.v7.app.ActionBarDrawerToggle)
-    161:164:public void setFullscreen(boolean)
-    172:172:public com.mikepenz.materialize.Materialize getMaterialize()
-    182:185:public com.mikepenz.materialdrawer.MiniDrawer getMiniDrawer()
-    195:195:public com.mikepenz.materialize.view.ScrimInsetsRelativeLayout getSlider()
-    204:207:public android.widget.FrameLayout getContent()
-    216:216:public android.support.v7.widget.RecyclerView getRecyclerView()
-    234:234:public com.mikepenz.fastadapter.adapters.HeaderAdapter getHeaderAdapter()
-    243:243:public com.mikepenz.fastadapter.adapters.ItemAdapter getItemAdapter()
-    252:252:public com.mikepenz.fastadapter.adapters.FooterAdapter getFooterAdapter()
-    270:270:public android.view.View getHeader()
-    279:279:public android.view.View getStickyHeader()
-    288:289:public void setHeader(android.view.View)
-    298:299:public void setHeader(android.view.View,boolean)
-    309:310:public void setHeader(android.view.View,boolean,boolean)
-    321:329:public void setHeader(android.view.View,boolean,boolean,com.mikepenz.materialdrawer.holder.DimenHolder)
-    335:337:public void removeHeader()
-    345:345:public android.view.View getFooter()
-    372:372:public android.support.v7.app.ActionBarDrawerToggle getActionBarDrawerToggle()
-    381:385:public void setGravity(int)
-    394:394:public int getPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
-    414:414:public com.mikepenz.materialdrawer.model.interfaces.IDrawerItem getDrawerItem(long)
-    424:424:public com.mikepenz.materialdrawer.model.interfaces.IDrawerItem getDrawerItem(java.lang.Object)
-    434:434:public int getStickyFooterPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
-    444:444:public int getStickyFooterPosition(long)
-    453:453:public int getCurrentSelectedPosition()
-    462:466:public long getCurrentSelection()
-    475:475:public int getCurrentStickyFooterSelectedPosition()
-    482:483:public void deselect()
-    491:492:public void deselect(long)
-    512:512:public boolean setSelection(long,boolean)
-    523:524:public void setStickyFooterSelection(long,boolean)
-    533:533:public boolean setSelection(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
-    544:544:public boolean setSelection(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,boolean)
-    554:554:public boolean setSelectionAtPosition(int)
-    595:596:public void setStickyFooterSelectionAtPosition(int)
-    606:607:public void setStickyFooterSelectionAtPosition(int,boolean)
-    616:617:public void updateItem(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
-    627:633:public void updateBadge(long,com.mikepenz.materialdrawer.holder.StringHolder)
-    643:649:public void updateName(long,com.mikepenz.materialdrawer.holder.StringHolder)
-    659:665:public void updateIcon(long,com.mikepenz.materialdrawer.holder.ImageHolder)
-    674:677:public void updateItemAtPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int)
-    685:686:public void addItem(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
-    695:696:public void addItemAtPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int)
-    705:706:public void setItemAtPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int)
-    714:717:public void removeItemByPosition(int)
-    725:729:public void removeItem(long)
-    737:742:public varargs void removeItems(long[])
-    748:749:public void removeAllItems()
-    757:758:public varargs void addItems(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem[])
-    767:768:public varargs void addItemsAtPosition(int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem[])
-    776:777:public void setItems(java.util.List)
-    800:801:public void updateStickyFooterItem(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
-    810:815:public void updateStickyFooterItemAtPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int)
-    824:830:public void addStickyFooterItem(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
-    839:845:public void addStickyFooterItemAtPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int)
-    854:859:public void setStickyFooterItemAtPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int)
-    868:873:public void removeStickyFooterItemAtPosition(int)
-    879:885:public void removeAllStickyFooterItems()
-    897:898:public void setOnDrawerNavigationListener(com.mikepenz.materialdrawer.Drawer$OnDrawerNavigationListener)
-    915:915:public com.mikepenz.materialdrawer.Drawer$OnDrawerNavigationListener getOnDrawerNavigationListener()
-    957:957:public java.util.List getOriginalDrawerItems()
-    1034:1045:public android.os.Bundle saveInstanceState(android.os.Bundle)
+    78:78:protected com.mikepenz.materialdrawer.DrawerBuilder getDrawerBuilder()
+    87:87:public android.support.v4.widget.DrawerLayout getDrawerLayout()
+    99:100:public void setToolbar(android.app.Activity,android.support.v7.widget.Toolbar)
+    112:114:public void setToolbar(android.app.Activity,android.support.v7.widget.Toolbar,boolean)
+    122:125:public void setActionBarDrawerToggle(android.support.v7.app.ActionBarDrawerToggle)
+    166:169:public void setFullscreen(boolean)
+    177:177:public com.mikepenz.materialize.Materialize getMaterialize()
+    187:190:public com.mikepenz.materialdrawer.MiniDrawer getMiniDrawer()
+    200:200:public com.mikepenz.materialize.view.ScrimInsetsRelativeLayout getSlider()
+    209:212:public android.widget.FrameLayout getContent()
+    221:221:public android.support.v7.widget.RecyclerView getRecyclerView()
+    239:239:public com.mikepenz.fastadapter.adapters.HeaderAdapter getHeaderAdapter()
+    248:248:public com.mikepenz.fastadapter.adapters.ItemAdapter getItemAdapter()
+    257:257:public com.mikepenz.fastadapter.adapters.FooterAdapter getFooterAdapter()
+    275:275:public android.view.View getHeader()
+    284:284:public android.view.View getStickyHeader()
+    293:294:public void setHeader(android.view.View)
+    303:304:public void setHeader(android.view.View,boolean)
+    314:315:public void setHeader(android.view.View,boolean,boolean)
+    326:334:public void setHeader(android.view.View,boolean,boolean,com.mikepenz.materialdrawer.holder.DimenHolder)
+    340:342:public void removeHeader()
+    350:350:public android.view.View getFooter()
+    377:377:public android.support.v7.app.ActionBarDrawerToggle getActionBarDrawerToggle()
+    386:390:public void setGravity(int)
+    399:399:public int getPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
+    419:419:public com.mikepenz.materialdrawer.model.interfaces.IDrawerItem getDrawerItem(long)
+    429:429:public com.mikepenz.materialdrawer.model.interfaces.IDrawerItem getDrawerItem(java.lang.Object)
+    439:439:public int getStickyFooterPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
+    449:449:public int getStickyFooterPosition(long)
+    458:458:public int getCurrentSelectedPosition()
+    467:471:public long getCurrentSelection()
+    480:480:public int getCurrentStickyFooterSelectedPosition()
+    487:488:public void deselect()
+    496:497:public void deselect(long)
+    517:517:public boolean setSelection(long,boolean)
+    528:529:public void setStickyFooterSelection(long,boolean)
+    538:538:public boolean setSelection(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
+    549:549:public boolean setSelection(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,boolean)
+    559:559:public boolean setSelectionAtPosition(int)
+    600:601:public void setStickyFooterSelectionAtPosition(int)
+    611:612:public void setStickyFooterSelectionAtPosition(int,boolean)
+    621:622:public void updateItem(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
+    632:638:public void updateBadge(long,com.mikepenz.materialdrawer.holder.StringHolder)
+    648:654:public void updateName(long,com.mikepenz.materialdrawer.holder.StringHolder)
+    664:670:public void updateIcon(long,com.mikepenz.materialdrawer.holder.ImageHolder)
+    679:682:public void updateItemAtPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int)
+    690:691:public void addItem(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
+    700:701:public void addItemAtPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int)
+    710:711:public void setItemAtPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int)
+    719:722:public void removeItemByPosition(int)
+    730:734:public void removeItem(long)
+    742:747:public varargs void removeItems(long[])
+    753:754:public void removeAllItems()
+    762:763:public varargs void addItems(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem[])
+    772:773:public varargs void addItemsAtPosition(int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem[])
+    781:782:public void setItems(java.util.List)
+    805:806:public void updateStickyFooterItem(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
+    815:820:public void updateStickyFooterItemAtPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int)
+    829:835:public void addStickyFooterItem(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
+    844:850:public void addStickyFooterItemAtPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int)
+    859:864:public void setStickyFooterItemAtPosition(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,int)
+    873:878:public void removeStickyFooterItemAtPosition(int)
+    884:890:public void removeAllStickyFooterItems()
+    902:903:public void setOnDrawerNavigationListener(com.mikepenz.materialdrawer.Drawer$OnDrawerNavigationListener)
+    920:920:public com.mikepenz.materialdrawer.Drawer$OnDrawerNavigationListener getOnDrawerNavigationListener()
+    962:962:public java.util.List getOriginalDrawerItems()
+    1039:1050:public android.os.Bundle saveInstanceState(android.os.Bundle)
 com.mikepenz.materialdrawer.Drawer$OnDrawerItemSelectedListener
 com.mikepenz.materialdrawer.DrawerBuilder:
-    108:111:public com.mikepenz.materialdrawer.DrawerBuilder withActivity(android.app.Activity)
-    121:126:public com.mikepenz.materialdrawer.DrawerBuilder withRootView(android.view.ViewGroup)
-    136:140:public com.mikepenz.materialdrawer.DrawerBuilder withRootView(int)
-    153:154:public com.mikepenz.materialdrawer.DrawerBuilder withTranslucentStatusBar(boolean)
-    166:167:public com.mikepenz.materialdrawer.DrawerBuilder withDisplayBelowStatusBar(boolean)
-    180:181:public com.mikepenz.materialdrawer.DrawerBuilder withInnerShadow(boolean)
-    209:216:public com.mikepenz.materialdrawer.DrawerBuilder withTranslucentNavigationBar(boolean)
-    229:234:public com.mikepenz.materialdrawer.DrawerBuilder withTranslucentNavigationBarProgrammatically(boolean)
-    249:256:public com.mikepenz.materialdrawer.DrawerBuilder withFullscreen(boolean)
-    270:276:public com.mikepenz.materialdrawer.DrawerBuilder withSystemUIHidden(boolean)
-    291:292:public com.mikepenz.materialdrawer.DrawerBuilder withCustomView(android.view.View)
-    307:308:public com.mikepenz.materialdrawer.DrawerBuilder withDrawerLayout(android.support.v4.widget.DrawerLayout)
-    350:351:public com.mikepenz.materialdrawer.DrawerBuilder withSliderBackgroundColor(int)
-    362:363:public com.mikepenz.materialdrawer.DrawerBuilder withSliderBackgroundColorRes(int)
-    375:376:public com.mikepenz.materialdrawer.DrawerBuilder withSliderBackgroundDrawable(android.graphics.drawable.Drawable)
-    388:389:public com.mikepenz.materialdrawer.DrawerBuilder withSliderBackgroundDrawableRes(int)
-    402:403:public com.mikepenz.materialdrawer.DrawerBuilder withDrawerWidthPx(int)
-    413:418:public com.mikepenz.materialdrawer.DrawerBuilder withDrawerWidthDp(int)
-    428:433:public com.mikepenz.materialdrawer.DrawerBuilder withDrawerWidthRes(int)
-    446:447:public com.mikepenz.materialdrawer.DrawerBuilder withDrawerGravity(int)
-    462:462:public com.mikepenz.materialdrawer.DrawerBuilder withAccountHeader(com.mikepenz.materialdrawer.AccountHeader)
-    474:476:public com.mikepenz.materialdrawer.DrawerBuilder withAccountHeader(com.mikepenz.materialdrawer.AccountHeader,boolean)
-    491:492:public com.mikepenz.materialdrawer.DrawerBuilder withActionBarDrawerToggleAnimated(boolean)
-    506:507:public com.mikepenz.materialdrawer.DrawerBuilder withActionBarDrawerToggle(boolean)
-    520:522:public com.mikepenz.materialdrawer.DrawerBuilder withActionBarDrawerToggle(android.support.v7.app.ActionBarDrawerToggle)
-    535:536:public com.mikepenz.materialdrawer.DrawerBuilder withScrollToTopAfterClick(boolean)
-    553:554:public com.mikepenz.materialdrawer.DrawerBuilder withHeader(android.view.View)
-    564:573:public com.mikepenz.materialdrawer.DrawerBuilder withHeader(int)
-    583:584:public com.mikepenz.materialdrawer.DrawerBuilder withHeaderDivider(boolean)
-    594:595:public com.mikepenz.materialdrawer.DrawerBuilder withHeaderPadding(boolean)
-    605:606:public com.mikepenz.materialdrawer.DrawerBuilder withHeaderHeight(com.mikepenz.materialdrawer.holder.DimenHolder)
-    621:622:public com.mikepenz.materialdrawer.DrawerBuilder withStickyHeader(android.view.View)
-    632:641:public com.mikepenz.materialdrawer.DrawerBuilder withStickyHeader(int)
-    651:652:public com.mikepenz.materialdrawer.DrawerBuilder withStickyHeaderShadow(boolean)
-    667:668:public com.mikepenz.materialdrawer.DrawerBuilder withFooter(android.view.View)
-    678:687:public com.mikepenz.materialdrawer.DrawerBuilder withFooter(int)
-    697:698:public com.mikepenz.materialdrawer.DrawerBuilder withFooterClickable(boolean)
-    708:709:public com.mikepenz.materialdrawer.DrawerBuilder withFooterDivider(boolean)
-    728:729:public com.mikepenz.materialdrawer.DrawerBuilder withStickyFooter(android.view.ViewGroup)
-    739:748:public com.mikepenz.materialdrawer.DrawerBuilder withStickyFooter(int)
-    758:759:public com.mikepenz.materialdrawer.DrawerBuilder withStickyFooterDivider(boolean)
-    769:770:public com.mikepenz.materialdrawer.DrawerBuilder withStickyFooterShadow(boolean)
-    783:784:public com.mikepenz.materialdrawer.DrawerBuilder withFireOnInitialOnClick(boolean)
-    800:801:public com.mikepenz.materialdrawer.DrawerBuilder withMultiSelect(boolean)
-    814:815:public com.mikepenz.materialdrawer.DrawerBuilder withSelectedItemByPosition(int)
-    843:844:public com.mikepenz.materialdrawer.DrawerBuilder withRecyclerView(android.support.v7.widget.RecyclerView)
-    859:863:public com.mikepenz.materialdrawer.DrawerBuilder withHasStableIds(boolean)
-    881:882:public com.mikepenz.materialdrawer.DrawerBuilder withPositionBasedStateManagement(boolean)
-    894:897:public com.mikepenz.materialdrawer.DrawerBuilder withAdapter(com.mikepenz.fastadapter.FastAdapter)
-    941:945:public com.mikepenz.materialdrawer.DrawerBuilder withAdapterWrapper(android.support.v7.widget.RecyclerView$Adapter)
-    959:960:public com.mikepenz.materialdrawer.DrawerBuilder withItemAnimator(android.support.v7.widget.RecyclerView$ItemAnimator)
-    970:971:public com.mikepenz.materialdrawer.DrawerBuilder withDrawerItems(java.util.List)
-    995:996:public com.mikepenz.materialdrawer.DrawerBuilder withStickyDrawerItems(java.util.List)
-    1022:1029:public com.mikepenz.materialdrawer.DrawerBuilder inflateMenu(int)
-    1039:1073:private void addMenuItems(android.view.Menu,boolean)
-    1102:1103:public com.mikepenz.materialdrawer.DrawerBuilder withDelayOnDrawerClose(int)
-    1119:1120:public com.mikepenz.materialdrawer.DrawerBuilder withDelayDrawerClickEvent(int)
-    1133:1134:public com.mikepenz.materialdrawer.DrawerBuilder withOnDrawerListener(com.mikepenz.materialdrawer.Drawer$OnDrawerListener)
-    1147:1148:public com.mikepenz.materialdrawer.DrawerBuilder withOnDrawerItemClickListener(com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener)
-    1161:1162:public com.mikepenz.materialdrawer.DrawerBuilder withOnDrawerItemLongClickListener(com.mikepenz.materialdrawer.Drawer$OnDrawerItemLongClickListener)
-    1175:1176:public com.mikepenz.materialdrawer.DrawerBuilder withOnDrawerNavigationListener(com.mikepenz.materialdrawer.Drawer$OnDrawerNavigationListener)
-    1189:1190:public com.mikepenz.materialdrawer.DrawerBuilder withShowDrawerOnFirstLaunch(boolean)
-    1204:1205:public com.mikepenz.materialdrawer.DrawerBuilder withGenerateMiniDrawer(boolean)
-    1220:1221:public com.mikepenz.materialdrawer.DrawerBuilder withSavedInstance(android.os.Bundle)
-    1297:1356:public com.mikepenz.materialdrawer.Drawer buildForFragment()
-    1519:1563:public com.mikepenz.materialdrawer.Drawer append(com.mikepenz.materialdrawer.Drawer)
-    1813:1813:protected boolean checkDrawerItem(int,boolean)
+    107:110:public com.mikepenz.materialdrawer.DrawerBuilder withActivity(android.app.Activity)
+    120:125:public com.mikepenz.materialdrawer.DrawerBuilder withRootView(android.view.ViewGroup)
+    135:139:public com.mikepenz.materialdrawer.DrawerBuilder withRootView(int)
+    152:153:public com.mikepenz.materialdrawer.DrawerBuilder withTranslucentStatusBar(boolean)
+    165:166:public com.mikepenz.materialdrawer.DrawerBuilder withDisplayBelowStatusBar(boolean)
+    179:180:public com.mikepenz.materialdrawer.DrawerBuilder withInnerShadow(boolean)
+    208:215:public com.mikepenz.materialdrawer.DrawerBuilder withTranslucentNavigationBar(boolean)
+    228:233:public com.mikepenz.materialdrawer.DrawerBuilder withTranslucentNavigationBarProgrammatically(boolean)
+    248:255:public com.mikepenz.materialdrawer.DrawerBuilder withFullscreen(boolean)
+    269:275:public com.mikepenz.materialdrawer.DrawerBuilder withSystemUIHidden(boolean)
+    290:291:public com.mikepenz.materialdrawer.DrawerBuilder withCustomView(android.view.View)
+    306:307:public com.mikepenz.materialdrawer.DrawerBuilder withDrawerLayout(android.support.v4.widget.DrawerLayout)
+    349:350:public com.mikepenz.materialdrawer.DrawerBuilder withSliderBackgroundColor(int)
+    361:362:public com.mikepenz.materialdrawer.DrawerBuilder withSliderBackgroundColorRes(int)
+    374:375:public com.mikepenz.materialdrawer.DrawerBuilder withSliderBackgroundDrawable(android.graphics.drawable.Drawable)
+    387:388:public com.mikepenz.materialdrawer.DrawerBuilder withSliderBackgroundDrawableRes(int)
+    401:402:public com.mikepenz.materialdrawer.DrawerBuilder withDrawerWidthPx(int)
+    412:417:public com.mikepenz.materialdrawer.DrawerBuilder withDrawerWidthDp(int)
+    427:432:public com.mikepenz.materialdrawer.DrawerBuilder withDrawerWidthRes(int)
+    445:446:public com.mikepenz.materialdrawer.DrawerBuilder withDrawerGravity(int)
+    461:461:public com.mikepenz.materialdrawer.DrawerBuilder withAccountHeader(com.mikepenz.materialdrawer.AccountHeader)
+    473:475:public com.mikepenz.materialdrawer.DrawerBuilder withAccountHeader(com.mikepenz.materialdrawer.AccountHeader,boolean)
+    490:491:public com.mikepenz.materialdrawer.DrawerBuilder withActionBarDrawerToggleAnimated(boolean)
+    505:506:public com.mikepenz.materialdrawer.DrawerBuilder withActionBarDrawerToggle(boolean)
+    519:521:public com.mikepenz.materialdrawer.DrawerBuilder withActionBarDrawerToggle(android.support.v7.app.ActionBarDrawerToggle)
+    534:535:public com.mikepenz.materialdrawer.DrawerBuilder withScrollToTopAfterClick(boolean)
+    552:553:public com.mikepenz.materialdrawer.DrawerBuilder withHeader(android.view.View)
+    563:572:public com.mikepenz.materialdrawer.DrawerBuilder withHeader(int)
+    582:583:public com.mikepenz.materialdrawer.DrawerBuilder withHeaderDivider(boolean)
+    593:594:public com.mikepenz.materialdrawer.DrawerBuilder withHeaderPadding(boolean)
+    604:605:public com.mikepenz.materialdrawer.DrawerBuilder withHeaderHeight(com.mikepenz.materialdrawer.holder.DimenHolder)
+    620:621:public com.mikepenz.materialdrawer.DrawerBuilder withStickyHeader(android.view.View)
+    631:640:public com.mikepenz.materialdrawer.DrawerBuilder withStickyHeader(int)
+    650:651:public com.mikepenz.materialdrawer.DrawerBuilder withStickyHeaderShadow(boolean)
+    666:667:public com.mikepenz.materialdrawer.DrawerBuilder withFooter(android.view.View)
+    677:686:public com.mikepenz.materialdrawer.DrawerBuilder withFooter(int)
+    696:697:public com.mikepenz.materialdrawer.DrawerBuilder withFooterClickable(boolean)
+    707:708:public com.mikepenz.materialdrawer.DrawerBuilder withFooterDivider(boolean)
+    727:728:public com.mikepenz.materialdrawer.DrawerBuilder withStickyFooter(android.view.ViewGroup)
+    738:747:public com.mikepenz.materialdrawer.DrawerBuilder withStickyFooter(int)
+    757:758:public com.mikepenz.materialdrawer.DrawerBuilder withStickyFooterDivider(boolean)
+    768:769:public com.mikepenz.materialdrawer.DrawerBuilder withStickyFooterShadow(boolean)
+    782:783:public com.mikepenz.materialdrawer.DrawerBuilder withFireOnInitialOnClick(boolean)
+    799:800:public com.mikepenz.materialdrawer.DrawerBuilder withMultiSelect(boolean)
+    813:814:public com.mikepenz.materialdrawer.DrawerBuilder withSelectedItemByPosition(int)
+    842:843:public com.mikepenz.materialdrawer.DrawerBuilder withRecyclerView(android.support.v7.widget.RecyclerView)
+    858:862:public com.mikepenz.materialdrawer.DrawerBuilder withHasStableIds(boolean)
+    880:884:public com.mikepenz.materialdrawer.DrawerBuilder withPositionBasedStateManagement(boolean)
+    896:899:public com.mikepenz.materialdrawer.DrawerBuilder withAdapter(com.mikepenz.fastadapter.FastAdapter)
+    943:947:public com.mikepenz.materialdrawer.DrawerBuilder withAdapterWrapper(android.support.v7.widget.RecyclerView$Adapter)
+    961:962:public com.mikepenz.materialdrawer.DrawerBuilder withItemAnimator(android.support.v7.widget.RecyclerView$ItemAnimator)
+    972:973:public com.mikepenz.materialdrawer.DrawerBuilder withDrawerItems(java.util.List)
+    997:998:public com.mikepenz.materialdrawer.DrawerBuilder withStickyDrawerItems(java.util.List)
+    1024:1031:public com.mikepenz.materialdrawer.DrawerBuilder inflateMenu(int)
+    1041:1075:private void addMenuItems(android.view.Menu,boolean)
+    1104:1105:public com.mikepenz.materialdrawer.DrawerBuilder withDelayOnDrawerClose(int)
+    1121:1122:public com.mikepenz.materialdrawer.DrawerBuilder withDelayDrawerClickEvent(int)
+    1135:1136:public com.mikepenz.materialdrawer.DrawerBuilder withOnDrawerListener(com.mikepenz.materialdrawer.Drawer$OnDrawerListener)
+    1149:1150:public com.mikepenz.materialdrawer.DrawerBuilder withOnDrawerItemClickListener(com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener)
+    1163:1164:public com.mikepenz.materialdrawer.DrawerBuilder withOnDrawerItemLongClickListener(com.mikepenz.materialdrawer.Drawer$OnDrawerItemLongClickListener)
+    1177:1178:public com.mikepenz.materialdrawer.DrawerBuilder withOnDrawerNavigationListener(com.mikepenz.materialdrawer.Drawer$OnDrawerNavigationListener)
+    1191:1192:public com.mikepenz.materialdrawer.DrawerBuilder withShowDrawerOnFirstLaunch(boolean)
+    1205:1206:public com.mikepenz.materialdrawer.DrawerBuilder withShowDrawerUntilDraggedOpened(boolean)
+    1220:1221:public com.mikepenz.materialdrawer.DrawerBuilder withGenerateMiniDrawer(boolean)
+    1236:1237:public com.mikepenz.materialdrawer.DrawerBuilder withSavedInstance(android.os.Bundle)
+    1343:1402:public com.mikepenz.materialdrawer.Drawer buildForFragment()
+    1565:1609:public com.mikepenz.materialdrawer.Drawer append(com.mikepenz.materialdrawer.Drawer)
+    1859:1859:protected boolean checkDrawerItem(int,boolean)
 com.mikepenz.materialdrawer.DrawerUtils:
     24:24:DrawerUtils()
     123:130:public static com.mikepenz.materialdrawer.model.interfaces.IDrawerItem getDrawerItem(java.util.List,long)
@@ -6870,26 +6882,27 @@ com.mikepenz.materialdrawer.MiniDrawer$OnMiniDrawerItemClickListener
 com.mikepenz.materialdrawer.R:
     9:9:public R()
 com.mikepenz.materialdrawer.R$anim
+com.mikepenz.materialdrawer.R$animator
 com.mikepenz.materialdrawer.R$attr:
-    28:28:public R$attr()
+    31:31:public R$attr()
 com.mikepenz.materialdrawer.R$bool
 com.mikepenz.materialdrawer.R$color:
-    382:382:public R$color()
+    388:388:public R$color()
 com.mikepenz.materialdrawer.R$dimen:
-    791:791:public R$dimen()
+    798:798:public R$dimen()
 com.mikepenz.materialdrawer.R$drawable:
-    1006:1006:public R$drawable()
+    1016:1016:public R$drawable()
 com.mikepenz.materialdrawer.R$id:
-    1114:1114:public R$id()
+    1134:1134:public R$id()
 com.mikepenz.materialdrawer.R$integer
 com.mikepenz.materialdrawer.R$layout:
-    1320:1320:public R$layout()
+    1348:1348:public R$layout()
 com.mikepenz.materialdrawer.R$string:
-    1403:1403:public R$string()
+    1432:1432:public R$string()
 com.mikepenz.materialdrawer.R$style:
-    1492:1492:public R$style()
+    1526:1526:public R$style()
 com.mikepenz.materialdrawer.R$styleable:
-    1917:1917:public R$styleable()
+    1955:1955:public R$styleable()
 com.mikepenz.materialdrawer.holder.BadgeStyle:
     34:36:public com.mikepenz.materialdrawer.holder.BadgeStyle withGradientDrawable(int)
     40:40:public android.graphics.drawable.Drawable getBadgeBackground()
@@ -6952,42 +6965,41 @@ com.mikepenz.materialdrawer.icons.MaterialDrawerFont$Icon:
     132:132:public java.lang.String getName()
 com.mikepenz.materialdrawer.interfaces.OnCheckedChangeListener
 com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem:
-    26:27:public com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem withBadge(com.mikepenz.materialdrawer.holder.StringHolder)
-    32:33:public com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem withBadge(java.lang.String)
-    38:39:public com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem withBadge(int)
-    44:45:public com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem withBadgeStyle(com.mikepenz.materialdrawer.holder.BadgeStyle)
-    49:49:public com.mikepenz.materialdrawer.holder.StringHolder getBadge()
-    53:53:public com.mikepenz.materialdrawer.holder.BadgeStyle getBadgeStyle()
-    20:20:public bridge synthetic java.lang.Object withBadgeStyle(com.mikepenz.materialdrawer.holder.BadgeStyle)
-    20:20:public bridge synthetic java.lang.Object withBadge(com.mikepenz.materialdrawer.holder.StringHolder)
-    20:20:public bridge synthetic java.lang.Object withBadge(int)
-    20:20:public bridge synthetic java.lang.Object withBadge(java.lang.String)
+    24:25:public com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem withBadge(com.mikepenz.materialdrawer.holder.StringHolder)
+    30:31:public com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem withBadge(java.lang.String)
+    36:37:public com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem withBadge(int)
+    42:43:public com.mikepenz.materialdrawer.model.AbstractBadgeableDrawerItem withBadgeStyle(com.mikepenz.materialdrawer.holder.BadgeStyle)
+    47:47:public com.mikepenz.materialdrawer.holder.StringHolder getBadge()
+    51:51:public com.mikepenz.materialdrawer.holder.BadgeStyle getBadgeStyle()
+    18:18:public bridge synthetic java.lang.Object withBadgeStyle(com.mikepenz.materialdrawer.holder.BadgeStyle)
+    18:18:public bridge synthetic java.lang.Object withBadge(com.mikepenz.materialdrawer.holder.StringHolder)
+    18:18:public bridge synthetic java.lang.Object withBadge(int)
+    18:18:public bridge synthetic java.lang.Object withBadge(java.lang.String)
 com.mikepenz.materialdrawer.model.AbstractDrawerItem:
     protected java.lang.Object mTag
     private com.mikepenz.materialdrawer.model.interfaces.IDrawerItem mParent
-    61:62:public java.lang.Object withTag(java.lang.Object)
-    70:70:public java.lang.Object getTag()
-    83:84:public java.lang.Object withEnabled(boolean)
-    156:157:public java.lang.Object withOnDrawerItemClickListener(com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener)
-    163:163:public com.mikepenz.materialdrawer.model.interfaces.OnPostBindViewListener getOnPostBindViewListener()
-    173:174:public java.lang.Object withPostOnBindViewListener(com.mikepenz.materialdrawer.model.interfaces.OnPostBindViewListener)
-    197:197:public com.mikepenz.materialdrawer.model.interfaces.IDrawerItem getParent()
-    208:209:public com.mikepenz.materialdrawer.model.interfaces.IDrawerItem withParent(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
-    222:223:public java.lang.Object withSubItems(java.util.List)
-    297:299:public android.view.View generateView(android.content.Context)
-    352:352:public boolean equals(long)
-    356:356:public boolean equals(int)
-    25:25:public bridge synthetic java.lang.Object withParent(com.mikepenz.fastadapter.IItem)
-    25:25:public bridge synthetic com.mikepenz.fastadapter.IItem getParent()
+    60:61:public java.lang.Object withTag(java.lang.Object)
+    69:69:public java.lang.Object getTag()
+    82:83:public java.lang.Object withEnabled(boolean)
+    150:151:public java.lang.Object withSelectedBackgroundAnimated(boolean)
+    176:177:public java.lang.Object withOnDrawerItemClickListener(com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener)
+    183:183:public com.mikepenz.materialdrawer.model.interfaces.OnPostBindViewListener getOnPostBindViewListener()
+    193:194:public java.lang.Object withPostOnBindViewListener(com.mikepenz.materialdrawer.model.interfaces.OnPostBindViewListener)
+    217:217:public com.mikepenz.materialdrawer.model.interfaces.IDrawerItem getParent()
+    228:229:public com.mikepenz.materialdrawer.model.interfaces.IDrawerItem withParent(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem)
+    242:243:public java.lang.Object withSubItems(java.util.List)
+    308:310:public android.view.View generateView(android.content.Context)
+    390:390:public boolean equals(long)
+    394:394:public boolean equals(int)
+    24:24:public bridge synthetic java.lang.Object withParent(com.mikepenz.fastadapter.IItem)
+    24:24:public bridge synthetic com.mikepenz.fastadapter.IItem getParent()
 com.mikepenz.materialdrawer.model.AbstractSwitchableDrawerItem
 com.mikepenz.materialdrawer.model.AbstractSwitchableDrawerItem$1
 com.mikepenz.materialdrawer.model.AbstractSwitchableDrawerItem$2
-com.mikepenz.materialdrawer.model.AbstractSwitchableDrawerItem$ItemFactory
 com.mikepenz.materialdrawer.model.AbstractSwitchableDrawerItem$ViewHolder
 com.mikepenz.materialdrawer.model.AbstractToggleableDrawerItem
 com.mikepenz.materialdrawer.model.AbstractToggleableDrawerItem$1
 com.mikepenz.materialdrawer.model.AbstractToggleableDrawerItem$2
-com.mikepenz.materialdrawer.model.AbstractToggleableDrawerItem$ItemFactory
 com.mikepenz.materialdrawer.model.AbstractToggleableDrawerItem$ViewHolder
 com.mikepenz.materialdrawer.model.BaseDescribeableDrawerItem:
     24:25:public java.lang.Object withDescription(java.lang.String)
@@ -7024,48 +7036,41 @@ com.mikepenz.materialdrawer.model.BaseDrawerItem:
     209:210:public java.lang.Object withLevel(int)
     263:263:public int getLevel()
 com.mikepenz.materialdrawer.model.ContainerDrawerItem:
-    30:30:public com.mikepenz.materialdrawer.holder.DimenHolder getHeight()
-    41:41:public android.view.View getView()
-    65:65:public com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position getViewPosition()
+    29:29:public com.mikepenz.materialdrawer.holder.DimenHolder getHeight()
+    40:40:public android.view.View getView()
+    64:64:public com.mikepenz.materialdrawer.model.ContainerDrawerItem$Position getViewPosition()
 com.mikepenz.materialdrawer.model.DividerDrawerItem
 com.mikepenz.materialdrawer.model.DividerDrawerItem$1
-com.mikepenz.materialdrawer.model.DividerDrawerItem$ItemFactory
 com.mikepenz.materialdrawer.model.DividerDrawerItem$ViewHolder
 com.mikepenz.materialdrawer.model.ExpandableBadgeDrawerItem
 com.mikepenz.materialdrawer.model.ExpandableBadgeDrawerItem$1
-com.mikepenz.materialdrawer.model.ExpandableBadgeDrawerItem$ItemFactory
 com.mikepenz.materialdrawer.model.ExpandableBadgeDrawerItem$ViewHolder
 com.mikepenz.materialdrawer.model.ExpandableDrawerItem
 com.mikepenz.materialdrawer.model.ExpandableDrawerItem$1
-com.mikepenz.materialdrawer.model.ExpandableDrawerItem$ItemFactory
 com.mikepenz.materialdrawer.model.ExpandableDrawerItem$ViewHolder
 com.mikepenz.materialdrawer.model.MiniDrawerItem
-com.mikepenz.materialdrawer.model.MiniDrawerItem$ItemFactory
 com.mikepenz.materialdrawer.model.MiniDrawerItem$ViewHolder
 com.mikepenz.materialdrawer.model.MiniProfileDrawerItem
-com.mikepenz.materialdrawer.model.MiniProfileDrawerItem$ItemFactory
 com.mikepenz.materialdrawer.model.MiniProfileDrawerItem$ViewHolder
 com.mikepenz.materialdrawer.model.ProfileDrawerItem
 com.mikepenz.materialdrawer.model.ProfileDrawerItem$1
-com.mikepenz.materialdrawer.model.ProfileDrawerItem$ItemFactory
 com.mikepenz.materialdrawer.model.ProfileDrawerItem$ViewHolder
 com.mikepenz.materialdrawer.model.ProfileSettingDrawerItem
 com.mikepenz.materialdrawer.model.ProfileSettingDrawerItem$1
-com.mikepenz.materialdrawer.model.ProfileSettingDrawerItem$ItemFactory
 com.mikepenz.materialdrawer.model.ProfileSettingDrawerItem$ViewHolder
 com.mikepenz.materialdrawer.model.SecondarySwitchDrawerItem
 com.mikepenz.materialdrawer.model.SecondaryToggleDrawerItem
 com.mikepenz.materialdrawer.model.SectionDrawerItem:
-    34:35:public com.mikepenz.materialdrawer.model.SectionDrawerItem withName(com.mikepenz.materialdrawer.holder.StringHolder)
-    39:40:public com.mikepenz.materialdrawer.model.SectionDrawerItem withName(java.lang.String)
-    49:50:public com.mikepenz.materialdrawer.model.SectionDrawerItem withDivider(boolean)
-    54:55:public com.mikepenz.materialdrawer.model.SectionDrawerItem withTextColor(int)
-    59:60:public com.mikepenz.materialdrawer.model.SectionDrawerItem withTextColorRes(int)
-    64:65:public com.mikepenz.materialdrawer.model.SectionDrawerItem withTypeface(android.graphics.Typeface)
-    24:24:public bridge synthetic java.lang.Object withName(com.mikepenz.materialdrawer.holder.StringHolder)
-    24:24:public bridge synthetic java.lang.Object withName(int)
-    24:24:public bridge synthetic java.lang.Object withName(java.lang.String)
-    24:24:public bridge synthetic java.lang.Object withTypeface(android.graphics.Typeface)
+    33:34:public com.mikepenz.materialdrawer.model.SectionDrawerItem withName(com.mikepenz.materialdrawer.holder.StringHolder)
+    38:39:public com.mikepenz.materialdrawer.model.SectionDrawerItem withName(java.lang.String)
+    48:49:public com.mikepenz.materialdrawer.model.SectionDrawerItem withDivider(boolean)
+    53:54:public com.mikepenz.materialdrawer.model.SectionDrawerItem withTextColor(int)
+    58:59:public com.mikepenz.materialdrawer.model.SectionDrawerItem withTextColorRes(int)
+    63:64:public com.mikepenz.materialdrawer.model.SectionDrawerItem withTypeface(android.graphics.Typeface)
+    23:23:public bridge synthetic java.lang.Object withName(com.mikepenz.materialdrawer.holder.StringHolder)
+    23:23:public bridge synthetic java.lang.Object withName(int)
+    23:23:public bridge synthetic java.lang.Object withName(java.lang.String)
+    23:23:public bridge synthetic java.lang.Object withTypeface(android.graphics.Typeface)
 com.mikepenz.materialdrawer.model.SwitchDrawerItem
 com.mikepenz.materialdrawer.model.ToggleDrawerItem
 com.mikepenz.materialdrawer.model.interfaces.Badgeable
@@ -7101,7 +7106,7 @@ com.mikepenz.materialdrawer.model.interfaces.Selectable:
 com.mikepenz.materialdrawer.model.interfaces.Tagable
 com.mikepenz.materialdrawer.model.interfaces.Typefaceable
 com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader:
-    24:24:public void cancel(android.widget.ImageView)
+    23:23:public void cancel(android.widget.ImageView)
 com.mikepenz.materialdrawer.util.DrawerImageLoader:
     28:29:public static com.mikepenz.materialdrawer.util.DrawerImageLoader init(com.mikepenz.materialdrawer.util.DrawerImageLoader$IDrawerImageLoader)
     41:42:public com.mikepenz.materialdrawer.util.DrawerImageLoader withHandleAllUris(boolean)
@@ -7154,20 +7159,20 @@ com.mikepenz.materialize.R$attr:
     22:22:public R$attr()
 com.mikepenz.materialize.R$bool
 com.mikepenz.materialize.R$color:
-    258:258:public R$color()
+    261:261:public R$color()
 com.mikepenz.materialize.R$dimen:
-    625:625:public R$dimen()
+    634:634:public R$dimen()
 com.mikepenz.materialize.R$drawable
 com.mikepenz.materialize.R$id:
-    816:816:public R$id()
+    861:861:public R$id()
 com.mikepenz.materialize.R$integer
 com.mikepenz.materialize.R$layout:
-    923:923:public R$layout()
+    980:980:public R$layout()
 com.mikepenz.materialize.R$string
 com.mikepenz.materialize.R$style:
-    1010:1010:public R$style()
+    1076:1076:public R$style()
 com.mikepenz.materialize.R$styleable:
-    1377:1377:public R$styleable()
+    1463:1463:public R$styleable()
 com.mikepenz.materialize.color.IColor
 com.mikepenz.materialize.color.Material
 com.mikepenz.materialize.color.Material$Amber
@@ -7259,9 +7264,9 @@ com.mikepenz.materialize.util.SystemUtils
 com.mikepenz.materialize.util.UIUtils:
     29:29:public UIUtils()
     190:193:public static float convertPixelsToDp(float,android.content.Context)
-    282:285:public static android.graphics.drawable.StateListDrawable getSelectablePressedBackground(android.content.Context,int,int,boolean)
-    296:296:public static int adjustAlpha(int,int)
-    344:345:public static int getScreenHeight(android.content.Context)
+    286:289:public static android.graphics.drawable.StateListDrawable getSelectablePressedBackground(android.content.Context,int,int,boolean)
+    300:300:public static int adjustAlpha(int,int)
+    348:349:public static int getScreenHeight(android.content.Context)
 com.mikepenz.materialize.view.IScrimInsetsLayout:
     public abstract android.graphics.drawable.Drawable getInsetForeground()
     public abstract void setInsetForeground(android.graphics.drawable.Drawable)
