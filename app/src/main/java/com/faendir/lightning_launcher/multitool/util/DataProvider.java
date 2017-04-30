@@ -4,35 +4,28 @@ import android.content.ContentProvider;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
-import android.os.ParcelUuid;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.gesture.GestureInfo;
-import com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary;
 import com.google.gson.JsonSyntaxException;
 
+import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 
 import java8.util.function.BiConsumer;
-import java8.util.stream.StreamSupport;
 
 import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
 import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
@@ -48,6 +41,7 @@ public class DataProvider extends ContentProvider {
     private static final String AUTHORITY = "com.faendir.lightning_launcher.multitool.provider";
     private static final String LIBRARY = "lib";
     private static final String INFOS = "infos";
+    private static final String PREF = "pref";
     private static final int SHARED_PREFERENCES = 1;
     private static final int GESTURE_LIBRARY = 2;
     private static final int GESTURE_INFOS = 3;
@@ -57,30 +51,25 @@ public class DataProvider extends ContentProvider {
 
     public DataProvider() {
         URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
-        URI_MATCHER.addURI(AUTHORITY, "pref", SHARED_PREFERENCES);
+        URI_MATCHER.addURI(AUTHORITY, PREF, SHARED_PREFERENCES);
         URI_MATCHER.addURI(AUTHORITY, LIBRARY, GESTURE_LIBRARY);
         URI_MATCHER.addURI(AUTHORITY, INFOS, GESTURE_INFOS);
     }
 
-    public static List<GestureInfo> getGestureInfos(Context context) {
-        List<GestureInfo> gestureInfos = new ArrayList<>();
-        try (Cursor cursor = context.getContentResolver().query(getContentUri(INFOS), null, null, null, null)) {
-            while (cursor.moveToNext()) {
-                try {
-                    gestureInfos.add(new GestureInfo(Intent.parseUri(cursor.getString(0), 0), cursor.getString(1), ParcelUuid.fromString(cursor.getString(2))));
-                } catch (URISyntaxException ignored) {
-                }
-            }
-            cursor.close();
-        }
-        return gestureInfos;
-    }
-
     public static FileDescriptor getGestureLibraryFile(Context context) {
         try {
-            return context.getContentResolver().openFileDescriptor(getContentUri(DataProvider.LIBRARY), "").getFileDescriptor();
+            return context.getContentResolver().openFileDescriptor(getContentUri(LIBRARY), "").getFileDescriptor();
         } catch (FileNotFoundException e) {
-            if (DEBUG) Log.d(LOG_TAG, "Did not find gesture file");
+            if (DEBUG) Log.d(LOG_TAG, "Did not find gesture library file");
+            return new FileDescriptor();
+        }
+    }
+
+    public static FileDescriptor getGestureInfoFile(Context context){
+        try {
+            return context.getContentResolver().openFileDescriptor(getContentUri(INFOS), "").getFileDescriptor();
+        } catch (FileNotFoundException e) {
+            if (DEBUG) Log.d(LOG_TAG, "Did not find gesture info file");
             return new FileDescriptor();
         }
     }
@@ -108,12 +97,6 @@ public class DataProvider extends ContentProvider {
                 for (String s : selectionArgs) {
                     cursor.addRow(new Object[]{s, Utils.GSON.toJson(values.get(s))});
                 }
-                return cursor;
-            }
-            case GESTURE_INFOS: {
-                MatrixCursor cursor = new MatrixCursor(new String[]{"intent", "label", "uuid"});
-                FileManager<GestureInfo> fileManager = FileManagerFactory.createGestureFileManager(getContext());
-                StreamSupport.stream(fileManager.read()).forEach(info -> cursor.addRow(new Object[]{info.getIntent().toUri(0), info.getLabel(), info.getUuid().toString()}));
                 return cursor;
             }
         }
@@ -170,9 +153,13 @@ public class DataProvider extends ContentProvider {
     @Nullable
     @Override
     public ParcelFileDescriptor openFile(@NonNull Uri uri, @NonNull String mode) throws FileNotFoundException {
-        if (URI_MATCHER.match(uri) == GESTURE_LIBRARY) {
-            return ParcelFileDescriptor.open(SingletonGestureLibrary.getFile(getContext()), ParcelFileDescriptor.MODE_READ_WRITE | ParcelFileDescriptor.MODE_CREATE);
+        switch (URI_MATCHER.match(uri)) {
+            case GESTURE_LIBRARY:
+                return ParcelFileDescriptor.open(new File(getContext().getFilesDir(), "gestureLibrary"), ParcelFileDescriptor.MODE_READ_WRITE | ParcelFileDescriptor.MODE_CREATE);
+            case GESTURE_INFOS:
+                return ParcelFileDescriptor.open(new File(getContext().getFilesDir(),"gestures"), ParcelFileDescriptor.MODE_READ_WRITE | ParcelFileDescriptor.MODE_CREATE);
+            default:
+                return super.openFile(uri, mode);
         }
-        return super.openFile(uri, mode);
     }
 }

@@ -1,6 +1,5 @@
 package com.faendir.lightning_launcher.multitool.util;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 
@@ -11,7 +10,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.BufferedWriter;
-import java.io.File;
+import java.io.FileDescriptor;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -22,6 +21,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import java8.util.function.Supplier;
+
 /**
  * Created by Lukas on 04.08.2015.
  * Manages I/O
@@ -29,35 +30,21 @@ import java.util.List;
 public class FileManager<T> {
 
     private final Class<T[]> clazz;
-    private final File file;
     private final Gson gson;
+    private final Supplier<FileDescriptor> fileDescriptorSupplier;
 
-    public FileManager(File file, Class<T[]> clazz) {
-        this.file = file;
+    public FileManager(Supplier<FileDescriptor> fileDescriptorSupplier, Class<T[]> clazz) {
+        this.fileDescriptorSupplier = fileDescriptorSupplier;
         gson = new GsonBuilder()
                 .registerTypeAdapter(Intent.class, new IntentTypeAdapter())
                 .create();
         this.clazz = clazz;
     }
 
-    @SuppressWarnings("ResultOfMethodCallIgnored")
-    @SuppressLint("SetWorldReadable")
-    public static void allowGlobalRead(File file) {
-        try {
-            if (!file.exists()) file.createNewFile();
-            file.setReadable(true, false);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void allowGlobalRead() {
-        allowGlobalRead(file);
-    }
-
     @NonNull
     public List<T> read() {
-        if (file.exists()) {
+        FileDescriptor file = fileDescriptorSupplier.get();
+        if (file.valid()) {
             try (FileReader reader = new FileReader(file)) {
                 T[] array = gson.fromJson(reader, clazz);
                 if (array != null) {
@@ -70,16 +57,12 @@ public class FileManager<T> {
     }
 
     public void write(@NonNull List<T> items) {
-        try (Writer writer = new BufferedWriter(new FileWriter(file))) {
+        try (Writer writer = new BufferedWriter(new FileWriter(fileDescriptorSupplier.get()))) {
             gson.toJson(items.toArray(), clazz, writer);
             writer.flush();
         } catch (Exception e) {
             throw new FatalFileException(e);
         }
-    }
-
-    public File getFile() {
-        return file;
     }
 
     public static class FatalFileException extends RuntimeException {

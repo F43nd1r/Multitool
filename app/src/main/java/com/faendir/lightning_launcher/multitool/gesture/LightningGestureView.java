@@ -3,14 +3,13 @@ package com.faendir.lightning_launcher.multitool.gesture;
 import android.content.Context;
 import android.content.Intent;
 import android.gesture.Gesture;
-import android.gesture.GestureLibrary;
 import android.gesture.GestureOverlayView;
 import android.gesture.Prediction;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.util.DataProvider;
+import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,11 +43,11 @@ public class LightningGestureView extends GestureOverlayView implements GestureO
     @Override
     public void onGesturePerformed(GestureOverlayView overlay, Gesture gesture) {
         if (DEBUG) Log.d(LOG_TAG, "Gesture performed");
-        List<GestureInfo> gestureInfos = DataProvider.getGestureInfos(getContext());
+        List<GestureInfo> gestureInfos = FileManagerFactory.createGestureFileManager(getContext()).read();
         if (DEBUG) Log.d(LOG_TAG, "GestureInfos loaded");
         boolean recognized = false;
         if (!gestureInfos.isEmpty()) {
-            GestureLibrary library = SingletonGestureLibrary.getGlobal(getContext());
+            SingleStoreGestureLibrary library = SingleStoreGestureLibrary.getInstance(getContext());
             if (DEBUG) Log.d(LOG_TAG, "Gestures loaded");
             ArrayList<Prediction> list = library.recognize(gesture);
             if (list != null && list.size() != 0) {

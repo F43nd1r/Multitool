@@ -19,7 +19,6 @@ import android.view.ViewGroup;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
-import com.faendir.lightning_launcher.multitool.util.ToStringBuilder;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.omniadapter.OmniAdapter;
 import com.faendir.omniadapter.OmniBuilder;
@@ -304,10 +303,5 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
 
     private List<ScriptItem> getSelectedItems() {
         return adapter.getSelection();
-    }
-
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this).append("adapter", adapter).build();
     }
 }

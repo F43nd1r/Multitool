@@ -53,7 +53,6 @@ public class GestureFragment extends Fragment implements OmniAdapter.Controller<
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         fileManager = FileManagerFactory.createGestureFileManager(getActivity());
-        fileManager.allowGlobalRead();
     }
 
     @Override
@@ -137,7 +136,7 @@ public class GestureFragment extends Fragment implements OmniAdapter.Controller<
                 }
                 case EXPORT:
                     StreamSupport.stream(Utils.getFilePickerActivityResult(data)).findAny()
-                            .ifPresent(uri -> GestureUtils.exportGestures(getActivity(), uri, fileManager));
+                            .ifPresent(uri -> GestureUtils.exportGestures(getActivity(), uri));
                     break;
                 case IMPORT:
                     StreamSupport.stream(Utils.getFilePickerActivityResult(data)).findAny()

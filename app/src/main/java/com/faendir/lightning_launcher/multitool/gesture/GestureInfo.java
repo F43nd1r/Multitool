@@ -4,7 +4,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.gesture.Gesture;
-import android.gesture.GestureLibrary;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -68,7 +67,7 @@ public class GestureInfo implements Parcelable, Component {
     @Nullable
     Gesture getGesture(Context context) {
         if (gesture == null) {
-            Optional.ofNullable(SingletonGestureLibrary.getGlobal(context).getGestures(uuid.toString()))
+            Optional.ofNullable(SingleStoreGestureLibrary.getInstance(context).getGestures(uuid.toString()))
                     .ifPresent(list -> gesture = StreamSupport.stream(list).findFirst().get());
         }
         return gesture;
@@ -76,7 +75,7 @@ public class GestureInfo implements Parcelable, Component {
 
     void setGesture(Context context, Gesture gesture) {
         this.gesture = gesture;
-        GestureLibrary library = SingletonGestureLibrary.getGlobal(context);
+        SingleStoreGestureLibrary library = SingleStoreGestureLibrary.getInstance(context);
         String uuid = this.uuid.toString();
         List<Gesture> list = library.getGestures(uuid);
         if (list == null || !list.contains(gesture)) {
@@ -87,7 +86,7 @@ public class GestureInfo implements Parcelable, Component {
     }
 
     void removeGesture(Context context) {
-        GestureLibrary library = SingletonGestureLibrary.getGlobal(context);
+        SingleStoreGestureLibrary library = SingleStoreGestureLibrary.getInstance(context);
         library.removeGesture(uuid.toString(), getGesture(context));
         library.save();
     }
