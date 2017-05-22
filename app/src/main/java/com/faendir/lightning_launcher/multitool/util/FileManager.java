@@ -1,6 +1,7 @@
 package com.faendir.lightning_launcher.multitool.util;
 
 import android.content.Intent;
+import android.os.ParcelFileDescriptor;
 import android.support.annotation.NonNull;
 
 import com.google.gson.Gson;
@@ -10,31 +11,27 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.BufferedWriter;
-import java.io.FileDescriptor;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import java8.util.function.Supplier;
-
 /**
  * Created by Lukas on 04.08.2015.
  * Manages I/O
  */
-public class FileManager<T> {
+public class FileManager<T, E extends Throwable> {
 
     private final Class<T[]> clazz;
     private final Gson gson;
-    private final Supplier<FileDescriptor> fileDescriptorSupplier;
+    private final LambdaUtils.ExceptionalSupplier<ParcelFileDescriptor, E> fileSupplier;
 
-    public FileManager(Supplier<FileDescriptor> fileDescriptorSupplier, Class<T[]> clazz) {
-        this.fileDescriptorSupplier = fileDescriptorSupplier;
+    public FileManager(LambdaUtils.ExceptionalSupplier<ParcelFileDescriptor, E> fileSupplier, Class<T[]> clazz) {
+        this.fileSupplier = fileSupplier;
         gson = new GsonBuilder()
                 .registerTypeAdapter(Intent.class, new IntentTypeAdapter())
                 .create();
@@ -42,10 +39,10 @@ public class FileManager<T> {
     }
 
     @NonNull
-    public List<T> read() {
-        FileDescriptor file = fileDescriptorSupplier.get();
-        if (file.valid()) {
-            try (FileReader reader = new FileReader(file)) {
+    public List<T> read() throws E {
+        ParcelFileDescriptor file = fileSupplier.get();
+        if (file.getFileDescriptor().valid()) {
+            try (InputStreamReader reader = new InputStreamReader(new ParcelFileDescriptor.AutoCloseInputStream(file))) {
                 T[] array = gson.fromJson(reader, clazz);
                 if (array != null) {
                     return new ArrayList<>(Arrays.asList(array));
@@ -56,8 +53,8 @@ public class FileManager<T> {
         return Collections.emptyList();
     }
 
-    public void write(@NonNull List<T> items) {
-        try (Writer writer = new BufferedWriter(new FileWriter(fileDescriptorSupplier.get()))) {
+    public void write(@NonNull List<T> items) throws E {
+        try (Writer writer = new BufferedWriter(new OutputStreamWriter(new ParcelFileDescriptor.AutoCloseOutputStream(fileSupplier.get())))) {
             gson.toJson(items.toArray(), clazz, writer);
             writer.flush();
         } catch (Exception e) {
@@ -92,10 +89,7 @@ public class FileManager<T> {
             in.beginObject();
             while (in.hasNext()) {
                 if (URI.equals(in.nextName())) {
-                    try {
-                        intent = Intent.parseUri(in.nextString(), 0);
-                    } catch (URISyntaxException ignored) {
-                    }
+                    intent = LambdaUtils.exceptionToOptional(Intent::parseUri).apply(in.nextString(), 0).orElse(intent);
                 }
             }
             in.endObject();

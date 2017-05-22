@@ -13,6 +13,9 @@ import android.support.annotation.Nullable;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicReference;
 
+import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.*;
+import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.ignoreExceptions;
+
 /**
  * @author F43nd1r
  * @since 25.04.2017
@@ -62,10 +65,7 @@ public abstract class BaseIpcService extends Service {
             }).start();
             while (reference.get() == null) {
                 synchronized (reference) {
-                    try {
-                        reference.wait();
-                    } catch (InterruptedException ignored) {
-                    }
+                    ignoreExceptions((ExceptionalRunnable) reference::wait).run();
                 }
             }
             return reference.get();

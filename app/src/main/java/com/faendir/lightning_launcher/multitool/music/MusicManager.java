@@ -18,7 +18,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
-import android.os.RemoteException;
 import android.os.ResultReceiver;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
@@ -49,12 +48,16 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 
+import java8.util.Optional;
+import java8.util.stream.RefStreams;
 import java8.util.stream.StreamSupport;
 
 import static android.media.MediaMetadata.*;
 import static android.media.session.PlaybackState.*;
 import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
 import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
+import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
+import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.ignoreExceptions;
 
 /**
  * Created on 03.07.2016.
@@ -71,12 +74,13 @@ public class MusicManager extends BaseIpcService {
     private static final int ACTION_NEXT = 6;
     private static final int ACTION_PREVIOUS = 7;
     private static final List<Integer> PLAYING_STATES;
+
     static {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             PLAYING_STATES = Arrays.asList(
                     STATE_PLAYING, STATE_FAST_FORWARDING, STATE_SKIPPING_TO_NEXT,
                     STATE_SKIPPING_TO_PREVIOUS, STATE_SKIPPING_TO_QUEUE_ITEM);
-        }else {
+        } else {
             PLAYING_STATES = Collections.emptyList();
         }
     }
@@ -100,11 +104,7 @@ public class MusicManager extends BaseIpcService {
         controllers = new DualHashBidiMap<>();
         listeners = new HashSet<>();
         currentController = new WeakReference<>(null);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            sessionsChangedListener = this::onActiveSessionsChanged;
-        }else {
-            sessionsChangedListener = null;
-        }
+        sessionsChangedListener = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? this::onActiveSessionsChanged : null;
     }
 
     @Override
@@ -117,7 +117,7 @@ public class MusicManager extends BaseIpcService {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mediaSessionManager = (MediaSessionManager) getSystemService(Context.MEDIA_SESSION_SERVICE);
         }
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
             notificationListener = new ComponentName(this, DummyNotificationListener.class);
         }
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
@@ -126,7 +126,7 @@ public class MusicManager extends BaseIpcService {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void updateCurrentInfo(MediaController controller, Bitmap albumArt, String title, String album, String artist) {
-        if(controller == null) return;
+        if (controller == null) return;
         this.currentController = new WeakReference<>(controller);
         this.albumArt = albumArt;
         this.title = title;
@@ -367,22 +367,17 @@ public class MusicManager extends BaseIpcService {
 
         @Nullable
         private Bitmap loadBitmapForKeys(@NonNull String... keys) {
-            Bitmap bmp = null;
-            for (String key : keys) {
-                try {
-                    if (key.endsWith("URI")) {
-                        String uri = metadata.getString(key);
-                        if (uri != null) {
-                            bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(Uri.parse(uri)));
-                        }
-                    } else {
-                        bmp = metadata.getBitmap(key);
+            return RefStreams.of(keys).map(exceptionToOptional(key -> {
+                if (key.endsWith("URI")) {
+                    String uri = metadata.getString(key);
+                    if (uri != null) {
+                        return BitmapFactory.decodeStream(getContentResolver().openInputStream(Uri.parse(uri)));
                     }
-                } catch (Exception ignored) {
+                } else {
+                    return metadata.getBitmap(key);
                 }
-                if (bmp != null) break;
-            }
-            return bmp;
+                return null;
+            })).filter(Optional::isPresent).findAny().map(Optional::get).orElse(null);
         }
 
         private void push() {
@@ -421,10 +416,7 @@ public class MusicManager extends BaseIpcService {
             data.putString("player", packageName);
             Message message = Message.obtain();
             message.setData(data);
-            try {
-                messenger.send(message);
-            } catch (RemoteException ignored) {
-            }
+            ignoreExceptions(messenger::send).accept(message);
         }
 
         private boolean hasMessenger(Messenger messenger) {
@@ -447,47 +439,32 @@ public class MusicManager extends BaseIpcService {
             Message message = Message.obtain();
             message.what = ACTION_REGISTER;
             message.obj = listener;
-            try {
-                messenger.send(message);
-            } catch (RemoteException ignored) {
-            }
+            ignoreExceptions(messenger::send).accept(message);
         }
 
         void unregisterListener(Listener listener) {
             Message message = Message.obtain();
             message.what = ACTION_UNREGISTER;
             message.obj = listener;
-            try {
-                messenger.send(message);
-            } catch (RemoteException ignored) {
-            }
+            ignoreExceptions(messenger::send).accept(message);
         }
 
         void togglePlay() {
             Message message = Message.obtain();
             message.what = ACTION_PLAY_PAUSE;
-            try {
-                messenger.send(message);
-            } catch (RemoteException ignored) {
-            }
+            ignoreExceptions(messenger::send).accept(message);
         }
 
         void next() {
             Message message = Message.obtain();
             message.what = ACTION_NEXT;
-            try {
-                messenger.send(message);
-            } catch (RemoteException ignored) {
-            }
+            ignoreExceptions(messenger::send).accept(message);
         }
 
         void previous() {
             Message message = Message.obtain();
             message.what = ACTION_PREVIOUS;
-            try {
-                messenger.send(message);
-            } catch (RemoteException ignored) {
-            }
+            ignoreExceptions(messenger::send).accept(message);
         }
     }
 }

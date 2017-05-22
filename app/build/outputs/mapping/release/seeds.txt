@@ -9502,38 +9502,39 @@ com.faendir.lightning_launcher.multitool.backup.BackupService: BackupService()
 com.faendir.lightning_launcher.multitool.backup.BootBroadcastReceiver
 com.faendir.lightning_launcher.multitool.backup.BootBroadcastReceiver: BootBroadcastReceiver()
 com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver
+com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: java.lang.String BADGE_COUNT
+com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: java.lang.String PACKAGE_NAME
+com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: java.lang.String INTENT_BADGE_COUNT_UPDATE
 com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: BadgeBroadcastReceiver()
 com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: void onReceive(android.content.Context,android.content.Intent)
+com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: void lambda$onReceive$0(int,java.lang.String,android.os.IBinder)
+com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver$$Lambda$1
+com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver$$Lambda$1: int arg$1
+com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver$$Lambda$1: java.lang.String arg$2
+com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver$$Lambda$1: BadgeBroadcastReceiver$$Lambda$1(int,java.lang.String)
+com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver$$Lambda$1: void accept(java.lang.Object)
+com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver$$Lambda$1: com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalConsumer lambdaFactory$(int,java.lang.String)
 com.faendir.lightning_launcher.multitool.badge.BadgeListener
 com.faendir.lightning_launcher.multitool.badge.BadgeListener: java8.util.function.BiConsumer consumer
 com.faendir.lightning_launcher.multitool.badge.BadgeListener: BadgeListener()
 com.faendir.lightning_launcher.multitool.badge.BadgeListener: void onCountChange(int,java.lang.String)
 com.faendir.lightning_launcher.multitool.badge.BadgeListener: void setConsumer(java8.util.function.BiConsumer)
 com.faendir.lightning_launcher.multitool.badge.BadgeService
-com.faendir.lightning_launcher.multitool.badge.BadgeService: java.lang.String BADGE_COUNT
-com.faendir.lightning_launcher.multitool.badge.BadgeService: java.lang.String PACKAGE_NAME
-com.faendir.lightning_launcher.multitool.badge.BadgeService: java.lang.String INTENT_BADGE_COUNT_UPDATE
 com.faendir.lightning_launcher.multitool.badge.BadgeService: android.content.SharedPreferences sharedPref
 com.faendir.lightning_launcher.multitool.badge.BadgeService: java.util.Set listeners
 com.faendir.lightning_launcher.multitool.badge.BadgeService: com.faendir.lightning_launcher.multitool.badge.IBadgeService badgeService
 com.faendir.lightning_launcher.multitool.badge.BadgeService: BadgeService()
 com.faendir.lightning_launcher.multitool.badge.BadgeService: void onCreate()
-com.faendir.lightning_launcher.multitool.badge.BadgeService: int onStartCommand(android.content.Intent,int,int)
 com.faendir.lightning_launcher.multitool.badge.BadgeService: android.os.IBinder onBind(android.content.Intent)
-com.faendir.lightning_launcher.multitool.badge.BadgeService: void lambda$onStartCommand$0(int,java.lang.String,com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
 com.faendir.lightning_launcher.multitool.badge.BadgeService: java.util.Set access$000(com.faendir.lightning_launcher.multitool.badge.BadgeService)
 com.faendir.lightning_launcher.multitool.badge.BadgeService: android.content.SharedPreferences access$100(com.faendir.lightning_launcher.multitool.badge.BadgeService)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$$Lambda$1
-com.faendir.lightning_launcher.multitool.badge.BadgeService$$Lambda$1: int arg$1
-com.faendir.lightning_launcher.multitool.badge.BadgeService$$Lambda$1: java.lang.String arg$2
-com.faendir.lightning_launcher.multitool.badge.BadgeService$$Lambda$1: BadgeService$$Lambda$1(int,java.lang.String)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$$Lambda$1: void accept(java.lang.Object)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$$Lambda$1: java8.util.function.Consumer lambdaFactory$(int,java.lang.String)
 com.faendir.lightning_launcher.multitool.badge.BadgeService$1
 com.faendir.lightning_launcher.multitool.badge.BadgeService$1: com.faendir.lightning_launcher.multitool.badge.BadgeService this$0
 com.faendir.lightning_launcher.multitool.badge.BadgeService$1: BadgeService$1(com.faendir.lightning_launcher.multitool.badge.BadgeService)
 com.faendir.lightning_launcher.multitool.badge.BadgeService$1: void registerListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
 com.faendir.lightning_launcher.multitool.badge.BadgeService$1: void unregisterListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1: void publish(int,java.lang.String)
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1: void lambda$publish$2(int,java.lang.String,com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
 com.faendir.lightning_launcher.multitool.badge.BadgeService$1: void lambda$registerListener$1(com.faendir.lightning_launcher.multitool.badge.IBadgeListener,java.lang.String,java.util.Map$Entry)
 com.faendir.lightning_launcher.multitool.badge.BadgeService$1: boolean lambda$registerListener$0(java.lang.String,java.util.Map$Entry)
 com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$1
@@ -9546,7 +9547,13 @@ com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$2: com.fae
 com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$2: java.lang.String arg$2
 com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$2: BadgeService$1$$Lambda$2(com.faendir.lightning_launcher.multitool.badge.IBadgeListener,java.lang.String)
 com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$2: void accept(java.lang.Object)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$2: java8.util.function.Consumer lambdaFactory$(com.faendir.lightning_launcher.multitool.badge.IBadgeListener,java.lang.String)
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$2: com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalConsumer lambdaFactory$(com.faendir.lightning_launcher.multitool.badge.IBadgeListener,java.lang.String)
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$3
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$3: int arg$1
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$3: java.lang.String arg$2
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$3: BadgeService$1$$Lambda$3(int,java.lang.String)
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$3: void accept(java.lang.Object)
+com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$3: com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalConsumer lambdaFactory$(int,java.lang.String)
 com.faendir.lightning_launcher.multitool.badge.IBadgeListener
 com.faendir.lightning_launcher.multitool.badge.IBadgeListener: void onCountChange(int,java.lang.String)
 com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub
@@ -9565,10 +9572,12 @@ com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub$Proxy: void o
 com.faendir.lightning_launcher.multitool.badge.IBadgeService
 com.faendir.lightning_launcher.multitool.badge.IBadgeService: void registerListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
 com.faendir.lightning_launcher.multitool.badge.IBadgeService: void unregisterListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
+com.faendir.lightning_launcher.multitool.badge.IBadgeService: void publish(int,java.lang.String)
 com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub
 com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: java.lang.String DESCRIPTOR
 com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: int TRANSACTION_registerListener
 com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: int TRANSACTION_unregisterListener
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: int TRANSACTION_publish
 com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: IBadgeService$Stub()
 com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: com.faendir.lightning_launcher.multitool.badge.IBadgeService asInterface(android.os.IBinder)
 com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: android.os.IBinder asBinder()
@@ -9580,6 +9589,7 @@ com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: android
 com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: java.lang.String getInterfaceDescriptor()
 com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: void registerListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
 com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: void unregisterListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
+com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: void publish(int,java.lang.String)
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState[] values()
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState valueOf(java.lang.String)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$1: void onClick(android.content.DialogInterface,int)

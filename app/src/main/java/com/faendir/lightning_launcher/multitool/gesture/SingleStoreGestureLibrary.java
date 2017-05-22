@@ -4,13 +4,13 @@ import android.content.Context;
 import android.gesture.Gesture;
 import android.gesture.GestureStore;
 import android.gesture.Prediction;
+import android.os.ParcelFileDescriptor;
 import android.util.Log;
 
 import com.faendir.lightning_launcher.multitool.util.DataProvider;
 
-import java.io.FileDescriptor;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import org.acra.ACRA;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -51,23 +51,23 @@ final class SingleStoreGestureLibrary {
         if (!gestureStore.hasChanged()) return true;
         boolean result = false;
         try {
-            FileDescriptor file = DataProvider.getGestureLibraryFile(context);
-            gestureStore.save(new FileOutputStream(file), true);
-            file.sync();
+            gestureStore.save(new ParcelFileDescriptor.AutoCloseOutputStream(DataProvider.getGestureLibraryFile(context)), true);
             result = true;
         } catch (IOException e) {
             if (DEBUG) Log.d(LOG_TAG, "Could not save the gesture library", e);
+            ACRA.getErrorReporter().handleSilentException(e);
         }
         return result;
     }
 
     private static void load(Context context) {
-        try (FileInputStream in = new FileInputStream(DataProvider.getGestureLibraryFile(context))) {
+        try (ParcelFileDescriptor.AutoCloseInputStream in = new ParcelFileDescriptor.AutoCloseInputStream(DataProvider.getGestureLibraryFile(context))) {
             if (in.available() > 0) {
                 gestureStore.load(in, false);
             }
         } catch (IOException e) {
             if (DEBUG) Log.d(LOG_TAG, "Could not load the gesture library", e);
+            ACRA.getErrorReporter().handleSilentException(e);
         }
     }
 

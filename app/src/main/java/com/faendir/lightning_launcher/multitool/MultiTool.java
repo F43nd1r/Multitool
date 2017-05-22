@@ -14,11 +14,11 @@ import org.acra.sender.HttpSender;
  * Main Application class
  */
 @ReportsCrashes(
-        httpMethod = HttpSender.Method.PUT,
+        formUri = "https://faendir.com/acra/report",
+        formUriBasicAuthLogin = "591c604b42110637a8e132c0",
+        formUriBasicAuthPassword = "CTgrnKHPk1hjDNX4",
+        httpMethod = HttpSender.Method.POST,
         reportType = HttpSender.Type.JSON,
-        formUri = "https://faendir.smileupps.com/acra-multitool/_design/acra-storage/_update/report",
-        formUriBasicAuthLogin = "multitool",
-        formUriBasicAuthPassword = "mtR3p0rt",
         reportPrimerClass = ResetReportPrimer.class,
         buildConfigClass = BuildConfig.class
 )

@@ -7,4 +7,5 @@ import com.faendir.lightning_launcher.multitool.badge.IBadgeListener;
 interface IBadgeService {
     void registerListener(IBadgeListener listener);
     void unregisterListener(IBadgeListener listener);
+    void publish(int count, String packageName);
 }

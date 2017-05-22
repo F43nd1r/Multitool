@@ -79,6 +79,7 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
                 .addUndoListener(this)
                 .setInsetDpPerLevel(10)
                 .attach(recyclerView);
+        throw new RuntimeException("Intended crash");
     }
 
     private void fireUpdateActionMode() {

@@ -13,13 +13,11 @@ import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.google.gson.JsonSyntaxException;
 
 import java.io.File;
-import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -27,8 +25,7 @@ import java.util.Map;
 
 import java8.util.function.BiConsumer;
 
-import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
-import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
+import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 
 /**
  * Provides various data (including SharedPreferences) to LL
@@ -56,22 +53,12 @@ public class DataProvider extends ContentProvider {
         URI_MATCHER.addURI(AUTHORITY, INFOS, GESTURE_INFOS);
     }
 
-    public static FileDescriptor getGestureLibraryFile(Context context) {
-        try {
-            return context.getContentResolver().openFileDescriptor(getContentUri(LIBRARY), "").getFileDescriptor();
-        } catch (FileNotFoundException e) {
-            if (DEBUG) Log.d(LOG_TAG, "Did not find gesture library file");
-            return new FileDescriptor();
-        }
+    public static ParcelFileDescriptor getGestureLibraryFile(Context context) {
+        return exceptionToOptional(() -> context.getContentResolver().openFileDescriptor(getContentUri(LIBRARY), "")).get().orElseThrow(IllegalStateException::new);
     }
 
-    public static FileDescriptor getGestureInfoFile(Context context){
-        try {
-            return context.getContentResolver().openFileDescriptor(getContentUri(INFOS), "").getFileDescriptor();
-        } catch (FileNotFoundException e) {
-            if (DEBUG) Log.d(LOG_TAG, "Did not find gesture info file");
-            return new FileDescriptor();
-        }
+    public static ParcelFileDescriptor getGestureInfoFile(Context context) {
+        return exceptionToOptional(() -> context.getContentResolver().openFileDescriptor(getContentUri(INFOS), "")).get().orElseThrow(IllegalStateException::new);
     }
 
     private static Uri getContentUri(String suffix) {
@@ -157,7 +144,7 @@ public class DataProvider extends ContentProvider {
             case GESTURE_LIBRARY:
                 return ParcelFileDescriptor.open(new File(getContext().getFilesDir(), "gestureLibrary"), ParcelFileDescriptor.MODE_READ_WRITE | ParcelFileDescriptor.MODE_CREATE);
             case GESTURE_INFOS:
-                return ParcelFileDescriptor.open(new File(getContext().getFilesDir(),"gestures"), ParcelFileDescriptor.MODE_READ_WRITE | ParcelFileDescriptor.MODE_CREATE);
+                return ParcelFileDescriptor.open(new File(getContext().getFilesDir(), "gestures"), ParcelFileDescriptor.MODE_READ_WRITE | ParcelFileDescriptor.MODE_CREATE);
             default:
                 return super.openFile(uri, mode);
         }

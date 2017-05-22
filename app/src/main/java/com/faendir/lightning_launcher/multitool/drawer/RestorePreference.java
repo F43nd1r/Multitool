@@ -13,6 +13,8 @@ import java.util.Set;
 
 import java8.util.stream.StreamSupport;
 
+import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
+
 /**
  * @author F43nd1r
  * @since 13.11.2016
@@ -28,11 +30,7 @@ public class RestorePreference extends MultiSelectListPreference {
     }
 
     private String getLabelForComponent(String flatComponent) {
-        try {
-            return pm.getActivityInfo(ComponentName.unflattenFromString(flatComponent), 0).loadLabel(pm).toString();
-        } catch (PackageManager.NameNotFoundException e) {
-            return "";
-        }
+        return exceptionToOptional(pm::getActivityInfo).apply(ComponentName.unflattenFromString(flatComponent), 0).map(info -> info.loadLabel(pm).toString()).orElse("");
     }
 
     @Override

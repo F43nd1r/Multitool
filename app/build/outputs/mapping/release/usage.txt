@@ -5806,7 +5806,7 @@ com.faendir.lightning_launcher.multitool.R$styleable:
     4595:4595:public R$styleable()
 com.faendir.lightning_launcher.multitool.R$xml
 com.faendir.lightning_launcher.multitool.backup.BackupUtils:
-    33:33:public BackupUtils()
+    34:34:public BackupUtils()
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager:
     private static final java.lang.String MUSIC_WIDGET
     private static final java.lang.String DRAWER
@@ -5823,12 +5823,11 @@ com.faendir.lightning_launcher.multitool.gesture.GestureFragment:
 com.faendir.lightning_launcher.multitool.gesture.GestureUtils:
     private static final java.lang.String METADATA
     private static final java.lang.String GESTURES
-    45:46:private GestureUtils()
+    46:47:private GestureUtils()
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView$$Lambda$1
 com.faendir.lightning_launcher.multitool.gesture.SingleStoreGestureLibrary:
     75:75:java.util.ArrayList recognize(android.gesture.Gesture)
-com.faendir.lightning_launcher.multitool.gesture.SingletonGestureLibrary
 com.faendir.lightning_launcher.multitool.music.MusicManager:
     private static final int ACTION_REGISTER
     private static final int ACTION_UNREGISTER
@@ -5878,12 +5877,16 @@ com.faendir.lightning_launcher.multitool.util.DataProvider:
     private static final int SHARED_PREFERENCES
     private static final int GESTURE_LIBRARY
     private static final int GESTURE_INFOS
-com.faendir.lightning_launcher.multitool.util.DataProvider$$Lambda$5
 com.faendir.lightning_launcher.multitool.util.FileManager$IntentTypeAdapter:
     private static final java.lang.String URI
 com.faendir.lightning_launcher.multitool.util.FileManagerFactory:
     14:15:private FileManagerFactory()
-com.faendir.lightning_launcher.multitool.util.ToStringBuilder
+com.faendir.lightning_launcher.multitool.util.LambdaUtils:
+    19:20:private LambdaUtils()
+    44:44:public static java8.util.function.BiConsumer ignoreExceptions(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiConsumer)
+    46:49:static synthetic void lambda$ignoreExceptions$2(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiConsumer,java.lang.Object,java.lang.Object)
+com.faendir.lightning_launcher.multitool.util.LambdaUtils$$Lambda$3
+com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiConsumer
 com.faendir.lightning_launcher.multitool.util.Utils:
     25:26:private Utils()
 com.faendir.lightning_launcher.scriptlib.Action
@@ -7514,8 +7517,6 @@ java8.util.J8Arrays:
     166:166:public static java8.util.Spliterator$OfLong spliterator(long[],int,int)
     183:183:public static java8.util.Spliterator$OfDouble spliterator(double[])
     206:206:public static java8.util.Spliterator$OfDouble spliterator(double[],int,int)
-    219:219:public static java8.util.stream.Stream stream(java.lang.Object[])
-    238:238:public static java8.util.stream.Stream stream(java.lang.Object[],int,int)
     250:250:public static java8.util.stream.IntStream stream(int[])
     268:268:public static java8.util.stream.IntStream stream(int[],int,int)
     280:280:public static java8.util.stream.LongStream stream(long[])
@@ -7623,13 +7624,9 @@ java8.util.Objects:
 java8.util.Optional:
     183:188:public void ifPresentOrElse(java8.util.function.Consumer,java.lang.Runnable)
     202:206:public java8.util.Optional filter(java8.util.function.Predicate)
-    244:248:public java8.util.Optional map(java8.util.function.Function)
     274:278:public java8.util.Optional flatMap(java8.util.function.Function)
-    298:302:public java8.util.Optional or(java8.util.function.Supplier)
     323:326:public java8.util.stream.Stream stream()
-    339:339:public java.lang.Object orElse(java.lang.Object)
     353:353:public java.lang.Object orElseGet(java8.util.function.Supplier)
-    374:377:public java.lang.Object orElseThrow(java8.util.function.Supplier)
 java8.util.OptionalDouble
 java8.util.OptionalInt
 java8.util.OptionalInt$OICache
@@ -8864,7 +8861,18 @@ java8.util.stream.ReduceOps$CountingSink$OfLong
 java8.util.stream.ReduceOps$CountingSink$OfRef
 java8.util.stream.ReduceOps$ReduceOp:
     1258:1258:public java8.util.stream.StreamShape inputShape()
-java8.util.stream.RefStreams
+java8.util.stream.RefStreams:
+    116:126:public static java8.util.stream.Stream takeWhile(java8.util.stream.Stream,java8.util.function.Predicate)
+    191:201:public static java8.util.stream.Stream dropWhile(java8.util.stream.Stream,java8.util.function.Predicate)
+    211:211:public static java8.util.stream.Stream$Builder builder()
+    221:221:public static java8.util.stream.Stream empty()
+    232:232:public static java8.util.stream.Stream of(java.lang.Object)
+    246:247:public static java8.util.stream.Stream ofNullable(java.lang.Object)
+    287:307:public static java8.util.stream.Stream iterate(java.lang.Object,java8.util.function.UnaryOperator)
+    350:394:public static java8.util.stream.Stream iterate(java.lang.Object,java8.util.function.Predicate,java8.util.function.UnaryOperator)
+    408:409:public static java8.util.stream.Stream generate(java8.util.function.Supplier)
+    434:441:public static java8.util.stream.Stream concat(java8.util.stream.Stream,java8.util.stream.Stream)
+    444:445:private RefStreams()
 java8.util.stream.RefStreams$$Lambda$1
 java8.util.stream.RefStreams$$Lambda$2
 java8.util.stream.RefStreams$1

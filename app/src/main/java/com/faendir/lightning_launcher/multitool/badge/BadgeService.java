@@ -15,15 +15,14 @@ import java.util.Set;
 
 import java8.util.stream.StreamSupport;
 
+import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.ignoreExceptions;
+
 /**
  * @author F43nd1r
  * @since 25.04.2017
  */
 
 public class BadgeService extends Service {
-    private static final String BADGE_COUNT = "badge_count";
-    private static final String PACKAGE_NAME = "badge_count_package_name";
-    private static final String INTENT_BADGE_COUNT_UPDATE = "android.intent.action.BADGE_COUNT_UPDATE";
 
     private SharedPreferences sharedPref;
     private final Set<IBadgeListener> listeners;
@@ -38,24 +37,6 @@ public class BadgeService extends Service {
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        if (intent.getAction().equals(INTENT_BADGE_COUNT_UPDATE)) {
-            if (intent.hasExtra(BADGE_COUNT) && intent.hasExtra(PACKAGE_NAME)) {
-                String packageName = intent.getStringExtra(PACKAGE_NAME);
-                int count = intent.getIntExtra(BADGE_COUNT, 0);
-                sharedPref.edit().putInt(getString(R.string.unread_prefix) + packageName, count).apply();
-                StreamSupport.stream(listeners).forEach(listener -> {
-                    try {
-                        listener.onCountChange(count, packageName);
-                    } catch (RemoteException ignored) {
-                    }
-                });
-            }
-        }
-        return START_NOT_STICKY;
-    }
-
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -67,17 +48,18 @@ public class BadgeService extends Service {
         public void registerListener(IBadgeListener listener) throws RemoteException {
             listeners.add(listener);
             String unread = getString(R.string.unread_prefix);
-            StreamSupport.stream(sharedPref.getAll().entrySet()).filter(entry -> entry.getKey().startsWith(unread)).forEach(entry -> {
-                try {
-                    listener.onCountChange((Integer)entry.getValue(), entry.getKey().substring(unread.length()));
-                } catch (RemoteException ignored) {
-                }
-            });
+            StreamSupport.stream(sharedPref.getAll().entrySet()).filter(entry -> entry.getKey().startsWith(unread))
+                    .forEach(ignoreExceptions(entry -> listener.onCountChange((Integer)entry.getValue(), entry.getKey().substring(unread.length()))));
         }
 
         @Override
         public void unregisterListener(IBadgeListener listener) throws RemoteException {
             listeners.remove(listener);
+        }
+
+        @Override
+        public void publish(int count, String packageName) throws RemoteException {
+            StreamSupport.stream(listeners).forEach(ignoreExceptions(listener -> listener.onCountChange(count, packageName)));
         }
     };
 }

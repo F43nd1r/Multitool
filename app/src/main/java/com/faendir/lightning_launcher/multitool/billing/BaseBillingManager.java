@@ -10,6 +10,7 @@ import android.util.Log;
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.TransactionDetails;
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.util.LambdaUtils.ExceptionalRunnable;
 
 import org.apache.commons.collections4.BidiMap;
 import org.apache.commons.collections4.bidimap.DualHashBidiMap;
@@ -26,6 +27,7 @@ import java.util.Map;
 
 import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
 import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
+import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.ignoreExceptions;
 
 /**
  * @author F43nd1r
@@ -164,7 +166,7 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
     int networkRequest(String productId, int requestId) {
         try {
             String charset = "UTF-8";
-            HttpURLConnection connection = (HttpURLConnection) new URL("http://faendir.com/android/index.php").openConnection();
+            HttpURLConnection connection = (HttpURLConnection) new URL("https://faendir.com/android/index.php").openConnection();
             connection.setDoInput(true);
             connection.setDoOutput(true);
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -185,10 +187,7 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
     void waitForInit() {
         while (!billingProcessor.isInitialized()) {
             synchronized (this) {
-                try {
-                    wait();
-                } catch (InterruptedException ignored) {
-                }
+                ignoreExceptions((ExceptionalRunnable) this::wait).run();
             }
         }
     }

@@ -27,6 +27,8 @@ import com.trianguloy.llscript.repository.aidl.Script;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
+
 
 public class LauncherScriptFragment extends Fragment {
 
@@ -131,12 +133,7 @@ public class LauncherScriptFragment extends Fragment {
 
     private boolean isPackageInstalled(String packageName, Context context) {
         PackageManager pm = context.getPackageManager();
-        try {
-            pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
+        return exceptionToOptional(pm::getPackageInfo).apply(packageName, PackageManager.GET_ACTIVITIES).isPresent();
     }
 
     private void changeText(String newText) {

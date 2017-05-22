@@ -15,7 +15,7 @@ public final class FileManagerFactory {
     }
 
     @NonNull
-    public static FileManager<GestureInfo> createGestureFileManager(Context context) {
+    public static FileManager<GestureInfo, IllegalStateException> createGestureFileManager(Context context) {
         return new FileManager<>(() -> DataProvider.getGestureInfoFile(context), GestureInfo[].class);
     }
 }

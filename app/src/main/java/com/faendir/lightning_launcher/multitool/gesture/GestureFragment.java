@@ -45,7 +45,7 @@ public class GestureFragment extends Fragment implements OmniAdapter.Controller<
     private static final int IMPORT = 4;
     private static final String INDEX = "index";
 
-    private FileManager<GestureInfo> fileManager;
+    private FileManager<GestureInfo, ? extends RuntimeException> fileManager;
     private DeepObservableList<GestureInfo> gestureInfos;
 
     @Override

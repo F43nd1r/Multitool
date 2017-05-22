@@ -8,9 +8,9 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.util.LambdaUtils.ExceptionalBiFunction;
 import com.google.gson.JsonSyntaxException;
 
 import java.util.ArrayList;
@@ -22,6 +22,7 @@ import java.util.Locale;
 import java8.util.stream.Collectors;
 import java8.util.stream.StreamSupport;
 
+import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 import static com.faendir.lightning_launcher.multitool.util.Utils.GSON;
 
 /**
@@ -35,13 +36,7 @@ public class BackupUtils {
 
     @NonNull
     public static BackupTime getBackupTime(@Nullable String s) {
-        if (s != null && !TextUtils.isEmpty(s)) {
-            try {
-                return GSON.fromJson(s, BackupTime.class);
-            } catch (JsonSyntaxException ignored) {
-            }
-        }
-        return DEFAULT;
+        return exceptionToOptional((ExceptionalBiFunction<String, Class<BackupTime>, BackupTime, JsonSyntaxException>) GSON::fromJson).apply(s, BackupTime.class).orElse(DEFAULT);
     }
 
     @NonNull

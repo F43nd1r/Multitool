@@ -2,7 +2,6 @@ package com.faendir.lightning_launcher.multitool;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,6 +14,7 @@ import com.faendir.lightning_launcher.multitool.billing.BillingManager;
 
 import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
 import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
+import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 
 /**
  * @author F43nd1r
@@ -119,16 +119,8 @@ public class Loader extends Activity {
 
     private boolean checkLightningVersion() {
         PackageManager pm = getPackageManager();
-        PackageInfo info;
-        try {
-            info = pm.getPackageInfo("net.pierrox.lightning_launcher_extreme", 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            try {
-                info = pm.getPackageInfo("net.pierrox.lightning_launcher", 0);
-            } catch (PackageManager.NameNotFoundException e1) {
-                return false;
-            }
-        }
-        return info.versionCode % 1000 >= 307;
+        return exceptionToOptional(pm::getPackageInfo).apply("net.pierrox.lightning_launcher_extreme", 0)
+                .or(() -> exceptionToOptional(pm::getPackageInfo).apply("net.pierrox.lightning_launcher", 0))
+                .map(info -> info.versionCode % 1000 >= 307).orElse(false);
     }
 }

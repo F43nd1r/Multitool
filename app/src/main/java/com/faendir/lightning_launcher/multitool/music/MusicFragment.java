@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -25,11 +26,14 @@ import android.widget.TextView;
 import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
+import com.faendir.lightning_launcher.multitool.util.LambdaUtils.*;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+
+import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.*;
 
 /**
  * Created on 03.07.2016.
@@ -48,17 +52,19 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
     private boolean isBound;
     private boolean calledAtLeastOnce = true;
     private volatile Bitmap bitmap;
+    private PackageManager pm;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        pm = getActivity().getPackageManager();
         isBound = true;
         connection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                 binder = new MusicManager.BinderWrapper(iBinder);
-                synchronized (MusicFragment.this){
+                synchronized (MusicFragment.this) {
                     MusicFragment.this.notifyAll();
                 }
             }
@@ -111,10 +117,7 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
         new Thread(() -> {
             while (binder == null) {
                 synchronized (MusicFragment.this) {
-                    try {
-                        MusicFragment.this.wait();
-                    } catch (InterruptedException ignored) {
-                    }
+                    ignoreExceptions((ExceptionalRunnable) MusicFragment.this::wait).run();
                 }
             }
             if (calledAtLeastOnce) {
@@ -158,11 +161,7 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
             MusicFragment.this.title.setText(title);
             MusicFragment.this.album.setText(album);
             MusicFragment.this.artist.setText(artist);
-            try {
-                MusicFragment.this.player.setImageDrawable(getActivity().getPackageManager().getApplicationIcon(packageName));
-            } catch (PackageManager.NameNotFoundException e) {
-                MusicFragment.this.player.setImageDrawable(null);
-            }
+            MusicFragment.this.player.setImageDrawable(exceptionToOptional((ExceptionalFunction<String, Drawable, PackageManager.NameNotFoundException>) pm::getApplicationIcon).apply(packageName).orElse(null));
             calledAtLeastOnce = true;
         });
     }
@@ -170,8 +169,9 @@ public class MusicFragment extends Fragment implements MusicManager.Listener {
     @Subscribe
     public void onClick(ClickEvent event) {
         switch (event.getId()) {
-            case R.id.button_updateMusic:ScriptManager manager = new ScriptManager(getActivity());
-                if(MultiTool.DEBUG) manager.enableDebug();
+            case R.id.button_updateMusic:
+                ScriptManager manager = new ScriptManager(getActivity());
+                if (MultiTool.DEBUG) manager.enableDebug();
                 manager.getAsyncExecutorService()
                         .add(new DirectScriptExecutor(R.raw.music_update))
                         .start();
