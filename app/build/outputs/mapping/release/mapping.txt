@@ -20997,39 +20997,39 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ListManager -> com.faendi
     com.faendir.omniadapter.OmniAdapter adapter -> d
     com.faendir.omniadapter.model.DeepObservableList items -> e
     53:82:void <init>(com.faendir.lightning_launcher.scriptlib.ScriptManager,android.content.Context) -> <init>
-    86:87:void fireUpdateActionMode() -> d
-    90:91:void deselectAll() -> a
-    94:95:void changed(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> a
-    98:162:void updateFrom(java.util.List) -> c
-    165:169:void setAsContentOf(android.view.ViewGroup) -> a
-    172:172:com.faendir.omniadapter.model.DeepObservableList getItems() -> b
-    176:176:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> a
-    180:181:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.omniadapter.model.DeepObservableList) -> a
-    186:186:android.view.View createView(android.view.ViewGroup,int) -> a
-    191:199:void bindView(android.view.View,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int) -> a
-    203:205:boolean onCreateActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> a
-    210:222:boolean onPrepareActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> b
-    227:250:boolean onActionItemClicked(android.support.v7.view.ActionMode,android.view.MenuItem) -> a
-    255:256:void onDestroyActionMode(android.support.v7.view.ActionMode) -> a
-    260:261:void onSelectionChanged(java.util.List) -> d
-    265:266:void onSelectionCleared() -> c
-    270:272:void onActionPersisted(java.util.List) -> a
-    276:276:void onActionReverted(java.util.List) -> b
-    280:280:boolean isSelectable(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> b
-    296:301:int getSelectionMode() -> e
-    306:306:java.util.List getSelectedItems() -> f
+    85:86:void fireUpdateActionMode() -> d
+    89:90:void deselectAll() -> a
+    93:94:void changed(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> a
+    97:161:void updateFrom(java.util.List) -> c
+    164:168:void setAsContentOf(android.view.ViewGroup) -> a
+    171:171:com.faendir.omniadapter.model.DeepObservableList getItems() -> b
+    175:175:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> a
+    179:180:boolean exists(com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.omniadapter.model.DeepObservableList) -> a
+    185:185:android.view.View createView(android.view.ViewGroup,int) -> a
+    190:198:void bindView(android.view.View,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int) -> a
+    202:204:boolean onCreateActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> a
+    209:221:boolean onPrepareActionMode(android.support.v7.view.ActionMode,android.view.Menu) -> b
+    226:249:boolean onActionItemClicked(android.support.v7.view.ActionMode,android.view.MenuItem) -> a
+    254:255:void onDestroyActionMode(android.support.v7.view.ActionMode) -> a
+    259:260:void onSelectionChanged(java.util.List) -> d
+    264:265:void onSelectionCleared() -> c
+    269:271:void onActionPersisted(java.util.List) -> a
+    275:275:void onActionReverted(java.util.List) -> b
+    279:279:boolean isSelectable(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> b
+    295:300:int getSelectionMode() -> e
+    305:305:java.util.List getSelectedItems() -> f
     44:44:boolean isSelectable(com.faendir.omniadapter.model.Component) -> a
     44:44:void bindView(android.view.View,com.faendir.omniadapter.model.Component,int) -> a
-    271:271:void lambda$onActionPersisted$10(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> a
-    271:271:com.faendir.lightning_launcher.multitool.scriptmanager.Script lambda$onActionPersisted$9(com.faendir.omniadapter.model.ChangeInformation) -> a
-    270:270:boolean lambda$onActionPersisted$8(com.faendir.omniadapter.model.ChangeInformation) -> b
-    180:181:boolean lambda$exists$7(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> a
-    166:168:void lambda$setAsContentOf$6(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup) -> a
-    140:140:boolean lambda$updateFrom$5(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.Folder) -> a
-    139:139:boolean lambda$updateFrom$4(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> c
-    118:118:boolean lambda$updateFrom$3(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.Folder) -> b
-    118:118:boolean lambda$updateFrom$2(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> d
-    101:104:void lambda$updateFrom$1(java.util.List,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int) -> a
+    270:270:void lambda$onActionPersisted$10(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> a
+    270:270:com.faendir.lightning_launcher.multitool.scriptmanager.Script lambda$onActionPersisted$9(com.faendir.omniadapter.model.ChangeInformation) -> a
+    269:269:boolean lambda$onActionPersisted$8(com.faendir.omniadapter.model.ChangeInformation) -> b
+    179:180:boolean lambda$exists$7(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,com.faendir.lightning_launcher.multitool.scriptmanager.Script,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> a
+    165:167:void lambda$setAsContentOf$6(com.faendir.lightning_launcher.multitool.scriptmanager.ListManager,android.view.ViewGroup) -> a
+    139:139:boolean lambda$updateFrom$5(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.Folder) -> a
+    138:138:boolean lambda$updateFrom$4(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> c
+    117:117:boolean lambda$updateFrom$3(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.Folder) -> b
+    117:117:boolean lambda$updateFrom$2(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> d
+    100:103:void lambda$updateFrom$1(java.util.List,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,int) -> a
     60:69:int lambda$new$0(com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem,com.faendir.lightning_launcher.multitool.scriptmanager.ScriptItem) -> a
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$1 -> com.faendir.lightning_launcher.multitool.scriptmanager.e:
     com.faendir.lightning_launcher.multitool.scriptmanager.ListManager$$Lambda$1 instance -> a
