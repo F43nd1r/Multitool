@@ -18,9 +18,10 @@
 -keepattributes Signature, LineNumberTable, SourceFile, *Annotation*, EnclosingMethod
 
 -keep class * extends android.app.Fragment
--keep class * extends android.app.Service
+-keep class * extends android.app.Service {*;}
 
 -keep class com.faendir.lightning_launcher.multitool.gesture.GestureInfo {*;}
+-keep class com.faendir.lightning_launcher.multitool.gesture.LightningGestureView {*;}
 -keep class com.faendir.lightning_launcher.multitool.util.ResetReportPrimer {*;}
 -keep class com.faendir.lightning_launcher.multitool.badge.** {*;}
 

@@ -5619,12 +5619,17 @@ android.support.v4.app.BaseFragmentActivityJB -> android.support.v4.app.l:
     60:67:void startIntentSenderForResult(android.content.IntentSender,int,android.content.Intent,int,int,int,android.os.Bundle) -> startIntentSenderForResult
 android.support.v4.app.BundleCompat -> android.support.v4.app.m:
     39:42:android.os.IBinder getBinder(android.os.Bundle,java.lang.String) -> a
+    54:59:void putBinder(android.os.Bundle,java.lang.String,android.os.IBinder) -> a
 android.support.v4.app.BundleCompatGingerbread -> android.support.v4.app.n:
     java.lang.reflect.Method sGetIBinderMethod -> a
     boolean sGetIBinderMethodFetched -> b
+    java.lang.reflect.Method sPutIBinderMethod -> c
+    boolean sPutIBinderMethodFetched -> d
     40:59:android.os.IBinder getBinder(android.os.Bundle,java.lang.String) -> a
+    63:83:void putBinder(android.os.Bundle,java.lang.String,android.os.IBinder) -> a
 android.support.v4.app.BundleCompatJellybeanMR2 -> android.support.v4.app.o:
     31:31:android.os.IBinder getBinder(android.os.Bundle,java.lang.String) -> a
+    35:36:void putBinder(android.os.Bundle,java.lang.String,android.os.IBinder) -> a
 android.support.v4.app.DialogFragment -> android.support.v4.app.p:
     int STYLE_NORMAL -> STYLE_NORMAL
     int STYLE_NO_TITLE -> STYLE_NO_TITLE
@@ -6547,15 +6552,23 @@ android.support.v4.app.FragmentTransitionCompat21$7 -> android.support.v4.app.ac
     java.util.Map val$nameOverrides -> b
     562:562:void <init>(java.util.ArrayList,java.util.Map) -> <init>
     565:572:void run() -> run
-android.support.v4.app.LoaderManager -> android.support.v4.app.ad:
+android.support.v4.app.INotificationSideChannel -> android.support.v4.app.ad:
+    void notify(java.lang.String,int,java.lang.String,android.app.Notification) -> a
+    void cancel(java.lang.String,int,java.lang.String) -> a
+    void cancelAll(java.lang.String) -> a
+android.support.v4.app.INotificationSideChannel$Stub -> android.support.v4.app.ad$a:
+    20:22:void <init>() -> <init>
+    40:40:android.os.IBinder asBinder() -> asBinder
+    44:91:boolean onTransact(int,android.os.Parcel,android.os.Parcel,int) -> onTransact
+android.support.v4.app.LoaderManager -> android.support.v4.app.ae:
     39:43:void <init>() -> <init>
     android.support.v4.content.Loader restartLoader(int,android.os.Bundle,android.support.v4.app.LoaderManager$LoaderCallbacks) -> a
     184:184:boolean hasRunningLoaders() -> a
-android.support.v4.app.LoaderManager$LoaderCallbacks -> android.support.v4.app.ad$a:
+android.support.v4.app.LoaderManager$LoaderCallbacks -> android.support.v4.app.ae$a:
     android.support.v4.content.Loader onCreateLoader(int,android.os.Bundle) -> a
     void onLoadFinished(android.support.v4.content.Loader,java.lang.Object) -> a
     void onLoaderReset(android.support.v4.content.Loader) -> a
-android.support.v4.app.LoaderManagerImpl -> android.support.v4.app.ae:
+android.support.v4.app.LoaderManagerImpl -> android.support.v4.app.af:
     boolean DEBUG -> a
     android.support.v4.util.SparseArrayCompat mLoaders -> b
     android.support.v4.util.SparseArrayCompat mInactiveLoaders -> c
@@ -6581,7 +6594,7 @@ android.support.v4.app.LoaderManagerImpl -> android.support.v4.app.ae:
     858:878:void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
     882:888:boolean hasRunningLoaders() -> a
     189:189:void <clinit>() -> <clinit>
-android.support.v4.app.LoaderManagerImpl$LoaderInfo -> android.support.v4.app.ae$a:
+android.support.v4.app.LoaderManagerImpl$LoaderInfo -> android.support.v4.app.af$a:
     int mId -> a
     android.os.Bundle mArgs -> b
     android.support.v4.app.LoaderManager$LoaderCallbacks mCallbacks -> c
@@ -6610,7 +6623,7 @@ android.support.v4.app.LoaderManagerImpl$LoaderInfo -> android.support.v4.app.ae
     467:484:void callOnLoadFinished(android.support.v4.content.Loader,java.lang.Object) -> b
     488:496:java.lang.String toString() -> toString
     500:523:void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
-android.support.v4.app.NavUtils -> android.support.v4.app.af:
+android.support.v4.app.NavUtils -> android.support.v4.app.ag:
     android.support.v4.app.NavUtils$NavUtilsImpl IMPL -> a
     159:159:boolean shouldUpRecreateTask(android.app.Activity,android.content.Intent) -> a
     202:203:void navigateUpTo(android.app.Activity,android.content.Intent) -> b
@@ -6619,46 +6632,46 @@ android.support.v4.app.NavUtils -> android.support.v4.app.af:
     281:284:java.lang.String getParentActivityName(android.app.Activity) -> b
     300:303:java.lang.String getParentActivityName(android.content.Context,android.content.ComponentName) -> b
     136:142:void <clinit>() -> <clinit>
-android.support.v4.app.NavUtils$NavUtilsImpl -> android.support.v4.app.af$a:
+android.support.v4.app.NavUtils$NavUtilsImpl -> android.support.v4.app.ag$a:
     android.content.Intent getParentActivityIntent(android.app.Activity) -> a
     boolean shouldUpRecreateTask(android.app.Activity,android.content.Intent) -> a
     void navigateUpTo(android.app.Activity,android.content.Intent) -> b
     java.lang.String getParentActivityName(android.content.Context,android.content.pm.ActivityInfo) -> a
-android.support.v4.app.NavUtils$NavUtilsImplBase -> android.support.v4.app.af$b:
+android.support.v4.app.NavUtils$NavUtilsImplBase -> android.support.v4.app.ag$b:
     49:49:void <init>() -> <init>
     53:67:android.content.Intent getParentActivityIntent(android.app.Activity) -> a
     73:74:boolean shouldUpRecreateTask(android.app.Activity,android.content.Intent) -> a
     79:82:void navigateUpTo(android.app.Activity,android.content.Intent) -> b
     86:92:java.lang.String getParentActivityName(android.content.Context,android.content.pm.ActivityInfo) -> a
-android.support.v4.app.NavUtils$NavUtilsImplJB -> android.support.v4.app.af$c:
+android.support.v4.app.NavUtils$NavUtilsImplJB -> android.support.v4.app.ag$c:
     96:96:void <init>() -> <init>
     102:106:android.content.Intent getParentActivityIntent(android.app.Activity) -> a
     110:110:android.content.Intent superGetParentActivityIntent(android.app.Activity) -> b
     115:115:boolean shouldUpRecreateTask(android.app.Activity,android.content.Intent) -> a
     120:121:void navigateUpTo(android.app.Activity,android.content.Intent) -> b
     125:129:java.lang.String getParentActivityName(android.content.Context,android.content.pm.ActivityInfo) -> a
-android.support.v4.app.NavUtilsJB -> android.support.v4.app.ag:
+android.support.v4.app.NavUtilsJB -> android.support.v4.app.ah:
     29:29:android.content.Intent getParentActivityIntent(android.app.Activity) -> a
     33:33:boolean shouldUpRecreateTask(android.app.Activity,android.content.Intent) -> a
     37:38:void navigateUpTo(android.app.Activity,android.content.Intent) -> b
     41:41:java.lang.String getParentActivityName(android.content.pm.ActivityInfo) -> a
-android.support.v4.app.NoSaveStateFrameLayout -> android.support.v4.app.ah:
+android.support.v4.app.NoSaveStateFrameLayout -> android.support.v4.app.ai:
     32:41:android.view.ViewGroup wrap(android.view.View) -> a
     45:46:void <init>(android.content.Context) -> <init>
     53:54:void dispatchSaveInstanceState(android.util.SparseArray) -> dispatchSaveInstanceState
     61:62:void dispatchRestoreInstanceState(android.util.SparseArray) -> dispatchRestoreInstanceState
-android.support.v4.app.NotificationBuilderWithActions -> android.support.v4.app.ai:
+android.support.v4.app.NotificationBuilderWithActions -> android.support.v4.app.aj:
     void addAction(android.support.v4.app.NotificationCompatBase$Action) -> a
-android.support.v4.app.NotificationBuilderWithBuilderAccessor -> android.support.v4.app.aj:
+android.support.v4.app.NotificationBuilderWithBuilderAccessor -> android.support.v4.app.ak:
     android.app.Notification$Builder getBuilder() -> a
     android.app.Notification build() -> b
-android.support.v4.app.NotificationCompat -> android.support.v4.app.ak:
+android.support.v4.app.NotificationCompat -> android.support.v4.app.al:
     android.support.v4.app.NotificationCompat$NotificationCompatImpl IMPL -> a
     885:888:void addActionsToBuilder(android.support.v4.app.NotificationBuilderWithActions,java.util.ArrayList) -> a
     892:918:void addStyleToBuilderJellybean(android.support.v4.app.NotificationBuilderWithBuilderAccessor,android.support.v4.app.NotificationCompat$Style) -> a
     922:945:void addStyleToBuilderApi24(android.support.v4.app.NotificationBuilderWithBuilderAccessor,android.support.v4.app.NotificationCompat$Style) -> b
     948:965:void <clinit>() -> <clinit>
-android.support.v4.app.NotificationCompat$Action -> android.support.v4.app.ak$a:
+android.support.v4.app.NotificationCompat$Action -> android.support.v4.app.al$a:
     android.os.Bundle mExtras -> a
     android.support.v4.app.RemoteInput[] mRemoteInputs -> f
     boolean mAllowGeneratedReplies -> g
@@ -6674,17 +6687,17 @@ android.support.v4.app.NotificationCompat$Action -> android.support.v4.app.ak$a:
     2503:2503:android.support.v4.app.RemoteInput[] getRemoteInputs() -> f
     2432:2432:android.support.v4.app.RemoteInputCompatBase$RemoteInput[] getRemoteInputs() -> g
     2881:2881:void <clinit>() -> <clinit>
-android.support.v4.app.NotificationCompat$Action$1 -> android.support.v4.app.ak$a$1:
+android.support.v4.app.NotificationCompat$Action$1 -> android.support.v4.app.al$a$1:
     2881:2881:void <init>() -> <init>
-android.support.v4.app.NotificationCompat$BigPictureStyle -> android.support.v4.app.ak$b:
+android.support.v4.app.NotificationCompat$BigPictureStyle -> android.support.v4.app.al$b:
     android.graphics.Bitmap mPicture -> a
     android.graphics.Bitmap mBigLargeIcon -> b
     boolean mBigLargeIconSet -> c
     1919:1920:void <init>() -> <init>
-android.support.v4.app.NotificationCompat$BigTextStyle -> android.support.v4.app.ak$c:
+android.support.v4.app.NotificationCompat$BigTextStyle -> android.support.v4.app.al$c:
     java.lang.CharSequence mBigText -> a
     1986:1987:void <init>() -> <init>
-android.support.v4.app.NotificationCompat$Builder -> android.support.v4.app.ak$d:
+android.support.v4.app.NotificationCompat$Builder -> android.support.v4.app.al$d:
     android.content.Context mContext -> a
     java.lang.CharSequence mContentTitle -> b
     java.lang.CharSequence mContentText -> c
@@ -6732,19 +6745,19 @@ android.support.v4.app.NotificationCompat$Builder -> android.support.v4.app.ak$d
     1764:1768:java.lang.CharSequence limitCharSequenceLength(java.lang.CharSequence) -> d
     1833:1833:java.lang.CharSequence resolveText() -> c
     1843:1843:java.lang.CharSequence resolveTitle() -> d
-android.support.v4.app.NotificationCompat$BuilderExtender -> android.support.v4.app.ak$e:
+android.support.v4.app.NotificationCompat$BuilderExtender -> android.support.v4.app.al$e:
     526:526:void <init>() -> <init>
     528:532:android.app.Notification build(android.support.v4.app.NotificationCompat$Builder,android.support.v4.app.NotificationBuilderWithBuilderAccessor) -> a
-android.support.v4.app.NotificationCompat$InboxStyle -> android.support.v4.app.ak$f:
+android.support.v4.app.NotificationCompat$InboxStyle -> android.support.v4.app.al$f:
     java.util.ArrayList mTexts -> a
     2387:2390:void <init>() -> <init>
-android.support.v4.app.NotificationCompat$MessagingStyle -> android.support.v4.app.ak$g:
+android.support.v4.app.NotificationCompat$MessagingStyle -> android.support.v4.app.al$g:
     java.lang.CharSequence mUserDisplayName -> a
     java.lang.CharSequence mConversationTitle -> b
     java.util.List mMessages -> c
     2063:2066:void <init>() -> <init>
     2172:2182:void addCompatExtras(android.os.Bundle) -> a
-android.support.v4.app.NotificationCompat$MessagingStyle$Message -> android.support.v4.app.ak$g$a:
+android.support.v4.app.NotificationCompat$MessagingStyle$Message -> android.support.v4.app.al$g$a:
     java.lang.CharSequence mText -> a
     long mTimestamp -> b
     java.lang.CharSequence mSender -> c
@@ -6757,44 +6770,44 @@ android.support.v4.app.NotificationCompat$MessagingStyle$Message -> android.supp
     2297:2297:android.net.Uri getDataUri() -> e
     2301:2315:android.os.Bundle toBundle() -> f
     2319:2324:android.os.Bundle[] getBundleArrayForMessages(java.util.List) -> a
-android.support.v4.app.NotificationCompat$NotificationCompatImpl -> android.support.v4.app.ak$h:
+android.support.v4.app.NotificationCompat$NotificationCompatImpl -> android.support.v4.app.al$h:
     android.app.Notification build(android.support.v4.app.NotificationCompat$Builder,android.support.v4.app.NotificationCompat$BuilderExtender) -> a
-android.support.v4.app.NotificationCompat$NotificationCompatImplApi20 -> android.support.v4.app.ak$i:
+android.support.v4.app.NotificationCompat$NotificationCompatImplApi20 -> android.support.v4.app.al$i:
     764:764:void <init>() -> <init>
     767:779:android.app.Notification build(android.support.v4.app.NotificationCompat$Builder,android.support.v4.app.NotificationCompat$BuilderExtender) -> a
-android.support.v4.app.NotificationCompat$NotificationCompatImplApi21 -> android.support.v4.app.ak$j:
+android.support.v4.app.NotificationCompat$NotificationCompatImplApi21 -> android.support.v4.app.al$j:
     822:822:void <init>() -> <init>
     825:839:android.app.Notification build(android.support.v4.app.NotificationCompat$Builder,android.support.v4.app.NotificationCompat$BuilderExtender) -> a
-android.support.v4.app.NotificationCompat$NotificationCompatImplApi24 -> android.support.v4.app.ak$k:
+android.support.v4.app.NotificationCompat$NotificationCompatImplApi24 -> android.support.v4.app.al$k:
     861:861:void <init>() -> <init>
     865:879:android.app.Notification build(android.support.v4.app.NotificationCompat$Builder,android.support.v4.app.NotificationCompat$BuilderExtender) -> a
-android.support.v4.app.NotificationCompat$NotificationCompatImplBase -> android.support.v4.app.ak$l:
+android.support.v4.app.NotificationCompat$NotificationCompatImplBase -> android.support.v4.app.al$l:
     536:536:void <init>() -> <init>
     539:549:android.app.Notification build(android.support.v4.app.NotificationCompat$Builder,android.support.v4.app.NotificationCompat$BuilderExtender) -> a
     554:554:android.os.Bundle getExtras(android.app.Notification) -> a
-android.support.v4.app.NotificationCompat$NotificationCompatImplHoneycomb -> android.support.v4.app.ak$m:
+android.support.v4.app.NotificationCompat$NotificationCompatImplHoneycomb -> android.support.v4.app.al$m:
     616:616:void <init>() -> <init>
     619:625:android.app.Notification build(android.support.v4.app.NotificationCompat$Builder,android.support.v4.app.NotificationCompat$BuilderExtender) -> a
-android.support.v4.app.NotificationCompat$NotificationCompatImplIceCreamSandwich -> android.support.v4.app.ak$n:
+android.support.v4.app.NotificationCompat$NotificationCompatImplIceCreamSandwich -> android.support.v4.app.al$n:
     629:629:void <init>() -> <init>
     632:637:android.app.Notification build(android.support.v4.app.NotificationCompat$Builder,android.support.v4.app.NotificationCompat$BuilderExtender) -> a
-android.support.v4.app.NotificationCompat$NotificationCompatImplJellybean -> android.support.v4.app.ak$o:
+android.support.v4.app.NotificationCompat$NotificationCompatImplJellybean -> android.support.v4.app.al$o:
     641:641:void <init>() -> <init>
     644:659:android.app.Notification build(android.support.v4.app.NotificationCompat$Builder,android.support.v4.app.NotificationCompat$BuilderExtender) -> a
     664:664:android.os.Bundle getExtras(android.app.Notification) -> a
-android.support.v4.app.NotificationCompat$NotificationCompatImplKitKat -> android.support.v4.app.ak$p:
+android.support.v4.app.NotificationCompat$NotificationCompatImplKitKat -> android.support.v4.app.al$p:
     712:712:void <init>() -> <init>
     715:724:android.app.Notification build(android.support.v4.app.NotificationCompat$Builder,android.support.v4.app.NotificationCompat$BuilderExtender) -> a
     729:729:android.os.Bundle getExtras(android.app.Notification) -> a
-android.support.v4.app.NotificationCompat$Style -> android.support.v4.app.ak$q:
+android.support.v4.app.NotificationCompat$Style -> android.support.v4.app.al$q:
     java.lang.CharSequence mBigContentTitle -> d
     java.lang.CharSequence mSummaryText -> e
     boolean mSummaryTextSet -> f
     1854:1858:void <init>() -> <init>
     1883:1883:void addCompatExtras(android.os.Bundle) -> a
-android.support.v4.app.NotificationCompatApi20 -> android.support.v4.app.al:
+android.support.v4.app.NotificationCompatApi20 -> android.support.v4.app.am:
     117:135:void addAction(android.app.Notification$Builder,android.support.v4.app.NotificationCompatBase$Action) -> a
-android.support.v4.app.NotificationCompatApi20$Builder -> android.support.v4.app.al$a:
+android.support.v4.app.NotificationCompatApi20$Builder -> android.support.v4.app.am$a:
     android.app.Notification$Builder b -> a
     android.os.Bundle mExtras -> b
     android.widget.RemoteViews mContentView -> c
@@ -6803,8 +6816,8 @@ android.support.v4.app.NotificationCompatApi20$Builder -> android.support.v4.app
     94:95:void addAction(android.support.v4.app.NotificationCompatBase$Action) -> a
     99:99:android.app.Notification$Builder getBuilder() -> a
     104:112:android.app.Notification build() -> b
-android.support.v4.app.NotificationCompatApi21 -> android.support.v4.app.am:
-android.support.v4.app.NotificationCompatApi21$Builder -> android.support.v4.app.am$a:
+android.support.v4.app.NotificationCompatApi21 -> android.support.v4.app.an:
+android.support.v4.app.NotificationCompatApi21$Builder -> android.support.v4.app.an$a:
     android.app.Notification$Builder b -> a
     android.os.Bundle mExtras -> b
     android.widget.RemoteViews mContentView -> c
@@ -6814,34 +6827,34 @@ android.support.v4.app.NotificationCompatApi21$Builder -> android.support.v4.app
     125:126:void addAction(android.support.v4.app.NotificationCompatBase$Action) -> a
     130:130:android.app.Notification$Builder getBuilder() -> a
     135:146:android.app.Notification build() -> b
-android.support.v4.app.NotificationCompatApi24 -> android.support.v4.app.an:
+android.support.v4.app.NotificationCompatApi24 -> android.support.v4.app.ao:
     154:165:void addMessagingStyle(android.support.v4.app.NotificationBuilderWithBuilderAccessor,java.lang.CharSequence,java.lang.CharSequence,java.util.List,java.util.List,java.util.List,java.util.List,java.util.List) -> a
-android.support.v4.app.NotificationCompatApi24$Builder -> android.support.v4.app.an$a:
+android.support.v4.app.NotificationCompatApi24$Builder -> android.support.v4.app.ao$a:
     android.app.Notification$Builder b -> a
     65:114:void <init>(android.content.Context,android.app.Notification,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,android.widget.RemoteViews,int,android.app.PendingIntent,android.app.PendingIntent,android.graphics.Bitmap,int,int,boolean,boolean,boolean,int,java.lang.CharSequence,boolean,java.lang.String,java.util.ArrayList,android.os.Bundle,int,int,android.app.Notification,java.lang.String,boolean,java.lang.String,java.lang.CharSequence[],android.widget.RemoteViews,android.widget.RemoteViews,android.widget.RemoteViews) -> <init>
     118:137:void addAction(android.support.v4.app.NotificationCompatBase$Action) -> a
     141:141:android.app.Notification$Builder getBuilder() -> a
     146:146:android.app.Notification build() -> b
-android.support.v4.app.NotificationCompatBase -> android.support.v4.app.ao:
+android.support.v4.app.NotificationCompatBase -> android.support.v4.app.ap:
     java.lang.reflect.Method sSetLatestEventInfo -> a
     77:98:android.app.Notification add(android.app.Notification,android.content.Context,java.lang.CharSequence,java.lang.CharSequence,android.app.PendingIntent,android.app.PendingIntent) -> a
-android.support.v4.app.NotificationCompatBase$Action -> android.support.v4.app.ao$a:
+android.support.v4.app.NotificationCompatBase$Action -> android.support.v4.app.ap$a:
     int getIcon() -> a
     java.lang.CharSequence getTitle() -> b
     android.app.PendingIntent getActionIntent() -> c
     android.os.Bundle getExtras() -> d
     android.support.v4.app.RemoteInputCompatBase$RemoteInput[] getRemoteInputs() -> g
     boolean getAllowGeneratedReplies() -> e
-android.support.v4.app.NotificationCompatBase$Action$Factory -> android.support.v4.app.ao$a$a:
-android.support.v4.app.NotificationCompatHoneycomb -> android.support.v4.app.ap:
+android.support.v4.app.NotificationCompatBase$Action$Factory -> android.support.v4.app.ap$a$a:
+android.support.v4.app.NotificationCompatHoneycomb -> android.support.v4.app.aq:
     34:56:android.app.Notification add(android.content.Context,android.app.Notification,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,android.widget.RemoteViews,int,android.app.PendingIntent,android.app.PendingIntent,android.graphics.Bitmap) -> a
-android.support.v4.app.NotificationCompatIceCreamSandwich -> android.support.v4.app.aq:
-android.support.v4.app.NotificationCompatIceCreamSandwich$Builder -> android.support.v4.app.aq$a:
+android.support.v4.app.NotificationCompatIceCreamSandwich -> android.support.v4.app.ar:
+android.support.v4.app.NotificationCompatIceCreamSandwich$Builder -> android.support.v4.app.ar$a:
     android.app.Notification$Builder b -> a
     38:61:void <init>(android.content.Context,android.app.Notification,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,android.widget.RemoteViews,int,android.app.PendingIntent,android.app.PendingIntent,android.graphics.Bitmap,int,int,boolean) -> <init>
     65:65:android.app.Notification$Builder getBuilder() -> a
     70:70:android.app.Notification build() -> b
-android.support.v4.app.NotificationCompatJellybean -> android.support.v4.app.ar:
+android.support.v4.app.NotificationCompatJellybean -> android.support.v4.app.as:
     java.lang.Object sExtrasLock -> a
     java.lang.reflect.Field sExtrasField -> b
     boolean sExtrasFieldAccessFailed -> c
@@ -6853,7 +6866,7 @@ android.support.v4.app.NotificationCompatJellybean -> android.support.v4.app.ar:
     229:257:android.os.Bundle getExtras(android.app.Notification) -> a
     278:286:android.os.Bundle writeActionAndGetExtras(android.app.Notification$Builder,android.support.v4.app.NotificationCompatBase$Action) -> a
     58:62:void <clinit>() -> <clinit>
-android.support.v4.app.NotificationCompatJellybean$Builder -> android.support.v4.app.ar$a:
+android.support.v4.app.NotificationCompatJellybean$Builder -> android.support.v4.app.as$a:
     android.app.Notification$Builder b -> a
     android.os.Bundle mExtras -> b
     java.util.List mActionExtrasList -> c
@@ -6863,9 +6876,9 @@ android.support.v4.app.NotificationCompatJellybean$Builder -> android.support.v4
     135:136:void addAction(android.support.v4.app.NotificationCompatBase$Action) -> a
     140:140:android.app.Notification$Builder getBuilder() -> a
     144:166:android.app.Notification build() -> b
-android.support.v4.app.NotificationCompatKitKat -> android.support.v4.app.as:
+android.support.v4.app.NotificationCompatKitKat -> android.support.v4.app.at:
     135:135:android.os.Bundle getExtras(android.app.Notification) -> a
-android.support.v4.app.NotificationCompatKitKat$Builder -> android.support.v4.app.as$a:
+android.support.v4.app.NotificationCompatKitKat$Builder -> android.support.v4.app.at$a:
     android.app.Notification$Builder b -> a
     android.os.Bundle mExtras -> b
     java.util.List mActionExtrasList -> c
@@ -6877,7 +6890,18 @@ android.support.v4.app.NotificationCompatKitKat$Builder -> android.support.v4.ap
     115:130:android.app.Notification build() -> b
 android.support.v4.app.NotificationCompatSideChannelService -> android.support.v4.app.NotificationCompatSideChannelService:
     44:73:void <init>() -> <init>
-android.support.v4.app.OneShotPreDrawListener -> android.support.v4.app.at:
+    47:55:android.os.IBinder onBind(android.content.Intent) -> onBind
+    void notify(java.lang.String,int,java.lang.String,android.app.Notification) -> notify
+    void cancel(java.lang.String,int,java.lang.String) -> cancel
+    void cancelAll(java.lang.String) -> cancelAll
+    113:118:void checkPermission(int,java.lang.String) -> checkPermission
+android.support.v4.app.NotificationCompatSideChannelService$NotificationSideChannelStub -> android.support.v4.app.NotificationCompatSideChannelService$a:
+    android.support.v4.app.NotificationCompatSideChannelService this$0 -> a
+    74:75:void <init>(android.support.v4.app.NotificationCompatSideChannelService) -> <init>
+    80:87:void notify(java.lang.String,int,java.lang.String,android.app.Notification) -> a
+    91:98:void cancel(java.lang.String,int,java.lang.String) -> a
+    102:109:void cancelAll(java.lang.String) -> a
+android.support.v4.app.OneShotPreDrawListener -> android.support.v4.app.au:
     android.view.View mView -> a
     android.view.ViewTreeObserver mViewTreeObserver -> b
     java.lang.Runnable mRunnable -> c
@@ -6887,7 +6911,7 @@ android.support.v4.app.OneShotPreDrawListener -> android.support.v4.app.at:
     73:79:void removeListener() -> a
     83:84:void onViewAttachedToWindow(android.view.View) -> onViewAttachedToWindow
     88:89:void onViewDetachedFromWindow(android.view.View) -> onViewDetachedFromWindow
-android.support.v4.app.RemoteInput -> android.support.v4.app.au:
+android.support.v4.app.RemoteInput -> android.support.v4.app.av:
     java.lang.String mResultKey -> b
     java.lang.CharSequence mLabel -> c
     java.lang.CharSequence[] mChoices -> d
@@ -6901,29 +6925,29 @@ android.support.v4.app.RemoteInput -> android.support.v4.app.au:
     88:88:boolean getAllowFreeFormInput() -> d
     96:96:android.os.Bundle getExtras() -> e
     261:272:void <clinit>() -> <clinit>
-android.support.v4.app.RemoteInput$1 -> android.support.v4.app.au$1:
+android.support.v4.app.RemoteInput$1 -> android.support.v4.app.av$1:
     272:272:void <init>() -> <init>
-android.support.v4.app.RemoteInput$Impl -> android.support.v4.app.au$a:
-android.support.v4.app.RemoteInput$ImplApi20 -> android.support.v4.app.au$b:
+android.support.v4.app.RemoteInput$Impl -> android.support.v4.app.av$a:
+android.support.v4.app.RemoteInput$ImplApi20 -> android.support.v4.app.av$b:
     248:248:void <init>() -> <init>
-android.support.v4.app.RemoteInput$ImplBase -> android.support.v4.app.au$c:
+android.support.v4.app.RemoteInput$ImplBase -> android.support.v4.app.av$c:
     223:223:void <init>() -> <init>
-android.support.v4.app.RemoteInput$ImplJellybean -> android.support.v4.app.au$d:
+android.support.v4.app.RemoteInput$ImplJellybean -> android.support.v4.app.av$d:
     236:236:void <init>() -> <init>
-android.support.v4.app.RemoteInputCompatApi20 -> android.support.v4.app.av:
+android.support.v4.app.RemoteInputCompatApi20 -> android.support.v4.app.aw:
     43:56:android.app.RemoteInput[] fromCompat(android.support.v4.app.RemoteInputCompatBase$RemoteInput[]) -> a
-android.support.v4.app.RemoteInputCompatBase -> android.support.v4.app.aw:
-android.support.v4.app.RemoteInputCompatBase$RemoteInput -> android.support.v4.app.aw$a:
+android.support.v4.app.RemoteInputCompatBase -> android.support.v4.app.ax:
+android.support.v4.app.RemoteInputCompatBase$RemoteInput -> android.support.v4.app.ax$a:
     java.lang.String getResultKey() -> a
     java.lang.CharSequence getLabel() -> b
     java.lang.CharSequence[] getChoices() -> c
     boolean getAllowFreeFormInput() -> d
     android.os.Bundle getExtras() -> e
-android.support.v4.app.RemoteInputCompatBase$RemoteInput$Factory -> android.support.v4.app.aw$a$a:
-android.support.v4.app.RemoteInputCompatJellybean -> android.support.v4.app.ax:
+android.support.v4.app.RemoteInputCompatBase$RemoteInput$Factory -> android.support.v4.app.ax$a$a:
+android.support.v4.app.RemoteInputCompatJellybean -> android.support.v4.app.ay:
     51:57:android.os.Bundle toBundle(android.support.v4.app.RemoteInputCompatBase$RemoteInput) -> a
     73:80:android.os.Bundle[] toBundleArray(android.support.v4.app.RemoteInputCompatBase$RemoteInput[]) -> a
-android.support.v4.app.SharedElementCallback -> android.support.v4.app.ay:
+android.support.v4.app.SharedElementCallback -> android.support.v4.app.az:
     android.graphics.Matrix mTempMatrix -> a
     int MAX_IMAGE_SIZE -> b
     78:78:void onSharedElementStart(java.util.List,java.util.List,java.util.List) -> a
@@ -6935,18 +6959,18 @@ android.support.v4.app.SharedElementCallback -> android.support.v4.app.ay:
     257:280:android.view.View onCreateSnapshotView(android.content.Context,android.os.Parcelable) -> a
     301:302:void onSharedElementsArrived(java.util.List,java.util.List,android.support.v4.app.SharedElementCallback$OnSharedElementsReadyListener) -> a
     44:44:void <clinit>() -> <clinit>
-android.support.v4.app.SharedElementCallback$OnSharedElementsReadyListener -> android.support.v4.app.ay$a:
+android.support.v4.app.SharedElementCallback$OnSharedElementsReadyListener -> android.support.v4.app.az$a:
     void onSharedElementsReady() -> a
-android.support.v4.app.SuperNotCalledException -> android.support.v4.app.az:
+android.support.v4.app.SuperNotCalledException -> android.support.v4.app.ba:
     23:24:void <init>(java.lang.String) -> <init>
-android.support.v4.app.SupportActivity -> android.support.v4.app.ba:
+android.support.v4.app.SupportActivity -> android.support.v4.app.bb:
     android.support.v4.util.SimpleArrayMap mExtraDataMap -> mExtraDataMap
     31:68:void <init>() -> <init>
     51:52:void putExtraData(android.support.v4.app.SupportActivity$ExtraData) -> putExtraData
     62:62:android.support.v4.app.SupportActivity$ExtraData getExtraData(java.lang.Class) -> getExtraData
-android.support.v4.app.SupportActivity$ExtraData -> android.support.v4.app.ba$a:
+android.support.v4.app.SupportActivity$ExtraData -> android.support.v4.app.bb$a:
     69:69:void <init>() -> <init>
-android.support.v4.app.TaskStackBuilder -> android.support.v4.app.bb:
+android.support.v4.app.TaskStackBuilder -> android.support.v4.app.bc:
     android.support.v4.app.TaskStackBuilder$TaskStackBuilderImpl IMPL -> a
     java.util.ArrayList mIntents -> b
     android.content.Context mSourceContext -> c
@@ -6959,12 +6983,12 @@ android.support.v4.app.TaskStackBuilder -> android.support.v4.app.bb:
     304:305:void startActivities() -> a
     319:333:void startActivities(android.os.Bundle) -> a
     115:120:void <clinit>() -> <clinit>
-android.support.v4.app.TaskStackBuilder$SupportParentable -> android.support.v4.app.bb$a:
+android.support.v4.app.TaskStackBuilder$SupportParentable -> android.support.v4.app.bc$a:
     android.content.Intent getSupportParentActivityIntent() -> a
-android.support.v4.app.TaskStackBuilder$TaskStackBuilderImpl -> android.support.v4.app.bb$b:
-android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplBase -> android.support.v4.app.bb$c:
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImpl -> android.support.v4.app.bc$b:
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplBase -> android.support.v4.app.bc$c:
     81:81:void <init>() -> <init>
-android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplHoneycomb -> android.support.v4.app.bb$d:
+android.support.v4.app.TaskStackBuilder$TaskStackBuilderImplHoneycomb -> android.support.v4.app.bc$d:
     90:90:void <init>() -> <init>
 android.support.v4.content.AsyncTaskLoader -> android.support.v4.b.a:
     java.util.concurrent.Executor mExecutor -> o
@@ -7456,25 +7480,44 @@ android.support.v4.media.MediaBrowserCompat$MediaItem$1 -> android.support.v4.me
     469:469:java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
 android.support.v4.media.MediaBrowserCompatUtils -> android.support.v4.media.b:
     30:42:boolean areSameOptions(android.os.Bundle,android.os.Bundle) -> a
+    47:76:boolean hasDuplicatedItems(android.os.Bundle,android.os.Bundle) -> b
 android.support.v4.media.MediaBrowserServiceCompat -> android.support.v4.media.MediaBrowserServiceCompat:
-    boolean DEBUG -> a
-    android.support.v4.util.ArrayMap mConnections -> b
-    android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord mCurConnection -> c
-    android.support.v4.media.MediaBrowserServiceCompat$ServiceHandler mHandler -> d
-    android.support.v4.media.session.MediaSessionCompat$Token mSession -> e
+    java.lang.String TAG -> TAG
+    boolean DEBUG -> DEBUG
+    android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImpl mImpl -> mImpl
+    java.lang.String SERVICE_INTERFACE -> SERVICE_INTERFACE
+    java.lang.String KEY_MEDIA_ITEM -> KEY_MEDIA_ITEM
+    java.lang.String KEY_SEARCH_RESULTS -> KEY_SEARCH_RESULTS
+    int RESULT_FLAG_OPTION_NOT_HANDLED -> RESULT_FLAG_OPTION_NOT_HANDLED
+    int RESULT_FLAG_ON_LOAD_ITEM_NOT_IMPLEMENTED -> RESULT_FLAG_ON_LOAD_ITEM_NOT_IMPLEMENTED
+    int RESULT_FLAG_ON_SEARCH_NOT_IMPLEMENTED -> RESULT_FLAG_ON_SEARCH_NOT_IMPLEMENTED
+    int RESULT_ERROR -> RESULT_ERROR
+    int RESULT_OK -> RESULT_OK
+    android.support.v4.util.ArrayMap mConnections -> mConnections
+    android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord mCurConnection -> mCurConnection
+    android.support.v4.media.MediaBrowserServiceCompat$ServiceHandler mHandler -> mHandler
+    android.support.v4.media.session.MediaSessionCompat$Token mSession -> mSession
     103:1254:void <init>() -> <init>
-    android.support.v4.media.MediaBrowserServiceCompat$BrowserRoot onGetRoot(java.lang.String,int,android.os.Bundle) -> a
-    void onLoadChildren(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$Result) -> a
-    929:931:void onLoadChildren(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$Result,android.os.Bundle) -> a
-    952:954:void onLoadItem(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$Result) -> b
-    979:981:void onSearch(java.lang.String,android.os.Bundle,android.support.v4.media.MediaBrowserServiceCompat$Result) -> a
-    1069:1080:boolean isValidPackage(java.lang.String,int) -> a
-    1089:1103:void addSubscription(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord,android.os.IBinder,android.os.Bundle) -> a
-    1109:1126:boolean removeSubscription(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord,android.os.IBinder) -> a
-    1136:1173:void performLoadChildren(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord,android.os.Bundle) -> a
-    1177:1193:java.util.List applyOptions(java.util.List,android.os.Bundle) -> a
-    1198:1220:void performLoadItem(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord,android.support.v4.os.ResultReceiver) -> a
-    1224:1248:void performSearch(java.lang.String,android.os.Bundle,android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord,android.support.v4.os.ResultReceiver) -> a
+    831:842:void onCreate() -> onCreate
+    846:846:android.os.IBinder onBind(android.content.Intent) -> onBind
+    851:851:void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> dump
+    android.support.v4.media.MediaBrowserServiceCompat$BrowserRoot onGetRoot(java.lang.String,int,android.os.Bundle) -> onGetRoot
+    void onLoadChildren(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$Result) -> onLoadChildren
+    929:931:void onLoadChildren(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$Result,android.os.Bundle) -> onLoadChildren
+    952:954:void onLoadItem(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$Result) -> onLoadItem
+    979:981:void onSearch(java.lang.String,android.os.Bundle,android.support.v4.media.MediaBrowserServiceCompat$Result) -> onSearch
+    992:1000:void setSessionToken(android.support.v4.media.session.MediaSessionCompat$Token) -> setSessionToken
+    1007:1007:android.support.v4.media.session.MediaSessionCompat$Token getSessionToken() -> getSessionToken
+    1026:1026:android.os.Bundle getBrowserRootHints() -> getBrowserRootHints
+    1038:1042:void notifyChildrenChanged(java.lang.String) -> notifyChildrenChanged
+    1056:1063:void notifyChildrenChanged(java.lang.String,android.os.Bundle) -> notifyChildrenChanged
+    1069:1080:boolean isValidPackage(java.lang.String,int) -> isValidPackage
+    1089:1103:void addSubscription(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord,android.os.IBinder,android.os.Bundle) -> addSubscription
+    1109:1126:boolean removeSubscription(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord,android.os.IBinder) -> removeSubscription
+    1136:1173:void performLoadChildren(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord,android.os.Bundle) -> performLoadChildren
+    1177:1193:java.util.List applyOptions(java.util.List,android.os.Bundle) -> applyOptions
+    1198:1220:void performLoadItem(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord,android.support.v4.os.ResultReceiver) -> performLoadItem
+    1224:1248:void performSearch(java.lang.String,android.os.Bundle,android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord,android.support.v4.os.ResultReceiver) -> performSearch
     105:105:void <clinit>() -> <clinit>
 android.support.v4.media.MediaBrowserServiceCompat$1 -> android.support.v4.media.MediaBrowserServiceCompat$1:
     android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord val$connection -> a
@@ -7509,7 +7552,81 @@ android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord -> android.s
     java.util.HashMap subscriptions -> e
     android.support.v4.media.MediaBrowserServiceCompat this$0 -> f
     512:515:void <init>(android.support.v4.media.MediaBrowserServiceCompat) -> <init>
-android.support.v4.media.MediaBrowserServiceCompat$Result -> android.support.v4.media.MediaBrowserServiceCompat$c:
+android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImpl -> android.support.v4.media.MediaBrowserServiceCompat$c:
+    void onCreate() -> a
+    android.os.IBinder onBind(android.content.Intent) -> a
+    void setSessionToken(android.support.v4.media.session.MediaSessionCompat$Token) -> a
+    void notifyChildrenChanged(java.lang.String,android.os.Bundle) -> a
+    android.os.Bundle getBrowserRootHints() -> b
+android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi21 -> android.support.v4.media.MediaBrowserServiceCompat$d:
+    java.lang.Object mServiceObj -> a
+    android.os.Messenger mMessenger -> b
+    android.support.v4.media.MediaBrowserServiceCompat this$0 -> c
+    225:225:void <init>(android.support.v4.media.MediaBrowserServiceCompat) -> <init>
+    232:235:void onCreate() -> a
+    239:239:android.os.IBinder onBind(android.content.Intent) -> a
+    244:245:void setSessionToken(android.support.v4.media.session.MediaSessionCompat$Token) -> a
+    249:271:void notifyChildrenChanged(java.lang.String,android.os.Bundle) -> a
+    275:283:android.os.Bundle getBrowserRootHints() -> b
+    289:308:android.support.v4.media.MediaBrowserServiceCompatApi21$BrowserRoot onGetRoot(java.lang.String,int,android.os.Bundle) -> a
+    314:336:void onLoadChildren(java.lang.String,android.support.v4.media.MediaBrowserServiceCompatApi21$ResultWrapper) -> a
+android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$1 -> android.support.v4.media.MediaBrowserServiceCompat$d$1:
+    java.lang.String val$parentId -> a
+    android.os.Bundle val$options -> b
+    android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi21 this$1 -> c
+    252:252:void <init>(android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi21,java.lang.String,android.os.Bundle) -> <init>
+    255:268:void run() -> run
+android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$2 -> android.support.v4.media.MediaBrowserServiceCompat$d$2:
+    android.support.v4.media.MediaBrowserServiceCompatApi21$ResultWrapper val$resultWrapper -> a
+    android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi21 this$1 -> b
+    315:315:void <init>(android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi21,java.lang.Object,android.support.v4.media.MediaBrowserServiceCompatApi21$ResultWrapper) -> <init>
+    318:328:void onResultSent(java.util.List,int) -> a
+    315:315:void onResultSent(java.lang.Object,int) -> a
+android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi23 -> android.support.v4.media.MediaBrowserServiceCompat$e:
+    android.support.v4.media.MediaBrowserServiceCompat this$0 -> d
+    339:339:void <init>(android.support.v4.media.MediaBrowserServiceCompat) -> <init>
+    343:346:void onCreate() -> a
+    351:370:void onLoadItem(java.lang.String,android.support.v4.media.MediaBrowserServiceCompatApi21$ResultWrapper) -> b
+android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi23$1 -> android.support.v4.media.MediaBrowserServiceCompat$e$1:
+    android.support.v4.media.MediaBrowserServiceCompatApi21$ResultWrapper val$resultWrapper -> a
+    android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi23 this$1 -> b
+    352:352:void <init>(android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi23,java.lang.Object,android.support.v4.media.MediaBrowserServiceCompatApi21$ResultWrapper) -> <init>
+    355:362:void onResultSent(android.support.v4.media.MediaBrowserCompat$MediaItem,int) -> a
+    352:352:void onResultSent(java.lang.Object,int) -> a
+android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi24 -> android.support.v4.media.MediaBrowserServiceCompat$f:
+    android.support.v4.media.MediaBrowserServiceCompat this$0 -> e
+    374:374:void <init>(android.support.v4.media.MediaBrowserServiceCompat) -> <init>
+    378:381:void onCreate() -> a
+    385:391:void notifyChildrenChanged(java.lang.String,android.os.Bundle) -> a
+    396:418:void onLoadChildren(java.lang.String,android.support.v4.media.MediaBrowserServiceCompatApi24$ResultWrapper,android.os.Bundle) -> a
+    423:427:android.os.Bundle getBrowserRootHints() -> b
+android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi24$1 -> android.support.v4.media.MediaBrowserServiceCompat$f$1:
+    android.support.v4.media.MediaBrowserServiceCompatApi24$ResultWrapper val$resultWrapper -> a
+    android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi24 this$1 -> b
+    397:397:void <init>(android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi24,java.lang.Object,android.support.v4.media.MediaBrowserServiceCompatApi24$ResultWrapper) -> <init>
+    400:410:void onResultSent(java.util.List,int) -> a
+    397:397:void onResultSent(java.lang.Object,int) -> a
+android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplBase -> android.support.v4.media.MediaBrowserServiceCompat$g:
+    android.os.Messenger mMessenger -> b
+    android.support.v4.media.MediaBrowserServiceCompat this$0 -> a
+    157:157:void <init>(android.support.v4.media.MediaBrowserServiceCompat) -> <init>
+    162:163:void onCreate() -> a
+    167:170:android.os.IBinder onBind(android.content.Intent) -> a
+    175:191:void setSessionToken(android.support.v4.media.session.MediaSessionCompat$Token) -> a
+    195:213:void notifyChildrenChanged(java.lang.String,android.os.Bundle) -> a
+    217:221:android.os.Bundle getBrowserRootHints() -> b
+android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplBase$1 -> android.support.v4.media.MediaBrowserServiceCompat$g$1:
+    android.support.v4.media.session.MediaSessionCompat$Token val$token -> a
+    android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplBase this$1 -> b
+    175:175:void <init>(android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplBase,android.support.v4.media.session.MediaSessionCompat$Token) -> <init>
+    178:189:void run() -> run
+android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplBase$2 -> android.support.v4.media.MediaBrowserServiceCompat$g$2:
+    java.lang.String val$parentId -> a
+    android.os.Bundle val$options -> b
+    android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplBase this$1 -> c
+    195:195:void <init>(android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplBase,java.lang.String,android.os.Bundle) -> <init>
+    198:211:void run() -> run
+android.support.v4.media.MediaBrowserServiceCompat$Result -> android.support.v4.media.MediaBrowserServiceCompat$h:
     java.lang.Object mDebug -> a
     boolean mDetachCalled -> b
     boolean mSendResultCalled -> c
@@ -7519,7 +7636,7 @@ android.support.v4.media.MediaBrowserServiceCompat$Result -> android.support.v4.
     569:569:boolean isDone() -> a
     573:574:void setFlags(int) -> a
     581:581:void onResultSent(java.lang.Object,int) -> a
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl -> android.support.v4.media.MediaBrowserServiceCompat$d:
+android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl -> android.support.v4.media.MediaBrowserServiceCompat$i:
     android.support.v4.media.MediaBrowserServiceCompat this$0 -> a
     585:586:void <init>(android.support.v4.media.MediaBrowserServiceCompat) -> <init>
     591:637:void connect(java.lang.String,int,android.os.Bundle,android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks) -> a
@@ -7530,7 +7647,7 @@ android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl -> android.
     719:732:void registerCallbacks(android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks,android.os.Bundle) -> a
     736:743:void unregisterCallbacks(android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks) -> b
     747:764:void search(java.lang.String,android.os.Bundle,android.support.v4.os.ResultReceiver,android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks) -> a
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$1 -> android.support.v4.media.MediaBrowserServiceCompat$d$1:
+android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$1 -> android.support.v4.media.MediaBrowserServiceCompat$i$1:
     android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks val$callbacks -> a
     java.lang.String val$pkg -> b
     android.os.Bundle val$rootHints -> c
@@ -7538,12 +7655,12 @@ android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$1 -> androi
     android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl this$1 -> e
     596:596:void <init>(android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl,android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks,java.lang.String,android.os.Bundle,int) -> <init>
     599:635:void run() -> run
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$2 -> android.support.v4.media.MediaBrowserServiceCompat$d$2:
+android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$2 -> android.support.v4.media.MediaBrowserServiceCompat$i$2:
     android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks val$callbacks -> a
     android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl this$1 -> b
     640:640:void <init>(android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl,android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks) -> <init>
     643:650:void run() -> run
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$3 -> android.support.v4.media.MediaBrowserServiceCompat$d$3:
+android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$3 -> android.support.v4.media.MediaBrowserServiceCompat$i$3:
     android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks val$callbacks -> a
     java.lang.String val$id -> b
     android.os.IBinder val$token -> c
@@ -7551,32 +7668,32 @@ android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$3 -> androi
     android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl this$1 -> e
     656:656:void <init>(android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl,android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks,java.lang.String,android.os.IBinder,android.os.Bundle) -> <init>
     659:670:void run() -> run
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$4 -> android.support.v4.media.MediaBrowserServiceCompat$d$4:
+android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$4 -> android.support.v4.media.MediaBrowserServiceCompat$i$4:
     android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks val$callbacks -> a
     java.lang.String val$id -> b
     android.os.IBinder val$token -> c
     android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl this$1 -> d
     676:676:void <init>(android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl,android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks,java.lang.String,android.os.IBinder) -> <init>
     679:692:void run() -> run
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$5 -> android.support.v4.media.MediaBrowserServiceCompat$d$5:
+android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$5 -> android.support.v4.media.MediaBrowserServiceCompat$i$5:
     android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks val$callbacks -> a
     java.lang.String val$mediaId -> b
     android.support.v4.os.ResultReceiver val$receiver -> c
     android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl this$1 -> d
     702:702:void <init>(android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl,android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks,java.lang.String,android.support.v4.os.ResultReceiver) -> <init>
     705:713:void run() -> run
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$6 -> android.support.v4.media.MediaBrowserServiceCompat$d$6:
+android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$6 -> android.support.v4.media.MediaBrowserServiceCompat$i$6:
     android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks val$callbacks -> a
     android.os.Bundle val$rootHints -> b
     android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl this$1 -> c
     719:719:void <init>(android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl,android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks,android.os.Bundle) -> <init>
     722:730:void run() -> run
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$7 -> android.support.v4.media.MediaBrowserServiceCompat$d$7:
+android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$7 -> android.support.v4.media.MediaBrowserServiceCompat$i$7:
     android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks val$callbacks -> a
     android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl this$1 -> b
     736:736:void <init>(android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl,android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks) -> <init>
     739:741:void run() -> run
-android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$8 -> android.support.v4.media.MediaBrowserServiceCompat$d$8:
+android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$8 -> android.support.v4.media.MediaBrowserServiceCompat$i$8:
     android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks val$callbacks -> a
     java.lang.String val$query -> b
     android.os.Bundle val$extras -> c
@@ -7584,12 +7701,12 @@ android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl$8 -> androi
     android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl this$1 -> e
     751:751:void <init>(android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl,android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks,java.lang.String,android.os.Bundle,android.support.v4.os.ResultReceiver) -> <init>
     754:762:void run() -> run
-android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks -> android.support.v4.media.MediaBrowserServiceCompat$e:
+android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacks -> android.support.v4.media.MediaBrowserServiceCompat$j:
     android.os.IBinder asBinder() -> a
     void onConnect(java.lang.String,android.support.v4.media.session.MediaSessionCompat$Token,android.os.Bundle) -> a
     void onConnectFailed() -> b
     void onLoadChildren(java.lang.String,java.util.List,android.os.Bundle) -> a
-android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacksCompat -> android.support.v4.media.MediaBrowserServiceCompat$f:
+android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacksCompat -> android.support.v4.media.MediaBrowserServiceCompat$k:
     android.os.Messenger mCallbacks -> a
     android.support.v4.media.MediaBrowserServiceCompat this$0 -> b
     779:781:void <init>(android.support.v4.media.MediaBrowserServiceCompat,android.os.Messenger) -> <init>
@@ -7598,7 +7715,7 @@ android.support.v4.media.MediaBrowserServiceCompat$ServiceCallbacksCompat -> and
     804:805:void onConnectFailed() -> b
     810:818:void onLoadChildren(java.lang.String,java.util.List,android.os.Bundle) -> a
     821:826:void sendRequest(int,android.os.Bundle) -> a
-android.support.v4.media.MediaBrowserServiceCompat$ServiceHandler -> android.support.v4.media.MediaBrowserServiceCompat$g:
+android.support.v4.media.MediaBrowserServiceCompat$ServiceHandler -> android.support.v4.media.MediaBrowserServiceCompat$l:
     android.support.v4.media.MediaBrowserServiceCompat$ServiceBinderImpl mServiceBinderImpl -> b
     android.support.v4.media.MediaBrowserServiceCompat this$0 -> a
     432:435:void <init>(android.support.v4.media.MediaBrowserServiceCompat) -> <init>
@@ -7606,32 +7723,50 @@ android.support.v4.media.MediaBrowserServiceCompat$ServiceHandler -> android.sup
     489:492:boolean sendMessageAtTime(android.os.Message,long) -> sendMessageAtTime
     496:501:void postOrRun(java.lang.Runnable) -> a
 android.support.v4.media.MediaBrowserServiceCompatApi21 -> android.support.v4.media.MediaBrowserServiceCompatApi21:
+    38:38:java.lang.Object createService(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi21$ServiceCompatProxy) -> a
+    42:43:void onCreate(java.lang.Object) -> a
+    46:46:android.os.IBinder onBind(java.lang.Object,android.content.Intent) -> a
+    50:51:void setSessionToken(java.lang.Object,java.lang.Object) -> a
+    54:55:void notifyChildrenChanged(java.lang.Object,java.lang.String) -> a
 android.support.v4.media.MediaBrowserServiceCompatApi21$BrowserRoot -> android.support.v4.media.MediaBrowserServiceCompatApi21$a:
     java.lang.String mRootId -> a
     android.os.Bundle mExtras -> b
+    105:108:void <init>(java.lang.String,android.os.Bundle) -> <init>
 android.support.v4.media.MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor -> android.support.v4.media.MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor:
-    android.support.v4.media.MediaBrowserServiceCompatApi21$ServiceCompatProxy mServiceProxy -> a
+    android.support.v4.media.MediaBrowserServiceCompatApi21$ServiceCompatProxy mServiceProxy -> mServiceProxy
+    114:117:void <init>(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi21$ServiceCompatProxy) -> <init>
     122:124:android.service.media.MediaBrowserService$BrowserRoot onGetRoot(java.lang.String,int,android.os.Bundle) -> onGetRoot
     130:131:void onLoadChildren(java.lang.String,android.service.media.MediaBrowserService$Result) -> onLoadChildren
 android.support.v4.media.MediaBrowserServiceCompatApi21$ResultWrapper -> android.support.v4.media.MediaBrowserServiceCompatApi21$b:
     android.service.media.MediaBrowserService$Result mResultObj -> a
     65:67:void <init>(android.service.media.MediaBrowserService$Result) -> <init>
+    70:81:void sendResult(java.lang.Object) -> a
+    88:97:java.util.List parcelListToItemList(java.util.List) -> a
 android.support.v4.media.MediaBrowserServiceCompatApi21$ServiceCompatProxy -> android.support.v4.media.MediaBrowserServiceCompatApi21$c:
     android.support.v4.media.MediaBrowserServiceCompatApi21$BrowserRoot onGetRoot(java.lang.String,int,android.os.Bundle) -> a
     void onLoadChildren(java.lang.String,android.support.v4.media.MediaBrowserServiceCompatApi21$ResultWrapper) -> a
 android.support.v4.media.MediaBrowserServiceCompatApi23 -> android.support.v4.media.MediaBrowserServiceCompatApi23:
+    31:31:java.lang.Object createService(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi23$ServiceCompatProxy) -> a
 android.support.v4.media.MediaBrowserServiceCompatApi23$MediaBrowserServiceAdaptor -> android.support.v4.media.MediaBrowserServiceCompatApi23$MediaBrowserServiceAdaptor:
+    41:42:void <init>(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi23$ServiceCompatProxy) -> <init>
     46:48:void onLoadItem(java.lang.String,android.service.media.MediaBrowserService$Result) -> onLoadItem
 android.support.v4.media.MediaBrowserServiceCompatApi23$ServiceCompatProxy -> android.support.v4.media.MediaBrowserServiceCompatApi23$a:
     void onLoadItem(java.lang.String,android.support.v4.media.MediaBrowserServiceCompatApi21$ResultWrapper) -> b
 android.support.v4.media.MediaBrowserServiceCompatApi24 -> android.support.v4.media.MediaBrowserServiceCompatApi24:
     java.lang.reflect.Field sResultFlags -> a
+    48:48:java.lang.Object createService(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi24$ServiceCompatProxy) -> a
+    52:53:void notifyChildrenChanged(java.lang.Object,java.lang.String,android.os.Bundle) -> a
+    56:56:android.os.Bundle getBrowserRootHints(java.lang.Object) -> a
+    34:34:java.lang.reflect.Field access$000() -> a
     40:45:void <clinit>() -> <clinit>
 android.support.v4.media.MediaBrowserServiceCompatApi24$MediaBrowserServiceAdaptor -> android.support.v4.media.MediaBrowserServiceCompatApi24$MediaBrowserServiceAdaptor:
+    100:101:void <init>(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi24$ServiceCompatProxy) -> <init>
     106:108:void onLoadChildren(java.lang.String,android.service.media.MediaBrowserService$Result,android.os.Bundle) -> onLoadChildren
 android.support.v4.media.MediaBrowserServiceCompatApi24$ResultWrapper -> android.support.v4.media.MediaBrowserServiceCompatApi24$a:
     android.service.media.MediaBrowserService$Result mResultObj -> a
     66:68:void <init>(android.service.media.MediaBrowserService$Result) -> <init>
+    72:77:void sendResult(java.util.List,int) -> a
+    84:93:java.util.List parcelListToItemList(java.util.List) -> a
 android.support.v4.media.MediaBrowserServiceCompatApi24$ServiceCompatProxy -> android.support.v4.media.MediaBrowserServiceCompatApi24$b:
     void onLoadChildren(java.lang.String,android.support.v4.media.MediaBrowserServiceCompatApi24$ResultWrapper,android.os.Bundle) -> a
 android.support.v4.media.MediaDescriptionCompat -> android.support.v4.media.c:
@@ -8160,6 +8295,7 @@ android.support.v4.os.AsyncTaskCompatHoneycomb -> android.support.v4.f.b:
     34:35:void executeParallel(android.os.AsyncTask,java.lang.Object[]) -> a
 android.support.v4.os.BuildCompat -> android.support.v4.f.c:
     36:36:boolean isAtLeastN() -> a
+    54:55:boolean isAtLeastO() -> b
 android.support.v4.os.IResultReceiver -> android.support.v4.f.d:
     void send(int,android.os.Bundle) -> a
 android.support.v4.os.IResultReceiver$Stub -> android.support.v4.f.d$a:
@@ -20667,7 +20803,16 @@ com.faendir.lightning_launcher.multitool.gesture.GestureUtils$$Lambda$9 -> com.f
     void <init>(android.content.Context,com.faendir.omniadapter.model.DeepObservableList) -> <init>
     void accept(java.lang.Object) -> a
     java8.util.function.Consumer lambdaFactory$(android.content.Context,com.faendir.omniadapter.model.DeepObservableList) -> a
-com.faendir.lightning_launcher.multitool.gesture.SingleStoreGestureLibrary -> com.faendir.lightning_launcher.multitool.gesture.t:
+com.faendir.lightning_launcher.multitool.gesture.LightningGestureView -> com.faendir.lightning_launcher.multitool.gesture.LightningGestureView:
+    33:41:void <init>(android.content.Context) -> <init>
+    46:74:void onGesturePerformed(android.gesture.GestureOverlayView,android.gesture.Gesture) -> onGesturePerformed
+    57:57:boolean lambda$onGesturePerformed$0(java.util.UUID,com.faendir.lightning_launcher.multitool.gesture.GestureInfo) -> lambda$onGesturePerformed$0
+com.faendir.lightning_launcher.multitool.gesture.LightningGestureView$$Lambda$1 -> com.faendir.lightning_launcher.multitool.gesture.t:
+    java.util.UUID arg$1 -> a
+    void <init>(java.util.UUID) -> <init>
+    boolean test(java.lang.Object) -> test
+    java8.util.function.Predicate lambdaFactory$(java.util.UUID) -> a
+com.faendir.lightning_launcher.multitool.gesture.SingleStoreGestureLibrary -> com.faendir.lightning_launcher.multitool.gesture.u:
     android.gesture.GestureStore gestureStore -> a
     android.content.Context context -> b
     30:36:com.faendir.lightning_launcher.multitool.gesture.SingleStoreGestureLibrary getInstance(android.content.Context) -> a
@@ -20675,6 +20820,7 @@ com.faendir.lightning_launcher.multitool.gesture.SingleStoreGestureLibrary -> co
     47:47:boolean save() -> a
     51:60:boolean save(android.content.Context) -> b
     64:72:void load(android.content.Context) -> c
+    75:75:java.util.ArrayList recognize(android.gesture.Gesture) -> a
     79:82:void addGesture(java.lang.String,android.gesture.Gesture) -> a
     85:88:void removeGesture(java.lang.String,android.gesture.Gesture) -> b
     91:94:void removeEntry(java.lang.String) -> a
@@ -20785,41 +20931,48 @@ com.faendir.lightning_launcher.multitool.music.MusicFragment$1 -> com.faendir.li
     66:70:void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
     74:76:void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
 com.faendir.lightning_launcher.multitool.music.MusicManager -> com.faendir.lightning_launcher.multitool.music.MusicManager:
-    java.util.List PLAYING_STATES -> a
-    org.apache.commons.collections4.BidiMap controllers -> b
-    java.util.Set listeners -> c
-    android.media.session.MediaSessionManager mediaSessionManager -> d
-    android.content.ComponentName notificationListener -> e
-    android.content.SharedPreferences sharedPref -> f
-    com.faendir.lightning_launcher.multitool.billing.BaseBillingManager billingManager -> g
-    android.graphics.Bitmap albumArt -> h
-    java.lang.String title -> i
-    java.lang.String album -> j
-    java.lang.String artist -> k
-    java.lang.String packageName -> l
-    java.lang.ref.WeakReference currentController -> m
-    android.media.session.MediaSessionManager$OnActiveSessionsChangedListener sessionsChangedListener -> n
-    boolean hasDisplayedToast -> o
+    int ACTION_REGISTER -> ACTION_REGISTER
+    int ACTION_UNREGISTER -> ACTION_UNREGISTER
+    int ACTION_REGISTER_MESSENGER -> ACTION_REGISTER_MESSENGER
+    int ACTION_UNREGISTER_MESSENGER -> ACTION_UNREGISTER_MESSENGER
+    int ACTION_PLAY_PAUSE -> ACTION_PLAY_PAUSE
+    int ACTION_NEXT -> ACTION_NEXT
+    int ACTION_PREVIOUS -> ACTION_PREVIOUS
+    java.util.List PLAYING_STATES -> PLAYING_STATES
+    org.apache.commons.collections4.BidiMap controllers -> controllers
+    java.util.Set listeners -> listeners
+    android.media.session.MediaSessionManager mediaSessionManager -> mediaSessionManager
+    android.content.ComponentName notificationListener -> notificationListener
+    android.content.SharedPreferences sharedPref -> sharedPref
+    com.faendir.lightning_launcher.multitool.billing.BaseBillingManager billingManager -> billingManager
+    android.graphics.Bitmap albumArt -> albumArt
+    java.lang.String title -> title
+    java.lang.String album -> album
+    java.lang.String artist -> artist
+    java.lang.String packageName -> packageName
+    java.lang.ref.WeakReference currentController -> currentController
+    android.media.session.MediaSessionManager$OnActiveSessionsChangedListener sessionsChangedListener -> sessionsChangedListener
+    boolean hasDisplayedToast -> hasDisplayedToast
     101:108:void <init>() -> <init>
     112:112:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     117:125:void onCreate() -> onCreate
-    129:137:void updateCurrentInfo(android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> a
-    141:180:void onActiveSessionsChanged(java.util.List) -> a
-    183:187:void startDefaultPlayerWithKeyCode(int) -> a
-    191:203:void sendKeyCodeToPlayer(int,java.lang.String) -> a
+    129:137:void updateCurrentInfo(android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> updateCurrentInfo
+    141:180:void onActiveSessionsChanged(java.util.List) -> onActiveSessionsChanged
+    183:187:void startDefaultPlayerWithKeyCode(int) -> startDefaultPlayerWithKeyCode
+    191:203:void sendKeyCodeToPlayer(int,java.lang.String) -> sendKeyCodeToPlayer
     207:209:android.os.IBinder onBind(android.content.Intent) -> onBind
-    214:283:void handleMessage(android.os.Message) -> a
-    287:288:boolean isAlternativeControl(android.media.session.MediaController) -> a
-    293:320:void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
-    324:328:void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> b
-    227:227:boolean lambda$handleMessage$1(android.os.Message,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
-    136:136:void lambda$updateCurrentInfo$0(com.faendir.lightning_launcher.multitool.music.MusicManager,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
-    68:68:java.util.List access$300() -> a
-    68:68:java.lang.ref.WeakReference access$400(com.faendir.lightning_launcher.multitool.music.MusicManager) -> a
-    68:68:org.apache.commons.collections4.BidiMap access$500(com.faendir.lightning_launcher.multitool.music.MusicManager) -> b
-    68:68:void access$600(com.faendir.lightning_launcher.multitool.music.MusicManager,android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> a
+    214:283:void handleMessage(android.os.Message) -> handleMessage
+    287:288:boolean isAlternativeControl(android.media.session.MediaController) -> isAlternativeControl
+    293:320:void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> registerListener
+    324:328:void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> unregisterListener
+    227:227:boolean lambda$handleMessage$1(android.os.Message,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> lambda$handleMessage$1
+    136:136:void lambda$updateCurrentInfo$0(com.faendir.lightning_launcher.multitool.music.MusicManager,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> lambda$updateCurrentInfo$0
+    68:68:java.util.List access$300() -> access$300
+    68:68:java.lang.ref.WeakReference access$400(com.faendir.lightning_launcher.multitool.music.MusicManager) -> access$400
+    68:68:org.apache.commons.collections4.BidiMap access$500(com.faendir.lightning_launcher.multitool.music.MusicManager) -> access$500
+    68:68:void access$600(com.faendir.lightning_launcher.multitool.music.MusicManager,android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> access$600
     79:86:void <clinit>() -> <clinit>
-    void access$lambda$0(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> a
+    void access$lambda$0(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener) -> access$lambda$0
 com.faendir.lightning_launcher.multitool.music.MusicManager$$Lambda$1 -> com.faendir.lightning_launcher.multitool.music.e:
     com.faendir.lightning_launcher.multitool.music.MusicManager arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.music.MusicManager) -> <init>
@@ -21467,10 +21620,10 @@ com.faendir.lightning_launcher.multitool.util.BaseActivity -> com.faendir.lightn
     46:48:android.support.v7.widget.Toolbar initToolbar() -> i
     52:52:android.support.v7.widget.Toolbar getToolbar() -> g
 com.faendir.lightning_launcher.multitool.util.BaseIpcService -> com.faendir.lightning_launcher.multitool.util.BaseIpcService:
-    android.os.Messenger messenger -> a
+    android.os.Messenger messenger -> messenger
     27:29:void <init>() -> <init>
     35:35:android.os.IBinder onBind(android.content.Intent) -> onBind
-    void handleMessage(android.os.Message) -> a
+    void handleMessage(android.os.Message) -> handleMessage
 com.faendir.lightning_launcher.multitool.util.BaseIpcService$1 -> com.faendir.lightning_launcher.multitool.util.BaseIpcService$1:
 com.faendir.lightning_launcher.multitool.util.BaseIpcService$LocalHandler -> com.faendir.lightning_launcher.multitool.util.BaseIpcService$a:
     java.lang.ref.WeakReference service -> a
@@ -24153,7 +24306,7 @@ com.mikepenz.fastadapter.FastAdapter -> com.mikepenz.a.b:
     com.mikepenz.fastadapter.listeners.LongClickEventHook fastAdapterViewLongClickListener -> y
     com.mikepenz.fastadapter.listeners.TouchEventHook fastAdapterViewTouchListener -> z
     85:89:int floorIndex(android.util.SparseArray,int) -> a
-    36:523:void <init>() -> <init>
+    36:525:void <init>() -> <init>
     119:120:com.mikepenz.fastadapter.FastAdapter withOnClickListener(com.mikepenz.fastadapter.FastAdapter$OnClickListener) -> a
     141:142:com.mikepenz.fastadapter.FastAdapter withOnLongClickListener(com.mikepenz.fastadapter.FastAdapter$OnLongClickListener) -> a
     210:211:com.mikepenz.fastadapter.FastAdapter withMultiSelect(boolean) -> a
@@ -24168,47 +24321,47 @@ com.mikepenz.fastadapter.FastAdapter -> com.mikepenz.a.b:
     402:405:void registerTypeInstance(com.mikepenz.fastadapter.IItem) -> a
     414:414:com.mikepenz.fastadapter.IItem getTypeInstance(int) -> f
     432:432:int getHolderAdapterPosition(android.support.v7.widget.RecyclerView$ViewHolder) -> e
-    543:554:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> b
-    567:571:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> a
-    582:584:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int,java.util.List) -> a
-    593:595:void onViewRecycled(android.support.v7.widget.RecyclerView$ViewHolder) -> a
-    604:606:void onViewDetachedFromWindow(android.support.v7.widget.RecyclerView$ViewHolder) -> d
-    615:617:void onViewAttachedToWindow(android.support.v7.widget.RecyclerView$ViewHolder) -> c
-    665:670:com.mikepenz.fastadapter.IItem getItem(int) -> g
-    681:692:com.mikepenz.fastadapter.FastAdapter$RelativeInfo getRelativeInfo(int) -> h
-    703:707:com.mikepenz.fastadapter.IAdapter getAdapter(int) -> i
-    718:718:int getItemViewType(int) -> b
-    729:729:long getItemId(int) -> a
-    738:738:int getItemCount() -> a
-    749:766:int getPreItemCountByOrder(int) -> j
-    778:783:int getPreItemCount(int) -> k
-    832:832:android.os.Bundle saveInstanceState(android.os.Bundle) -> b
-    845:882:android.os.Bundle saveInstanceState(android.os.Bundle,java.lang.String) -> b
-    889:906:void cacheSizes() -> k
-    918:929:java.util.Set getSelections() -> c
-    974:1040:void handleSelection(android.view.View,com.mikepenz.fastadapter.IItem,int) -> a
-    1059:1060:void select(int) -> l
-    1069:1070:void select(int,boolean) -> a
-    1080:1103:void select(int,boolean,boolean) -> a
-    1109:1122:void deselect() -> g
-    1162:1166:void deselect(java.lang.Iterable) -> a
-    1174:1175:void deselect(int) -> m
-    1185:1201:void deselect(int,java.util.Iterator) -> a
-    1252:1263:android.util.SparseIntArray getExpanded() -> h
-    1272:1294:int[] getExpandedItems() -> i
-    1303:1317:void toggleExpandable(int) -> n
-    1332:1336:void collapse(boolean) -> g
-    1345:1346:void collapse(int) -> o
-    1355:1427:void collapse(int,boolean) -> b
-    1430:1438:void internalCollapse(int,boolean) -> d
-    1441:1460:void internalCollapse(com.mikepenz.fastadapter.IExpandable,int,boolean) -> a
-    1487:1488:void expand(int) -> p
-    1498:1539:void expand(int,boolean) -> c
-    1551:1562:void notifyAdapterDataSetChanged() -> j
-    1582:1594:void notifyAdapterItemRangeInserted(int,int) -> e
-    1613:1620:void notifyAdapterItemRangeRemoved(int,int) -> f
-    1672:1673:void notifyAdapterItemRangeChanged(int,int) -> g
-    1683:1706:void notifyAdapterItemRangeChanged(int,int,java.lang.Object) -> b
+    545:556:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int) -> b
+    569:573:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> a
+    584:586:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int,java.util.List) -> a
+    595:597:void onViewRecycled(android.support.v7.widget.RecyclerView$ViewHolder) -> a
+    606:608:void onViewDetachedFromWindow(android.support.v7.widget.RecyclerView$ViewHolder) -> d
+    617:619:void onViewAttachedToWindow(android.support.v7.widget.RecyclerView$ViewHolder) -> c
+    667:672:com.mikepenz.fastadapter.IItem getItem(int) -> g
+    683:694:com.mikepenz.fastadapter.FastAdapter$RelativeInfo getRelativeInfo(int) -> h
+    705:709:com.mikepenz.fastadapter.IAdapter getAdapter(int) -> i
+    720:720:int getItemViewType(int) -> b
+    731:731:long getItemId(int) -> a
+    740:740:int getItemCount() -> a
+    751:768:int getPreItemCountByOrder(int) -> j
+    780:785:int getPreItemCount(int) -> k
+    834:834:android.os.Bundle saveInstanceState(android.os.Bundle) -> b
+    847:884:android.os.Bundle saveInstanceState(android.os.Bundle,java.lang.String) -> b
+    891:908:void cacheSizes() -> k
+    920:931:java.util.Set getSelections() -> c
+    976:1042:void handleSelection(android.view.View,com.mikepenz.fastadapter.IItem,int) -> a
+    1061:1062:void select(int) -> l
+    1071:1072:void select(int,boolean) -> a
+    1082:1105:void select(int,boolean,boolean) -> a
+    1111:1124:void deselect() -> g
+    1164:1168:void deselect(java.lang.Iterable) -> a
+    1176:1177:void deselect(int) -> m
+    1187:1203:void deselect(int,java.util.Iterator) -> a
+    1254:1265:android.util.SparseIntArray getExpanded() -> h
+    1274:1296:int[] getExpandedItems() -> i
+    1305:1319:void toggleExpandable(int) -> n
+    1334:1338:void collapse(boolean) -> g
+    1347:1348:void collapse(int) -> o
+    1357:1429:void collapse(int,boolean) -> b
+    1432:1440:void internalCollapse(int,boolean) -> d
+    1443:1462:void internalCollapse(com.mikepenz.fastadapter.IExpandable,int,boolean) -> a
+    1489:1490:void expand(int) -> p
+    1500:1541:void expand(int,boolean) -> c
+    1553:1564:void notifyAdapterDataSetChanged() -> j
+    1584:1596:void notifyAdapterItemRangeInserted(int,int) -> e
+    1615:1622:void notifyAdapterItemRangeRemoved(int,int) -> f
+    1674:1675:void notifyAdapterItemRangeChanged(int,int) -> g
+    1685:1708:void notifyAdapterItemRangeChanged(int,int,java.lang.Object) -> b
     30:30:com.mikepenz.fastadapter.FastAdapter$OnClickListener access$000(com.mikepenz.fastadapter.FastAdapter) -> a
     30:30:boolean access$100(com.mikepenz.fastadapter.FastAdapter) -> b
     30:30:boolean access$200(com.mikepenz.fastadapter.FastAdapter) -> c
@@ -24222,15 +24375,15 @@ com.mikepenz.fastadapter.FastAdapter -> com.mikepenz.a.b:
 com.mikepenz.fastadapter.FastAdapter$1 -> com.mikepenz.a.b$1:
     com.mikepenz.fastadapter.FastAdapter this$0 -> a
     438:438:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
-    441:489:void onClick(android.view.View,int,com.mikepenz.fastadapter.FastAdapter,com.mikepenz.fastadapter.IItem) -> onClick
+    441:491:void onClick(android.view.View,int,com.mikepenz.fastadapter.FastAdapter,com.mikepenz.fastadapter.IItem) -> onClick
 com.mikepenz.fastadapter.FastAdapter$2 -> com.mikepenz.a.b$2:
     com.mikepenz.fastadapter.FastAdapter this$0 -> a
-    495:495:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
-    498:516:boolean onLongClick(android.view.View,int,com.mikepenz.fastadapter.FastAdapter,com.mikepenz.fastadapter.IItem) -> a
+    497:497:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
+    500:518:boolean onLongClick(android.view.View,int,com.mikepenz.fastadapter.FastAdapter,com.mikepenz.fastadapter.IItem) -> a
 com.mikepenz.fastadapter.FastAdapter$3 -> com.mikepenz.a.b$3:
     com.mikepenz.fastadapter.FastAdapter this$0 -> a
-    523:523:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
-    526:530:boolean onTouch(android.view.View,android.view.MotionEvent,int,com.mikepenz.fastadapter.FastAdapter,com.mikepenz.fastadapter.IItem) -> a
+    525:525:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
+    528:532:boolean onTouch(android.view.View,android.view.MotionEvent,int,com.mikepenz.fastadapter.FastAdapter,com.mikepenz.fastadapter.IItem) -> a
 com.mikepenz.fastadapter.FastAdapter$OnBindViewHolderListener -> com.mikepenz.a.b$a:
     void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int,java.util.List) -> a
     void unBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> a
@@ -24238,11 +24391,11 @@ com.mikepenz.fastadapter.FastAdapter$OnBindViewHolderListener -> com.mikepenz.a.
     void onViewDetachedFromWindow(android.support.v7.widget.RecyclerView$ViewHolder,int) -> c
 com.mikepenz.fastadapter.FastAdapter$OnBindViewHolderListenerImpl -> com.mikepenz.a.b$b:
     com.mikepenz.fastadapter.FastAdapter this$0 -> a
-    1881:1881:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
-    1891:1895:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int,java.util.List) -> a
-    1905:1911:void unBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> a
-    1921:1929:void onViewAttachedToWindow(android.support.v7.widget.RecyclerView$ViewHolder,int) -> b
-    1939:1943:void onViewDetachedFromWindow(android.support.v7.widget.RecyclerView$ViewHolder,int) -> c
+    1883:1883:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
+    1893:1897:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int,java.util.List) -> a
+    1907:1913:void unBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int) -> a
+    1923:1931:void onViewAttachedToWindow(android.support.v7.widget.RecyclerView$ViewHolder,int) -> b
+    1941:1945:void onViewDetachedFromWindow(android.support.v7.widget.RecyclerView$ViewHolder,int) -> c
 com.mikepenz.fastadapter.FastAdapter$OnClickListener -> com.mikepenz.a.b$c:
     boolean onClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.fastadapter.IItem,int) -> onClick
 com.mikepenz.fastadapter.FastAdapter$OnCreateViewHolderListener -> com.mikepenz.a.b$d:
@@ -24250,9 +24403,9 @@ com.mikepenz.fastadapter.FastAdapter$OnCreateViewHolderListener -> com.mikepenz.
     android.support.v7.widget.RecyclerView$ViewHolder onPostCreateViewHolder(android.support.v7.widget.RecyclerView$ViewHolder) -> a
 com.mikepenz.fastadapter.FastAdapter$OnCreateViewHolderListenerImpl -> com.mikepenz.a.b$e:
     com.mikepenz.fastadapter.FastAdapter this$0 -> a
-    1818:1818:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
-    1828:1828:android.support.v7.widget.RecyclerView$ViewHolder onPreCreateViewHolder(android.view.ViewGroup,int) -> a
-    1839:1842:android.support.v7.widget.RecyclerView$ViewHolder onPostCreateViewHolder(android.support.v7.widget.RecyclerView$ViewHolder) -> a
+    1820:1820:void <init>(com.mikepenz.fastadapter.FastAdapter) -> <init>
+    1830:1830:android.support.v7.widget.RecyclerView$ViewHolder onPreCreateViewHolder(android.view.ViewGroup,int) -> a
+    1841:1844:android.support.v7.widget.RecyclerView$ViewHolder onPostCreateViewHolder(android.support.v7.widget.RecyclerView$ViewHolder) -> a
 com.mikepenz.fastadapter.FastAdapter$OnLongClickListener -> com.mikepenz.a.b$f:
     boolean onLongClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.fastadapter.IItem,int) -> a
 com.mikepenz.fastadapter.FastAdapter$OnTouchListener -> com.mikepenz.a.b$g:
@@ -24261,7 +24414,7 @@ com.mikepenz.fastadapter.FastAdapter$RelativeInfo -> com.mikepenz.a.b$h:
     com.mikepenz.fastadapter.IAdapter adapter -> a
     com.mikepenz.fastadapter.IItem item -> b
     int position -> c
-    1949:1952:void <init>() -> <init>
+    1951:1954:void <init>() -> <init>
 com.mikepenz.fastadapter.IAdapter -> com.mikepenz.a.c:
     com.mikepenz.fastadapter.FastAdapter getFastAdapter() -> b
     int getOrder() -> c
@@ -24408,16 +24561,16 @@ com.mikepenz.iconics.Iconics -> com.mikepenz.iconics.a:
     boolean INIT_DONE -> b
     java.util.HashMap FONTS -> c
     52:65:void init(android.content.Context) -> a
-    100:103:void validateFont(com.mikepenz.iconics.typeface.ITypeface) -> a
-    124:125:com.mikepenz.iconics.typeface.ITypeface findFont(android.content.Context,java.lang.String) -> a
-    138:140:void <init>() -> <init>
+    118:121:void validateFont(com.mikepenz.iconics.typeface.ITypeface) -> a
+    142:143:com.mikepenz.iconics.typeface.ITypeface findFont(android.content.Context,java.lang.String) -> a
+    156:158:void <init>() -> <init>
     41:44:void <clinit>() -> <clinit>
 com.mikepenz.iconics.IconicsDrawable -> com.mikepenz.iconics.b:
     android.content.Context mContext -> a
     int mSizeX -> b
     int mSizeY -> c
     boolean mRespectFontBounds -> d
-    int mIconColor -> e
+    android.content.res.ColorStateList mIconColor -> e
     android.graphics.Paint mIconPaint -> f
     int mContourColor -> g
     android.graphics.Paint mContourPaint -> h
@@ -24440,60 +24593,62 @@ com.mikepenz.iconics.IconicsDrawable -> com.mikepenz.iconics.b:
     android.graphics.PorterDuff$Mode mTintMode -> y
     android.graphics.ColorFilter mTintFilter -> z
     android.graphics.ColorFilter mColorFilter -> A
-    74:117:void <init>(android.content.Context) -> <init>
-    74:124:void <init>(android.content.Context,java.lang.Character) -> <init>
-    74:137:void <init>(android.content.Context,java.lang.String) -> <init>
-    74:143:void <init>(android.content.Context,com.mikepenz.iconics.typeface.IIcon) -> <init>
-    152:167:void prepare() -> b
-    193:193:com.mikepenz.iconics.IconicsDrawable icon(java.lang.Character) -> a
-    203:207:com.mikepenz.iconics.IconicsDrawable iconText(java.lang.String) -> a
-    217:222:com.mikepenz.iconics.IconicsDrawable icon(com.mikepenz.iconics.typeface.IIcon) -> a
-    259:266:com.mikepenz.iconics.IconicsDrawable color(int) -> a
-    286:286:com.mikepenz.iconics.IconicsDrawable colorRes(int) -> b
-    338:339:com.mikepenz.iconics.IconicsDrawable iconOffsetXPx(int) -> c
-    369:370:com.mikepenz.iconics.IconicsDrawable iconOffsetYPx(int) -> d
-    380:380:com.mikepenz.iconics.IconicsDrawable paddingRes(int) -> e
-    391:391:com.mikepenz.iconics.IconicsDrawable paddingDp(int) -> f
-    401:409:com.mikepenz.iconics.IconicsDrawable paddingPx(int) -> g
-    452:452:com.mikepenz.iconics.IconicsDrawable sizeDp(int) -> h
-    462:466:com.mikepenz.iconics.IconicsDrawable sizePx(int) -> i
-    497:500:com.mikepenz.iconics.IconicsDrawable sizePxX(int) -> j
-    531:534:com.mikepenz.iconics.IconicsDrawable sizePxY(int) -> k
-    545:552:com.mikepenz.iconics.IconicsDrawable contourColor(int) -> l
-    562:562:com.mikepenz.iconics.IconicsDrawable contourColorRes(int) -> m
-    572:576:com.mikepenz.iconics.IconicsDrawable backgroundColor(int) -> n
-    586:586:com.mikepenz.iconics.IconicsDrawable backgroundColorRes(int) -> o
-    618:619:com.mikepenz.iconics.IconicsDrawable roundedCornersRxPx(int) -> p
-    651:652:com.mikepenz.iconics.IconicsDrawable roundedCornersRyPx(int) -> q
-    674:676:com.mikepenz.iconics.IconicsDrawable roundedCornersDp(int) -> r
-    686:688:com.mikepenz.iconics.IconicsDrawable roundedCornersPx(int) -> s
-    698:698:com.mikepenz.iconics.IconicsDrawable contourWidthRes(int) -> t
-    708:708:com.mikepenz.iconics.IconicsDrawable contourWidthDp(int) -> u
-    718:722:com.mikepenz.iconics.IconicsDrawable contourWidthPx(int) -> v
-    732:743:com.mikepenz.iconics.IconicsDrawable drawContour(boolean) -> a
-    764:765:com.mikepenz.iconics.IconicsDrawable alpha(int) -> w
-    787:788:com.mikepenz.iconics.IconicsDrawable typeface(android.graphics.Typeface) -> a
-    793:815:void draw(android.graphics.Canvas) -> draw
-    819:820:void setTint(int) -> setTint
-    824:827:void setTintList(android.content.res.ColorStateList) -> setTintList
-    831:834:void setTintMode(android.graphics.PorterDuff$Mode) -> setTintMode
-    838:841:void onBoundsChange(android.graphics.Rect) -> onBoundsChange
-    845:845:boolean isStateful() -> isStateful
-    850:851:boolean setState(int[]) -> setState
-    856:861:boolean onStateChange(int[]) -> onStateChange
-    866:866:int getIntrinsicWidth() -> getIntrinsicWidth
-    871:871:int getIntrinsicHeight() -> getIntrinsicHeight
-    876:876:int getOpacity() -> getOpacity
-    882:885:void setAlpha(int) -> setAlpha
-    889:889:int getAlpha() -> getAlpha
-    917:919:void setColorFilter(android.graphics.ColorFilter) -> setColorFilter
-    923:925:void clearColorFilter() -> clearColorFilter
-    958:967:void updatePaddingBounds(android.graphics.Rect) -> a
-    975:993:void updateTextSize(android.graphics.Rect) -> b
-    1001:1008:void offsetIcon(android.graphics.Rect) -> c
-    1016:1022:android.graphics.PorterDuffColorFilter updateTintFilter(android.content.res.ColorStateList,android.graphics.PorterDuff$Mode) -> a
-    1032:1053:com.mikepenz.iconics.IconicsDrawable clone() -> a
-    68:68:java.lang.Object clone() -> clone
+    75:118:void <init>(android.content.Context) -> <init>
+    75:125:void <init>(android.content.Context,java.lang.Character) -> <init>
+    75:138:void <init>(android.content.Context,java.lang.String) -> <init>
+    75:144:void <init>(android.content.Context,com.mikepenz.iconics.typeface.IIcon) -> <init>
+    153:168:void prepare() -> b
+    194:194:com.mikepenz.iconics.IconicsDrawable icon(java.lang.Character) -> a
+    204:208:com.mikepenz.iconics.IconicsDrawable iconText(java.lang.String) -> a
+    218:223:com.mikepenz.iconics.IconicsDrawable icon(com.mikepenz.iconics.typeface.IIcon) -> a
+    260:262:com.mikepenz.iconics.IconicsDrawable color(int) -> a
+    272:277:com.mikepenz.iconics.IconicsDrawable color(android.content.res.ColorStateList) -> a
+    297:297:com.mikepenz.iconics.IconicsDrawable colorRes(int) -> b
+    356:357:com.mikepenz.iconics.IconicsDrawable iconOffsetXPx(int) -> c
+    387:388:com.mikepenz.iconics.IconicsDrawable iconOffsetYPx(int) -> d
+    398:398:com.mikepenz.iconics.IconicsDrawable paddingRes(int) -> e
+    409:409:com.mikepenz.iconics.IconicsDrawable paddingDp(int) -> f
+    419:427:com.mikepenz.iconics.IconicsDrawable paddingPx(int) -> g
+    470:470:com.mikepenz.iconics.IconicsDrawable sizeDp(int) -> h
+    480:484:com.mikepenz.iconics.IconicsDrawable sizePx(int) -> i
+    515:518:com.mikepenz.iconics.IconicsDrawable sizePxX(int) -> j
+    549:552:com.mikepenz.iconics.IconicsDrawable sizePxY(int) -> k
+    563:570:com.mikepenz.iconics.IconicsDrawable contourColor(int) -> l
+    580:580:com.mikepenz.iconics.IconicsDrawable contourColorRes(int) -> m
+    590:594:com.mikepenz.iconics.IconicsDrawable backgroundColor(int) -> n
+    604:604:com.mikepenz.iconics.IconicsDrawable backgroundColorRes(int) -> o
+    636:637:com.mikepenz.iconics.IconicsDrawable roundedCornersRxPx(int) -> p
+    669:670:com.mikepenz.iconics.IconicsDrawable roundedCornersRyPx(int) -> q
+    692:694:com.mikepenz.iconics.IconicsDrawable roundedCornersDp(int) -> r
+    704:706:com.mikepenz.iconics.IconicsDrawable roundedCornersPx(int) -> s
+    716:716:com.mikepenz.iconics.IconicsDrawable contourWidthRes(int) -> t
+    726:726:com.mikepenz.iconics.IconicsDrawable contourWidthDp(int) -> u
+    736:740:com.mikepenz.iconics.IconicsDrawable contourWidthPx(int) -> v
+    750:761:com.mikepenz.iconics.IconicsDrawable drawContour(boolean) -> a
+    782:783:com.mikepenz.iconics.IconicsDrawable alpha(int) -> w
+    805:806:com.mikepenz.iconics.IconicsDrawable typeface(android.graphics.Typeface) -> a
+    811:833:void draw(android.graphics.Canvas) -> draw
+    837:838:void setTint(int) -> setTint
+    842:845:void setTintList(android.content.res.ColorStateList) -> setTintList
+    849:852:void setTintMode(android.graphics.PorterDuff$Mode) -> setTintMode
+    856:859:void onBoundsChange(android.graphics.Rect) -> onBoundsChange
+    863:863:boolean isStateful() -> isStateful
+    868:868:boolean setState(int[]) -> setState
+    873:882:int getOpacity() -> getOpacity
+    887:897:boolean onStateChange(int[]) -> onStateChange
+    902:902:int getIntrinsicWidth() -> getIntrinsicWidth
+    907:907:int getIntrinsicHeight() -> getIntrinsicHeight
+    912:915:void setAlpha(int) -> setAlpha
+    919:919:int getAlpha() -> getAlpha
+    947:949:void setColorFilter(android.graphics.ColorFilter) -> setColorFilter
+    953:955:void clearColorFilter() -> clearColorFilter
+    988:997:void updatePaddingBounds(android.graphics.Rect) -> a
+    1005:1023:void updateTextSize(android.graphics.Rect) -> b
+    1031:1038:void offsetIcon(android.graphics.Rect) -> c
+    1046:1065:void updateIconColor() -> c
+    1073:1079:android.graphics.PorterDuffColorFilter updateTintFilter(android.content.res.ColorStateList,android.graphics.PorterDuff$Mode) -> a
+    1089:1110:com.mikepenz.iconics.IconicsDrawable clone() -> a
+    69:69:java.lang.Object clone() -> clone
 com.mikepenz.iconics.core.R -> com.mikepenz.iconics.a.a:
 com.mikepenz.iconics.core.R$styleable -> com.mikepenz.iconics.a.a$a:
     int[] ActionBar -> ActionBar
@@ -24903,36 +25058,36 @@ com.mikepenz.iconics.view.IconicsImageView -> com.mikepenz.iconics.view.IconicsI
     int mContourWidth -> f
     int mBackgroundColor -> g
     int mCornerRadius -> h
-    48:49:void <init>(android.content.Context) -> <init>
-    52:53:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    35:92:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
-    95:96:void setIcon(java.lang.Character) -> setIcon
-    99:100:void setIcon(java.lang.Character,boolean) -> a
-    103:104:void setIcon(java.lang.String) -> setIcon
-    107:108:void setIcon(java.lang.String,boolean) -> a
-    111:112:void setIcon(com.mikepenz.iconics.typeface.IIcon) -> setIcon
-    115:116:void setIcon(com.mikepenz.iconics.typeface.IIcon,boolean) -> a
-    119:120:void setIcon(com.mikepenz.iconics.IconicsDrawable) -> setIcon
-    123:130:void setIcon(com.mikepenz.iconics.IconicsDrawable,boolean) -> a
-    133:134:void setIconText(java.lang.String) -> setIconText
-    137:138:void setIconText(java.lang.String,boolean) -> b
-    141:162:void setAttributes() -> a
-    165:169:void setColor(int) -> setColor
-    172:176:void setColorRes(int) -> setColorRes
-    179:183:void setPaddingPx(int) -> setPaddingPx
-    186:190:void setPaddingDp(int) -> setPaddingDp
-    193:197:void setPaddingRes(int) -> setPaddingRes
-    200:204:void setContourColor(int) -> setContourColor
-    207:211:void setContourColorRes(int) -> setContourColorRes
-    214:218:void setContourWidthPx(int) -> setContourWidthPx
-    221:225:void setContourWidthDp(int) -> setContourWidthDp
-    228:232:void setContourWidthRes(int) -> setContourWidthRes
-    235:239:void setBackgroundColor(int) -> setBackgroundColor
-    242:246:void setBackgroundColorRes(int) -> setBackgroundColorRes
-    249:253:void setRoundedCornersPx(int) -> setRoundedCornersPx
-    256:260:void setRoundedCornersDp(int) -> setRoundedCornersDp
-    263:267:void setRoundedCornersRes(int) -> setRoundedCornersRes
-    270:273:com.mikepenz.iconics.IconicsDrawable getIcon() -> getIcon
+    49:50:void <init>(android.content.Context) -> <init>
+    53:54:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    36:93:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    96:97:void setIcon(java.lang.Character) -> setIcon
+    100:101:void setIcon(java.lang.Character,boolean) -> a
+    104:105:void setIcon(java.lang.String) -> setIcon
+    108:109:void setIcon(java.lang.String,boolean) -> a
+    112:113:void setIcon(com.mikepenz.iconics.typeface.IIcon) -> setIcon
+    116:117:void setIcon(com.mikepenz.iconics.typeface.IIcon,boolean) -> a
+    120:121:void setIcon(com.mikepenz.iconics.IconicsDrawable) -> setIcon
+    124:131:void setIcon(com.mikepenz.iconics.IconicsDrawable,boolean) -> a
+    134:135:void setIconText(java.lang.String) -> setIconText
+    138:139:void setIconText(java.lang.String,boolean) -> b
+    142:163:void setAttributes() -> a
+    166:170:void setColor(int) -> setColor
+    173:177:void setColorRes(int) -> setColorRes
+    180:184:void setPaddingPx(int) -> setPaddingPx
+    187:191:void setPaddingDp(int) -> setPaddingDp
+    194:198:void setPaddingRes(int) -> setPaddingRes
+    201:205:void setContourColor(int) -> setContourColor
+    208:212:void setContourColorRes(int) -> setContourColorRes
+    215:219:void setContourWidthPx(int) -> setContourWidthPx
+    222:226:void setContourWidthDp(int) -> setContourWidthDp
+    229:233:void setContourWidthRes(int) -> setContourWidthRes
+    236:240:void setBackgroundColor(int) -> setBackgroundColor
+    243:247:void setBackgroundColorRes(int) -> setBackgroundColorRes
+    250:254:void setRoundedCornersPx(int) -> setRoundedCornersPx
+    257:261:void setRoundedCornersDp(int) -> setRoundedCornersDp
+    264:268:void setRoundedCornersRes(int) -> setRoundedCornersRes
+    271:274:com.mikepenz.iconics.IconicsDrawable getIcon() -> getIcon
 com.mikepenz.materialdrawer.AccountHeader -> com.mikepenz.materialdrawer.a:
     com.mikepenz.materialdrawer.AccountHeaderBuilder mAccountHeaderBuilder -> a
     48:48:android.view.View getView() -> a
@@ -27601,16 +27756,16 @@ com.mikepenz.materialdrawer.holder.BadgeStyle -> com.mikepenz.materialdrawer.a.a
     com.mikepenz.materialdrawer.holder.DimenHolder mPaddingTopBottom -> g
     com.mikepenz.materialdrawer.holder.DimenHolder mPaddingLeftRight -> h
     com.mikepenz.materialdrawer.holder.DimenHolder mMinWidth -> i
-    30:30:int getGradientDrawable() -> a
-    50:50:com.mikepenz.materialdrawer.holder.ColorHolder getColor() -> b
-    64:64:com.mikepenz.materialdrawer.holder.ColorHolder getColorPressed() -> c
-    92:92:com.mikepenz.materialdrawer.holder.DimenHolder getCorners() -> d
-    19:149:void <init>() -> <init>
-    168:190:void style(android.widget.TextView,android.content.res.ColorStateList) -> a
+    35:35:int getGradientDrawable() -> a
+    55:55:com.mikepenz.materialdrawer.holder.ColorHolder getColor() -> b
+    69:69:com.mikepenz.materialdrawer.holder.ColorHolder getColorPressed() -> c
+    97:97:com.mikepenz.materialdrawer.holder.DimenHolder getCorners() -> d
+    24:180:void <init>() -> <init>
+    199:221:void style(android.widget.TextView,android.content.res.ColorStateList) -> a
 com.mikepenz.materialdrawer.holder.ColorHolder -> com.mikepenz.materialdrawer.a.b:
 com.mikepenz.materialdrawer.holder.DimenHolder -> com.mikepenz.materialdrawer.a.c:
-    9:11:void <init>() -> <init>
-    20:22:com.mikepenz.materialdrawer.holder.DimenHolder fromDp(int) -> a
+    13:15:void <init>() -> <init>
+    24:26:com.mikepenz.materialdrawer.holder.DimenHolder fromDp(int) -> a
 com.mikepenz.materialdrawer.holder.ImageHolder -> com.mikepenz.materialdrawer.a.d:
     com.mikepenz.iconics.typeface.IIcon mIIcon -> a
     98:119:android.graphics.drawable.Drawable decideIcon(android.content.Context,int,boolean,int) -> a

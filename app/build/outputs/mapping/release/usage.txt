@@ -611,16 +611,11 @@ android.support.v4.app.BackStackRecord:
     931:931:public boolean isEmpty()
 android.support.v4.app.BundleCompat:
     29:29:private BundleCompat()
-    54:59:public static void putBinder(android.os.Bundle,java.lang.String,android.os.IBinder)
 android.support.v4.app.BundleCompatGingerbread:
     private static final java.lang.String TAG
-    private static java.lang.reflect.Method sPutIBinderMethod
-    private static boolean sPutIBinderMethodFetched
     30:30:BundleCompatGingerbread()
-    63:83:public static void putBinder(android.os.Bundle,java.lang.String,android.os.IBinder)
 android.support.v4.app.BundleCompatJellybeanMR2:
     29:29:BundleCompatJellybeanMR2()
-    35:36:public static void putBinder(android.os.Bundle,java.lang.String,android.os.IBinder)
 android.support.v4.app.BundleUtil
 android.support.v4.app.Fragment$SavedState:
     337:339:Fragment$SavedState(android.os.Bundle)
@@ -735,8 +730,12 @@ android.support.v4.app.FragmentTransition:
     37:1121:FragmentTransition()
 android.support.v4.app.FragmentTransitionCompat21:
     34:34:FragmentTransitionCompat21()
-android.support.v4.app.INotificationSideChannel
-android.support.v4.app.INotificationSideChannel$Stub
+android.support.v4.app.INotificationSideChannel$Stub:
+    private static final java.lang.String DESCRIPTOR
+    static final int TRANSACTION_notify
+    static final int TRANSACTION_cancel
+    static final int TRANSACTION_cancelAll
+    29:36:public static android.support.v4.app.INotificationSideChannel asInterface(android.os.IBinder)
 android.support.v4.app.INotificationSideChannel$Stub$Proxy
 android.support.v4.app.ListFragment
 android.support.v4.app.ListFragment$1
@@ -1113,13 +1112,6 @@ android.support.v4.app.NotificationCompatKitKat:
     161:161:public static java.lang.String getGroup(android.app.Notification)
     165:165:public static boolean isGroupSummary(android.app.Notification)
     169:169:public static java.lang.String getSortKey(android.app.Notification)
-android.support.v4.app.NotificationCompatSideChannelService:
-    47:55:public android.os.IBinder onBind(android.content.Intent)
-    public abstract void notify(java.lang.String,int,java.lang.String,android.app.Notification)
-    public abstract void cancel(java.lang.String,int,java.lang.String)
-    public abstract void cancelAll(java.lang.String)
-    113:118:void checkPermission(int,java.lang.String)
-android.support.v4.app.NotificationCompatSideChannelService$NotificationSideChannelStub
 android.support.v4.app.NotificationManagerCompat
 android.support.v4.app.NotificationManagerCompat$CancelTask
 android.support.v4.app.NotificationManagerCompat$Impl
@@ -1545,79 +1537,32 @@ android.support.v4.media.MediaBrowserCompatApi24$SubscriptionCallback
 android.support.v4.media.MediaBrowserCompatApi24$SubscriptionCallbackProxy
 android.support.v4.media.MediaBrowserCompatUtils:
     28:28:public MediaBrowserCompatUtils()
-    47:76:public static boolean hasDuplicatedItems(android.os.Bundle,android.os.Bundle)
 android.support.v4.media.MediaBrowserProtocol
-android.support.v4.media.MediaBrowserServiceCompat:
-    static final java.lang.String TAG
-    private android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImpl mImpl
-    public static final java.lang.String SERVICE_INTERFACE
-    public static final java.lang.String KEY_MEDIA_ITEM
-    public static final java.lang.String KEY_SEARCH_RESULTS
-    static final int RESULT_FLAG_OPTION_NOT_HANDLED
-    static final int RESULT_FLAG_ON_LOAD_ITEM_NOT_IMPLEMENTED
-    static final int RESULT_FLAG_ON_SEARCH_NOT_IMPLEMENTED
-    static final int RESULT_ERROR
-    static final int RESULT_OK
-    831:842:public void onCreate()
-    846:846:public android.os.IBinder onBind(android.content.Intent)
-    851:851:public void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
-    992:1000:public void setSessionToken(android.support.v4.media.session.MediaSessionCompat$Token)
-    1007:1007:public android.support.v4.media.session.MediaSessionCompat$Token getSessionToken()
-    1026:1026:public final android.os.Bundle getBrowserRootHints()
-    1038:1042:public void notifyChildrenChanged(java.lang.String)
-    1056:1063:public void notifyChildrenChanged(java.lang.String,android.os.Bundle)
 android.support.v4.media.MediaBrowserServiceCompat$BrowserRoot:
     public static final java.lang.String EXTRA_RECENT
     public static final java.lang.String EXTRA_OFFLINE
     public static final java.lang.String EXTRA_SUGGESTED
     public static final java.lang.String EXTRA_SUGGESTION_KEYWORDS
     1338:1345:public MediaBrowserServiceCompat$BrowserRoot(java.lang.String,android.os.Bundle)
-android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImpl
-android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi21
-android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$1
-android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$2
-android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi23
-android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi23$1
-android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi24
-android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi24$1
-android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplBase
-android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplBase$1
-android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplBase$2
+android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$2:
+    332:333:public void detach()
+android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi23$1:
+    366:367:public void detach()
+android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImplApi24$1:
+    414:415:public void detach()
 android.support.v4.media.MediaBrowserServiceCompat$Result:
     557:566:public void detach()
 android.support.v4.media.MediaBrowserServiceCompatApi21:
     35:111:MediaBrowserServiceCompatApi21()
-    38:38:public static java.lang.Object createService(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi21$ServiceCompatProxy)
-    42:43:public static void onCreate(java.lang.Object)
-    46:46:public static android.os.IBinder onBind(java.lang.Object,android.content.Intent)
-    50:51:public static void setSessionToken(java.lang.Object,java.lang.Object)
-    54:55:public static void notifyChildrenChanged(java.lang.Object,java.lang.String)
-android.support.v4.media.MediaBrowserServiceCompatApi21$BrowserRoot:
-    105:108:MediaBrowserServiceCompatApi21$BrowserRoot(java.lang.String,android.os.Bundle)
-android.support.v4.media.MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor:
-    114:117:MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi21$ServiceCompatProxy)
 android.support.v4.media.MediaBrowserServiceCompatApi21$ResultWrapper:
-    70:81:public void sendResult(java.lang.Object)
     84:85:public void detach()
-    88:97:java.util.List parcelListToItemList(java.util.List)
 android.support.v4.media.MediaBrowserServiceCompatApi23:
     28:38:MediaBrowserServiceCompatApi23()
-    31:31:public static java.lang.Object createService(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi23$ServiceCompatProxy)
-android.support.v4.media.MediaBrowserServiceCompatApi23$MediaBrowserServiceAdaptor:
-    41:42:MediaBrowserServiceCompatApi23$MediaBrowserServiceAdaptor(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi23$ServiceCompatProxy)
 android.support.v4.media.MediaBrowserServiceCompatApi24:
     private static final java.lang.String TAG
     34:97:MediaBrowserServiceCompatApi24()
-    48:48:public static java.lang.Object createService(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi24$ServiceCompatProxy)
-    52:53:public static void notifyChildrenChanged(java.lang.Object,java.lang.String,android.os.Bundle)
-    56:56:public static android.os.Bundle getBrowserRootHints(java.lang.Object)
-    34:34:static synthetic java.lang.reflect.Field access$000()
-android.support.v4.media.MediaBrowserServiceCompatApi24$MediaBrowserServiceAdaptor:
-    100:101:MediaBrowserServiceCompatApi24$MediaBrowserServiceAdaptor(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi24$ServiceCompatProxy)
 android.support.v4.media.MediaBrowserServiceCompatApi24$ResultWrapper:
-    72:77:public void sendResult(java.util.List,int)
     80:81:public void detach()
-    84:93:java.util.List parcelListToItemList(java.util.List)
 android.support.v4.media.MediaDescriptionCompat:
     public static final java.lang.String EXTRA_BT_FOLDER_TYPE
     public static final long BT_FOLDER_TYPE_MIXED
@@ -2240,7 +2185,6 @@ android.support.v4.os.AsyncTaskCompatHoneycomb:
 android.support.v4.os.BuildCompat:
     27:28:private BuildCompat()
     45:45:public static boolean isAtLeastNMR1()
-    54:55:public static boolean isAtLeastO()
 android.support.v4.os.CancellationSignal
 android.support.v4.os.CancellationSignal$OnCancelListener
 android.support.v4.os.CancellationSignalCompatJellybean
@@ -5824,18 +5768,6 @@ com.faendir.lightning_launcher.multitool.gesture.GestureUtils:
     private static final java.lang.String METADATA
     private static final java.lang.String GESTURES
     46:47:private GestureUtils()
-com.faendir.lightning_launcher.multitool.gesture.LightningGestureView
-com.faendir.lightning_launcher.multitool.gesture.LightningGestureView$$Lambda$1
-com.faendir.lightning_launcher.multitool.gesture.SingleStoreGestureLibrary:
-    75:75:java.util.ArrayList recognize(android.gesture.Gesture)
-com.faendir.lightning_launcher.multitool.music.MusicManager:
-    private static final int ACTION_REGISTER
-    private static final int ACTION_UNREGISTER
-    private static final int ACTION_REGISTER_MESSENGER
-    private static final int ACTION_UNREGISTER_MESSENGER
-    private static final int ACTION_PLAY_PAUSE
-    private static final int ACTION_NEXT
-    private static final int ACTION_PREVIOUS
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask:
     private static final java.lang.String SWITCH
     private static final java.lang.String CASE
@@ -6317,25 +6249,25 @@ com.mikepenz.fastadapter.FastAdapter:
     304:305:public com.mikepenz.fastadapter.FastAdapter withOnlyOneExpandedItem(boolean)
     312:312:public boolean isOnlyOneExpandedItem()
     421:422:public void clearTypeInstance()
-    626:630:public int getPosition(com.mikepenz.fastadapter.IItem)
-    640:654:public int getPosition(long)
-    794:819:public int getExpandedItemsCount(int,int)
-    938:943:public java.util.Set getSelectedItems()
-    952:965:public void toggleSelection(int)
-    1048:1051:public void select(java.lang.Iterable)
-    1128:1129:public void select()
-    1137:1154:public void select(boolean)
-    1209:1236:public java.util.List deleteAllSelectedItems()
-    1323:1324:public void collapse()
-    1466:1467:public void expand()
-    1475:1479:public void expand(boolean)
-    1570:1571:public void notifyAdapterItemInserted(int)
-    1602:1603:public void notifyAdapterItemRemoved(int)
-    1630:1644:public void notifyAdapterItemMoved(int,int)
-    1652:1653:public void notifyAdapterItemChanged(int)
-    1662:1663:public void notifyAdapterItemChanged(int,java.lang.Object)
-    1717:1731:public void notifyAdapterSubItemsChanged(int)
-    1742:1752:public int notifyAdapterSubItemsChanged(int,int)
+    628:632:public int getPosition(com.mikepenz.fastadapter.IItem)
+    642:656:public int getPosition(long)
+    796:821:public int getExpandedItemsCount(int,int)
+    940:945:public java.util.Set getSelectedItems()
+    954:967:public void toggleSelection(int)
+    1050:1053:public void select(java.lang.Iterable)
+    1130:1131:public void select()
+    1139:1156:public void select(boolean)
+    1211:1238:public java.util.List deleteAllSelectedItems()
+    1325:1326:public void collapse()
+    1468:1469:public void expand()
+    1477:1481:public void expand(boolean)
+    1572:1573:public void notifyAdapterItemInserted(int)
+    1604:1605:public void notifyAdapterItemRemoved(int)
+    1632:1646:public void notifyAdapterItemMoved(int,int)
+    1654:1655:public void notifyAdapterItemChanged(int)
+    1664:1665:public void notifyAdapterItemChanged(int,java.lang.Object)
+    1719:1733:public void notifyAdapterSubItemsChanged(int)
+    1744:1754:public int notifyAdapterSubItemsChanged(int,int)
 com.mikepenz.fastadapter.IAdapter:
     public abstract int getAdapterPosition(com.mikepenz.fastadapter.IItem)
     public abstract int getAdapterPosition(long)
@@ -6440,13 +6372,14 @@ com.mikepenz.fastadapter.utils.IdDistributor:
     13:13:public IdDistributor()
 com.mikepenz.iconics.Iconics:
     75:79:private static java.util.HashMap init(android.content.Context,java.util.HashMap)
-    89:92:public static boolean registerFont(com.mikepenz.iconics.typeface.ITypeface)
-    112:113:public static java.util.Collection getRegisteredFonts(android.content.Context)
-    135:135:public static com.mikepenz.iconics.typeface.ITypeface findFont(com.mikepenz.iconics.typeface.IIcon)
-    152:152:public static android.text.Spanned style(android.content.Context,android.text.Spanned)
-    168:179:public static android.text.Spanned style(android.content.Context,java.util.HashMap,android.text.Spanned,java.util.List,java.util.HashMap)
-    190:191:public static void styleEditable(android.content.Context,android.text.Editable)
-    204:211:public static void styleEditable(android.content.Context,java.util.HashMap,android.text.Editable,java.util.List,java.util.HashMap)
+    91:97:public static boolean iconExists(android.content.Context,java.lang.String)
+    107:110:public static boolean registerFont(com.mikepenz.iconics.typeface.ITypeface)
+    130:131:public static java.util.Collection getRegisteredFonts(android.content.Context)
+    153:153:public static com.mikepenz.iconics.typeface.ITypeface findFont(com.mikepenz.iconics.typeface.IIcon)
+    170:170:public static android.text.Spanned style(android.content.Context,android.text.Spanned)
+    186:197:public static android.text.Spanned style(android.content.Context,java.util.HashMap,android.text.Spanned,java.util.List,java.util.HashMap)
+    208:209:public static void styleEditable(android.content.Context,android.text.Editable)
+    222:229:public static void styleEditable(android.content.Context,java.util.HashMap,android.text.Editable,java.util.List,java.util.HashMap)
 com.mikepenz.iconics.Iconics$IconicsBuilder
 com.mikepenz.iconics.Iconics$IconicsBuilderString
 com.mikepenz.iconics.Iconics$IconicsBuilderView
@@ -6454,35 +6387,36 @@ com.mikepenz.iconics.IconicsArrayBuilder
 com.mikepenz.iconics.IconicsDrawable:
     public static final int ANDROID_ACTIONBAR_ICON_SIZE_DP
     public static final int ANDROID_ACTIONBAR_ICON_SIZE_PADDING_DP
-    74:149:protected IconicsDrawable(android.content.Context,com.mikepenz.iconics.typeface.ITypeface,com.mikepenz.iconics.typeface.IIcon)
-    177:183:public com.mikepenz.iconics.IconicsDrawable icon(java.lang.String)
-    233:236:protected com.mikepenz.iconics.IconicsDrawable icon(com.mikepenz.iconics.typeface.ITypeface,com.mikepenz.iconics.typeface.IIcon)
-    247:249:public com.mikepenz.iconics.IconicsDrawable respectFontBounds(boolean)
-    294:294:public int getColor()
-    301:301:public int getContourColor()
-    308:308:public int getBackgroundColor()
-    318:318:public com.mikepenz.iconics.IconicsDrawable iconOffsetXRes(int)
-    328:328:public com.mikepenz.iconics.IconicsDrawable iconOffsetXDp(int)
-    349:349:public com.mikepenz.iconics.IconicsDrawable iconOffsetYRes(int)
-    359:359:public com.mikepenz.iconics.IconicsDrawable iconOffsetYDp(int)
-    420:420:public com.mikepenz.iconics.IconicsDrawable actionBarSize()
-    429:431:public com.mikepenz.iconics.IconicsDrawable actionBar()
-    441:441:public com.mikepenz.iconics.IconicsDrawable sizeRes(int)
-    476:476:public com.mikepenz.iconics.IconicsDrawable sizeResX(int)
-    487:487:public com.mikepenz.iconics.IconicsDrawable sizeDpX(int)
-    510:510:public com.mikepenz.iconics.IconicsDrawable sizeResY(int)
-    521:521:public com.mikepenz.iconics.IconicsDrawable sizeDpY(int)
-    596:597:public com.mikepenz.iconics.IconicsDrawable roundedCornersRxRes(int)
-    607:608:public com.mikepenz.iconics.IconicsDrawable roundedCornersRxDp(int)
-    629:630:public com.mikepenz.iconics.IconicsDrawable roundedCornersRyRes(int)
-    640:641:public com.mikepenz.iconics.IconicsDrawable roundedCornersRyDp(int)
-    662:664:public com.mikepenz.iconics.IconicsDrawable roundedCornersRes(int)
-    753:754:public com.mikepenz.iconics.IconicsDrawable colorFilter(android.graphics.ColorFilter)
-    775:776:public com.mikepenz.iconics.IconicsDrawable style(android.graphics.Paint$Style)
-    896:896:public com.mikepenz.iconics.typeface.IIcon getIcon()
-    903:903:public java.lang.String getPlainIcon()
-    912:912:public int getCompatAlpha()
-    933:945:public android.graphics.Bitmap toBitmap()
+    75:150:protected IconicsDrawable(android.content.Context,com.mikepenz.iconics.typeface.ITypeface,com.mikepenz.iconics.typeface.IIcon)
+    178:184:public com.mikepenz.iconics.IconicsDrawable icon(java.lang.String)
+    234:237:protected com.mikepenz.iconics.IconicsDrawable icon(com.mikepenz.iconics.typeface.ITypeface,com.mikepenz.iconics.typeface.IIcon)
+    248:250:public com.mikepenz.iconics.IconicsDrawable respectFontBounds(boolean)
+    305:305:public int getColor()
+    312:312:public android.content.res.ColorStateList getColorList()
+    319:319:public int getContourColor()
+    326:326:public int getBackgroundColor()
+    336:336:public com.mikepenz.iconics.IconicsDrawable iconOffsetXRes(int)
+    346:346:public com.mikepenz.iconics.IconicsDrawable iconOffsetXDp(int)
+    367:367:public com.mikepenz.iconics.IconicsDrawable iconOffsetYRes(int)
+    377:377:public com.mikepenz.iconics.IconicsDrawable iconOffsetYDp(int)
+    438:438:public com.mikepenz.iconics.IconicsDrawable actionBarSize()
+    447:449:public com.mikepenz.iconics.IconicsDrawable actionBar()
+    459:459:public com.mikepenz.iconics.IconicsDrawable sizeRes(int)
+    494:494:public com.mikepenz.iconics.IconicsDrawable sizeResX(int)
+    505:505:public com.mikepenz.iconics.IconicsDrawable sizeDpX(int)
+    528:528:public com.mikepenz.iconics.IconicsDrawable sizeResY(int)
+    539:539:public com.mikepenz.iconics.IconicsDrawable sizeDpY(int)
+    614:615:public com.mikepenz.iconics.IconicsDrawable roundedCornersRxRes(int)
+    625:626:public com.mikepenz.iconics.IconicsDrawable roundedCornersRxDp(int)
+    647:648:public com.mikepenz.iconics.IconicsDrawable roundedCornersRyRes(int)
+    658:659:public com.mikepenz.iconics.IconicsDrawable roundedCornersRyDp(int)
+    680:682:public com.mikepenz.iconics.IconicsDrawable roundedCornersRes(int)
+    771:772:public com.mikepenz.iconics.IconicsDrawable colorFilter(android.graphics.ColorFilter)
+    793:794:public com.mikepenz.iconics.IconicsDrawable style(android.graphics.Paint$Style)
+    926:926:public com.mikepenz.iconics.typeface.IIcon getIcon()
+    933:933:public java.lang.String getPlainIcon()
+    942:942:public int getCompatAlpha()
+    963:975:public android.graphics.Bitmap toBitmap()
 com.mikepenz.iconics.context.IconicsContextWrapper
 com.mikepenz.iconics.context.IconicsFactory
 com.mikepenz.iconics.context.IconicsFactory$1
@@ -6534,7 +6468,7 @@ com.mikepenz.iconics.utils.TextStyleContainer
 com.mikepenz.iconics.utils.Utils:
     8:8:public Utils()
 com.mikepenz.iconics.view.IconicsButton
-com.mikepenz.iconics.view.IconicsCompatButton
+com.mikepenz.iconics.view.IconicsImageButton
 com.mikepenz.iconics.view.IconicsTextView
 com.mikepenz.materialdrawer.AccountHeader:
     protected static final double NAVIGATION_DRAWER_ACCOUNT_ASPECT_RATIO
@@ -6907,37 +6841,42 @@ com.mikepenz.materialdrawer.R$style:
 com.mikepenz.materialdrawer.R$styleable:
     1955:1955:public R$styleable()
 com.mikepenz.materialdrawer.holder.BadgeStyle:
-    34:36:public com.mikepenz.materialdrawer.holder.BadgeStyle withGradientDrawable(int)
-    40:40:public android.graphics.drawable.Drawable getBadgeBackground()
-    44:46:public com.mikepenz.materialdrawer.holder.BadgeStyle withBadgeBackground(android.graphics.drawable.Drawable)
-    54:55:public com.mikepenz.materialdrawer.holder.BadgeStyle withColor(int)
-    59:60:public com.mikepenz.materialdrawer.holder.BadgeStyle withColorRes(int)
-    68:69:public com.mikepenz.materialdrawer.holder.BadgeStyle withColorPressed(int)
-    73:74:public com.mikepenz.materialdrawer.holder.BadgeStyle withColorPressedRes(int)
-    78:78:public com.mikepenz.materialdrawer.holder.ColorHolder getTextColor()
-    82:83:public com.mikepenz.materialdrawer.holder.BadgeStyle withTextColor(int)
-    87:88:public com.mikepenz.materialdrawer.holder.BadgeStyle withTextColorRes(int)
-    96:97:public com.mikepenz.materialdrawer.holder.BadgeStyle withCorners(int)
-    101:102:public com.mikepenz.materialdrawer.holder.BadgeStyle withCornersDp(int)
-    106:106:public com.mikepenz.materialdrawer.holder.DimenHolder getPaddingLeftRight()
-    110:111:public com.mikepenz.materialdrawer.holder.BadgeStyle withPaddingLeftRightPx(int)
-    115:116:public com.mikepenz.materialdrawer.holder.BadgeStyle withPaddingLeftRightDp(int)
-    120:120:public com.mikepenz.materialdrawer.holder.DimenHolder getPaddingTopBottom()
-    124:125:public com.mikepenz.materialdrawer.holder.BadgeStyle withPaddingTopBottomPx(int)
-    129:130:public com.mikepenz.materialdrawer.holder.BadgeStyle withPaddingTopBottomDp(int)
-    134:136:public com.mikepenz.materialdrawer.holder.BadgeStyle withPadding(int)
-    140:140:public com.mikepenz.materialdrawer.holder.DimenHolder getMinWidth()
-    144:145:public com.mikepenz.materialdrawer.holder.BadgeStyle withMinWidth(int)
-    19:154:public BadgeStyle(int,int)
-    19:161:public BadgeStyle(int,int,int,int)
-    164:165:public void style(android.widget.TextView)
+    39:41:public com.mikepenz.materialdrawer.holder.BadgeStyle withGradientDrawable(int)
+    45:45:public android.graphics.drawable.Drawable getBadgeBackground()
+    49:51:public com.mikepenz.materialdrawer.holder.BadgeStyle withBadgeBackground(android.graphics.drawable.Drawable)
+    59:60:public com.mikepenz.materialdrawer.holder.BadgeStyle withColor(int)
+    64:65:public com.mikepenz.materialdrawer.holder.BadgeStyle withColorRes(int)
+    73:74:public com.mikepenz.materialdrawer.holder.BadgeStyle withColorPressed(int)
+    78:79:public com.mikepenz.materialdrawer.holder.BadgeStyle withColorPressedRes(int)
+    83:83:public com.mikepenz.materialdrawer.holder.ColorHolder getTextColor()
+    87:88:public com.mikepenz.materialdrawer.holder.BadgeStyle withTextColor(int)
+    92:93:public com.mikepenz.materialdrawer.holder.BadgeStyle withTextColorRes(int)
+    101:102:public com.mikepenz.materialdrawer.holder.BadgeStyle withCorners(int)
+    106:107:public com.mikepenz.materialdrawer.holder.BadgeStyle withCornersDp(int)
+    111:112:public com.mikepenz.materialdrawer.holder.BadgeStyle withCorners(com.mikepenz.materialdrawer.holder.DimenHolder)
+    116:116:public com.mikepenz.materialdrawer.holder.DimenHolder getPaddingLeftRight()
+    120:121:public com.mikepenz.materialdrawer.holder.BadgeStyle withPaddingLeftRightPx(int)
+    125:126:public com.mikepenz.materialdrawer.holder.BadgeStyle withPaddingLeftRightDp(int)
+    130:131:public com.mikepenz.materialdrawer.holder.BadgeStyle withPaddingLeftRightRes(int)
+    135:135:public com.mikepenz.materialdrawer.holder.DimenHolder getPaddingTopBottom()
+    139:140:public com.mikepenz.materialdrawer.holder.BadgeStyle withPaddingTopBottomPx(int)
+    144:145:public com.mikepenz.materialdrawer.holder.BadgeStyle withPaddingTopBottomDp(int)
+    149:150:public com.mikepenz.materialdrawer.holder.BadgeStyle withPaddingTopBottomRes(int)
+    154:156:public com.mikepenz.materialdrawer.holder.BadgeStyle withPadding(int)
+    160:162:public com.mikepenz.materialdrawer.holder.BadgeStyle withPadding(com.mikepenz.materialdrawer.holder.DimenHolder)
+    166:166:public com.mikepenz.materialdrawer.holder.DimenHolder getMinWidth()
+    170:171:public com.mikepenz.materialdrawer.holder.BadgeStyle withMinWidth(int)
+    175:176:public com.mikepenz.materialdrawer.holder.BadgeStyle withMinWidth(com.mikepenz.materialdrawer.holder.DimenHolder)
+    24:185:public BadgeStyle(int,int)
+    24:192:public BadgeStyle(int,int,int,int)
+    195:196:public void style(android.widget.TextView)
 com.mikepenz.materialdrawer.holder.ColorHolder:
     10:11:public ColorHolder()
     14:16:public static com.mikepenz.materialdrawer.holder.ColorHolder fromColorRes(int)
     20:22:public static com.mikepenz.materialdrawer.holder.ColorHolder fromColor(int)
 com.mikepenz.materialdrawer.holder.DimenHolder:
-    14:16:public static com.mikepenz.materialdrawer.holder.DimenHolder fromPixel(int)
-    26:28:public static com.mikepenz.materialdrawer.holder.DimenHolder fromResource(int)
+    18:20:public static com.mikepenz.materialdrawer.holder.DimenHolder fromPixel(int)
+    30:32:public static com.mikepenz.materialdrawer.holder.DimenHolder fromResource(int)
 com.mikepenz.materialdrawer.holder.ImageHolder:
     28:29:public ImageHolder(java.lang.String)
     32:33:public ImageHolder(android.net.Uri)

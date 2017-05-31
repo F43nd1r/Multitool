@@ -4526,6 +4526,12 @@ android.support.v4.app.FragmentState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.FragmentTabHost: void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener)
 android.support.v4.app.FragmentTabHost$SavedState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.NotificationCompatSideChannelService
+android.support.v4.app.NotificationCompatSideChannelService: NotificationCompatSideChannelService()
+android.support.v4.app.NotificationCompatSideChannelService: android.os.IBinder onBind(android.content.Intent)
+android.support.v4.app.NotificationCompatSideChannelService: void notify(java.lang.String,int,java.lang.String,android.app.Notification)
+android.support.v4.app.NotificationCompatSideChannelService: void cancel(java.lang.String,int,java.lang.String)
+android.support.v4.app.NotificationCompatSideChannelService: void cancelAll(java.lang.String)
+android.support.v4.app.NotificationCompatSideChannelService: void checkPermission(int,java.lang.String)
 android.support.v4.app.SupportActivity: android.support.v4.util.SimpleArrayMap mExtraDataMap
 android.support.v4.app.SupportActivity: SupportActivity()
 android.support.v4.app.SupportActivity: void putExtraData(android.support.v4.app.SupportActivity$ExtraData)
@@ -4534,9 +4540,54 @@ android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.Mo
 android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status valueOf(java.lang.String)
 android.support.v4.media.MediaBrowserCompat$MediaItem: android.os.Parcelable$Creator CREATOR
 android.support.v4.media.MediaBrowserServiceCompat
+android.support.v4.media.MediaBrowserServiceCompat: java.lang.String TAG
+android.support.v4.media.MediaBrowserServiceCompat: boolean DEBUG
+android.support.v4.media.MediaBrowserServiceCompat: android.support.v4.media.MediaBrowserServiceCompat$MediaBrowserServiceImpl mImpl
+android.support.v4.media.MediaBrowserServiceCompat: java.lang.String SERVICE_INTERFACE
+android.support.v4.media.MediaBrowserServiceCompat: java.lang.String KEY_MEDIA_ITEM
+android.support.v4.media.MediaBrowserServiceCompat: java.lang.String KEY_SEARCH_RESULTS
+android.support.v4.media.MediaBrowserServiceCompat: int RESULT_FLAG_OPTION_NOT_HANDLED
+android.support.v4.media.MediaBrowserServiceCompat: int RESULT_FLAG_ON_LOAD_ITEM_NOT_IMPLEMENTED
+android.support.v4.media.MediaBrowserServiceCompat: int RESULT_FLAG_ON_SEARCH_NOT_IMPLEMENTED
+android.support.v4.media.MediaBrowserServiceCompat: int RESULT_ERROR
+android.support.v4.media.MediaBrowserServiceCompat: int RESULT_OK
+android.support.v4.media.MediaBrowserServiceCompat: android.support.v4.util.ArrayMap mConnections
+android.support.v4.media.MediaBrowserServiceCompat: android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord mCurConnection
+android.support.v4.media.MediaBrowserServiceCompat: android.support.v4.media.MediaBrowserServiceCompat$ServiceHandler mHandler
+android.support.v4.media.MediaBrowserServiceCompat: android.support.v4.media.session.MediaSessionCompat$Token mSession
+android.support.v4.media.MediaBrowserServiceCompat: MediaBrowserServiceCompat()
+android.support.v4.media.MediaBrowserServiceCompat: void onCreate()
+android.support.v4.media.MediaBrowserServiceCompat: android.os.IBinder onBind(android.content.Intent)
+android.support.v4.media.MediaBrowserServiceCompat: void dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
+android.support.v4.media.MediaBrowserServiceCompat: android.support.v4.media.MediaBrowserServiceCompat$BrowserRoot onGetRoot(java.lang.String,int,android.os.Bundle)
+android.support.v4.media.MediaBrowserServiceCompat: void onLoadChildren(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$Result)
+android.support.v4.media.MediaBrowserServiceCompat: void onLoadChildren(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$Result,android.os.Bundle)
+android.support.v4.media.MediaBrowserServiceCompat: void onLoadItem(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$Result)
+android.support.v4.media.MediaBrowserServiceCompat: void onSearch(java.lang.String,android.os.Bundle,android.support.v4.media.MediaBrowserServiceCompat$Result)
+android.support.v4.media.MediaBrowserServiceCompat: void setSessionToken(android.support.v4.media.session.MediaSessionCompat$Token)
+android.support.v4.media.MediaBrowserServiceCompat: android.support.v4.media.session.MediaSessionCompat$Token getSessionToken()
+android.support.v4.media.MediaBrowserServiceCompat: android.os.Bundle getBrowserRootHints()
+android.support.v4.media.MediaBrowserServiceCompat: void notifyChildrenChanged(java.lang.String)
+android.support.v4.media.MediaBrowserServiceCompat: void notifyChildrenChanged(java.lang.String,android.os.Bundle)
+android.support.v4.media.MediaBrowserServiceCompat: boolean isValidPackage(java.lang.String,int)
+android.support.v4.media.MediaBrowserServiceCompat: void addSubscription(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord,android.os.IBinder,android.os.Bundle)
+android.support.v4.media.MediaBrowserServiceCompat: boolean removeSubscription(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord,android.os.IBinder)
+android.support.v4.media.MediaBrowserServiceCompat: void performLoadChildren(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord,android.os.Bundle)
+android.support.v4.media.MediaBrowserServiceCompat: java.util.List applyOptions(java.util.List,android.os.Bundle)
+android.support.v4.media.MediaBrowserServiceCompat: void performLoadItem(java.lang.String,android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord,android.support.v4.os.ResultReceiver)
+android.support.v4.media.MediaBrowserServiceCompat: void performSearch(java.lang.String,android.os.Bundle,android.support.v4.media.MediaBrowserServiceCompat$ConnectionRecord,android.support.v4.os.ResultReceiver)
+android.support.v4.media.MediaBrowserServiceCompat: void <clinit>()
 android.support.v4.media.MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor
+android.support.v4.media.MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor: android.support.v4.media.MediaBrowserServiceCompatApi21$ServiceCompatProxy mServiceProxy
+android.support.v4.media.MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor: MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi21$ServiceCompatProxy)
+android.support.v4.media.MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor: android.service.media.MediaBrowserService$BrowserRoot onGetRoot(java.lang.String,int,android.os.Bundle)
+android.support.v4.media.MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor: void onLoadChildren(java.lang.String,android.service.media.MediaBrowserService$Result)
 android.support.v4.media.MediaBrowserServiceCompatApi23$MediaBrowserServiceAdaptor
+android.support.v4.media.MediaBrowserServiceCompatApi23$MediaBrowserServiceAdaptor: MediaBrowserServiceCompatApi23$MediaBrowserServiceAdaptor(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi23$ServiceCompatProxy)
+android.support.v4.media.MediaBrowserServiceCompatApi23$MediaBrowserServiceAdaptor: void onLoadItem(java.lang.String,android.service.media.MediaBrowserService$Result)
 android.support.v4.media.MediaBrowserServiceCompatApi24$MediaBrowserServiceAdaptor
+android.support.v4.media.MediaBrowserServiceCompatApi24$MediaBrowserServiceAdaptor: MediaBrowserServiceCompatApi24$MediaBrowserServiceAdaptor(android.content.Context,android.support.v4.media.MediaBrowserServiceCompatApi24$ServiceCompatProxy)
+android.support.v4.media.MediaBrowserServiceCompatApi24$MediaBrowserServiceAdaptor: void onLoadChildren(java.lang.String,android.service.media.MediaBrowserService$Result,android.os.Bundle)
 android.support.v4.media.MediaDescriptionCompat: android.os.Parcelable$Creator CREATOR
 android.support.v4.media.MediaMetadataCompat: android.os.Parcelable$Creator CREATOR
 android.support.v4.media.RatingCompat: android.os.Parcelable$Creator CREATOR
@@ -6361,6 +6412,9 @@ android.support.v7.widget.AppCompatImageButton: void setSupportBackgroundTintMod
 android.support.v7.widget.AppCompatImageButton: android.graphics.PorterDuff$Mode getSupportBackgroundTintMode()
 android.support.v7.widget.AppCompatImageButton: void drawableStateChanged()
 android.support.v7.widget.AppCompatImageButton: boolean hasOverlappingRendering()
+android.support.v7.widget.AppCompatImageView: AppCompatImageView(android.content.Context)
+android.support.v7.widget.AppCompatImageView: AppCompatImageView(android.content.Context,android.util.AttributeSet)
+android.support.v7.widget.AppCompatImageView: AppCompatImageView(android.content.Context,android.util.AttributeSet,int)
 android.support.v7.widget.AppCompatImageView: void setImageResource(int)
 android.support.v7.widget.AppCompatImageView: void setBackgroundResource(int)
 android.support.v7.widget.AppCompatImageView: void setBackgroundDrawable(android.graphics.drawable.Drawable)
@@ -9499,6 +9553,7 @@ com.faendir.lightning_launcher.multitool.R$xml: int drawer
 com.faendir.lightning_launcher.multitool.R$xml: int prefs
 com.faendir.lightning_launcher.multitool.backup.BackupService
 com.faendir.lightning_launcher.multitool.backup.BackupService: BackupService()
+com.faendir.lightning_launcher.multitool.backup.BackupService: void onHandleIntent(android.content.Intent)
 com.faendir.lightning_launcher.multitool.backup.BootBroadcastReceiver
 com.faendir.lightning_launcher.multitool.backup.BootBroadcastReceiver: BootBroadcastReceiver()
 com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver
@@ -9634,14 +9689,63 @@ com.faendir.lightning_launcher.multitool.gesture.GestureInfo: com.faendir.omniad
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void lambda$getGesture$0(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,java.util.ArrayList)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.gesture.Gesture access$002(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,android.gesture.Gesture)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void <clinit>()
+com.faendir.lightning_launcher.multitool.gesture.LightningGestureView
+com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: LightningGestureView(android.content.Context)
+com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: void onGesturePerformed(android.gesture.GestureOverlayView,android.gesture.Gesture)
+com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: boolean lambda$onGesturePerformed$0(java.util.UUID,com.faendir.lightning_launcher.multitool.gesture.GestureInfo)
 com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment
 com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment: void onButtonClick(com.faendir.lightning_launcher.multitool.event.ClickEvent)
 com.faendir.lightning_launcher.multitool.music.DummyNotificationListener
 com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: DummyNotificationListener()
+com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: void onNotificationPosted(android.service.notification.StatusBarNotification)
+com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: void onNotificationPosted(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap)
+com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: void onNotificationRemoved(android.service.notification.StatusBarNotification)
+com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: void onNotificationRemoved(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap)
 com.faendir.lightning_launcher.multitool.music.MusicFragment
 com.faendir.lightning_launcher.multitool.music.MusicFragment: void onClick(com.faendir.lightning_launcher.multitool.event.ClickEvent)
 com.faendir.lightning_launcher.multitool.music.MusicManager
+com.faendir.lightning_launcher.multitool.music.MusicManager: int ACTION_REGISTER
+com.faendir.lightning_launcher.multitool.music.MusicManager: int ACTION_UNREGISTER
+com.faendir.lightning_launcher.multitool.music.MusicManager: int ACTION_REGISTER_MESSENGER
+com.faendir.lightning_launcher.multitool.music.MusicManager: int ACTION_UNREGISTER_MESSENGER
+com.faendir.lightning_launcher.multitool.music.MusicManager: int ACTION_PLAY_PAUSE
+com.faendir.lightning_launcher.multitool.music.MusicManager: int ACTION_NEXT
+com.faendir.lightning_launcher.multitool.music.MusicManager: int ACTION_PREVIOUS
+com.faendir.lightning_launcher.multitool.music.MusicManager: java.util.List PLAYING_STATES
+com.faendir.lightning_launcher.multitool.music.MusicManager: org.apache.commons.collections4.BidiMap controllers
+com.faendir.lightning_launcher.multitool.music.MusicManager: java.util.Set listeners
+com.faendir.lightning_launcher.multitool.music.MusicManager: android.media.session.MediaSessionManager mediaSessionManager
+com.faendir.lightning_launcher.multitool.music.MusicManager: android.content.ComponentName notificationListener
+com.faendir.lightning_launcher.multitool.music.MusicManager: android.content.SharedPreferences sharedPref
+com.faendir.lightning_launcher.multitool.music.MusicManager: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager billingManager
+com.faendir.lightning_launcher.multitool.music.MusicManager: android.graphics.Bitmap albumArt
+com.faendir.lightning_launcher.multitool.music.MusicManager: java.lang.String title
+com.faendir.lightning_launcher.multitool.music.MusicManager: java.lang.String album
+com.faendir.lightning_launcher.multitool.music.MusicManager: java.lang.String artist
+com.faendir.lightning_launcher.multitool.music.MusicManager: java.lang.String packageName
+com.faendir.lightning_launcher.multitool.music.MusicManager: java.lang.ref.WeakReference currentController
+com.faendir.lightning_launcher.multitool.music.MusicManager: android.media.session.MediaSessionManager$OnActiveSessionsChangedListener sessionsChangedListener
+com.faendir.lightning_launcher.multitool.music.MusicManager: boolean hasDisplayedToast
 com.faendir.lightning_launcher.multitool.music.MusicManager: MusicManager()
+com.faendir.lightning_launcher.multitool.music.MusicManager: int onStartCommand(android.content.Intent,int,int)
+com.faendir.lightning_launcher.multitool.music.MusicManager: void onCreate()
+com.faendir.lightning_launcher.multitool.music.MusicManager: void updateCurrentInfo(android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String)
+com.faendir.lightning_launcher.multitool.music.MusicManager: void onActiveSessionsChanged(java.util.List)
+com.faendir.lightning_launcher.multitool.music.MusicManager: void startDefaultPlayerWithKeyCode(int)
+com.faendir.lightning_launcher.multitool.music.MusicManager: void sendKeyCodeToPlayer(int,java.lang.String)
+com.faendir.lightning_launcher.multitool.music.MusicManager: android.os.IBinder onBind(android.content.Intent)
+com.faendir.lightning_launcher.multitool.music.MusicManager: void handleMessage(android.os.Message)
+com.faendir.lightning_launcher.multitool.music.MusicManager: boolean isAlternativeControl(android.media.session.MediaController)
+com.faendir.lightning_launcher.multitool.music.MusicManager: void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener)
+com.faendir.lightning_launcher.multitool.music.MusicManager: void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener)
+com.faendir.lightning_launcher.multitool.music.MusicManager: boolean lambda$handleMessage$1(android.os.Message,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener)
+com.faendir.lightning_launcher.multitool.music.MusicManager: void lambda$updateCurrentInfo$0(com.faendir.lightning_launcher.multitool.music.MusicManager,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener)
+com.faendir.lightning_launcher.multitool.music.MusicManager: java.util.List access$300()
+com.faendir.lightning_launcher.multitool.music.MusicManager: java.lang.ref.WeakReference access$400(com.faendir.lightning_launcher.multitool.music.MusicManager)
+com.faendir.lightning_launcher.multitool.music.MusicManager: org.apache.commons.collections4.BidiMap access$500(com.faendir.lightning_launcher.multitool.music.MusicManager)
+com.faendir.lightning_launcher.multitool.music.MusicManager: void access$600(com.faendir.lightning_launcher.multitool.music.MusicManager,android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String)
+com.faendir.lightning_launcher.multitool.music.MusicManager: void <clinit>()
+com.faendir.lightning_launcher.multitool.music.MusicManager: void access$lambda$0(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener)
 com.faendir.lightning_launcher.multitool.scriptmanager.Folder
 com.faendir.lightning_launcher.multitool.scriptmanager.Folder: java.lang.String name
 com.faendir.lightning_launcher.multitool.scriptmanager.Folder: Folder(java.lang.String)
@@ -9698,7 +9802,10 @@ com.faendir.lightning_launcher.multitool.settings.VersionPreference
 com.faendir.lightning_launcher.multitool.settings.VersionPreference: VersionPreference(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.util.BaseActivity: BaseActivity(int)
 com.faendir.lightning_launcher.multitool.util.BaseIpcService
+com.faendir.lightning_launcher.multitool.util.BaseIpcService: android.os.Messenger messenger
 com.faendir.lightning_launcher.multitool.util.BaseIpcService: BaseIpcService()
+com.faendir.lightning_launcher.multitool.util.BaseIpcService: android.os.IBinder onBind(android.content.Intent)
+com.faendir.lightning_launcher.multitool.util.BaseIpcService: void handleMessage(android.os.Message)
 com.faendir.lightning_launcher.multitool.util.DataProvider
 com.faendir.lightning_launcher.multitool.util.DataProvider: DataProvider()
 com.faendir.lightning_launcher.multitool.util.FragmentManager: void onSwitchFragmentRequest(com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest)
@@ -14413,6 +14520,7 @@ com.mikepenz.iconics.core.R$styleable: int View_android_theme
 com.mikepenz.iconics.core.R$styleable: int View_paddingEnd
 com.mikepenz.iconics.core.R$styleable: int View_paddingStart
 com.mikepenz.iconics.core.R$styleable: int View_theme
+com.mikepenz.iconics.view.IconicsImageButton: java.lang.CharSequence getAccessibilityClassName()
 com.mikepenz.iconics.view.IconicsImageView
 com.mikepenz.iconics.view.IconicsImageView: IconicsImageView(android.content.Context)
 com.mikepenz.iconics.view.IconicsImageView: IconicsImageView(android.content.Context,android.util.AttributeSet)
