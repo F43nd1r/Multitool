@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
+import com.faendir.lightning_launcher.multitool.util.LambdaUtils;
 import com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader;
@@ -133,7 +135,8 @@ public class LauncherScriptFragment extends Fragment {
 
     private boolean isPackageInstalled(String packageName, Context context) {
         PackageManager pm = context.getPackageManager();
-        return exceptionToOptional(pm::getPackageInfo).apply(packageName, PackageManager.GET_ACTIVITIES).isPresent();
+        return exceptionToOptional((LambdaUtils.ExceptionalBiFunction<String, Integer, PackageInfo, PackageManager.NameNotFoundException>)pm::getPackageInfo)
+                .apply(packageName, PackageManager.GET_ACTIVITIES).isPresent();
     }
 
     private void changeText(String newText) {

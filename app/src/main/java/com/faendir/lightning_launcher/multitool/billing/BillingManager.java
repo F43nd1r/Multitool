@@ -110,7 +110,7 @@ public class BillingManager extends BaseBillingManager {
     }
 
     private void buy(@StringRes int id) {
-        waitForInit();
+        init();
         getBillingProcessor().purchase(context, mapping.get(id));
     }
 

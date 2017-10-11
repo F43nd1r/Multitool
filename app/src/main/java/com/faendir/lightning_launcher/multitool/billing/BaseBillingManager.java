@@ -3,6 +3,7 @@ package com.faendir.lightning_launcher.multitool.billing;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.provider.Settings;
+import android.support.annotation.CheckResult;
 import android.support.annotation.StringRes;
 import android.support.annotation.WorkerThread;
 import android.util.Log;
@@ -48,6 +49,7 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
     private final BillingProcessor billingProcessor;
     final Map<String, Long> expiration;
     final BidiMap<Integer, String> mapping;
+    private boolean error = false;
 
     public BaseBillingManager(Context context) {
         billingProcessor = new BillingProcessor(context, "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr" +
@@ -76,6 +78,10 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
 
     @Override
     public void onBillingError(int errorCode, Throwable error) {
+        this.error = true;
+        synchronized (this) {
+            notifyAll();
+        }
     }
 
     @Override
@@ -96,24 +102,34 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
 
     @WorkerThread
     public boolean isBoughtOrTrial(@StringRes int id) {
-        waitForInit();
-        String name = mapping.get(id);
-        boolean result = name == null || billingProcessor.isPurchased(name) || isTrial(name) == TrialState.ONGOING;
-        if (DEBUG) Log.d(LOG_TAG, name + " isBoughtOrTrial " + result);
-        return result;
+        final String name = mapping.get(id);
+        if(name == null) {
+            return true;
+        }
+        if(init()) {
+            boolean result = billingProcessor.isPurchased(name) || isTrial(name) == TrialState.ONGOING;
+            if (DEBUG) Log.d(LOG_TAG, name + " isBoughtOrTrial " + result);
+            return result;
+        }
+        return false;
     }
 
     @WorkerThread
     public boolean isBought(@StringRes int id) {
         String name = mapping.get(id);
-        boolean result = name == null || billingProcessor.isPurchased(name);
-        if (DEBUG) Log.d(LOG_TAG, name + " isBought " + result);
-        return result;
+        if(name == null){
+            return true;
+        }
+        if(init()) {
+            boolean result = billingProcessor.isPurchased(name);
+            if (DEBUG) Log.d(LOG_TAG, name + " isBought " + result);
+            return result;
+        }
+        return false;
     }
 
     @WorkerThread
     public TrialState isTrial(@StringRes int id) {
-        waitForInit();
         String name = mapping.get(id);
         TrialState result = name == null ? TrialState.NOT_STARTED : isTrial(name);
         if (DEBUG) Log.d(LOG_TAG, name + " isTrial " + result.name());
@@ -122,7 +138,6 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
 
     @WorkerThread
     public Calendar getExpiration(@StringRes int id) {
-        waitForInit();
         String name = mapping.get(id);
         Calendar calendar = Calendar.getInstance();
         long expiration;
@@ -184,11 +199,13 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
         }
     }
 
-    void waitForInit() {
-        while (!billingProcessor.isInitialized()) {
+    @CheckResult
+    boolean init() {
+        while (!billingProcessor.isInitialized() && !error) {
             synchronized (this) {
                 ignoreExceptions((ExceptionalRunnable) this::wait).run();
             }
         }
+        return billingProcessor.isInitialized();
     }
 }

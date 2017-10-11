@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.2'
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 82
         versionName "2.10.2"
     }
@@ -34,8 +34,9 @@ android {
 }
 
 dependencies {
-    def supportVersion = "25.3.1"
+    def supportVersion = "26.1.0"
     def streamVersion = "1.5.2"
+    def acraVersion = '5.0.0-alpha11'
     compile('com.faendir.lightninglauncher:scriptlib:3.0-SNAPSHOT') {
         changing = true
     }
@@ -45,9 +46,9 @@ dependencies {
     compile "com.android.support:appcompat-v7:$supportVersion"
     compile "com.android.support:design:$supportVersion"
     compile "com.android.support:percent:$supportVersion"
-    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.google.code.gson:gson:2.8.1'
     compile 'com.nononsenseapps:filepicker:3.1.0'
-    compile 'com.faendir:acra:4.9.3-SNAPSHOT'
+    compile "com.faendir.acra:acra-http:$acraVersion"
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'org.apache.commons:commons-collections4:4.1'
     compile 'com.anjlab.android.iab.v3:library:1.0.39'
