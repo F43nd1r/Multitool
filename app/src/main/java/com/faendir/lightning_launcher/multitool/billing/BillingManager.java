@@ -110,8 +110,11 @@ public class BillingManager extends BaseBillingManager {
     }
 
     private void buy(@StringRes int id) {
-        init();
-        getBillingProcessor().purchase(context, mapping.get(id));
+        if (init()) {
+            getBillingProcessor().purchase(context, mapping.get(id));
+        } else {
+            context.runOnUiThread(() -> Toast.makeText(context, R.string.toast_playError, Toast.LENGTH_LONG).show());
+        }
     }
 
     private void startTrial(@StringRes int id) {

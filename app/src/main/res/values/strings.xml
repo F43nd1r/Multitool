@@ -185,4 +185,7 @@
     <string name="menu_enable">Enable</string>
     <string name="unread_prefix">unread.</string>
     <string name="title_badge">Badge</string>
+    <string name="toast_playError">Sorry, google services are not responding</string>
+    <string name="text_scriptDeleted">Script deleted. Tap to undo</string>
+    <string name="text_gestureDeleted">Gesture deleted. Tap to undo</string>
 </resources>

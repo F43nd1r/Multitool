@@ -37,25 +37,33 @@ dependencies {
     def supportVersion = "26.1.0"
     def streamVersion = "1.5.2"
     def acraVersion = '5.0.0-alpha11'
-    compile('com.faendir.lightninglauncher:scriptlib:3.0-SNAPSHOT') {
+    implementation('com.faendir.lightninglauncher:scriptlib:3.0-SNAPSHOT') {
         changing = true
     }
-    compile('com.faendir:omniadapter:0.3-SNAPSHOT') {
+    implementation('com.faendir:omniadapter:0.3-SNAPSHOT') {
         changing = true
     }
-    compile "com.android.support:appcompat-v7:$supportVersion"
-    compile "com.android.support:design:$supportVersion"
-    compile "com.android.support:percent:$supportVersion"
-    compile 'com.google.code.gson:gson:2.8.1'
-    compile 'com.nononsenseapps:filepicker:3.1.0'
-    compile "com.faendir.acra:acra-http:$acraVersion"
-    compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'org.apache.commons:commons-collections4:4.1'
-    compile 'com.anjlab.android.iab.v3:library:1.0.39'
-    compile 'com.mikepenz:materialdrawer:5.9.1'
-    compile "net.sourceforge.streamsupport:streamsupport:$streamVersion"
-    compile "net.sourceforge.streamsupport:streamsupport-cfuture:$streamVersion"
-    compile "net.sourceforge.streamsupport:streamsupport-atomic:$streamVersion"
-    compile "net.sourceforge.streamsupport:streamsupport-flow:$streamVersion"
-    compile "net.sourceforge.streamsupport:streamsupport-literal:$streamVersion"
+    implementation "com.android.support:appcompat-v7:$supportVersion"
+    implementation "com.android.support:design:$supportVersion"
+    implementation "com.android.support:percent:$supportVersion"
+    implementation 'com.google.code.gson:gson:2.8.1'
+    implementation 'com.nononsenseapps:filepicker:3.1.0'
+    implementation "com.faendir.acra:acra-http:$acraVersion"
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'org.apache.commons:commons-collections4:4.1'
+    implementation 'com.anjlab.android.iab.v3:library:1.0.39'
+    implementation 'com.mikepenz:materialdrawer:5.9.5'
+    implementation 'com.mikepenz:fastadapter:2.6.3'
+    implementation ('com.mikepenz:fastadapter-commons:2.6.3'){
+        exclude group:'FastAdapter'
+    }
+    implementation ('com.mikepenz:fastadapter-extensions:2.6.3'){
+        exclude group:'FastAdapter'
+    }
+    implementation "net.sourceforge.streamsupport:streamsupport:$streamVersion"
+    implementation "net.sourceforge.streamsupport:streamsupport-cfuture:$streamVersion"
+    implementation "net.sourceforge.streamsupport:streamsupport-atomic:$streamVersion"
+    implementation "net.sourceforge.streamsupport:streamsupport-flow:$streamVersion"
+    implementation "net.sourceforge.streamsupport:streamsupport-literal:$streamVersion"
+    compile 'org.mozilla:rhino:1.7.7.2'
 }

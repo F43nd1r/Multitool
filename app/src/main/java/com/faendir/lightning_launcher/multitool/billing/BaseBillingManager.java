@@ -52,12 +52,18 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
     private boolean error = false;
 
     public BaseBillingManager(Context context) {
-        billingProcessor = new BillingProcessor(context, "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr" +
-                "oO1TQI/CyB/rVxPAe9sgzr253BpS95MQrYHkUSC3ntC1d9rXwoFT8XenCqFhrwsi6Kr5muUoNssNEkgBuvM" +
-                "DnY18JQlr8dHLltah3WyuBndSbAlHDnGKoac0YrqSPBzCLZ2LWc5Ok0GvEmz3fnKXGlha8/fzZdV3cUYtJXU" +
-                "jdRF42iE/QxANHuP3olT1SmfrC0fEaSpaaxeGIBf2l/nBK8YA4g4bQDa4A4uFJX4BHgRcvG5RNpSAW6MDhNt" +
-                "qy1221c566scH3otwsT7gK5d+peK4nmx4hJacYFJUuVHqjkEgcVW9AuNtigzb7aSmumZSSVH4N4cnH7dCz4g" +
-                "ffU1hwIDAQAB", this);
+        if (BillingProcessor.isIabServiceAvailable(context)) {
+            billingProcessor = new BillingProcessor(context, "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr" +
+                    "oO1TQI/CyB/rVxPAe9sgzr253BpS95MQrYHkUSC3ntC1d9rXwoFT8XenCqFhrwsi6Kr5muUoNssNEkgBuvM" +
+                    "DnY18JQlr8dHLltah3WyuBndSbAlHDnGKoac0YrqSPBzCLZ2LWc5Ok0GvEmz3fnKXGlha8/fzZdV3cUYtJXU" +
+                    "jdRF42iE/QxANHuP3olT1SmfrC0fEaSpaaxeGIBf2l/nBK8YA4g4bQDa4A4uFJX4BHgRcvG5RNpSAW6MDhNt" +
+                    "qy1221c566scH3otwsT7gK5d+peK4nmx4hJacYFJUuVHqjkEgcVW9AuNtigzb7aSmumZSSVH4N4cnH7dCz4g" +
+                    "ffU1hwIDAQAB", this);
+
+        } else {
+            billingProcessor = null;
+            error = true;
+        }
         this.context = context;
         expiration = new HashMap<>();
         mapping = new DualHashBidiMap<>();
@@ -103,24 +109,16 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
     @WorkerThread
     public boolean isBoughtOrTrial(@StringRes int id) {
         final String name = mapping.get(id);
-        if(name == null) {
-            return true;
-        }
-        if(init()) {
-            boolean result = billingProcessor.isPurchased(name) || isTrial(name) == TrialState.ONGOING;
-            if (DEBUG) Log.d(LOG_TAG, name + " isBoughtOrTrial " + result);
-            return result;
-        }
-        return false;
+        return name == null || init() && billingProcessor.isPurchased(name) || isTrial(name) == TrialState.ONGOING;
     }
 
     @WorkerThread
     public boolean isBought(@StringRes int id) {
         String name = mapping.get(id);
-        if(name == null){
+        if (name == null) {
             return true;
         }
-        if(init()) {
+        if (init()) {
             boolean result = billingProcessor.isPurchased(name);
             if (DEBUG) Log.d(LOG_TAG, name + " isBought " + result);
             return result;
@@ -201,11 +199,11 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
 
     @CheckResult
     boolean init() {
-        while (!billingProcessor.isInitialized() && !error) {
+        while (!error && !billingProcessor.isInitialized()) {
             synchronized (this) {
                 ignoreExceptions((ExceptionalRunnable) this::wait).run();
             }
         }
-        return billingProcessor.isInitialized();
+        return !error;
     }
 }
