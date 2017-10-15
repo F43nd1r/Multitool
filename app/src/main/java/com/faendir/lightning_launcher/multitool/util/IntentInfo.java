@@ -1,10 +1,12 @@
 package com.faendir.lightning_launcher.multitool.util;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 
-import com.faendir.omniadapter.model.Leaf;
+import com.faendir.lightning_launcher.multitool.fastadapter.Model;
 
 import java.lang.ref.SoftReference;
 
@@ -13,7 +15,7 @@ import java.lang.ref.SoftReference;
  *
  * @author F43nd1r
  */
-class IntentInfo extends Leaf implements Comparable<IntentInfo>{
+class IntentInfo implements Model, Comparable<IntentInfo>{
     private SoftReference<Drawable> icon;
     private final DrawableProvider provider;
     private final Intent intent;
@@ -28,7 +30,8 @@ class IntentInfo extends Leaf implements Comparable<IntentInfo>{
 
     }
 
-    Drawable getImage() {
+    @Override
+    public Drawable getIcon(@NonNull Context context) {
         if (icon == null || icon.get() == null) {
             Drawable drawable = provider.getDrawable();
             icon = new SoftReference<>(drawable);
@@ -42,7 +45,8 @@ class IntentInfo extends Leaf implements Comparable<IntentInfo>{
         return intent;
     }
 
-    String getText() {
+    @Override
+    public String getName() {
         return title;
     }
 
@@ -52,6 +56,11 @@ class IntentInfo extends Leaf implements Comparable<IntentInfo>{
 
     @Override
     public int compareTo(@NonNull IntentInfo o) {
-        return getText().compareTo(o.getText());
+        return getName().compareTo(o.getName());
+    }
+
+    @Override
+    public int getTintColor(@NonNull Context context) {
+        return Color.WHITE;
     }
 }

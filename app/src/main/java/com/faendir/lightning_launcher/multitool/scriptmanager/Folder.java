@@ -1,56 +1,69 @@
 package com.faendir.lightning_launcher.multitool.scriptmanager;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 
-import com.faendir.omniadapter.model.DeepObservableList;
-import com.faendir.omniadapter.model.SimpleComposite;
+import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.fastadapter.Model;
 
 /**
  * @author F43nd1r
  * @since 29.10.2016
  */
 
-public class Folder extends SimpleComposite<ScriptItem> implements ScriptItem, Comparable<Folder> {
+public class Folder implements Comparable<Folder>, Model {
+
     private String name;
 
-    public Folder(String name) {
-        super(ScriptItem.class);
+    public Folder(@NonNull String name) {
         this.name = name;
     }
 
     @Override
-    public String getName() {
-        DeepObservableList<ScriptItem> children = super.getChildren();
-        if (children.size() == 1 && children.get(0) instanceof Folder) {
-            return name + "/" + children.get(0).getName();
-        }
-        return name;
-    }
-
-    public String getRealName(){
-        return name;
+    public int compareTo(@NonNull Folder o) {
+        return getName().compareTo(o.getName());
     }
 
     @Override
+    public String getName() {
+        return name;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
     @Override
-    public DeepObservableList<ScriptItem> getChildren() {
-        DeepObservableList<ScriptItem> children = super.getChildren();
-        if (children.size() == 1 && children.get(0) instanceof Folder) {
-            return ((Folder) children.get(0)).getChildren();
-        }
-        return super.getChildren();
-    }
-
-    public DeepObservableList<ScriptItem> getRealChildren(){
-        return super.getChildren();
+    public Drawable getIcon(@NonNull Context context) {
+        return context.getResources().getDrawable(R.drawable.ic_folder_white);
     }
 
     @Override
-    public int compareTo(@NonNull Folder o) {
-        return name.compareTo(o.name);
+    public int getTintColor(@NonNull Context context) {
+        return Color.WHITE;
+    }
+
+    @Override
+    public String toString() {
+        return "Folder{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Folder folder = (Folder) o;
+
+        return name.equals(folder.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
     }
 }

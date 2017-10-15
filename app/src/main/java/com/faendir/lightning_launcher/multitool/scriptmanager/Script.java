@@ -1,22 +1,34 @@
 package com.faendir.lightning_launcher.multitool.scriptmanager;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 
 import com.faendir.lightning_launcher.multitool.Loader;
-import com.faendir.omniadapter.model.Leaf;
+import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.fastadapter.DeletableModel;
 
 
 /**
  * Created by Lukas on 22.08.2015.
  * Represents a script
  */
-public class Script extends Leaf implements Comparable<Script>, ScriptItem {
+public class Script implements Comparable<Script>, DeletableModel {
     @SuppressWarnings("unused")
     private int id;
     private String name;
     private String code;
     private int flags;
     private String path;
+
+    public Script(String name, int id, String code, int flags, String path) {
+        this.name = name;
+        this.id = id;
+        this.code = code;
+        this.flags = flags;
+        this.path = path;
+    }
 
     public int getId() {
         return id;
@@ -48,7 +60,6 @@ public class Script extends Leaf implements Comparable<Script>, ScriptItem {
         Script script = (Script) o;
 
         return getId() == script.getId();
-
     }
 
     @Override
@@ -77,7 +88,30 @@ public class Script extends Leaf implements Comparable<Script>, ScriptItem {
         this.path = path;
     }
 
+    @Override
+    public String getUndoText(@NonNull Context context) {
+        return context.getString(R.string.text_scriptDeleted);
+    }
+
+    @Override
+    public int getTintColor(@NonNull Context context) {
+        return isDisabled() ? Color.RED : Color.WHITE;
+    }
+
     public boolean isDisabled() {
         return (flags & Loader.FLAG_DISABLED) != 0;
+    }
+
+    @Override
+    public Drawable getIcon(@NonNull Context context) {
+        return context.getResources().getDrawable(R.drawable.ic_file_white);
+    }
+
+    @Override
+    public String toString() {
+        return "Script{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

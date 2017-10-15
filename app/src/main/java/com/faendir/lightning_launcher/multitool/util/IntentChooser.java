@@ -1,27 +1,18 @@
 package com.faendir.lightning_launcher.multitool.util;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.StringRes;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TabHost;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.omniadapter.OmniAdapter;
-import com.faendir.omniadapter.model.Action;
-import com.faendir.omniadapter.model.Component;
-import com.faendir.omniadapter.model.DeepObservableList;
 
 import org.acra.ACRA;
 
-public class IntentChooser extends BaseActivity implements OmniAdapter.Controller<IntentInfo>, Action.Click.Listener {
+public class IntentChooser extends BaseActivity {
 
     public IntentChooser() {
         super(R.layout.content_intent_chooser);
@@ -32,7 +23,7 @@ public class IntentChooser extends BaseActivity implements OmniAdapter.Controlle
         super.onCreate(savedInstanceState);
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        TabHost host = (TabHost) findViewById(R.id.tabHost);
+        TabHost host = findViewById(R.id.tabHost);
         host.setup();
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -59,16 +50,17 @@ public class IntentChooser extends BaseActivity implements OmniAdapter.Controlle
         return super.onOptionsItemSelected(item);
     }
 
-    private void handleSelection(IntentInfo info) {
+    boolean handleSelection(IntentInfo info) {
         if (info.isIndirect()) {
             startActivityForResult(info.getIntent(), 0);
         } else if (info.getIntent() != null) {
-            setResult(info.getIntent(), info.getText());
+            setResult(info.getIntent(), info.getName());
             finish();
         } else {
             nullIntent();
-            ACRA.getErrorReporter().handleSilentException(new NullPointerException(info.getText() + " intent was null"));
+            ACRA.getErrorReporter().handleSilentException(new NullPointerException(info.getName() + " intent was null"));
         }
+        return true;
     }
 
     @Override
@@ -95,46 +87,6 @@ public class IntentChooser extends BaseActivity implements OmniAdapter.Controlle
 
     private void nullIntent() {
         Toast.makeText(this, R.string.toast_cantLoadAction, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public View createView(ViewGroup viewGroup, int i) {
-        return LayoutInflater.from(this).inflate(R.layout.list_item_app, viewGroup, false);
-    }
-
-    @Override
-    public void bindView(View view, final IntentInfo intentInfo, int i) {
-        final TextView txt = (TextView) view;
-        txt.setText(intentInfo.getText());
-        int size = (int) getResources().getDimension(android.R.dimen.app_icon_size);
-        Drawable img = intentInfo.getImage();
-        img.setBounds(0, 0, size, size);
-        txt.setCompoundDrawables(img, null, null, null);
-    }
-
-    @Override
-    public boolean shouldMove(IntentInfo intentInfo, DeepObservableList deepObservableList, int i, DeepObservableList deepObservableList1, int i1) {
-        return false;
-    }
-
-    @Override
-    public boolean isSelectable(IntentInfo intentInfo) {
-        return false;
-    }
-
-    @Override
-    public boolean shouldSwipe(IntentInfo intentInfo, int i) {
-        return false;
-    }
-
-    @Override
-    public boolean allowClick(Component component, int i) {
-        return true;
-    }
-
-    @Override
-    public void onClick(Component component, int i) {
-        handleSelection((IntentInfo) component);
     }
 
 }

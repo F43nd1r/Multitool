@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.fastadapter.Model;
 import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
@@ -21,7 +22,7 @@ import java.util.List;
  * Created by Lukas on 29.08.2015.
  * Formats the given scripts
  */
-class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
+class FormatTask extends AsyncTask<Model, FormatTask.Progress, Void> {
 
     private static final String SWITCH = "switch(";
     private static final String CASE = "case";
@@ -71,8 +72,8 @@ class FormatTask extends AsyncTask<ScriptItem, FormatTask.Progress, Void> {
     }
 
     @Override
-    protected Void doInBackground(ScriptItem... params) {
-        for (ScriptItem item : params) {
+    protected Void doInBackground(Model... params) {
+        for (Model item : params) {
             if (item instanceof Script) {
                 Script script = (Script) item;
                 publishProgress(new Progress(script.getCode().length(), 0, script.getName()));

@@ -12,13 +12,13 @@ import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.Loader;
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.fastadapter.Model;
 import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.faendir.lightning_launcher.scriptlib.PermissionActivity;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
-import com.faendir.omniadapter.model.DeepObservableList;
 
 import java.io.File;
 import java.io.FileReader;
@@ -54,12 +54,12 @@ final class ScriptUtils {
                 .show();
     }
 
-    private static void search(Context context, DeepObservableList<ScriptItem> items, String regex) {
+    private static void search(Context context, List<Model> items, String regex) {
         final StringBuilder builder = new StringBuilder(context.getString(R.string.text_matches_lines));
         final Pattern pattern = Pattern.compile(regex);
-        items.visitDeep((component, level) -> {
-            if (component instanceof Script) {
-                Script script = (Script) component;
+        for (Model item : items) {
+            if (item instanceof Script) {
+                Script script = (Script) item;
                 boolean isFirst = true;
                 String[] lines = script.getCode().split("\n");
                 for (int i = 0; i < lines.length; i++) {
@@ -75,7 +75,7 @@ final class ScriptUtils {
                 }
                 if (!isFirst) builder.append("\n");
             }
-        }, false);
+        }
         new AlertDialog.Builder(context)
                 .setMessage(builder.toString().trim())
                 .setTitle(R.string.title_matches)
@@ -83,7 +83,7 @@ final class ScriptUtils {
                 .show();
     }
 
-    public static void renameDialog(final ScriptManager scriptManager, final Context context, final ListManager listManager, final ScriptItem item) {
+    public static void renameDialog(final ScriptManager scriptManager, final Context context, final ListManager listManager, final Model item) {
         final EditText text = new EditText(context);
         text.setText(item.getName());
         new AlertDialog.Builder(context)
@@ -94,9 +94,9 @@ final class ScriptUtils {
                 .show();
     }
 
-    private static void renameItem(final ScriptManager scriptManager, final ListManager listManager, ScriptItem item, String name) {
-        item.setName(name);
+    private static void renameItem(final ScriptManager scriptManager, final ListManager listManager, Model item, String name) {
         if (item instanceof Script) {
+            ((Script) item).setName(name);
             final Transfer transfer = new Transfer(Transfer.RENAME);
             transfer.script = (Script) item;
             scriptManager.getAsyncExecutorService()
@@ -115,13 +115,13 @@ final class ScriptUtils {
         }
     }
 
-    public static void format(ScriptManager scriptManager, Context context, ListManager listManager, final List<ScriptItem> selectedItems) {
-        new FormatTask(scriptManager, context, listManager).execute(selectedItems.toArray(new ScriptItem[selectedItems.size()]));
+    public static void format(ScriptManager scriptManager, Context context, ListManager listManager, final List<Model> selectedItems) {
+        new FormatTask3(scriptManager, context, listManager).execute(selectedItems.toArray(new Model[selectedItems.size()]));
         listManager.deselectAll();
     }
 
-    public static void backup(final Context context, final ListManager listManager, List<ScriptItem> selectedItems) {
-        final List<ScriptItem> selectedItemsFinal = new ArrayList<>(selectedItems);
+    public static void backup(final Context context, final ListManager listManager, List<Model> selectedItems) {
+        final List<Model> selectedItemsFinal = new ArrayList<>(selectedItems);
         final File dir = new File(PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.pref_directory), PrefsFragment.DEFAULT_BACKUP_PATH));
         if ((!dir.mkdirs() && !dir.isDirectory()) || !dir.canWrite()) {
             PermissionActivity.checkForPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE, isGranted -> {
@@ -136,10 +136,10 @@ final class ScriptUtils {
         }
     }
 
-    private static void backup0(Context context, ListManager listManager, File dir, List<ScriptItem> selectedItems) {
+    private static void backup0(Context context, ListManager listManager, File dir, List<Model> selectedItems) {
         String text = "";
         int success = 0;
-        for (ScriptItem item : selectedItems) {
+        for (Model item : selectedItems) {
             if (item instanceof Script) {
                 Script script = (Script) item;
                 File file = new File(dir, script.getId() + "_" + script.getName().replace("[,\\./\\:*?\"<>\\|]", "_"));
@@ -237,10 +237,7 @@ final class ScriptUtils {
     }
 
     private static void prepareRestore(final ScriptManager scriptManager, final Context context, final ListManager listManager, String code, String name, int flags) {
-        final Script script = new Script();
-        script.setName(name);
-        script.setFlags(flags);
-        script.setCode(code);
+        final Script script = new Script(name, 0, code, flags, "/");
         if (listManager.exists(script)) {
             new AlertDialog.Builder(context)
                     .setMessage(R.string.message_overwrite)
@@ -261,12 +258,12 @@ final class ScriptUtils {
                 .start();
     }
 
-    public static void toggleDisable(final ScriptManager scriptManager, final ListManager listManager, Script item){
-            final Transfer transfer = new Transfer(Transfer.TOGGLE_DISABLE);
-            transfer.script = item;
-            scriptManager.getAsyncExecutorService()
-                    .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager))
-                    .start();
+    public static void toggleDisable(final ScriptManager scriptManager, final ListManager listManager, Script item) {
+        final Transfer transfer = new Transfer(Transfer.TOGGLE_DISABLE);
+        transfer.script = item;
+        scriptManager.getAsyncExecutorService()
+                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager))
+                .start();
         item.setFlags(item.getFlags() ^ Loader.FLAG_DISABLED);
         listManager.changed(item);
         listManager.deselectAll();

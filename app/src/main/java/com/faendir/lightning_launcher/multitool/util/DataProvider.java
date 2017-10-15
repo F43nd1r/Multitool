@@ -19,13 +19,13 @@ import com.google.gson.JsonSyntaxException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 
 import java8.util.function.BiConsumer;
-
-import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 
 /**
  * Provides various data (including SharedPreferences) to LL
@@ -35,34 +35,84 @@ import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptio
  */
 public class DataProvider extends ContentProvider {
 
+    public enum URI {
+        SHARED_PREFERENCES("prefs"),
+        GESTURE_LIBRARY("lib", "gestureLibrary"),
+        GESTURE_INFOS("infos", "gestures");
+        private final String path;
+        private final String filename;
+
+        URI(String path) {
+            this(path, null);
+        }
+
+        URI(String path, String filename) {
+            this.path = path;
+            this.filename = filename;
+        }
+
+        private boolean isFile() {
+            return filename != null;
+        }
+
+        private String getPath() {
+            return path;
+        }
+
+        private String getFilename() {
+            return filename;
+        }
+
+        private static URI fromOrdinal(int ordinal) {
+            if (ordinal < 0) return null;
+            URI[] values = values();
+            return ordinal < values.length ? values[ordinal] : null;
+        }
+    }
+
+    private enum Mode {
+        r(ParcelFileDescriptor.MODE_READ_ONLY | ParcelFileDescriptor.MODE_CREATE),
+        rwt(ParcelFileDescriptor.MODE_READ_WRITE | ParcelFileDescriptor.MODE_CREATE | ParcelFileDescriptor.MODE_TRUNCATE);
+
+        private final int constant;
+
+        Mode(int constant) {
+            this.constant = constant;
+        }
+
+        public int getConstant() {
+            return constant;
+        }
+    }
+
     private static final String AUTHORITY = "com.faendir.lightning_launcher.multitool.provider";
-    private static final String LIBRARY = "lib";
-    private static final String INFOS = "infos";
-    private static final String PREF = "pref";
-    private static final int SHARED_PREFERENCES = 1;
-    private static final int GESTURE_LIBRARY = 2;
-    private static final int GESTURE_INFOS = 3;
 
     private final UriMatcher URI_MATCHER;
     private SharedPreferences sharedPref;
 
     public DataProvider() {
         URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
-        URI_MATCHER.addURI(AUTHORITY, PREF, SHARED_PREFERENCES);
-        URI_MATCHER.addURI(AUTHORITY, LIBRARY, GESTURE_LIBRARY);
-        URI_MATCHER.addURI(AUTHORITY, INFOS, GESTURE_INFOS);
+        for (URI uri : URI.values()) {
+            URI_MATCHER.addURI(AUTHORITY, uri.getPath(), uri.ordinal());
+        }
     }
 
-    public static ParcelFileDescriptor getGestureLibraryFile(Context context) {
-        return exceptionToOptional(() -> context.getContentResolver().openFileDescriptor(getContentUri(LIBRARY), "")).get().orElseThrow(IllegalStateException::new);
+    public static InputStream openFileForRead(Context context, URI uri) throws FileNotFoundException {
+        if (uri.isFile()) {
+            return context.getContentResolver().openInputStream(getContentUri(uri));
+        }
+        throw new IllegalArgumentException();
     }
 
-    public static ParcelFileDescriptor getGestureInfoFile(Context context) {
-        return exceptionToOptional(() -> context.getContentResolver().openFileDescriptor(getContentUri(INFOS), "")).get().orElseThrow(IllegalStateException::new);
+    public static OutputStream openFileForWrite(Context context, URI uri) throws FileNotFoundException {
+        if (uri.isFile()) {
+            return context.getContentResolver().openOutputStream(getContentUri(uri), Mode.rwt.name());
+        }
+        throw new IllegalArgumentException();
     }
 
-    private static Uri getContentUri(String suffix) {
-        return new Uri.Builder().scheme(ContentResolver.SCHEME_CONTENT).authority(AUTHORITY).path(suffix).build();
+    private static Uri getContentUri(URI uri) {
+        return new Uri.Builder().scheme(ContentResolver.SCHEME_CONTENT).authority(AUTHORITY).path(uri.getPath()).build();
     }
 
     @Override
@@ -77,15 +127,13 @@ public class DataProvider extends ContentProvider {
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        switch (URI_MATCHER.match(uri)) {
-            case SHARED_PREFERENCES: {
-                MatrixCursor cursor = new MatrixCursor(new String[]{"key", "value"});
-                Map<String, ?> values = sharedPref.getAll();
-                for (String s : selectionArgs) {
-                    cursor.addRow(new Object[]{s, Utils.GSON.toJson(values.get(s))});
-                }
-                return cursor;
+        if (URI_MATCHER.match(uri) == URI.SHARED_PREFERENCES.ordinal()) {
+            MatrixCursor cursor = new MatrixCursor(new String[]{"key", "value"});
+            Map<String, ?> values = sharedPref.getAll();
+            for (String s : selectionArgs) {
+                cursor.addRow(new Object[]{s, Utils.GSON.toJson(values.get(s))});
             }
+            return cursor;
         }
         return null;
     }
@@ -109,7 +157,7 @@ public class DataProvider extends ContentProvider {
 
     @Override
     public int update(@NonNull Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-        if (URI_MATCHER.match(uri) == SHARED_PREFERENCES) {
+        if (URI_MATCHER.match(uri) == URI.SHARED_PREFERENCES.ordinal()) {
             SharedPreferences.Editor editor = sharedPref.edit();
             for (Map.Entry<String, Object> entry : values.valueSet()) {
                 if (setIfTypeMatch(entry, Boolean.class, editor::putBoolean)) continue;
@@ -140,13 +188,16 @@ public class DataProvider extends ContentProvider {
     @Nullable
     @Override
     public ParcelFileDescriptor openFile(@NonNull Uri uri, @NonNull String mode) throws FileNotFoundException {
-        switch (URI_MATCHER.match(uri)) {
-            case GESTURE_LIBRARY:
-                return ParcelFileDescriptor.open(new File(getContext().getFilesDir(), "gestureLibrary"), ParcelFileDescriptor.MODE_READ_WRITE | ParcelFileDescriptor.MODE_CREATE);
-            case GESTURE_INFOS:
-                return ParcelFileDescriptor.open(new File(getContext().getFilesDir(), "gestures"), ParcelFileDescriptor.MODE_READ_WRITE | ParcelFileDescriptor.MODE_CREATE);
-            default:
-                return super.openFile(uri, mode);
+        Mode m;
+        try {
+            m = Mode.valueOf(mode);
+        } catch (IllegalArgumentException e) {
+            m = Mode.r;
         }
+        URI u = URI.fromOrdinal(URI_MATCHER.match(uri));
+        if (u != null && u.isFile()) {
+            return ParcelFileDescriptor.open(new File(getContext().getFilesDir(), u.getFilename()), m.getConstant());
+        }
+        return super.openFile(uri, mode);
     }
 }

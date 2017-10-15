@@ -7,15 +7,13 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.AsyncTask;
 import android.support.annotation.IdRes;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.omniadapter.OmniBuilder;
-import com.faendir.omniadapter.model.Action;
-import com.faendir.omniadapter.model.DeepObservableList;
-
-import org.apache.commons.collections4.comparators.ComparableComparator;
+import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
+import com.mikepenz.fastadapter.commons.adapters.GenericFastItemAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +54,7 @@ class IntentHandlerListTask extends AsyncTask<Void, Void, List<IntentInfo>> {
             boolean found = false;
             for (IntentInfo info : infos) {
                 if (info.getIntent().getComponent().getPackageName().equals(intentInfo.getIntent().getComponent().getPackageName())
-                        && info.getText().equals(intentInfo.getText())) {
+                        && info.getName().equals(intentInfo.getName())) {
                     found = true;
                     break;
                 }
@@ -71,15 +69,14 @@ class IntentHandlerListTask extends AsyncTask<Void, Void, List<IntentInfo>> {
     @Override
     protected void onPostExecute(List<IntentInfo> infos) {
         View root = context.findViewById(rootId);
-        RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.list);
-        DeepObservableList<IntentInfo> list = DeepObservableList.copyOf(IntentInfo.class, infos);
-        list.beginBatchedUpdates();
-        list.keepSorted(new ComparableComparator<>());
-        list.endBatchedUpdates();
-        new OmniBuilder<>(context, list, context)
-                .setClick(new Action.Click(Action.CUSTOM, context))
-                .attach(recyclerView);
+        RecyclerView recyclerView = root.findViewById(R.id.list);
+        GenericFastItemAdapter<IntentInfo, ExpandableItem<IntentInfo>> adapter = new GenericFastItemAdapter<>(ExpandableItem::new);
+        adapter.getGenericItemAdapter().withComparator((o1, o2) -> o1.getModel().compareTo(o2.getModel()));
+        adapter.withOnClickListener((v, adapter1, item, position) -> context.handleSelection(item.getModel()));
+        adapter.setModel(infos);
         recyclerView.setVisibility(View.VISIBLE);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.setAdapter(adapter);
         root.findViewById(R.id.progressBar).setVisibility(View.GONE);
     }
 }

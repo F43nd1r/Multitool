@@ -1,7 +1,6 @@
 package com.faendir.lightning_launcher.multitool.util;
 
 import android.content.Intent;
-import android.os.ParcelFileDescriptor;
 import android.support.annotation.NonNull;
 
 import com.google.gson.Gson;
@@ -12,7 +11,9 @@ import com.google.gson.stream.JsonWriter;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.ArrayList;
@@ -28,10 +29,13 @@ public class FileManager<T, E extends Throwable> {
 
     private final Class<T[]> clazz;
     private final Gson gson;
-    private final LambdaUtils.ExceptionalSupplier<ParcelFileDescriptor, E> fileSupplier;
+    private final LambdaUtils.ExceptionalSupplier<InputStream, ? extends E> inputSupplier;
+    private final LambdaUtils.ExceptionalSupplier<OutputStream, ? extends E> outputSupplier;
 
-    public FileManager(LambdaUtils.ExceptionalSupplier<ParcelFileDescriptor, E> fileSupplier, Class<T[]> clazz) {
-        this.fileSupplier = fileSupplier;
+    public FileManager(LambdaUtils.ExceptionalSupplier<InputStream, ? extends E> inputSupplier, LambdaUtils.ExceptionalSupplier<OutputStream, ? extends E> outputSupplier,
+                       Class<T[]> clazz) {
+        this.inputSupplier = inputSupplier;
+        this.outputSupplier = outputSupplier;
         gson = new GsonBuilder()
                 .registerTypeAdapter(Intent.class, new IntentTypeAdapter())
                 .create();
@@ -40,25 +44,23 @@ public class FileManager<T, E extends Throwable> {
 
     @NonNull
     public List<T> read() throws E {
-        ParcelFileDescriptor file = fileSupplier.get();
-        if (file.getFileDescriptor().valid()) {
-            try (InputStreamReader reader = new InputStreamReader(new ParcelFileDescriptor.AutoCloseInputStream(file))) {
-                T[] array = gson.fromJson(reader, clazz);
-                if (array != null) {
-                    return new ArrayList<>(Arrays.asList(array));
-                }
-            } catch (Throwable ignored) {
+        InputStream stream = inputSupplier.get();
+        try (InputStreamReader reader = new InputStreamReader(stream)) {
+            T[] array = gson.fromJson(reader, clazz);
+            if (array != null) {
+                return new ArrayList<>(Arrays.asList(array));
             }
+        } catch (Throwable ignored) {
+            ignored.printStackTrace();
         }
         return Collections.emptyList();
     }
 
-    public void write(@NonNull List<T> items) throws E {
-        try (Writer writer = new BufferedWriter(new OutputStreamWriter(new ParcelFileDescriptor.AutoCloseOutputStream(fileSupplier.get())))) {
+    public void write(@NonNull List<T> items) throws E, IOException {
+        OutputStream stream = outputSupplier.get();
+        try (Writer writer = new BufferedWriter(new OutputStreamWriter(stream))) {
             gson.toJson(items.toArray(), clazz, writer);
             writer.flush();
-        } catch (Exception e) {
-            throw new FatalFileException(e);
         }
     }
 

@@ -9,8 +9,8 @@ android {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 14
         targetSdkVersion 26
-        versionCode 82
-        versionName "2.10.2"
+        versionCode 83
+        versionName "2.11"
     }
     buildTypes {
         release {
@@ -34,13 +34,11 @@ android {
 }
 
 dependencies {
-    def supportVersion = "26.1.0"
-    def streamVersion = "1.5.2"
+    def supportVersion = '26.1.0'
+    def streamVersion = '1.5.2'
     def acraVersion = '5.0.0-alpha11'
+    def fastAdapterVersion = '2.6.3'
     implementation('com.faendir.lightninglauncher:scriptlib:3.0-SNAPSHOT') {
-        changing = true
-    }
-    implementation('com.faendir:omniadapter:0.3-SNAPSHOT') {
         changing = true
     }
     implementation "com.android.support:appcompat-v7:$supportVersion"
@@ -53,17 +51,17 @@ dependencies {
     implementation 'org.apache.commons:commons-collections4:4.1'
     implementation 'com.anjlab.android.iab.v3:library:1.0.39'
     implementation 'com.mikepenz:materialdrawer:5.9.5'
-    implementation 'com.mikepenz:fastadapter:2.6.3'
-    implementation ('com.mikepenz:fastadapter-commons:2.6.3'){
-        exclude group:'FastAdapter'
+    implementation "com.mikepenz:fastadapter:$fastAdapterVersion"
+    implementation("com.mikepenz:fastadapter-commons:$fastAdapterVersion") {
+        exclude group: 'FastAdapter'
     }
-    implementation ('com.mikepenz:fastadapter-extensions:2.6.3'){
-        exclude group:'FastAdapter'
+    implementation("com.mikepenz:fastadapter-extensions:$fastAdapterVersion") {
+        exclude group: 'FastAdapter'
     }
     implementation "net.sourceforge.streamsupport:streamsupport:$streamVersion"
     implementation "net.sourceforge.streamsupport:streamsupport-cfuture:$streamVersion"
     implementation "net.sourceforge.streamsupport:streamsupport-atomic:$streamVersion"
     implementation "net.sourceforge.streamsupport:streamsupport-flow:$streamVersion"
     implementation "net.sourceforge.streamsupport:streamsupport-literal:$streamVersion"
-    compile 'org.mozilla:rhino:1.7.7.2'
+    implementation 'org.mozilla:rhino:1.7.7.2'
 }

@@ -2,38 +2,39 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.view.ActionMode;
-import android.support.v7.widget.AppCompatTextView;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.ViewGroup;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
+import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
+import com.faendir.lightning_launcher.multitool.fastadapter.Model;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
-import com.faendir.omniadapter.OmniAdapter;
-import com.faendir.omniadapter.OmniBuilder;
-import com.faendir.omniadapter.model.Action;
-import com.faendir.omniadapter.model.ChangeInformation;
-import com.faendir.omniadapter.model.DeepObservableList;
+import com.mikepenz.fastadapter.commons.adapters.GenericFastItemAdapter;
+import com.mikepenz.fastadapter_extensions.swipe.SimpleSwipeCallback;
 
 import org.acra.ACRA;
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
+import java.util.Map;
+import java.util.Queue;
 
+import java8.lang.Iterables;
 import java8.util.Optional;
+import java8.util.stream.Collectors;
+import java8.util.stream.IntStream;
+import java8.util.stream.IntStreams;
 import java8.util.stream.StreamSupport;
 
 /**
@@ -41,123 +42,142 @@ import java8.util.stream.StreamSupport;
  *
  * @author F43nd1r
  */
-class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptItem> implements ActionMode.Callback, OmniAdapter.SelectionListener<ScriptItem>, OmniAdapter.UndoListener<ScriptItem> {
+class ListManager implements ActionMode.Callback {
 
     @NonNull
     private final ScriptManager scriptManager;
     private final Context context;
     private final RecyclerView recyclerView;
-    private final OmniAdapter<ScriptItem> adapter;
-    private final DeepObservableList<ScriptItem> items;
+    private final GenericFastItemAdapter<Model, ExpandableItem<Model>> adapter;
 
     ListManager(@NonNull ScriptManager scriptManager, @NonNull Context context) {
         this.scriptManager = scriptManager;
         this.context = context;
         recyclerView = new RecyclerView(context);
         recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        items = new DeepObservableList<>(ScriptItem.class);
-        items.keepSorted((o1, o2) -> {
-            if (o1 instanceof Folder) {
-                if (o2 instanceof Folder) {
-                    return ((Folder) o1).compareTo((Folder) o2);
-                } else {
-                    return -1;
+        adapter = new GenericFastItemAdapter<>(ExpandableItem::new);
+        adapter.withPositionBasedStateManagement(false)
+                .withSelectable(true)
+                .withMultiSelect(true)
+                .withSelectWithItemUpdate(true)
+                .withSelectionListener((item, selected) -> fireUpdateActionMode());
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.setAdapter(adapter);
+        new ItemTouchHelper(new SimpleSwipeCallback((position, direction) -> {
+            final ExpandableItem<Model> item = adapter.getItem(position);
+            final Runnable removeRunnable = () -> {
+                item.setSwipedAction(null);
+                int position1 = adapter.getPosition(item);
+                if (position1 != RecyclerView.NO_POSITION) {
+                    adapter.getGenericItemAdapter().remove(position1);
                 }
-            } else if (o2 instanceof Folder) {
-                return 1;
-            } else {
-                return o1.getName().compareTo(o2.getName());
-            }
-        });
-        adapter = new OmniBuilder<>(context, items, this)
-                .setClick(new Action.Click(Action.SELECT)
-                        .setDefaultCompositeAction(Action.EXPAND))
-                .setSwipeToRight(new Action.Swipe(Action.REMOVE))
-                .setExpandUntilLevelOnStartup(100)
-                .addSelectionListener(this)
-                .enableUndoForAction(Action.REMOVE, R.string.text_itemRemoved)
-                .addUndoListener(this)
-                .setInsetDpPerLevel(10)
-                .attach(recyclerView);
+                ScriptUtils.deleteScript(scriptManager, this, (Script) item.getModel());
+            };
+            recyclerView.postDelayed(removeRunnable, 5000);
+
+            item.setSwipedAction(() -> {
+                recyclerView.removeCallbacks(removeRunnable);
+                item.setSwipedAction(null);
+                int position2 = adapter.getPosition(item);
+                if (position2 != RecyclerView.NO_POSITION) {
+                    adapter.notifyItemChanged(position2);
+                }
+            });
+
+            adapter.notifyItemChanged(position);
+        }, null, ItemTouchHelper.RIGHT).withLeaveBehindSwipeRight(context.getResources().getDrawable(R.drawable.ic_delete_white)).withBackgroundSwipeRight(Color.RED))
+                .attachToRecyclerView(recyclerView);
     }
 
+
     private void fireUpdateActionMode() {
-        EventBus.getDefault().post(new UpdateActionModeRequest(this, !adapter.getSelection().isEmpty()));
+        EventBus.getDefault().post(new UpdateActionModeRequest(this, !adapter.getSelections().isEmpty()));
     }
 
     void deselectAll() {
-        adapter.clearSelection();
+        adapter.deselect();
     }
 
-    void changed(ScriptItem s) {
-        adapter.notifyItemUpdated(s);
+    void changed(Model s) {
     }
 
     void updateFrom(@NonNull List<Script> scripts) {
-        items.beginBatchedUpdates();
-        final List<Script> old = new ArrayList<>();
-        items.visitDeep((scriptItem, i) -> {
-            if (scriptItem instanceof Script) {
-                old.add((Script) scriptItem);
-            }
-        }, false);
-        List<Script> removed = new ArrayList<>(old);
-        removed.removeAll(scripts);
-        List<Script> added = new ArrayList<>(scripts);
-        added.removeAll(old);
-        for (Script script : added) {
+        List<ExpandableItem<Model>> items = new ArrayList<>();
+        for (Script script : scripts) {
             String path = script.getPath();
             String[] pathFolders = path.split("/");
-            DeepObservableList<ScriptItem> parent = items;
+            List<ExpandableItem<Model>> parentItems = items;
+            ExpandableItem<Model> parent = null;
             for (String folder : pathFolders) {
                 if ("".equals(folder)) {
                     continue;
                 }
-                Optional<Folder> optional = StreamSupport.stream(parent)
-                        .filter(item -> item instanceof Folder).map(Folder.class::cast).filter(item->item.getRealName().equals(folder))
+                Optional<ExpandableItem<Model>> optional = StreamSupport.stream(parentItems)
+                        .filter(item -> item.getModel() instanceof Folder).filter(item -> item.getModel().getName().equals(folder))
                         .findAny();
-                Folder f;
                 if (optional.isPresent()) {
-                    f = optional.get();
+                    parent = optional.get();
                 } else {
-                    f = new Folder(folder);
-                    f.getState().setExpanded(true);
-                    parent.add(f);
+                    ExpandableItem<Model> f = new ExpandableItem<>(new Folder(folder));
+                    parentItems.add(f);
+                    if (parent != null) {
+                        f.withParent(parent);
+                    }
+                    f.withSubItems(new ArrayList<>());
+                    parent = f;
                 }
-                parent = f.getRealChildren();
+                parentItems = parent.getSubItems();
             }
-            parent.add(script);
-        }
-        for (Script script : removed) {
-            String path = script.getPath();
-            String[] pathFolders = path.split("/");
-            List<Folder> folders = new ArrayList<>();
-            DeepObservableList<ScriptItem> parent = items;
-            for (String folder : pathFolders) {
-                if ("".equals(folder)) continue;
-                Optional<Folder> folderOptional = StreamSupport.stream(parent).filter(item -> item instanceof Folder)
-                        .map(Folder.class::cast).filter(item -> item.getRealName().equals(folder)).findAny();
-                if (folderOptional.isPresent()) {
-                    folders.add(folderOptional.get());
-                    parent = folderOptional.get().getRealChildren();
-                }
-            }
-            if (!folders.isEmpty()) {
-                folders.get(folders.size() - 1).getChildren().remove(script);
-                ListIterator<Folder> iterator = folders.listIterator(folders.size());
-                Folder lastEmpty = null;
-                //noinspection StatementWithEmptyBody
-                while (iterator.hasPrevious() && (lastEmpty = iterator.previous()).getRealChildren().size() == 0)
-                    ;
-                if (lastEmpty != null) {
-                    List<ScriptItem> p = iterator.hasPrevious() ? iterator.previous().getRealChildren() : items;
-                    p.remove(lastEmpty);
-                }
-            } else {
-                items.remove(script);
+            ExpandableItem<Model> s = new ExpandableItem<>(script);
+            parentItems.add(s);
+            if (parent != null) {
+                s.withParent(parent);
             }
         }
-        items.endBatchedUpdates();
+        Queue<ExpandableItem<Model>> queue = new ArrayDeque<>(items);
+        while (queue.peek() != null) {
+            ExpandableItem<Model> item = queue.remove();
+            if (item.getModel() instanceof Folder) {
+                while (item.getSubItems().size() == 1) {
+                    ExpandableItem<Model> child = item.getSubItems().get(0);
+                    if (child.getModel() instanceof Folder) {
+                        item.withSubItems(child.getSubItems());
+                        ((Folder)item.getModel()).setName(item.getModel().getName() + "/" + child.getModel().getName());
+                    } else {
+                        break;
+                    }
+                }
+                queue.addAll(item.getSubItems());
+            }
+        }
+        int[] expanded = adapter.getExpandedItems();
+        IntStream.Builder builder = IntStreams.builder();
+        int start = 0;
+        for (int e : expanded) {
+            for (int i = start; i < e; i++) {
+                builder.accept(i);
+            }
+            start = e + 1;
+        }
+        for (int i = start; i < adapter.getItemCount(); i++) {
+            builder.accept(i);
+        }
+        List<Model> collapsedItems = builder.build().mapToObj(adapter::getItem).map(ExpandableItem::getModel).collect(Collectors.toList());
+        new Handler(context.getMainLooper()).post(() -> {
+            adapter.getGenericItemAdapter().set(items);
+            Iterables.forEach(items, item -> ListManager.this.recursiveExpand(item, collapsedItems));
+        });
+    }
+
+    private void recursiveExpand(ExpandableItem<Model> item, List<Model> exclude) {
+        if (StreamSupport.stream(exclude).noneMatch(item.getModel()::equals)) {
+            adapter.expand(adapter.getPosition(item));
+        }
+        if (item.getSubItems() != null) {
+            for (ExpandableItem<Model> i : item.getSubItems()) {
+                recursiveExpand(i, exclude);
+            }
+        }
     }
 
     void setAsContentOf(final ViewGroup group) {
@@ -167,34 +187,16 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
         });
     }
 
-    DeepObservableList<ScriptItem> getItems() {
-        return items;
+    List<Model> getItems() {
+        return adapter.getModels();
     }
 
     boolean exists(Script script) {
-        return exists(script, items);
+        return exists(script, getItems());
     }
 
-    private boolean exists(Script script, DeepObservableList<ScriptItem> searchIn) {
-        return StreamSupport.stream(searchIn).filter(item -> script.getName().equals(item.getName())
-                || item instanceof Folder && exists(script, ((Folder) item).getChildren())).findAny().isPresent();
-    }
-
-    @Override
-    public View createView(ViewGroup parent, int level) {
-        return LayoutInflater.from(context).inflate(R.layout.list_item_app, parent, false);
-    }
-
-    @Override
-    public void bindView(View view, ScriptItem item, int level) {
-        AppCompatTextView txt = (AppCompatTextView) view;
-        txt.setText(item.getName());
-        boolean isScript = item instanceof Script;
-        //noinspection deprecation
-        Drawable icon = DrawableCompat.wrap(context.getResources().getDrawable(isScript ? R.drawable.ic_file_white : R.drawable.ic_folder_white));
-        DrawableCompat.setTint(icon, isScript && ((Script) item).isDisabled() ? Color.RED : Color.WHITE);
-        DrawableCompat.setTintMode(icon, PorterDuff.Mode.SRC_IN);
-        txt.setCompoundDrawablesWithIntrinsicBounds(icon.mutate(), null, null, null);
+    private boolean exists(Script script, List<Model> searchIn) {
+        return StreamSupport.stream(searchIn).filter(item -> script.getName().equals(item.getName())).findAny().isPresent();
     }
 
     @Override
@@ -216,14 +218,14 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
         menu.findItem(R.id.action_format).setVisible(onlyScripts);
         MenuItem disable = menu.findItem(R.id.action_disable).setVisible(isOneScript);
         if (isOneScript) {
-            disable.setTitle(((Script) getSelectedItems().get(0)).isDisabled() ? R.string.menu_enable : R.string.menu_disable);
+            disable.setTitle(((Script) StreamSupport.stream(getSelectedItems()).findAny().get()).isDisabled() ? R.string.menu_enable : R.string.menu_disable);
         }
         return true;
     }
 
     @Override
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-        List<ScriptItem> selectedItems = getSelectedItems();
+        List<Model> selectedItems = new ArrayList<>(getSelectedItems());
         if (selectedItems.isEmpty()) {
             ACRA.getErrorReporter().putCustomData("listManager", toString());
             ACRA.getErrorReporter().handleSilentException(new IllegalStateException("No selected items"));
@@ -254,31 +256,6 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
         deselectAll();
     }
 
-    @Override
-    public void onSelectionChanged(List<ScriptItem> selected) {
-        fireUpdateActionMode();
-    }
-
-    @Override
-    public void onSelectionCleared() {
-        fireUpdateActionMode();
-    }
-
-    @Override
-    public void onActionPersisted(List<? extends ChangeInformation<ScriptItem>> changes) {
-        StreamSupport.stream(changes).filter(change -> change instanceof ChangeInformation.Remove && change.getComponent() instanceof Script)
-                .map(change -> (Script) change.getComponent()).forEach(script -> ScriptUtils.deleteScript(scriptManager, ListManager.this, script));
-    }
-
-    @Override
-    public void onActionReverted(List<? extends ChangeInformation<ScriptItem>> changes) {
-    }
-
-    @Override
-    public boolean isSelectable(ScriptItem component) {
-        return component instanceof Script;
-    }
-
     @IntDef({NONE, ONE_SCRIPT, ONE_GROUP, ONLY_GROUPS, ONLY_SCRIPTS, BOTH})
     @interface SelectionMode {
     }
@@ -292,8 +269,9 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
 
     @SelectionMode
     private int getSelectionMode() {
-        List<Folder> selectedScriptGroups = adapter.getSelectionByType(Folder.class);
-        List<Script> selectedScripts = adapter.getSelectionByType(Script.class);
+        Map<Boolean, List<Model>> m = StreamSupport.stream(adapter.getSelectedItems()).map(ExpandableItem::getModel).collect(Collectors.partitioningBy(Folder.class::isInstance));
+        List<Model> selectedScriptGroups = m.get(true);
+        List<Model> selectedScripts = m.get(false);
         boolean noScripts = selectedScripts.isEmpty();
         return selectedScriptGroups.isEmpty() ? noScripts ? NONE
                 : selectedScripts.size() == 1 ? ONE_SCRIPT : ONLY_SCRIPTS
@@ -301,7 +279,7 @@ class ListManager extends OmniAdapter.BaseExpandableController<Folder, ScriptIte
                 : noScripts ? ONLY_GROUPS : BOTH;
     }
 
-    private List<ScriptItem> getSelectedItems() {
-        return adapter.getSelection();
+    private List<Model> getSelectedItems() {
+        return StreamSupport.stream(adapter.getSelectedItems()).map(ExpandableItem::getModel).collect(Collectors.toList());
     }
 }

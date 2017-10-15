@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.gesture.Gesture;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Parcel;
@@ -14,7 +15,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.omniadapter.model.Component;
+import com.faendir.lightning_launcher.multitool.fastadapter.DeletableModel;
 
 import java.util.List;
 import java.util.UUID;
@@ -27,13 +28,12 @@ import java8.util.stream.StreamSupport;
  *
  * @author F43nd1r
  */
-public class GestureInfo implements Parcelable, Component {
+public class GestureInfo implements Parcelable, DeletableModel {
     private Intent intent;
     private transient Gesture gesture;
-    private String label;
+    private String name;
     private transient BitmapDrawable drawable;
     private final ParcelUuid uuid;
-    private final State state;
 
 
     /**
@@ -41,23 +41,21 @@ public class GestureInfo implements Parcelable, Component {
      */
     @SuppressWarnings("unused")
     private GestureInfo(){
-        this.uuid = new ParcelUuid(UUID.randomUUID());
-        state = new State();
+        this(null,null, null);
     }
 
-    GestureInfo(Intent intent, String label) {
-        this(intent, label, null);
+    GestureInfo(Intent intent, String name) {
+        this(intent, name, null);
     }
 
-    public GestureInfo(Intent intent, String label, ParcelUuid uuid) {
+    public GestureInfo(Intent intent, String name, ParcelUuid uuid) {
         this.intent = intent;
-        this.label = label;
+        this.name = name;
         if (uuid == null) {
             this.uuid = new ParcelUuid(UUID.randomUUID());
         } else {
             this.uuid = uuid;
         }
-        state = new State();
     }
 
     boolean isInvalid() {
@@ -99,12 +97,24 @@ public class GestureInfo implements Parcelable, Component {
         this.intent = intent;
     }
 
-    public String getLabel() {
-        return label;
+    @Override
+    public String getName() {
+        return name;
     }
 
-    void setLabel(String label) {
-        this.label = label;
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String getUndoText(@NonNull Context context) {
+        return context.getString(R.string.text_gestureDeleted);
+    }
+
+    @Override
+    public int getTintColor(@NonNull Context context) {
+        return Color.WHITE;
     }
 
     boolean hasUuid(UUID uuid) {
@@ -115,7 +125,8 @@ public class GestureInfo implements Parcelable, Component {
         return uuid.getUuid();
     }
 
-    Drawable getImage(Context context) {
+    @Override
+    public Drawable getIcon(@NonNull Context context) {
         if (drawable == null) {
             int iconSize = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getLauncherLargeIconSize();
             //noinspection deprecation
@@ -138,7 +149,7 @@ public class GestureInfo implements Parcelable, Component {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeParcelable(intent, flags);
         dest.writeParcelable(gesture, flags);
-        dest.writeString(label);
+        dest.writeString(name);
         dest.writeParcelable(uuid, flags);
     }
 
@@ -161,10 +172,4 @@ public class GestureInfo implements Parcelable, Component {
             return new GestureInfo[size];
         }
     };
-
-    @NonNull
-    @Override
-    public State getState() {
-        return state;
-    }
 }

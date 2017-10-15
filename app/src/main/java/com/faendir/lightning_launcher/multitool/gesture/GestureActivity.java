@@ -34,14 +34,14 @@ public class GestureActivity extends BaseActivity implements GestureOverlayView.
         super.onCreate(savedInstanceState);
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        gestureView = (GestureOverlayView) findViewById(R.id.gesture_view);
+        gestureView = findViewById(R.id.gesture_view);
         gestureView.setFadeEnabled(true);
         gestureView.setFadeOffset(Long.MAX_VALUE);
         gestureView.addOnGesturePerformedListener(this);
-        chooseAction = (Button) findViewById(R.id.button_choose_action);
+        chooseAction = findViewById(R.id.button_choose_action);
         chooseAction.setOnClickListener(this);
         findViewById(R.id.button_confirm).setOnClickListener(this);
-        label = (EditText) findViewById(R.id.editText_name);
+        label = findViewById(R.id.editText_name);
         onNewIntent(getIntent());
     }
 
@@ -54,7 +54,7 @@ public class GestureActivity extends BaseActivity implements GestureOverlayView.
             if(gesture != null) {
                 gestureView.post(() -> gestureView.setGesture(gesture));
             }
-            label.setText(info.getLabel());
+            label.setText(info.getName());
             action = info.getIntent();
             PackageManager pm = getPackageManager();
             String label = pm.resolveActivity(info.getIntent(), 0).activityInfo.loadLabel(pm).toString();
@@ -106,7 +106,7 @@ public class GestureActivity extends BaseActivity implements GestureOverlayView.
                 info = new GestureInfo(action, label.getText().toString());
             } else {
                 info.setIntent(action);
-                info.setLabel(label.getText().toString());
+                info.setName(label.getText().toString());
             }
             info.setGesture(this, gesture);
             data.putExtra(GESTURE, info);

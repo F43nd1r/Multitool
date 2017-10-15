@@ -1,5 +1,6 @@
 bindClass("java.lang.Class");
 bindClass("dalvik.system.PathClassLoader");
+bindClass("android.util.Log")
 
 item.setHorizontalGrab(true);
 item.setVerticalGrab(true);
@@ -13,6 +14,7 @@ try{
     var v = cls.getConstructors()[0].newInstance(c);
     return v;
 }catch(e){
+    Log.w("[MULTITOOL]", "Failed to load gesture widget", e.javaException);
     bindClass("android.widget.TextView");
     var t = new TextView(context);
     t.setText("Unable to load gesture widget.\nPlease restart Lightning Launcher.");

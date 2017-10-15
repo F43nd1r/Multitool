@@ -4,7 +4,6 @@ import android.content.Context;
 import android.gesture.Gesture;
 import android.gesture.GestureStore;
 import android.gesture.Prediction;
-import android.os.ParcelFileDescriptor;
 import android.util.Log;
 
 import com.faendir.lightning_launcher.multitool.util.DataProvider;
@@ -12,6 +11,7 @@ import com.faendir.lightning_launcher.multitool.util.DataProvider;
 import org.acra.ACRA;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
@@ -51,7 +51,7 @@ final class SingleStoreGestureLibrary {
         if (!gestureStore.hasChanged()) return true;
         boolean result = false;
         try {
-            gestureStore.save(new ParcelFileDescriptor.AutoCloseOutputStream(DataProvider.getGestureLibraryFile(context)), true);
+            gestureStore.save(DataProvider.openFileForWrite(context, DataProvider.URI.GESTURE_LIBRARY), true);
             result = true;
         } catch (IOException e) {
             if (DEBUG) Log.d(LOG_TAG, "Could not save the gesture library", e);
@@ -61,7 +61,7 @@ final class SingleStoreGestureLibrary {
     }
 
     private static void load(Context context) {
-        try (ParcelFileDescriptor.AutoCloseInputStream in = new ParcelFileDescriptor.AutoCloseInputStream(DataProvider.getGestureLibraryFile(context))) {
+        try (InputStream in = DataProvider.openFileForRead(context, DataProvider.URI.GESTURE_LIBRARY)) {
             if (in.available() > 0) {
                 gestureStore.load(in, false);
             }

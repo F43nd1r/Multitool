@@ -2,10 +2,8 @@ package com.faendir.lightning_launcher.multitool.gesture;
 
 import android.Manifest;
 import android.content.Context;
-import android.gesture.GestureLibraries;
-import android.gesture.GestureLibrary;
+import android.gesture.GestureStore;
 import android.net.Uri;
-import android.os.ParcelFileDescriptor;
 import android.util.Pair;
 import android.widget.Toast;
 
@@ -13,24 +11,23 @@ import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.DataProvider;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.scriptlib.PermissionActivity;
-import com.faendir.omniadapter.model.DeepObservableList;
+
+import org.acra.ACRA;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
 import java8.util.stream.StreamSupport;
@@ -46,22 +43,27 @@ final class GestureUtils {
     private GestureUtils() {
     }
 
-    static void delete(Context context, List<GestureInfo> selected, List<GestureInfo> list, FileManager<GestureInfo, ? extends RuntimeException> fileManager) {
-        StreamSupport.stream(selected).peek(gestureInfo -> gestureInfo.removeGesture(context)).forEach(list::remove);
+    static void delete(Context context, GestureInfo selected, List<GestureInfo> list, FileManager<GestureInfo, FileNotFoundException> fileManager) {
+        selected.removeGesture(context);
+        list.remove(selected);
         updateSavedGestures(list, fileManager);
     }
 
-    static void updateSavedGestures(List<GestureInfo> list, FileManager<GestureInfo, ? extends RuntimeException> fileManager) {
-        fileManager.write(new ArrayList<>(list));
+    static void updateSavedGestures(List<GestureInfo> list, FileManager<GestureInfo, FileNotFoundException> fileManager) {
+        try {
+            fileManager.write(list);
+        } catch (IOException e) {
+            ACRA.getErrorReporter().handleSilentException(e);
+        }
     }
 
     private static final String METADATA = "metadata";
     private static final String GESTURES = "gestures";
 
     static void exportGestures(final Context context, Uri path) {
-        final ParcelFileDescriptor metadata = DataProvider.getGestureInfoFile(context);
-        final ParcelFileDescriptor gestures = DataProvider.getGestureLibraryFile(context);
-        if (metadata.getFileDescriptor().valid() && gestures.getFileDescriptor().valid()) {
+        try {
+            final InputStream metadata = DataProvider.openFileForRead(context, DataProvider.URI.GESTURE_INFOS);
+            final InputStream gestures = DataProvider.openFileForRead(context, DataProvider.URI.GESTURE_LIBRARY);
             final File dir = new File(path.getPath());
             final File file = new File(dir, "Multitool_Gestures_" + new SimpleDateFormat("yyyy-MM-dd", Locale.US).format(new Date()) + ".zip");
             if ((!dir.mkdirs() && !dir.isDirectory()) || !dir.canWrite() || !file.canWrite()) {
@@ -77,14 +79,12 @@ final class GestureUtils {
             } else {
                 exportAndClose(context, file, metadata, gestures);
             }
-        } else {
+        } catch (FileNotFoundException e) {
             Toast.makeText(context, R.string.toast_noGestures, Toast.LENGTH_SHORT).show();
-            ignoreExceptions(metadata::close).run();
-            ignoreExceptions(gestures::close).run();
         }
     }
 
-    private static void exportAndClose(Context context, File file, ParcelFileDescriptor metadata, ParcelFileDescriptor gestures) {
+    private static void exportAndClose(Context context, File file, InputStream metadata, InputStream gestures) {
         try (ZipOutputStream out = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(file)))) {
             out.putNextEntry(new ZipEntry(METADATA));
             writeAndClose(metadata, out);
@@ -96,8 +96,8 @@ final class GestureUtils {
         }
     }
 
-    private static void writeAndClose(ParcelFileDescriptor file, OutputStream out) throws IOException {
-        try (InputStream in = new BufferedInputStream(new ParcelFileDescriptor.AutoCloseInputStream(file))) {
+    private static void writeAndClose(InputStream input, OutputStream out) throws IOException {
+        try (InputStream in = new BufferedInputStream(input)) {
             byte[] buffer = new byte[1024];
             int length;
             while ((length = in.read(buffer)) != -1) {
@@ -106,33 +106,16 @@ final class GestureUtils {
         }
     }
 
-    private static void readToFile(File file, InputStream in) throws IOException {
-        try (OutputStream out = new BufferedOutputStream(new FileOutputStream(file))) {
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = in.read(buffer)) != -1) {
-                out.write(buffer, 0, length);
-            }
-        }
-    }
-
-    static void importGestures(Context context, Uri path, DeepObservableList<GestureInfo> list, FileManager<GestureInfo, ? extends RuntimeException> fileManager) {
+    static void importGestures(Context context, Uri path, List<GestureInfo> list, FileManager<GestureInfo, FileNotFoundException> fileManager) {
         File file = new File(path.getPath());
         if (file.exists() && file.canRead()) {
-            try (ZipInputStream in = new ZipInputStream(new BufferedInputStream(new FileInputStream(file)))) {
-                ZipEntry metaEntry = in.getNextEntry();
-                if (metaEntry != null && metaEntry.getName().equals(METADATA)) {
-                    File metadata = new File(context.getCacheDir(), METADATA);
-                    readToFile(metadata, in);
-                    ZipEntry gestureEntry = in.getNextEntry();
-                    if (gestureEntry != null && gestureEntry.getName().equals(GESTURES)) {
-                        File gestures = new File(context.getCacheDir(), GESTURES);
-                        readToFile(gestures, in);
-                        in.close();
-                        if (copyGestures(context, list, fileManager, gestures, metadata)) {
-                            Toast.makeText(context, R.string.toast_imported, Toast.LENGTH_SHORT).show();
-                            return;
-                        }
+            try (ZipFile in = new ZipFile(file)) {
+                ZipEntry metaEntry = in.getEntry(METADATA);
+                ZipEntry gestureEntry = in.getEntry(GESTURES);
+                if (metaEntry != null && gestureEntry != null) {
+                    if (copyGestures(context, list, fileManager, in.getInputStream(gestureEntry), in.getInputStream(metaEntry))) {
+                        Toast.makeText(context, R.string.toast_imported, Toast.LENGTH_SHORT).show();
+                        return;
                     }
                 }
             } catch (IOException ignored) {
@@ -141,23 +124,23 @@ final class GestureUtils {
         Toast.makeText(context, R.string.toast_importFailed, Toast.LENGTH_SHORT).show();
     }
 
-    private static boolean copyGestures(Context context, DeepObservableList<GestureInfo> list, FileManager<GestureInfo, ? extends RuntimeException> fileManager, File gestures, File metadata) {
-        FileManager<GestureInfo, FileNotFoundException> tempFM = new FileManager<>(() -> ParcelFileDescriptor.open(metadata, ParcelFileDescriptor.MODE_READ_ONLY), GestureInfo[].class);
+    private static boolean copyGestures(Context context, List<GestureInfo> list, FileManager<GestureInfo, FileNotFoundException> fileManager, InputStream gestures, InputStream metadata) {
+        FileManager<GestureInfo, FileNotFoundException> tempFM = new FileManager<>(() -> metadata, () -> {
+            throw new UnsupportedOperationException();
+        }, GestureInfo[].class);
         try {
             List<GestureInfo> gestureInfos = tempFM.read();
             if (!gestureInfos.isEmpty()) {
-                GestureLibrary library = GestureLibraries.fromFile(gestures);
-                library.load();
-                list.beginBatchedUpdates();
+                GestureStore library = new GestureStore();
+                library.load(gestures, true);
                 StreamSupport.stream(gestureInfos).map(info -> new Pair<>(info, library.getGestures(info.getUuid().toString()))).filter(pair -> !pair.second.isEmpty()).forEach(pair -> {
                     pair.first.setGesture(context, pair.second.get(0));
                     list.add(pair.first);
                 });
-                list.endBatchedUpdates();
                 updateSavedGestures(list, fileManager);
                 return true;
             }
-        } catch (FileNotFoundException ignored) {
+        } catch (IOException ignored) {
         }
         return false;
     }

@@ -1,4 +1,4 @@
-//Created by Lukas Morawietz in collaboration with TrianguloY
+//Created by F43nd1r in collaboration with TrianguloY
 //import java classes
 bindClass("android.app.AlertDialog");
 bindClass("android.content.DialogInterface");
@@ -317,7 +317,7 @@ function movePages() {
             if (dist[0] == 0 && dist[1] == 0) return; //if nothing to do, do nothing :P
 
             //do the movement
-            for (var i = items.getLength() - 1; i >= 0; --i) {
+            for (var i = items.length - 1; i >= 0; --i) {
                 var item = items[i];
                 var pos = [item.getPositionX(), item.getPositionY()];
                 //check if item should be moved
@@ -343,7 +343,7 @@ function movePages() {
         }
         //check for safe cell sizes
     if (Math.abs(cellsFloatX - cellsX) > 0.00001 || Math.abs(cellsFloatY - cellsY) > 0.00001)
-        chooser([function() {}, f]["No", "Yes"], "The cells don't fill the screen as an exact vertical and/or horizontal number.\nDo you want to continue?", "Warning");
+        chooser([function() {}, f], ["No", "Yes"], "The cells don't fill the screen as an exact vertical and/or horizontal number.\nDo you want to continue?", "Warning");
     else f();
 }
 

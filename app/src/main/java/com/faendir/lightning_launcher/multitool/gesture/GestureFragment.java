@@ -5,9 +5,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,26 +20,25 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
 import com.faendir.lightning_launcher.multitool.util.Utils;
-import com.faendir.omniadapter.OmniAdapter;
-import com.faendir.omniadapter.OmniBuilder;
-import com.faendir.omniadapter.model.Action;
-import com.faendir.omniadapter.model.ChangeInformation;
-import com.faendir.omniadapter.model.Component;
-import com.faendir.omniadapter.model.DeepObservableList;
+import com.mikepenz.fastadapter.commons.adapters.GenericFastItemAdapter;
+import com.mikepenz.fastadapter_extensions.swipe.SimpleSwipeCallback;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
-import java.util.List;
+import java.io.FileNotFoundException;
 
 import java8.util.stream.Collectors;
 import java8.util.stream.StreamSupport;
 
+import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GestureFragment extends Fragment implements OmniAdapter.Controller<GestureInfo>, OmniAdapter.UndoListener<GestureInfo>, Action.LongClick.Listener {
+public class GestureFragment extends Fragment {
 
     private static final int ADD = 1;
     private static final int EDIT = 2;
@@ -45,8 +46,8 @@ public class GestureFragment extends Fragment implements OmniAdapter.Controller<
     private static final int IMPORT = 4;
     private static final String INDEX = "index";
 
-    private FileManager<GestureInfo, ? extends RuntimeException> fileManager;
-    private DeepObservableList<GestureInfo> gestureInfos;
+    private FileManager<GestureInfo, FileNotFoundException> fileManager;
+    private GenericFastItemAdapter<GestureInfo, ExpandableItem<GestureInfo>> adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,14 +61,44 @@ public class GestureFragment extends Fragment implements OmniAdapter.Controller<
                              Bundle savedInstanceState) {
         LinearLayout layout = new LinearLayout(getActivity());
         RecyclerView recyclerView = new RecyclerView(getActivity());
-        gestureInfos = DeepObservableList.copyOf(GestureInfo.class,
-                StreamSupport.stream(fileManager.read()).filter(gestureInfo -> !gestureInfo.isInvalid()).collect(Collectors.toList()));
-        new OmniBuilder<>(getActivity(), gestureInfos, this)
-                .setLongClick(new Action.LongClick(Action.CUSTOM, this))
-                .setSwipeToRight(new Action.Swipe(Action.REMOVE))
-                .enableUndoForAction(Action.REMOVE, R.string.text_itemRemoved)
-                .addUndoListener(this)
-                .attach(recyclerView);
+        adapter = new GenericFastItemAdapter<>(ExpandableItem::new);
+        adapter.withOnLongClickListener((v, adapter, item, position) -> {
+            Intent intent = new Intent(getActivity(), GestureActivity.class);
+            intent.putExtra(GestureActivity.GESTURE, item.getModel());
+            intent.putExtra(INDEX, adapter.getAdapterPosition(item));
+            startActivityForResult(intent, EDIT);
+            return true;
+        });
+        exceptionToOptional(fileManager::read).get().ifPresent(list -> adapter.setModel(StreamSupport.stream(list)
+                .filter(gestureInfo -> !gestureInfo.isInvalid()).collect(Collectors.toList())));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(adapter);
+        new ItemTouchHelper(new SimpleSwipeCallback((position, direction) -> {
+            final ExpandableItem<GestureInfo> item = adapter.getItem(position);
+            final Runnable removeRunnable = () -> {
+                item.setSwipedAction(null);
+                int position1 = adapter.getPosition(item);
+                if (position1 != RecyclerView.NO_POSITION) {
+                    adapter.getGenericItemAdapter().remove(position1);
+                }
+                GestureUtils.delete(getActivity(), item.getModel(),
+                        adapter.getModels(), fileManager);
+
+            };
+            recyclerView.postDelayed(removeRunnable, 5000);
+
+            item.setSwipedAction(() -> {
+                recyclerView.removeCallbacks(removeRunnable);
+                item.setSwipedAction(null);
+                int position2 = adapter.getPosition(item);
+                if (position2 != RecyclerView.NO_POSITION) {
+                    adapter.notifyItemChanged(position2);
+                }
+            });
+
+            adapter.notifyItemChanged(position);
+        }, null, ItemTouchHelper.RIGHT).withLeaveBehindSwipeRight(getResources().getDrawable(R.drawable.ic_delete_white)).withBackgroundSwipeRight(Color.RED))
+                .attachToRecyclerView(recyclerView);
         recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         TextView empty = (TextView) inflater.inflate(R.layout.textview_empty_gestures_list, recyclerView, false);
         layout.addView(recyclerView);
@@ -122,16 +153,16 @@ public class GestureFragment extends Fragment implements OmniAdapter.Controller<
             switch (requestCode) {
                 case ADD: {
                     GestureInfo gestureInfo = data.getParcelableExtra(GestureActivity.GESTURE);
-                    gestureInfos.add(gestureInfo);
-                    GestureUtils.updateSavedGestures(gestureInfos, fileManager);
+                    adapter.addModel(gestureInfo);
+                    GestureUtils.updateSavedGestures(adapter.getModels(), fileManager);
                     break;
                 }
                 case EDIT: {
                     GestureInfo gestureInfo = data.getParcelableExtra(GestureActivity.GESTURE);
                     int position = data.getIntExtra(INDEX, -1);
                     if (position >= 0) {
-                        gestureInfos.set(position, gestureInfo);
-                        GestureUtils.updateSavedGestures(gestureInfos, fileManager);
+                        adapter.getGenericItemAdapter().setModel(position, gestureInfo);
+                        GestureUtils.updateSavedGestures(adapter.getModels(), fileManager);
                     }
                 }
                 case EXPORT:
@@ -140,64 +171,11 @@ public class GestureFragment extends Fragment implements OmniAdapter.Controller<
                     break;
                 case IMPORT:
                     StreamSupport.stream(Utils.getFilePickerActivityResult(data)).findAny()
-                            .ifPresent(uri -> GestureUtils.importGestures(getActivity(), uri, gestureInfos, fileManager));
+                            .ifPresent(uri -> GestureUtils.importGestures(getActivity(), uri, adapter.getModels(), fileManager));
                     break;
                 default:
                     super.onActivityResult(requestCode, resultCode, data);
             }
         }
-    }
-
-    @Override
-    public View createView(ViewGroup parent, int level) {
-        return LayoutInflater.from(getActivity()).inflate(R.layout.list_item_app, parent, false);
-    }
-
-    @Override
-    public void bindView(View view, GestureInfo component, int level) {
-        final TextView txt = (TextView) view;
-        txt.setText(component.getLabel());
-        Drawable img = component.getImage(getActivity());
-        txt.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null);
-    }
-
-    @Override
-    public boolean shouldMove(GestureInfo component, DeepObservableList from, int fromPosition, DeepObservableList to, int toPosition) {
-        return false;
-    }
-
-    @Override
-    public boolean isSelectable(GestureInfo component) {
-        return true;
-    }
-
-    @Override
-    public boolean shouldSwipe(GestureInfo component, int direction) {
-        return true;
-    }
-
-    @Override
-    public void onActionPersisted(List<? extends ChangeInformation<GestureInfo>> changes) {
-        GestureUtils.delete(getActivity(), StreamSupport.stream(changes)
-                        .filter(change -> change instanceof ChangeInformation.Remove)
-                        .map(ChangeInformation::getComponent).collect(Collectors.toList()),
-                gestureInfos, fileManager);
-    }
-
-    @Override
-    public void onActionReverted(List<? extends ChangeInformation<GestureInfo>> changes) {
-    }
-
-    @Override
-    public boolean allowLongClick(Component component, int action) {
-        return true;
-    }
-
-    @Override
-    public void onLongClick(Component component, int action) {
-        Intent intent = new Intent(getActivity(), GestureActivity.class);
-        intent.putExtra(GestureActivity.GESTURE, (GestureInfo)component);
-        intent.putExtra(INDEX, gestureInfos.indexOf(component));
-        startActivityForResult(intent, EDIT);
     }
 }
