@@ -34,3 +34,4 @@
 -keep enum org.greenrobot.eventbus.ThreadMode { *; }
 -dontwarn java.lang.invoke.*
 -dontwarn sun.misc.Unsafe
+-dontwarn org.mozilla.javascript.**
