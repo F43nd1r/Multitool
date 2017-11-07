@@ -7,6 +7,7 @@ import android.support.annotation.Keep;
 import android.support.annotation.NonNull;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.google.auto.service.AutoService;
 
 import org.acra.builder.ReportBuilder;
 import org.acra.config.CoreConfiguration;
@@ -19,6 +20,7 @@ import org.acra.data.CrashReportData;
  * @author F43nd1r
  */
 @Keep
+@AutoService(ReportingAdministrator.class)
 public class ResetReportPrimer implements ReportingAdministrator {
 
     public ResetReportPrimer(){

@@ -37,13 +37,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     private void initLayout() {
         LayoutInflater inflater = LayoutInflater.from(this);
         View layout = inflater.inflate(R.layout.activity_base, (ViewGroup) findViewById(android.R.id.content).getRootView(), false);
-        ViewGroup mainFrame = (ViewGroup) layout.findViewById(R.id.main_frame);
+        ViewGroup mainFrame = layout.findViewById(R.id.main_frame);
         inflater.inflate(layoutRes, mainFrame, true);
         setContentView(layout);
     }
 
     private Toolbar initToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         return toolbar;
     }

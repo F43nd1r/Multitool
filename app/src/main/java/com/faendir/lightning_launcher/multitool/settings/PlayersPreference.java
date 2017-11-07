@@ -41,7 +41,7 @@ public class PlayersPreference extends MultiSelectListPreference implements Summ
         for (int i = 0; i < N; ++i) {
             int attr = a.getIndex(i);
             switch (attr) {
-                case R.styleable.PlayersPreference_checkedByDefault:
+                case R.styleable.PlayersPreference_checked_by_default:
                     if (a.getBoolean(attr, false)) {
                         setDefaultValue(new HashSet<>(map.values()));
                     } else {

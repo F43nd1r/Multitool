@@ -61,6 +61,6 @@ var listener = function(titleInfo) {
             e.javaException.printStackTrace();
         }
 };
-panel.my.musicListener = getObjectFactory().constructMusicListener(new Handler(), c, listener);
+panel.my.musicListener = getObjectFactory().constructMusicListener(new Handler(), getActiveScreen().getContext(), listener);
 panel.my.musicListener.onChange(false);
 panel.my.musicListener.register();

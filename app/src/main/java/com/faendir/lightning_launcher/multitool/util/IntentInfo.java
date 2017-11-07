@@ -15,7 +15,7 @@ import java.lang.ref.SoftReference;
  *
  * @author F43nd1r
  */
-class IntentInfo implements Model, Comparable<IntentInfo>{
+public class IntentInfo implements Model, Comparable<IntentInfo>{
     private SoftReference<Drawable> icon;
     private final DrawableProvider provider;
     private final Intent intent;
@@ -41,7 +41,7 @@ class IntentInfo implements Model, Comparable<IntentInfo>{
         }
     }
 
-    Intent getIntent() {
+    public Intent getIntent() {
         return intent;
     }
 

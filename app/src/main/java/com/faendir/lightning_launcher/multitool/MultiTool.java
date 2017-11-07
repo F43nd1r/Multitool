@@ -3,8 +3,6 @@ package com.faendir.lightning_launcher.multitool;
 import android.app.Application;
 import android.content.Context;
 
-import com.faendir.lightning_launcher.multitool.util.ResetReportPrimer;
-
 import org.acra.ACRA;
 import org.acra.annotation.AcraCore;
 import org.acra.annotation.AcraHttpSender;
@@ -14,8 +12,7 @@ import org.acra.sender.HttpSender;
  * Created by Lukas on 13.12.2015.
  * Main Application class
  */
-@AcraCore(buildConfigClass = BuildConfig.class,
-        reportPrimerClass = ResetReportPrimer.class)
+@AcraCore(buildConfigClass = BuildConfig.class)
 @AcraHttpSender(uri = "https://faendir.com/acra/report",
         httpMethod = HttpSender.Method.POST,
         reportType = HttpSender.Type.JSON,

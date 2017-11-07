@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="PlayersPreference">
-        <attr name="checkedByDefault" format="boolean"/>
+        <attr name="checked_by_default" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="IntentChooserFragment">
+        <attr name="intent_action" format="string" />
+        <attr name="intent_category" format="string" />
+        <attr name="intent_indirect" format="boolean" />
     </declare-styleable>
 </resources>

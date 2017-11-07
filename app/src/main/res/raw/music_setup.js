@@ -39,11 +39,11 @@ title.getProperties().edit().setBoolean("s.iconVisibility", false).setBoolean("i
 album.getProperties().edit().setBoolean("s.iconVisibility", false).setBoolean("i.enabled", false).commit();
 artist.getProperties().edit().setBoolean("s.iconVisibility", false).setBoolean("i.enabled", false).commit();
 play.getProperties().edit().setBoolean("s.labelVisibility", false).setEventHandler("i.tap", EventHandler.RUN_SCRIPT, command.getId() + "/5").commit();
-play.setDefaultIcon(Image.createImage(MY_PKG, "ic_play"));
+play.setDefaultIcon(Image.createImage(getMultiToolPackage(), "ic_play"));
 next.getProperties().edit().setBoolean("s.labelVisibility", false).setEventHandler("i.tap", EventHandler.RUN_SCRIPT, command.getId() + "/6").commit();
-next.setDefaultIcon(Image.createImage(MY_PKG, "ic_next"));
+next.setDefaultIcon(Image.createImage(getMultiToolPackage(), "ic_next"));
 previous.getProperties().edit().setBoolean("s.labelVisibility", false).setEventHandler("i.tap", EventHandler.RUN_SCRIPT, command.getId() + "/7").commit();
-previous.setDefaultIcon(Image.createImage(MY_PKG, "ic_previous"));
+previous.setDefaultIcon(Image.createImage(getMultiToolPackage(), "ic_previous"));
 title.setBinding("s.label", "$title", true);
 album.setBinding("s.label", "$album", true);
 artist.setBinding("s.label", "$artist", true);

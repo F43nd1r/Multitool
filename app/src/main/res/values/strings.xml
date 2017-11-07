@@ -96,7 +96,7 @@
     <string name="text_noGestures">No gestures found. To create a new gesture, press the “Add” Button.</string>
     <string name="title_musicWidget">Music widget</string>
     <string name="title_listener">Notification Listener</string>
-    <string name="text_listener">Music Widget requires the notification listener to be enabled. Do you want to enable it now?</string>
+    <string name="text_listener">This requires the notification listener to be enabled. Do you want to enable it now?</string>
     <string name="currently_playing">Currently Playing</string>
     <string name="pref_musicDefault">musicDefaultPackage</string>
     <string name="key_shortcuts">shortcuts</string>
@@ -188,4 +188,7 @@
     <string name="toast_playError">Sorry, google services are not responding</string>
     <string name="text_scriptDeleted">Script deleted. Tap to undo</string>
     <string name="text_gestureDeleted">Gesture deleted. Tap to undo</string>
+    <string name="key_badgeIntentPackages">badeIntentSupportingPackages</string>
+    <string name="title_appChooser">Choose App</string>
+    <string name="action_search">Search</string>
 </resources>

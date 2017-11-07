@@ -20,7 +20,7 @@
         <com.faendir.lightning_launcher.multitool.settings.PlayersPreference
             android:key="@string/pref_activePlayers"
             android:title="@string/title_activePlayers"
-            custom:checkedByDefault="true"/>
+            custom:checked_by_default="true"/>
         <com.faendir.lightning_launcher.multitool.settings.DefaultPlayerPreference
             android:key="@string/pref_musicDefault"
             android:title="@string/title_defaultPlayer"/>
@@ -34,7 +34,7 @@
             android:key="@string/pref_altControl"
             android:summary="If a player does not react to buttons, this might help"
             android:title="@string/title_altControl"
-            custom:checkedByDefault="false"/>
+            custom:checked_by_default="false"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/title_drawer">
         <com.faendir.lightning_launcher.multitool.settings.TrialPreference android:title="@string/title_drawer"/>

@@ -5618,6 +5618,9 @@ android.support.v4.view.PagerTitleStrip: void setNonPrimaryAlpha(float)
 android.support.v4.view.PagerTitleStrip: void setTextColor(int)
 android.support.v4.view.PagerTitleStrip: void setGravity(int)
 android.support.v4.view.PagerTitleStrip: int getMinHeight()
+android.support.v4.view.ViewPager
+android.support.v4.view.ViewPager: ViewPager(android.content.Context)
+android.support.v4.view.ViewPager: ViewPager(android.content.Context,android.util.AttributeSet)
 android.support.v4.view.ViewPager: void setScrollState(int)
 android.support.v4.view.ViewPager: void setAdapter(android.support.v4.view.PagerAdapter)
 android.support.v4.view.ViewPager: android.support.v4.view.PagerAdapter getAdapter()
@@ -8025,8 +8028,8 @@ com.faendir.lightning_launcher.multitool.R$attr: int buttonStyleSmall
 com.faendir.lightning_launcher.multitool.R$attr: int buttonTint
 com.faendir.lightning_launcher.multitool.R$attr: int buttonTintMode
 com.faendir.lightning_launcher.multitool.R$attr: int checkboxStyle
-com.faendir.lightning_launcher.multitool.R$attr: int checkedByDefault
 com.faendir.lightning_launcher.multitool.R$attr: int checkedTextViewStyle
+com.faendir.lightning_launcher.multitool.R$attr: int checked_by_default
 com.faendir.lightning_launcher.multitool.R$attr: int closeIcon
 com.faendir.lightning_launcher.multitool.R$attr: int closeItemLayout
 com.faendir.lightning_launcher.multitool.R$attr: int collapseContentDescription
@@ -8131,6 +8134,9 @@ com.faendir.lightning_launcher.multitool.R$attr: int imageButtonStyle
 com.faendir.lightning_launcher.multitool.R$attr: int indeterminateProgressStyle
 com.faendir.lightning_launcher.multitool.R$attr: int initialActivityCount
 com.faendir.lightning_launcher.multitool.R$attr: int insetForeground
+com.faendir.lightning_launcher.multitool.R$attr: int intent_action
+com.faendir.lightning_launcher.multitool.R$attr: int intent_category
+com.faendir.lightning_launcher.multitool.R$attr: int intent_indirect
 com.faendir.lightning_launcher.multitool.R$attr: int isLightTheme
 com.faendir.lightning_launcher.multitool.R$attr: int itemBackground
 com.faendir.lightning_launcher.multitool.R$attr: int itemIconTint
@@ -9086,6 +9092,7 @@ com.faendir.lightning_launcher.multitool.R$drawable: int ic_mode_edit_white
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_next
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_play
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_previous
+com.faendir.lightning_launcher.multitool.R$drawable: int ic_search_white
 com.faendir.lightning_launcher.multitool.R$drawable: int material_drawer_badge
 com.faendir.lightning_launcher.multitool.R$drawable: int material_drawer_circle_mask
 com.faendir.lightning_launcher.multitool.R$drawable: int material_drawer_shadow_bottom
@@ -9152,7 +9159,6 @@ com.faendir.lightning_launcher.multitool.R$id: int add
 com.faendir.lightning_launcher.multitool.R$id: int alertTitle
 com.faendir.lightning_launcher.multitool.R$id: int all
 com.faendir.lightning_launcher.multitool.R$id: int always
-com.faendir.lightning_launcher.multitool.R$id: int apps
 com.faendir.lightning_launcher.multitool.R$id: int async
 com.faendir.lightning_launcher.multitool.R$id: int auto
 com.faendir.lightning_launcher.multitool.R$id: int avatar
@@ -9183,6 +9189,7 @@ com.faendir.lightning_launcher.multitool.R$id: int center
 com.faendir.lightning_launcher.multitool.R$id: int center_horizontal
 com.faendir.lightning_launcher.multitool.R$id: int center_vertical
 com.faendir.lightning_launcher.multitool.R$id: int checkbox
+com.faendir.lightning_launcher.multitool.R$id: int chooserFragment
 com.faendir.lightning_launcher.multitool.R$id: int chronometer
 com.faendir.lightning_launcher.multitool.R$id: int clip_horizontal
 com.faendir.lightning_launcher.multitool.R$id: int clip_vertical
@@ -9358,7 +9365,6 @@ com.faendir.lightning_launcher.multitool.R$id: int search_src_text
 com.faendir.lightning_launcher.multitool.R$id: int search_voice_btn
 com.faendir.lightning_launcher.multitool.R$id: int select_dialog_listview
 com.faendir.lightning_launcher.multitool.R$id: int shortcut
-com.faendir.lightning_launcher.multitool.R$id: int shortcuts
 com.faendir.lightning_launcher.multitool.R$id: int showCustom
 com.faendir.lightning_launcher.multitool.R$id: int showHome
 com.faendir.lightning_launcher.multitool.R$id: int showTitle
@@ -9376,7 +9382,7 @@ com.faendir.lightning_launcher.multitool.R$id: int start
 com.faendir.lightning_launcher.multitool.R$id: int status_bar_latest_event_content
 com.faendir.lightning_launcher.multitool.R$id: int submenuarrow
 com.faendir.lightning_launcher.multitool.R$id: int submit_area
-com.faendir.lightning_launcher.multitool.R$id: int tabHost
+com.faendir.lightning_launcher.multitool.R$id: int tabLayout
 com.faendir.lightning_launcher.multitool.R$id: int tabMode
 com.faendir.lightning_launcher.multitool.R$id: int text
 com.faendir.lightning_launcher.multitool.R$id: int text2
@@ -9420,6 +9426,7 @@ com.faendir.lightning_launcher.multitool.R$id: int view_noLauncher
 com.faendir.lightning_launcher.multitool.R$id: int view_offset_helper
 com.faendir.lightning_launcher.multitool.R$id: int view_repositoryImporter
 com.faendir.lightning_launcher.multitool.R$id: int view_yesLauncher
+com.faendir.lightning_launcher.multitool.R$id: int viewpager
 com.faendir.lightning_launcher.multitool.R$id: int visible
 com.faendir.lightning_launcher.multitool.R$id: int withText
 com.faendir.lightning_launcher.multitool.R$id: int wrap_content
@@ -9462,6 +9469,7 @@ com.faendir.lightning_launcher.multitool.R$layout: int abc_search_view
 com.faendir.lightning_launcher.multitool.R$layout: int abc_select_dialog_material
 com.faendir.lightning_launcher.multitool.R$layout: int activity_base
 com.faendir.lightning_launcher.multitool.R$layout: int activity_dialog
+com.faendir.lightning_launcher.multitool.R$layout: int content_app_chooser
 com.faendir.lightning_launcher.multitool.R$layout: int content_gesture
 com.faendir.lightning_launcher.multitool.R$layout: int content_intent_chooser
 com.faendir.lightning_launcher.multitool.R$layout: int content_main
@@ -9542,11 +9550,13 @@ com.faendir.lightning_launcher.multitool.R$menu: int menu_context_scriptmanager
 com.faendir.lightning_launcher.multitool.R$menu: int menu_gesture
 com.faendir.lightning_launcher.multitool.R$menu: int menu_music_widget
 com.faendir.lightning_launcher.multitool.R$menu: int menu_scriptmanager
+com.faendir.lightning_launcher.multitool.R$menu: int menu_search
 com.faendir.lightning_launcher.multitool.R$menu: int picker_actions
 com.faendir.lightning_launcher.multitool.R$mipmap: int ic_multitool
 com.faendir.lightning_launcher.multitool.R$raw: int animation
 com.faendir.lightning_launcher.multitool.R$raw: int animation_setup
 com.faendir.lightning_launcher.multitool.R$raw: int backup
+com.faendir.lightning_launcher.multitool.R$raw: int badge_create
 com.faendir.lightning_launcher.multitool.R$raw: int badge_pause
 com.faendir.lightning_launcher.multitool.R$raw: int badge_resume
 com.faendir.lightning_launcher.multitool.R$raw: int badge_setup
@@ -9558,6 +9568,7 @@ com.faendir.lightning_launcher.multitool.R$raw: int gesture_menu
 com.faendir.lightning_launcher.multitool.R$raw: int gesture_setup
 com.faendir.lightning_launcher.multitool.R$raw: int immersive
 com.faendir.lightning_launcher.multitool.R$raw: int immersive_setup
+com.faendir.lightning_launcher.multitool.R$raw: int library
 com.faendir.lightning_launcher.multitool.R$raw: int multitool
 com.faendir.lightning_launcher.multitool.R$raw: int music_command
 com.faendir.lightning_launcher.multitool.R$raw: int music_launch
@@ -9599,6 +9610,7 @@ com.faendir.lightning_launcher.multitool.R$string: int abc_shareactionprovider_s
 com.faendir.lightning_launcher.multitool.R$string: int abc_shareactionprovider_share_with_application
 com.faendir.lightning_launcher.multitool.R$string: int abc_toolbar_collapse_description
 com.faendir.lightning_launcher.multitool.R$string: int action_help
+com.faendir.lightning_launcher.multitool.R$string: int action_search
 com.faendir.lightning_launcher.multitool.R$string: int add_gesture
 com.faendir.lightning_launcher.multitool.R$string: int app_name
 com.faendir.lightning_launcher.multitool.R$string: int appbar_scrolling_view_behavior
@@ -9637,6 +9649,7 @@ com.faendir.lightning_launcher.multitool.R$string: int google_community
 com.faendir.lightning_launcher.multitool.R$string: int hint_nameOfScript
 com.faendir.lightning_launcher.multitool.R$string: int imageDescription_divider
 com.faendir.lightning_launcher.multitool.R$string: int key_appInfo
+com.faendir.lightning_launcher.multitool.R$string: int key_badgeIntentPackages
 com.faendir.lightning_launcher.multitool.R$string: int key_shortcuts
 com.faendir.lightning_launcher.multitool.R$string: int key_target
 com.faendir.lightning_launcher.multitool.R$string: int library_AndroidIconics_author
@@ -9774,6 +9787,7 @@ com.faendir.lightning_launcher.multitool.R$string: int title_activity_gesture
 com.faendir.lightning_launcher.multitool.R$string: int title_activity_intent_chooser
 com.faendir.lightning_launcher.multitool.R$string: int title_altControl
 com.faendir.lightning_launcher.multitool.R$string: int title_animation
+com.faendir.lightning_launcher.multitool.R$string: int title_appChooser
 com.faendir.lightning_launcher.multitool.R$string: int title_apps
 com.faendir.lightning_launcher.multitool.R$string: int title_backup
 com.faendir.lightning_launcher.multitool.R$string: int title_backupDir
@@ -10596,6 +10610,10 @@ com.faendir.lightning_launcher.multitool.R$styleable: int Iconics_ico_offset_x
 com.faendir.lightning_launcher.multitool.R$styleable: int Iconics_ico_offset_y
 com.faendir.lightning_launcher.multitool.R$styleable: int Iconics_ico_padding
 com.faendir.lightning_launcher.multitool.R$styleable: int Iconics_ico_size
+com.faendir.lightning_launcher.multitool.R$styleable: int[] IntentChooserFragment
+com.faendir.lightning_launcher.multitool.R$styleable: int IntentChooserFragment_intent_action
+com.faendir.lightning_launcher.multitool.R$styleable: int IntentChooserFragment_intent_category
+com.faendir.lightning_launcher.multitool.R$styleable: int IntentChooserFragment_intent_indirect
 com.faendir.lightning_launcher.multitool.R$styleable: int[] LinearLayoutCompat
 com.faendir.lightning_launcher.multitool.R$styleable: int[] LinearLayoutCompat_Layout
 com.faendir.lightning_launcher.multitool.R$styleable: int LinearLayoutCompat_Layout_android_layout_gravity
@@ -10690,7 +10708,7 @@ com.faendir.lightning_launcher.multitool.R$styleable: int PercentLayout_Layout_l
 com.faendir.lightning_launcher.multitool.R$styleable: int PercentLayout_Layout_layout_marginTopPercent
 com.faendir.lightning_launcher.multitool.R$styleable: int PercentLayout_Layout_layout_widthPercent
 com.faendir.lightning_launcher.multitool.R$styleable: int[] PlayersPreference
-com.faendir.lightning_launcher.multitool.R$styleable: int PlayersPreference_checkedByDefault
+com.faendir.lightning_launcher.multitool.R$styleable: int PlayersPreference_checked_by_default
 com.faendir.lightning_launcher.multitool.R$styleable: int[] PopupWindow
 com.faendir.lightning_launcher.multitool.R$styleable: int[] PopupWindowBackgroundState
 com.faendir.lightning_launcher.multitool.R$styleable: int PopupWindowBackgroundState_state_above_anchor
@@ -10866,108 +10884,37 @@ com.faendir.lightning_launcher.multitool.backup.BackupService: BackupService()
 com.faendir.lightning_launcher.multitool.backup.BackupService: void onHandleIntent(android.content.Intent)
 com.faendir.lightning_launcher.multitool.backup.BootBroadcastReceiver
 com.faendir.lightning_launcher.multitool.backup.BootBroadcastReceiver: BootBroadcastReceiver()
+com.faendir.lightning_launcher.multitool.badge.AppChooser
+com.faendir.lightning_launcher.multitool.badge.AppChooser: AppChooser()
 com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver
-com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: java.lang.String BADGE_COUNT
-com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: java.lang.String PACKAGE_NAME
-com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: java.lang.String INTENT_BADGE_COUNT_UPDATE
 com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: BadgeBroadcastReceiver()
-com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: void onReceive(android.content.Context,android.content.Intent)
-com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: void lambda$onReceive$0(int,java.lang.String,android.os.IBinder)
-com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver$$Lambda$1
-com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver$$Lambda$1: int arg$1
-com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver$$Lambda$1: java.lang.String arg$2
-com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver$$Lambda$1: BadgeBroadcastReceiver$$Lambda$1(int,java.lang.String)
-com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver$$Lambda$1: void accept(java.lang.Object)
-com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver$$Lambda$1: com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalConsumer lambdaFactory$(int,java.lang.String)
 com.faendir.lightning_launcher.multitool.badge.BadgeListener
-com.faendir.lightning_launcher.multitool.badge.BadgeListener: java8.util.function.BiConsumer consumer
-com.faendir.lightning_launcher.multitool.badge.BadgeListener: BadgeListener()
-com.faendir.lightning_launcher.multitool.badge.BadgeListener: void onCountChange(int,java.lang.String)
-com.faendir.lightning_launcher.multitool.badge.BadgeListener: void setConsumer(java8.util.function.BiConsumer)
-com.faendir.lightning_launcher.multitool.badge.BadgeService
-com.faendir.lightning_launcher.multitool.badge.BadgeService: android.content.SharedPreferences sharedPref
-com.faendir.lightning_launcher.multitool.badge.BadgeService: java.util.Set listeners
-com.faendir.lightning_launcher.multitool.badge.BadgeService: com.faendir.lightning_launcher.multitool.badge.IBadgeService badgeService
-com.faendir.lightning_launcher.multitool.badge.BadgeService: BadgeService()
-com.faendir.lightning_launcher.multitool.badge.BadgeService: void onCreate()
-com.faendir.lightning_launcher.multitool.badge.BadgeService: android.os.IBinder onBind(android.content.Intent)
-com.faendir.lightning_launcher.multitool.badge.BadgeService: java.util.Set access$000(com.faendir.lightning_launcher.multitool.badge.BadgeService)
-com.faendir.lightning_launcher.multitool.badge.BadgeService: android.content.SharedPreferences access$100(com.faendir.lightning_launcher.multitool.badge.BadgeService)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1: com.faendir.lightning_launcher.multitool.badge.BadgeService this$0
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1: BadgeService$1(com.faendir.lightning_launcher.multitool.badge.BadgeService)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1: void registerListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1: void unregisterListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1: void publish(int,java.lang.String)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1: void lambda$publish$2(int,java.lang.String,com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1: void lambda$registerListener$1(com.faendir.lightning_launcher.multitool.badge.IBadgeListener,java.lang.String,java.util.Map$Entry)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1: boolean lambda$registerListener$0(java.lang.String,java.util.Map$Entry)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$1
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$1: java.lang.String arg$1
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$1: BadgeService$1$$Lambda$1(java.lang.String)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$1: boolean test(java.lang.Object)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$1: java8.util.function.Predicate lambdaFactory$(java.lang.String)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$2
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$2: com.faendir.lightning_launcher.multitool.badge.IBadgeListener arg$1
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$2: java.lang.String arg$2
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$2: BadgeService$1$$Lambda$2(com.faendir.lightning_launcher.multitool.badge.IBadgeListener,java.lang.String)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$2: void accept(java.lang.Object)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$2: com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalConsumer lambdaFactory$(com.faendir.lightning_launcher.multitool.badge.IBadgeListener,java.lang.String)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$3
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$3: int arg$1
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$3: java.lang.String arg$2
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$3: BadgeService$1$$Lambda$3(int,java.lang.String)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$3: void accept(java.lang.Object)
-com.faendir.lightning_launcher.multitool.badge.BadgeService$1$$Lambda$3: com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalConsumer lambdaFactory$(int,java.lang.String)
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener: void onCountChange(int,java.lang.String)
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub: java.lang.String DESCRIPTOR
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub: int TRANSACTION_onCountChange
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub: IBadgeListener$Stub()
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub: com.faendir.lightning_launcher.multitool.badge.IBadgeListener asInterface(android.os.IBinder)
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub: android.os.IBinder asBinder()
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub$Proxy
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub$Proxy: android.os.IBinder mRemote
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub$Proxy: IBadgeListener$Stub$Proxy(android.os.IBinder)
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub$Proxy: android.os.IBinder asBinder()
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub$Proxy: java.lang.String getInterfaceDescriptor()
-com.faendir.lightning_launcher.multitool.badge.IBadgeListener$Stub$Proxy: void onCountChange(int,java.lang.String)
-com.faendir.lightning_launcher.multitool.badge.IBadgeService
-com.faendir.lightning_launcher.multitool.badge.IBadgeService: void registerListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
-com.faendir.lightning_launcher.multitool.badge.IBadgeService: void unregisterListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
-com.faendir.lightning_launcher.multitool.badge.IBadgeService: void publish(int,java.lang.String)
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: java.lang.String DESCRIPTOR
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: int TRANSACTION_registerListener
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: int TRANSACTION_unregisterListener
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: int TRANSACTION_publish
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: IBadgeService$Stub()
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: com.faendir.lightning_launcher.multitool.badge.IBadgeService asInterface(android.os.IBinder)
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: android.os.IBinder asBinder()
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub: boolean onTransact(int,android.os.Parcel,android.os.Parcel,int)
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: android.os.IBinder mRemote
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: IBadgeService$Stub$Proxy(android.os.IBinder)
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: android.os.IBinder asBinder()
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: java.lang.String getInterfaceDescriptor()
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: void registerListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: void unregisterListener(com.faendir.lightning_launcher.multitool.badge.IBadgeListener)
-com.faendir.lightning_launcher.multitool.badge.IBadgeService$Stub$Proxy: void publish(int,java.lang.String)
+com.faendir.lightning_launcher.multitool.badge.BadgeListener: BadgeListener(android.os.Handler,android.content.Context,java.lang.String,java8.util.function.Consumer)
+com.faendir.lightning_launcher.multitool.badge.BadgeListener: void lambda$new$0$BadgeListener(java8.util.function.Consumer,android.content.Context,java.lang.String)
+com.faendir.lightning_launcher.multitool.badge.NotificationListener
+com.faendir.lightning_launcher.multitool.badge.NotificationListener: android.content.SharedPreferences sharedPref
+com.faendir.lightning_launcher.multitool.badge.NotificationListener: NotificationListener()
+com.faendir.lightning_launcher.multitool.badge.NotificationListener: void onCreate()
+com.faendir.lightning_launcher.multitool.badge.NotificationListener: void onNotificationPosted(android.service.notification.StatusBarNotification)
+com.faendir.lightning_launcher.multitool.badge.NotificationListener: void onNotificationPosted(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap)
+com.faendir.lightning_launcher.multitool.badge.NotificationListener: void onNotificationRemoved(android.service.notification.StatusBarNotification)
+com.faendir.lightning_launcher.multitool.badge.NotificationListener: void onNotificationRemoved(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap)
+com.faendir.lightning_launcher.multitool.badge.NotificationListener: boolean supportsIntentBasedCount(java.lang.String)
+com.faendir.lightning_launcher.multitool.badge.NotificationListener: boolean isEnabled(android.content.Context)
+com.faendir.lightning_launcher.multitool.badge.NotificationListener: void askForEnable(android.content.Context)
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState[] values()
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState valueOf(java.lang.String)
+com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$0: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$1: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$2: void onClick(android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$3: void onClick(android.content.DialogInterface,int)
+com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$4: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$5: void onClick(android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$6: void onClick(android.content.DialogInterface,int)
+com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$7: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$8: void onClick(android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$9: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.drawer.DrawerFragment
 com.faendir.lightning_launcher.multitool.drawer.RestorePreference
 com.faendir.lightning_launcher.multitool.drawer.RestorePreference: RestorePreference(android.content.Context,android.util.AttributeSet)
-com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem$$Lambda$1: boolean onClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.fastadapter.IItem,int)
+com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem$$Lambda$0: boolean onClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.fastadapter.IItem,int)
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity: GestureActivity()
 com.faendir.lightning_launcher.multitool.gesture.GestureActivity: void onClick(android.view.View)
@@ -10997,75 +10944,58 @@ com.faendir.lightning_launcher.multitool.gesture.GestureInfo: java.util.UUID get
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.graphics.drawable.Drawable getIcon(android.content.Context)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: int describeContents()
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void writeToParcel(android.os.Parcel,int)
-com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void lambda$getGesture$0(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,java.util.ArrayList)
+com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void lambda$getGesture$0$GestureInfo(java.util.ArrayList)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: android.gesture.Gesture access$002(com.faendir.lightning_launcher.multitool.gesture.GestureInfo,android.gesture.Gesture)
 com.faendir.lightning_launcher.multitool.gesture.GestureInfo: void <clinit>()
+com.faendir.lightning_launcher.multitool.gesture.IntentChooser
+com.faendir.lightning_launcher.multitool.gesture.IntentChooser: IntentChooser()
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: LightningGestureView(android.content.Context)
 com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: void onGesturePerformed(android.gesture.GestureOverlayView,android.gesture.Gesture)
-com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: boolean lambda$onGesturePerformed$0(java.util.UUID,com.faendir.lightning_launcher.multitool.gesture.GestureInfo)
+com.faendir.lightning_launcher.multitool.gesture.LightningGestureView: boolean lambda$onGesturePerformed$0$LightningGestureView(java.util.UUID,com.faendir.lightning_launcher.multitool.gesture.GestureInfo)
 com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment
 com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment: void onButtonClick(com.faendir.lightning_launcher.multitool.event.ClickEvent)
-com.faendir.lightning_launcher.multitool.music.DummyNotificationListener
-com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: DummyNotificationListener()
-com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: void onNotificationPosted(android.service.notification.StatusBarNotification)
-com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: void onNotificationPosted(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap)
-com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: void onNotificationRemoved(android.service.notification.StatusBarNotification)
-com.faendir.lightning_launcher.multitool.music.DummyNotificationListener: void onNotificationRemoved(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap)
 com.faendir.lightning_launcher.multitool.music.MusicFragment
 com.faendir.lightning_launcher.multitool.music.MusicFragment: void onClick(com.faendir.lightning_launcher.multitool.event.ClickEvent)
-com.faendir.lightning_launcher.multitool.music.MusicManager
-com.faendir.lightning_launcher.multitool.music.MusicManager: int ACTION_REGISTER
-com.faendir.lightning_launcher.multitool.music.MusicManager: int ACTION_UNREGISTER
-com.faendir.lightning_launcher.multitool.music.MusicManager: int ACTION_REGISTER_MESSENGER
-com.faendir.lightning_launcher.multitool.music.MusicManager: int ACTION_UNREGISTER_MESSENGER
-com.faendir.lightning_launcher.multitool.music.MusicManager: int ACTION_PLAY_PAUSE
-com.faendir.lightning_launcher.multitool.music.MusicManager: int ACTION_NEXT
-com.faendir.lightning_launcher.multitool.music.MusicManager: int ACTION_PREVIOUS
-com.faendir.lightning_launcher.multitool.music.MusicManager: java.util.List PLAYING_STATES
-com.faendir.lightning_launcher.multitool.music.MusicManager: org.apache.commons.collections4.BidiMap controllers
-com.faendir.lightning_launcher.multitool.music.MusicManager: java.util.Set listeners
-com.faendir.lightning_launcher.multitool.music.MusicManager: android.media.session.MediaSessionManager mediaSessionManager
-com.faendir.lightning_launcher.multitool.music.MusicManager: android.content.ComponentName notificationListener
-com.faendir.lightning_launcher.multitool.music.MusicManager: android.content.SharedPreferences sharedPref
-com.faendir.lightning_launcher.multitool.music.MusicManager: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager billingManager
-com.faendir.lightning_launcher.multitool.music.MusicManager: android.graphics.Bitmap albumArt
-com.faendir.lightning_launcher.multitool.music.MusicManager: java.lang.String title
-com.faendir.lightning_launcher.multitool.music.MusicManager: java.lang.String album
-com.faendir.lightning_launcher.multitool.music.MusicManager: java.lang.String artist
-com.faendir.lightning_launcher.multitool.music.MusicManager: java.lang.String packageName
-com.faendir.lightning_launcher.multitool.music.MusicManager: java.lang.ref.WeakReference currentController
-com.faendir.lightning_launcher.multitool.music.MusicManager: android.media.session.MediaSessionManager$OnActiveSessionsChangedListener sessionsChangedListener
-com.faendir.lightning_launcher.multitool.music.MusicManager: boolean hasDisplayedToast
-com.faendir.lightning_launcher.multitool.music.MusicManager: MusicManager()
-com.faendir.lightning_launcher.multitool.music.MusicManager: int onStartCommand(android.content.Intent,int,int)
-com.faendir.lightning_launcher.multitool.music.MusicManager: void onCreate()
-com.faendir.lightning_launcher.multitool.music.MusicManager: void updateCurrentInfo(android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String)
-com.faendir.lightning_launcher.multitool.music.MusicManager: void onActiveSessionsChanged(java.util.List)
-com.faendir.lightning_launcher.multitool.music.MusicManager: void startDefaultPlayerWithKeyCode(int)
-com.faendir.lightning_launcher.multitool.music.MusicManager: void sendKeyCodeToPlayer(int,java.lang.String)
-com.faendir.lightning_launcher.multitool.music.MusicManager: android.os.IBinder onBind(android.content.Intent)
-com.faendir.lightning_launcher.multitool.music.MusicManager: void handleMessage(android.os.Message)
-com.faendir.lightning_launcher.multitool.music.MusicManager: boolean isAlternativeControl(android.media.session.MediaController)
-com.faendir.lightning_launcher.multitool.music.MusicManager: void registerListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener)
-com.faendir.lightning_launcher.multitool.music.MusicManager: void unregisterListener(com.faendir.lightning_launcher.multitool.music.MusicManager$Listener)
-com.faendir.lightning_launcher.multitool.music.MusicManager: boolean lambda$handleMessage$1(android.os.Message,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener)
-com.faendir.lightning_launcher.multitool.music.MusicManager: void lambda$updateCurrentInfo$0(com.faendir.lightning_launcher.multitool.music.MusicManager,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener)
-com.faendir.lightning_launcher.multitool.music.MusicManager: java.util.List access$300()
-com.faendir.lightning_launcher.multitool.music.MusicManager: java.lang.ref.WeakReference access$400(com.faendir.lightning_launcher.multitool.music.MusicManager)
-com.faendir.lightning_launcher.multitool.music.MusicManager: org.apache.commons.collections4.BidiMap access$500(com.faendir.lightning_launcher.multitool.music.MusicManager)
-com.faendir.lightning_launcher.multitool.music.MusicManager: void access$600(com.faendir.lightning_launcher.multitool.music.MusicManager,android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String)
-com.faendir.lightning_launcher.multitool.music.MusicManager: void <clinit>()
-com.faendir.lightning_launcher.multitool.music.MusicManager: void access$lambda$0(com.faendir.lightning_launcher.multitool.music.MusicManager,com.faendir.lightning_launcher.multitool.music.MusicManager$Listener)
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$1: void onClick(android.content.DialogInterface,int)
+com.faendir.lightning_launcher.multitool.music.MusicListener
+com.faendir.lightning_launcher.multitool.music.MusicListener: MusicListener(android.os.Handler,android.content.Context,java8.util.function.Consumer)
+com.faendir.lightning_launcher.multitool.music.MusicListener: void register()
+com.faendir.lightning_launcher.multitool.music.MusicListener: void sendNext()
+com.faendir.lightning_launcher.multitool.music.MusicListener: void sendPrevious()
+com.faendir.lightning_launcher.multitool.music.MusicListener: void sendPlayPause()
+com.faendir.lightning_launcher.multitool.music.MusicListener: void startWithCode(int)
+com.faendir.lightning_launcher.multitool.music.MusicListener: void lambda$new$0$MusicListener(java8.util.function.Consumer,android.content.Context)
+com.faendir.lightning_launcher.multitool.music.MusicListenerService
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: java.util.List PLAYING_STATES
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: java.lang.String EXTRA_COMMAND_CODE
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: org.apache.commons.collections4.BidiMap controllers
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: android.content.SharedPreferences sharedPref
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: java.lang.ref.WeakReference currentController
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: android.media.session.MediaSessionManager$OnActiveSessionsChangedListener sessionsChangedListener
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: boolean enabled
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: MusicListenerService()
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: int onStartCommand(android.content.Intent,int,int)
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: android.os.IBinder onBind(android.content.Intent)
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: void onCreate()
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: void updateCurrentInfo(android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String)
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: void onActiveSessionsChanged(java.util.List)
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: void startDefaultPlayerWithKeyCode(int)
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: void sendKeyCodeToPlayer(int,java.lang.String)
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: boolean isAlternativeControl(android.media.session.MediaController)
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: java.util.List access$200()
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: java.lang.ref.WeakReference access$300(com.faendir.lightning_launcher.multitool.music.MusicListenerService)
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: org.apache.commons.collections4.BidiMap access$400(com.faendir.lightning_launcher.multitool.music.MusicListenerService)
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: void access$500(com.faendir.lightning_launcher.multitool.music.MusicListenerService,android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String)
+com.faendir.lightning_launcher.multitool.music.MusicListenerService: void <clinit>()
+com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$0: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask3$Position: com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask3$Position[] values()
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask3$Position: com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask3$Position valueOf(java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment: void onReloadButton(com.faendir.lightning_launcher.multitool.event.ClickEvent)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$0: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$1: void onClick(android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$2: void onClick(android.content.DialogInterface,int)
+com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$5: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$6: void onClick(android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$7: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.settings.BackupTimePreference
 com.faendir.lightning_launcher.multitool.settings.BackupTimePreference: BackupTimePreference(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.settings.BackupTimePreference: void onClick(android.view.View)
@@ -11080,24 +11010,32 @@ com.faendir.lightning_launcher.multitool.settings.TrialPreference: void onClick(
 com.faendir.lightning_launcher.multitool.settings.VersionPreference
 com.faendir.lightning_launcher.multitool.settings.VersionPreference: VersionPreference(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.util.BaseActivity: BaseActivity(int)
-com.faendir.lightning_launcher.multitool.util.BaseIpcService
-com.faendir.lightning_launcher.multitool.util.BaseIpcService: android.os.Messenger messenger
-com.faendir.lightning_launcher.multitool.util.BaseIpcService: BaseIpcService()
-com.faendir.lightning_launcher.multitool.util.BaseIpcService: android.os.IBinder onBind(android.content.Intent)
-com.faendir.lightning_launcher.multitool.util.BaseIpcService: void handleMessage(android.os.Message)
-com.faendir.lightning_launcher.multitool.util.DataProvider
-com.faendir.lightning_launcher.multitool.util.DataProvider: DataProvider()
-com.faendir.lightning_launcher.multitool.util.DataProvider$Mode: com.faendir.lightning_launcher.multitool.util.DataProvider$Mode[] values()
-com.faendir.lightning_launcher.multitool.util.DataProvider$Mode: com.faendir.lightning_launcher.multitool.util.DataProvider$Mode valueOf(java.lang.String)
-com.faendir.lightning_launcher.multitool.util.DataProvider$URI: com.faendir.lightning_launcher.multitool.util.DataProvider$URI[] values()
-com.faendir.lightning_launcher.multitool.util.DataProvider$URI: com.faendir.lightning_launcher.multitool.util.DataProvider$URI valueOf(java.lang.String)
 com.faendir.lightning_launcher.multitool.util.FragmentManager: void onSwitchFragmentRequest(com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest)
-com.faendir.lightning_launcher.multitool.util.IntentChooser
-com.faendir.lightning_launcher.multitool.util.IntentChooser: IntentChooser()
-com.faendir.lightning_launcher.multitool.util.IntentHandlerListTask$$Lambda$3: boolean onClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.fastadapter.IItem,int)
+com.faendir.lightning_launcher.multitool.util.IntentChooserFragment
+com.faendir.lightning_launcher.multitool.util.IntentChooserFragment: IntentChooserFragment()
+com.faendir.lightning_launcher.multitool.util.IntentChooserFragment$$Lambda$2: boolean onClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.fastadapter.IItem,int)
+com.faendir.lightning_launcher.multitool.util.LightningObjectFactory
+com.faendir.lightning_launcher.multitool.util.LightningObjectFactory: LightningObjectFactory()
+com.faendir.lightning_launcher.multitool.util.LightningObjectFactory: com.faendir.lightning_launcher.multitool.music.MusicListener constructMusicListener(android.os.Handler,android.content.Context,java8.util.function.Consumer)
+com.faendir.lightning_launcher.multitool.util.LightningObjectFactory: com.faendir.lightning_launcher.multitool.badge.BadgeListener constructBadgeListener(android.os.Handler,android.content.Context,java.lang.String,java8.util.function.Consumer)
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: ResetReportPrimer()
-com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: void primeReport(android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder)
+com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: boolean shouldStartCollecting(android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder)
+com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: boolean shouldSendReport(android.content.Context,org.acra.config.CoreConfiguration,org.acra.data.CrashReportData)
+com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: void notifyReportDropped(android.content.Context,org.acra.config.CoreConfiguration)
+com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: boolean enabled(org.acra.config.CoreConfiguration)
+com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener: android.content.Context context
+com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener: android.net.Uri uri
+com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener: java.lang.Runnable onChange
+com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener: BaseContentListener(android.os.Handler,android.content.Context,android.net.Uri,java.lang.Runnable)
+com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener: void onChange(boolean)
+com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener: void register()
+com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener: void unregister()
+com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener: android.content.Context getContext()
+com.faendir.lightning_launcher.multitool.util.provider.DataProvider
+com.faendir.lightning_launcher.multitool.util.provider.DataProvider: DataProvider()
+com.faendir.lightning_launcher.multitool.util.provider.DataProvider$Mode: com.faendir.lightning_launcher.multitool.util.provider.DataProvider$Mode[] values()
+com.faendir.lightning_launcher.multitool.util.provider.DataProvider$Mode: com.faendir.lightning_launcher.multitool.util.provider.DataProvider$Mode valueOf(java.lang.String)
 com.faendir.lightning_launcher.scriptlib.DialogActivity
 com.faendir.lightning_launcher.scriptlib.DialogActivity: DialogActivity()
 com.faendir.lightning_launcher.scriptlib.DialogActivity: void onClick(android.view.View)
@@ -24066,58 +24004,45 @@ org.acra.ReportField: org.acra.ReportField[] $VALUES
 org.acra.ReportField: org.acra.ReportField[] values()
 org.acra.ReportField: org.acra.ReportField valueOf(java.lang.String)
 org.acra.ReportField: ReportField(java.lang.String,int)
-org.acra.ReportField: boolean containsKeyValuePairs()
 org.acra.ReportField: ReportField(java.lang.String,int,org.acra.ReportField$1)
 org.acra.ReportField: void <clinit>()
 org.acra.ReportField$1
 org.acra.ReportField$1: ReportField$1(java.lang.String,int)
-org.acra.ReportField$1: boolean containsKeyValuePairs()
 org.acra.ReportField$10
 org.acra.ReportField$10: ReportField$10(java.lang.String,int)
-org.acra.ReportField$10: boolean containsKeyValuePairs()
 org.acra.ReportField$11
 org.acra.ReportField$11: ReportField$11(java.lang.String,int)
-org.acra.ReportField$11: boolean containsKeyValuePairs()
 org.acra.ReportField$12
 org.acra.ReportField$12: ReportField$12(java.lang.String,int)
-org.acra.ReportField$12: boolean containsKeyValuePairs()
 org.acra.ReportField$2
 org.acra.ReportField$2: ReportField$2(java.lang.String,int)
-org.acra.ReportField$2: boolean containsKeyValuePairs()
 org.acra.ReportField$3
 org.acra.ReportField$3: ReportField$3(java.lang.String,int)
-org.acra.ReportField$3: boolean containsKeyValuePairs()
 org.acra.ReportField$4
 org.acra.ReportField$4: ReportField$4(java.lang.String,int)
-org.acra.ReportField$4: boolean containsKeyValuePairs()
 org.acra.ReportField$5
 org.acra.ReportField$5: ReportField$5(java.lang.String,int)
-org.acra.ReportField$5: boolean containsKeyValuePairs()
 org.acra.ReportField$6
 org.acra.ReportField$6: ReportField$6(java.lang.String,int)
-org.acra.ReportField$6: boolean containsKeyValuePairs()
 org.acra.ReportField$7
 org.acra.ReportField$7: ReportField$7(java.lang.String,int)
-org.acra.ReportField$7: boolean containsKeyValuePairs()
 org.acra.ReportField$8
 org.acra.ReportField$8: ReportField$8(java.lang.String,int)
-org.acra.ReportField$8: boolean containsKeyValuePairs()
 org.acra.ReportField$9
 org.acra.ReportField$9: ReportField$9(java.lang.String,int)
-org.acra.ReportField$9: boolean containsKeyValuePairs()
 org.acra.attachment.AcraContentProvider
 org.acra.attachment.AcraContentProvider: AcraContentProvider()
-org.acra.collector.AbstractReportFieldCollector
-org.acra.collector.AbstractReportFieldCollector: org.acra.ReportField[] reportFields
-org.acra.collector.AbstractReportFieldCollector: AbstractReportFieldCollector(org.acra.ReportField,org.acra.ReportField[])
-org.acra.collector.AbstractReportFieldCollector: boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder)
-org.acra.collector.AbstractReportFieldCollector: void collect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
-org.acra.collector.AbstractReportFieldCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
-org.acra.collector.AbstractReportFieldCollector: org.acra.collector.Collector$Order getOrder()
 org.acra.collector.ApplicationStartupCollector
 org.acra.collector.ApplicationStartupCollector: void collectApplicationStartUp(android.content.Context,org.acra.config.CoreConfiguration)
+org.acra.collector.BaseReportFieldCollector
+org.acra.collector.BaseReportFieldCollector: org.acra.ReportField[] reportFields
+org.acra.collector.BaseReportFieldCollector: BaseReportFieldCollector(org.acra.ReportField,org.acra.ReportField[])
+org.acra.collector.BaseReportFieldCollector: boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder)
+org.acra.collector.BaseReportFieldCollector: void collect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
+org.acra.collector.BaseReportFieldCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
+org.acra.collector.BaseReportFieldCollector: org.acra.collector.Collector$Order getOrder()
 org.acra.collector.Collector
-org.acra.collector.Collector: void collect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.Collector: void collect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.Collector: org.acra.collector.Collector$Order getOrder()
 org.acra.collector.Collector$Order
 org.acra.collector.Collector$Order: org.acra.collector.Collector$Order FIRST
@@ -24147,7 +24072,7 @@ org.acra.collector.ConfigurationCollector: java.lang.String PREFIX_KEYBOARD
 org.acra.collector.ConfigurationCollector: java.lang.String PREFIX_HARDKEYBOARDHIDDEN
 org.acra.collector.ConfigurationCollector: org.json.JSONObject initialConfiguration
 org.acra.collector.ConfigurationCollector: ConfigurationCollector()
-org.acra.collector.ConfigurationCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.ConfigurationCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.ConfigurationCollector: void collectApplicationStartUp(android.content.Context,org.acra.config.CoreConfiguration)
 org.acra.collector.ConfigurationCollector: org.json.JSONObject configToJson(android.content.res.Configuration)
 org.acra.collector.ConfigurationCollector: java.util.Map getValueArrays()
@@ -24157,20 +24082,20 @@ org.acra.collector.ConfigurationCollector: org.json.JSONObject collectConfigurat
 org.acra.collector.ConfigurationCollector: org.acra.collector.Collector$Order getOrder()
 org.acra.collector.CustomDataCollector
 org.acra.collector.CustomDataCollector: CustomDataCollector()
-org.acra.collector.CustomDataCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.CustomDataCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.CustomDataCollector: org.acra.collector.Collector$Order getOrder()
 org.acra.collector.DeviceFeaturesCollector
 org.acra.collector.DeviceFeaturesCollector: DeviceFeaturesCollector()
-org.acra.collector.DeviceFeaturesCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.DeviceFeaturesCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.DeviceFeaturesCollector: org.acra.collector.Collector$Order getOrder()
 org.acra.collector.DeviceIdCollector
 org.acra.collector.DeviceIdCollector: DeviceIdCollector()
 org.acra.collector.DeviceIdCollector: boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder)
-org.acra.collector.DeviceIdCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.DeviceIdCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.DeviceIdCollector: org.acra.collector.Collector$Order getOrder()
 org.acra.collector.DisplayManagerCollector
 org.acra.collector.DisplayManagerCollector: DisplayManagerCollector()
-org.acra.collector.DisplayManagerCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.DisplayManagerCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.DisplayManagerCollector: org.json.JSONObject collectDisplayData(android.view.Display)
 org.acra.collector.DisplayManagerCollector: void collectIsValid(android.view.Display,org.json.JSONObject)
 org.acra.collector.DisplayManagerCollector: void collectRotation(android.view.Display,org.json.JSONObject)
@@ -24191,7 +24116,7 @@ org.acra.collector.DropBoxCollector: java.lang.String[] SYSTEM_TAGS
 org.acra.collector.DropBoxCollector: java.text.SimpleDateFormat dateFormat
 org.acra.collector.DropBoxCollector: DropBoxCollector()
 org.acra.collector.DropBoxCollector: org.acra.collector.Collector$Order getOrder()
-org.acra.collector.DropBoxCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.DropBoxCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.DropBoxCollector: boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.DropBoxCollector: void <clinit>()
 org.acra.collector.LogCatCollector
@@ -24199,12 +24124,12 @@ org.acra.collector.LogCatCollector: LogCatCollector()
 org.acra.collector.LogCatCollector: org.acra.collector.Collector$Order getOrder()
 org.acra.collector.LogCatCollector: java.lang.String collectLogCat(org.acra.config.CoreConfiguration,java.lang.String)
 org.acra.collector.LogCatCollector: boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder)
-org.acra.collector.LogCatCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.LogCatCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.LogCatCollector: java.lang.String streamToString(org.acra.config.CoreConfiguration,java.io.InputStream,com.android.internal.util.Predicate,int)
 org.acra.collector.LogFileCollector
 org.acra.collector.LogFileCollector: LogFileCollector()
 org.acra.collector.LogFileCollector: org.acra.collector.Collector$Order getOrder()
-org.acra.collector.LogFileCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.LogFileCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.LogFileCollector: java.io.InputStream getStream(android.content.Context,org.acra.file.Directory,java.lang.String)
 org.acra.collector.MediaCodecListCollector
 org.acra.collector.MediaCodecListCollector: java.lang.String COLOR_FORMAT_PREFIX
@@ -24222,7 +24147,7 @@ org.acra.collector.MediaCodecListCollector: android.util.SparseArray mMPEG4Profi
 org.acra.collector.MediaCodecListCollector: android.util.SparseArray mAACProfileValues
 org.acra.collector.MediaCodecListCollector: MediaCodecListCollector()
 org.acra.collector.MediaCodecListCollector: org.acra.collector.Collector$Order getOrder()
-org.acra.collector.MediaCodecListCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.MediaCodecListCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.MediaCodecListCollector: boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.MediaCodecListCollector: void prepare()
 org.acra.collector.MediaCodecListCollector: org.json.JSONObject collectMediaCodecList()
@@ -24242,18 +24167,18 @@ org.acra.collector.MediaCodecListCollector$CodecType: void <clinit>()
 org.acra.collector.MemoryInfoCollector
 org.acra.collector.MemoryInfoCollector: MemoryInfoCollector()
 org.acra.collector.MemoryInfoCollector: boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder)
-org.acra.collector.MemoryInfoCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.MemoryInfoCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.MemoryInfoCollector: java.lang.String collectMemInfo()
 org.acra.collector.MemoryInfoCollector: long getAvailableInternalMemorySize()
 org.acra.collector.MemoryInfoCollector: long getTotalInternalMemorySize()
 org.acra.collector.MemoryInfoCollector: org.acra.collector.Collector$Order getOrder()
 org.acra.collector.PackageManagerCollector
 org.acra.collector.PackageManagerCollector: PackageManagerCollector()
-org.acra.collector.PackageManagerCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.PackageManagerCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.PackageManagerCollector: org.acra.collector.Collector$Order getOrder()
 org.acra.collector.ReflectionCollector
 org.acra.collector.ReflectionCollector: ReflectionCollector()
-org.acra.collector.ReflectionCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.ReflectionCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.ReflectionCollector: void collectConstants(java.lang.Class,org.json.JSONObject)
 org.acra.collector.ReflectionCollector: void collectStaticGettersResults(java.lang.Class,org.json.JSONObject)
 org.acra.collector.ReflectionCollector: java.lang.Class getBuildConfigClass(android.content.Context,org.acra.config.CoreConfiguration)
@@ -24261,19 +24186,19 @@ org.acra.collector.ReflectionCollector: org.acra.collector.Collector$Order getOr
 org.acra.collector.SettingsCollector
 org.acra.collector.SettingsCollector: java.lang.String ERROR
 org.acra.collector.SettingsCollector: SettingsCollector()
-org.acra.collector.SettingsCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.SettingsCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.SettingsCollector: org.json.JSONObject collectSettings(android.content.Context,org.acra.config.CoreConfiguration,java.lang.Class)
 org.acra.collector.SettingsCollector: boolean isAuthorized(org.acra.config.CoreConfiguration,java.lang.reflect.Field)
 org.acra.collector.SettingsCollector: org.acra.collector.Collector$Order getOrder()
 org.acra.collector.SharedPreferencesCollector
 org.acra.collector.SharedPreferencesCollector: SharedPreferencesCollector()
-org.acra.collector.SharedPreferencesCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.SharedPreferencesCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.SharedPreferencesCollector: org.json.JSONObject collect(android.content.Context,org.acra.config.CoreConfiguration)
 org.acra.collector.SharedPreferencesCollector: boolean filteredKey(org.acra.config.CoreConfiguration,java.lang.String)
 org.acra.collector.SharedPreferencesCollector: org.acra.collector.Collector$Order getOrder()
 org.acra.collector.SimpleValuesCollector
 org.acra.collector.SimpleValuesCollector: SimpleValuesCollector()
-org.acra.collector.SimpleValuesCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.SimpleValuesCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.SimpleValuesCollector: boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.SimpleValuesCollector: java.lang.String getApplicationFilePath(android.content.Context)
 org.acra.collector.SimpleValuesCollector: java.lang.String getLocalIpAddress()
@@ -24281,18 +24206,18 @@ org.acra.collector.SimpleValuesCollector: org.acra.collector.Collector$Order get
 org.acra.collector.StacktraceCollector
 org.acra.collector.StacktraceCollector: StacktraceCollector()
 org.acra.collector.StacktraceCollector: org.acra.collector.Collector$Order getOrder()
-org.acra.collector.StacktraceCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.StacktraceCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.StacktraceCollector: boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.StacktraceCollector: java.lang.String getStackTrace(java.lang.String,java.lang.Throwable)
 org.acra.collector.StacktraceCollector: java.lang.String getStackTraceHash(java.lang.Throwable)
 org.acra.collector.ThreadCollector
 org.acra.collector.ThreadCollector: ThreadCollector()
 org.acra.collector.ThreadCollector: org.acra.collector.Collector$Order getOrder()
-org.acra.collector.ThreadCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.ThreadCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.TimeCollector
 org.acra.collector.TimeCollector: java.util.Calendar appStartDate
 org.acra.collector.TimeCollector: TimeCollector()
-org.acra.collector.TimeCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.collector.CrashReportData)
+org.acra.collector.TimeCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.TimeCollector: void collectApplicationStartUp(android.content.Context,org.acra.config.CoreConfiguration)
 org.acra.collector.TimeCollector: boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.TimeCollector: java.lang.String getTimeString(java.util.Calendar)
@@ -24302,6 +24227,11 @@ org.acra.config.ConfigurationBuilderFactory: org.acra.config.ConfigurationBuilde
 org.acra.config.HttpSenderConfigurationBuilderFactory
 org.acra.config.HttpSenderConfigurationBuilderFactory: HttpSenderConfigurationBuilderFactory()
 org.acra.config.HttpSenderConfigurationBuilderFactory: org.acra.config.ConfigurationBuilder create(java.lang.Class)
+org.acra.config.ReportingAdministrator
+org.acra.config.ReportingAdministrator: boolean shouldStartCollecting(android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder)
+org.acra.config.ReportingAdministrator: boolean shouldSendReport(android.content.Context,org.acra.config.CoreConfiguration,org.acra.data.CrashReportData)
+org.acra.config.ReportingAdministrator: void notifyReportDropped(android.content.Context,org.acra.config.CoreConfiguration)
+org.acra.config.ReportingAdministrator: boolean enabled(org.acra.config.CoreConfiguration)
 org.acra.file.Directory
 org.acra.file.Directory: org.acra.file.Directory FILES_LEGACY
 org.acra.file.Directory: org.acra.file.Directory FILES
@@ -24342,8 +24272,13 @@ org.acra.file.Directory$7: java.io.File getFile(android.content.Context,java.lan
 org.acra.file.Directory$8
 org.acra.file.Directory$8: Directory$8(java.lang.String,int)
 org.acra.file.Directory$8: java.io.File getFile(android.content.Context,java.lang.String)
+org.acra.interaction.BaseReportInteraction
+org.acra.interaction.BaseReportInteraction: java.lang.Class configClass
+org.acra.interaction.BaseReportInteraction: BaseReportInteraction(java.lang.Class)
+org.acra.interaction.BaseReportInteraction: boolean enabled(org.acra.config.CoreConfiguration)
 org.acra.interaction.ReportInteraction
 org.acra.interaction.ReportInteraction: boolean performInteraction(android.content.Context,org.acra.config.CoreConfiguration,java.io.File)
+org.acra.interaction.ReportInteraction: boolean enabled(org.acra.config.CoreConfiguration)
 org.acra.security.BaseKeyStoreFactory$Type
 org.acra.security.BaseKeyStoreFactory$Type: org.acra.security.BaseKeyStoreFactory$Type CERTIFICATE
 org.acra.security.BaseKeyStoreFactory$Type: org.acra.security.BaseKeyStoreFactory$Type KEYSTORE
@@ -24352,9 +24287,14 @@ org.acra.security.BaseKeyStoreFactory$Type: org.acra.security.BaseKeyStoreFactor
 org.acra.security.BaseKeyStoreFactory$Type: org.acra.security.BaseKeyStoreFactory$Type valueOf(java.lang.String)
 org.acra.security.BaseKeyStoreFactory$Type: BaseKeyStoreFactory$Type(java.lang.String,int)
 org.acra.security.BaseKeyStoreFactory$Type: void <clinit>()
+org.acra.sender.BaseReportSenderFactory
+org.acra.sender.BaseReportSenderFactory: java.lang.Class configClass
+org.acra.sender.BaseReportSenderFactory: BaseReportSenderFactory(java.lang.Class)
+org.acra.sender.BaseReportSenderFactory: boolean enabled(org.acra.config.CoreConfiguration)
 org.acra.sender.DefaultReportSenderFactory
 org.acra.sender.DefaultReportSenderFactory: DefaultReportSenderFactory()
 org.acra.sender.DefaultReportSenderFactory: org.acra.sender.ReportSender create(android.content.Context,org.acra.config.CoreConfiguration)
+org.acra.sender.DefaultReportSenderFactory: boolean enabled(org.acra.config.CoreConfiguration)
 org.acra.sender.HttpSender$Method
 org.acra.sender.HttpSender$Method: org.acra.sender.HttpSender$Method POST
 org.acra.sender.HttpSender$Method: org.acra.sender.HttpSender$Method PUT
@@ -24362,15 +24302,15 @@ org.acra.sender.HttpSender$Method: org.acra.sender.HttpSender$Method[] $VALUES
 org.acra.sender.HttpSender$Method: org.acra.sender.HttpSender$Method[] values()
 org.acra.sender.HttpSender$Method: org.acra.sender.HttpSender$Method valueOf(java.lang.String)
 org.acra.sender.HttpSender$Method: HttpSender$Method(java.lang.String,int)
-org.acra.sender.HttpSender$Method: java.net.URL createURL(java.lang.String,org.acra.collector.CrashReportData)
+org.acra.sender.HttpSender$Method: java.net.URL createURL(java.lang.String,org.acra.data.CrashReportData)
 org.acra.sender.HttpSender$Method: HttpSender$Method(java.lang.String,int,org.acra.sender.HttpSender$1)
 org.acra.sender.HttpSender$Method: void <clinit>()
 org.acra.sender.HttpSender$Method$1
 org.acra.sender.HttpSender$Method$1: HttpSender$Method$1(java.lang.String,int)
-org.acra.sender.HttpSender$Method$1: java.net.URL createURL(java.lang.String,org.acra.collector.CrashReportData)
+org.acra.sender.HttpSender$Method$1: java.net.URL createURL(java.lang.String,org.acra.data.CrashReportData)
 org.acra.sender.HttpSender$Method$2
 org.acra.sender.HttpSender$Method$2: HttpSender$Method$2(java.lang.String,int)
-org.acra.sender.HttpSender$Method$2: java.net.URL createURL(java.lang.String,org.acra.collector.CrashReportData)
+org.acra.sender.HttpSender$Method$2: java.net.URL createURL(java.lang.String,org.acra.data.CrashReportData)
 org.acra.sender.HttpSender$Type
 org.acra.sender.HttpSender$Type: org.acra.sender.HttpSender$Type FORM
 org.acra.sender.HttpSender$Type: org.acra.sender.HttpSender$Type JSON
@@ -24380,20 +24320,21 @@ org.acra.sender.HttpSender$Type: org.acra.sender.HttpSender$Type[] values()
 org.acra.sender.HttpSender$Type: org.acra.sender.HttpSender$Type valueOf(java.lang.String)
 org.acra.sender.HttpSender$Type: HttpSender$Type(java.lang.String,int,java.lang.String)
 org.acra.sender.HttpSender$Type: java.lang.String getContentType()
-org.acra.sender.HttpSender$Type: java.lang.String convertReport(org.acra.sender.HttpSender,org.acra.collector.CrashReportData)
+org.acra.sender.HttpSender$Type: java.lang.String convertReport(org.acra.sender.HttpSender,org.acra.data.CrashReportData)
 org.acra.sender.HttpSender$Type: HttpSender$Type(java.lang.String,int,java.lang.String,org.acra.sender.HttpSender$1)
 org.acra.sender.HttpSender$Type: void <clinit>()
 org.acra.sender.HttpSender$Type$1
 org.acra.sender.HttpSender$Type$1: HttpSender$Type$1(java.lang.String,int,java.lang.String)
-org.acra.sender.HttpSender$Type$1: java.lang.String convertReport(org.acra.sender.HttpSender,org.acra.collector.CrashReportData)
+org.acra.sender.HttpSender$Type$1: java.lang.String convertReport(org.acra.sender.HttpSender,org.acra.data.CrashReportData)
 org.acra.sender.HttpSender$Type$2
 org.acra.sender.HttpSender$Type$2: HttpSender$Type$2(java.lang.String,int,java.lang.String)
-org.acra.sender.HttpSender$Type$2: java.lang.String convertReport(org.acra.sender.HttpSender,org.acra.collector.CrashReportData)
+org.acra.sender.HttpSender$Type$2: java.lang.String convertReport(org.acra.sender.HttpSender,org.acra.data.CrashReportData)
 org.acra.sender.HttpSenderFactory
 org.acra.sender.HttpSenderFactory: HttpSenderFactory()
 org.acra.sender.HttpSenderFactory: org.acra.sender.ReportSender create(android.content.Context,org.acra.config.CoreConfiguration)
 org.acra.sender.ReportSenderFactory
 org.acra.sender.ReportSenderFactory: org.acra.sender.ReportSender create(android.content.Context,org.acra.config.CoreConfiguration)
+org.acra.sender.ReportSenderFactory: boolean enabled(org.acra.config.CoreConfiguration)
 org.acra.sender.SenderService
 org.acra.sender.SenderService: java.lang.String EXTRA_ONLY_SEND_SILENT_REPORTS
 org.acra.sender.SenderService: java.lang.String EXTRA_APPROVE_REPORTS_FIRST

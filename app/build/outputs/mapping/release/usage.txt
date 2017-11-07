@@ -762,12 +762,9 @@ android.support.v4.app.BackStackRecord:
     353:356:public java.lang.CharSequence getBreadCrumbTitle()
     361:364:public java.lang.CharSequence getBreadCrumbShortTitle()
     383:384:public android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment)
-    389:390:public android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment,java.lang.String)
     432:432:public android.support.v4.app.FragmentTransaction replace(int,android.support.v4.app.Fragment)
     454:456:public android.support.v4.app.FragmentTransaction hide(android.support.v4.app.Fragment)
     461:463:public android.support.v4.app.FragmentTransaction show(android.support.v4.app.Fragment)
-    468:470:public android.support.v4.app.FragmentTransaction detach(android.support.v4.app.Fragment)
-    475:477:public android.support.v4.app.FragmentTransaction attach(android.support.v4.app.Fragment)
     482:484:public android.support.v4.app.FragmentTransaction setPrimaryNavigationFragment(android.support.v4.app.Fragment)
     489:489:public android.support.v4.app.FragmentTransaction setCustomAnimations(int,int)
     495:499:public android.support.v4.app.FragmentTransaction setCustomAnimations(int,int,int,int)
@@ -776,14 +773,12 @@ android.support.v4.app.BackStackRecord:
     535:536:public android.support.v4.app.FragmentTransaction setTransitionStyle(int)
     541:547:public android.support.v4.app.FragmentTransaction addToBackStack(java.lang.String)
     552:552:public boolean isAddToBackStackAllowed()
-    557:562:public android.support.v4.app.FragmentTransaction disallowAddToBackStack()
     567:569:public android.support.v4.app.FragmentTransaction setBreadCrumbTitle(int)
     574:576:public android.support.v4.app.FragmentTransaction setBreadCrumbTitle(java.lang.CharSequence)
     581:583:public android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(int)
     588:590:public android.support.v4.app.FragmentTransaction setBreadCrumbShortTitle(java.lang.CharSequence)
     612:620:public android.support.v4.app.FragmentTransaction runOnCommit(java.lang.Runnable)
     644:646:public void commitNow()
-    650:652:public void commitNowAllowingStateLoss()
     656:657:public android.support.v4.app.FragmentTransaction setReorderingAllowed(boolean)
     662:662:public android.support.v4.app.FragmentTransaction setAllowOptimization(boolean)
     1017:1017:public int getTransition()
@@ -834,7 +829,6 @@ android.support.v4.app.FragmentManager:
     public static final int POP_BACK_STACK_INCLUSIVE
     171:171:public android.support.v4.app.FragmentTransaction openTransaction()
     public abstract boolean executePendingTransactions()
-    public abstract android.support.v4.app.Fragment findFragmentById(int)
     public abstract void popBackStack()
     public abstract void popBackStack(java.lang.String,int)
     public abstract boolean popBackStackImmediate(java.lang.String,int)
@@ -878,7 +872,6 @@ android.support.v4.app.FragmentManagerImpl:
     944:947:int getActiveFragmentCount()
     952:960:public android.support.v4.app.Fragment$SavedState saveFragmentInstanceState(android.support.v4.app.Fragment)
     965:965:public boolean isDestroyed()
-    2191:2207:public void execSingleAction(android.support.v4.app.FragmentManagerImpl$OpGenerator,boolean)
     3354:3355:public void registerFragmentLifecycleCallbacks(android.support.v4.app.FragmentManager$FragmentLifecycleCallbacks,boolean)
     3359:3367:public void unregisterFragmentLifecycleCallbacks(android.support.v4.app.FragmentManager$FragmentLifecycleCallbacks)
 android.support.v4.app.FragmentManagerImpl$FragmentTag:
@@ -886,7 +879,9 @@ android.support.v4.app.FragmentManagerImpl$FragmentTag:
     public static final int Fragment_name
     public static final int Fragment_tag
     3727:3727:FragmentManagerImpl$FragmentTag()
-android.support.v4.app.FragmentPagerAdapter
+android.support.v4.app.FragmentPagerAdapter:
+    private static final java.lang.String TAG
+    private static final boolean DEBUG
 android.support.v4.app.FragmentStatePagerAdapter
 android.support.v4.app.FragmentTabHost
 android.support.v4.app.FragmentTabHost$DummyTabFactory
@@ -902,12 +897,9 @@ android.support.v4.app.FragmentTransaction:
     public static final int TRANSIT_FRAGMENT_CLOSE
     public static final int TRANSIT_FRAGMENT_FADE
     public abstract android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment)
-    public abstract android.support.v4.app.FragmentTransaction add(int,android.support.v4.app.Fragment,java.lang.String)
     public abstract android.support.v4.app.FragmentTransaction replace(int,android.support.v4.app.Fragment)
     public abstract android.support.v4.app.FragmentTransaction hide(android.support.v4.app.Fragment)
     public abstract android.support.v4.app.FragmentTransaction show(android.support.v4.app.Fragment)
-    public abstract android.support.v4.app.FragmentTransaction detach(android.support.v4.app.Fragment)
-    public abstract android.support.v4.app.FragmentTransaction attach(android.support.v4.app.Fragment)
     public abstract android.support.v4.app.FragmentTransaction setPrimaryNavigationFragment(android.support.v4.app.Fragment)
     public abstract boolean isEmpty()
     public abstract android.support.v4.app.FragmentTransaction setCustomAnimations(int,int)
@@ -926,7 +918,6 @@ android.support.v4.app.FragmentTransaction:
     public abstract android.support.v4.app.FragmentTransaction setAllowOptimization(boolean)
     public abstract android.support.v4.app.FragmentTransaction runOnCommit(java.lang.Runnable)
     public abstract void commitNow()
-    public abstract void commitNowAllowingStateLoss()
 android.support.v4.app.FragmentTransaction$Transit
 android.support.v4.app.FragmentTransition:
     38:1145:FragmentTransition()
@@ -2434,7 +2425,6 @@ android.support.v4.view.NestedScrollingParent:
 android.support.v4.view.PagerAdapter:
     public static final int POSITION_UNCHANGED
     public static final int POSITION_NONE
-    78:79:public PagerAdapter()
     282:288:public void notifyDataSetChanged()
 android.support.v4.view.PagerTabStrip
 android.support.v4.view.PagerTabStrip$1
@@ -2747,9 +2737,6 @@ android.support.v4.view.ViewPager:
     public static final int SCROLL_STATE_IDLE
     public static final int SCROLL_STATE_DRAGGING
     public static final int SCROLL_STATE_SETTLING
-    149:387:public ViewPager(android.content.Context)
-    149:392:public ViewPager(android.content.Context,android.util.AttributeSet)
-    395:469:void initViewPager()
     738:741:public void clearOnPageChangeListeners()
     761:762:public void setPageTransformer(boolean,android.support.v4.view.ViewPager$PageTransformer)
     779:790:public void setPageTransformer(boolean,android.support.v4.view.ViewPager$PageTransformer,int)
@@ -2759,9 +2746,6 @@ android.support.v4.view.ViewPager:
     2546:2568:public void endFakeDrag()
     2578:2620:public void fakeDragBy(float)
     2632:2632:public boolean isFakeDragging()
-android.support.v4.view.ViewPager$3
-android.support.v4.view.ViewPager$4
-android.support.v4.view.ViewPager$MyAccessibilityDelegate
 android.support.v4.view.ViewPager$SimpleOnPageChangeListener
 android.support.v4.view.ViewParentCompat:
     private static final java.lang.String TAG
@@ -4994,10 +4978,14 @@ com.faendir.lightning_launcher.multitool.R$raw
 com.faendir.lightning_launcher.multitool.R$string
 com.faendir.lightning_launcher.multitool.R$style
 com.faendir.lightning_launcher.multitool.R$styleable:
-    5017:5017:public R$styleable()
+    5040:5040:public R$styleable()
 com.faendir.lightning_launcher.multitool.R$xml
 com.faendir.lightning_launcher.multitool.backup.BackupUtils:
     34:34:public BackupUtils()
+com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver:
+    private static final java.lang.String BADGE_COUNT
+    private static final java.lang.String PACKAGE_NAME
+    private static final java.lang.String INTENT_BADGE_COUNT_UPDATE
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager:
     private static final java.lang.String MUSIC_WIDGET
     private static final java.lang.String DRAWER
@@ -5022,6 +5010,11 @@ com.faendir.lightning_launcher.multitool.gesture.GestureUtils:
     private static final java.lang.String METADATA
     private static final java.lang.String GESTURES
     43:44:private GestureUtils()
+com.faendir.lightning_launcher.multitool.music.MusicDataSource:
+    private static final java.lang.String KEY_TITLE
+    private static final java.lang.String KEY_ARTIST
+    private static final java.lang.String KEY_ALBUM
+    private static final java.lang.String KEY_PACKAGE
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask:
     private static final java.lang.String SWITCH
     private static final java.lang.String CASE
@@ -5057,20 +5050,27 @@ com.faendir.lightning_launcher.multitool.settings.PreferenceListener:
     108:109:void addPreferenceForSummary(java.lang.String,java.lang.Runnable,boolean)
 com.faendir.lightning_launcher.multitool.settings.PrefsFragment:
     private static final int REQUEST_DIRECTORY
-com.faendir.lightning_launcher.multitool.util.DataProvider:
-    private static final java.lang.String AUTHORITY
 com.faendir.lightning_launcher.multitool.util.FileManager$IntentTypeAdapter:
     private static final java.lang.String URI
 com.faendir.lightning_launcher.multitool.util.FileManagerFactory:
-    16:17:private FileManagerFactory()
+    18:19:private FileManagerFactory()
+com.faendir.lightning_launcher.multitool.util.IntentChooserFragment:
+    private static final java.lang.String KEY_INTENT
+    private static final java.lang.String KEY_INDIRECT
 com.faendir.lightning_launcher.multitool.util.LambdaUtils:
     19:20:private LambdaUtils()
+    34:34:public static java8.util.function.Consumer ignoreExceptions(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalConsumer)
     44:44:public static java8.util.function.BiConsumer ignoreExceptions(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiConsumer)
-    46:49:static synthetic void lambda$ignoreExceptions$2(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiConsumer,java.lang.Object,java.lang.Object)
-com.faendir.lightning_launcher.multitool.util.LambdaUtils$$Lambda$3
+    46:49:static final synthetic void lambda$ignoreExceptions$2$LambdaUtils(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiConsumer,java.lang.Object,java.lang.Object)
+    36:39:static final synthetic void lambda$ignoreExceptions$1$LambdaUtils(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalConsumer,java.lang.Object)
+com.faendir.lightning_launcher.multitool.util.LambdaUtils$$Lambda$1
+com.faendir.lightning_launcher.multitool.util.LambdaUtils$$Lambda$2
 com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiConsumer
+com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalConsumer
 com.faendir.lightning_launcher.multitool.util.Utils:
     25:26:private Utils()
+com.faendir.lightning_launcher.multitool.util.provider.DataProvider:
+    private static final java.lang.String AUTHORITY
 com.faendir.lightning_launcher.scriptlib.Action
 com.faendir.lightning_launcher.scriptlib.AsyncExecutorService:
     67:69:public void unbind()
@@ -5118,6 +5118,21 @@ com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader:
     43:44:public com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunScript(boolean)
     48:49:public com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunInBackground(boolean)
     53:54:public com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader setRunData(java.lang.String)
+com.google.devtools.build.android.desugar.runtime.ThrowableExtension:
+    public static final java.lang.String SYSTEM_PROPERTY_TWR_DISABLE_MIMIC
+    private static final java.lang.String ANDROID_OS_BUILD_VERSION
+    33:33:public ThrowableExtension()
+    72:72:public static com.google.devtools.build.android.desugar.runtime.ThrowableExtension$AbstractDesugaringStrategy getStrategy()
+    80:80:public static java.lang.Throwable[] getSuppressed(java.lang.Throwable)
+com.google.devtools.build.android.desugar.runtime.ThrowableExtension$AbstractDesugaringStrategy:
+    public abstract java.lang.Throwable[] getSuppressed(java.lang.Throwable)
+com.google.devtools.build.android.desugar.runtime.ThrowableExtension$ConcurrentWeakIdentityHashMap
+com.google.devtools.build.android.desugar.runtime.ThrowableExtension$ConcurrentWeakIdentityHashMap$WeakKey
+com.google.devtools.build.android.desugar.runtime.ThrowableExtension$MimicDesugaringStrategy
+com.google.devtools.build.android.desugar.runtime.ThrowableExtension$NullDesugaringStrategy:
+    348:348:public java.lang.Throwable[] getSuppressed(java.lang.Throwable)
+com.google.devtools.build.android.desugar.runtime.ThrowableExtension$ReuseDesugaringStrategy:
+    157:157:public java.lang.Throwable[] getSuppressed(java.lang.Throwable)
 com.google.gson.DefaultDateTypeAdapter:
     private static final java.lang.String SIMPLE_NAME
     49:52:DefaultDateTypeAdapter(java.lang.Class)
@@ -5465,7 +5480,6 @@ com.mikepenz.fastadapter.adapters.ItemAdapter:
     39:40:public com.mikepenz.fastadapter.adapters.ItemAdapter withUseIdDistributor(boolean)
     47:47:public boolean isUseIdDistributor()
     60:61:public com.mikepenz.fastadapter.adapters.ItemAdapter withItemFilter(com.mikepenz.fastadapter.adapters.ItemFilter)
-    78:79:public void filter(java.lang.CharSequence)
     120:120:public java.util.Comparator getComparator()
     202:205:public com.mikepenz.fastadapter.IItem setSubItems(com.mikepenz.fastadapter.IItem,java.util.List)
     325:327:public void remapMappedTypes()
@@ -5480,7 +5494,6 @@ com.mikepenz.fastadapter.adapters.ItemAdapter:
     25:25:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter set(java.util.List)
 com.mikepenz.fastadapter.adapters.ItemFilter:
     39:40:public com.mikepenz.fastadapter.adapters.ItemFilter withItemFilterListener(com.mikepenz.fastadapter.listeners.ItemFilterListener)
-    53:54:public com.mikepenz.fastadapter.adapters.ItemFilter withFilterPredicate(com.mikepenz.fastadapter.IItemAdapter$Predicate)
     131:142:public java.util.Set getSelections()
     152:162:public java.util.Set getSelectedItems()
     173:173:public int getAdapterPosition(com.mikepenz.fastadapter.IItem)
@@ -6823,7 +6836,6 @@ java8.util.Optional:
     274:278:public java8.util.Optional flatMap(java8.util.function.Function)
     323:326:public java8.util.stream.Stream stream()
     353:353:public java.lang.Object orElseGet(java8.util.function.Supplier)
-    374:377:public java.lang.Object orElseThrow(java8.util.function.Supplier)
 java8.util.OptionalDouble
 java8.util.OptionalInt
 java8.util.OptionalInt$OICache
@@ -7372,7 +7384,6 @@ java8.util.stream.Collectors:
     221:221:private static java8.util.function.BinaryOperator uniqKeysMapMerger()
     254:254:private static java8.util.function.BiConsumer uniqKeysMapAccumulator(java8.util.function.Function,java8.util.function.Function)
     342:342:public static java8.util.stream.Collector toCollection(java8.util.function.Supplier)
-    380:380:public static java8.util.stream.Collector toSet()
     399:399:public static java8.util.stream.Collector joining()
     414:414:public static java8.util.stream.Collector joining(java.lang.CharSequence)
     463:463:private static java8.util.function.BinaryOperator mapMergerConcurrent(java8.util.function.BinaryOperator)
@@ -7467,14 +7478,12 @@ java8.util.stream.Collectors:
     501:501:private static synthetic void lambda$mapping$67(java8.util.function.BiConsumer,java8.util.function.Function,java.lang.Object,java.lang.Object)
     464:467:private static synthetic java.util.concurrent.ConcurrentMap lambda$mapMergerConcurrent$66(java8.util.function.BinaryOperator,java.util.concurrent.ConcurrentMap,java.util.concurrent.ConcurrentMap)
     401:401:private static synthetic java.lang.StringBuilder lambda$joining$63(java.lang.StringBuilder,java.lang.StringBuilder)
-    382:385:private static synthetic java.util.Set lambda$toSet$62(java.util.Set,java.util.Set)
     343:343:private static synthetic java.util.Collection lambda$toCollection$60(java.util.Collection,java.util.Collection)
     255:266:private static synthetic void lambda$uniqKeysMapAccumulator$58(java8.util.function.Function,java8.util.function.Function,java.util.Map,java.lang.Object)
     222:235:private static synthetic java.util.Map lambda$uniqKeysMapMerger$57(java.util.Map,java.util.Map)
     static synthetic java.util.Map access$lambda$0(java.util.Map,java.util.Map)
     static synthetic void access$lambda$1(java8.util.function.Function,java8.util.function.Function,java.util.Map,java.lang.Object)
     static synthetic java.util.Collection access$lambda$2(java.util.Collection,java.util.Collection)
-    static synthetic java.util.Set access$lambda$4(java.util.Set,java.util.Set)
     static synthetic java.lang.StringBuilder access$lambda$5(java.lang.StringBuilder,java.lang.StringBuilder)
     static synthetic java.util.concurrent.ConcurrentMap access$lambda$8(java8.util.function.BinaryOperator,java.util.concurrent.ConcurrentMap,java.util.concurrent.ConcurrentMap)
     static synthetic void access$lambda$9(java8.util.function.BiConsumer,java8.util.function.Function,java.lang.Object,java.lang.Object)
@@ -7534,7 +7543,6 @@ java8.util.stream.Collectors:
     static synthetic java.lang.Object access$lambda$68(java8.util.function.Supplier,java.lang.Object)
     static synthetic void access$lambda$69(java8.util.function.BiConsumer,java.lang.Object,java.lang.Object)
 java8.util.stream.Collectors$$Lambda$1
-java8.util.stream.Collectors$$Lambda$10
 java8.util.stream.Collectors$$Lambda$11
 java8.util.stream.Collectors$$Lambda$12
 java8.util.stream.Collectors$$Lambda$13
@@ -7611,7 +7619,6 @@ java8.util.stream.Collectors$$Lambda$76
 java8.util.stream.Collectors$$Lambda$77
 java8.util.stream.Collectors$$Lambda$78
 java8.util.stream.Collectors$$Lambda$79
-java8.util.stream.Collectors$$Lambda$8
 java8.util.stream.Collectors$$Lambda$80
 java8.util.stream.Collectors$$Lambda$81
 java8.util.stream.Collectors$$Lambda$82
@@ -7622,7 +7629,6 @@ java8.util.stream.Collectors$$Lambda$86
 java8.util.stream.Collectors$$Lambda$87
 java8.util.stream.Collectors$$Lambda$88
 java8.util.stream.Collectors$$Lambda$89
-java8.util.stream.Collectors$$Lambda$9
 java8.util.stream.Collectors$$Lambda$90
 java8.util.stream.Collectors$$Lambda$91
 java8.util.stream.Collectors$$Lambda$92
@@ -8508,35 +8514,31 @@ org.acra.ACRAConstants:
     public static final java.lang.String DEFAULT_CERTIFICATE_TYPE
     public static final java.lang.String NOT_AVAILABLE
     public static final java.lang.String UTF8
-    25:25:private ACRAConstants()
+    27:28:private ACRAConstants()
 org.acra.BuildConfig
 org.acra.ErrorReporter:
-    134:134:public java.lang.String removeCustomData(java.lang.String)
-    142:143:public void clearCustomData()
-    155:155:public java.lang.String getCustomData(java.lang.String)
-    234:241:public void handleException(java.lang.Throwable,boolean)
-    253:254:public void handleException(java.lang.Throwable)
+    129:129:public java.lang.String removeCustomData(java.lang.String)
+    136:137:public void clearCustomData()
+    148:148:public java.lang.String getCustomData(java.lang.String)
+    225:232:public void handleException(java.lang.Throwable,boolean)
+    243:244:public void handleException(java.lang.Throwable)
 org.acra.R
 org.acra.attachment.AcraContentProvider:
     public static final java.lang.String MIME_TYPE_OCTET_STREAM
-    153:153:public static android.net.Uri getUriForFile(android.content.Context,java.io.File)
-    165:169:public static android.net.Uri getUriForFile(android.content.Context,org.acra.file.Directory,java.lang.String)
+    210:210:public static android.net.Uri getUriForFile(android.content.Context,java.io.File)
+    223:227:public static android.net.Uri getUriForFile(android.content.Context,org.acra.file.Directory,java.lang.String)
 org.acra.builder.ReportBuilder:
-    33:34:public org.acra.builder.ReportBuilder message(java.lang.String)
-    101:102:public org.acra.builder.ReportBuilder customData(java.lang.String,java.lang.String)
+    48:49:public org.acra.builder.ReportBuilder message(java.lang.String)
+    125:126:public org.acra.builder.ReportBuilder customData(java.lang.String,java.lang.String)
 org.acra.collections.ImmutableSet:
     39:40:public varargs ImmutableSet(java.lang.Object[])
 org.acra.collector.CollectorException:
     38:39:public CollectorException(java.lang.Throwable)
-org.acra.collector.CrashReportData:
-    112:121:public void put(java.lang.String,org.json.JSONArray)
-    128:129:public void put(org.acra.ReportField,double)
-    148:149:public void put(org.acra.ReportField,org.json.JSONArray)
 org.acra.config.ACRAConfigurationException:
     private static final long serialVersionUID
 org.acra.config.BaseCoreConfigurationBuilder:
-    90:91:public void setReportField(org.acra.ReportField,boolean)
-    99:105:public org.acra.config.ConfigurationBuilder getPluginConfigurationBuilder(java.lang.Class)
+    98:99:public void setReportField(org.acra.ReportField,boolean)
+    107:113:public org.acra.config.ConfigurationBuilder getPluginConfigurationBuilder(java.lang.Class)
 org.acra.config.BaseHttpConfigurationBuilder:
     43:45:public void setHttpHeaders(java.util.Map)
 org.acra.config.ClassValidator:
@@ -8544,52 +8546,56 @@ org.acra.config.ClassValidator:
 org.acra.config.ConfigUtils:
     24:24:public ConfigUtils()
 org.acra.config.CoreConfigurationBuilder:
-    162:163:public org.acra.config.CoreConfigurationBuilder setSharedPreferencesName(java.lang.String)
-    183:184:public org.acra.config.CoreConfigurationBuilder setSharedPreferencesMode(int)
-    216:217:public org.acra.config.CoreConfigurationBuilder setIncludeDropBoxSystemTags(boolean)
-    231:232:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalDropBoxTags(java.lang.String[])
-    246:247:public org.acra.config.CoreConfigurationBuilder setDropboxCollectionMinutes(int)
-    281:282:public varargs org.acra.config.CoreConfigurationBuilder setLogcatArguments(java.lang.String[])
-    372:373:public varargs org.acra.config.CoreConfigurationBuilder setReportContent(org.acra.ReportField[])
-    404:405:public org.acra.config.CoreConfigurationBuilder setDeleteUnapprovedReportsOnApplicationStart(boolean)
-    423:424:public org.acra.config.CoreConfigurationBuilder setDeleteOldUnsentReportsOnApplicationStart(boolean)
-    437:438:public org.acra.config.CoreConfigurationBuilder setKeepApprovedReportsUpTo(int)
-    454:455:public org.acra.config.CoreConfigurationBuilder setAlsoReportToAndroidFramework(boolean)
-    472:473:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalSharedPreferences(java.lang.String[])
-    489:490:public org.acra.config.CoreConfigurationBuilder setLogcatFilterByPid(boolean)
-    506:507:public org.acra.config.CoreConfigurationBuilder setNonBlockingReadForLogcat(boolean)
-    524:525:public org.acra.config.CoreConfigurationBuilder setSendReportsInDevMode(boolean)
-    542:543:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSharedPreferencesKeys(java.lang.String[])
-    561:562:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSettingsKeys(java.lang.String[])
-    577:578:public org.acra.config.CoreConfigurationBuilder setBuildConfigClass(java.lang.Class)
-    594:595:public varargs org.acra.config.CoreConfigurationBuilder setReportSenderFactoryClasses(java.lang.Class[])
-    615:616:public org.acra.config.CoreConfigurationBuilder setApplicationLogFile(java.lang.String)
-    633:634:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileLines(int)
-    650:651:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileDir(org.acra.file.Directory)
-    664:665:public org.acra.config.CoreConfigurationBuilder setReportPrimerClass(java.lang.Class)
-    679:680:public org.acra.config.CoreConfigurationBuilder setRetryPolicyClass(java.lang.Class)
-    694:695:public org.acra.config.CoreConfigurationBuilder setStopServicesOnCrash(boolean)
-    726:727:public varargs org.acra.config.CoreConfigurationBuilder setAttachmentUris(java.lang.String[])
-    743:744:public org.acra.config.CoreConfigurationBuilder setAttachmentUriProvider(java.lang.Class)
-    758:759:public org.acra.config.CoreConfigurationBuilder setResReportSendSuccessToast(int)
-    773:774:public org.acra.config.CoreConfigurationBuilder setResReportSendFailureToast(int)
-    786:787:public org.acra.config.CoreConfigurationBuilder setReportField(org.acra.ReportField,boolean)
-    796:796:public org.acra.config.ConfigurationBuilder getPluginConfigurationBuilder(java.lang.Class)
+    140:141:public org.acra.config.CoreConfigurationBuilder setEnabled(boolean)
+    168:169:public org.acra.config.CoreConfigurationBuilder setSharedPreferencesName(java.lang.String)
+    201:202:public org.acra.config.CoreConfigurationBuilder setIncludeDropBoxSystemTags(boolean)
+    216:217:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalDropBoxTags(java.lang.String[])
+    231:232:public org.acra.config.CoreConfigurationBuilder setDropboxCollectionMinutes(int)
+    266:267:public varargs org.acra.config.CoreConfigurationBuilder setLogcatArguments(java.lang.String[])
+    357:358:public varargs org.acra.config.CoreConfigurationBuilder setReportContent(org.acra.ReportField[])
+    386:387:public org.acra.config.CoreConfigurationBuilder setDeleteUnapprovedReportsOnApplicationStart(boolean)
+    405:406:public org.acra.config.CoreConfigurationBuilder setDeleteOldUnsentReportsOnApplicationStart(boolean)
+    420:421:public org.acra.config.CoreConfigurationBuilder setKeepApprovedReportsUpTo(int)
+    437:438:public org.acra.config.CoreConfigurationBuilder setAlsoReportToAndroidFramework(boolean)
+    455:456:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalSharedPreferences(java.lang.String[])
+    472:473:public org.acra.config.CoreConfigurationBuilder setLogcatFilterByPid(boolean)
+    489:490:public org.acra.config.CoreConfigurationBuilder setNonBlockingReadForLogcat(boolean)
+    507:508:public org.acra.config.CoreConfigurationBuilder setSendReportsInDevMode(boolean)
+    525:526:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSharedPreferencesKeys(java.lang.String[])
+    544:545:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSettingsKeys(java.lang.String[])
+    560:561:public org.acra.config.CoreConfigurationBuilder setBuildConfigClass(java.lang.Class)
+    577:578:public varargs org.acra.config.CoreConfigurationBuilder setReportSenderFactoryClasses(java.lang.Class[])
+    594:595:public org.acra.config.CoreConfigurationBuilder setApplicationLogFile(java.lang.String)
+    612:613:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileLines(int)
+    629:630:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileDir(org.acra.file.Directory)
+    644:645:public org.acra.config.CoreConfigurationBuilder setRetryPolicyClass(java.lang.Class)
+    659:660:public org.acra.config.CoreConfigurationBuilder setStopServicesOnCrash(boolean)
+    691:692:public varargs org.acra.config.CoreConfigurationBuilder setAttachmentUris(java.lang.String[])
+    708:709:public org.acra.config.CoreConfigurationBuilder setAttachmentUriProvider(java.lang.Class)
+    724:725:public org.acra.config.CoreConfigurationBuilder setResReportSendSuccessToast(int)
+    740:741:public org.acra.config.CoreConfigurationBuilder setResReportSendFailureToast(int)
+    753:754:public org.acra.config.CoreConfigurationBuilder setReportField(org.acra.ReportField,boolean)
+    763:763:public org.acra.config.ConfigurationBuilder getPluginConfigurationBuilder(java.lang.Class)
 org.acra.config.HttpSenderConfigurationBuilder:
-    57:58:public HttpSenderConfigurationBuilder(java.lang.Object)
-    94:95:public org.acra.config.HttpSenderConfigurationBuilder setUri(java.lang.String)
-    110:111:public org.acra.config.HttpSenderConfigurationBuilder setBasicAuthLogin(java.lang.String)
-    126:127:public org.acra.config.HttpSenderConfigurationBuilder setBasicAuthPassword(java.lang.String)
-    144:145:public org.acra.config.HttpSenderConfigurationBuilder setHttpMethod(org.acra.sender.HttpSender$Method)
-    162:163:public org.acra.config.HttpSenderConfigurationBuilder setReportType(org.acra.sender.HttpSender$Type)
-    176:177:public org.acra.config.HttpSenderConfigurationBuilder setConnectionTimeout(int)
-    193:194:public org.acra.config.HttpSenderConfigurationBuilder setSocketTimeout(int)
-    207:208:public org.acra.config.HttpSenderConfigurationBuilder setDropReportsOnTimeout(boolean)
-    221:222:public org.acra.config.HttpSenderConfigurationBuilder setKeyStoreFactoryClass(java.lang.Class)
-    235:236:public org.acra.config.HttpSenderConfigurationBuilder setCertificatePath(java.lang.String)
-    250:251:public org.acra.config.HttpSenderConfigurationBuilder setResCertificate(int)
-    264:265:public org.acra.config.HttpSenderConfigurationBuilder setCertificateType(java.lang.String)
-    277:278:public org.acra.config.HttpSenderConfigurationBuilder setHttpHeaders(java.util.Map)
+    59:60:public HttpSenderConfigurationBuilder(java.lang.Object)
+    91:92:public org.acra.config.HttpSenderConfigurationBuilder setEnabled(boolean)
+    107:108:public org.acra.config.HttpSenderConfigurationBuilder setUri(java.lang.String)
+    123:124:public org.acra.config.HttpSenderConfigurationBuilder setBasicAuthLogin(java.lang.String)
+    139:140:public org.acra.config.HttpSenderConfigurationBuilder setBasicAuthPassword(java.lang.String)
+    157:158:public org.acra.config.HttpSenderConfigurationBuilder setHttpMethod(org.acra.sender.HttpSender$Method)
+    175:176:public org.acra.config.HttpSenderConfigurationBuilder setReportType(org.acra.sender.HttpSender$Type)
+    189:190:public org.acra.config.HttpSenderConfigurationBuilder setConnectionTimeout(int)
+    206:207:public org.acra.config.HttpSenderConfigurationBuilder setSocketTimeout(int)
+    220:221:public org.acra.config.HttpSenderConfigurationBuilder setDropReportsOnTimeout(boolean)
+    234:235:public org.acra.config.HttpSenderConfigurationBuilder setKeyStoreFactoryClass(java.lang.Class)
+    248:249:public org.acra.config.HttpSenderConfigurationBuilder setCertificatePath(java.lang.String)
+    263:264:public org.acra.config.HttpSenderConfigurationBuilder setResCertificate(int)
+    277:278:public org.acra.config.HttpSenderConfigurationBuilder setCertificateType(java.lang.String)
+    290:291:public org.acra.config.HttpSenderConfigurationBuilder setHttpHeaders(java.util.Map)
+org.acra.data.CrashReportData:
+    112:121:public void put(java.lang.String,org.json.JSONArray)
+    128:129:public void put(org.acra.ReportField,double)
+    148:149:public void put(org.acra.ReportField,org.json.JSONArray)
 org.acra.file.ReportLocator:
     private static final java.lang.String UNAPPROVED_FOLDER_NAME
     private static final java.lang.String APPROVED_FOLDER_NAME

@@ -21,6 +21,7 @@ import android.support.annotation.RequiresApi;
 import android.view.KeyEvent;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.badge.NotificationListener;
 
 import org.acra.ACRA;
 import org.apache.commons.collections4.BidiMap;
@@ -40,18 +41,6 @@ import java8.util.Optional;
 import java8.util.stream.RefStreams;
 import java8.util.stream.StreamSupport;
 
-import static android.media.MediaMetadata.METADATA_KEY_ALBUM;
-import static android.media.MediaMetadata.METADATA_KEY_ALBUM_ART;
-import static android.media.MediaMetadata.METADATA_KEY_ALBUM_ART_URI;
-import static android.media.MediaMetadata.METADATA_KEY_ART;
-import static android.media.MediaMetadata.METADATA_KEY_ARTIST;
-import static android.media.MediaMetadata.METADATA_KEY_ART_URI;
-import static android.media.MediaMetadata.METADATA_KEY_TITLE;
-import static android.media.session.PlaybackState.STATE_FAST_FORWARDING;
-import static android.media.session.PlaybackState.STATE_PLAYING;
-import static android.media.session.PlaybackState.STATE_SKIPPING_TO_NEXT;
-import static android.media.session.PlaybackState.STATE_SKIPPING_TO_PREVIOUS;
-import static android.media.session.PlaybackState.STATE_SKIPPING_TO_QUEUE_ITEM;
 import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 
 /**
@@ -67,8 +56,8 @@ public class MusicListenerService extends Service {
     static {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             PLAYING_STATES = Arrays.asList(
-                    STATE_PLAYING, STATE_FAST_FORWARDING, STATE_SKIPPING_TO_NEXT,
-                    STATE_SKIPPING_TO_PREVIOUS, STATE_SKIPPING_TO_QUEUE_ITEM);
+                    PlaybackState.STATE_PLAYING, PlaybackState.STATE_FAST_FORWARDING, PlaybackState.STATE_SKIPPING_TO_NEXT,
+                    PlaybackState.STATE_SKIPPING_TO_PREVIOUS, PlaybackState.STATE_SKIPPING_TO_QUEUE_ITEM);
         } else {
             PLAYING_STATES = Collections.emptyList();
         }
@@ -78,6 +67,7 @@ public class MusicListenerService extends Service {
     private SharedPreferences sharedPref;
     private volatile WeakReference<MediaController> currentController;
     private final MediaSessionManager.OnActiveSessionsChangedListener sessionsChangedListener;
+    private boolean enabled = false;
 
     public MusicListenerService() {
         controllers = new DualHashBidiMap<>();
@@ -87,32 +77,48 @@ public class MusicListenerService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && intent.hasExtra(EXTRA_COMMAND_CODE)) {
-            int keyCode = intent.getIntExtra(EXTRA_COMMAND_CODE, 0);
-            MediaController controller = currentController.get();
-            if (controller != null) {
-                if (isAlternativeControl(controller)) {
-                    sendKeyCodeToPlayer(keyCode, controller.getPackageName());
-                } else {
-                    switch (keyCode){
-                        case KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE:
-                            PlaybackState state = controller.getPlaybackState();
-                            if (state != null && PLAYING_STATES.contains(state.getState())) {
-                                controller.getTransportControls().pause();
-                            } else {
-                                controller.getTransportControls().play();
-                            }
-                            break;
-                        case KeyEvent.KEYCODE_MEDIA_NEXT:
-                            controller.getTransportControls().skipToNext();
-                            break;
-                        case KeyEvent.KEYCODE_MEDIA_PREVIOUS:
-                            controller.getTransportControls().skipToPrevious();
-                            break;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            ComponentName notificationListener = new ComponentName(this, NotificationListener.class);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                boolean enabled = NotificationListener.isEnabled(this);
+                if (enabled) {
+                    if(!this.enabled) {
+                        MediaSessionManager mediaSessionManager = (MediaSessionManager) getSystemService(Context.MEDIA_SESSION_SERVICE);
+                        sessionsChangedListener.onActiveSessionsChanged(mediaSessionManager.getActiveSessions(notificationListener));
+                        mediaSessionManager.addOnActiveSessionsChangedListener(sessionsChangedListener, notificationListener);
+                        this.enabled = true;
                     }
+                    if (intent.hasExtra(EXTRA_COMMAND_CODE)) {
+                        int keyCode = intent.getIntExtra(EXTRA_COMMAND_CODE, 0);
+                        MediaController controller = currentController.get();
+                        if (controller != null) {
+                            if (isAlternativeControl(controller)) {
+                                sendKeyCodeToPlayer(keyCode, controller.getPackageName());
+                            } else {
+                                switch (keyCode){
+                                    case KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE:
+                                        PlaybackState state = controller.getPlaybackState();
+                                        if (state != null && PLAYING_STATES.contains(state.getState())) {
+                                            controller.getTransportControls().pause();
+                                        } else {
+                                            controller.getTransportControls().play();
+                                        }
+                                        break;
+                                    case KeyEvent.KEYCODE_MEDIA_NEXT:
+                                        controller.getTransportControls().skipToNext();
+                                        break;
+                                    case KeyEvent.KEYCODE_MEDIA_PREVIOUS:
+                                        controller.getTransportControls().skipToPrevious();
+                                        break;
+                                }
+                            }
+                        } else {
+                            startDefaultPlayerWithKeyCode(keyCode);
+                        }
+                    }
+                } else {
+                    NotificationListener.askForEnable(this);
                 }
-            } else {
-                startDefaultPlayerWithKeyCode(keyCode);
             }
         }
         return START_NOT_STICKY;
@@ -127,14 +133,6 @@ public class MusicListenerService extends Service {
     @Override
     public void onCreate() {
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            ComponentName notificationListener = new ComponentName(this, DummyNotificationListener.class);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                MediaSessionManager mediaSessionManager = (MediaSessionManager) getSystemService(Context.MEDIA_SESSION_SERVICE);
-                sessionsChangedListener.onActiveSessionsChanged(mediaSessionManager.getActiveSessions(notificationListener));
-                mediaSessionManager.addOnActiveSessionsChangedListener(sessionsChangedListener, notificationListener);
-            }
-        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -242,7 +240,8 @@ public class MusicListenerService extends Service {
         private void update() {
             if (metadata != null) {
                 if (!hasRequestedAlbumArt || bitmap == null) {
-                    Bitmap bmp = loadBitmapForKeys(METADATA_KEY_ALBUM_ART, METADATA_KEY_ALBUM_ART_URI, METADATA_KEY_ART, METADATA_KEY_ART_URI);
+                    Bitmap bmp = loadBitmapForKeys(MediaMetadata.METADATA_KEY_ALBUM_ART, MediaMetadata.METADATA_KEY_ALBUM_ART_URI,
+                            MediaMetadata.METADATA_KEY_ART, MediaMetadata.METADATA_KEY_ART_URI);
                     if (bitmap != null && bitmap != bmp) bitmap.recycle();
                     bitmap = bmp;
                     hasRequestedAlbumArt = true;
@@ -274,9 +273,9 @@ public class MusicListenerService extends Service {
             if (metadata == null) {
                 updateCurrentInfo(controllers.getKey(this), bitmap, null, null, null);
             } else {
-                updateCurrentInfo(controllers.getKey(this), bitmap, metadata.getString(METADATA_KEY_TITLE),
-                        metadata.getString(METADATA_KEY_ALBUM),
-                        metadata.getString(METADATA_KEY_ARTIST));
+                updateCurrentInfo(controllers.getKey(this), bitmap, metadata.getString(MediaMetadata.METADATA_KEY_TITLE),
+                        metadata.getString(MediaMetadata.METADATA_KEY_ALBUM),
+                        metadata.getString(MediaMetadata.METADATA_KEY_ARTIST));
             }
         }
 

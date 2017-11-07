@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.BaseActivity;
-import com.faendir.lightning_launcher.multitool.util.IntentChooser;
 
 public class GestureActivity extends BaseActivity implements GestureOverlayView.OnGesturePerformedListener, View.OnClickListener {
 

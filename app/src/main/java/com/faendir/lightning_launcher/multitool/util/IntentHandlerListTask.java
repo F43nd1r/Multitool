@@ -1,22 +1,17 @@
 package com.faendir.lightning_launcher.multitool.util;
 
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.AsyncTask;
-import android.support.annotation.IdRes;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-
-import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
-import com.mikepenz.fastadapter.commons.adapters.GenericFastItemAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import java8.util.function.Consumer;
 
 /**
  * Created on 12.07.2016.
@@ -26,18 +21,16 @@ import java.util.List;
 
 class IntentHandlerListTask extends AsyncTask<Void, Void, List<IntentInfo>> {
 
-    private final IntentChooser context;
     private final PackageManager pm;
     private final Intent intent;
     private final boolean isIndirect;
-    private final int rootId;
+    private final Consumer<List<IntentInfo>> postExecute;
 
-    IntentHandlerListTask(IntentChooser context, Intent intent, boolean isIndirect, @IdRes int rootId) {
-        this.context = context;
+    IntentHandlerListTask(Context context, Intent intent, boolean isIndirect, Consumer<List<IntentInfo>> postExecute) {
+        this.postExecute = postExecute;
         this.pm = context.getPackageManager();
         this.intent = intent;
         this.isIndirect = isIndirect;
-        this.rootId = rootId;
     }
 
     @Override
@@ -68,15 +61,6 @@ class IntentHandlerListTask extends AsyncTask<Void, Void, List<IntentInfo>> {
 
     @Override
     protected void onPostExecute(List<IntentInfo> infos) {
-        View root = context.findViewById(rootId);
-        RecyclerView recyclerView = root.findViewById(R.id.list);
-        GenericFastItemAdapter<IntentInfo, ExpandableItem<IntentInfo>> adapter = new GenericFastItemAdapter<>(ExpandableItem::new);
-        adapter.getGenericItemAdapter().withComparator((o1, o2) -> o1.getModel().compareTo(o2.getModel()));
-        adapter.withOnClickListener((v, adapter1, item, position) -> context.handleSelection(item.getModel()));
-        adapter.setModel(infos);
-        recyclerView.setVisibility(View.VISIBLE);
-        recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setAdapter(adapter);
-        root.findViewById(R.id.progressBar).setVisibility(View.GONE);
+        postExecute.accept(infos);
     }
 }
