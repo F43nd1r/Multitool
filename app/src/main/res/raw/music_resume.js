@@ -1,36 +1,16 @@
-bindClass("android.content.ServiceConnection");
-bindClass("android.os.Messenger");
-bindClass("android.os.Message");
+eval(loadRawResource("com.faendir.lightning_launcher.multitool","library"));
+
 bindClass("android.os.Handler");
-bindClass("java.lang.Exception");
 bindClass("android.graphics.Rect");
-bindClass("android.util.Log");
-
-var s = getActiveScreen();
-var c = s.getContext();
-
-function bindPrefs(keys) {
-    bindClass("android.database.Cursor");
-    var resolver = c.getContentResolver();
-    var result = {};
-    var cursor = resolver.query(Uri.parse("content://com.faendir.lightning_launcher.multitool.provider/pref"), null, null, keys, null);
-    while (cursor.moveToNext()) {
-        result[cursor.getString(0)] = cursor.getString(1);
-    }
-    cursor.close();
-    return result;
-}
 
 var panel = getEvent().getContainer();
-var h = new JavaAdapter(Handler, {
-    handleMessage: function(msg) {
+var listener = function(titleInfo) {
         try {
-            var bundle = msg.getData();
-            var albumArt = bundle.getParcelable("albumArt");
-            var title = bundle.getString("title") || "";
-            var album = bundle.getString("album") || "";
-            var artist = bundle.getString("artist") || "";
-            var player = bundle.getString("player") || "";
+            var albumArt = titleInfo.getAlbumArt();
+            var title = titleInfo.getTitle();
+            var album = titleInfo.getAlbum();
+            var artist = titleInfo.getArtist();
+            var player = titleInfo.getPackageName();
             var prefs = bindPrefs(["coverFillMode"]);
             var mode = parseInt(prefs.coverFillMode.replace("\"",""));
                 var item = panel.getItemByName("albumart");
@@ -78,22 +58,9 @@ var h = new JavaAdapter(Handler, {
                 item.setBoxBackground(img, "nsf", false);
             getVariables().edit().setString("title", title).setString("album", album).setString("artist", artist).setString("player",player).commit();
         } catch (e) {
-            new Exception(e).printStackTrace();
+            e.javaException.printStackTrace();
         }
-    }
-});
-panel.my.connection = panel.extend();
-panel.my.connection.receiver = new Messenger(h);
-panel.my.connection.conn = new ServiceConnection() {
-    onServiceConnected: function(name, binder) {
-        panel.my.connection.sender = new Messenger(binder);
-            var msg = Message.obtain();
-            msg.what = 3;
-            msg.replyTo = panel.my.connection.receiver;
-            panel.my.connection.sender.send(msg);
-    },
-    onServiceDisconnected: function(name) {}
 };
-var i = new Intent();
-i.setClassName("com.faendir.lightning_launcher.multitool", "com.faendir.lightning_launcher.multitool.music.MusicManager");
-c.bindService(i, panel.my.connection.conn, Context.BIND_AUTO_CREATE);
+panel.my.musicListener = getObjectFactory().constructMusicListener(new Handler(), c, listener);
+panel.my.musicListener.onChange(false);
+panel.my.musicListener.register();

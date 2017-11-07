@@ -1,24 +1,4 @@
-function bindPrefs(keys) {
-    bindClass("android.database.Cursor");
-    var resolver = getActiveScreen().getContext().getContentResolver();
-    var result = {};
-    var cursor = resolver.query(Uri.parse("content://com.faendir.lightning_launcher.multitool.provider/pref"), null, null, keys, null);
-    while (cursor.moveToNext()) {
-        result[cursor.getString(0)] = cursor.getString(1);
-    }
-    cursor.close();
-    return result;
-}
-
-function setPref(key, value) {
-    bindClass("android.database.Cursor");
-    bindClass("android.content.ContentValues");
-    var resolver = getActiveScreen().getContext().getContentResolver();
-    var result = {};
-    var values = new ContentValues();
-    values.put(key,value);
-    resolver.update(Uri.parse("content://com.faendir.lightning_launcher.multitool.provider/pref"), values, null, null);
-}
+eval(loadRawResource("com.faendir.lightning_launcher.multitool","library"));
 
 var mode = menu.getMode();
 if(mode == Menu.MODE_ITEM_NO_EM || mode == Menu.MODE_ITEM_EM) {

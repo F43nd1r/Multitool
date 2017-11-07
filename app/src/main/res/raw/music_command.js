@@ -1,9 +1,17 @@
 var event = getEvent();
-var sender = event.getContainer().my.connection.sender;
-if (sender != null) {
+var musicListener = event.getContainer().my.musicListener;
+if (musicListener != null) {
     try {
-        var msg = Message.obtain();
-        msg.what = parseInt(event.getData());
-        sender.send(msg);
+        switch(parseInt(event.getData())){
+            case 5:
+                musicListener.sendPlayPause();
+                break;
+            case 6:
+                musicListener.sendNext();
+                break;
+            case 7:
+                musicListener.sendPrevious();
+                break;
+        }
     } catch (e) {}
 }

@@ -1,13 +1,9 @@
 var event = getEvent();
 var item = event.getItem();
-if(item == null || item.my.connection == null) return;
-var service = item.my.connection.service;
-if (service != null) {
+if(item == null || item.my.badgeListener == null) return;
+var badgeListener = item.my.badgeListener;
+if (badgeListener != null) {
     try {
-        service.unregisterListener(item.my.connection.listener);
-        var conn = item.my.connection.conn;
-        if(conn != null){
-            getActiveScreen().getContext().unbindService(conn);
-        }
+        badgeListener.unregister();
     } catch (e) {}
 }

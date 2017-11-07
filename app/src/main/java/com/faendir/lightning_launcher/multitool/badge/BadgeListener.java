@@ -1,27 +1,25 @@
 package com.faendir.lightning_launcher.multitool.badge;
 
-import android.os.RemoteException;
+import android.content.Context;
+import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
-import java8.util.function.BiConsumer;
+import com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener;
+
+import java8.util.function.Consumer;
+
 
 /**
  * @author F43nd1r
- * @since 26.04.2017
+ * @since 06.11.2017
  */
 
 @SuppressWarnings("unused")
-public class BadgeListener extends IBadgeListener.Stub {
-
-    private BiConsumer<Integer, String> consumer;
-
-    public BadgeListener(){
-    }
-    @Override
-    public void onCountChange(int newCount, String packageName) throws RemoteException {
-        consumer.accept(newCount, packageName);
+public class BadgeListener extends BaseContentListener {
+    public BadgeListener(@Nullable Handler handler, @NonNull Context context, String packageName, Consumer<Integer> onChange) {
+        super(handler, context, BadgeDataSource.getContentUri(packageName),
+                () -> onChange.accept(BadgeDataSource.getBadgeCount(context, packageName)));
     }
 
-    public void setConsumer(BiConsumer<Integer, String> consumer) {
-        this.consumer = consumer;
-    }
 }

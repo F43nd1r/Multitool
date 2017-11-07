@@ -8,7 +8,7 @@ import android.util.Pair;
 import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.util.DataProvider;
+import com.faendir.lightning_launcher.multitool.util.provider.DataProvider;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.scriptlib.PermissionActivity;
 
@@ -62,8 +62,8 @@ final class GestureUtils {
 
     static void exportGestures(final Context context, Uri path) {
         try {
-            final InputStream metadata = DataProvider.openFileForRead(context, DataProvider.URI.GESTURE_INFOS);
-            final InputStream gestures = DataProvider.openFileForRead(context, DataProvider.URI.GESTURE_LIBRARY);
+            final InputStream metadata = DataProvider.openFileForRead(context, GestureMetaDataSource.class);
+            final InputStream gestures = DataProvider.openFileForRead(context, GestureLibraryDataSource.class);
             final File dir = new File(path.getPath());
             final File file = new File(dir, "Multitool_Gestures_" + new SimpleDateFormat("yyyy-MM-dd", Locale.US).format(new Date()) + ".zip");
             if ((!dir.mkdirs() && !dir.isDirectory()) || !dir.canWrite() || !file.canWrite()) {

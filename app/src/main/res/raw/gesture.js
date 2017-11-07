@@ -1,21 +1,15 @@
-bindClass("java.lang.Class");
-bindClass("dalvik.system.PathClassLoader");
-bindClass("android.util.Log")
+eval(loadRawResource("com.faendir.lightning_launcher.multitool","library"));
 
 item.setHorizontalGrab(true);
 item.setVerticalGrab(true);
 
 var context = getActiveScreen().getContext();
 try{
-    var c = context.createPackageContext("com.faendir.lightning_launcher.multitool", 2);
-    var apk = c.getPackageManager().getApplicationInfo("com.faendir.lightning_launcher.multitool", 0).sourceDir;
-    var clsLoader = new PathClassLoader(apk, PathClassLoader.getSystemClassLoader());
-    var cls = Class.forName("com.faendir.lightning_launcher.multitool.gesture.LightningGestureView", true, clsLoader);
-    var v = cls.getConstructors()[0].newInstance(c);
-    return v;
+    return getMultiToolClass("gesture.LightningGestureView").getConstructors()[0].newInstance(context);
 }catch(e){
-    Log.w("[MULTITOOL]", "Failed to load gesture widget", e.javaException);
+    bindClass("android.util.Log");
     bindClass("android.widget.TextView");
+    Log.w("[MULTITOOL]", "Failed to load gesture widget", e.javaException);
     var t = new TextView(context);
     t.setText("Unable to load gesture widget.\nPlease restart Lightning Launcher.");
     return t;

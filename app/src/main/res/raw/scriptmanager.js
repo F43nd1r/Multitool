@@ -2,31 +2,31 @@ if (data != null && data != "") {
     var transfer = JSON.parse(data);
     switch (transfer.request) {
         case "RENAME":
-            var script = LL.getScriptById(transfer.script.id);
+            var script = getScriptById(transfer.script.id);
             if (script != null) script.setName(transfer.script.name);
             break;
         case "DELETE":
-            var script = LL.getScriptById(transfer.script.id);
-            if (script != null) LL.deleteScript(script);
+            var script = getScriptById(transfer.script.id);
+            if (script != null) deleteScript(script);
             break;
         case "RESTORE":
-            var script = LL.getScriptByName(transfer.script.name);
+            var script = getScriptByPathAndName(transfer.script.path || "/", transfer.script.name);
             if (script != null) {
-                LL.deleteScript(script);
+                deleteScript(script);
             }
-            LL.createScript(transfer.script.name, transfer.script.code, transfer.script.flags);
+            createScript(transfer.script.path || "/", transfer.script.name, transfer.script.code, transfer.script.flags);
             break;
         case "SET_CODE":
-            var script = LL.getScriptById(transfer.script.id);
+            var script = getScriptById(transfer.script.id);
             if (script != null) script.setText(transfer.script.code);
             break;
         case "TOGGLE_DISABLE":
-            var script = LL.getScriptById(transfer.script.id);
+            var script = getScriptById(transfer.script.id);
             if(script != null) script.setFlag(Script.FLAG_DISABLED, !script.hasFlag(Script.FLAG_DISABLED));
             break;
     }
 }
-var s = LL.getAllScriptMatching(Script.FLAG_ALL);
+var s = getAllScriptMatching(Script.FLAG_ALL);
 var list = [];
 for (var i = 0; i < s.length; i++) {
     var script = s.getAt(i);

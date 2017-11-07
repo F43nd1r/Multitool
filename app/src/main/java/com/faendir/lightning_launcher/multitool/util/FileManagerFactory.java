@@ -4,6 +4,8 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.faendir.lightning_launcher.multitool.gesture.GestureInfo;
+import com.faendir.lightning_launcher.multitool.gesture.GestureMetaDataSource;
+import com.faendir.lightning_launcher.multitool.util.provider.DataProvider;
 
 import java.io.FileNotFoundException;
 
@@ -18,6 +20,7 @@ public final class FileManagerFactory {
 
     @NonNull
     public static FileManager<GestureInfo, FileNotFoundException> createGestureFileManager(Context context) {
-        return new FileManager<>(() -> DataProvider.openFileForRead(context, DataProvider.URI.GESTURE_INFOS), () -> DataProvider.openFileForWrite(context, DataProvider.URI.GESTURE_INFOS), GestureInfo[].class);
+        return new FileManager<>(() -> DataProvider.openFileForRead(context, GestureMetaDataSource.class),
+                () -> DataProvider.openFileForWrite(context, GestureMetaDataSource.class), GestureInfo[].class);
     }
 }

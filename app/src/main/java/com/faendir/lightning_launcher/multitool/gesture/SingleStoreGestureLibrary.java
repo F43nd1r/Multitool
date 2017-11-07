@@ -6,7 +6,7 @@ import android.gesture.GestureStore;
 import android.gesture.Prediction;
 import android.util.Log;
 
-import com.faendir.lightning_launcher.multitool.util.DataProvider;
+import com.faendir.lightning_launcher.multitool.util.provider.DataProvider;
 
 import org.acra.ACRA;
 
@@ -51,7 +51,7 @@ final class SingleStoreGestureLibrary {
         if (!gestureStore.hasChanged()) return true;
         boolean result = false;
         try {
-            gestureStore.save(DataProvider.openFileForWrite(context, DataProvider.URI.GESTURE_LIBRARY), true);
+            gestureStore.save(DataProvider.openFileForWrite(context, GestureLibraryDataSource.class), true);
             result = true;
         } catch (IOException e) {
             if (DEBUG) Log.d(LOG_TAG, "Could not save the gesture library", e);
@@ -61,7 +61,7 @@ final class SingleStoreGestureLibrary {
     }
 
     private static void load(Context context) {
-        try (InputStream in = DataProvider.openFileForRead(context, DataProvider.URI.GESTURE_LIBRARY)) {
+        try (InputStream in = DataProvider.openFileForRead(context, GestureLibraryDataSource.class)) {
             if (in.available() > 0) {
                 gestureStore.load(in, false);
             }

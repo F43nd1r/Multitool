@@ -1,3 +1,5 @@
+eval(loadRawResource("com.faendir.lightning_launcher.multitool","library"));
+
 bindClass("android.graphics.Bitmap");
 bindClass("android.graphics.drawable.BitmapDrawable");
 bindClass("android.graphics.Canvas");
@@ -43,18 +45,6 @@ function toBitmap(drawable) {
     drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
     drawable.draw(canvas);
     return bmp;
-}
-
-function bindPrefs(keys) {
-    bindClass("android.database.Cursor");
-    var resolver = context.getContentResolver();
-    var result = {};
-    var cursor = resolver.query(Uri.parse("content://com.faendir.lightning_launcher.multitool.provider/pref"), null, null, keys, null);
-    while (cursor.moveToNext()) {
-        result[cursor.getString(0)] = cursor.getString(1);
-    }
-    cursor.close();
-    return result;
 }
 
 function Matrix() {

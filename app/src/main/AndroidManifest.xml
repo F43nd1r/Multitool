@@ -130,14 +130,10 @@
             </intent-filter>
         </service>
         <service
-            android:name=".music.MusicManager"
+            android:name=".music.MusicListenerService"
             android:exported="true"
             tools:ignore="ExportedService"/>
         <service android:name=".backup.BackupService"/>
-        <service
-            android:name=".badge.BadgeService"
-            android:exported="true"
-            tools:ignore="ExportedService"/>
 
         <receiver android:name=".backup.BootBroadcastReceiver">
             <intent-filter>
@@ -151,7 +147,7 @@
         </receiver>
 
         <provider
-            android:name=".util.DataProvider"
+            android:name=".util.provider.DataProvider"
             android:authorities="com.faendir.lightning_launcher.multitool.provider"
             android:enabled="true"
             android:exported="true"
