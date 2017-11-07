@@ -35,7 +35,7 @@ android {
 dependencies {
     def supportVersion = '26.1.0'
     def streamVersion = '1.5.2'
-    def acraVersion = '5.0.0-alpha11'
+    def acraVersion = '5.0.0-alpha13'
     def fastAdapterVersion = '2.6.3'
     implementation('com.faendir.lightninglauncher:scriptlib:3.0-SNAPSHOT') {
         changing = true

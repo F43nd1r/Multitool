@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.ParcelUuid;
 import android.os.Parcelable;
+import android.support.annotation.Keep;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
@@ -28,6 +29,7 @@ import java8.util.stream.StreamSupport;
  *
  * @author F43nd1r
  */
+@Keep
 public class GestureInfo implements Parcelable, DeletableModel {
     private Intent intent;
     private transient Gesture gesture;

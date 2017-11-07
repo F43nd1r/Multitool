@@ -8,7 +8,6 @@ import android.content.Intent;
  * @author F43nd1r
  * @since 25.04.2017
  */
-
 public class BadgeBroadcastReceiver extends BroadcastReceiver {
     private static final String BADGE_COUNT = "badge_count";
     private static final String PACKAGE_NAME = "badge_count_package_name";

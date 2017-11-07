@@ -16,7 +16,6 @@ import com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesD
  * @author F43nd1r
  * @since 06.11.2017
  */
-
 public class BadgeDataSource extends SharedPreferencesDataSource {
 
     @Override

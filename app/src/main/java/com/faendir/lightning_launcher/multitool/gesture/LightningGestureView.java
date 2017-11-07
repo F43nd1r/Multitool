@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.gesture.Gesture;
 import android.gesture.GestureOverlayView;
 import android.gesture.Prediction;
+import android.support.annotation.Keep;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -27,7 +28,7 @@ import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
  *
  * @author F43nd1r
  */
-@SuppressWarnings("unused")
+@Keep
 public class LightningGestureView extends GestureOverlayView implements GestureOverlayView.OnGesturePerformedListener {
 
     public LightningGestureView(Context context) {

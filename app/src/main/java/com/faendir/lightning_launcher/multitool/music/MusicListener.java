@@ -3,6 +3,7 @@ package com.faendir.lightning_launcher.multitool.music;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.support.annotation.Keep;
 import android.view.KeyEvent;
 
 import com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener;
@@ -15,7 +16,7 @@ import java8.util.function.Consumer;
  * @author F43nd1r
  * @since 06.11.2017
  */
-
+@Keep
 public class MusicListener extends BaseContentListener {
 
 
