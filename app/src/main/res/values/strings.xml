@@ -191,4 +191,7 @@
     <string name="key_badgeIntentPackages">badeIntentSupportingPackages</string>
     <string name="title_appChooser">Choose App</string>
     <string name="action_search">Search</string>
+    <string name="pref_showZero">badgeShowZero</string>
+    <string name="summary_showZero">If this is disabled, badges without notifications are hidden. That means badges might be invisible when you create them!</string>
+    <string name="title_showZero">Show Zero</string>
 </resources>

@@ -4978,7 +4978,7 @@ com.faendir.lightning_launcher.multitool.R$raw
 com.faendir.lightning_launcher.multitool.R$string
 com.faendir.lightning_launcher.multitool.R$style
 com.faendir.lightning_launcher.multitool.R$styleable:
-    5040:5040:public R$styleable()
+    5043:5043:public R$styleable()
 com.faendir.lightning_launcher.multitool.R$xml
 com.faendir.lightning_launcher.multitool.backup.BackupUtils:
     34:34:public BackupUtils()
@@ -5146,8 +5146,8 @@ com.google.gson.FieldAttributes:
     111:111:public java.lang.annotation.Annotation getAnnotation(java.lang.Class)
     121:121:public java.util.Collection getAnnotations()
     135:135:public boolean hasModifier(int)
-    146:146:java.lang.Object get(java.lang.Object)
-    155:155:boolean isSynthetic()
+    150:150:java.lang.Object get(java.lang.Object)
+    159:159:boolean isSynthetic()
 com.google.gson.Gson:
     static final boolean DEFAULT_JSON_NON_EXECUTABLE
     static final boolean DEFAULT_LENIENT
@@ -5164,8 +5164,8 @@ com.google.gson.Gson:
     538:541:public com.google.gson.JsonElement toJsonTree(java.lang.Object)
     561:563:public com.google.gson.JsonElement toJsonTree(java.lang.Object,java.lang.reflect.Type)
     622:627:public void toJson(java.lang.Object,java.lang.Appendable)
-    925:926:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.Class)
-    949:952:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.reflect.Type)
+    926:927:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.Class)
+    950:953:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.reflect.Type)
 com.google.gson.GsonBuilder:
     115:116:public com.google.gson.GsonBuilder setVersion(double)
     131:132:public varargs com.google.gson.GsonBuilder excludeFieldsWithModifiers(int[])
@@ -5191,72 +5191,72 @@ com.google.gson.GsonBuilder:
     551:552:public com.google.gson.GsonBuilder serializeSpecialFloatingPointValues()
 com.google.gson.JsonArray:
     43:45:public JsonArray(int)
-    49:56:com.google.gson.JsonArray deepCopy()
-    65:66:public void add(java.lang.Boolean)
-    74:75:public void add(java.lang.Character)
-    83:84:public void add(java.lang.Number)
-    92:93:public void add(java.lang.String)
-    113:114:public void addAll(com.google.gson.JsonArray)
-    125:125:public com.google.gson.JsonElement set(int,com.google.gson.JsonElement)
-    136:136:public boolean remove(com.google.gson.JsonElement)
-    149:149:public com.google.gson.JsonElement remove(int)
-    159:159:public boolean contains(com.google.gson.JsonElement)
-    168:168:public int size()
-    190:190:public com.google.gson.JsonElement get(int)
-    252:255:public java.math.BigDecimal getAsBigDecimal()
-    269:272:public java.math.BigInteger getAsBigInteger()
-    285:288:public float getAsFloat()
-    325:328:public byte getAsByte()
-    333:336:public char getAsCharacter()
-    349:352:public short getAsShort()
-    33:33:bridge synthetic com.google.gson.JsonElement deepCopy()
+    53:60:public com.google.gson.JsonArray deepCopy()
+    69:70:public void add(java.lang.Boolean)
+    78:79:public void add(java.lang.Character)
+    87:88:public void add(java.lang.Number)
+    96:97:public void add(java.lang.String)
+    117:118:public void addAll(com.google.gson.JsonArray)
+    129:129:public com.google.gson.JsonElement set(int,com.google.gson.JsonElement)
+    140:140:public boolean remove(com.google.gson.JsonElement)
+    153:153:public com.google.gson.JsonElement remove(int)
+    163:163:public boolean contains(com.google.gson.JsonElement)
+    172:172:public int size()
+    194:194:public com.google.gson.JsonElement get(int)
+    256:259:public java.math.BigDecimal getAsBigDecimal()
+    273:276:public java.math.BigInteger getAsBigInteger()
+    289:292:public float getAsFloat()
+    329:332:public byte getAsByte()
+    337:340:public char getAsCharacter()
+    353:356:public short getAsShort()
+    33:33:public bridge synthetic com.google.gson.JsonElement deepCopy()
 com.google.gson.JsonDeserializationContext:
     public abstract java.lang.Object deserialize(com.google.gson.JsonElement,java.lang.reflect.Type)
 com.google.gson.JsonElement:
-    abstract com.google.gson.JsonElement deepCopy()
-    136:139:public com.google.gson.JsonNull getAsJsonNull()
-    217:217:public float getAsFloat()
-    257:257:public byte getAsByte()
-    271:271:public char getAsCharacter()
-    285:285:public java.math.BigDecimal getAsBigDecimal()
-    299:299:public java.math.BigInteger getAsBigInteger()
-    312:312:public short getAsShort()
+    public abstract com.google.gson.JsonElement deepCopy()
+    137:140:public com.google.gson.JsonNull getAsJsonNull()
+    218:218:public float getAsFloat()
+    258:258:public byte getAsByte()
+    272:272:public char getAsCharacter()
+    286:286:public java.math.BigDecimal getAsBigDecimal()
+    300:300:public java.math.BigInteger getAsBigInteger()
+    313:313:public short getAsShort()
 com.google.gson.JsonIOException:
     private static final long serialVersionUID
     33:34:public JsonIOException(java.lang.String,java.lang.Throwable)
 com.google.gson.JsonNull:
-    45:45:com.google.gson.JsonNull deepCopy()
-    26:26:bridge synthetic com.google.gson.JsonElement deepCopy()
+    49:49:public com.google.gson.JsonNull deepCopy()
+    26:26:public bridge synthetic com.google.gson.JsonElement deepCopy()
 com.google.gson.JsonObject:
-    38:42:com.google.gson.JsonObject deepCopy()
-    68:68:public com.google.gson.JsonElement remove(java.lang.String)
-    79:80:public void addProperty(java.lang.String,java.lang.String)
-    90:91:public void addProperty(java.lang.String,java.lang.Number)
-    101:102:public void addProperty(java.lang.String,java.lang.Boolean)
-    112:113:public void addProperty(java.lang.String,java.lang.Character)
-    122:122:private com.google.gson.JsonElement createJsonElement(java.lang.Object)
-    142:142:public java.util.Set keySet()
-    151:151:public int size()
-    161:161:public boolean has(java.lang.String)
-    171:171:public com.google.gson.JsonElement get(java.lang.String)
-    181:181:public com.google.gson.JsonPrimitive getAsJsonPrimitive(java.lang.String)
-    191:191:public com.google.gson.JsonArray getAsJsonArray(java.lang.String)
-    201:201:public com.google.gson.JsonObject getAsJsonObject(java.lang.String)
-    32:32:bridge synthetic com.google.gson.JsonElement deepCopy()
+    42:46:public com.google.gson.JsonObject deepCopy()
+    72:72:public com.google.gson.JsonElement remove(java.lang.String)
+    83:84:public void addProperty(java.lang.String,java.lang.String)
+    94:95:public void addProperty(java.lang.String,java.lang.Number)
+    105:106:public void addProperty(java.lang.String,java.lang.Boolean)
+    116:117:public void addProperty(java.lang.String,java.lang.Character)
+    126:126:private com.google.gson.JsonElement createJsonElement(java.lang.Object)
+    146:146:public java.util.Set keySet()
+    155:155:public int size()
+    165:165:public boolean has(java.lang.String)
+    175:175:public com.google.gson.JsonElement get(java.lang.String)
+    185:185:public com.google.gson.JsonPrimitive getAsJsonPrimitive(java.lang.String)
+    195:195:public com.google.gson.JsonArray getAsJsonArray(java.lang.String)
+    205:205:public com.google.gson.JsonObject getAsJsonObject(java.lang.String)
+    32:32:public bridge synthetic com.google.gson.JsonElement deepCopy()
 com.google.gson.JsonParseException:
     static final long serialVersionUID
 com.google.gson.JsonParser
 com.google.gson.JsonPrimitive:
     74:76:public JsonPrimitive(java.lang.Character)
     84:86:JsonPrimitive(java.lang.Object)
-    90:90:com.google.gson.JsonPrimitive deepCopy()
-    204:204:public java.math.BigDecimal getAsBigDecimal()
-    215:216:public java.math.BigInteger getAsBigInteger()
-    227:227:public float getAsFloat()
-    249:249:public short getAsShort()
-    265:265:public byte getAsByte()
-    270:270:public char getAsCharacter()
-    33:33:bridge synthetic com.google.gson.JsonElement deepCopy()
+    94:94:public com.google.gson.JsonPrimitive deepCopy()
+    208:208:public java.math.BigDecimal getAsBigDecimal()
+    219:220:public java.math.BigInteger getAsBigInteger()
+    231:231:public float getAsFloat()
+    253:253:public short getAsShort()
+    269:269:public byte getAsByte()
+    274:274:public char getAsCharacter()
+    33:33:public bridge synthetic com.google.gson.JsonElement deepCopy()
 com.google.gson.JsonSerializationContext:
     public abstract com.google.gson.JsonElement serialize(java.lang.Object)
     public abstract com.google.gson.JsonElement serialize(java.lang.Object,java.lang.reflect.Type)
@@ -5278,7 +5278,7 @@ com.google.gson.TypeAdapter:
 com.google.gson.internal.$Gson$Preconditions:
     33:34:private $Gson$Preconditions()
 com.google.gson.internal.$Gson$Types:
-    46:47:private $Gson$Types()
+    42:43:private $Gson$Types()
 com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl:
     private static final long serialVersionUID
 com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl:
@@ -8509,7 +8509,6 @@ org.acra.ACRAConstants:
     public static final java.lang.String DEFAULT_STRING_VALUE
     public static final int DEFAULT_LOG_LINES
     public static final int DEFAULT_BUFFER_SIZE_IN_BYTES
-    public static final int KEEP_ALL
     public static final java.lang.String DATE_TIME_FORMAT_STRING
     public static final java.lang.String DEFAULT_CERTIFICATE_TYPE
     public static final java.lang.String NOT_AVAILABLE
@@ -8517,11 +8516,11 @@ org.acra.ACRAConstants:
     27:28:private ACRAConstants()
 org.acra.BuildConfig
 org.acra.ErrorReporter:
-    129:129:public java.lang.String removeCustomData(java.lang.String)
-    136:137:public void clearCustomData()
-    148:148:public java.lang.String getCustomData(java.lang.String)
-    225:232:public void handleException(java.lang.Throwable,boolean)
-    243:244:public void handleException(java.lang.Throwable)
+    117:117:public java.lang.String removeCustomData(java.lang.String)
+    124:125:public void clearCustomData()
+    136:136:public java.lang.String getCustomData(java.lang.String)
+    213:220:public void handleException(java.lang.Throwable,boolean)
+    231:232:public void handleException(java.lang.Throwable)
 org.acra.R
 org.acra.attachment.AcraContentProvider:
     public static final java.lang.String MIME_TYPE_OCTET_STREAM
@@ -8531,71 +8530,70 @@ org.acra.builder.ReportBuilder:
     48:49:public org.acra.builder.ReportBuilder message(java.lang.String)
     125:126:public org.acra.builder.ReportBuilder customData(java.lang.String,java.lang.String)
 org.acra.collections.ImmutableSet:
-    39:40:public varargs ImmutableSet(java.lang.Object[])
+    50:51:public varargs ImmutableSet(java.lang.Object[])
 org.acra.collector.CollectorException:
-    38:39:public CollectorException(java.lang.Throwable)
+    40:41:public CollectorException(java.lang.Throwable)
 org.acra.config.ACRAConfigurationException:
     private static final long serialVersionUID
 org.acra.config.BaseCoreConfigurationBuilder:
-    98:99:public void setReportField(org.acra.ReportField,boolean)
-    107:113:public org.acra.config.ConfigurationBuilder getPluginConfigurationBuilder(java.lang.Class)
+    104:105:public void setReportField(org.acra.ReportField,boolean)
+    113:119:public org.acra.config.ConfigurationBuilder getPluginConfigurationBuilder(java.lang.Class)
 org.acra.config.BaseHttpConfigurationBuilder:
     43:45:public void setHttpHeaders(java.util.Map)
 org.acra.config.ClassValidator:
     27:28:private ClassValidator()
 org.acra.config.ConfigUtils:
-    24:24:public ConfigUtils()
+    25:25:public ConfigUtils()
 org.acra.config.CoreConfigurationBuilder:
-    140:141:public org.acra.config.CoreConfigurationBuilder setEnabled(boolean)
-    168:169:public org.acra.config.CoreConfigurationBuilder setSharedPreferencesName(java.lang.String)
-    201:202:public org.acra.config.CoreConfigurationBuilder setIncludeDropBoxSystemTags(boolean)
-    216:217:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalDropBoxTags(java.lang.String[])
-    231:232:public org.acra.config.CoreConfigurationBuilder setDropboxCollectionMinutes(int)
-    266:267:public varargs org.acra.config.CoreConfigurationBuilder setLogcatArguments(java.lang.String[])
-    357:358:public varargs org.acra.config.CoreConfigurationBuilder setReportContent(org.acra.ReportField[])
-    386:387:public org.acra.config.CoreConfigurationBuilder setDeleteUnapprovedReportsOnApplicationStart(boolean)
-    405:406:public org.acra.config.CoreConfigurationBuilder setDeleteOldUnsentReportsOnApplicationStart(boolean)
-    420:421:public org.acra.config.CoreConfigurationBuilder setKeepApprovedReportsUpTo(int)
-    437:438:public org.acra.config.CoreConfigurationBuilder setAlsoReportToAndroidFramework(boolean)
-    455:456:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalSharedPreferences(java.lang.String[])
-    472:473:public org.acra.config.CoreConfigurationBuilder setLogcatFilterByPid(boolean)
-    489:490:public org.acra.config.CoreConfigurationBuilder setNonBlockingReadForLogcat(boolean)
-    507:508:public org.acra.config.CoreConfigurationBuilder setSendReportsInDevMode(boolean)
-    525:526:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSharedPreferencesKeys(java.lang.String[])
-    544:545:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSettingsKeys(java.lang.String[])
-    560:561:public org.acra.config.CoreConfigurationBuilder setBuildConfigClass(java.lang.Class)
-    577:578:public varargs org.acra.config.CoreConfigurationBuilder setReportSenderFactoryClasses(java.lang.Class[])
-    594:595:public org.acra.config.CoreConfigurationBuilder setApplicationLogFile(java.lang.String)
-    612:613:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileLines(int)
-    629:630:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileDir(org.acra.file.Directory)
-    644:645:public org.acra.config.CoreConfigurationBuilder setRetryPolicyClass(java.lang.Class)
-    659:660:public org.acra.config.CoreConfigurationBuilder setStopServicesOnCrash(boolean)
-    691:692:public varargs org.acra.config.CoreConfigurationBuilder setAttachmentUris(java.lang.String[])
-    708:709:public org.acra.config.CoreConfigurationBuilder setAttachmentUriProvider(java.lang.Class)
-    724:725:public org.acra.config.CoreConfigurationBuilder setResReportSendSuccessToast(int)
-    740:741:public org.acra.config.CoreConfigurationBuilder setResReportSendFailureToast(int)
-    753:754:public org.acra.config.CoreConfigurationBuilder setReportField(org.acra.ReportField,boolean)
-    763:763:public org.acra.config.ConfigurationBuilder getPluginConfigurationBuilder(java.lang.Class)
+    141:142:public org.acra.config.CoreConfigurationBuilder setEnabled(boolean)
+    164:165:public org.acra.config.CoreConfigurationBuilder setSharedPreferencesName(java.lang.String)
+    197:198:public org.acra.config.CoreConfigurationBuilder setIncludeDropBoxSystemTags(boolean)
+    213:214:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalDropBoxTags(java.lang.String[])
+    229:230:public org.acra.config.CoreConfigurationBuilder setDropboxCollectionMinutes(int)
+    255:256:public varargs org.acra.config.CoreConfigurationBuilder setLogcatArguments(java.lang.String[])
+    278:279:public varargs org.acra.config.CoreConfigurationBuilder setReportContent(org.acra.ReportField[])
+    306:307:public org.acra.config.CoreConfigurationBuilder setDeleteUnapprovedReportsOnApplicationStart(boolean)
+    322:323:public org.acra.config.CoreConfigurationBuilder setDeleteOldUnsentReportsOnApplicationStart(boolean)
+    339:340:public org.acra.config.CoreConfigurationBuilder setAlsoReportToAndroidFramework(boolean)
+    355:356:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalSharedPreferences(java.lang.String[])
+    371:372:public org.acra.config.CoreConfigurationBuilder setLogcatFilterByPid(boolean)
+    387:388:public org.acra.config.CoreConfigurationBuilder setLogcatReadNonBlocking(boolean)
+    403:404:public org.acra.config.CoreConfigurationBuilder setSendReportsInDevMode(boolean)
+    420:421:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSharedPreferencesKeys(java.lang.String[])
+    437:438:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSettingsKeys(java.lang.String[])
+    454:455:public org.acra.config.CoreConfigurationBuilder setBuildConfigClass(java.lang.Class)
+    470:471:public varargs org.acra.config.CoreConfigurationBuilder setReportSenderFactoryClasses(java.lang.Class[])
+    486:487:public org.acra.config.CoreConfigurationBuilder setApplicationLogFile(java.lang.String)
+    503:504:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileLines(int)
+    519:520:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileDir(org.acra.file.Directory)
+    536:537:public org.acra.config.CoreConfigurationBuilder setRetryPolicyClass(java.lang.Class)
+    553:554:public org.acra.config.CoreConfigurationBuilder setStopServicesOnCrash(boolean)
+    582:583:public varargs org.acra.config.CoreConfigurationBuilder setAttachmentUris(java.lang.String[])
+    599:600:public org.acra.config.CoreConfigurationBuilder setAttachmentUriProvider(java.lang.Class)
+    617:618:public org.acra.config.CoreConfigurationBuilder setResReportSendSuccessToast(int)
+    635:636:public org.acra.config.CoreConfigurationBuilder setResReportSendFailureToast(int)
+    652:653:public org.acra.config.CoreConfigurationBuilder setReportFormat(org.acra.data.StringFormat)
+    665:666:public org.acra.config.CoreConfigurationBuilder setReportField(org.acra.ReportField,boolean)
+    675:675:public org.acra.config.ConfigurationBuilder getPluginConfigurationBuilder(java.lang.Class)
 org.acra.config.HttpSenderConfigurationBuilder:
-    59:60:public HttpSenderConfigurationBuilder(java.lang.Object)
-    91:92:public org.acra.config.HttpSenderConfigurationBuilder setEnabled(boolean)
-    107:108:public org.acra.config.HttpSenderConfigurationBuilder setUri(java.lang.String)
-    123:124:public org.acra.config.HttpSenderConfigurationBuilder setBasicAuthLogin(java.lang.String)
+    57:58:public HttpSenderConfigurationBuilder(java.lang.Object)
+    88:89:public org.acra.config.HttpSenderConfigurationBuilder setEnabled(boolean)
+    105:106:public org.acra.config.HttpSenderConfigurationBuilder setUri(java.lang.String)
+    122:123:public org.acra.config.HttpSenderConfigurationBuilder setBasicAuthLogin(java.lang.String)
     139:140:public org.acra.config.HttpSenderConfigurationBuilder setBasicAuthPassword(java.lang.String)
-    157:158:public org.acra.config.HttpSenderConfigurationBuilder setHttpMethod(org.acra.sender.HttpSender$Method)
-    175:176:public org.acra.config.HttpSenderConfigurationBuilder setReportType(org.acra.sender.HttpSender$Type)
-    189:190:public org.acra.config.HttpSenderConfigurationBuilder setConnectionTimeout(int)
-    206:207:public org.acra.config.HttpSenderConfigurationBuilder setSocketTimeout(int)
-    220:221:public org.acra.config.HttpSenderConfigurationBuilder setDropReportsOnTimeout(boolean)
-    234:235:public org.acra.config.HttpSenderConfigurationBuilder setKeyStoreFactoryClass(java.lang.Class)
-    248:249:public org.acra.config.HttpSenderConfigurationBuilder setCertificatePath(java.lang.String)
-    263:264:public org.acra.config.HttpSenderConfigurationBuilder setResCertificate(int)
-    277:278:public org.acra.config.HttpSenderConfigurationBuilder setCertificateType(java.lang.String)
-    290:291:public org.acra.config.HttpSenderConfigurationBuilder setHttpHeaders(java.util.Map)
+    158:159:public org.acra.config.HttpSenderConfigurationBuilder setHttpMethod(org.acra.sender.HttpSender$Method)
+    176:177:public org.acra.config.HttpSenderConfigurationBuilder setConnectionTimeout(int)
+    194:195:public org.acra.config.HttpSenderConfigurationBuilder setSocketTimeout(int)
+    211:212:public org.acra.config.HttpSenderConfigurationBuilder setDropReportsOnTimeout(boolean)
+    229:230:public org.acra.config.HttpSenderConfigurationBuilder setKeyStoreFactoryClass(java.lang.Class)
+    246:247:public org.acra.config.HttpSenderConfigurationBuilder setCertificatePath(java.lang.String)
+    264:265:public org.acra.config.HttpSenderConfigurationBuilder setResCertificate(int)
+    281:282:public org.acra.config.HttpSenderConfigurationBuilder setCertificateType(java.lang.String)
+    294:295:public org.acra.config.HttpSenderConfigurationBuilder setHttpHeaders(java.util.Map)
 org.acra.data.CrashReportData:
-    112:121:public void put(java.lang.String,org.json.JSONArray)
-    128:129:public void put(org.acra.ReportField,double)
-    148:149:public void put(org.acra.ReportField,org.json.JSONArray)
+    105:114:public void put(java.lang.String,org.json.JSONArray)
+    121:122:public void put(org.acra.ReportField,double)
+    141:142:public void put(org.acra.ReportField,org.json.JSONArray)
 org.acra.file.ReportLocator:
     private static final java.lang.String UNAPPROVED_FOLDER_NAME
     private static final java.lang.String APPROVED_FOLDER_NAME
@@ -8622,9 +8620,9 @@ org.acra.log.ACRALog:
     public abstract int i(java.lang.String,java.lang.String,java.lang.Throwable)
     public abstract java.lang.String getStackTraceString(java.lang.Throwable)
 org.acra.log.AndroidLogDelegate:
-    19:19:public int v(java.lang.String,java.lang.String,java.lang.Throwable)
-    35:35:public int i(java.lang.String,java.lang.String,java.lang.Throwable)
-    60:60:public java.lang.String getStackTraceString(java.lang.Throwable)
+    35:35:public int v(java.lang.String,java.lang.String,java.lang.Throwable)
+    51:51:public int i(java.lang.String,java.lang.String,java.lang.Throwable)
+    76:76:public java.lang.String getStackTraceString(java.lang.Throwable)
 org.acra.log.HollowLog
 org.acra.security.BaseKeyStoreFactory:
     58:59:public BaseKeyStoreFactory()
@@ -8632,9 +8630,9 @@ org.acra.security.KeyStoreHelper:
     private static final java.lang.String ASSET_PREFIX
     39:40:private KeyStoreHelper()
 org.acra.sender.HttpSender:
-    263:265:public void setBasicAuth(java.lang.String,java.lang.String)
+    145:147:public void setBasicAuth(java.lang.String,java.lang.String)
 org.acra.sender.ReportSenderException:
-    49:50:public ReportSenderException(java.lang.String)
+    45:46:public ReportSenderException(java.lang.String)
 org.acra.util.IOUtils:
     private static final int NO_LIMIT
     private static final int READ_TIMEOUT
@@ -8642,12 +8640,12 @@ org.acra.util.IOUtils:
     97:97:public static java.lang.String streamToString(java.io.InputStream,com.android.internal.util.Predicate)
 org.acra.util.Installation:
     private static final java.lang.String INSTALLATION
-    32:32:private Installation()
+    48:48:private Installation()
 org.acra.util.SystemServices:
     32:33:private SystemServices()
     47:47:public static android.app.NotificationManager getNotificationManager(android.content.Context)
 org.acra.util.ToastSender:
-    20:20:private ToastSender()
+    36:36:private ToastSender()
 org.acra.util.UriUtils:
     40:41:private UriUtils()
 org.apache.commons.collections4.ArrayStack

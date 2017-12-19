@@ -9748,6 +9748,7 @@ com.faendir.lightning_launcher.multitool.R$string: int pref_id
 com.faendir.lightning_launcher.multitool.R$string: int pref_keepSorted
 com.faendir.lightning_launcher.multitool.R$string: int pref_lastFragment
 com.faendir.lightning_launcher.multitool.R$string: int pref_musicDefault
+com.faendir.lightning_launcher.multitool.R$string: int pref_showZero
 com.faendir.lightning_launcher.multitool.R$string: int pref_spaces
 com.faendir.lightning_launcher.multitool.R$string: int preference_scriptName
 com.faendir.lightning_launcher.multitool.R$string: int reload_script
@@ -9756,6 +9757,7 @@ com.faendir.lightning_launcher.multitool.R$string: int search_menu_title
 com.faendir.lightning_launcher.multitool.R$string: int status_bar_notification_info_overflow
 com.faendir.lightning_launcher.multitool.R$string: int summary_notStarted
 com.faendir.lightning_launcher.multitool.R$string: int summary_ongoing
+com.faendir.lightning_launcher.multitool.R$string: int summary_showZero
 com.faendir.lightning_launcher.multitool.R$string: int summary_spaces
 com.faendir.lightning_launcher.multitool.R$string: int summary_unknown
 com.faendir.lightning_launcher.multitool.R$string: int summary_unlocked
@@ -9823,6 +9825,7 @@ com.faendir.lightning_launcher.multitool.R$string: int title_scriptManager
 com.faendir.lightning_launcher.multitool.R$string: int title_search
 com.faendir.lightning_launcher.multitool.R$string: int title_settings
 com.faendir.lightning_launcher.multitool.R$string: int title_shortcuts
+com.faendir.lightning_launcher.multitool.R$string: int title_showZero
 com.faendir.lightning_launcher.multitool.R$string: int title_spaces
 com.faendir.lightning_launcher.multitool.R$string: int title_trial
 com.faendir.lightning_launcher.multitool.R$string: int title_version
@@ -24232,6 +24235,28 @@ org.acra.config.ReportingAdministrator: boolean shouldStartCollecting(android.co
 org.acra.config.ReportingAdministrator: boolean shouldSendReport(android.content.Context,org.acra.config.CoreConfiguration,org.acra.data.CrashReportData)
 org.acra.config.ReportingAdministrator: void notifyReportDropped(android.content.Context,org.acra.config.CoreConfiguration)
 org.acra.config.ReportingAdministrator: boolean enabled(org.acra.config.CoreConfiguration)
+org.acra.data.StringFormat
+org.acra.data.StringFormat: org.acra.data.StringFormat JSON
+org.acra.data.StringFormat: org.acra.data.StringFormat KEY_VALUE_LIST
+org.acra.data.StringFormat: java.lang.String contentType
+org.acra.data.StringFormat: org.acra.data.StringFormat[] $VALUES
+org.acra.data.StringFormat: org.acra.data.StringFormat[] values()
+org.acra.data.StringFormat: org.acra.data.StringFormat valueOf(java.lang.String)
+org.acra.data.StringFormat: StringFormat(java.lang.String,int,java.lang.String)
+org.acra.data.StringFormat: java.lang.String toFormattedString(org.acra.data.CrashReportData,org.acra.collections.ImmutableSet,java.lang.String,java.lang.String,boolean)
+org.acra.data.StringFormat: java.lang.String getMatchingHttpContentType()
+org.acra.data.StringFormat: StringFormat(java.lang.String,int,java.lang.String,org.acra.data.StringFormat$1)
+org.acra.data.StringFormat: void <clinit>()
+org.acra.data.StringFormat$1
+org.acra.data.StringFormat$1: StringFormat$1(java.lang.String,int,java.lang.String)
+org.acra.data.StringFormat$1: java.lang.String toFormattedString(org.acra.data.CrashReportData,org.acra.collections.ImmutableSet,java.lang.String,java.lang.String,boolean)
+org.acra.data.StringFormat$2
+org.acra.data.StringFormat$2: StringFormat$2(java.lang.String,int,java.lang.String)
+org.acra.data.StringFormat$2: java.lang.String toFormattedString(org.acra.data.CrashReportData,org.acra.collections.ImmutableSet,java.lang.String,java.lang.String,boolean)
+org.acra.data.StringFormat$2: void append(java.lang.StringBuilder,java.lang.String,java.lang.String,java.lang.String,boolean)
+org.acra.data.StringFormat$2: java.util.Map toStringMap(java.util.Map,java.lang.String)
+org.acra.data.StringFormat$2: java.lang.String valueToString(java.lang.String,java.lang.Object)
+org.acra.data.StringFormat$2: java.util.List flatten(org.json.JSONObject)
 org.acra.file.Directory
 org.acra.file.Directory: org.acra.file.Directory FILES_LEGACY
 org.acra.file.Directory: org.acra.file.Directory FILES
@@ -24311,24 +24336,6 @@ org.acra.sender.HttpSender$Method$1: java.net.URL createURL(java.lang.String,org
 org.acra.sender.HttpSender$Method$2
 org.acra.sender.HttpSender$Method$2: HttpSender$Method$2(java.lang.String,int)
 org.acra.sender.HttpSender$Method$2: java.net.URL createURL(java.lang.String,org.acra.data.CrashReportData)
-org.acra.sender.HttpSender$Type
-org.acra.sender.HttpSender$Type: org.acra.sender.HttpSender$Type FORM
-org.acra.sender.HttpSender$Type: org.acra.sender.HttpSender$Type JSON
-org.acra.sender.HttpSender$Type: java.lang.String contentType
-org.acra.sender.HttpSender$Type: org.acra.sender.HttpSender$Type[] $VALUES
-org.acra.sender.HttpSender$Type: org.acra.sender.HttpSender$Type[] values()
-org.acra.sender.HttpSender$Type: org.acra.sender.HttpSender$Type valueOf(java.lang.String)
-org.acra.sender.HttpSender$Type: HttpSender$Type(java.lang.String,int,java.lang.String)
-org.acra.sender.HttpSender$Type: java.lang.String getContentType()
-org.acra.sender.HttpSender$Type: java.lang.String convertReport(org.acra.sender.HttpSender,org.acra.data.CrashReportData)
-org.acra.sender.HttpSender$Type: HttpSender$Type(java.lang.String,int,java.lang.String,org.acra.sender.HttpSender$1)
-org.acra.sender.HttpSender$Type: void <clinit>()
-org.acra.sender.HttpSender$Type$1
-org.acra.sender.HttpSender$Type$1: HttpSender$Type$1(java.lang.String,int,java.lang.String)
-org.acra.sender.HttpSender$Type$1: java.lang.String convertReport(org.acra.sender.HttpSender,org.acra.data.CrashReportData)
-org.acra.sender.HttpSender$Type$2
-org.acra.sender.HttpSender$Type$2: HttpSender$Type$2(java.lang.String,int,java.lang.String)
-org.acra.sender.HttpSender$Type$2: java.lang.String convertReport(org.acra.sender.HttpSender,org.acra.data.CrashReportData)
 org.acra.sender.HttpSenderFactory
 org.acra.sender.HttpSenderFactory: HttpSenderFactory()
 org.acra.sender.HttpSenderFactory: org.acra.sender.ReportSender create(android.content.Context,org.acra.config.CoreConfiguration)

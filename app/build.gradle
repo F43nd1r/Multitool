@@ -8,8 +8,8 @@ android {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 14
         targetSdkVersion 26
-        versionCode 84
-        versionName "2.12b1"
+        versionCode 85
+        versionName "2.12"
     }
     buildTypes {
         release {
@@ -35,7 +35,7 @@ android {
 dependencies {
     def supportVersion = '26.1.0'
     def streamVersion = '1.5.2'
-    def acraVersion = '5.0.0-alpha13'
+    def acraVersion = '5.0.0-rc2'
     def fastAdapterVersion = '2.6.3'
     implementation('com.faendir.lightninglauncher:scriptlib:3.0-SNAPSHOT') {
         changing = true
@@ -43,7 +43,7 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$supportVersion"
     implementation "com.android.support:design:$supportVersion"
     implementation "com.android.support:percent:$supportVersion"
-    implementation 'com.google.code.gson:gson:2.8.1'
+    implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.nononsenseapps:filepicker:3.1.0'
     implementation "com.faendir.acra:acra-http:$acraVersion"
     implementation 'org.greenrobot:eventbus:3.0.0'

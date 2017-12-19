@@ -19367,8 +19367,8 @@ com.faendir.lightning_launcher.multitool.MainActivity$1 -> com.faendir.lightning
     135:135:boolean onActionItemClicked(android.support.v7.view.ActionMode,android.view.MenuItem) -> a
     140:142:void onDestroyActionMode(android.support.v7.view.ActionMode) -> a
 com.faendir.lightning_launcher.multitool.MultiTool -> com.faendir.lightning_launcher.multitool.MultiTool:
-    21:21:void <init>() -> <init>
-    27:32:void attachBaseContext(android.content.Context) -> attachBaseContext
+    22:22:void <init>() -> <init>
+    28:33:void attachBaseContext(android.content.Context) -> attachBaseContext
 com.faendir.lightning_launcher.multitool.R -> com.faendir.lightning_launcher.multitool.i:
 com.faendir.lightning_launcher.multitool.R$styleable -> com.faendir.lightning_launcher.multitool.i$a:
     int[] ActionBar -> ActionBar
@@ -19955,7 +19955,7 @@ com.faendir.lightning_launcher.multitool.R$styleable -> com.faendir.lightning_la
     int View_paddingEnd -> View_paddingEnd
     int View_paddingStart -> View_paddingStart
     int View_theme -> View_theme
-    5108:13613:void <clinit>() -> <clinit>
+    5111:13616:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.backup.BackupService -> com.faendir.lightning_launcher.multitool.backup.BackupService:
     19:21:void <init>() -> <init>
     25:31:void onHandleIntent(android.content.Intent) -> onHandleIntent
@@ -21798,10 +21798,10 @@ com.google.gson.DefaultDateTypeAdapter -> com.b.b.a:
     55:56:void <init>(java.lang.Class,java.lang.String) -> <init>
     69:72:void <init>(java.lang.Class,int,int) -> <init>
     74:81:void <init>(java.lang.Class,java.text.DateFormat,java.text.DateFormat) -> <init>
-    87:91:void write(com.google.gson.stream.JsonWriter,java.util.Date) -> a
-    95:107:java.util.Date read(com.google.gson.stream.JsonReader) -> a
-    112:124:java.util.Date deserializeToDate(java.lang.String) -> a
-    129:132:java.lang.String toString() -> toString
+    87:95:void write(com.google.gson.stream.JsonWriter,java.util.Date) -> a
+    99:112:java.util.Date read(com.google.gson.stream.JsonReader) -> a
+    117:129:java.util.Date deserializeToDate(java.lang.String) -> a
+    134:137:java.lang.String toString() -> toString
     40:40:java.lang.Object read(com.google.gson.stream.JsonReader) -> b
     40:40:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> a
 com.google.gson.ExclusionStrategy -> com.b.b.b:
@@ -21876,13 +21876,13 @@ com.google.gson.Gson -> com.b.b.f:
     713:721:com.google.gson.stream.JsonWriter newJsonWriter(java.io.Writer) -> a
     728:730:com.google.gson.stream.JsonReader newJsonReader(java.io.Reader) -> a
     738:753:void toJson(com.google.gson.JsonElement,com.google.gson.stream.JsonWriter) -> a
-    773:774:java.lang.Object fromJson(java.lang.String,java.lang.Class) -> a
-    797:802:java.lang.Object fromJson(java.lang.String,java.lang.reflect.Type) -> a
-    824:827:java.lang.Object fromJson(java.io.Reader,java.lang.Class) -> a
-    851:854:java.lang.Object fromJson(java.io.Reader,java.lang.reflect.Type) -> a
-    859:867:void assertFullConsumption(java.lang.Object,com.google.gson.stream.JsonReader) -> a
-    879:904:java.lang.Object fromJson(com.google.gson.stream.JsonReader,java.lang.reflect.Type) -> a
-    982:987:java.lang.String toString() -> toString
+    774:775:java.lang.Object fromJson(java.lang.String,java.lang.Class) -> a
+    798:803:java.lang.Object fromJson(java.lang.String,java.lang.reflect.Type) -> a
+    825:828:java.lang.Object fromJson(java.io.Reader,java.lang.Class) -> a
+    852:855:java.lang.Object fromJson(java.io.Reader,java.lang.reflect.Type) -> a
+    860:868:void assertFullConsumption(java.lang.Object,com.google.gson.stream.JsonReader) -> a
+    880:905:java.lang.Object fromJson(com.google.gson.stream.JsonReader,java.lang.reflect.Type) -> a
+    983:988:java.lang.String toString() -> toString
     112:112:void <clinit>() -> <clinit>
 com.google.gson.Gson$1 -> com.b.b.f$1:
     com.google.gson.Gson this$0 -> a
@@ -21920,10 +21920,10 @@ com.google.gson.Gson$5 -> com.b.b.f$5:
     365:365:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> a
 com.google.gson.Gson$FutureTypeAdapter -> com.b.b.f$a:
     com.google.gson.TypeAdapter delegate -> a
-    955:955:void <init>() -> <init>
-    959:963:void setDelegate(com.google.gson.TypeAdapter) -> a
-    966:969:java.lang.Object read(com.google.gson.stream.JsonReader) -> b
-    973:977:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> a
+    956:956:void <init>() -> <init>
+    960:964:void setDelegate(com.google.gson.TypeAdapter) -> a
+    967:970:java.lang.Object read(com.google.gson.stream.JsonReader) -> b
+    974:978:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> a
 com.google.gson.GsonBuilder -> com.b.b.g:
     com.google.gson.internal.Excluder excluder -> a
     com.google.gson.LongSerializationPolicy longSerializationPolicy -> b
@@ -21943,59 +21943,59 @@ com.google.gson.GsonBuilder -> com.b.b.g:
     boolean lenient -> p
     79:105:void <init>() -> <init>
     472:486:com.google.gson.GsonBuilder registerTypeAdapter(java.lang.reflect.Type,java.lang.Object) -> a
-    562:569:com.google.gson.Gson create() -> a
-    581:596:void addTypeAdaptersForDate(java.lang.String,int,int,java.util.List) -> a
+    562:572:com.google.gson.Gson create() -> a
+    584:599:void addTypeAdaptersForDate(java.lang.String,int,int,java.util.List) -> a
 com.google.gson.InstanceCreator -> com.b.b.h:
     java.lang.Object createInstance(java.lang.reflect.Type) -> a
 com.google.gson.JsonArray -> com.b.b.i:
     java.util.List elements -> a
     39:41:void <init>() -> <init>
-    101:105:void add(com.google.gson.JsonElement) -> a
-    178:178:java.util.Iterator iterator() -> iterator
-    203:206:java.lang.Number getAsNumber() -> a
-    219:222:java.lang.String getAsString() -> b
-    235:238:double getAsDouble() -> c
-    301:304:long getAsLong() -> d
-    317:320:int getAsInt() -> e
-    365:368:boolean getAsBoolean() -> f
-    373:373:boolean equals(java.lang.Object) -> equals
-    378:378:int hashCode() -> hashCode
+    105:109:void add(com.google.gson.JsonElement) -> a
+    182:182:java.util.Iterator iterator() -> iterator
+    207:210:java.lang.Number getAsNumber() -> a
+    223:226:java.lang.String getAsString() -> b
+    239:242:double getAsDouble() -> c
+    305:308:long getAsLong() -> d
+    321:324:int getAsInt() -> e
+    369:372:boolean getAsBoolean() -> f
+    377:377:boolean equals(java.lang.Object) -> equals
+    382:382:int hashCode() -> hashCode
 com.google.gson.JsonDeserializationContext -> com.b.b.j:
 com.google.gson.JsonDeserializer -> com.b.b.k:
     java.lang.Object deserialize(com.google.gson.JsonElement,java.lang.reflect.Type,com.google.gson.JsonDeserializationContext) -> a
 com.google.gson.JsonElement -> com.b.b.l:
     33:33:void <init>() -> <init>
-    46:46:boolean isJsonArray() -> g
-    55:55:boolean isJsonObject() -> h
-    64:64:boolean isJsonPrimitive() -> i
-    74:74:boolean isJsonNull() -> j
-    87:90:com.google.gson.JsonObject getAsJsonObject() -> k
-    103:106:com.google.gson.JsonArray getAsJsonArray() -> l
-    119:122:com.google.gson.JsonPrimitive getAsJsonPrimitive() -> m
-    152:152:boolean getAsBoolean() -> f
-    165:165:java.lang.Boolean getAsBooleanWrapper() -> n
-    178:178:java.lang.Number getAsNumber() -> a
-    191:191:java.lang.String getAsString() -> b
-    204:204:double getAsDouble() -> c
-    230:230:long getAsLong() -> d
-    243:243:int getAsInt() -> e
-    321:327:java.lang.String toString() -> toString
+    47:47:boolean isJsonArray() -> g
+    56:56:boolean isJsonObject() -> h
+    65:65:boolean isJsonPrimitive() -> i
+    75:75:boolean isJsonNull() -> j
+    88:91:com.google.gson.JsonObject getAsJsonObject() -> k
+    104:107:com.google.gson.JsonArray getAsJsonArray() -> l
+    120:123:com.google.gson.JsonPrimitive getAsJsonPrimitive() -> m
+    153:153:boolean getAsBoolean() -> f
+    166:166:java.lang.Boolean getAsBooleanWrapper() -> n
+    179:179:java.lang.Number getAsNumber() -> a
+    192:192:java.lang.String getAsString() -> b
+    205:205:double getAsDouble() -> c
+    231:231:long getAsLong() -> d
+    244:244:int getAsInt() -> e
+    322:328:java.lang.String toString() -> toString
 com.google.gson.JsonIOException -> com.b.b.m:
     29:30:void <init>(java.lang.String) -> <init>
     43:44:void <init>(java.lang.Throwable) -> <init>
 com.google.gson.JsonNull -> com.b.b.n:
     com.google.gson.JsonNull INSTANCE -> a
     39:41:void <init>() -> <init>
-    53:53:int hashCode() -> hashCode
-    61:61:boolean equals(java.lang.Object) -> equals
+    57:57:int hashCode() -> hashCode
+    65:65:boolean equals(java.lang.Object) -> equals
     32:32:void <clinit>() -> <clinit>
 com.google.gson.JsonObject -> com.b.b.o:
     com.google.gson.internal.LinkedTreeMap members -> a
     32:33:void <init>() -> <init>
-    54:58:void add(java.lang.String,com.google.gson.JsonElement) -> a
-    132:132:java.util.Set entrySet() -> o
-    206:207:boolean equals(java.lang.Object) -> equals
-    212:212:int hashCode() -> hashCode
+    58:62:void add(java.lang.String,com.google.gson.JsonElement) -> a
+    136:136:java.util.Set entrySet() -> o
+    210:211:boolean equals(java.lang.Object) -> equals
+    216:216:int hashCode() -> hashCode
 com.google.gson.JsonParseException -> com.b.b.p:
     42:43:void <init>(java.lang.String) -> <init>
     52:53:void <init>(java.lang.String,java.lang.Throwable) -> <init>
@@ -22006,21 +22006,21 @@ com.google.gson.JsonPrimitive -> com.b.b.q:
     46:48:void <init>(java.lang.Boolean) -> <init>
     55:57:void <init>(java.lang.Number) -> <init>
     64:66:void <init>(java.lang.String) -> <init>
-    94:104:void setValue(java.lang.Object) -> a
-    112:112:boolean isBoolean() -> o
-    122:122:java.lang.Boolean getAsBooleanWrapper() -> n
-    132:136:boolean getAsBoolean() -> f
-    146:146:boolean isNumber() -> p
-    157:157:java.lang.Number getAsNumber() -> a
-    166:166:boolean isString() -> q
-    176:181:java.lang.String getAsString() -> b
-    193:193:double getAsDouble() -> c
-    238:238:long getAsLong() -> d
-    260:260:int getAsInt() -> e
-    274:284:boolean isPrimitiveOrString(java.lang.Object) -> b
-    289:301:int hashCode() -> hashCode
-    306:326:boolean equals(java.lang.Object) -> equals
-    334:339:boolean isIntegral(com.google.gson.JsonPrimitive) -> a
+    98:108:void setValue(java.lang.Object) -> a
+    116:116:boolean isBoolean() -> o
+    126:126:java.lang.Boolean getAsBooleanWrapper() -> n
+    136:140:boolean getAsBoolean() -> f
+    150:150:boolean isNumber() -> p
+    161:161:java.lang.Number getAsNumber() -> a
+    170:170:boolean isString() -> q
+    180:185:java.lang.String getAsString() -> b
+    197:197:double getAsDouble() -> c
+    242:242:long getAsLong() -> d
+    264:264:int getAsInt() -> e
+    278:288:boolean isPrimitiveOrString(java.lang.Object) -> b
+    293:305:int hashCode() -> hashCode
+    310:330:boolean equals(java.lang.Object) -> equals
+    338:343:boolean isIntegral(com.google.gson.JsonPrimitive) -> a
     35:35:void <clinit>() -> <clinit>
 com.google.gson.JsonSerializationContext -> com.b.b.r:
 com.google.gson.JsonSerializer -> com.b.b.s:
@@ -22073,54 +22073,55 @@ com.google.gson.internal.$Gson$Preconditions -> com.b.b.b.a:
     45:48:void checkArgument(boolean) -> a
 com.google.gson.internal.$Gson$Types -> com.b.b.b.b:
     java.lang.reflect.Type[] EMPTY_TYPE_ARRAY -> a
-    58:58:java.lang.reflect.ParameterizedType newParameterizedTypeWithOwner(java.lang.reflect.Type,java.lang.reflect.Type,java.lang.reflect.Type[]) -> a
-    68:68:java.lang.reflect.GenericArrayType arrayOf(java.lang.reflect.Type) -> a
-    79:84:java.lang.reflect.WildcardType subtypeOf(java.lang.reflect.Type) -> b
-    94:99:java.lang.reflect.WildcardType supertypeOf(java.lang.reflect.Type) -> c
-    108:127:java.lang.reflect.Type canonicalize(java.lang.reflect.Type) -> d
-    132:160:java.lang.Class getRawType(java.lang.reflect.Type) -> e
-    166:166:boolean equal(java.lang.Object,java.lang.Object) -> a
-    173:223:boolean equals(java.lang.reflect.Type,java.lang.reflect.Type) -> a
-    228:228:int hashCodeOrZero(java.lang.Object) -> a
-    232:232:java.lang.String typeToString(java.lang.reflect.Type) -> f
-    241:271:java.lang.reflect.Type getGenericSupertype(java.lang.reflect.Type,java.lang.Class,java.lang.Class) -> a
-    282:284:java.lang.reflect.Type getSupertype(java.lang.reflect.Type,java.lang.Class,java.lang.Class) -> b
-    292:294:java.lang.reflect.Type getArrayComponentType(java.lang.reflect.Type) -> g
-    302:310:java.lang.reflect.Type getCollectionElementType(java.lang.reflect.Type,java.lang.Class) -> a
-    323:333:java.lang.reflect.Type[] getMapKeyAndValueTypes(java.lang.reflect.Type,java.lang.Class) -> b
-    339:403:java.lang.reflect.Type resolve(java.lang.reflect.Type,java.lang.Class,java.lang.reflect.Type) -> a
-    409:422:java.lang.reflect.Type resolveTypeVariable(java.lang.reflect.Type,java.lang.Class,java.lang.reflect.TypeVariable) -> a
-    426:431:int indexOf(java.lang.Object[],java.lang.Object) -> a
-    439:440:java.lang.Class declaringClassOf(java.lang.reflect.TypeVariable) -> a
-    446:447:void checkNotPrimitive(java.lang.reflect.Type) -> h
-    44:44:void <clinit>() -> <clinit>
+    54:54:java.lang.reflect.ParameterizedType newParameterizedTypeWithOwner(java.lang.reflect.Type,java.lang.reflect.Type,java.lang.reflect.Type[]) -> a
+    64:64:java.lang.reflect.GenericArrayType arrayOf(java.lang.reflect.Type) -> a
+    75:80:java.lang.reflect.WildcardType subtypeOf(java.lang.reflect.Type) -> b
+    90:95:java.lang.reflect.WildcardType supertypeOf(java.lang.reflect.Type) -> c
+    104:123:java.lang.reflect.Type canonicalize(java.lang.reflect.Type) -> d
+    128:156:java.lang.Class getRawType(java.lang.reflect.Type) -> e
+    162:162:boolean equal(java.lang.Object,java.lang.Object) -> a
+    169:219:boolean equals(java.lang.reflect.Type,java.lang.reflect.Type) -> a
+    224:224:int hashCodeOrZero(java.lang.Object) -> a
+    228:228:java.lang.String typeToString(java.lang.reflect.Type) -> f
+    237:267:java.lang.reflect.Type getGenericSupertype(java.lang.reflect.Type,java.lang.Class,java.lang.Class) -> a
+    278:280:java.lang.reflect.Type getSupertype(java.lang.reflect.Type,java.lang.Class,java.lang.Class) -> b
+    288:290:java.lang.reflect.Type getArrayComponentType(java.lang.reflect.Type) -> g
+    298:306:java.lang.reflect.Type getCollectionElementType(java.lang.reflect.Type,java.lang.Class) -> a
+    319:329:java.lang.reflect.Type[] getMapKeyAndValueTypes(java.lang.reflect.Type,java.lang.Class) -> b
+    333:333:java.lang.reflect.Type resolve(java.lang.reflect.Type,java.lang.Class,java.lang.reflect.Type) -> a
+    340:410:java.lang.reflect.Type resolve(java.lang.reflect.Type,java.lang.Class,java.lang.reflect.Type,java.util.Collection) -> a
+    416:429:java.lang.reflect.Type resolveTypeVariable(java.lang.reflect.Type,java.lang.Class,java.lang.reflect.TypeVariable) -> a
+    433:438:int indexOf(java.lang.Object[],java.lang.Object) -> a
+    446:447:java.lang.Class declaringClassOf(java.lang.reflect.TypeVariable) -> a
+    453:454:void checkNotPrimitive(java.lang.reflect.Type) -> h
+    40:40:void <clinit>() -> <clinit>
 com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl -> com.b.b.b.b$a:
     java.lang.reflect.Type componentType -> a
-    516:518:void <init>(java.lang.reflect.Type) -> <init>
-    521:521:java.lang.reflect.Type getGenericComponentType() -> getGenericComponentType
-    525:526:boolean equals(java.lang.Object) -> equals
-    530:530:int hashCode() -> hashCode
-    534:534:java.lang.String toString() -> toString
+    523:525:void <init>(java.lang.reflect.Type) -> <init>
+    528:528:java.lang.reflect.Type getGenericComponentType() -> getGenericComponentType
+    532:533:boolean equals(java.lang.Object) -> equals
+    537:537:int hashCode() -> hashCode
+    541:541:java.lang.String toString() -> toString
 com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl -> com.b.b.b.b$b:
     java.lang.reflect.Type ownerType -> a
     java.lang.reflect.Type rawType -> b
     java.lang.reflect.Type[] typeArguments -> c
-    454:471:void <init>(java.lang.reflect.Type,java.lang.reflect.Type,java.lang.reflect.Type[]) -> <init>
-    474:474:java.lang.reflect.Type[] getActualTypeArguments() -> getActualTypeArguments
-    478:478:java.lang.reflect.Type getRawType() -> getRawType
-    482:482:java.lang.reflect.Type getOwnerType() -> getOwnerType
-    486:487:boolean equals(java.lang.Object) -> equals
-    491:493:int hashCode() -> hashCode
-    497:507:java.lang.String toString() -> toString
+    461:478:void <init>(java.lang.reflect.Type,java.lang.reflect.Type,java.lang.reflect.Type[]) -> <init>
+    481:481:java.lang.reflect.Type[] getActualTypeArguments() -> getActualTypeArguments
+    485:485:java.lang.reflect.Type getRawType() -> getRawType
+    489:489:java.lang.reflect.Type getOwnerType() -> getOwnerType
+    493:494:boolean equals(java.lang.Object) -> equals
+    498:500:int hashCode() -> hashCode
+    504:514:java.lang.String toString() -> toString
 com.google.gson.internal.$Gson$Types$WildcardTypeImpl -> com.b.b.b.b$c:
     java.lang.reflect.Type upperBound -> a
     java.lang.reflect.Type lowerBound -> b
-    549:566:void <init>(java.lang.reflect.Type[],java.lang.reflect.Type[]) -> <init>
-    569:569:java.lang.reflect.Type[] getUpperBounds() -> getUpperBounds
-    573:573:java.lang.reflect.Type[] getLowerBounds() -> getLowerBounds
-    577:578:boolean equals(java.lang.Object) -> equals
-    583:584:int hashCode() -> hashCode
-    588:593:java.lang.String toString() -> toString
+    556:573:void <init>(java.lang.reflect.Type[],java.lang.reflect.Type[]) -> <init>
+    576:576:java.lang.reflect.Type[] getUpperBounds() -> getUpperBounds
+    580:580:java.lang.reflect.Type[] getLowerBounds() -> getLowerBounds
+    584:585:boolean equals(java.lang.Object) -> equals
+    590:591:int hashCode() -> hashCode
+    595:600:java.lang.String toString() -> toString
 com.google.gson.internal.ConstructorConstructor -> com.b.b.b.c:
     java.util.Map instanceCreators -> a
     51:53:void <init>(java.util.Map) -> <init>
@@ -31686,18 +31687,18 @@ org.acra.ACRA -> org.acra.ACRA:
 org.acra.ACRAConstants -> org.acra.a:
     java.lang.String SILENT_SUFFIX -> a
     org.acra.ReportField[] DEFAULT_REPORT_FIELDS -> b
-    41:69:void <clinit>() -> <clinit>
+    41:67:void <clinit>() -> <clinit>
 org.acra.ErrorReporter -> org.acra.b:
     boolean supportedAndroidVersion -> a
     android.app.Application context -> b
     org.acra.builder.ReportExecutor reportExecutor -> c
     java.util.Map customData -> d
-    71:99:void <init>(android.app.Application,org.acra.config.CoreConfiguration,boolean,boolean) -> <init>
-    117:117:java.lang.String putCustomData(java.lang.String,java.lang.String) -> a
-    162:184:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
-    193:198:void handleSilentException(java.lang.Throwable) -> a
-    207:213:void setEnabled(boolean) -> a
-    248:251:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
+    59:87:void <init>(android.app.Application,org.acra.config.CoreConfiguration,boolean,boolean) -> <init>
+    105:105:java.lang.String putCustomData(java.lang.String,java.lang.String) -> a
+    150:172:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    181:186:void handleSilentException(java.lang.Throwable) -> a
+    195:201:void setEnabled(boolean) -> a
+    236:239:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
 org.acra.ReportField -> org.acra.ReportField:
     org.acra.ReportField REPORT_ID -> REPORT_ID
     org.acra.ReportField APP_VERSION_CODE -> APP_VERSION_CODE
@@ -31779,38 +31780,37 @@ org.acra.annotation.AcraCore -> org.acra.a.a:
     org.acra.ReportField[] reportContent() -> f
     boolean deleteUnapprovedReportsOnApplicationStart() -> g
     boolean deleteOldUnsentReportsOnApplicationStart() -> h
-    int keepApprovedReportsUpTo() -> i
-    boolean alsoReportToAndroidFramework() -> j
-    java.lang.String[] additionalSharedPreferences() -> k
-    boolean logcatFilterByPid() -> l
-    boolean nonBlockingReadForLogcat() -> m
-    boolean sendReportsInDevMode() -> n
-    java.lang.String[] excludeMatchingSharedPreferencesKeys() -> o
-    java.lang.String[] excludeMatchingSettingsKeys() -> p
-    java.lang.Class buildConfigClass() -> q
-    java.lang.Class[] reportSenderFactoryClasses() -> r
-    java.lang.String applicationLogFile() -> s
-    int applicationLogFileLines() -> t
-    org.acra.file.Directory applicationLogFileDir() -> u
-    java.lang.Class retryPolicyClass() -> v
-    boolean stopServicesOnCrash() -> w
-    java.lang.String[] attachmentUris() -> x
-    java.lang.Class attachmentUriProvider() -> y
-    int resReportSendSuccessToast() -> z
-    int resReportSendFailureToast() -> A
+    boolean alsoReportToAndroidFramework() -> i
+    java.lang.String[] additionalSharedPreferences() -> j
+    boolean logcatFilterByPid() -> k
+    boolean logcatReadNonBlocking() -> l
+    boolean sendReportsInDevMode() -> m
+    java.lang.String[] excludeMatchingSharedPreferencesKeys() -> n
+    java.lang.String[] excludeMatchingSettingsKeys() -> o
+    java.lang.Class buildConfigClass() -> p
+    java.lang.Class[] reportSenderFactoryClasses() -> q
+    java.lang.String applicationLogFile() -> r
+    int applicationLogFileLines() -> s
+    org.acra.file.Directory applicationLogFileDir() -> t
+    java.lang.Class retryPolicyClass() -> u
+    boolean stopServicesOnCrash() -> v
+    java.lang.String[] attachmentUris() -> w
+    java.lang.Class attachmentUriProvider() -> x
+    int resReportSendSuccessToast() -> y
+    int resReportSendFailureToast() -> z
+    org.acra.data.StringFormat reportFormat() -> A
 org.acra.annotation.AcraHttpSender -> org.acra.a.b:
     java.lang.String uri() -> a
     java.lang.String basicAuthLogin() -> b
     java.lang.String basicAuthPassword() -> c
     org.acra.sender.HttpSender$Method httpMethod() -> d
-    org.acra.sender.HttpSender$Type reportType() -> e
-    int connectionTimeout() -> f
-    int socketTimeout() -> g
-    boolean dropReportsOnTimeout() -> h
-    java.lang.Class keyStoreFactoryClass() -> i
-    java.lang.String certificatePath() -> j
-    int resCertificate() -> k
-    java.lang.String certificateType() -> l
+    int connectionTimeout() -> e
+    int socketTimeout() -> f
+    boolean dropReportsOnTimeout() -> g
+    java.lang.Class keyStoreFactoryClass() -> h
+    java.lang.String certificatePath() -> i
+    int resCertificate() -> j
+    java.lang.String certificateType() -> k
 org.acra.attachment.AcraContentProvider -> org.acra.attachment.AcraContentProvider:
     java.lang.String[] COLUMNS -> a
     java.lang.String authority -> b
@@ -31829,8 +31829,8 @@ org.acra.attachment.AcraContentProvider -> org.acra.attachment.AcraContentProvid
 org.acra.attachment.AttachmentUriProvider -> org.acra.attachment.a:
     java.util.List getAttachments(android.content.Context,org.acra.config.CoreConfiguration) -> a
 org.acra.attachment.DefaultAttachmentProvider -> org.acra.attachment.b:
-    22:22:void <init>() -> <init>
-    30:38:java.util.List getAttachments(android.content.Context,org.acra.config.CoreConfiguration) -> a
+    38:38:void <init>() -> <init>
+    46:54:java.util.List getAttachments(android.content.Context,org.acra.config.CoreConfiguration) -> a
 org.acra.builder.LastActivityManager -> org.acra.b.a:
     java.lang.ref.WeakReference lastActivityCreated -> a
     38:91:void <init>(android.app.Application) -> <init>
@@ -31892,18 +31892,18 @@ org.acra.builder.ReportExecutor$1 -> org.acra.b.c$1:
     201:204:void run() -> run
 org.acra.collections.BoundedLinkedList -> org.acra.c.a:
     int maxSize -> a
-    35:37:void <init>(int) -> <init>
-    46:49:boolean add(java.lang.Object) -> add
-    59:63:void add(int,java.lang.Object) -> add
-    72:85:boolean addAll(java.util.Collection) -> addAll
-    101:104:boolean addAll(int,java.util.Collection) -> addAll
-    115:115:void addFirst(java.lang.Object) -> addFirst
-    125:126:void addLast(java.lang.Object) -> addLast
-    136:140:java.lang.String toString() -> toString
-    145:145:boolean offer(java.lang.Object) -> offer
-    150:151:boolean offerFirst(java.lang.Object) -> offerFirst
-    156:156:boolean offerLast(java.lang.Object) -> offerLast
-    161:162:void push(java.lang.Object) -> push
+    33:35:void <init>(int) -> <init>
+    44:47:boolean add(java.lang.Object) -> add
+    57:61:void add(int,java.lang.Object) -> add
+    70:83:boolean addAll(java.util.Collection) -> addAll
+    99:102:boolean addAll(int,java.util.Collection) -> addAll
+    113:113:void addFirst(java.lang.Object) -> addFirst
+    123:124:void addLast(java.lang.Object) -> addLast
+    134:138:java.lang.String toString() -> toString
+    143:143:boolean offer(java.lang.Object) -> offer
+    148:149:boolean offerFirst(java.lang.Object) -> offerFirst
+    154:154:boolean offerLast(java.lang.Object) -> offerLast
+    159:160:void push(java.lang.Object) -> push
 org.acra.collections.ImmutableList -> org.acra.c.b:
     java.util.List mList -> a
     40:41:void <init>(java.lang.Object[]) -> <init>
@@ -31953,26 +31953,30 @@ org.acra.collections.ImmutableMap$ImmutableEntryWrapper -> org.acra.c.c$a:
     122:122:java.lang.Object getValue() -> getValue
     127:127:java.lang.Object setValue(java.lang.Object) -> setValue
 org.acra.collections.ImmutableSet -> org.acra.c.d:
-    java.util.Set mSet -> a
-    42:44:void <init>(java.util.Collection) -> <init>
-    48:48:boolean add(java.lang.Object) -> add
-    53:53:boolean addAll(java.util.Collection) -> addAll
-    58:58:void clear() -> clear
-    63:63:boolean contains(java.lang.Object) -> contains
-    68:68:boolean containsAll(java.util.Collection) -> containsAll
-    73:73:boolean isEmpty() -> isEmpty
-    79:79:java.util.Iterator iterator() -> iterator
-    84:84:boolean remove(java.lang.Object) -> remove
-    89:89:boolean removeAll(java.util.Collection) -> removeAll
-    94:94:boolean retainAll(java.util.Collection) -> retainAll
-    99:99:int size() -> size
-    105:105:java.lang.Object[] toArray() -> toArray
-    112:112:java.lang.Object[] toArray(java.lang.Object[]) -> toArray
+    org.acra.collections.ImmutableSet EMPTY -> a
+    java.util.Set mSet -> b
+    39:39:org.acra.collections.ImmutableSet empty() -> a
+    44:46:void <init>() -> <init>
+    53:55:void <init>(java.util.Collection) -> <init>
+    59:59:boolean add(java.lang.Object) -> add
+    64:64:boolean addAll(java.util.Collection) -> addAll
+    69:69:void clear() -> clear
+    74:74:boolean contains(java.lang.Object) -> contains
+    79:79:boolean containsAll(java.util.Collection) -> containsAll
+    84:84:boolean isEmpty() -> isEmpty
+    90:90:java.util.Iterator iterator() -> iterator
+    95:95:boolean remove(java.lang.Object) -> remove
+    100:100:boolean removeAll(java.util.Collection) -> removeAll
+    105:105:boolean retainAll(java.util.Collection) -> retainAll
+    110:110:int size() -> size
+    116:116:java.lang.Object[] toArray() -> toArray
+    123:123:java.lang.Object[] toArray(java.lang.Object[]) -> toArray
+    35:35:void <clinit>() -> <clinit>
 org.acra.collections.ImmutableSet$Builder -> org.acra.c.d$a:
     java.util.Set mSet -> a
-    118:120:void <init>() -> <init>
-    123:124:void add(java.lang.Object) -> a
-    127:127:org.acra.collections.ImmutableSet build() -> a
+    129:131:void <init>() -> <init>
+    134:135:void add(java.lang.Object) -> a
+    138:138:org.acra.collections.ImmutableSet build() -> a
 org.acra.collections.UnmodifiableIteratorWrapper -> org.acra.c.e:
     java.util.Iterator mIterator -> a
     29:31:void <init>(java.util.Iterator) -> <init>
@@ -31997,9 +32001,9 @@ org.acra.collector.BaseReportFieldCollector -> org.acra.collector.BaseReportFiel
     org.acra.ReportField[] reportFields -> reportFields
     43:49:void <init>(org.acra.ReportField,org.acra.ReportField[]) -> <init>
     61:61:boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder) -> shouldCollect
-    66:76:void collect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
+    70:80:void collect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
     void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
-    83:83:org.acra.collector.Collector$Order getOrder() -> getOrder
+    100:100:org.acra.collector.Collector$Order getOrder() -> getOrder
 org.acra.collector.Collector -> org.acra.collector.Collector:
     void collect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
     org.acra.collector.Collector$Order getOrder() -> getOrder
@@ -32010,14 +32014,14 @@ org.acra.collector.Collector$Order -> org.acra.collector.Collector$Order:
     org.acra.collector.Collector$Order LATE -> LATE
     org.acra.collector.Collector$Order LAST -> LAST
     org.acra.collector.Collector$Order[] $VALUES -> $VALUES
-    38:38:org.acra.collector.Collector$Order[] values() -> values
-    38:38:org.acra.collector.Collector$Order valueOf(java.lang.String) -> valueOf
-    38:38:void <init>(java.lang.String,int) -> <init>
-    38:43:void <clinit>() -> <clinit>
+    50:50:org.acra.collector.Collector$Order[] values() -> values
+    50:50:org.acra.collector.Collector$Order valueOf(java.lang.String) -> valueOf
+    50:50:void <init>(java.lang.String,int) -> <init>
+    50:55:void <clinit>() -> <clinit>
 org.acra.collector.CollectorException -> org.acra.collector.a:
-    26:27:void <init>() -> <init>
-    30:31:void <init>(java.lang.String) -> <init>
-    34:35:void <init>(java.lang.String,java.lang.Throwable) -> <init>
+    28:29:void <init>() -> <init>
+    32:33:void <init>(java.lang.String) -> <init>
+    36:37:void <init>(java.lang.String,java.lang.Throwable) -> <init>
 org.acra.collector.ConfigurationCollector -> org.acra.collector.ConfigurationCollector:
     java.lang.String SUFFIX_MASK -> SUFFIX_MASK
     java.lang.String FIELD_SCREENLAYOUT -> FIELD_SCREENLAYOUT
@@ -32034,18 +32038,18 @@ org.acra.collector.ConfigurationCollector -> org.acra.collector.ConfigurationCol
     java.lang.String PREFIX_KEYBOARD -> PREFIX_KEYBOARD
     java.lang.String PREFIX_HARDKEYBOARDHIDDEN -> PREFIX_HARDKEYBOARDHIDDEN
     org.json.JSONObject initialConfiguration -> initialConfiguration
-    72:73:void <init>() -> <init>
-    78:88:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
+    69:70:void <init>() -> <init>
+    75:85:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
     92:95:void collectApplicationStartUp(android.content.Context,org.acra.config.CoreConfiguration) -> collectApplicationStartUp
     107:129:org.json.JSONObject configToJson(android.content.res.Configuration) -> configToJson
     133:184:java.util.Map getValueArrays() -> getValueArrays
     201:222:java.lang.Object getFieldValueName(java.util.Map,android.content.res.Configuration,java.lang.reflect.Field) -> getFieldValueName
     239:254:java.lang.String activeFlags(android.util.SparseArray,int) -> activeFlags
     266:269:org.json.JSONObject collectConfiguration(android.content.Context) -> collectConfiguration
-    51:51:org.acra.collector.Collector$Order getOrder() -> getOrder
+    48:48:org.acra.collector.Collector$Order getOrder() -> getOrder
 org.acra.collector.ConfigurationCollector$1 -> org.acra.collector.ConfigurationCollector$1:
     int[] $SwitchMap$org$acra$ReportField -> a
-    78:78:void <clinit>() -> <clinit>
+    75:75:void <clinit>() -> <clinit>
 org.acra.collector.CustomDataCollector -> org.acra.collector.CustomDataCollector:
     39:40:void <init>() -> <init>
     44:45:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
@@ -32080,32 +32084,32 @@ org.acra.collector.DisplayManagerCollector -> org.acra.collector.DisplayManagerC
 org.acra.collector.DropBoxCollector -> org.acra.collector.DropBoxCollector:
     java.lang.String[] SYSTEM_TAGS -> SYSTEM_TAGS
     java.text.SimpleDateFormat dateFormat -> dateFormat
-    63:67:void <init>() -> <init>
-    72:72:org.acra.collector.Collector$Order getOrder() -> getOrder
-    77:123:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
-    127:129:boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder) -> shouldCollect
-    58:58:void <clinit>() -> <clinit>
+    61:65:void <init>() -> <init>
+    70:70:org.acra.collector.Collector$Order getOrder() -> getOrder
+    75:121:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
+    125:127:boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder) -> shouldCollect
+    56:56:void <clinit>() -> <clinit>
 org.acra.collector.LogCatCollector -> org.acra.collector.LogCatCollector:
     53:54:void <init>() -> <init>
     59:59:org.acra.collector.Collector$Order getOrder() -> getOrder
-    75:107:java.lang.String collectLogCat(org.acra.config.CoreConfiguration,java.lang.String) -> collectLogCat
-    113:115:boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder) -> shouldCollect
-    120:133:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
-    147:150:java.lang.String streamToString(org.acra.config.CoreConfiguration,java.io.InputStream,com.android.internal.util.Predicate,int) -> streamToString
+    71:103:java.lang.String collectLogCat(org.acra.config.CoreConfiguration,java.lang.String) -> collectLogCat
+    109:111:boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder) -> shouldCollect
+    116:129:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
+    142:145:java.lang.String streamToString(org.acra.config.CoreConfiguration,java.io.InputStream,com.android.internal.util.Predicate,int) -> streamToString
 org.acra.collector.LogCatCollector$1 -> org.acra.collector.LogCatCollector$1:
     java.lang.String val$myPidStr -> a
     org.acra.collector.LogCatCollector this$0 -> b
-    100:100:void <init>(org.acra.collector.LogCatCollector,java.lang.String) -> <init>
-    103:103:boolean apply(java.lang.String) -> a
-    100:100:boolean apply(java.lang.Object) -> apply
+    96:96:void <init>(org.acra.collector.LogCatCollector,java.lang.String) -> <init>
+    99:99:boolean apply(java.lang.String) -> a
+    96:96:boolean apply(java.lang.Object) -> apply
 org.acra.collector.LogCatCollector$2 -> org.acra.collector.LogCatCollector$2:
     int[] $SwitchMap$org$acra$ReportField -> a
-    121:121:void <clinit>() -> <clinit>
+    117:117:void <clinit>() -> <clinit>
 org.acra.collector.LogFileCollector -> org.acra.collector.LogFileCollector:
-    50:51:void <init>() -> <init>
-    56:56:org.acra.collector.Collector$Order getOrder() -> getOrder
-    61:64:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
-    75:90:java.io.InputStream getStream(android.content.Context,org.acra.file.Directory,java.lang.String) -> getStream
+    49:50:void <init>() -> <init>
+    55:55:org.acra.collector.Collector$Order getOrder() -> getOrder
+    60:63:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
+    74:89:java.io.InputStream getStream(android.content.Context,org.acra.file.Directory,java.lang.String) -> getStream
 org.acra.collector.MediaCodecListCollector -> org.acra.collector.MediaCodecListCollector:
     java.lang.String COLOR_FORMAT_PREFIX -> COLOR_FORMAT_PREFIX
     java.lang.String[] MPEG4_TYPES -> MPEG4_TYPES
@@ -32120,35 +32124,35 @@ org.acra.collector.MediaCodecListCollector -> org.acra.collector.MediaCodecListC
     android.util.SparseArray mMPEG4LevelValues -> mMPEG4LevelValues
     android.util.SparseArray mMPEG4ProfileValues -> mMPEG4ProfileValues
     android.util.SparseArray mAACProfileValues -> mAACProfileValues
-    61:72:void <init>() -> <init>
-    77:77:org.acra.collector.Collector$Order getOrder() -> getOrder
-    82:83:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
-    87:87:boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder) -> shouldCollect
-    95:136:void prepare() -> prepare
-    148:176:org.json.JSONObject collectMediaCodecList() -> collectMediaCodecList
-    191:242:org.json.JSONObject collectCapabilitiesForType(android.media.MediaCodecInfo,java.lang.String) -> collectCapabilitiesForType
-    255:277:org.acra.collector.MediaCodecListCollector$CodecType identifyCodecType(android.media.MediaCodecInfo) -> identifyCodecType
-    56:59:void <clinit>() -> <clinit>
+    60:71:void <init>() -> <init>
+    76:76:org.acra.collector.Collector$Order getOrder() -> getOrder
+    81:82:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
+    86:86:boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder) -> shouldCollect
+    94:135:void prepare() -> prepare
+    145:173:org.json.JSONObject collectMediaCodecList() -> collectMediaCodecList
+    186:237:org.json.JSONObject collectCapabilitiesForType(android.media.MediaCodecInfo,java.lang.String) -> collectCapabilitiesForType
+    250:272:org.acra.collector.MediaCodecListCollector$CodecType identifyCodecType(android.media.MediaCodecInfo) -> identifyCodecType
+    55:58:void <clinit>() -> <clinit>
 org.acra.collector.MediaCodecListCollector$1 -> org.acra.collector.MediaCodecListCollector$1:
     int[] $SwitchMap$org$acra$collector$MediaCodecListCollector$CodecType -> a
-    220:220:void <clinit>() -> <clinit>
+    215:215:void <clinit>() -> <clinit>
 org.acra.collector.MediaCodecListCollector$CodecType -> org.acra.collector.MediaCodecListCollector$CodecType:
     org.acra.collector.MediaCodecListCollector$CodecType AVC -> AVC
     org.acra.collector.MediaCodecListCollector$CodecType H263 -> H263
     org.acra.collector.MediaCodecListCollector$CodecType MPEG4 -> MPEG4
     org.acra.collector.MediaCodecListCollector$CodecType AAC -> AAC
     org.acra.collector.MediaCodecListCollector$CodecType[] $VALUES -> $VALUES
-    50:50:org.acra.collector.MediaCodecListCollector$CodecType[] values() -> values
-    50:50:org.acra.collector.MediaCodecListCollector$CodecType valueOf(java.lang.String) -> valueOf
-    50:50:void <init>(java.lang.String,int) -> <init>
-    50:51:void <clinit>() -> <clinit>
+    49:49:org.acra.collector.MediaCodecListCollector$CodecType[] values() -> values
+    49:49:org.acra.collector.MediaCodecListCollector$CodecType valueOf(java.lang.String) -> valueOf
+    49:49:void <init>(java.lang.String,int) -> <init>
+    49:50:void <clinit>() -> <clinit>
 org.acra.collector.MemoryInfoCollector -> org.acra.collector.MemoryInfoCollector:
     49:50:void <init>() -> <init>
     54:54:boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder) -> shouldCollect
     59:73:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
-    84:93:java.lang.String collectMemInfo() -> collectMemInfo
-    104:117:long getAvailableInternalMemorySize() -> getAvailableInternalMemorySize
-    127:140:long getTotalInternalMemorySize() -> getTotalInternalMemorySize
+    83:92:java.lang.String collectMemInfo() -> collectMemInfo
+    103:116:long getAvailableInternalMemorySize() -> getAvailableInternalMemorySize
+    125:138:long getTotalInternalMemorySize() -> getTotalInternalMemorySize
     46:46:org.acra.collector.Collector$Order getOrder() -> getOrder
 org.acra.collector.MemoryInfoCollector$1 -> org.acra.collector.MemoryInfoCollector$1:
     int[] $SwitchMap$org$acra$ReportField -> a
@@ -32161,25 +32165,25 @@ org.acra.collector.PackageManagerCollector$1 -> org.acra.collector.PackageManage
     int[] $SwitchMap$org$acra$ReportField -> a
     49:49:void <clinit>() -> <clinit>
 org.acra.collector.ReflectionCollector -> org.acra.collector.ReflectionCollector:
-    51:52:void <init>() -> <init>
-    57:76:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
-    84:101:void collectConstants(java.lang.Class,org.json.JSONObject) -> collectConstants
-    109:125:void collectStaticGettersResults(java.lang.Class,org.json.JSONObject) -> collectStaticGettersResults
-    135:143:java.lang.Class getBuildConfigClass(android.content.Context,org.acra.config.CoreConfiguration) -> getBuildConfigClass
-    47:47:org.acra.collector.Collector$Order getOrder() -> getOrder
+    50:51:void <init>() -> <init>
+    56:75:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
+    83:100:void collectConstants(java.lang.Class,org.json.JSONObject) -> collectConstants
+    108:124:void collectStaticGettersResults(java.lang.Class,org.json.JSONObject) -> collectStaticGettersResults
+    134:142:java.lang.Class getBuildConfigClass(android.content.Context,org.acra.config.CoreConfiguration) -> getBuildConfigClass
+    46:46:org.acra.collector.Collector$Order getOrder() -> getOrder
 org.acra.collector.ReflectionCollector$1 -> org.acra.collector.ReflectionCollector$1:
     int[] $SwitchMap$org$acra$ReportField -> a
-    58:58:void <clinit>() -> <clinit>
+    57:57:void <clinit>() -> <clinit>
 org.acra.collector.SettingsCollector -> org.acra.collector.SettingsCollector:
     java.lang.String ERROR -> ERROR
-    54:55:void <init>() -> <init>
-    59:73:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
-    76:91:org.json.JSONObject collectSettings(android.content.Context,org.acra.config.CoreConfiguration,java.lang.Class) -> collectSettings
-    95:103:boolean isAuthorized(org.acra.config.CoreConfiguration,java.lang.reflect.Field) -> isAuthorized
-    48:48:org.acra.collector.Collector$Order getOrder() -> getOrder
+    53:54:void <init>() -> <init>
+    58:72:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
+    75:90:org.json.JSONObject collectSettings(android.content.Context,org.acra.config.CoreConfiguration,java.lang.Class) -> collectSettings
+    94:102:boolean isAuthorized(org.acra.config.CoreConfiguration,java.lang.reflect.Field) -> isAuthorized
+    47:47:org.acra.collector.Collector$Order getOrder() -> getOrder
 org.acra.collector.SettingsCollector$1 -> org.acra.collector.SettingsCollector$1:
     int[] $SwitchMap$org$acra$ReportField -> a
-    59:59:void <clinit>() -> <clinit>
+    58:58:void <clinit>() -> <clinit>
 org.acra.collector.SharedPreferencesCollector -> org.acra.collector.SharedPreferencesCollector:
     47:48:void <init>() -> <init>
     52:63:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
@@ -32231,10 +32235,10 @@ org.acra.config.BaseCoreConfigurationBuilder -> org.acra.config.b:
     java.util.Map reportContentChanges -> a
     java.util.List configurationBuilders -> b
     java.util.List configurations -> c
-    46:59:void <init>(java.lang.Class) -> <init>
-    63:67:void preBuild() -> a
-    71:88:java.util.Set transformReportContent(org.acra.ReportField[]) -> a
-    103:103:java.util.List pluginConfigurations() -> b
+    52:65:void <init>(java.lang.Class) -> <init>
+    69:73:void preBuild() -> a
+    77:94:java.util.Set transformReportContent(org.acra.ReportField[]) -> a
+    109:109:java.util.List pluginConfigurations() -> b
 org.acra.config.BaseHttpConfigurationBuilder -> org.acra.config.c:
     java.util.Map httpHeaders -> a
     32:34:void <init>() -> <init>
@@ -32242,7 +32246,7 @@ org.acra.config.BaseHttpConfigurationBuilder -> org.acra.config.c:
 org.acra.config.ClassValidator -> org.acra.config.d:
     31:45:void check(java.lang.Class[]) -> a
 org.acra.config.ConfigUtils -> org.acra.config.e:
-    27:35:org.acra.config.Configuration getPluginConfiguration(org.acra.config.CoreConfiguration,java.lang.Class) -> a
+    28:36:org.acra.config.Configuration getPluginConfiguration(org.acra.config.CoreConfiguration,java.lang.Class) -> a
 org.acra.config.Configuration -> org.acra.config.f:
     boolean enabled() -> a
 org.acra.config.ConfigurationBuilder -> org.acra.config.g:
@@ -32259,56 +32263,56 @@ org.acra.config.CoreConfiguration -> org.acra.config.h:
     org.acra.collections.ImmutableSet reportContent -> g
     boolean deleteUnapprovedReportsOnApplicationStart -> h
     boolean deleteOldUnsentReportsOnApplicationStart -> i
-    int keepApprovedReportsUpTo -> j
-    boolean alsoReportToAndroidFramework -> k
-    org.acra.collections.ImmutableList additionalSharedPreferences -> l
-    boolean logcatFilterByPid -> m
-    boolean nonBlockingReadForLogcat -> n
-    boolean sendReportsInDevMode -> o
-    org.acra.collections.ImmutableList excludeMatchingSharedPreferencesKeys -> p
-    org.acra.collections.ImmutableList excludeMatchingSettingsKeys -> q
-    java.lang.Class buildConfigClass -> r
-    org.acra.collections.ImmutableList reportSenderFactoryClasses -> s
-    java.lang.String applicationLogFile -> t
-    int applicationLogFileLines -> u
-    org.acra.file.Directory applicationLogFileDir -> v
-    java.lang.Class retryPolicyClass -> w
-    boolean stopServicesOnCrash -> x
-    org.acra.collections.ImmutableList attachmentUris -> y
-    java.lang.Class attachmentUriProvider -> z
-    int resReportSendSuccessToast -> A
-    int resReportSendFailureToast -> B
+    boolean alsoReportToAndroidFramework -> j
+    org.acra.collections.ImmutableList additionalSharedPreferences -> k
+    boolean logcatFilterByPid -> l
+    boolean logcatReadNonBlocking -> m
+    boolean sendReportsInDevMode -> n
+    org.acra.collections.ImmutableList excludeMatchingSharedPreferencesKeys -> o
+    org.acra.collections.ImmutableList excludeMatchingSettingsKeys -> p
+    java.lang.Class buildConfigClass -> q
+    org.acra.collections.ImmutableList reportSenderFactoryClasses -> r
+    java.lang.String applicationLogFile -> s
+    int applicationLogFileLines -> t
+    org.acra.file.Directory applicationLogFileDir -> u
+    java.lang.Class retryPolicyClass -> v
+    boolean stopServicesOnCrash -> w
+    org.acra.collections.ImmutableList attachmentUris -> x
+    java.lang.Class attachmentUriProvider -> y
+    int resReportSendSuccessToast -> z
+    int resReportSendFailureToast -> A
+    org.acra.data.StringFormat reportFormat -> B
     org.acra.collections.ImmutableList pluginConfigurations -> C
-    90:120:void <init>(org.acra.config.CoreConfigurationBuilder) -> <init>
-    123:123:boolean enabled() -> a
-    127:127:java.lang.String sharedPreferencesName() -> b
-    131:131:boolean includeDropBoxSystemTags() -> c
-    135:135:org.acra.collections.ImmutableList additionalDropBoxTags() -> d
-    139:139:int dropboxCollectionMinutes() -> e
-    143:143:org.acra.collections.ImmutableList logcatArguments() -> f
-    147:147:org.acra.collections.ImmutableSet reportContent() -> g
-    151:151:boolean deleteUnapprovedReportsOnApplicationStart() -> h
-    155:155:boolean deleteOldUnsentReportsOnApplicationStart() -> i
-    159:159:int keepApprovedReportsUpTo() -> j
-    163:163:boolean alsoReportToAndroidFramework() -> k
-    167:167:org.acra.collections.ImmutableList additionalSharedPreferences() -> l
-    171:171:boolean logcatFilterByPid() -> m
-    175:175:boolean nonBlockingReadForLogcat() -> n
-    179:179:boolean sendReportsInDevMode() -> o
-    183:183:org.acra.collections.ImmutableList excludeMatchingSharedPreferencesKeys() -> p
-    187:187:org.acra.collections.ImmutableList excludeMatchingSettingsKeys() -> q
-    191:191:java.lang.Class buildConfigClass() -> r
-    195:195:org.acra.collections.ImmutableList reportSenderFactoryClasses() -> s
-    199:199:java.lang.String applicationLogFile() -> t
-    203:203:int applicationLogFileLines() -> u
-    207:207:org.acra.file.Directory applicationLogFileDir() -> v
-    211:211:java.lang.Class retryPolicyClass() -> w
-    215:215:boolean stopServicesOnCrash() -> x
-    219:219:org.acra.collections.ImmutableList attachmentUris() -> y
-    223:223:java.lang.Class attachmentUriProvider() -> z
-    228:228:int resReportSendSuccessToast() -> A
-    233:233:int resReportSendFailureToast() -> B
-    238:238:org.acra.collections.ImmutableList pluginConfigurations() -> C
+    91:121:void <init>(org.acra.config.CoreConfigurationBuilder) -> <init>
+    124:124:boolean enabled() -> a
+    128:128:java.lang.String sharedPreferencesName() -> b
+    132:132:boolean includeDropBoxSystemTags() -> c
+    136:136:org.acra.collections.ImmutableList additionalDropBoxTags() -> d
+    140:140:int dropboxCollectionMinutes() -> e
+    144:144:org.acra.collections.ImmutableList logcatArguments() -> f
+    148:148:org.acra.collections.ImmutableSet reportContent() -> g
+    152:152:boolean deleteUnapprovedReportsOnApplicationStart() -> h
+    156:156:boolean deleteOldUnsentReportsOnApplicationStart() -> i
+    160:160:boolean alsoReportToAndroidFramework() -> j
+    164:164:org.acra.collections.ImmutableList additionalSharedPreferences() -> k
+    168:168:boolean logcatFilterByPid() -> l
+    172:172:boolean logcatReadNonBlocking() -> m
+    176:176:boolean sendReportsInDevMode() -> n
+    180:180:org.acra.collections.ImmutableList excludeMatchingSharedPreferencesKeys() -> o
+    184:184:org.acra.collections.ImmutableList excludeMatchingSettingsKeys() -> p
+    188:188:java.lang.Class buildConfigClass() -> q
+    192:192:org.acra.collections.ImmutableList reportSenderFactoryClasses() -> r
+    196:196:java.lang.String applicationLogFile() -> s
+    200:200:int applicationLogFileLines() -> t
+    204:204:org.acra.file.Directory applicationLogFileDir() -> u
+    208:208:java.lang.Class retryPolicyClass() -> v
+    212:212:boolean stopServicesOnCrash() -> w
+    216:216:org.acra.collections.ImmutableList attachmentUris() -> x
+    220:220:java.lang.Class attachmentUriProvider() -> y
+    225:225:int resReportSendSuccessToast() -> z
+    230:230:int resReportSendFailureToast() -> A
+    234:234:org.acra.data.StringFormat reportFormat() -> B
+    239:239:org.acra.collections.ImmutableList pluginConfigurations() -> C
 org.acra.config.CoreConfigurationBuilder -> org.acra.config.i:
     java.lang.Boolean enabled -> a
     java.lang.String sharedPreferencesName -> b
@@ -32319,59 +32323,59 @@ org.acra.config.CoreConfigurationBuilder -> org.acra.config.i:
     org.acra.ReportField[] reportContent -> g
     java.lang.Boolean deleteUnapprovedReportsOnApplicationStart -> h
     java.lang.Boolean deleteOldUnsentReportsOnApplicationStart -> i
-    java.lang.Integer keepApprovedReportsUpTo -> j
-    java.lang.Boolean alsoReportToAndroidFramework -> k
-    java.lang.String[] additionalSharedPreferences -> l
-    java.lang.Boolean logcatFilterByPid -> m
-    java.lang.Boolean nonBlockingReadForLogcat -> n
-    java.lang.Boolean sendReportsInDevMode -> o
-    java.lang.String[] excludeMatchingSharedPreferencesKeys -> p
-    java.lang.String[] excludeMatchingSettingsKeys -> q
-    java.lang.Class buildConfigClass -> r
-    java.lang.Class[] reportSenderFactoryClasses -> s
-    java.lang.String applicationLogFile -> t
-    java.lang.Integer applicationLogFileLines -> u
-    org.acra.file.Directory applicationLogFileDir -> v
-    java.lang.Class retryPolicyClass -> w
-    java.lang.Boolean stopServicesOnCrash -> x
-    java.lang.String[] attachmentUris -> y
-    java.lang.Class attachmentUriProvider -> z
-    java.lang.Integer resReportSendSuccessToast -> A
-    java.lang.Integer resReportSendFailureToast -> B
+    java.lang.Boolean alsoReportToAndroidFramework -> j
+    java.lang.String[] additionalSharedPreferences -> k
+    java.lang.Boolean logcatFilterByPid -> l
+    java.lang.Boolean logcatReadNonBlocking -> m
+    java.lang.Boolean sendReportsInDevMode -> n
+    java.lang.String[] excludeMatchingSharedPreferencesKeys -> o
+    java.lang.String[] excludeMatchingSettingsKeys -> p
+    java.lang.Class buildConfigClass -> q
+    java.lang.Class[] reportSenderFactoryClasses -> r
+    java.lang.String applicationLogFile -> s
+    java.lang.Integer applicationLogFileLines -> t
+    org.acra.file.Directory applicationLogFileDir -> u
+    java.lang.Class retryPolicyClass -> v
+    java.lang.Boolean stopServicesOnCrash -> w
+    java.lang.String[] attachmentUris -> x
+    java.lang.Class attachmentUriProvider -> y
+    java.lang.Integer resReportSendSuccessToast -> z
+    java.lang.Integer resReportSendFailureToast -> A
+    org.acra.data.StringFormat reportFormat -> B
     org.acra.config.BaseCoreConfigurationBuilder field0 -> C
-    93:94:void <init>(java.lang.Object) -> <init>
-    99:132:void <init>(java.lang.Class) -> <init>
-    135:135:boolean enabled() -> b
-    145:145:java.lang.String sharedPreferencesName() -> c
-    173:173:boolean includeDropBoxSystemTags() -> d
-    206:206:java.lang.String[] additionalDropBoxTags() -> e
-    221:221:int dropboxCollectionMinutes() -> f
-    236:236:java.lang.String[] logcatArguments() -> g
-    271:271:java.util.Set reportContent() -> h
-    362:362:boolean deleteUnapprovedReportsOnApplicationStart() -> i
-    391:391:boolean deleteOldUnsentReportsOnApplicationStart() -> j
-    410:410:int keepApprovedReportsUpTo() -> k
-    425:425:boolean alsoReportToAndroidFramework() -> l
-    442:442:java.lang.String[] additionalSharedPreferences() -> m
-    460:460:boolean logcatFilterByPid() -> n
-    477:477:boolean nonBlockingReadForLogcat() -> o
-    494:494:boolean sendReportsInDevMode() -> p
-    512:512:java.lang.String[] excludeMatchingSharedPreferencesKeys() -> q
-    530:530:java.lang.String[] excludeMatchingSettingsKeys() -> r
-    549:549:java.lang.Class buildConfigClass() -> s
-    565:565:java.lang.Class[] reportSenderFactoryClasses() -> t
-    582:582:java.lang.String applicationLogFile() -> u
-    599:599:int applicationLogFileLines() -> v
-    617:617:org.acra.file.Directory applicationLogFileDir() -> w
-    634:634:java.lang.Class retryPolicyClass() -> x
-    649:649:boolean stopServicesOnCrash() -> y
-    664:664:java.lang.String[] attachmentUris() -> z
-    696:696:java.lang.Class attachmentUriProvider() -> A
-    714:714:int resReportSendSuccessToast() -> B
-    730:730:int resReportSendFailureToast() -> C
-    759:759:java.util.List pluginConfigurations() -> D
-    769:778:org.acra.config.CoreConfiguration build() -> E
-    28:28:org.acra.config.Configuration build() -> a
+    94:95:void <init>(java.lang.Object) -> <init>
+    100:133:void <init>(java.lang.Class) -> <init>
+    136:136:boolean enabled() -> b
+    146:146:java.lang.String sharedPreferencesName() -> c
+    169:169:boolean includeDropBoxSystemTags() -> d
+    202:202:java.lang.String[] additionalDropBoxTags() -> e
+    218:218:int dropboxCollectionMinutes() -> f
+    234:234:java.lang.String[] logcatArguments() -> g
+    260:260:java.util.Set reportContent() -> h
+    283:283:boolean deleteUnapprovedReportsOnApplicationStart() -> i
+    311:311:boolean deleteOldUnsentReportsOnApplicationStart() -> j
+    327:327:boolean alsoReportToAndroidFramework() -> k
+    344:344:java.lang.String[] additionalSharedPreferences() -> l
+    360:360:boolean logcatFilterByPid() -> m
+    376:376:boolean logcatReadNonBlocking() -> n
+    392:392:boolean sendReportsInDevMode() -> o
+    408:408:java.lang.String[] excludeMatchingSharedPreferencesKeys() -> p
+    425:425:java.lang.String[] excludeMatchingSettingsKeys() -> q
+    442:442:java.lang.Class buildConfigClass() -> r
+    459:459:java.lang.Class[] reportSenderFactoryClasses() -> s
+    475:475:java.lang.String applicationLogFile() -> t
+    491:491:int applicationLogFileLines() -> u
+    508:508:org.acra.file.Directory applicationLogFileDir() -> v
+    524:524:java.lang.Class retryPolicyClass() -> w
+    541:541:boolean stopServicesOnCrash() -> x
+    558:558:java.lang.String[] attachmentUris() -> y
+    587:587:java.lang.Class attachmentUriProvider() -> z
+    605:605:int resReportSendSuccessToast() -> A
+    623:623:int resReportSendFailureToast() -> B
+    640:640:org.acra.data.StringFormat reportFormat() -> C
+    671:671:java.util.List pluginConfigurations() -> D
+    681:690:org.acra.config.CoreConfiguration build() -> E
+    29:29:org.acra.config.Configuration build() -> a
 org.acra.config.DefaultRetryPolicy -> org.acra.config.j:
     28:28:void <init>() -> <init>
     31:31:boolean shouldRetrySend(java.util.List,java.util.List) -> a
@@ -32381,61 +32385,57 @@ org.acra.config.HttpSenderConfiguration -> org.acra.config.k:
     java.lang.String basicAuthLogin -> c
     java.lang.String basicAuthPassword -> d
     org.acra.sender.HttpSender$Method httpMethod -> e
-    org.acra.sender.HttpSender$Type reportType -> f
-    int connectionTimeout -> g
-    int socketTimeout -> h
-    boolean dropReportsOnTimeout -> i
-    java.lang.Class keyStoreFactoryClass -> j
-    java.lang.String certificatePath -> k
-    int resCertificate -> l
-    java.lang.String certificateType -> m
-    org.acra.collections.ImmutableMap httpHeaders -> n
-    56:71:void <init>(org.acra.config.HttpSenderConfigurationBuilder) -> <init>
-    74:74:boolean enabled() -> a
-    78:78:java.lang.String uri() -> b
-    82:82:java.lang.String basicAuthLogin() -> c
-    86:86:java.lang.String basicAuthPassword() -> d
-    90:90:org.acra.sender.HttpSender$Method httpMethod() -> e
-    94:94:org.acra.sender.HttpSender$Type reportType() -> f
-    98:98:int connectionTimeout() -> g
-    102:102:int socketTimeout() -> h
-    106:106:boolean dropReportsOnTimeout() -> i
-    110:110:java.lang.Class keyStoreFactoryClass() -> j
-    114:114:java.lang.String certificatePath() -> k
-    119:119:int resCertificate() -> l
-    123:123:java.lang.String certificateType() -> m
-    128:128:org.acra.collections.ImmutableMap httpHeaders() -> n
+    int connectionTimeout -> f
+    int socketTimeout -> g
+    boolean dropReportsOnTimeout -> h
+    java.lang.Class keyStoreFactoryClass -> i
+    java.lang.String certificatePath -> j
+    int resCertificate -> k
+    java.lang.String certificateType -> l
+    org.acra.collections.ImmutableMap httpHeaders -> m
+    54:68:void <init>(org.acra.config.HttpSenderConfigurationBuilder) -> <init>
+    71:71:boolean enabled() -> a
+    75:75:java.lang.String uri() -> b
+    79:79:java.lang.String basicAuthLogin() -> c
+    83:83:java.lang.String basicAuthPassword() -> d
+    87:87:org.acra.sender.HttpSender$Method httpMethod() -> e
+    91:91:int connectionTimeout() -> f
+    95:95:int socketTimeout() -> g
+    99:99:boolean dropReportsOnTimeout() -> h
+    103:103:java.lang.Class keyStoreFactoryClass() -> i
+    107:107:java.lang.String certificatePath() -> j
+    112:112:int resCertificate() -> k
+    116:116:java.lang.String certificateType() -> l
+    121:121:org.acra.collections.ImmutableMap httpHeaders() -> m
 org.acra.config.HttpSenderConfigurationBuilder -> org.acra.config.l:
     java.lang.Boolean enabled -> a
     java.lang.String uri -> b
     java.lang.String basicAuthLogin -> c
     java.lang.String basicAuthPassword -> d
     org.acra.sender.HttpSender$Method httpMethod -> e
-    org.acra.sender.HttpSender$Type reportType -> f
-    java.lang.Integer connectionTimeout -> g
-    java.lang.Integer socketTimeout -> h
-    java.lang.Boolean dropReportsOnTimeout -> i
-    java.lang.Class keyStoreFactoryClass -> j
-    java.lang.String certificatePath -> k
-    java.lang.Integer resCertificate -> l
-    java.lang.String certificateType -> m
-    org.acra.config.BaseHttpConfigurationBuilder field0 -> n
-    65:83:void <init>(java.lang.Class) -> <init>
-    86:86:boolean enabled() -> b
-    96:96:java.lang.String uri() -> c
-    112:112:java.lang.String basicAuthLogin() -> d
-    128:128:java.lang.String basicAuthPassword() -> e
+    java.lang.Integer connectionTimeout -> f
+    java.lang.Integer socketTimeout -> g
+    java.lang.Boolean dropReportsOnTimeout -> h
+    java.lang.Class keyStoreFactoryClass -> i
+    java.lang.String certificatePath -> j
+    java.lang.Integer resCertificate -> k
+    java.lang.String certificateType -> l
+    org.acra.config.BaseHttpConfigurationBuilder field0 -> m
+    63:80:void <init>(java.lang.Class) -> <init>
+    83:83:boolean enabled() -> b
+    93:93:java.lang.String uri() -> c
+    110:110:java.lang.String basicAuthLogin() -> d
+    127:127:java.lang.String basicAuthPassword() -> e
     144:144:org.acra.sender.HttpSender$Method httpMethod() -> f
-    162:162:org.acra.sender.HttpSender$Type reportType() -> g
-    180:180:int connectionTimeout() -> h
-    194:194:int socketTimeout() -> i
-    211:211:boolean dropReportsOnTimeout() -> j
-    225:225:java.lang.Class keyStoreFactoryClass() -> k
-    239:239:java.lang.String certificatePath() -> l
-    254:254:int resCertificate() -> m
-    268:268:java.lang.String certificateType() -> n
-    296:296:java.util.Map httpHeaders() -> o
-    302:313:org.acra.config.HttpSenderConfiguration build() -> p
+    163:163:int connectionTimeout() -> g
+    181:181:int socketTimeout() -> h
+    199:199:boolean dropReportsOnTimeout() -> i
+    216:216:java.lang.Class keyStoreFactoryClass() -> j
+    234:234:java.lang.String certificatePath() -> k
+    252:252:int resCertificate() -> l
+    269:269:java.lang.String certificateType() -> m
+    300:300:java.util.Map httpHeaders() -> n
+    306:314:org.acra.config.HttpSenderConfiguration build() -> o
     25:25:org.acra.config.Configuration build() -> a
 org.acra.config.HttpSenderConfigurationBuilderFactory -> org.acra.config.HttpSenderConfigurationBuilderFactory:
     19:19:void <init>() -> <init>
@@ -32453,54 +32453,74 @@ org.acra.config.RetryPolicy$FailedSender -> org.acra.config.m$a:
     43:46:void <init>(org.acra.sender.ReportSender,org.acra.sender.ReportSenderException) -> <init>
     49:49:org.acra.sender.ReportSender getSender() -> a
     53:53:org.acra.sender.ReportSenderException getException() -> b
-org.acra.data.CrashReportData -> org.acra.d.a:
+org.acra.data.CrashReportData -> org.acra.data.a:
     org.json.JSONObject content -> a
-    47:49:void <init>() -> <init>
-    51:53:void <init>(java.lang.String) -> <init>
-    57:61:void put(java.lang.String,boolean) -> a
-    65:69:void put(java.lang.String,double) -> a
-    73:77:void put(java.lang.String,int) -> a
-    81:85:void put(java.lang.String,long) -> a
-    88:97:void put(java.lang.String,java.lang.String) -> a
-    100:109:void put(java.lang.String,org.json.JSONObject) -> a
-    124:125:void put(org.acra.ReportField,boolean) -> a
-    132:133:void put(org.acra.ReportField,int) -> a
-    136:137:void put(org.acra.ReportField,long) -> a
-    140:141:void put(org.acra.ReportField,java.lang.String) -> a
-    144:145:void put(org.acra.ReportField,org.json.JSONObject) -> a
-    153:156:void putNA(java.lang.String) -> d
-    165:165:java.lang.String getString(org.acra.ReportField) -> a
-    169:169:java.lang.Object get(java.lang.String) -> a
-    173:173:boolean containsKey(java.lang.String) -> b
-    177:177:boolean containsKey(org.acra.ReportField) -> b
-    182:182:java.lang.String toJSON() -> a
-    186:191:java.util.Map toStringMap(java.lang.String) -> c
-    195:198:java.lang.String valueToString(java.lang.String,java.lang.Object) -> a
-    203:220:java.util.List flatten(org.json.JSONObject) -> a
-org.acra.data.CrashReportDataFactory -> org.acra.d.b:
+    40:42:void <init>() -> <init>
+    44:46:void <init>(java.lang.String) -> <init>
+    50:54:void put(java.lang.String,boolean) -> a
+    58:62:void put(java.lang.String,double) -> a
+    66:70:void put(java.lang.String,int) -> a
+    74:78:void put(java.lang.String,long) -> a
+    81:90:void put(java.lang.String,java.lang.String) -> a
+    93:102:void put(java.lang.String,org.json.JSONObject) -> a
+    117:118:void put(org.acra.ReportField,boolean) -> a
+    125:126:void put(org.acra.ReportField,int) -> a
+    129:130:void put(org.acra.ReportField,long) -> a
+    133:134:void put(org.acra.ReportField,java.lang.String) -> a
+    137:138:void put(org.acra.ReportField,org.json.JSONObject) -> a
+    146:149:void putNA(java.lang.String) -> c
+    158:158:java.lang.String getString(org.acra.ReportField) -> a
+    162:162:java.lang.Object get(java.lang.String) -> a
+    166:166:boolean containsKey(java.lang.String) -> b
+    170:170:boolean containsKey(org.acra.ReportField) -> b
+    176:180:java.lang.String toJSON() -> a
+    186:191:java.util.Map toMap() -> b
+org.acra.data.CrashReportDataFactory -> org.acra.data.b:
     android.content.Context context -> a
     org.acra.config.CoreConfiguration config -> b
     java.util.List collectors -> c
     51:83:void <init>(android.content.Context,org.acra.config.CoreConfiguration) -> <init>
     93:104:org.acra.data.CrashReportData createCrashData(org.acra.builder.ReportBuilder) -> a
     108:118:void collectStartUp() -> a
-org.acra.data.CrashReportDataFactory$1 -> org.acra.d.b$1:
+org.acra.data.CrashReportDataFactory$1 -> org.acra.data.b$1:
     org.acra.data.CrashReportDataFactory this$0 -> a
     65:65:void <init>(org.acra.data.CrashReportDataFactory) -> <init>
     71:80:int compare(org.acra.collector.Collector,org.acra.collector.Collector) -> a
     65:65:int compare(java.lang.Object,java.lang.Object) -> compare
+org.acra.data.StringFormat -> org.acra.data.StringFormat:
+    org.acra.data.StringFormat JSON -> JSON
+    org.acra.data.StringFormat KEY_VALUE_LIST -> KEY_VALUE_LIST
+    java.lang.String contentType -> contentType
+    org.acra.data.StringFormat[] $VALUES -> $VALUES
+    43:43:org.acra.data.StringFormat[] values() -> values
+    43:43:org.acra.data.StringFormat valueOf(java.lang.String) -> valueOf
+    125:127:void <init>(java.lang.String,int,java.lang.String) -> <init>
+    java.lang.String toFormattedString(org.acra.data.CrashReportData,org.acra.collections.ImmutableSet,java.lang.String,java.lang.String,boolean) -> toFormattedString
+    134:134:java.lang.String getMatchingHttpContentType() -> getMatchingHttpContentType
+    43:43:void <init>(java.lang.String,int,java.lang.String,org.acra.data.StringFormat$1) -> <init>
+    43:59:void <clinit>() -> <clinit>
+org.acra.data.StringFormat$1 -> org.acra.data.StringFormat$1:
+    44:44:void <init>(java.lang.String,int,java.lang.String) -> <init>
+    48:56:java.lang.String toFormattedString(org.acra.data.CrashReportData,org.acra.collections.ImmutableSet,java.lang.String,java.lang.String,boolean) -> toFormattedString
+org.acra.data.StringFormat$2 -> org.acra.data.StringFormat$2:
+    59:59:void <init>(java.lang.String,int,java.lang.String) -> <init>
+    63:71:java.lang.String toFormattedString(org.acra.data.CrashReportData,org.acra.collections.ImmutableSet,java.lang.String,java.lang.String,boolean) -> toFormattedString
+    75:83:void append(java.lang.StringBuilder,java.lang.String,java.lang.String,java.lang.String,boolean) -> append
+    86:90:java.util.Map toStringMap(java.util.Map,java.lang.String) -> toStringMap
+    94:97:java.lang.String valueToString(java.lang.String,java.lang.Object) -> valueToString
+    102:119:java.util.List flatten(org.json.JSONObject) -> flatten
 org.acra.file.BulkReportDeleter -> org.acra.file.a:
     org.acra.file.ReportLocator reportLocator -> a
-    21:23:void <init>(android.content.Context) -> <init>
-    30:39:void deleteReports(boolean,int) -> a
+    37:39:void <init>(android.content.Context) -> <init>
+    46:55:void deleteReports(boolean,int) -> a
 org.acra.file.CrashReportFileNameParser -> org.acra.file.b:
     29:29:void <init>() -> <init>
     38:38:boolean isSilent(java.lang.String) -> a
     55:55:boolean isApproved(java.lang.String) -> b
 org.acra.file.CrashReportPersister -> org.acra.file.c:
-    42:42:void <init>() -> <init>
-    55:59:org.acra.data.CrashReportData load(java.io.File) -> a
-    73:74:void store(org.acra.data.CrashReportData,java.io.File) -> a
+    38:38:void <init>() -> <init>
+    51:55:org.acra.data.CrashReportData load(java.io.File) -> a
+    70:71:void store(org.acra.data.CrashReportData,java.io.File) -> a
 org.acra.file.Directory -> org.acra.file.Directory:
     org.acra.file.Directory FILES_LEGACY -> FILES_LEGACY
     org.acra.file.Directory FILES -> FILES
@@ -32542,17 +32562,17 @@ org.acra.file.Directory$8 -> org.acra.file.Directory$8:
     99:99:void <init>(java.lang.String,int) -> <init>
     102:102:java.io.File getFile(android.content.Context,java.lang.String) -> getFile
 org.acra.file.LastModifiedComparator -> org.acra.file.d:
-    11:11:void <init>() -> <init>
-    14:16:int compare(java.io.File,java.io.File) -> a
-    11:11:int compare(java.lang.Object,java.lang.Object) -> compare
+    27:27:void <init>() -> <init>
+    30:32:int compare(java.io.File,java.io.File) -> a
+    27:27:int compare(java.lang.Object,java.lang.Object) -> compare
 org.acra.file.ReportLocator -> org.acra.file.e:
     android.content.Context context -> a
-    23:25:void <init>(android.content.Context) -> <init>
-    29:29:java.io.File getUnapprovedFolder() -> a
-    34:38:java.io.File[] getUnapprovedReports() -> b
-    43:43:java.io.File getApprovedFolder() -> c
-    51:56:java.io.File[] getApprovedReports() -> d
-org.acra.http.BaseHttpRequest -> org.acra.e.a:
+    39:41:void <init>(android.content.Context) -> <init>
+    45:45:java.io.File getUnapprovedFolder() -> a
+    50:54:java.io.File[] getUnapprovedReports() -> b
+    59:59:java.io.File getApprovedFolder() -> c
+    67:72:java.io.File[] getApprovedReports() -> d
+org.acra.http.BaseHttpRequest -> org.acra.d.a:
     org.acra.config.CoreConfiguration config -> a
     android.content.Context context -> b
     org.acra.sender.HttpSender$Method method -> c
@@ -32571,24 +32591,24 @@ org.acra.http.BaseHttpRequest -> org.acra.e.a:
     174:192:void writeContent(java.net.HttpURLConnection,org.acra.sender.HttpSender$Method,java.lang.Object) -> a
     byte[] asBytes(java.lang.Object) -> a
     198:213:void handleResponse(int,java.lang.String) -> a
-org.acra.http.BinaryHttpRequest -> org.acra.e.b:
+org.acra.http.BinaryHttpRequest -> org.acra.d.b:
     android.content.Context context -> a
-    26:28:void <init>(org.acra.config.CoreConfiguration,android.content.Context,java.lang.String,java.lang.String,int,int,java.util.Map) -> <init>
-    32:32:java.lang.String getContentType(android.content.Context,android.net.Uri) -> a
-    37:37:byte[] asBytes(android.net.Uri) -> a
-    20:20:byte[] asBytes(java.lang.Object) -> a
-    20:20:java.lang.String getContentType(android.content.Context,java.lang.Object) -> a
-org.acra.http.DefaultHttpRequest -> org.acra.e.c:
-    org.acra.sender.HttpSender$Type type -> a
-    40:42:void <init>(org.acra.config.CoreConfiguration,android.content.Context,org.acra.sender.HttpSender$Method,org.acra.sender.HttpSender$Type,java.lang.String,java.lang.String,int,int,java.util.Map) -> <init>
+    42:44:void <init>(org.acra.config.CoreConfiguration,android.content.Context,java.lang.String,java.lang.String,int,int,java.util.Map) -> <init>
+    48:48:java.lang.String getContentType(android.content.Context,android.net.Uri) -> a
+    53:53:byte[] asBytes(android.net.Uri) -> a
+    36:36:byte[] asBytes(java.lang.Object) -> a
+    36:36:java.lang.String getContentType(android.content.Context,java.lang.Object) -> a
+org.acra.http.DefaultHttpRequest -> org.acra.d.c:
+    java.lang.String contentType -> a
+    40:42:void <init>(org.acra.config.CoreConfiguration,android.content.Context,org.acra.sender.HttpSender$Method,java.lang.String,java.lang.String,java.lang.String,int,int,java.util.Map) -> <init>
     46:46:java.lang.String getContentType(android.content.Context,java.lang.String) -> a
     51:51:byte[] asBytes(java.lang.String) -> a
     34:34:byte[] asBytes(java.lang.Object) -> a
     34:34:java.lang.String getContentType(android.content.Context,java.lang.Object) -> a
-org.acra.http.MultipartHttpRequest -> org.acra.e.d:
+org.acra.http.MultipartHttpRequest -> org.acra.d.d:
     android.content.Context context -> a
-    org.acra.sender.HttpSender$Type type -> b
-    57:60:void <init>(org.acra.config.CoreConfiguration,android.content.Context,org.acra.sender.HttpSender$Type,java.lang.String,java.lang.String,int,int,java.util.Map) -> <init>
+    java.lang.String contentType -> b
+    57:60:void <init>(org.acra.config.CoreConfiguration,android.content.Context,java.lang.String,java.lang.String,java.lang.String,int,int,java.util.Map) -> <init>
     64:64:java.lang.String getContentType(android.content.Context,android.util.Pair) -> a
     69:87:byte[] asBytes(android.util.Pair) -> a
     44:44:byte[] asBytes(java.lang.Object) -> a
@@ -32604,41 +32624,41 @@ org.acra.interaction.ReportInteractionExecutor -> org.acra.interaction.a:
     java.util.List reportInteractions -> a
     android.content.Context context -> b
     org.acra.config.CoreConfiguration config -> c
-    49:64:void <init>(android.content.Context,org.acra.config.CoreConfiguration) -> <init>
-    67:67:boolean hasInteractions() -> a
-    71:94:boolean performInteractions(java.io.File) -> a
-    42:42:android.content.Context access$000(org.acra.interaction.ReportInteractionExecutor) -> a
-    42:42:org.acra.config.CoreConfiguration access$100(org.acra.interaction.ReportInteractionExecutor) -> b
+    51:66:void <init>(android.content.Context,org.acra.config.CoreConfiguration) -> <init>
+    69:69:boolean hasInteractions() -> a
+    73:96:boolean performInteractions(java.io.File) -> a
+    44:44:android.content.Context access$000(org.acra.interaction.ReportInteractionExecutor) -> a
+    44:44:org.acra.config.CoreConfiguration access$100(org.acra.interaction.ReportInteractionExecutor) -> b
 org.acra.interaction.ReportInteractionExecutor$1 -> org.acra.interaction.a$1:
     org.acra.interaction.ReportInteraction val$reportInteraction -> a
     java.io.File val$reportFile -> b
     org.acra.interaction.ReportInteractionExecutor this$0 -> c
-    74:74:void <init>(org.acra.interaction.ReportInteractionExecutor,org.acra.interaction.ReportInteraction,java.io.File) -> <init>
-    77:78:java.lang.Boolean call() -> a
-    74:74:java.lang.Object call() -> call
-org.acra.legacy.LegacyFileHandler -> org.acra.f.a:
+    76:76:void <init>(org.acra.interaction.ReportInteractionExecutor,org.acra.interaction.ReportInteraction,java.io.File) -> <init>
+    79:80:java.lang.Boolean call() -> a
+    76:76:java.lang.Object call() -> call
+org.acra.legacy.LegacyFileHandler -> org.acra.e.a:
     android.content.Context context -> a
     android.content.SharedPreferences prefs -> b
-    33:36:void <init>(android.content.Context,android.content.SharedPreferences) -> <init>
-    40:53:void updateToCurrentVersionIfNecessary() -> a
-org.acra.legacy.ReportConverter -> org.acra.f.b:
+    35:38:void <init>(android.content.Context,android.content.SharedPreferences) -> <init>
+    42:55:void updateToCurrentVersionIfNecessary() -> a
+org.acra.legacy.ReportConverter -> org.acra.e.b:
     android.content.Context context -> a
     57:59:void <init>(android.content.Context) -> <init>
     62:96:void convert() -> a
     129:296:org.acra.data.CrashReportData legacyLoad(java.io.Reader) -> a
     302:320:void putKeyValue(org.acra.data.CrashReportData,java.lang.String,java.lang.String) -> a
-org.acra.legacy.ReportMigrator -> org.acra.f.c:
+org.acra.legacy.ReportMigrator -> org.acra.e.c:
     android.content.Context context -> a
     org.acra.file.CrashReportFileNameParser fileNameParser -> b
     org.acra.file.ReportLocator reportLocator -> c
-    22:29:void <init>(android.content.Context) -> <init>
-    32:50:void migrate() -> a
-    59:75:java.io.File[] getCrashReportFiles() -> b
-org.acra.legacy.ReportMigrator$1 -> org.acra.f.c$1:
+    38:45:void <init>(android.content.Context) -> <init>
+    48:66:void migrate() -> a
+    75:91:java.io.File[] getCrashReportFiles() -> b
+org.acra.legacy.ReportMigrator$1 -> org.acra.e.c$1:
     org.acra.legacy.ReportMigrator this$0 -> a
-    68:68:void <init>(org.acra.legacy.ReportMigrator) -> <init>
-    71:71:boolean accept(java.io.File,java.lang.String) -> accept
-org.acra.log.ACRALog -> org.acra.g.a:
+    84:84:void <init>(org.acra.legacy.ReportMigrator) -> <init>
+    87:87:boolean accept(java.io.File,java.lang.String) -> accept
+org.acra.log.ACRALog -> org.acra.f.a:
     int v(java.lang.String,java.lang.String) -> a
     int d(java.lang.String,java.lang.String) -> b
     int d(java.lang.String,java.lang.String,java.lang.Throwable) -> a
@@ -32648,22 +32668,22 @@ org.acra.log.ACRALog -> org.acra.g.a:
     int w(java.lang.String,java.lang.Throwable) -> a
     int e(java.lang.String,java.lang.String) -> e
     int e(java.lang.String,java.lang.String,java.lang.Throwable) -> c
-org.acra.log.AndroidLogDelegate -> org.acra.g.b:
-    12:12:void <init>() -> <init>
-    15:15:int v(java.lang.String,java.lang.String) -> a
-    23:23:int d(java.lang.String,java.lang.String) -> b
-    27:27:int d(java.lang.String,java.lang.String,java.lang.Throwable) -> a
-    31:31:int i(java.lang.String,java.lang.String) -> c
-    39:39:int w(java.lang.String,java.lang.String) -> d
-    43:43:int w(java.lang.String,java.lang.String,java.lang.Throwable) -> b
-    48:48:int w(java.lang.String,java.lang.Throwable) -> a
-    52:52:int e(java.lang.String,java.lang.String) -> e
-    56:56:int e(java.lang.String,java.lang.String,java.lang.Throwable) -> c
-org.acra.prefs.SharedPreferencesFactory -> org.acra.h.a:
+org.acra.log.AndroidLogDelegate -> org.acra.f.b:
+    28:28:void <init>() -> <init>
+    31:31:int v(java.lang.String,java.lang.String) -> a
+    39:39:int d(java.lang.String,java.lang.String) -> b
+    43:43:int d(java.lang.String,java.lang.String,java.lang.Throwable) -> a
+    47:47:int i(java.lang.String,java.lang.String) -> c
+    55:55:int w(java.lang.String,java.lang.String) -> d
+    59:59:int w(java.lang.String,java.lang.String,java.lang.Throwable) -> b
+    64:64:int w(java.lang.String,java.lang.Throwable) -> a
+    68:68:int e(java.lang.String,java.lang.String) -> e
+    72:72:int e(java.lang.String,java.lang.String,java.lang.Throwable) -> c
+org.acra.prefs.SharedPreferencesFactory -> org.acra.g.a:
     android.content.Context context -> a
     org.acra.config.CoreConfiguration config -> b
-    25:28:void <init>(android.content.Context,org.acra.config.CoreConfiguration) -> <init>
-    36:41:android.content.SharedPreferences create() -> a
+    39:42:void <init>(android.content.Context,org.acra.config.CoreConfiguration) -> <init>
+    50:55:android.content.SharedPreferences create() -> a
 org.acra.security.AssetKeyStoreFactory -> org.acra.security.a:
     java.lang.String assetName -> a
     44:46:void <init>(java.lang.String,java.lang.String) -> <init>
@@ -32707,76 +32727,52 @@ org.acra.sender.BaseReportSenderFactory -> org.acra.sender.BaseReportSenderFacto
     33:35:void <init>(java.lang.Class) -> <init>
     39:39:boolean enabled(org.acra.config.CoreConfiguration) -> enabled
 org.acra.sender.DefaultReportSenderFactory -> org.acra.sender.DefaultReportSenderFactory:
-    41:41:void <init>() -> <init>
-    46:66:org.acra.sender.ReportSender create(android.content.Context,org.acra.config.CoreConfiguration) -> create
-    71:71:boolean enabled(org.acra.config.CoreConfiguration) -> enabled
+    39:39:void <init>() -> <init>
+    44:64:org.acra.sender.ReportSender create(android.content.Context,org.acra.config.CoreConfiguration) -> create
+    69:69:boolean enabled(org.acra.config.CoreConfiguration) -> enabled
 org.acra.sender.HttpSender -> org.acra.sender.HttpSender:
     org.acra.config.CoreConfiguration config -> a
     org.acra.config.HttpSenderConfiguration httpConfig -> b
     android.net.Uri mFormUri -> c
-    java.util.Map mMapping -> d
-    org.acra.sender.HttpSender$Method mMethod -> e
-    org.acra.sender.HttpSender$Type mType -> f
-    java.lang.String mUsername -> g
-    java.lang.String mPassword -> h
-    80:92:java.lang.String getParamsAsFormString(java.util.Map) -> b
-    183:184:void <init>(org.acra.config.CoreConfiguration,org.acra.sender.HttpSender$Method,org.acra.sender.HttpSender$Type) -> <init>
-    206:207:void <init>(org.acra.config.CoreConfiguration,org.acra.sender.HttpSender$Method,org.acra.sender.HttpSender$Type,java.util.Map) -> <init>
-    230:239:void <init>(org.acra.config.CoreConfiguration,org.acra.sender.HttpSender$Method,org.acra.sender.HttpSender$Type,java.lang.String,java.util.Map) -> <init>
-    242:249:org.acra.config.HttpSenderConfiguration getHttpSenderConfiguration(org.acra.config.CoreConfiguration) -> a
-    270:292:void send(android.content.Context,org.acra.data.CrashReportData) -> a
-    298:313:void sendHttpRequests(org.acra.config.CoreConfiguration,android.content.Context,org.acra.sender.HttpSender$Method,org.acra.sender.HttpSender$Type,java.lang.String,java.lang.String,int,int,java.util.Map,java.lang.String,java.net.URL,java.util.List) -> a
-    319:320:void sendWithoutAttachments(org.acra.config.CoreConfiguration,android.content.Context,org.acra.sender.HttpSender$Method,org.acra.sender.HttpSender$Type,java.lang.String,java.lang.String,int,int,java.util.Map,java.lang.String,java.net.URL) -> a
-    326:327:void postMultipart(org.acra.config.CoreConfiguration,android.content.Context,org.acra.sender.HttpSender$Type,java.lang.String,java.lang.String,int,int,java.util.Map,java.lang.String,java.net.URL,java.util.List) -> a
-    333:335:void putAttachment(org.acra.config.CoreConfiguration,android.content.Context,java.lang.String,java.lang.String,int,int,java.util.Map,java.net.URL,android.net.Uri) -> a
-    345:345:java.lang.String convertToJson(org.acra.data.CrashReportData) -> a
-    356:356:java.util.Map convertToForm(org.acra.data.CrashReportData) -> b
-    362:374:java.util.Map remap(java.util.Map) -> c
-    378:378:boolean isNull(java.lang.String) -> a
-    68:68:java.lang.String access$200(java.util.Map) -> a
+    org.acra.sender.HttpSender$Method mMethod -> d
+    org.acra.data.StringFormat mType -> e
+    java.lang.String mUsername -> f
+    java.lang.String mPassword -> g
+    98:99:void <init>(org.acra.config.CoreConfiguration,org.acra.sender.HttpSender$Method,org.acra.data.StringFormat) -> <init>
+    114:122:void <init>(org.acra.config.CoreConfiguration,org.acra.sender.HttpSender$Method,org.acra.data.StringFormat,java.lang.String) -> <init>
+    125:132:org.acra.config.HttpSenderConfiguration getHttpSenderConfiguration(org.acra.config.CoreConfiguration) -> a
+    152:174:void send(android.content.Context,org.acra.data.CrashReportData) -> a
+    180:195:void sendHttpRequests(org.acra.config.CoreConfiguration,android.content.Context,org.acra.sender.HttpSender$Method,java.lang.String,java.lang.String,java.lang.String,int,int,java.util.Map,java.lang.String,java.net.URL,java.util.List) -> a
+    201:202:void sendWithoutAttachments(org.acra.config.CoreConfiguration,android.content.Context,org.acra.sender.HttpSender$Method,java.lang.String,java.lang.String,java.lang.String,int,int,java.util.Map,java.lang.String,java.net.URL) -> a
+    208:209:void postMultipart(org.acra.config.CoreConfiguration,android.content.Context,java.lang.String,java.lang.String,java.lang.String,int,int,java.util.Map,java.lang.String,java.net.URL,java.util.List) -> a
+    215:217:void putAttachment(org.acra.config.CoreConfiguration,android.content.Context,java.lang.String,java.lang.String,int,int,java.util.Map,java.net.URL,android.net.Uri) -> a
+    229:229:java.lang.String convertToString(org.acra.data.CrashReportData,org.acra.data.StringFormat) -> a
+    233:233:boolean isNull(java.lang.String) -> a
 org.acra.sender.HttpSender$1 -> org.acra.sender.HttpSender$1:
     int[] $SwitchMap$org$acra$sender$HttpSender$Method -> a
-    298:298:void <clinit>() -> <clinit>
+    180:180:void <clinit>() -> <clinit>
 org.acra.sender.HttpSender$Method -> org.acra.sender.HttpSender$Method:
     org.acra.sender.HttpSender$Method POST -> POST
     org.acra.sender.HttpSender$Method PUT -> PUT
     org.acra.sender.HttpSender$Method[] $VALUES -> $VALUES
-    99:99:org.acra.sender.HttpSender$Method[] values() -> values
-    99:99:org.acra.sender.HttpSender$Method valueOf(java.lang.String) -> valueOf
-    99:99:void <init>(java.lang.String,int) -> <init>
+    58:58:org.acra.sender.HttpSender$Method[] values() -> values
+    58:58:org.acra.sender.HttpSender$Method valueOf(java.lang.String) -> valueOf
+    58:58:void <init>(java.lang.String,int) -> <init>
     java.net.URL createURL(java.lang.String,org.acra.data.CrashReportData) -> createURL
-    99:99:void <init>(java.lang.String,int,org.acra.sender.HttpSender$1) -> <init>
-    99:106:void <clinit>() -> <clinit>
+    58:58:void <init>(java.lang.String,int,org.acra.sender.HttpSender$1) -> <init>
+    58:65:void <clinit>() -> <clinit>
 org.acra.sender.HttpSender$Method$1 -> org.acra.sender.HttpSender$Method$1:
-    100:100:void <init>(java.lang.String,int) -> <init>
-    103:103:java.net.URL createURL(java.lang.String,org.acra.data.CrashReportData) -> createURL
+    59:59:void <init>(java.lang.String,int) -> <init>
+    62:62:java.net.URL createURL(java.lang.String,org.acra.data.CrashReportData) -> createURL
 org.acra.sender.HttpSender$Method$2 -> org.acra.sender.HttpSender$Method$2:
-    106:106:void <init>(java.lang.String,int) -> <init>
-    109:109:java.net.URL createURL(java.lang.String,org.acra.data.CrashReportData) -> createURL
-org.acra.sender.HttpSender$Type -> org.acra.sender.HttpSender$Type:
-    org.acra.sender.HttpSender$Type FORM -> FORM
-    org.acra.sender.HttpSender$Type JSON -> JSON
-    java.lang.String contentType -> contentType
-    org.acra.sender.HttpSender$Type[] $VALUES -> $VALUES
-    120:120:org.acra.sender.HttpSender$Type[] values() -> values
-    120:120:org.acra.sender.HttpSender$Type valueOf(java.lang.String) -> valueOf
-    143:145:void <init>(java.lang.String,int,java.lang.String) -> <init>
-    149:149:java.lang.String getContentType() -> getContentType
-    java.lang.String convertReport(org.acra.sender.HttpSender,org.acra.data.CrashReportData) -> convertReport
-    120:120:void <init>(java.lang.String,int,java.lang.String,org.acra.sender.HttpSender$1) -> <init>
-    120:135:void <clinit>() -> <clinit>
-org.acra.sender.HttpSender$Type$1 -> org.acra.sender.HttpSender$Type$1:
-    126:126:void <init>(java.lang.String,int,java.lang.String) -> <init>
-    129:129:java.lang.String convertReport(org.acra.sender.HttpSender,org.acra.data.CrashReportData) -> convertReport
-org.acra.sender.HttpSender$Type$2 -> org.acra.sender.HttpSender$Type$2:
-    135:135:void <init>(java.lang.String,int,java.lang.String) -> <init>
-    138:138:java.lang.String convertReport(org.acra.sender.HttpSender,org.acra.data.CrashReportData) -> convertReport
+    65:65:void <init>(java.lang.String,int) -> <init>
+    68:68:java.net.URL createURL(java.lang.String,org.acra.data.CrashReportData) -> createURL
 org.acra.sender.HttpSenderFactory -> org.acra.sender.HttpSenderFactory:
     33:34:void <init>() -> <init>
     39:39:org.acra.sender.ReportSender create(android.content.Context,org.acra.config.CoreConfiguration) -> create
 org.acra.sender.NullSender -> org.acra.sender.a:
-    14:14:void <init>() -> <init>
-    17:18:void send(android.content.Context,org.acra.data.CrashReportData) -> a
+    30:30:void <init>() -> <init>
+    33:34:void send(android.content.Context,org.acra.data.CrashReportData) -> a
 org.acra.sender.ReportDistributor -> org.acra.sender.b:
     android.content.Context context -> a
     org.acra.config.CoreConfiguration config -> b
@@ -32788,7 +32784,7 @@ org.acra.sender.ReportDistributor -> org.acra.sender.b:
 org.acra.sender.ReportSender -> org.acra.sender.c:
     void send(android.content.Context,org.acra.data.CrashReportData) -> a
 org.acra.sender.ReportSenderException -> org.acra.sender.d:
-    38:39:void <init>(java.lang.String,java.lang.Throwable) -> <init>
+    35:36:void <init>(java.lang.String,java.lang.Throwable) -> <init>
 org.acra.sender.ReportSenderFactory -> org.acra.sender.ReportSenderFactory:
     org.acra.sender.ReportSender create(android.content.Context,org.acra.config.CoreConfiguration) -> create
     boolean enabled(org.acra.config.CoreConfiguration) -> enabled
@@ -32804,27 +32800,27 @@ org.acra.sender.SenderService -> org.acra.sender.SenderService:
 org.acra.sender.SenderServiceStarter -> org.acra.sender.e:
     android.content.Context context -> a
     org.acra.config.CoreConfiguration config -> b
-    20:23:void <init>(android.content.Context,org.acra.config.CoreConfiguration) -> <init>
-    32:38:void startService(boolean,boolean) -> a
-org.acra.util.ApplicationStartupProcessor -> org.acra.i.a:
+    36:39:void <init>(android.content.Context,org.acra.config.CoreConfiguration) -> <init>
+    48:54:void startService(boolean,boolean) -> a
+org.acra.util.ApplicationStartupProcessor -> org.acra.h.a:
     android.content.Context context -> a
     org.acra.config.CoreConfiguration config -> b
     org.acra.file.BulkReportDeleter reportDeleter -> c
     org.acra.file.ReportLocator reportLocator -> d
-    30:35:void <init>(android.content.Context,org.acra.config.CoreConfiguration) -> <init>
-    38:51:void checkReports(boolean) -> a
-    54:67:void approveOneReport() -> a
-    73:83:void deleteUnsentReportsFromOldAppVersion() -> b
-    90:100:void sendApprovedReports() -> c
-    106:108:int getAppVersion() -> d
-    23:23:android.content.Context access$000(org.acra.util.ApplicationStartupProcessor) -> a
-    23:23:org.acra.config.CoreConfiguration access$100(org.acra.util.ApplicationStartupProcessor) -> b
-org.acra.util.ApplicationStartupProcessor$1 -> org.acra.i.a$1:
+    45:50:void <init>(android.content.Context,org.acra.config.CoreConfiguration) -> <init>
+    53:63:void checkReports(boolean) -> a
+    66:79:void approveOneReport() -> a
+    85:95:void deleteUnsentReportsFromOldAppVersion() -> b
+    102:112:void sendApprovedReports() -> c
+    118:120:int getAppVersion() -> d
+    38:38:android.content.Context access$000(org.acra.util.ApplicationStartupProcessor) -> a
+    38:38:org.acra.config.CoreConfiguration access$100(org.acra.util.ApplicationStartupProcessor) -> b
+org.acra.util.ApplicationStartupProcessor$1 -> org.acra.h.a$1:
     java.io.File[] val$reports -> a
     org.acra.util.ApplicationStartupProcessor this$0 -> b
-    60:60:void <init>(org.acra.util.ApplicationStartupProcessor,java.io.File[]) -> <init>
-    64:65:void run() -> run
-org.acra.util.IOUtils -> org.acra.i.b:
+    72:72:void <init>(org.acra.util.ApplicationStartupProcessor,java.io.File[]) -> <init>
+    76:77:void run() -> run
+org.acra.util.IOUtils -> org.acra.h.b:
     com.android.internal.util.Predicate DEFAULT_FILTER -> a
     66:73:void safeClose(java.io.Closeable) -> a
     84:84:java.lang.String streamToString(java.io.InputStream) -> a
@@ -32834,39 +32830,39 @@ org.acra.util.IOUtils -> org.acra.i.b:
     176:180:void deleteReport(java.io.File) -> a
     183:190:void writeStringToFile(java.io.File,java.lang.String) -> a
     47:47:void <clinit>() -> <clinit>
-org.acra.util.IOUtils$1 -> org.acra.i.b$1:
+org.acra.util.IOUtils$1 -> org.acra.h.b$1:
     47:47:void <init>() -> <init>
     50:50:boolean apply(java.lang.String) -> a
     47:47:boolean apply(java.lang.Object) -> apply
-org.acra.util.Installation -> org.acra.i.c:
+org.acra.util.Installation -> org.acra.h.c:
     java.lang.String sID -> a
-    39:54:java.lang.String id(android.content.Context) -> a
-    59:66:java.lang.String readInstallationFile(java.io.File) -> a
-    70:77:void writeInstallationFile(java.io.File) -> b
-org.acra.util.InstanceCreator -> org.acra.i.d:
+    55:70:java.lang.String id(android.content.Context) -> a
+    75:82:java.lang.String readInstallationFile(java.io.File) -> a
+    86:93:void writeInstallationFile(java.io.File) -> b
+org.acra.util.InstanceCreator -> org.acra.h.d:
     33:33:void <init>() -> <init>
     44:50:java.lang.Object create(java.lang.Class,java.lang.Object) -> a
     61:68:java.util.List create(java.util.Collection) -> a
-org.acra.util.NonBlockingBufferedReader -> org.acra.i.e:
+org.acra.util.NonBlockingBufferedReader -> org.acra.h.e:
     java.util.concurrent.BlockingQueue lines -> a
     java.lang.Thread backgroundReaderThread -> b
     java.io.IOException exception -> c
-    17:42:void <init>(java.io.BufferedReader) -> <init>
-    45:48:java.lang.String readLine() -> a
-    52:56:void close() -> b
-    15:15:java.util.concurrent.BlockingQueue access$000(org.acra.util.NonBlockingBufferedReader) -> a
-    15:15:java.io.IOException access$102(org.acra.util.NonBlockingBufferedReader,java.io.IOException) -> a
-org.acra.util.NonBlockingBufferedReader$1 -> org.acra.i.e$1:
+    33:58:void <init>(java.io.BufferedReader) -> <init>
+    61:64:java.lang.String readLine() -> a
+    68:72:void close() -> b
+    31:31:java.util.concurrent.BlockingQueue access$000(org.acra.util.NonBlockingBufferedReader) -> a
+    31:31:java.io.IOException access$102(org.acra.util.NonBlockingBufferedReader,java.io.IOException) -> a
+org.acra.util.NonBlockingBufferedReader$1 -> org.acra.h.e$1:
     java.io.BufferedReader val$bufferedReader -> a
     org.acra.util.NonBlockingBufferedReader this$0 -> b
-    22:22:void <init>(org.acra.util.NonBlockingBufferedReader,java.io.BufferedReader) -> <init>
-    26:38:void run() -> run
-org.acra.util.PackageManagerWrapper -> org.acra.i.f:
+    38:38:void <init>(org.acra.util.NonBlockingBufferedReader,java.io.BufferedReader) -> <init>
+    42:54:void run() -> run
+org.acra.util.PackageManagerWrapper -> org.acra.h.f:
     android.content.Context context -> a
-    32:34:void <init>(android.content.Context) -> <init>
-    41:51:boolean hasPermission(java.lang.String) -> a
-    60:73:android.content.pm.PackageInfo getPackageInfo() -> a
-org.acra.util.ProcessFinisher -> org.acra.i.g:
+    48:50:void <init>(android.content.Context) -> <init>
+    57:67:boolean hasPermission(java.lang.String) -> a
+    76:89:android.content.pm.PackageInfo getPackageInfo() -> a
+org.acra.util.ProcessFinisher -> org.acra.h.g:
     android.content.Context context -> a
     org.acra.config.CoreConfiguration config -> b
     org.acra.builder.LastActivityManager lastActivityManager -> c
@@ -32875,21 +32871,21 @@ org.acra.util.ProcessFinisher -> org.acra.i.g:
     63:86:void finishLastActivity(java.lang.Thread) -> a
     89:109:void stopServices() -> b
     112:114:void killProcessAndExit() -> c
-org.acra.util.ProcessFinisher$1 -> org.acra.i.g$1:
+org.acra.util.ProcessFinisher$1 -> org.acra.h.g$1:
     android.app.Activity val$lastActivity -> a
     org.acra.util.ProcessFinisher this$0 -> b
     67:67:void <init>(org.acra.util.ProcessFinisher,android.app.Activity) -> <init>
     70:72:void run() -> run
-org.acra.util.SystemServices -> org.acra.i.h:
+org.acra.util.SystemServices -> org.acra.h.h:
     37:37:android.telephony.TelephonyManager getTelephonyManager(android.content.Context) -> a
     42:42:android.os.DropBoxManager getDropBoxManager(android.content.Context) -> b
     52:52:android.app.ActivityManager getActivityManager(android.content.Context) -> c
     57:61:java.lang.Object getService(android.content.Context,java.lang.String) -> a
-org.acra.util.SystemServices$ServiceNotReachedException -> org.acra.i.h$a:
+org.acra.util.SystemServices$ServiceNotReachedException -> org.acra.h.h$a:
     66:67:void <init>(java.lang.String) -> <init>
-org.acra.util.ToastSender -> org.acra.i.i:
-    31:35:void sendToast(android.content.Context,int,int) -> a
-org.acra.util.UriUtils -> org.acra.i.j:
+org.acra.util.ToastSender -> org.acra.h.i:
+    47:51:void sendToast(android.content.Context,int,int) -> a
+org.acra.util.UriUtils -> org.acra.h.j:
     45:55:byte[] uriToByteArray(android.content.Context,android.net.Uri) -> a
     59:79:java.lang.String getFileNameFromUri(android.content.Context,android.net.Uri) -> b
     83:87:java.lang.String getMimeType(android.content.Context,android.net.Uri) -> c
