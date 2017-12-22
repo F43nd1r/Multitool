@@ -68,7 +68,7 @@ public class BackupUtils {
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             Calendar calendar = Calendar.getInstance();
             calendar.set(Calendar.MINUTE, time.getMinute());
-            calendar.set(Calendar.HOUR, time.getHour());
+            calendar.set(Calendar.HOUR_OF_DAY, time.getHour());
             if (calendar.before(Calendar.getInstance())) {
                 calendar.add(Calendar.DATE, 1);
             }

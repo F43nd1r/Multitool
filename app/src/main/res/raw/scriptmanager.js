@@ -29,7 +29,7 @@ if (data != null && data != "") {
 var s = getAllScriptMatching(Script.FLAG_ALL);
 var list = [];
 for (var i = 0; i < s.length; i++) {
-    var script = s.getAt(i);
+    var script = s[i];
     var flags = 0;
     if (script.hasFlag(Script.FLAG_DISABLED)) flags += Script.FLAG_DISABLED;
     if (script.hasFlag(Script.FLAG_APP_MENU)) flags += Script.FLAG_APP_MENU;

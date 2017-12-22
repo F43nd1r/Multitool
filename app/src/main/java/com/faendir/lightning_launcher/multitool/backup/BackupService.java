@@ -25,8 +25,18 @@ public class BackupService extends IntentService {
         ScriptManager manager = new ScriptManager(this);
         if (MultiTool.DEBUG) manager.enableDebug();
         manager.getAsyncExecutorService()
-                .add(new DirectScriptExecutor(R.raw.backup))
+                .add(new DirectScriptExecutor(R.raw.backup), s -> {
+                    synchronized (this) {
+                        this.notifyAll();
+                    }
+                })
                 .start();
+        synchronized (this) {
+            try {
+                this.wait();
+            } catch (InterruptedException ignored) {
+            }
+        }
         BackupUtils.scheduleNext(this);
     }
 }

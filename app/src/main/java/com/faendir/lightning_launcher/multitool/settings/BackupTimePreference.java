@@ -39,15 +39,15 @@ public class BackupTimePreference extends DialogPreference implements View.OnCli
     protected View onCreateDialogView() {
         @SuppressLint("InflateParams") View root = LayoutInflater.from(getContext()).inflate(R.layout.preference_backup_time, null);
         map = new HashMap<>();
-        map.put((Button) root.findViewById(R.id.buttonMonday), Calendar.MONDAY);
-        map.put((Button) root.findViewById(R.id.buttonTuesday), Calendar.TUESDAY);
-        map.put((Button) root.findViewById(R.id.buttonWednesday), Calendar.WEDNESDAY);
-        map.put((Button) root.findViewById(R.id.buttonThursday), Calendar.THURSDAY);
-        map.put((Button) root.findViewById(R.id.buttonFriday), Calendar.FRIDAY);
-        map.put((Button) root.findViewById(R.id.buttonSaturday), Calendar.SATURDAY);
-        map.put((Button) root.findViewById(R.id.buttonSunday), Calendar.SUNDAY);
+        map.put(root.findViewById(R.id.buttonMonday), Calendar.MONDAY);
+        map.put(root.findViewById(R.id.buttonTuesday), Calendar.TUESDAY);
+        map.put(root.findViewById(R.id.buttonWednesday), Calendar.WEDNESDAY);
+        map.put(root.findViewById(R.id.buttonThursday), Calendar.THURSDAY);
+        map.put(root.findViewById(R.id.buttonFriday), Calendar.FRIDAY);
+        map.put(root.findViewById(R.id.buttonSaturday), Calendar.SATURDAY);
+        map.put(root.findViewById(R.id.buttonSunday), Calendar.SUNDAY);
         StreamSupport.stream(map.keySet()).forEach(button -> button.setOnClickListener(this));
-        picker = (TimePicker) root.findViewById(R.id.timePicker);
+        picker = root.findViewById(R.id.timePicker);
         picker.setIs24HourView(DateFormat.is24HourFormat(getContext()));
         return root;
     }
@@ -70,7 +70,6 @@ public class BackupTimePreference extends DialogPreference implements View.OnCli
         super.onDialogClosed(positiveResult);
 
         if (positiveResult) {
-
             List<Integer> days = StreamSupport.stream(map.entrySet()).filter(entry->entry.getKey().isSelected()).map(Map.Entry::getValue).collect(Collectors.toList());
             backupTime = new BackupTime(picker.getCurrentHour(), picker.getCurrentMinute(), days);
             String time = BackupUtils.toString(backupTime);
