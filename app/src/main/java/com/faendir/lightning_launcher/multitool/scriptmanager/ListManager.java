@@ -16,9 +16,12 @@ import android.view.ViewGroup;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
 import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
+import com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory;
 import com.faendir.lightning_launcher.multitool.fastadapter.Model;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
-import com.mikepenz.fastadapter.commons.adapters.GenericFastItemAdapter;
+import com.mikepenz.fastadapter.FastAdapter;
+import com.mikepenz.fastadapter.adapters.ModelAdapter;
+import com.mikepenz.fastadapter.expandable.ExpandableExtension;
 import com.mikepenz.fastadapter_extensions.swipe.SimpleSwipeCallback;
 
 import org.acra.ACRA;
@@ -48,28 +51,34 @@ class ListManager implements ActionMode.Callback {
     private final ScriptManager scriptManager;
     private final Context context;
     private final RecyclerView recyclerView;
-    private final GenericFastItemAdapter<Model, ExpandableItem<Model>> adapter;
+    private final ModelAdapter<Model, ExpandableItem<Model>> adapter;
+    private final FastAdapter<ExpandableItem<Model>> fastAdapter;
+    private final ItemFactory<Model> factory;
+    private final ExpandableExtension<ExpandableItem<Model>> expandable;
 
     ListManager(@NonNull ScriptManager scriptManager, @NonNull Context context) {
         this.scriptManager = scriptManager;
         this.context = context;
         recyclerView = new RecyclerView(context);
+        factory = new ItemFactory<>((int) (24 * context.getResources().getDisplayMetrics().density));
         recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        adapter = new GenericFastItemAdapter<>(ExpandableItem::new);
-        adapter.withPositionBasedStateManagement(false)
-                .withSelectable(true)
+        adapter = new ModelAdapter<>(factory::wrap);
+        fastAdapter = FastAdapter.with(adapter);
+        expandable = new ExpandableExtension<>();
+        fastAdapter.addExtension(expandable);
+        fastAdapter.withSelectable(true)
                 .withMultiSelect(true)
                 .withSelectWithItemUpdate(true)
                 .withSelectionListener((item, selected) -> fireUpdateActionMode());
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(fastAdapter);
         new ItemTouchHelper(new SimpleSwipeCallback((position, direction) -> {
-            final ExpandableItem<Model> item = adapter.getItem(position);
+            final ExpandableItem<Model> item = adapter.getAdapterItem(position);
             final Runnable removeRunnable = () -> {
                 item.setSwipedAction(null);
-                int position1 = adapter.getPosition(item);
+                int position1 = adapter.getAdapterPosition(item);
                 if (position1 != RecyclerView.NO_POSITION) {
-                    adapter.getGenericItemAdapter().remove(position1);
+                    adapter.remove(position1);
                 }
                 ScriptUtils.deleteScript(scriptManager, this, (Script) item.getModel());
             };
@@ -78,24 +87,24 @@ class ListManager implements ActionMode.Callback {
             item.setSwipedAction(() -> {
                 recyclerView.removeCallbacks(removeRunnable);
                 item.setSwipedAction(null);
-                int position2 = adapter.getPosition(item);
+                int position2 = adapter.getAdapterPosition(item);
                 if (position2 != RecyclerView.NO_POSITION) {
-                    adapter.notifyItemChanged(position2);
+                    fastAdapter.notifyAdapterItemChanged(position2);
                 }
             });
 
-            adapter.notifyItemChanged(position);
+            fastAdapter.notifyAdapterItemChanged(position);
         }, null, ItemTouchHelper.RIGHT).withLeaveBehindSwipeRight(context.getResources().getDrawable(R.drawable.ic_delete_white)).withBackgroundSwipeRight(Color.RED))
                 .attachToRecyclerView(recyclerView);
     }
 
 
     private void fireUpdateActionMode() {
-        EventBus.getDefault().post(new UpdateActionModeRequest(this, !adapter.getSelections().isEmpty()));
+        EventBus.getDefault().post(new UpdateActionModeRequest(this, !fastAdapter.getSelections().isEmpty()));
     }
 
     void deselectAll() {
-        adapter.deselect();
+        fastAdapter.deselect();
     }
 
     void changed(Model s) {
@@ -105,30 +114,32 @@ class ListManager implements ActionMode.Callback {
         List<ExpandableItem<Model>> items = new ArrayList<>();
         for (Script script : scripts) {
             String path = script.getPath();
-            String[] pathFolders = path.split("/");
             List<ExpandableItem<Model>> parentItems = items;
             ExpandableItem<Model> parent = null;
-            for (String folder : pathFolders) {
-                if ("".equals(folder)) {
-                    continue;
-                }
-                Optional<ExpandableItem<Model>> optional = StreamSupport.stream(parentItems)
-                        .filter(item -> item.getModel() instanceof Folder).filter(item -> item.getModel().getName().equals(folder))
-                        .findAny();
-                if (optional.isPresent()) {
-                    parent = optional.get();
-                } else {
-                    ExpandableItem<Model> f = new ExpandableItem<>(new Folder(folder));
-                    parentItems.add(f);
-                    if (parent != null) {
-                        f.withParent(parent);
+            if (path != null) {
+                String[] pathFolders = path.split("/");
+                for (String folder : pathFolders) {
+                    if ("".equals(folder)) {
+                        continue;
                     }
-                    f.withSubItems(new ArrayList<>());
-                    parent = f;
+                    Optional<ExpandableItem<Model>> optional = StreamSupport.stream(parentItems)
+                            .filter(item -> item.getModel() instanceof Folder).filter(item -> item.getModel().getName().equals(folder))
+                            .findAny();
+                    if (optional.isPresent()) {
+                        parent = optional.get();
+                    } else {
+                        ExpandableItem<Model> f = factory.wrap(new Folder(folder));
+                        parentItems.add(f);
+                        if (parent != null) {
+                            f.withParent(parent);
+                        }
+                        f.withSubItems(new ArrayList<>());
+                        parent = f;
+                    }
+                    parentItems = parent.getSubItems();
                 }
-                parentItems = parent.getSubItems();
             }
-            ExpandableItem<Model> s = new ExpandableItem<>(script);
+            ExpandableItem<Model> s = factory.wrap(script);
             parentItems.add(s);
             if (parent != null) {
                 s.withParent(parent);
@@ -142,7 +153,7 @@ class ListManager implements ActionMode.Callback {
                     ExpandableItem<Model> child = item.getSubItems().get(0);
                     if (child.getModel() instanceof Folder) {
                         item.withSubItems(child.getSubItems());
-                        ((Folder)item.getModel()).setName(item.getModel().getName() + "/" + child.getModel().getName());
+                        ((Folder) item.getModel()).setName(item.getModel().getName() + "/" + child.getModel().getName());
                     } else {
                         break;
                     }
@@ -150,7 +161,7 @@ class ListManager implements ActionMode.Callback {
                 queue.addAll(item.getSubItems());
             }
         }
-        int[] expanded = adapter.getExpandedItems();
+        int[] expanded = expandable.getExpandedItems();
         IntStream.Builder builder = IntStreams.builder();
         int start = 0;
         for (int e : expanded) {
@@ -159,19 +170,19 @@ class ListManager implements ActionMode.Callback {
             }
             start = e + 1;
         }
-        for (int i = start; i < adapter.getItemCount(); i++) {
+        for (int i = start; i < adapter.getAdapterItemCount(); i++) {
             builder.accept(i);
         }
-        List<Model> collapsedItems = builder.build().mapToObj(adapter::getItem).map(ExpandableItem::getModel).collect(Collectors.toList());
+        List<Model> collapsedItems = builder.build().mapToObj(adapter::getAdapterItem).map(ExpandableItem::getModel).collect(Collectors.toList());
         new Handler(context.getMainLooper()).post(() -> {
-            adapter.getGenericItemAdapter().set(items);
+            adapter.setInternal(items, false, null);
             Iterables.forEach(items, item -> ListManager.this.recursiveExpand(item, collapsedItems));
         });
     }
 
     private void recursiveExpand(ExpandableItem<Model> item, List<Model> exclude) {
         if (StreamSupport.stream(exclude).noneMatch(item.getModel()::equals)) {
-            adapter.expand(adapter.getPosition(item));
+            expandable.expand(adapter.getAdapterPosition(item));
         }
         if (item.getSubItems() != null) {
             for (ExpandableItem<Model> i : item.getSubItems()) {
@@ -269,7 +280,7 @@ class ListManager implements ActionMode.Callback {
 
     @SelectionMode
     private int getSelectionMode() {
-        Map<Boolean, List<Model>> m = StreamSupport.stream(adapter.getSelectedItems()).map(ExpandableItem::getModel).collect(Collectors.partitioningBy(Folder.class::isInstance));
+        Map<Boolean, List<Model>> m = StreamSupport.stream(fastAdapter.getSelectedItems()).map(ExpandableItem::getModel).collect(Collectors.partitioningBy(Folder.class::isInstance));
         List<Model> selectedScriptGroups = m.get(true);
         List<Model> selectedScripts = m.get(false);
         boolean noScripts = selectedScripts.isEmpty();
@@ -280,6 +291,6 @@ class ListManager implements ActionMode.Callback {
     }
 
     private List<Model> getSelectedItems() {
-        return StreamSupport.stream(adapter.getSelectedItems()).map(ExpandableItem::getModel).collect(Collectors.toList());
+        return StreamSupport.stream(fastAdapter.getSelectedItems()).map(ExpandableItem::getModel).collect(Collectors.toList());
     }
 }

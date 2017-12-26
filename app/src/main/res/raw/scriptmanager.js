@@ -28,8 +28,7 @@ if (data != null && data != "") {
 }
 var s = getAllScriptMatching(Script.FLAG_ALL);
 var list = [];
-for (var i = 0; i < s.length; i++) {
-    var script = s[i];
+s.forEach(function(script){
     var flags = 0;
     if (script.hasFlag(Script.FLAG_DISABLED)) flags += Script.FLAG_DISABLED;
     if (script.hasFlag(Script.FLAG_APP_MENU)) flags += Script.FLAG_APP_MENU;
@@ -42,5 +41,5 @@ for (var i = 0; i < s.length; i++) {
         flags: flags,
         path: script.getPath()
     });
-}
+});
 return JSON.stringify(list);

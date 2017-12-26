@@ -21,10 +21,12 @@ import android.widget.TextView;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
+import com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory;
 import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
 import com.faendir.lightning_launcher.multitool.util.Utils;
-import com.mikepenz.fastadapter.commons.adapters.GenericFastItemAdapter;
+import com.mikepenz.fastadapter.FastAdapter;
+import com.mikepenz.fastadapter.adapters.ModelAdapter;
 import com.mikepenz.fastadapter_extensions.swipe.SimpleSwipeCallback;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
@@ -47,7 +49,7 @@ public class GestureFragment extends Fragment {
     private static final String INDEX = "index";
 
     private FileManager<GestureInfo, FileNotFoundException> fileManager;
-    private GenericFastItemAdapter<GestureInfo, ExpandableItem<GestureInfo>> adapter;
+    private ModelAdapter<GestureInfo, ExpandableItem<GestureInfo>> adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,25 +63,26 @@ public class GestureFragment extends Fragment {
                              Bundle savedInstanceState) {
         LinearLayout layout = new LinearLayout(getActivity());
         RecyclerView recyclerView = new RecyclerView(getActivity());
-        adapter = new GenericFastItemAdapter<>(ExpandableItem::new);
-        adapter.withOnLongClickListener((v, adapter, item, position) -> {
+        adapter = new ModelAdapter<>(ItemFactory.<GestureInfo>forLauncherIconSize(getActivity())::wrap);
+        FastAdapter<ExpandableItem<GestureInfo>> fastAdapter = FastAdapter.with(adapter);
+        fastAdapter.withOnLongClickListener((v, adapter, item, position) -> {
             Intent intent = new Intent(getActivity(), GestureActivity.class);
             intent.putExtra(GestureActivity.GESTURE, item.getModel());
             intent.putExtra(INDEX, adapter.getAdapterPosition(item));
             startActivityForResult(intent, EDIT);
             return true;
         });
-        exceptionToOptional(fileManager::read).get().ifPresent(list -> adapter.setModel(StreamSupport.stream(list)
+        exceptionToOptional(fileManager::read).get().ifPresent(list -> adapter.set(StreamSupport.stream(list)
                 .filter(gestureInfo -> !gestureInfo.isInvalid()).collect(Collectors.toList())));
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(fastAdapter);
         new ItemTouchHelper(new SimpleSwipeCallback((position, direction) -> {
-            final ExpandableItem<GestureInfo> item = adapter.getItem(position);
+            final ExpandableItem<GestureInfo> item = adapter.getAdapterItem(position);
             final Runnable removeRunnable = () -> {
                 item.setSwipedAction(null);
-                int position1 = adapter.getPosition(item);
+                int position1 = adapter.getAdapterPosition(item);
                 if (position1 != RecyclerView.NO_POSITION) {
-                    adapter.getGenericItemAdapter().remove(position1);
+                    adapter.remove(position1);
                 }
                 GestureUtils.delete(getActivity(), item.getModel(),
                         adapter.getModels(), fileManager);
@@ -90,13 +93,13 @@ public class GestureFragment extends Fragment {
             item.setSwipedAction(() -> {
                 recyclerView.removeCallbacks(removeRunnable);
                 item.setSwipedAction(null);
-                int position2 = adapter.getPosition(item);
+                int position2 = adapter.getAdapterPosition(item);
                 if (position2 != RecyclerView.NO_POSITION) {
-                    adapter.notifyItemChanged(position2);
+                    fastAdapter.notifyAdapterItemChanged(position2);
                 }
             });
 
-            adapter.notifyItemChanged(position);
+            fastAdapter.notifyAdapterItemChanged(position);
         }, null, ItemTouchHelper.RIGHT).withLeaveBehindSwipeRight(getResources().getDrawable(R.drawable.ic_delete_white)).withBackgroundSwipeRight(Color.RED))
                 .attachToRecyclerView(recyclerView);
         recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -153,7 +156,7 @@ public class GestureFragment extends Fragment {
             switch (requestCode) {
                 case ADD: {
                     GestureInfo gestureInfo = data.getParcelableExtra(GestureActivity.GESTURE);
-                    adapter.addModel(gestureInfo);
+                    adapter.add(gestureInfo);
                     GestureUtils.updateSavedGestures(adapter.getModels(), fileManager);
                     break;
                 }
@@ -161,7 +164,7 @@ public class GestureFragment extends Fragment {
                     GestureInfo gestureInfo = data.getParcelableExtra(GestureActivity.GESTURE);
                     int position = data.getIntExtra(INDEX, -1);
                     if (position >= 0) {
-                        adapter.getGenericItemAdapter().setModel(position, gestureInfo);
+                        adapter.set(position, gestureInfo);
                         GestureUtils.updateSavedGestures(adapter.getModels(), fileManager);
                     }
                 }

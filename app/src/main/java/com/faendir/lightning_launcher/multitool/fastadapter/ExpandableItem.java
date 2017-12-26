@@ -22,8 +22,8 @@ import android.view.View;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.mikepenz.fastadapter.IItem;
-import com.mikepenz.fastadapter.ISwipeable;
-import com.mikepenz.fastadapter.commons.items.GenericAbstractExpandableItem;
+import com.mikepenz.fastadapter.expandable.items.ModelAbstractExpandableItem;
+import com.mikepenz.fastadapter_extensions.swipe.ISwipeable;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,13 +32,15 @@ import java.util.List;
  * Created by Lukas on 23.08.2015.
  * An item in the ExpandableListView
  */
-public class ExpandableItem<T extends Model> extends GenericAbstractExpandableItem<T, ExpandableItem<T>, ExpandableItem.ViewHolder, ExpandableItem<T>> implements ISwipeable<ExpandableItem<T>, IItem> {
+public class ExpandableItem<T extends Model> extends ModelAbstractExpandableItem<T, ExpandableItem<T>, ExpandableItem.ViewHolder, ExpandableItem<T>> implements ISwipeable<ExpandableItem<T>, IItem> {
     private boolean swipeable = true;
     private Runnable swipedAction;
+    private final int size;
 
-    public ExpandableItem(T item) {
+    public ExpandableItem(T item, int size) {
         super(item);
         swipeable = item instanceof DeletableModel;
+        this.size = size;
     }
 
     @Override
@@ -68,7 +70,6 @@ public class ExpandableItem<T extends Model> extends GenericAbstractExpandableIt
             icon = DrawableCompat.wrap(getModel().getIcon(context));
             DrawableCompat.setTint(icon, getModel().getTintColor(context));
             DrawableCompat.setTintMode(icon, PorterDuff.Mode.MULTIPLY);
-            icon = icon.mutate();
             background = isSelected() ? context.getResources().getColor(R.color.accent) : Color.TRANSPARENT;
         } else {
             text = ((DeletableModel) getModel()).getUndoText(context);
@@ -84,7 +85,8 @@ public class ExpandableItem<T extends Model> extends GenericAbstractExpandableIt
             background = Color.RED;
         }
         holder.text.setText(text);
-        holder.text.setCompoundDrawablesWithIntrinsicBounds(icon.mutate(), null, null, null);
+        icon.setBounds(0, 0, size * icon.getIntrinsicWidth() / icon.getIntrinsicHeight(), size);
+        holder.text.setCompoundDrawables(icon.mutate(), null, null, null);
         holder.text.setBackgroundColor(background);
         holder.applyInset(10 * getLevel());
     }

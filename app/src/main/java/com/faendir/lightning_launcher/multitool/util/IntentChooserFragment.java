@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,7 +22,9 @@ import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
-import com.mikepenz.fastadapter.commons.adapters.GenericFastItemAdapter;
+import com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory;
+import com.mikepenz.fastadapter.FastAdapter;
+import com.mikepenz.fastadapter.adapters.ModelAdapter;
 
 import org.acra.ACRA;
 
@@ -35,7 +38,8 @@ import java.util.Comparator;
 public class IntentChooserFragment extends Fragment implements SearchView.OnQueryTextListener {
     private static final String KEY_INTENT = "intent";
     private static final String KEY_INDIRECT = "indirect";
-    private GenericFastItemAdapter<IntentInfo, ExpandableItem<IntentInfo>> adapter;
+    private ModelAdapter<IntentInfo, ExpandableItem<IntentInfo>> adapter;
+    private FastAdapter<ExpandableItem<IntentInfo>> fastAdapter;
     private String search;
 
     public static IntentChooserFragment newInstance(Intent intent, boolean isIndirect){
@@ -75,25 +79,28 @@ public class IntentChooserFragment extends Fragment implements SearchView.OnQuer
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.intent_chooser_page, container, false);
         Bundle args = getArguments();
-        adapter = new GenericFastItemAdapter<>(ExpandableItem::new);
-        adapter.getGenericItemAdapter().withComparator((o1, o2) -> o1.getModel().compareTo(o2.getModel()));
-        adapter.withOnClickListener((v, adapter1, item, position) -> handleSelection(item.getModel()));
-        adapter.getGenericItemAdapter().getItemFilter().withFilterPredicate(((item, constraint) -> !item.getModel().getName().toLowerCase().contains(constraint.toString().toLowerCase())));
-        Intent intent = args.getParcelable(KEY_INTENT);
-        boolean indirect = args.getBoolean(KEY_INDIRECT);
-        new IntentHandlerListTask(getActivity(), intent, indirect, infos -> {
-            if(root.getParent() != null) {
-                RecyclerView recyclerView = root.findViewById(R.id.list);
-                adapter.setModel(infos);
-                recyclerView.setVisibility(View.VISIBLE);
-                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                recyclerView.setAdapter(adapter);
-                root.findViewById(R.id.progressBar).setVisibility(View.GONE);
-            }
-        }).execute();
+        if(args != null) {
+            adapter = new ModelAdapter<>(ItemFactory.<IntentInfo>forLauncherIconSize(getActivity())::wrap);
+            fastAdapter = FastAdapter.with(adapter);
+            adapter.withComparator((o1, o2) -> o1.getModel().compareTo(o2.getModel()));
+            fastAdapter.withOnClickListener((v, adapter1, item, position) -> handleSelection(item.getModel()));
+            adapter.getItemFilter().withFilterPredicate(((item, constraint) -> !item.getModel().getName().toLowerCase().contains(constraint.toString().toLowerCase())));
+            Intent intent = args.getParcelable(KEY_INTENT);
+            boolean indirect = args.getBoolean(KEY_INDIRECT);
+            new IntentHandlerListTask(getActivity(), intent, indirect, infos -> {
+                if (root.getParent() != null) {
+                    RecyclerView recyclerView = root.findViewById(R.id.list);
+                    adapter.set(infos);
+                    recyclerView.setVisibility(View.VISIBLE);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                    recyclerView.setAdapter(fastAdapter);
+                    root.findViewById(R.id.progressBar).setVisibility(View.GONE);
+                }
+            }).execute();
+        }
         return root;
     }
 
@@ -104,8 +111,8 @@ public class IntentChooserFragment extends Fragment implements SearchView.OnQuer
     }
 
     public void setComparator(Comparator<IntentInfo> comparator){
-        adapter.getGenericItemAdapter().withComparator((o1, o2) -> comparator.compare(o1.getModel(), o2.getModel()));
-        adapter.notifyAdapterDataSetChanged();
+        adapter.withComparator((o1, o2) -> comparator.compare(o1.getModel(), o2.getModel()));
+        fastAdapter.notifyAdapterDataSetChanged();
     }
 
     private boolean handleSelection(IntentInfo info) {
@@ -165,14 +172,14 @@ public class IntentChooserFragment extends Fragment implements SearchView.OnQuer
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        adapter.getGenericItemAdapter().filter(query);
+        adapter.filter(query);
         search = query;
         return true;
     }
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        adapter.getGenericItemAdapter().filter(newText);
+        adapter.filter(newText);
         search = newText;
         return true;
     }

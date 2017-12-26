@@ -3,6 +3,7 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.Keep;
 import android.support.annotation.NonNull;
 
 import com.faendir.lightning_launcher.multitool.Loader;
@@ -14,6 +15,7 @@ import com.faendir.lightning_launcher.multitool.fastadapter.DeletableModel;
  * Created by Lukas on 22.08.2015.
  * Represents a script
  */
+@Keep
 public class Script implements Comparable<Script>, DeletableModel {
     @SuppressWarnings("unused")
     private int id;
