@@ -103,7 +103,7 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
     }
 
     public void release() {
-        billingProcessor.release();
+        if (billingProcessor != null) billingProcessor.release();
     }
 
     @WorkerThread

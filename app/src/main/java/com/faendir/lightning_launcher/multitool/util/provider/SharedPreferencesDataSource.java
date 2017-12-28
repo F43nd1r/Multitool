@@ -52,6 +52,10 @@ public class SharedPreferencesDataSource implements QueryUpdateDataSource {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPref.edit();
         for (Map.Entry<String, Object> entry : values.valueSet()) {
+            if(entry.getValue() == null){
+                editor.remove(entry.getKey());
+                continue;
+            }
             if (setIfTypeMatch(entry, Boolean.class, editor::putBoolean)) continue;
             if (setIfTypeMatch(entry, Float.class, editor::putFloat)) continue;
             if (setIfTypeMatch(entry, Integer.class, editor::putInt)) continue;
@@ -59,7 +63,7 @@ public class SharedPreferencesDataSource implements QueryUpdateDataSource {
             try {
                 String[] strings = Utils.GSON.fromJson(entry.getValue().toString(), String[].class);
                 editor.putStringSet(entry.getKey(), new HashSet<>(Arrays.asList(strings)));
-            } catch (JsonSyntaxException e) {
+            } catch (Exception e) {
                 editor.putString(entry.getKey(), entry.getValue().toString());
             }
         }
