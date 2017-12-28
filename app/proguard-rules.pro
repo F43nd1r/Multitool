@@ -30,3 +30,4 @@
 -dontwarn java.lang.invoke.*
 -dontwarn sun.misc.Unsafe
 -dontwarn org.mozilla.javascript.**
+-dontwarn build.*
