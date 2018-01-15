@@ -21511,9 +21511,9 @@ com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSour
     28:29:void <init>() -> <init>
     33:33:java.lang.String getPath() -> a
     39:46:android.database.Cursor query(android.content.Context,android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String) -> a
-    51:67:int update(android.content.Context,android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) -> a
-    71:76:void init(android.content.Context) -> c
-    79:84:boolean setIfTypeMatch(java.util.Map$Entry,java.lang.Class,java8.util.function.BiConsumer) -> a
+    51:71:int update(android.content.Context,android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) -> a
+    75:80:void init(android.content.Context) -> c
+    83:88:boolean setIfTypeMatch(java.util.Map$Entry,java.lang.Class,java8.util.function.BiConsumer) -> a
 com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSource$$Lambda$0 -> com.faendir.lightning_launcher.multitool.util.provider.m:
     android.content.SharedPreferences$Editor arg$1 -> a
     void <init>(android.content.SharedPreferences$Editor) -> <init>
