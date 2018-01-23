@@ -77,48 +77,46 @@ public class MusicListenerService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ComponentName notificationListener = new ComponentName(this, NotificationListener.class);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                boolean enabled = NotificationListener.isEnabled(this);
-                if (enabled) {
-                    if(!this.enabled) {
-                        MediaSessionManager mediaSessionManager = (MediaSessionManager) getSystemService(Context.MEDIA_SESSION_SERVICE);
-                        sessionsChangedListener.onActiveSessionsChanged(mediaSessionManager.getActiveSessions(notificationListener));
-                        mediaSessionManager.addOnActiveSessionsChangedListener(sessionsChangedListener, notificationListener);
-                        this.enabled = true;
-                    }
-                    if (intent.hasExtra(EXTRA_COMMAND_CODE)) {
-                        int keyCode = intent.getIntExtra(EXTRA_COMMAND_CODE, 0);
-                        MediaController controller = currentController.get();
-                        if (controller != null) {
-                            if (isAlternativeControl(controller)) {
-                                sendKeyCodeToPlayer(keyCode, controller.getPackageName());
-                            } else {
-                                switch (keyCode){
-                                    case KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE:
-                                        PlaybackState state = controller.getPlaybackState();
-                                        if (state != null && PLAYING_STATES.contains(state.getState())) {
-                                            controller.getTransportControls().pause();
-                                        } else {
-                                            controller.getTransportControls().play();
-                                        }
-                                        break;
-                                    case KeyEvent.KEYCODE_MEDIA_NEXT:
-                                        controller.getTransportControls().skipToNext();
-                                        break;
-                                    case KeyEvent.KEYCODE_MEDIA_PREVIOUS:
-                                        controller.getTransportControls().skipToPrevious();
-                                        break;
-                                }
-                            }
-                        } else {
-                            startDefaultPlayerWithKeyCode(keyCode);
-                        }
-                    }
-                } else {
-                    NotificationListener.askForEnable(this);
+            boolean enabled = NotificationListener.isEnabled(this);
+            if (enabled) {
+                if (!this.enabled) {
+                    MediaSessionManager mediaSessionManager = (MediaSessionManager) getSystemService(Context.MEDIA_SESSION_SERVICE);
+                    sessionsChangedListener.onActiveSessionsChanged(mediaSessionManager.getActiveSessions(notificationListener));
+                    mediaSessionManager.addOnActiveSessionsChangedListener(sessionsChangedListener, notificationListener);
+                    this.enabled = true;
                 }
+                if (intent.hasExtra(EXTRA_COMMAND_CODE)) {
+                    int keyCode = intent.getIntExtra(EXTRA_COMMAND_CODE, 0);
+                    MediaController controller = currentController.get();
+                    if (controller != null) {
+                        if (isAlternativeControl(controller)) {
+                            sendKeyCodeToPlayer(keyCode, controller.getPackageName());
+                        } else {
+                            switch (keyCode) {
+                                case KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE:
+                                    PlaybackState state = controller.getPlaybackState();
+                                    if (state != null && PLAYING_STATES.contains(state.getState())) {
+                                        controller.getTransportControls().pause();
+                                    } else {
+                                        controller.getTransportControls().play();
+                                    }
+                                    break;
+                                case KeyEvent.KEYCODE_MEDIA_NEXT:
+                                    controller.getTransportControls().skipToNext();
+                                    break;
+                                case KeyEvent.KEYCODE_MEDIA_PREVIOUS:
+                                    controller.getTransportControls().skipToPrevious();
+                                    break;
+                            }
+                        }
+                    } else {
+                        startDefaultPlayerWithKeyCode(keyCode);
+                    }
+                }
+            } else {
+                NotificationListener.askForEnable(this);
             }
         }
         return START_NOT_STICKY;

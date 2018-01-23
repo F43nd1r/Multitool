@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.1'
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.faendir.lightning_launcher.multitool"
@@ -35,7 +35,7 @@ android {
 dependencies {
     def supportVersion = '27.0.2'
     def streamVersion = '1.5.6'
-    def acraVersion = '5.0.0'
+    def acraVersion = '5.0.1'
     def fastAdapterVersion = '3.0.5'
     implementation('com.faendir.lightninglauncher:scriptlib:3.0-SNAPSHOT') {
         changing = true

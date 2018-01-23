@@ -51,10 +51,12 @@ public class MusicDataSource extends SharedPreferencesDataSource implements File
         contentValues.put(KEY_ARTIST, info.getArtist());
         contentValues.put(KEY_ALBUM, info.getAlbum());
         contentValues.put(KEY_PACKAGE, info.getPackageName());
-        try (OutputStream outputStream = DataProvider.openFileForWrite(context, MusicDataSource.class)) {
-            info.getAlbumArt().compress(Bitmap.CompressFormat.PNG, 100, outputStream);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if(info.getAlbumArt() != null) {
+            try (OutputStream outputStream = DataProvider.openFileForWrite(context, MusicDataSource.class)) {
+                info.getAlbumArt().compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         context.getContentResolver().update(DataProvider.getContentUri(MusicDataSource.class), contentValues, null, null);
     }
