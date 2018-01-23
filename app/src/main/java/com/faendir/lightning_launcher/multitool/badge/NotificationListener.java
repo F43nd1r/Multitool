@@ -20,7 +20,14 @@ import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.scriptlib.DialogActivity;
 
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
+
+import java8.lang.Iterables;
+import java8.util.stream.Collectors;
+import java8.util.stream.RefStreams;
+import java8.util.stream.StreamSupport;
 
 /**
  * @author F43nd1r
@@ -39,14 +46,22 @@ public class NotificationListener extends NotificationListenerService {
 
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
-        if (supportsIntentBasedCount(sbn.getPackageName())) {
+        final String packageName = sbn.getPackageName();
+        if (supportsIntentBasedCount(packageName)) {
             return;
         }
         int number = sbn.getNotification().number;
         if (number == 0) {
-            number = 1;
+            List<StatusBarNotification> notifications = RefStreams.of(getActiveNotifications()).filter(n -> packageName.equals(n.getPackageName())).collect(Collectors.toList());
+            int reduceBy = 0;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                Map<String, Integer> groupSizes = StreamSupport.stream(notifications).collect(Collectors.toMap(StatusBarNotification::getGroupKey, n -> 1, (i1, i2) -> i1 + i2));
+                Iterables.removeIf(groupSizes.entrySet(), e -> e.getValue() == 1);
+                reduceBy = groupSizes.size();
+            }
+            number = (int) (RefStreams.of(getActiveNotifications()).filter(n -> packageName.equals(n.getPackageName())).count() - reduceBy);
         }
-        BadgeDataSource.setBadgeCount(this, sbn.getPackageName(), number);
+        BadgeDataSource.setBadgeCount(this, packageName, number);
     }
 
     @Override
