@@ -10889,6 +10889,11 @@ com.faendir.lightning_launcher.multitool.badge.NotificationListener: void onNoti
 com.faendir.lightning_launcher.multitool.badge.NotificationListener: boolean supportsIntentBasedCount(java.lang.String)
 com.faendir.lightning_launcher.multitool.badge.NotificationListener: boolean isEnabled(android.content.Context)
 com.faendir.lightning_launcher.multitool.badge.NotificationListener: void askForEnable(android.content.Context)
+com.faendir.lightning_launcher.multitool.badge.NotificationListener: boolean lambda$onNotificationPosted$4$NotificationListener(java.lang.String,android.service.notification.StatusBarNotification)
+com.faendir.lightning_launcher.multitool.badge.NotificationListener: boolean lambda$onNotificationPosted$3$NotificationListener(java.util.Map$Entry)
+com.faendir.lightning_launcher.multitool.badge.NotificationListener: java.lang.Integer lambda$onNotificationPosted$2$NotificationListener(java.lang.Integer,java.lang.Integer)
+com.faendir.lightning_launcher.multitool.badge.NotificationListener: java.lang.Integer lambda$onNotificationPosted$1$NotificationListener(android.service.notification.StatusBarNotification)
+com.faendir.lightning_launcher.multitool.badge.NotificationListener: boolean lambda$onNotificationPosted$0$NotificationListener(java.lang.String,android.service.notification.StatusBarNotification)
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState[] values()
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState valueOf(java.lang.String)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$0: void onClick(android.content.DialogInterface,int)
@@ -25402,7 +25407,6 @@ org.acra.ACRA: boolean isInitialised()
 org.acra.ACRA: boolean isACRASenderServiceProcess()
 org.acra.ACRA: java.lang.String getCurrentProcessName()
 org.acra.ACRA: org.acra.ErrorReporter getErrorReporter()
-org.acra.ACRA: boolean shouldDisableACRA(android.content.SharedPreferences)
 org.acra.ACRA: void setLog(org.acra.log.ACRALog)
 org.acra.ACRA: void <clinit>()
 org.acra.ReportField
@@ -25567,6 +25571,7 @@ org.acra.collector.DropBoxCollector: void collect(org.acra.ReportField,android.c
 org.acra.collector.DropBoxCollector: boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder)
 org.acra.collector.DropBoxCollector: void <clinit>()
 org.acra.collector.LogCatCollector
+org.acra.collector.LogCatCollector: int READ_TIMEOUT
 org.acra.collector.LogCatCollector: LogCatCollector()
 org.acra.collector.LogCatCollector: org.acra.collector.Collector$Order getOrder()
 org.acra.collector.LogCatCollector: java.lang.String collectLogCat(org.acra.config.CoreConfiguration,java.lang.String)
@@ -25577,7 +25582,6 @@ org.acra.collector.LogFileCollector
 org.acra.collector.LogFileCollector: LogFileCollector()
 org.acra.collector.LogFileCollector: org.acra.collector.Collector$Order getOrder()
 org.acra.collector.LogFileCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
-org.acra.collector.LogFileCollector: java.io.InputStream getStream(android.content.Context,org.acra.file.Directory,java.lang.String)
 org.acra.collector.MediaCodecListCollector
 org.acra.collector.MediaCodecListCollector: java.lang.String COLOR_FORMAT_PREFIX
 org.acra.collector.MediaCodecListCollector: java.lang.String[] MPEG4_TYPES
@@ -25662,6 +25666,7 @@ org.acra.collector.ThreadCollector: ThreadCollector()
 org.acra.collector.ThreadCollector: org.acra.collector.Collector$Order getOrder()
 org.acra.collector.ThreadCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)
 org.acra.collector.TimeCollector
+org.acra.collector.TimeCollector: java.text.SimpleDateFormat dateFormat
 org.acra.collector.TimeCollector: java.util.Calendar appStartDate
 org.acra.collector.TimeCollector: TimeCollector()
 org.acra.collector.TimeCollector: void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData)

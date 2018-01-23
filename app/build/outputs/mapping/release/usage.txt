@@ -6443,7 +6443,6 @@ java8.lang.Doubles:
 java8.lang.FunctionalInterface
 java8.lang.Integers
 java8.lang.Iterables:
-    101:112:public static boolean removeIf(java.lang.Iterable,java8.util.function.Predicate)
     146:151:public static java8.util.Spliterator spliterator(java.lang.Iterable)
     154:155:private Iterables()
 java8.lang.Longs:
@@ -7233,7 +7232,6 @@ java8.util.stream.AbstractTask:
 java8.util.stream.BaseStream
 java8.util.stream.Collectors:
     126:126:private Collectors()
-    129:129:private static java8.util.function.Supplier hashMapFactory()
     133:133:private static java8.util.function.Supplier concurrentHashMapFactory()
     157:165:public static varargs java8.util.stream.Collector of(java8.util.function.Supplier,java8.util.function.BiConsumer,java8.util.function.BinaryOperator,java8.util.stream.Collector$Characteristics[])
     189:200:public static varargs java8.util.stream.Collector of(java8.util.function.Supplier,java8.util.function.BiConsumer,java8.util.function.BinaryOperator,java8.util.function.Function,java8.util.stream.Collector$Characteristics[])
@@ -7270,7 +7268,6 @@ java8.util.stream.Collectors:
     1275:1275:public static java8.util.stream.Collector groupingByConcurrent(java8.util.function.Function,java8.util.stream.Collector)
     1322:1357:public static java8.util.stream.Collector groupingByConcurrent(java8.util.function.Function,java8.util.function.Supplier,java8.util.stream.Collector)
     1497:1499:public static java8.util.stream.Collector toMap(java8.util.function.Function,java8.util.function.Function)
-    1561:1561:public static java8.util.stream.Collector toMap(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator)
     1666:1668:public static java8.util.stream.Collector toConcurrentMap(java8.util.function.Function,java8.util.function.Function)
     1726:1726:public static java8.util.stream.Collector toConcurrentMap(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator)
     1768:1770:public static java8.util.stream.Collector toConcurrentMap(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator,java8.util.function.Supplier)
@@ -7338,7 +7335,6 @@ java8.util.stream.Collectors:
     351:351:static synthetic java.util.Collection lambda$toCollection$60(java.util.Collection,java.util.Collection)
     263:274:static synthetic void lambda$uniqKeysMapAccumulator$58(java8.util.function.Function,java8.util.function.Function,java.util.Map,java.lang.Object)
     230:243:static synthetic java.util.Map lambda$uniqKeysMapMerger$57(java.util.Map,java.util.Map)
-java8.util.stream.Collectors$$Lambda$1
 java8.util.stream.Collectors$$Lambda$13
 java8.util.stream.Collectors$$Lambda$14
 java8.util.stream.Collectors$$Lambda$15
@@ -7872,7 +7868,6 @@ java8.util.stream.ReduceOps:
     70:112:public static java8.util.stream.TerminalOp makeRef(java.lang.Object,java8.util.function.BiFunction,java8.util.function.BinaryOperator)
     130:186:public static java8.util.stream.TerminalOp makeRef(java8.util.function.BinaryOperator)
     280:324:public static java8.util.stream.TerminalOp makeRef(java8.util.function.Supplier,java8.util.function.BiConsumer,java8.util.function.BiConsumer)
-    344:344:public static java8.util.stream.TerminalOp makeRefCounting()
     381:430:public static java8.util.stream.TerminalOp makeInt(int,java8.util.function.IntBinaryOperator)
     447:504:public static java8.util.stream.TerminalOp makeInt(java8.util.function.IntBinaryOperator)
     527:571:public static java8.util.stream.TerminalOp makeInt(java8.util.function.Supplier,java8.util.function.ObjIntConsumer,java8.util.function.BinaryOperator)
@@ -7906,7 +7901,6 @@ java8.util.stream.ReduceOps$3ReducingSink:
     241:242:public void accept(double)
 java8.util.stream.ReduceOps$4
 java8.util.stream.ReduceOps$4ReducingSink
-java8.util.stream.ReduceOps$5
 java8.util.stream.ReduceOps$5ReducingSink
 java8.util.stream.ReduceOps$6
 java8.util.stream.ReduceOps$6ReducingSink
@@ -7916,11 +7910,12 @@ java8.util.stream.ReduceOps$8
 java8.util.stream.ReduceOps$8ReducingSink
 java8.util.stream.ReduceOps$9
 java8.util.stream.ReduceOps$9ReducingSink
-java8.util.stream.ReduceOps$CountingSink
+java8.util.stream.ReduceOps$CountingSink:
+    1148:1149:public void accept(long)
+    1153:1154:public void accept(double)
 java8.util.stream.ReduceOps$CountingSink$OfDouble
 java8.util.stream.ReduceOps$CountingSink$OfInt
 java8.util.stream.ReduceOps$CountingSink$OfLong
-java8.util.stream.ReduceOps$CountingSink$OfRef
 java8.util.stream.ReduceOps$ReduceOp:
     1258:1258:public java8.util.stream.StreamShape inputShape()
 java8.util.stream.RefStreams:
@@ -7968,7 +7963,6 @@ java8.util.stream.ReferencePipeline:
     551:551:public final java.lang.Object collect(java8.util.function.Supplier,java8.util.function.BiConsumer,java8.util.function.BiConsumer)
     556:556:public final java8.util.Optional max(java.util.Comparator)
     561:561:public final java8.util.Optional min(java.util.Comparator)
-    567:567:public final long count()
     59:59:public bridge synthetic java8.util.stream.BaseStream unordered()
     485:485:static synthetic java.lang.Object[] lambda$toArray$27(int)
 java8.util.stream.ReferencePipeline$$Lambda$1
@@ -8108,7 +8102,6 @@ java8.util.stream.Stream:
     public abstract java.lang.Object collect(java8.util.function.Supplier,java8.util.function.BiConsumer,java8.util.function.BiConsumer)
     public abstract java8.util.Optional min(java.util.Comparator)
     public abstract java8.util.Optional max(java.util.Comparator)
-    public abstract long count()
     public abstract boolean anyMatch(java8.util.function.Predicate)
     public abstract boolean allMatch(java8.util.function.Predicate)
 java8.util.stream.Stream$Builder
@@ -8270,16 +8263,17 @@ org.acra.ACRAConstants:
     27:28:private ACRAConstants()
 org.acra.BuildConfig
 org.acra.ErrorReporter:
-    117:117:public java.lang.String removeCustomData(java.lang.String)
-    124:125:public void clearCustomData()
-    136:136:public java.lang.String getCustomData(java.lang.String)
-    213:220:public void handleException(java.lang.Throwable,boolean)
-    231:232:public void handleException(java.lang.Throwable)
+    public abstract java.lang.String removeCustomData(java.lang.String)
+    public abstract void clearCustomData()
+    public abstract java.lang.String getCustomData(java.lang.String)
+    public abstract void setEnabled(boolean)
+    public abstract void handleException(java.lang.Throwable,boolean)
+    public abstract void handleException(java.lang.Throwable)
 org.acra.R
 org.acra.attachment.AcraContentProvider:
     public static final java.lang.String MIME_TYPE_OCTET_STREAM
-    210:210:public static android.net.Uri getUriForFile(android.content.Context,java.io.File)
-    223:227:public static android.net.Uri getUriForFile(android.content.Context,org.acra.file.Directory,java.lang.String)
+    211:211:public static android.net.Uri getUriForFile(android.content.Context,java.io.File)
+    224:233:public static android.net.Uri getUriForFile(android.content.Context,org.acra.file.Directory,java.lang.String)
 org.acra.builder.ReportBuilder:
     48:49:public org.acra.builder.ReportBuilder message(java.lang.String)
     125:126:public org.acra.builder.ReportBuilder customData(java.lang.String,java.lang.String)
@@ -8299,36 +8293,37 @@ org.acra.config.ClassValidator:
 org.acra.config.ConfigUtils:
     25:25:public ConfigUtils()
 org.acra.config.CoreConfigurationBuilder:
-    141:142:public org.acra.config.CoreConfigurationBuilder setEnabled(boolean)
-    164:165:public org.acra.config.CoreConfigurationBuilder setSharedPreferencesName(java.lang.String)
-    197:198:public org.acra.config.CoreConfigurationBuilder setIncludeDropBoxSystemTags(boolean)
-    213:214:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalDropBoxTags(java.lang.String[])
-    229:230:public org.acra.config.CoreConfigurationBuilder setDropboxCollectionMinutes(int)
-    255:256:public varargs org.acra.config.CoreConfigurationBuilder setLogcatArguments(java.lang.String[])
-    278:279:public varargs org.acra.config.CoreConfigurationBuilder setReportContent(org.acra.ReportField[])
-    306:307:public org.acra.config.CoreConfigurationBuilder setDeleteUnapprovedReportsOnApplicationStart(boolean)
-    322:323:public org.acra.config.CoreConfigurationBuilder setDeleteOldUnsentReportsOnApplicationStart(boolean)
-    339:340:public org.acra.config.CoreConfigurationBuilder setAlsoReportToAndroidFramework(boolean)
-    355:356:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalSharedPreferences(java.lang.String[])
-    371:372:public org.acra.config.CoreConfigurationBuilder setLogcatFilterByPid(boolean)
-    387:388:public org.acra.config.CoreConfigurationBuilder setLogcatReadNonBlocking(boolean)
-    403:404:public org.acra.config.CoreConfigurationBuilder setSendReportsInDevMode(boolean)
-    420:421:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSharedPreferencesKeys(java.lang.String[])
-    437:438:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSettingsKeys(java.lang.String[])
-    454:455:public org.acra.config.CoreConfigurationBuilder setBuildConfigClass(java.lang.Class)
-    470:471:public varargs org.acra.config.CoreConfigurationBuilder setReportSenderFactoryClasses(java.lang.Class[])
-    486:487:public org.acra.config.CoreConfigurationBuilder setApplicationLogFile(java.lang.String)
-    503:504:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileLines(int)
-    519:520:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileDir(org.acra.file.Directory)
-    536:537:public org.acra.config.CoreConfigurationBuilder setRetryPolicyClass(java.lang.Class)
-    553:554:public org.acra.config.CoreConfigurationBuilder setStopServicesOnCrash(boolean)
-    582:583:public varargs org.acra.config.CoreConfigurationBuilder setAttachmentUris(java.lang.String[])
-    599:600:public org.acra.config.CoreConfigurationBuilder setAttachmentUriProvider(java.lang.Class)
-    617:618:public org.acra.config.CoreConfigurationBuilder setResReportSendSuccessToast(int)
-    635:636:public org.acra.config.CoreConfigurationBuilder setResReportSendFailureToast(int)
-    652:653:public org.acra.config.CoreConfigurationBuilder setReportFormat(org.acra.data.StringFormat)
-    665:666:public org.acra.config.CoreConfigurationBuilder setReportField(org.acra.ReportField,boolean)
-    675:675:public org.acra.config.ConfigurationBuilder getPluginConfigurationBuilder(java.lang.Class)
+    144:145:public org.acra.config.CoreConfigurationBuilder setEnabled(boolean)
+    167:168:public org.acra.config.CoreConfigurationBuilder setSharedPreferencesName(java.lang.String)
+    200:201:public org.acra.config.CoreConfigurationBuilder setIncludeDropBoxSystemTags(boolean)
+    216:217:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalDropBoxTags(java.lang.String[])
+    232:233:public org.acra.config.CoreConfigurationBuilder setDropboxCollectionMinutes(int)
+    258:259:public varargs org.acra.config.CoreConfigurationBuilder setLogcatArguments(java.lang.String[])
+    281:282:public varargs org.acra.config.CoreConfigurationBuilder setReportContent(org.acra.ReportField[])
+    309:310:public org.acra.config.CoreConfigurationBuilder setDeleteUnapprovedReportsOnApplicationStart(boolean)
+    325:326:public org.acra.config.CoreConfigurationBuilder setDeleteOldUnsentReportsOnApplicationStart(boolean)
+    342:343:public org.acra.config.CoreConfigurationBuilder setAlsoReportToAndroidFramework(boolean)
+    358:359:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalSharedPreferences(java.lang.String[])
+    374:375:public org.acra.config.CoreConfigurationBuilder setLogcatFilterByPid(boolean)
+    390:391:public org.acra.config.CoreConfigurationBuilder setLogcatReadNonBlocking(boolean)
+    406:407:public org.acra.config.CoreConfigurationBuilder setSendReportsInDevMode(boolean)
+    423:424:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSharedPreferencesKeys(java.lang.String[])
+    440:441:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSettingsKeys(java.lang.String[])
+    457:458:public org.acra.config.CoreConfigurationBuilder setBuildConfigClass(java.lang.Class)
+    473:474:public varargs org.acra.config.CoreConfigurationBuilder setReportSenderFactoryClasses(java.lang.Class[])
+    489:490:public org.acra.config.CoreConfigurationBuilder setApplicationLogFile(java.lang.String)
+    506:507:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileLines(int)
+    522:523:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileDir(org.acra.file.Directory)
+    539:540:public org.acra.config.CoreConfigurationBuilder setRetryPolicyClass(java.lang.Class)
+    556:557:public org.acra.config.CoreConfigurationBuilder setStopServicesOnCrash(boolean)
+    585:586:public varargs org.acra.config.CoreConfigurationBuilder setAttachmentUris(java.lang.String[])
+    602:603:public org.acra.config.CoreConfigurationBuilder setAttachmentUriProvider(java.lang.Class)
+    620:621:public org.acra.config.CoreConfigurationBuilder setResReportSendSuccessToast(int)
+    638:639:public org.acra.config.CoreConfigurationBuilder setResReportSendFailureToast(int)
+    655:656:public org.acra.config.CoreConfigurationBuilder setReportFormat(org.acra.data.StringFormat)
+    671:672:public org.acra.config.CoreConfigurationBuilder setParallel(boolean)
+    684:685:public org.acra.config.CoreConfigurationBuilder setReportField(org.acra.ReportField,boolean)
+    694:694:public org.acra.config.ConfigurationBuilder getPluginConfigurationBuilder(java.lang.Class)
 org.acra.config.HttpSenderConfigurationBuilder:
     57:58:public HttpSenderConfigurationBuilder(java.lang.Object)
     88:89:public org.acra.config.HttpSenderConfigurationBuilder setEnabled(boolean)
@@ -8345,9 +8340,9 @@ org.acra.config.HttpSenderConfigurationBuilder:
     281:282:public org.acra.config.HttpSenderConfigurationBuilder setCertificateType(java.lang.String)
     294:295:public org.acra.config.HttpSenderConfigurationBuilder setHttpHeaders(java.util.Map)
 org.acra.data.CrashReportData:
-    105:114:public void put(java.lang.String,org.json.JSONArray)
-    121:122:public void put(org.acra.ReportField,double)
-    141:142:public void put(org.acra.ReportField,org.json.JSONArray)
+    105:114:public synchronized void put(java.lang.String,org.json.JSONArray)
+    121:122:public synchronized void put(org.acra.ReportField,double)
+    141:142:public synchronized void put(org.acra.ReportField,org.json.JSONArray)
 org.acra.file.ReportLocator:
     private static final java.lang.String UNAPPROVED_FOLDER_NAME
     private static final java.lang.String APPROVED_FOLDER_NAME
@@ -8371,13 +8366,28 @@ org.acra.legacy.ReportConverter:
     private static final int IGNORE
 org.acra.log.ACRALog:
     public abstract int v(java.lang.String,java.lang.String,java.lang.Throwable)
+    public abstract int d(java.lang.String,java.lang.String,java.lang.Throwable)
     public abstract int i(java.lang.String,java.lang.String,java.lang.Throwable)
     public abstract java.lang.String getStackTraceString(java.lang.Throwable)
 org.acra.log.AndroidLogDelegate:
     35:35:public int v(java.lang.String,java.lang.String,java.lang.Throwable)
+    43:43:public int d(java.lang.String,java.lang.String,java.lang.Throwable)
     51:51:public int i(java.lang.String,java.lang.String,java.lang.Throwable)
     76:76:public java.lang.String getStackTraceString(java.lang.Throwable)
 org.acra.log.HollowLog
+org.acra.reporter.ErrorReporterImpl:
+    105:105:public java.lang.String removeCustomData(java.lang.String)
+    113:114:public void clearCustomData()
+    121:121:public java.lang.String getCustomData(java.lang.String)
+    197:204:public void handleException(java.lang.Throwable,boolean)
+    211:212:public void handleException(java.lang.Throwable)
+org.acra.reporter.ErrorReporterStub:
+    23:24:public java.lang.String removeCustomData(java.lang.String)
+    29:31:public void clearCustomData()
+    35:36:public java.lang.String getCustomData(java.lang.String)
+    46:47:public void setEnabled(boolean)
+    56:57:public void handleException(java.lang.Throwable,boolean)
+    61:62:public void handleException(java.lang.Throwable)
 org.acra.security.BaseKeyStoreFactory:
     58:59:public BaseKeyStoreFactory()
 org.acra.security.KeyStoreHelper:
@@ -8388,13 +8398,15 @@ org.acra.sender.HttpSender:
 org.acra.sender.ReportSenderException:
     45:46:public ReportSenderException(java.lang.String)
 org.acra.util.IOUtils:
-    private static final int NO_LIMIT
-    private static final int READ_TIMEOUT
-    56:57:private IOUtils()
-    97:97:public static java.lang.String streamToString(java.io.InputStream,com.android.internal.util.Predicate)
+    38:39:private IOUtils()
 org.acra.util.Installation:
     private static final java.lang.String INSTALLATION
-    48:48:private Installation()
+    45:46:private Installation()
+org.acra.util.NonBlockingBufferedReader
+org.acra.util.NonBlockingBufferedReader$1
+org.acra.util.StreamReader:
+    private static final int NO_LIMIT
+    private static final int INDEFINITE
 org.acra.util.SystemServices:
     32:33:private SystemServices()
     47:47:public static android.app.NotificationManager getNotificationManager(android.content.Context)

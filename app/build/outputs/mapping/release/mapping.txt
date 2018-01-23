@@ -20021,19 +20021,52 @@ com.faendir.lightning_launcher.multitool.badge.BadgeListener$$Lambda$0 -> com.fa
     void run() -> run
 com.faendir.lightning_launcher.multitool.badge.NotificationListener -> com.faendir.lightning_launcher.multitool.badge.NotificationListener:
     android.content.SharedPreferences sharedPref -> sharedPref
-    31:31:void <init>() -> <init>
-    36:38:void onCreate() -> onCreate
-    42:50:void onNotificationPosted(android.service.notification.StatusBarNotification) -> onNotificationPosted
-    54:55:void onNotificationPosted(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap) -> onNotificationPosted
-    59:63:void onNotificationRemoved(android.service.notification.StatusBarNotification) -> onNotificationRemoved
-    67:68:void onNotificationRemoved(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap) -> onNotificationRemoved
-    71:72:boolean supportsIntentBasedCount(java.lang.String) -> supportsIntentBasedCount
-    76:78:boolean isEnabled(android.content.Context) -> isEnabled
-    82:97:void askForEnable(android.content.Context) -> askForEnable
+    38:38:void <init>() -> <init>
+    43:45:void onCreate() -> onCreate
+    49:65:void onNotificationPosted(android.service.notification.StatusBarNotification) -> onNotificationPosted
+    69:70:void onNotificationPosted(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap) -> onNotificationPosted
+    74:78:void onNotificationRemoved(android.service.notification.StatusBarNotification) -> onNotificationRemoved
+    82:83:void onNotificationRemoved(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap) -> onNotificationRemoved
+    86:87:boolean supportsIntentBasedCount(java.lang.String) -> supportsIntentBasedCount
+    91:93:boolean isEnabled(android.content.Context) -> isEnabled
+    97:112:void askForEnable(android.content.Context) -> askForEnable
+    62:62:boolean lambda$onNotificationPosted$4$NotificationListener(java.lang.String,android.service.notification.StatusBarNotification) -> lambda$onNotificationPosted$4$NotificationListener
+    59:59:boolean lambda$onNotificationPosted$3$NotificationListener(java.util.Map$Entry) -> lambda$onNotificationPosted$3$NotificationListener
+    58:58:java.lang.Integer lambda$onNotificationPosted$2$NotificationListener(java.lang.Integer,java.lang.Integer) -> lambda$onNotificationPosted$2$NotificationListener
+    58:58:java.lang.Integer lambda$onNotificationPosted$1$NotificationListener(android.service.notification.StatusBarNotification) -> lambda$onNotificationPosted$1$NotificationListener
+    55:55:boolean lambda$onNotificationPosted$0$NotificationListener(java.lang.String,android.service.notification.StatusBarNotification) -> lambda$onNotificationPosted$0$NotificationListener
+com.faendir.lightning_launcher.multitool.badge.NotificationListener$$Lambda$0 -> com.faendir.lightning_launcher.multitool.badge.f:
+    java.lang.String arg$1 -> a
+    void <init>(java.lang.String) -> <init>
+    boolean test(java.lang.Object) -> a
+com.faendir.lightning_launcher.multitool.badge.NotificationListener$$Lambda$1 -> com.faendir.lightning_launcher.multitool.badge.g:
+    java8.util.function.Function $instance -> a
+    void <init>() -> <init>
+    java.lang.Object apply(java.lang.Object) -> a
+    void <clinit>() -> <clinit>
+com.faendir.lightning_launcher.multitool.badge.NotificationListener$$Lambda$2 -> com.faendir.lightning_launcher.multitool.badge.h:
+    java8.util.function.Function $instance -> a
+    void <init>() -> <init>
+    java.lang.Object apply(java.lang.Object) -> a
+    void <clinit>() -> <clinit>
+com.faendir.lightning_launcher.multitool.badge.NotificationListener$$Lambda$3 -> com.faendir.lightning_launcher.multitool.badge.i:
+    java8.util.function.BinaryOperator $instance -> a
+    void <init>() -> <init>
+    java.lang.Object apply(java.lang.Object,java.lang.Object) -> a
+    void <clinit>() -> <clinit>
+com.faendir.lightning_launcher.multitool.badge.NotificationListener$$Lambda$4 -> com.faendir.lightning_launcher.multitool.badge.j:
+    java8.util.function.Predicate $instance -> a
+    void <init>() -> <init>
+    boolean test(java.lang.Object) -> a
+    void <clinit>() -> <clinit>
+com.faendir.lightning_launcher.multitool.badge.NotificationListener$$Lambda$5 -> com.faendir.lightning_launcher.multitool.badge.k:
+    java.lang.String arg$1 -> a
+    void <init>(java.lang.String) -> <init>
+    boolean test(java.lang.Object) -> a
 com.faendir.lightning_launcher.multitool.badge.NotificationListener$1 -> com.faendir.lightning_launcher.multitool.badge.NotificationListener$1:
     android.content.Context val$context -> a
-    85:85:void <init>(android.os.Handler,android.content.Context) -> <init>
-    88:94:void onReceiveResult(int,android.os.Bundle) -> onReceiveResult
+    100:100:void <init>(android.os.Handler,android.content.Context) -> <init>
+    103:109:void onReceiveResult(int,android.os.Bundle) -> onReceiveResult
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager -> com.faendir.lightning_launcher.multitool.a.a:
     android.content.Context context -> c
     com.anjlab.android.iab.v3.BillingProcessor billingProcessor -> d
@@ -20525,8 +20558,8 @@ com.faendir.lightning_launcher.multitool.music.MusicDataSource -> com.faendir.li
     34:34:java.lang.String getPath() -> a
     40:40:android.database.Cursor query(android.content.Context,android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String) -> a
     45:45:java.io.File getFile(android.content.Context) -> a
-    49:60:void updateInfo(android.content.Context,com.faendir.lightning_launcher.multitool.music.TitleInfo) -> a
-    63:91:com.faendir.lightning_launcher.multitool.music.TitleInfo queryInfo(android.content.Context) -> b
+    49:62:void updateInfo(android.content.Context,com.faendir.lightning_launcher.multitool.music.TitleInfo) -> a
+    65:93:com.faendir.lightning_launcher.multitool.music.TitleInfo queryInfo(android.content.Context) -> b
     30:30:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.music.MusicFragment -> com.faendir.lightning_launcher.multitool.music.MusicFragment:
     android.widget.ImageView albumArt -> a
@@ -20563,13 +20596,13 @@ com.faendir.lightning_launcher.multitool.music.MusicFragment$$Lambda$2 -> com.fa
     com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalFunction get$Lambda(android.content.pm.PackageManager) -> a
     java.lang.Object apply(java.lang.Object) -> a
 com.faendir.lightning_launcher.multitool.music.MusicListener -> com.faendir.lightning_launcher.multitool.music.MusicListener:
-    24:25:void <init>(android.os.Handler,android.content.Context,java8.util.function.Consumer) -> <init>
-    29:31:void register() -> register
-    34:35:void sendNext() -> sendNext
-    38:39:void sendPrevious() -> sendPrevious
-    42:43:void sendPlayPause() -> sendPlayPause
-    46:51:void startWithCode(int) -> startWithCode
-    24:24:void lambda$new$0$MusicListener(java8.util.function.Consumer,android.content.Context) -> lambda$new$0$MusicListener
+    26:27:void <init>(android.os.Handler,android.content.Context,java8.util.function.Consumer) -> <init>
+    31:33:void register() -> register
+    36:37:void sendNext() -> sendNext
+    40:41:void sendPrevious() -> sendPrevious
+    44:45:void sendPlayPause() -> sendPlayPause
+    49:57:void startWithCode(int) -> startWithCode
+    26:26:void lambda$new$0$MusicListener(java8.util.function.Consumer,android.content.Context) -> lambda$new$0$MusicListener
 com.faendir.lightning_launcher.multitool.music.MusicListener$$Lambda$0 -> com.faendir.lightning_launcher.multitool.music.e:
     java8.util.function.Consumer arg$1 -> a
     android.content.Context arg$2 -> b
@@ -20584,14 +20617,14 @@ com.faendir.lightning_launcher.multitool.music.MusicListenerService -> com.faend
     android.media.session.MediaSessionManager$OnActiveSessionsChangedListener sessionsChangedListener -> sessionsChangedListener
     boolean enabled -> enabled
     70:76:void <init>() -> <init>
-    80:124:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    130:130:android.os.IBinder onBind(android.content.Intent) -> onBind
-    135:136:void onCreate() -> onCreate
-    140:143:void updateCurrentInfo(android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> updateCurrentInfo
-    147:186:void onActiveSessionsChanged(java.util.List) -> onActiveSessionsChanged
-    189:193:void startDefaultPlayerWithKeyCode(int) -> startDefaultPlayerWithKeyCode
-    197:209:void sendKeyCodeToPlayer(int,java.lang.String) -> sendKeyCodeToPlayer
-    214:215:boolean isAlternativeControl(android.media.session.MediaController) -> isAlternativeControl
+    80:122:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    128:128:android.os.IBinder onBind(android.content.Intent) -> onBind
+    133:134:void onCreate() -> onCreate
+    138:141:void updateCurrentInfo(android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String) -> updateCurrentInfo
+    145:184:void onActiveSessionsChanged(java.util.List) -> onActiveSessionsChanged
+    187:191:void startDefaultPlayerWithKeyCode(int) -> startDefaultPlayerWithKeyCode
+    195:207:void sendKeyCodeToPlayer(int,java.lang.String) -> sendKeyCodeToPlayer
+    212:213:boolean isAlternativeControl(android.media.session.MediaController) -> isAlternativeControl
     52:52:java.util.List access$200() -> access$200
     52:52:java.lang.ref.WeakReference access$300(com.faendir.lightning_launcher.multitool.music.MusicListenerService) -> access$300
     52:52:org.apache.commons.collections4.BidiMap access$400(com.faendir.lightning_launcher.multitool.music.MusicListenerService) -> access$400
@@ -20613,16 +20646,16 @@ com.faendir.lightning_launcher.multitool.music.MusicListenerService$Callback -> 
     android.graphics.Bitmap bitmap -> d
     boolean hasRequestedAlbumArt -> e
     com.faendir.lightning_launcher.multitool.music.MusicListenerService this$0 -> a
-    219:219:void <init>(com.faendir.lightning_launcher.multitool.music.MusicListenerService) -> <init>
-    227:231:void onPlaybackStateChanged(android.media.session.PlaybackState) -> onPlaybackStateChanged
-    235:238:void onMetadataChanged(android.media.MediaMetadata) -> onMetadataChanged
-    241:255:void update() -> b
-    259:269:android.graphics.Bitmap loadBitmapForKeys(java.lang.String[]) -> a
-    273:280:void push() -> c
-    283:286:void recycle() -> a
-    260:268:android.graphics.Bitmap lambda$loadBitmapForKeys$0$MusicListenerService$Callback(java.lang.String) -> a
-    219:219:void <init>(com.faendir.lightning_launcher.multitool.music.MusicListenerService,com.faendir.lightning_launcher.multitool.music.MusicListenerService$1) -> <init>
-    219:219:void access$100(com.faendir.lightning_launcher.multitool.music.MusicListenerService$Callback) -> a
+    217:217:void <init>(com.faendir.lightning_launcher.multitool.music.MusicListenerService) -> <init>
+    225:229:void onPlaybackStateChanged(android.media.session.PlaybackState) -> onPlaybackStateChanged
+    233:236:void onMetadataChanged(android.media.MediaMetadata) -> onMetadataChanged
+    239:253:void update() -> b
+    257:267:android.graphics.Bitmap loadBitmapForKeys(java.lang.String[]) -> a
+    271:278:void push() -> c
+    281:284:void recycle() -> a
+    258:266:android.graphics.Bitmap lambda$loadBitmapForKeys$0$MusicListenerService$Callback(java.lang.String) -> a
+    217:217:void <init>(com.faendir.lightning_launcher.multitool.music.MusicListenerService,com.faendir.lightning_launcher.multitool.music.MusicListenerService$1) -> <init>
+    217:217:void access$100(com.faendir.lightning_launcher.multitool.music.MusicListenerService$Callback) -> a
 com.faendir.lightning_launcher.multitool.music.MusicListenerService$Callback$$Lambda$0 -> com.faendir.lightning_launcher.multitool.music.h:
     com.faendir.lightning_launcher.multitool.music.MusicListenerService$Callback arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.music.MusicListenerService$Callback) -> <init>
@@ -29378,6 +29411,7 @@ java8.lang.Doubles -> a.a.a:
     41:42:int hashCode(double) -> a
 java8.lang.Iterables -> a.a.b:
     69:74:void forEach(java.lang.Iterable,java8.util.function.Consumer) -> a
+    101:112:boolean removeIf(java.lang.Iterable,java8.util.function.Predicate) -> a
 java8.lang.Longs -> a.a.c:
     43:43:int hashCode(long) -> a
 java8.util.ArrayDequeSpliterator -> a.b.a:
@@ -30523,12 +30557,14 @@ java8.util.stream.Collectors -> a.b.c.g:
     java.util.Set CH_ID -> c
     java.util.Set CH_UNORDERED_ID -> d
     java.util.Set CH_NOID -> e
+    129:129:java8.util.function.Supplier hashMapFactory() -> c
     367:367:java8.util.stream.Collector toList() -> a
     388:388:java8.util.stream.Collector toSet() -> b
     441:441:java8.util.stream.Collector joining(java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence) -> a
     461:461:java8.util.function.BinaryOperator mapMerger(java8.util.function.BinaryOperator) -> a
     1384:1384:java8.util.stream.Collector partitioningBy(java8.util.function.Predicate) -> a
     1419:1436:java8.util.stream.Collector partitioningBy(java8.util.function.Predicate,java8.util.stream.Collector) -> a
+    1561:1561:java8.util.stream.Collector toMap(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator) -> a
     1608:1610:java8.util.stream.Collector toMap(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator,java8.util.function.Supplier) -> a
     1609:1609:void lambda$toMap$120(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator,java.util.Map,java.lang.Object) -> a
     1434:1435:java.util.Map lambda$partitioningBy$119(java8.util.stream.Collector,java8.util.stream.Collectors$Partition) -> a
@@ -30540,95 +30576,101 @@ java8.util.stream.Collectors -> a.b.c.g:
     390:393:java.util.Set lambda$toSet$62(java.util.Set,java.util.Set) -> a
     368:368:java.util.List lambda$toList$61(java.util.List,java.util.List) -> a
     112:124:void <clinit>() -> <clinit>
-java8.util.stream.Collectors$$Lambda$10 -> a.b.c.h:
+java8.util.stream.Collectors$$Lambda$1 -> a.b.c.h:
+    java8.util.stream.Collectors$$Lambda$1 instance -> a
+    void <init>() -> <init>
+    java.lang.Object get() -> a
+    java8.util.function.Supplier lambdaFactory$() -> b
+    void <clinit>() -> <clinit>
+java8.util.stream.Collectors$$Lambda$10 -> a.b.c.i:
     java8.util.stream.Collectors$$Lambda$10 instance -> a
     void <init>() -> <init>
     java.lang.Object get() -> a
     java8.util.function.Supplier lambdaFactory$() -> b
     void <clinit>() -> <clinit>
-java8.util.stream.Collectors$$Lambda$11 -> a.b.c.i:
+java8.util.stream.Collectors$$Lambda$11 -> a.b.c.j:
     java8.util.stream.Collectors$$Lambda$11 instance -> a
     void <init>() -> <init>
     void accept(java.lang.Object,java.lang.Object) -> a
     java8.util.function.BiConsumer lambdaFactory$() -> a
     void <clinit>() -> <clinit>
-java8.util.stream.Collectors$$Lambda$12 -> a.b.c.j:
+java8.util.stream.Collectors$$Lambda$12 -> a.b.c.k:
     java8.util.stream.Collectors$$Lambda$12 instance -> a
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object,java.lang.Object) -> a
     java8.util.function.BinaryOperator lambdaFactory$() -> a
     void <clinit>() -> <clinit>
-java8.util.stream.Collectors$$Lambda$17 -> a.b.c.k:
+java8.util.stream.Collectors$$Lambda$17 -> a.b.c.l:
     java.lang.CharSequence arg$1 -> a
     java.lang.CharSequence arg$2 -> b
     java.lang.CharSequence arg$3 -> c
     void <init>(java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence) -> <init>
     java.lang.Object get() -> a
     java8.util.function.Supplier lambdaFactory$(java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence) -> a
-java8.util.stream.Collectors$$Lambda$18 -> a.b.c.l:
+java8.util.stream.Collectors$$Lambda$18 -> a.b.c.m:
     java8.util.stream.Collectors$$Lambda$18 instance -> a
     void <init>() -> <init>
     void accept(java.lang.Object,java.lang.Object) -> a
     java8.util.function.BiConsumer lambdaFactory$() -> a
     void <clinit>() -> <clinit>
-java8.util.stream.Collectors$$Lambda$19 -> a.b.c.m:
+java8.util.stream.Collectors$$Lambda$19 -> a.b.c.n:
     java8.util.stream.Collectors$$Lambda$19 instance -> a
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object,java.lang.Object) -> a
     java8.util.function.BinaryOperator lambdaFactory$() -> a
     void <clinit>() -> <clinit>
-java8.util.stream.Collectors$$Lambda$20 -> a.b.c.n:
+java8.util.stream.Collectors$$Lambda$20 -> a.b.c.o:
     java8.util.stream.Collectors$$Lambda$20 instance -> a
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object) -> a
     java8.util.function.Function lambdaFactory$() -> a
     void <clinit>() -> <clinit>
-java8.util.stream.Collectors$$Lambda$21 -> a.b.c.o:
+java8.util.stream.Collectors$$Lambda$21 -> a.b.c.p:
     java8.util.function.BinaryOperator arg$1 -> a
     void <init>(java8.util.function.BinaryOperator) -> <init>
     java.lang.Object apply(java.lang.Object,java.lang.Object) -> a
     java8.util.function.BinaryOperator lambdaFactory$(java8.util.function.BinaryOperator) -> a
-java8.util.stream.Collectors$$Lambda$67 -> a.b.c.p:
+java8.util.stream.Collectors$$Lambda$67 -> a.b.c.q:
     java8.util.function.BiConsumer arg$1 -> a
     java8.util.function.Predicate arg$2 -> b
     void <init>(java8.util.function.BiConsumer,java8.util.function.Predicate) -> <init>
     void accept(java.lang.Object,java.lang.Object) -> a
     java8.util.function.BiConsumer lambdaFactory$(java8.util.function.BiConsumer,java8.util.function.Predicate) -> a
-java8.util.stream.Collectors$$Lambda$68 -> a.b.c.q:
+java8.util.stream.Collectors$$Lambda$68 -> a.b.c.r:
     java8.util.function.BinaryOperator arg$1 -> a
     void <init>(java8.util.function.BinaryOperator) -> <init>
     java.lang.Object apply(java.lang.Object,java.lang.Object) -> a
     java8.util.function.BinaryOperator lambdaFactory$(java8.util.function.BinaryOperator) -> a
-java8.util.stream.Collectors$$Lambda$69 -> a.b.c.r:
+java8.util.stream.Collectors$$Lambda$69 -> a.b.c.s:
     java8.util.stream.Collector arg$1 -> a
     void <init>(java8.util.stream.Collector) -> <init>
     java.lang.Object get() -> a
     java8.util.function.Supplier lambdaFactory$(java8.util.stream.Collector) -> a
-java8.util.stream.Collectors$$Lambda$7 -> a.b.c.s:
+java8.util.stream.Collectors$$Lambda$7 -> a.b.c.t:
     java8.util.stream.Collectors$$Lambda$7 instance -> a
     void <init>() -> <init>
     java.lang.Object get() -> a
     java8.util.function.Supplier lambdaFactory$() -> b
     void <clinit>() -> <clinit>
-java8.util.stream.Collectors$$Lambda$70 -> a.b.c.t:
+java8.util.stream.Collectors$$Lambda$70 -> a.b.c.u:
     java8.util.stream.Collector arg$1 -> a
     void <init>(java8.util.stream.Collector) -> <init>
     java.lang.Object apply(java.lang.Object) -> a
     java8.util.function.Function lambdaFactory$(java8.util.stream.Collector) -> a
-java8.util.stream.Collectors$$Lambda$71 -> a.b.c.u:
+java8.util.stream.Collectors$$Lambda$71 -> a.b.c.v:
     java8.util.function.Function arg$1 -> a
     java8.util.function.Function arg$2 -> b
     java8.util.function.BinaryOperator arg$3 -> c
     void <init>(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator) -> <init>
     void accept(java.lang.Object,java.lang.Object) -> a
     java8.util.function.BiConsumer lambdaFactory$(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator) -> a
-java8.util.stream.Collectors$$Lambda$8 -> a.b.c.v:
+java8.util.stream.Collectors$$Lambda$8 -> a.b.c.w:
     java8.util.stream.Collectors$$Lambda$8 instance -> a
     void <init>() -> <init>
     void accept(java.lang.Object,java.lang.Object) -> a
     java8.util.function.BiConsumer lambdaFactory$() -> a
     void <clinit>() -> <clinit>
-java8.util.stream.Collectors$$Lambda$9 -> a.b.c.w:
+java8.util.stream.Collectors$$Lambda$9 -> a.b.c.x:
     java8.util.stream.Collectors$$Lambda$9 instance -> a
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object,java.lang.Object) -> a
@@ -30648,7 +30690,7 @@ java8.util.stream.Collectors$CollectorImpl -> a.b.c.g$a:
     327:327:java8.util.function.Function finisher() -> d
     332:332:java.util.Set characteristics() -> e
     307:307:java.lang.Object lambda$new$59(java.lang.Object) -> a
-java8.util.stream.Collectors$CollectorImpl$$Lambda$1 -> a.b.c.x:
+java8.util.stream.Collectors$CollectorImpl$$Lambda$1 -> a.b.c.y:
     java8.util.stream.Collectors$CollectorImpl$$Lambda$1 instance -> a
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object) -> a
@@ -30668,7 +30710,7 @@ java8.util.stream.Collectors$Partition$1 -> a.b.c.g$b$1:
     1849:1849:void <init>(java8.util.stream.Collectors$Partition) -> <init>
     1852:1854:java.util.Iterator iterator() -> iterator
     1859:1859:int size() -> size
-java8.util.stream.FindOps -> a.b.c.y:
+java8.util.stream.FindOps -> a.b.c.z:
     java8.util.function.Predicate REF_IS_PRESENT -> a
     java8.util.function.Predicate INT_IS_PRESENT -> b
     java8.util.function.Predicate LONG_IS_PRESENT -> c
@@ -30687,55 +30729,55 @@ java8.util.stream.FindOps -> a.b.c.y:
     java8.util.stream.TerminalOp ANY_DOUBLE -> p
     87:87:java8.util.stream.TerminalOp makeRef(boolean) -> a
     49:75:void <clinit>() -> <clinit>
-java8.util.stream.FindOps$$Lambda$1 -> a.b.c.z:
+java8.util.stream.FindOps$$Lambda$1 -> a.b.c.aa:
     java8.util.stream.FindOps$$Lambda$1 instance -> a
     void <init>() -> <init>
     boolean test(java.lang.Object) -> a
     java8.util.function.Predicate lambdaFactory$() -> a
     void <clinit>() -> <clinit>
-java8.util.stream.FindOps$$Lambda$2 -> a.b.c.aa:
+java8.util.stream.FindOps$$Lambda$2 -> a.b.c.ab:
     java8.util.stream.FindOps$$Lambda$2 instance -> a
     void <init>() -> <init>
     boolean test(java.lang.Object) -> a
     java8.util.function.Predicate lambdaFactory$() -> a
     void <clinit>() -> <clinit>
-java8.util.stream.FindOps$$Lambda$3 -> a.b.c.ab:
+java8.util.stream.FindOps$$Lambda$3 -> a.b.c.ac:
     java8.util.stream.FindOps$$Lambda$3 instance -> a
     void <init>() -> <init>
     boolean test(java.lang.Object) -> a
     java8.util.function.Predicate lambdaFactory$() -> a
     void <clinit>() -> <clinit>
-java8.util.stream.FindOps$$Lambda$4 -> a.b.c.ac:
+java8.util.stream.FindOps$$Lambda$4 -> a.b.c.ad:
     java8.util.stream.FindOps$$Lambda$4 instance -> a
     void <init>() -> <init>
     boolean test(java.lang.Object) -> a
     java8.util.function.Predicate lambdaFactory$() -> a
     void <clinit>() -> <clinit>
-java8.util.stream.FindOps$$Lambda$5 -> a.b.c.ad:
+java8.util.stream.FindOps$$Lambda$5 -> a.b.c.ae:
     java8.util.stream.FindOps$$Lambda$5 instance -> a
     void <init>() -> <init>
     java.lang.Object get() -> a
     java8.util.function.Supplier lambdaFactory$() -> b
     void <clinit>() -> <clinit>
-java8.util.stream.FindOps$$Lambda$6 -> a.b.c.ae:
+java8.util.stream.FindOps$$Lambda$6 -> a.b.c.af:
     java8.util.stream.FindOps$$Lambda$6 instance -> a
     void <init>() -> <init>
     java.lang.Object get() -> a
     java8.util.function.Supplier lambdaFactory$() -> b
     void <clinit>() -> <clinit>
-java8.util.stream.FindOps$$Lambda$7 -> a.b.c.af:
+java8.util.stream.FindOps$$Lambda$7 -> a.b.c.ag:
     java8.util.stream.FindOps$$Lambda$7 instance -> a
     void <init>() -> <init>
     java.lang.Object get() -> a
     java8.util.function.Supplier lambdaFactory$() -> b
     void <clinit>() -> <clinit>
-java8.util.stream.FindOps$$Lambda$8 -> a.b.c.ag:
+java8.util.stream.FindOps$$Lambda$8 -> a.b.c.ah:
     java8.util.stream.FindOps$$Lambda$8 instance -> a
     void <init>() -> <init>
     java.lang.Object get() -> a
     java8.util.function.Supplier lambdaFactory$() -> b
     void <clinit>() -> <clinit>
-java8.util.stream.FindOps$FindOp -> a.b.c.y$a:
+java8.util.stream.FindOps$FindOp -> a.b.c.z$a:
     java8.util.stream.StreamShape shape -> e
     int opFlags -> a
     java.lang.Object emptyValue -> b
@@ -30745,7 +30787,7 @@ java8.util.stream.FindOps$FindOp -> a.b.c.y$a:
     166:166:int getOpFlags() -> f_
     177:178:java.lang.Object evaluateSequential(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> a
     186:187:java.lang.Object evaluateParallel(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> b
-java8.util.stream.FindOps$FindSink -> a.b.c.y$b:
+java8.util.stream.FindOps$FindSink -> a.b.c.z$b:
     boolean hasValue -> a
     java.lang.Object value -> b
     202:202:void <init>() -> <init>
@@ -30754,24 +30796,24 @@ java8.util.stream.FindOps$FindSink -> a.b.c.y$b:
     219:219:void begin(long) -> a
     223:223:void end() -> c
     227:228:void accept(int) -> a
-java8.util.stream.FindOps$FindSink$OfDouble -> a.b.c.y$b$a:
+java8.util.stream.FindOps$FindSink$OfDouble -> a.b.c.z$b$a:
     279:279:void <init>() -> <init>
     289:289:java8.util.OptionalDouble get() -> d
     279:279:java.lang.Object get() -> a
-java8.util.stream.FindOps$FindSink$OfInt -> a.b.c.y$b$b:
+java8.util.stream.FindOps$FindSink$OfInt -> a.b.c.z$b$b:
     249:249:void <init>() -> <init>
     254:255:void accept(int) -> a
     259:259:java8.util.OptionalInt get() -> d
     249:249:java.lang.Object get() -> a
-java8.util.stream.FindOps$FindSink$OfLong -> a.b.c.y$b$c:
+java8.util.stream.FindOps$FindSink$OfLong -> a.b.c.z$b$c:
     264:264:void <init>() -> <init>
     274:274:java8.util.OptionalLong get() -> d
     264:264:java.lang.Object get() -> a
-java8.util.stream.FindOps$FindSink$OfRef -> a.b.c.y$b$d:
+java8.util.stream.FindOps$FindSink$OfRef -> a.b.c.z$b$d:
     241:241:void <init>() -> <init>
     244:244:java8.util.Optional get() -> d
     241:241:java.lang.Object get() -> a
-java8.util.stream.FindOps$FindTask -> a.b.c.y$c:
+java8.util.stream.FindOps$FindTask -> a.b.c.z$c:
     java8.util.stream.FindOps$FindOp op -> i
     boolean mustFindFirst -> m
     310:313:void <init>(java8.util.stream.FindOps$FindOp,boolean,java8.util.stream.PipelineHelper,java8.util.Spliterator) -> <init>
@@ -30782,9 +30824,9 @@ java8.util.stream.FindOps$FindTask -> a.b.c.y$c:
     340:352:java.lang.Object doLeaf() -> s
     358:370:void onCompletion(java8.util.concurrent.CountedCompleter) -> a
     300:300:java8.util.stream.AbstractTask makeChild(java8.util.Spliterator) -> a
-java8.util.stream.ForEachOps -> a.b.c.ah:
+java8.util.stream.ForEachOps -> a.b.c.ai:
     74:75:java8.util.stream.TerminalOp makeRef(java8.util.function.Consumer,boolean) -> a
-java8.util.stream.ForEachOps$ForEachOp -> a.b.c.ah$a:
+java8.util.stream.ForEachOps$ForEachOp -> a.b.c.ai$a:
     boolean ordered -> a
     139:141:void <init>(boolean) -> <init>
     147:147:void begin(long) -> a
@@ -30798,14 +30840,14 @@ java8.util.stream.ForEachOps$ForEachOp -> a.b.c.ah$a:
     135:135:java.lang.Object evaluateSequential(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> a
     135:135:java.lang.Object evaluateParallel(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> b
     135:135:java.lang.Object get() -> a
-java8.util.stream.ForEachOps$ForEachOp$OfRef -> a.b.c.ah$a$a:
+java8.util.stream.ForEachOps$ForEachOp$OfRef -> a.b.c.ai$a$a:
     java8.util.function.Consumer consumer -> a
     214:216:void <init>(java8.util.function.Consumer,boolean) -> <init>
     220:221:void accept(java.lang.Object) -> a
     210:210:java.lang.Object evaluateSequential(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> a
     210:210:java.lang.Object evaluateParallel(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> b
     210:210:java.lang.Object get() -> a
-java8.util.stream.ForEachOps$ForEachOrderedTask -> a.b.c.ah$b:
+java8.util.stream.ForEachOps$ForEachOrderedTask -> a.b.c.ai$b:
     java8.util.stream.PipelineHelper helper -> a
     java8.util.Spliterator spliterator -> b
     long targetSize -> c
@@ -30819,13 +30861,13 @@ java8.util.stream.ForEachOps$ForEachOrderedTask -> a.b.c.ah$b:
     457:537:void doCompute(java8.util.stream.ForEachOps$ForEachOrderedTask) -> a
     541:560:void onCompletion(java8.util.concurrent.CountedCompleter) -> a
     529:529:java.lang.Object[] lambda$doCompute$143(int) -> a
-java8.util.stream.ForEachOps$ForEachOrderedTask$$Lambda$1 -> a.b.c.ai:
+java8.util.stream.ForEachOps$ForEachOrderedTask$$Lambda$1 -> a.b.c.aj:
     java8.util.stream.ForEachOps$ForEachOrderedTask$$Lambda$1 instance -> a
     void <init>() -> <init>
     java.lang.Object apply(int) -> a
     java8.util.function.IntFunction lambdaFactory$() -> a
     void <clinit>() -> <clinit>
-java8.util.stream.ForEachOps$ForEachTask -> a.b.c.ah$c:
+java8.util.stream.ForEachOps$ForEachTask -> a.b.c.ai$c:
     java8.util.Spliterator spliterator -> a
     java8.util.stream.Sink sink -> b
     java8.util.stream.PipelineHelper helper -> c
@@ -30833,7 +30875,7 @@ java8.util.stream.ForEachOps$ForEachTask -> a.b.c.ah$c:
     314:319:void <init>(java8.util.stream.PipelineHelper,java8.util.Spliterator,java8.util.stream.Sink) -> <init>
     322:327:void <init>(java8.util.stream.ForEachOps$ForEachTask,java8.util.Spliterator) -> <init>
     331:364:void compute() -> a
-java8.util.stream.IntPipeline -> a.b.c.aj:
+java8.util.stream.IntPipeline -> a.b.c.ak:
     81:82:void <init>(java8.util.Spliterator,int,boolean) -> <init>
     100:104:java8.util.function.IntConsumer adapt(java8.util.stream.Sink) -> b
     116:120:java8.util.Spliterator$OfInt adapt(java8.util.Spliterator) -> b
@@ -30842,46 +30884,46 @@ java8.util.stream.IntPipeline -> a.b.c.aj:
     165:165:java8.util.stream.Node$Builder makeNodeBuilder(long,java8.util.function.IntFunction) -> a
     169:169:java8.util.stream.Stream mapToObj(java8.util.function.IntFunction,int) -> a
     250:251:java8.util.stream.Stream mapToObj(java8.util.function.IntFunction) -> b
-java8.util.stream.IntPipeline$$Lambda$1 -> a.b.c.ak:
+java8.util.stream.IntPipeline$$Lambda$1 -> a.b.c.al:
     java8.util.stream.Sink arg$1 -> a
     void <init>(java8.util.stream.Sink) -> <init>
     void accept(int) -> a
     java8.util.function.IntConsumer lambdaFactory$(java8.util.stream.Sink) -> a
-java8.util.stream.IntPipeline$1 -> a.b.c.aj$1:
+java8.util.stream.IntPipeline$1 -> a.b.c.ak$1:
     java8.util.function.IntFunction val$mapper -> b
     java8.util.stream.IntPipeline this$0 -> c
     169:169:void <init>(java8.util.stream.IntPipeline,java8.util.stream.AbstractPipeline,java8.util.stream.StreamShape,int,java8.util.function.IntFunction) -> <init>
     172:172:java8.util.stream.Sink opWrapSink(int,java8.util.stream.Sink) -> a
-java8.util.stream.IntPipeline$1$1 -> a.b.c.aj$1$1:
+java8.util.stream.IntPipeline$1$1 -> a.b.c.ak$1$1:
     java8.util.stream.IntPipeline$1 this$1 -> a
     172:172:void <init>(java8.util.stream.IntPipeline$1,java8.util.stream.Sink) -> <init>
     175:176:void accept(int) -> a
-java8.util.stream.IntPipeline$Head -> a.b.c.aj$a:
+java8.util.stream.IntPipeline$Head -> a.b.c.ak$a:
     555:556:void <init>(java8.util.Spliterator,int,boolean) -> <init>
     560:560:boolean opIsStateful() -> e
     565:565:java8.util.stream.Sink opWrapSink(int,java8.util.stream.Sink) -> a
-java8.util.stream.IntStream -> a.b.c.al:
+java8.util.stream.IntStream -> a.b.c.am:
     java8.util.stream.Stream mapToObj(java8.util.function.IntFunction) -> b
-java8.util.stream.IntStream$Builder -> a.b.c.al$a:
+java8.util.stream.IntStream$Builder -> a.b.c.am$a:
     void accept(int) -> a
     java8.util.stream.IntStream build() -> a
-java8.util.stream.IntStreams -> a.b.c.am:
+java8.util.stream.IntStreams -> a.b.c.an:
     104:104:java8.util.stream.IntStream$Builder builder() -> a
-java8.util.stream.MatchOps -> a.b.c.an:
+java8.util.stream.MatchOps -> a.b.c.ao:
     81:97:java8.util.stream.TerminalOp makeRef(java8.util.function.Predicate,java8.util.stream.MatchOps$MatchKind) -> a
     97:97:java8.util.stream.MatchOps$BooleanTerminalSink lambda$makeRef$163(java8.util.stream.MatchOps$MatchKind,java8.util.function.Predicate) -> a
-java8.util.stream.MatchOps$$Lambda$1 -> a.b.c.ao:
+java8.util.stream.MatchOps$$Lambda$1 -> a.b.c.ap:
     java8.util.stream.MatchOps$MatchKind arg$1 -> a
     java8.util.function.Predicate arg$2 -> b
     void <init>(java8.util.stream.MatchOps$MatchKind,java8.util.function.Predicate) -> <init>
     java.lang.Object get() -> a
     java8.util.function.Supplier lambdaFactory$(java8.util.stream.MatchOps$MatchKind,java8.util.function.Predicate) -> a
-java8.util.stream.MatchOps$1MatchSink -> a.b.c.an$a:
+java8.util.stream.MatchOps$1MatchSink -> a.b.c.ao$a:
     java8.util.stream.MatchOps$MatchKind val$matchKind -> a
     java8.util.function.Predicate val$predicate -> b
     84:86:void <init>(java8.util.stream.MatchOps$MatchKind,java8.util.function.Predicate) -> <init>
     90:94:void accept(java.lang.Object) -> a
-java8.util.stream.MatchOps$BooleanTerminalSink -> a.b.c.an$b:
+java8.util.stream.MatchOps$BooleanTerminalSink -> a.b.c.ao$b:
     boolean stop -> c
     boolean value -> d
     271:273:void <init>(java8.util.stream.MatchOps$MatchKind) -> <init>
@@ -30890,7 +30932,7 @@ java8.util.stream.MatchOps$BooleanTerminalSink -> a.b.c.an$b:
     286:286:void begin(long) -> a
     290:290:void end() -> c
     294:295:void accept(int) -> a
-java8.util.stream.MatchOps$MatchKind -> a.b.c.an$c:
+java8.util.stream.MatchOps$MatchKind -> a.b.c.ao$c:
     java8.util.stream.MatchOps$MatchKind ANY -> a
     java8.util.stream.MatchOps$MatchKind ALL -> b
     java8.util.stream.MatchOps$MatchKind NONE -> c
@@ -30903,7 +30945,7 @@ java8.util.stream.MatchOps$MatchKind -> a.b.c.an$c:
     50:50:boolean access$000(java8.util.stream.MatchOps$MatchKind) -> a
     50:50:boolean access$100(java8.util.stream.MatchOps$MatchKind) -> b
     50:58:void <clinit>() -> <clinit>
-java8.util.stream.MatchOps$MatchOp -> a.b.c.an$d:
+java8.util.stream.MatchOps$MatchOp -> a.b.c.ao$d:
     java8.util.stream.StreamShape inputShape -> c
     java8.util.stream.MatchOps$MatchKind matchKind -> a
     java8.util.function.Supplier sinkSupplier -> b
@@ -30913,7 +30955,7 @@ java8.util.stream.MatchOps$MatchOp -> a.b.c.an$d:
     257:257:java.lang.Boolean evaluateParallel(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> d
     211:211:java.lang.Object evaluateSequential(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> a
     211:211:java.lang.Object evaluateParallel(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> b
-java8.util.stream.MatchOps$MatchTask -> a.b.c.an$e:
+java8.util.stream.MatchOps$MatchTask -> a.b.c.ao$e:
     java8.util.stream.MatchOps$MatchOp op -> i
     325:327:void <init>(java8.util.stream.MatchOps$MatchOp,java8.util.stream.PipelineHelper,java8.util.Spliterator) -> <init>
     333:335:void <init>(java8.util.stream.MatchOps$MatchTask,java8.util.Spliterator) -> <init>
@@ -30923,7 +30965,7 @@ java8.util.stream.MatchOps$MatchTask -> a.b.c.an$e:
     315:315:java.lang.Object getEmptyResult() -> n
     315:315:java.lang.Object doLeaf() -> s
     315:315:java8.util.stream.AbstractTask makeChild(java8.util.Spliterator) -> a
-java8.util.stream.Node -> a.b.c.ap:
+java8.util.stream.Node -> a.b.c.aq:
     java8.util.Spliterator spliterator() -> d
     void forEach(java8.util.function.Consumer) -> a
     int getChildCount() -> e
@@ -30931,20 +30973,20 @@ java8.util.stream.Node -> a.b.c.ap:
     java.lang.Object[] asArray(java8.util.function.IntFunction) -> a
     void copyInto(java.lang.Object[],int) -> a
     long count() -> g_
-java8.util.stream.Node$Builder -> a.b.c.ap$a:
+java8.util.stream.Node$Builder -> a.b.c.aq$a:
     java8.util.stream.Node build() -> a
-java8.util.stream.Node$Builder$OfInt -> a.b.c.ap$a$a:
-java8.util.stream.Node$OfDouble -> a.b.c.ap$b:
-java8.util.stream.Node$OfInt -> a.b.c.ap$c:
-java8.util.stream.Node$OfLong -> a.b.c.ap$d:
-java8.util.stream.Node$OfPrimitive -> a.b.c.ap$e:
+java8.util.stream.Node$Builder$OfInt -> a.b.c.aq$a$a:
+java8.util.stream.Node$OfDouble -> a.b.c.aq$b:
+java8.util.stream.Node$OfInt -> a.b.c.aq$c:
+java8.util.stream.Node$OfLong -> a.b.c.aq$d:
+java8.util.stream.Node$OfPrimitive -> a.b.c.aq$e:
     java8.util.Spliterator$OfPrimitive spliterator() -> f
     void forEach(java.lang.Object) -> b
     java8.util.stream.Node$OfPrimitive getChild(int) -> c
     java.lang.Object asPrimitiveArray() -> g
     java.lang.Object newArray(int) -> d
     void copyInto(java.lang.Object,int) -> a
-java8.util.stream.Nodes -> a.b.c.aq:
+java8.util.stream.Nodes -> a.b.c.ar:
     java8.util.stream.Node EMPTY_NODE -> a
     java8.util.stream.Node$OfInt EMPTY_INT_NODE -> b
     java8.util.stream.Node$OfLong EMPTY_LONG_NODE -> c
@@ -30968,10 +31010,10 @@ java8.util.stream.Nodes -> a.b.c.aq:
     53:53:long[] access$600() -> f
     53:53:double[] access$700() -> g
     68:1932:void <clinit>() -> <clinit>
-java8.util.stream.Nodes$1 -> a.b.c.aq$1:
+java8.util.stream.Nodes$1 -> a.b.c.ar$1:
     int[] $SwitchMap$java8$util$stream$StreamShape -> a
     385:385:void <clinit>() -> <clinit>
-java8.util.stream.Nodes$AbstractConcNode -> a.b.c.aq$a:
+java8.util.stream.Nodes$AbstractConcNode -> a.b.c.ar$a:
     java8.util.stream.Node left -> a
     java8.util.stream.Node right -> b
     long size -> c
@@ -30979,7 +31021,7 @@ java8.util.stream.Nodes$AbstractConcNode -> a.b.c.aq$a:
     1204:1204:int getChildCount() -> e
     1214:1216:java8.util.stream.Node getChild(int) -> a_
     1221:1221:long count() -> g_
-java8.util.stream.Nodes$ArrayNode -> a.b.c.aq$b:
+java8.util.stream.Nodes$ArrayNode -> a.b.c.ar$b:
     java.lang.Object[] array -> a
     int curSize -> b
     1042:1047:void <init>(long,java8.util.function.IntFunction) -> <init>
@@ -30992,7 +31034,7 @@ java8.util.stream.Nodes$ArrayNode -> a.b.c.aq$b:
     1097:1097:long count() -> g_
     1102:1105:void forEach(java8.util.function.Consumer) -> a
     1111:1112:java.lang.String toString() -> toString
-java8.util.stream.Nodes$CollectorTask -> a.b.c.aq$c:
+java8.util.stream.Nodes$CollectorTask -> a.b.c.ar$c:
     java8.util.stream.PipelineHelper helper -> a
     java8.util.function.LongFunction builderFactory -> b
     java8.util.function.BinaryOperator concFactory -> i
@@ -31003,46 +31045,46 @@ java8.util.stream.Nodes$CollectorTask -> a.b.c.aq$c:
     3139:3142:void onCompletion(java8.util.concurrent.CountedCompleter) -> a
     3100:3100:java.lang.Object doLeaf() -> s
     3100:3100:java8.util.stream.AbstractTask makeChild(java8.util.Spliterator) -> a
-java8.util.stream.Nodes$CollectorTask$OfInt -> a.b.c.aq$c$a:
+java8.util.stream.Nodes$CollectorTask$OfInt -> a.b.c.ar$c$a:
     3156:3157:void <init>(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> <init>
     3153:3153:java.lang.Object doLeaf() -> s
     3153:3153:java8.util.stream.AbstractTask makeChild(java8.util.Spliterator) -> a
-java8.util.stream.Nodes$CollectorTask$OfInt$$Lambda$1 -> a.b.c.ar:
+java8.util.stream.Nodes$CollectorTask$OfInt$$Lambda$1 -> a.b.c.as:
     java8.util.stream.Nodes$CollectorTask$OfInt$$Lambda$1 instance -> a
     void <init>() -> <init>
     java.lang.Object apply(long) -> a
     java8.util.function.LongFunction lambdaFactory$() -> a
     void <clinit>() -> <clinit>
-java8.util.stream.Nodes$CollectorTask$OfInt$$Lambda$4 -> a.b.c.as:
+java8.util.stream.Nodes$CollectorTask$OfInt$$Lambda$4 -> a.b.c.at:
     java8.util.stream.Nodes$CollectorTask$OfInt$$Lambda$4 instance -> a
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object,java.lang.Object) -> a
     java8.util.function.BinaryOperator lambdaFactory$() -> a
     void <clinit>() -> <clinit>
-java8.util.stream.Nodes$CollectorTask$OfRef -> a.b.c.aq$c$b:
+java8.util.stream.Nodes$CollectorTask$OfRef -> a.b.c.ar$c$b:
     3149:3150:void <init>(java8.util.stream.PipelineHelper,java8.util.function.IntFunction,java8.util.Spliterator) -> <init>
     3144:3144:java.lang.Object doLeaf() -> s
     3144:3144:java8.util.stream.AbstractTask makeChild(java8.util.Spliterator) -> a
     3149:3149:java8.util.stream.Node$Builder lambda$new$56(java8.util.function.IntFunction,long) -> a
-java8.util.stream.Nodes$CollectorTask$OfRef$$Lambda$1 -> a.b.c.at:
+java8.util.stream.Nodes$CollectorTask$OfRef$$Lambda$1 -> a.b.c.au:
     java8.util.function.IntFunction arg$1 -> a
     void <init>(java8.util.function.IntFunction) -> <init>
     java.lang.Object apply(long) -> a
     java8.util.function.LongFunction lambdaFactory$(java8.util.function.IntFunction) -> a
-java8.util.stream.Nodes$CollectorTask$OfRef$$Lambda$2 -> a.b.c.au:
+java8.util.stream.Nodes$CollectorTask$OfRef$$Lambda$2 -> a.b.c.av:
     java8.util.stream.Nodes$CollectorTask$OfRef$$Lambda$2 instance -> a
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object,java.lang.Object) -> a
     java8.util.function.BinaryOperator lambdaFactory$() -> a
     void <clinit>() -> <clinit>
-java8.util.stream.Nodes$ConcNode -> a.b.c.aq$d:
+java8.util.stream.Nodes$ConcNode -> a.b.c.ar$d:
     1230:1231:void <init>(java8.util.stream.Node,java8.util.stream.Node) -> <init>
     1235:1235:java8.util.Spliterator spliterator() -> d
     1240:1245:void copyInto(java.lang.Object[],int) -> a
     1249:1254:java.lang.Object[] asArray(java8.util.function.IntFunction) -> a
     1259:1261:void forEach(java8.util.function.Consumer) -> a
     1280:1283:java.lang.String toString() -> toString
-java8.util.stream.Nodes$ConcNode$OfInt -> a.b.c.aq$d$a:
+java8.util.stream.Nodes$ConcNode$OfInt -> a.b.c.ar$d$a:
     1340:1341:void <init>(java8.util.stream.Node$OfInt,java8.util.stream.Node$OfInt) -> <init>
     1345:1346:void forEach(java8.util.function.Consumer) -> a
     1350:1350:java8.util.Spliterator$OfInt spliterator() -> b
@@ -31052,7 +31094,7 @@ java8.util.stream.Nodes$ConcNode$OfInt -> a.b.c.aq$d$a:
     1335:1335:java8.util.Spliterator$OfPrimitive spliterator() -> f
     1335:1335:void copyInto(java.lang.Object[],int) -> a
     1335:1335:java8.util.Spliterator spliterator() -> d
-java8.util.stream.Nodes$ConcNode$OfPrimitive -> a.b.c.aq$d$b:
+java8.util.stream.Nodes$ConcNode$OfPrimitive -> a.b.c.ar$d$b:
     1294:1295:void <init>(java8.util.stream.Node$OfPrimitive,java8.util.stream.Node$OfPrimitive) -> <init>
     1299:1301:void forEach(java.lang.Object) -> b
     1305:1309:void copyInto(java.lang.Object,int) -> a
@@ -31060,7 +31102,7 @@ java8.util.stream.Nodes$ConcNode$OfPrimitive -> a.b.c.aq$d$b:
     1323:1323:java.lang.Object[] asArray(java8.util.function.IntFunction) -> a
     1328:1331:java.lang.String toString() -> toString
     1287:1287:java8.util.stream.Node$OfPrimitive getChild(int) -> c
-java8.util.stream.Nodes$EmptyNode -> a.b.c.aq$e:
+java8.util.stream.Nodes$EmptyNode -> a.b.c.ar$e:
     860:860:void <init>() -> <init>
     864:864:java.lang.Object[] asArray(java8.util.function.IntFunction) -> a
     867:867:void copyInto(java.lang.Object,int) -> a
@@ -31068,7 +31110,7 @@ java8.util.stream.Nodes$EmptyNode -> a.b.c.aq$e:
     881:881:int getChildCount() -> e
     886:886:java8.util.stream.Node getChild(int) -> a_
     894:894:void forEach(java.lang.Object) -> b
-java8.util.stream.Nodes$EmptyNode$OfDouble -> a.b.c.aq$e$a:
+java8.util.stream.Nodes$EmptyNode$OfDouble -> a.b.c.ar$e$a:
     997:997:void <init>() -> <init>
     1001:1002:void forEach(java8.util.function.Consumer) -> a
     1006:1006:java8.util.stream.Node$OfDouble getChild(int) -> a
@@ -31083,7 +31125,7 @@ java8.util.stream.Nodes$EmptyNode$OfDouble -> a.b.c.aq$e$a:
     993:993:java.lang.Object asPrimitiveArray() -> g
     993:993:java8.util.stream.Node$OfPrimitive getChild(int) -> c
     993:993:java8.util.Spliterator$OfPrimitive spliterator() -> f
-java8.util.stream.Nodes$EmptyNode$OfInt -> a.b.c.aq$e$b:
+java8.util.stream.Nodes$EmptyNode$OfInt -> a.b.c.ar$e$b:
     911:911:void <init>() -> <init>
     915:916:void forEach(java8.util.function.Consumer) -> a
     920:920:java8.util.Spliterator$OfInt spliterator() -> b
@@ -31098,7 +31140,7 @@ java8.util.stream.Nodes$EmptyNode$OfInt -> a.b.c.aq$e$b:
     907:907:java.lang.Object asPrimitiveArray() -> g
     907:907:java8.util.stream.Node$OfPrimitive getChild(int) -> c
     907:907:java8.util.Spliterator$OfPrimitive spliterator() -> f
-java8.util.stream.Nodes$EmptyNode$OfLong -> a.b.c.aq$e$c:
+java8.util.stream.Nodes$EmptyNode$OfLong -> a.b.c.ar$e$c:
     954:954:void <init>() -> <init>
     958:959:void forEach(java8.util.function.Consumer) -> a
     963:963:java8.util.Spliterator$OfLong spliterator() -> b
@@ -31113,13 +31155,13 @@ java8.util.stream.Nodes$EmptyNode$OfLong -> a.b.c.aq$e$c:
     950:950:java.lang.Object asPrimitiveArray() -> g
     950:950:java8.util.stream.Node$OfPrimitive getChild(int) -> c
     950:950:java8.util.Spliterator$OfPrimitive spliterator() -> f
-java8.util.stream.Nodes$EmptyNode$OfRef -> a.b.c.aq$e$d:
+java8.util.stream.Nodes$EmptyNode$OfRef -> a.b.c.ar$e$d:
     898:899:void <init>() -> <init>
     903:903:java8.util.Spliterator spliterator() -> d
     896:896:void copyInto(java.lang.Object[],int) -> a
     896:896:void forEach(java8.util.function.Consumer) -> a
     896:896:void <init>(java8.util.stream.Nodes$1) -> <init>
-java8.util.stream.Nodes$FixedNodeBuilder -> a.b.c.aq$f:
+java8.util.stream.Nodes$FixedNodeBuilder -> a.b.c.ar$f:
     1774:1775:void <init>(long,java8.util.function.IntFunction) -> <init>
     1779:1782:java8.util.stream.Node build() -> a
     1787:1791:void begin(long) -> a
@@ -31128,7 +31170,7 @@ java8.util.stream.Nodes$FixedNodeBuilder -> a.b.c.aq$f:
     1812:1812:boolean cancellationRequested() -> b
     1817:1818:void accept(int) -> a
     1832:1833:java.lang.String toString() -> toString
-java8.util.stream.Nodes$IntArrayNode -> a.b.c.aq$g:
+java8.util.stream.Nodes$IntArrayNode -> a.b.c.ar$g:
     int[] array -> a
     int curSize -> b
     1938:1943:void <init>(long) -> <init>
@@ -31155,7 +31197,7 @@ java8.util.stream.Nodes$IntArrayNode -> a.b.c.aq$g:
     1934:1934:void copyInto(java.lang.Object[],int) -> a
     1934:1934:java8.util.stream.Node getChild(int) -> a_
     1934:1934:java8.util.Spliterator spliterator() -> d
-java8.util.stream.Nodes$IntFixedNodeBuilder -> a.b.c.aq$h:
+java8.util.stream.Nodes$IntFixedNodeBuilder -> a.b.c.ar$h:
     2226:2227:void <init>(long) -> <init>
     2231:2236:java8.util.stream.Node$OfInt build() -> j
     2241:2247:void begin(long) -> a
@@ -31166,7 +31208,7 @@ java8.util.stream.Nodes$IntFixedNodeBuilder -> a.b.c.aq$h:
     2289:2290:java.lang.String toString() -> toString
     2221:2221:java8.util.stream.Node build() -> a
     2221:2221:void accept(java.lang.Object) -> a
-java8.util.stream.Nodes$IntSpinedNodeBuilder -> a.b.c.aq$i:
+java8.util.stream.Nodes$IntSpinedNodeBuilder -> a.b.c.ar$i:
     2444:2444:void <init>() -> <init>
     2448:2448:java8.util.Spliterator$OfInt spliterator() -> h
     2453:2454:void forEach(java8.util.function.IntConsumer) -> a
@@ -31193,7 +31235,7 @@ java8.util.stream.Nodes$IntSpinedNodeBuilder -> a.b.c.aq$i:
     2440:2440:java8.util.Spliterator spliterator() -> d
     2440:2440:java8.util.stream.Node build() -> a
     2440:2440:void accept(java.lang.Object) -> a
-java8.util.stream.Nodes$InternalNodeSpliterator -> a.b.c.aq$j:
+java8.util.stream.Nodes$InternalNodeSpliterator -> a.b.c.ar$j:
     java8.util.stream.Node curNode -> a
     int curChildIndex -> b
     java8.util.Spliterator lastNodeSpliterator -> c
@@ -31206,42 +31248,42 @@ java8.util.stream.Nodes$InternalNodeSpliterator -> a.b.c.aq$j:
     1532:1546:java8.util.Spliterator trySplit() -> f
     1553:1564:long estimateSize() -> b
     1570:1570:int characteristics() -> c
-java8.util.stream.Nodes$InternalNodeSpliterator$OfInt -> a.b.c.aq$j$a:
+java8.util.stream.Nodes$InternalNodeSpliterator$OfInt -> a.b.c.ar$j$a:
     1713:1714:void <init>(java8.util.stream.Node$OfInt) -> <init>
     1718:1718:boolean tryAdvance(java8.util.function.Consumer) -> b
     1723:1724:void forEachRemaining(java8.util.function.Consumer) -> a
     1708:1708:void forEachRemaining(java8.util.function.IntConsumer) -> b
     1708:1708:boolean tryAdvance(java8.util.function.IntConsumer) -> a
-java8.util.stream.Nodes$InternalNodeSpliterator$OfPrimitive -> a.b.c.aq$j$b:
+java8.util.stream.Nodes$InternalNodeSpliterator$OfPrimitive -> a.b.c.ar$j$b:
     1646:1647:void <init>(java8.util.stream.Node$OfPrimitive) -> <init>
     1651:1668:boolean tryAdvance(java.lang.Object) -> a
     1673:1690:void forEachRemaining(java.lang.Object) -> b
     1694:1694:long getExactSizeIfKnown() -> e
     1699:1699:boolean hasCharacteristics(int) -> b_
     1704:1704:java.util.Comparator getComparator() -> d
-java8.util.stream.Nodes$InternalNodeSpliterator$OfRef -> a.b.c.aq$j$c:
+java8.util.stream.Nodes$InternalNodeSpliterator$OfRef -> a.b.c.ar$j$c:
     1577:1578:void <init>(java8.util.stream.Node) -> <init>
     1582:1599:boolean tryAdvance(java8.util.function.Consumer) -> b
     1604:1621:void forEachRemaining(java8.util.function.Consumer) -> a
     1625:1625:long getExactSizeIfKnown() -> e
     1630:1630:boolean hasCharacteristics(int) -> b_
     1635:1635:java.util.Comparator getComparator() -> d
-java8.util.stream.Nodes$OfDouble -> a.b.c.aq$k:
+java8.util.stream.Nodes$OfDouble -> a.b.c.ar$k:
     189:195:void forEach(java8.util.stream.Node$OfDouble,java8.util.function.Consumer) -> a
     206:210:void copyInto(java8.util.stream.Node$OfDouble,java.lang.Double[],int) -> a
     213:213:double[] newArray(java8.util.stream.Node$OfDouble,int) -> a
-java8.util.stream.Nodes$OfInt -> a.b.c.aq$l:
+java8.util.stream.Nodes$OfInt -> a.b.c.ar$l:
     326:332:void forEach(java8.util.stream.Node$OfInt,java8.util.function.Consumer) -> a
     343:347:void copyInto(java8.util.stream.Node$OfInt,java.lang.Integer[],int) -> a
     350:350:int[] newArray(java8.util.stream.Node$OfInt,int) -> a
-java8.util.stream.Nodes$OfLong -> a.b.c.aq$m:
+java8.util.stream.Nodes$OfLong -> a.b.c.ar$m:
     258:264:void forEach(java8.util.stream.Node$OfLong,java8.util.function.Consumer) -> a
     275:279:void copyInto(java8.util.stream.Node$OfLong,java.lang.Long[],int) -> a
     282:282:long[] newArray(java8.util.stream.Node$OfLong,int) -> a
-java8.util.stream.Nodes$OfPrimitive -> a.b.c.aq$n:
+java8.util.stream.Nodes$OfPrimitive -> a.b.c.ar$n:
     144:144:java8.util.stream.Node$OfPrimitive getChild() -> a
     148:154:java.lang.Object[] asArray(java8.util.stream.Node$OfPrimitive,java8.util.function.IntFunction) -> a
-java8.util.stream.Nodes$SizedCollectorTask -> a.b.c.aq$o:
+java8.util.stream.Nodes$SizedCollectorTask -> a.b.c.ar$o:
     java8.util.Spliterator spliterator -> a
     java8.util.stream.PipelineHelper helper -> b
     long targetSize -> c
@@ -31257,7 +31299,7 @@ java8.util.stream.Nodes$SizedCollectorTask -> a.b.c.aq$o:
     2818:2818:void end() -> c
     2822:2822:boolean cancellationRequested() -> b
     2827:2828:void accept(int) -> a
-java8.util.stream.Nodes$SizedCollectorTask$OfInt -> a.b.c.aq$o$a:
+java8.util.stream.Nodes$SizedCollectorTask$OfInt -> a.b.c.ar$o$a:
     int[] array -> h
     2877:2879:void <init>(java8.util.Spliterator,java8.util.stream.PipelineHelper,int[]) -> <init>
     2883:2885:void <init>(java8.util.stream.Nodes$SizedCollectorTask$OfInt,java8.util.Spliterator,long,long) -> <init>
@@ -31266,14 +31308,14 @@ java8.util.stream.Nodes$SizedCollectorTask$OfInt -> a.b.c.aq$o$a:
     2903:2904:void accept(java.lang.Integer) -> a
     2871:2871:java8.util.stream.Nodes$SizedCollectorTask makeChild(java8.util.Spliterator,long,long) -> a
     2871:2871:void accept(java.lang.Object) -> a
-java8.util.stream.Nodes$SizedCollectorTask$OfRef -> a.b.c.aq$o$b:
+java8.util.stream.Nodes$SizedCollectorTask$OfRef -> a.b.c.ar$o$b:
     java.lang.Object[] array -> h
     2846:2848:void <init>(java8.util.Spliterator,java8.util.stream.PipelineHelper,java.lang.Object[]) -> <init>
     2852:2854:void <init>(java8.util.stream.Nodes$SizedCollectorTask$OfRef,java8.util.Spliterator,long,long) -> <init>
     2859:2859:java8.util.stream.Nodes$SizedCollectorTask$OfRef makeChild(java8.util.Spliterator,long,long) -> b
     2864:2868:void accept(java.lang.Object) -> a
     2840:2840:java8.util.stream.Nodes$SizedCollectorTask makeChild(java8.util.Spliterator,long,long) -> a
-java8.util.stream.Nodes$SpinedNodeBuilder -> a.b.c.aq$p:
+java8.util.stream.Nodes$SpinedNodeBuilder -> a.b.c.ar$p:
     1844:1844:void <init>() -> <init>
     1848:1848:java8.util.Spliterator spliterator() -> d
     1853:1854:void forEach(java8.util.function.Consumer) -> a
@@ -31287,7 +31329,7 @@ java8.util.stream.Nodes$SpinedNodeBuilder -> a.b.c.aq$p:
     1914:1915:void copyInto(java.lang.Object[],int) -> a
     1919:1919:java.lang.Object[] asArray(java8.util.function.IntFunction) -> a
     1924:1924:java8.util.stream.Node build() -> a
-java8.util.stream.Nodes$ToArrayTask -> a.b.c.aq$q:
+java8.util.stream.Nodes$ToArrayTask -> a.b.c.ar$q:
     java8.util.stream.Node node -> a
     int offset -> b
     2987:2990:void <init>(java8.util.stream.Node,int) -> <init>
@@ -31295,10 +31337,10 @@ java8.util.stream.Nodes$ToArrayTask -> a.b.c.aq$q:
     void copyNodeToArray() -> n
     java8.util.stream.Nodes$ToArrayTask makeChild(int,int) -> a
     3004:3022:void compute() -> a
-java8.util.stream.Nodes$ToArrayTask$OfInt -> a.b.c.aq$q$a:
+java8.util.stream.Nodes$ToArrayTask$OfInt -> a.b.c.ar$q$a:
     3081:3082:void <init>(java8.util.stream.Node$OfInt,int[],int) -> <init>
     3078:3078:void <init>(java8.util.stream.Node$OfInt,int[],int,java8.util.stream.Nodes$1) -> <init>
-java8.util.stream.Nodes$ToArrayTask$OfPrimitive -> a.b.c.aq$q$b:
+java8.util.stream.Nodes$ToArrayTask$OfPrimitive -> a.b.c.ar$q$b:
     java.lang.Object array -> c
     3058:3060:void <init>(java8.util.stream.Node$OfPrimitive,java.lang.Object,int) -> <init>
     3063:3065:void <init>(java8.util.stream.Nodes$ToArrayTask$OfPrimitive,java8.util.stream.Node$OfPrimitive,int) -> <init>
@@ -31306,7 +31348,7 @@ java8.util.stream.Nodes$ToArrayTask$OfPrimitive -> a.b.c.aq$q$b:
     3074:3075:void copyNodeToArray() -> n
     3051:3051:java8.util.stream.Nodes$ToArrayTask makeChild(int,int) -> a
     3051:3051:void <init>(java8.util.stream.Node$OfPrimitive,java.lang.Object,int,java8.util.stream.Nodes$1) -> <init>
-java8.util.stream.Nodes$ToArrayTask$OfRef -> a.b.c.aq$q$c:
+java8.util.stream.Nodes$ToArrayTask$OfRef -> a.b.c.ar$q$c:
     java.lang.Object[] array -> c
     3031:3033:void <init>(java8.util.stream.Node,java.lang.Object[],int) -> <init>
     3036:3038:void <init>(java8.util.stream.Nodes$ToArrayTask$OfRef,java8.util.stream.Node,int) -> <init>
@@ -31314,7 +31356,7 @@ java8.util.stream.Nodes$ToArrayTask$OfRef -> a.b.c.aq$q$c:
     3047:3048:void copyNodeToArray() -> n
     3026:3026:java8.util.stream.Nodes$ToArrayTask makeChild(int,int) -> a
     3026:3026:void <init>(java8.util.stream.Node,java.lang.Object[],int,java8.util.stream.Nodes$1) -> <init>
-java8.util.stream.PipelineHelper -> a.b.c.av:
+java8.util.stream.PipelineHelper -> a.b.c.aw:
     56:56:void <init>() -> <init>
     int getStreamAndOpFlags() -> c
     long exactOutputSizeIfKnown(java8.util.Spliterator) -> a
@@ -31324,9 +31366,10 @@ java8.util.stream.PipelineHelper -> a.b.c.av:
     java8.util.stream.Sink wrapSink(java8.util.stream.Sink) -> a
     java8.util.stream.Node$Builder makeNodeBuilder(long,java8.util.function.IntFunction) -> a
     java8.util.stream.Node evaluate(java8.util.Spliterator,boolean,java8.util.function.IntFunction) -> a
-java8.util.stream.ReduceOps -> a.b.c.aw:
+java8.util.stream.ReduceOps -> a.b.c.ax:
     205:249:java8.util.stream.TerminalOp makeRef(java8.util.stream.Collector) -> a
-java8.util.stream.ReduceOps$3 -> a.b.c.aw$1:
+    344:344:java8.util.stream.TerminalOp makeRefCounting() -> a
+java8.util.stream.ReduceOps$3 -> a.b.c.ax$1:
     java8.util.function.BinaryOperator val$combiner -> a
     java8.util.function.BiConsumer val$accumulator -> b
     java8.util.function.Supplier val$supplier -> c
@@ -31335,7 +31378,7 @@ java8.util.stream.ReduceOps$3 -> a.b.c.aw$1:
     252:252:java8.util.stream.ReduceOps$3ReducingSink makeSink() -> b
     257:257:int getOpFlags() -> f_
     249:249:java8.util.stream.ReduceOps$AccumulatingSink makeSink() -> c
-java8.util.stream.ReduceOps$3ReducingSink -> a.b.c.aw$a:
+java8.util.stream.ReduceOps$3ReducingSink -> a.b.c.ax$a:
     java8.util.function.Supplier val$supplier -> a
     java8.util.function.BiConsumer val$accumulator -> b
     java8.util.function.BinaryOperator val$combiner -> c
@@ -31347,20 +31390,45 @@ java8.util.stream.ReduceOps$3ReducingSink -> a.b.c.aw$a:
     231:232:void accept(int) -> a
     246:247:void combine(java8.util.stream.ReduceOps$3ReducingSink) -> a
     208:208:void combine(java8.util.stream.ReduceOps$AccumulatingSink) -> a
-java8.util.stream.ReduceOps$AccumulatingSink -> a.b.c.aw$b:
+java8.util.stream.ReduceOps$5 -> a.b.c.ax$2:
+    344:344:void <init>(java8.util.stream.StreamShape) -> <init>
+    346:346:java8.util.stream.ReduceOps$CountingSink makeSink() -> b
+    351:353:java.lang.Long evaluateSequential(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> c
+    359:361:java.lang.Long evaluateParallel(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> d
+    366:366:int getOpFlags() -> f_
+    344:344:java.lang.Object evaluateParallel(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> b
+    344:344:java.lang.Object evaluateSequential(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> a
+    344:344:java8.util.stream.ReduceOps$AccumulatingSink makeSink() -> c
+java8.util.stream.ReduceOps$AccumulatingSink -> a.b.c.ax$b:
     void combine(java8.util.stream.ReduceOps$AccumulatingSink) -> a
-java8.util.stream.ReduceOps$Box -> a.b.c.aw$c:
+java8.util.stream.ReduceOps$Box -> a.b.c.ax$c:
     java.lang.Object state -> d
     1223:1223:void <init>() -> <init>
     1226:1226:java.lang.Object get() -> a
-java8.util.stream.ReduceOps$ReduceOp -> a.b.c.aw$d:
+java8.util.stream.ReduceOps$CountingSink -> a.b.c.ax$d:
+    long count -> a
+    1112:1187:void <init>() -> <init>
+    1119:1120:void begin(long) -> a
+    1124:1124:java.lang.Long get() -> d
+    1129:1130:void combine(java8.util.stream.ReduceOps$CountingSink) -> a
+    1134:1134:void end() -> c
+    1138:1138:boolean cancellationRequested() -> b
+    1143:1144:void accept(int) -> a
+    1112:1112:java.lang.Object get() -> a
+    1112:1112:void combine(java8.util.stream.ReduceOps$AccumulatingSink) -> a
+java8.util.stream.ReduceOps$CountingSink$OfRef -> a.b.c.ax$d$a:
+    1156:1156:void <init>() -> <init>
+    1159:1160:void accept(java.lang.Object) -> a
+    1156:1156:void combine(java8.util.stream.ReduceOps$AccumulatingSink) -> a
+    1156:1156:java.lang.Object get() -> a
+java8.util.stream.ReduceOps$ReduceOp -> a.b.c.ax$e:
     java8.util.stream.StreamShape inputShape -> a
     1250:1252:void <init>(java8.util.stream.StreamShape) -> <init>
     java8.util.stream.ReduceOps$AccumulatingSink makeSink() -> c
     1263:1263:int getOpFlags() -> f_
     1269:1269:java.lang.Object evaluateSequential(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> a
     1275:1275:java.lang.Object evaluateParallel(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> b
-java8.util.stream.ReduceOps$ReduceTask -> a.b.c.aw$e:
+java8.util.stream.ReduceOps$ReduceTask -> a.b.c.ax$f:
     java8.util.stream.ReduceOps$ReduceOp op -> a
     1291:1293:void <init>(java8.util.stream.ReduceOps$ReduceOp,java8.util.stream.PipelineHelper,java8.util.Spliterator) -> <init>
     1297:1299:void <init>(java8.util.stream.ReduceOps$ReduceTask,java8.util.Spliterator) -> <init>
@@ -31369,9 +31437,9 @@ java8.util.stream.ReduceOps$ReduceTask -> a.b.c.aw$e:
     1313:1320:void onCompletion(java8.util.concurrent.CountedCompleter) -> a
     1282:1282:java.lang.Object doLeaf() -> s
     1282:1282:java8.util.stream.AbstractTask makeChild(java8.util.Spliterator) -> a
-java8.util.stream.RefStreams -> a.b.c.ax:
+java8.util.stream.RefStreams -> a.b.c.ay:
     259:259:java8.util.stream.Stream of(java.lang.Object[]) -> a
-java8.util.stream.ReferencePipeline -> a.b.c.ay:
+java8.util.stream.ReferencePipeline -> a.b.c.az:
     86:87:void <init>(java8.util.Spliterator,int,boolean) -> <init>
     96:97:void <init>(java8.util.stream.AbstractPipeline,int) -> <init>
     111:111:java8.util.stream.Node evaluateToNode(java8.util.stream.PipelineHelper,java8.util.Spliterator,boolean,java8.util.function.IntFunction) -> a
@@ -31386,50 +31454,51 @@ java8.util.stream.ReferencePipeline -> a.b.c.ay:
     505:505:java8.util.Optional findFirst() -> g
     510:510:java8.util.Optional findAny() -> h
     532:544:java.lang.Object collect(java8.util.stream.Collector) -> a
+    567:567:long count() -> i
     537:537:void lambda$collect$28(java8.util.function.BiConsumer,java.lang.Object,java.lang.Object) -> a
-java8.util.stream.ReferencePipeline$$Lambda$2 -> a.b.c.az:
+java8.util.stream.ReferencePipeline$$Lambda$2 -> a.b.c.ba:
     java8.util.function.BiConsumer arg$1 -> a
     java.lang.Object arg$2 -> b
     void <init>(java8.util.function.BiConsumer,java.lang.Object) -> <init>
     void accept(java.lang.Object) -> a
     java8.util.function.Consumer lambdaFactory$(java8.util.function.BiConsumer,java.lang.Object) -> a
-java8.util.stream.ReferencePipeline$2 -> a.b.c.ay$1:
+java8.util.stream.ReferencePipeline$2 -> a.b.c.az$1:
     java8.util.function.Predicate val$predicate -> b
     java8.util.stream.ReferencePipeline this$0 -> c
     167:167:void <init>(java8.util.stream.ReferencePipeline,java8.util.stream.AbstractPipeline,java8.util.stream.StreamShape,int,java8.util.function.Predicate) -> <init>
     170:170:java8.util.stream.Sink opWrapSink(int,java8.util.stream.Sink) -> a
-java8.util.stream.ReferencePipeline$2$1 -> a.b.c.ay$1$1:
+java8.util.stream.ReferencePipeline$2$1 -> a.b.c.az$1$1:
     java8.util.stream.ReferencePipeline$2 this$1 -> a
     170:170:void <init>(java8.util.stream.ReferencePipeline$2,java8.util.stream.Sink) -> <init>
     173:174:void begin(long) -> a
     178:180:void accept(java.lang.Object) -> a
-java8.util.stream.ReferencePipeline$3 -> a.b.c.ay$2:
+java8.util.stream.ReferencePipeline$3 -> a.b.c.az$2:
     java8.util.function.Function val$mapper -> b
     java8.util.stream.ReferencePipeline this$0 -> c
     190:190:void <init>(java8.util.stream.ReferencePipeline,java8.util.stream.AbstractPipeline,java8.util.stream.StreamShape,int,java8.util.function.Function) -> <init>
     193:193:java8.util.stream.Sink opWrapSink(int,java8.util.stream.Sink) -> a
-java8.util.stream.ReferencePipeline$3$1 -> a.b.c.ay$2$1:
+java8.util.stream.ReferencePipeline$3$1 -> a.b.c.az$2$1:
     java8.util.stream.ReferencePipeline$3 this$1 -> a
     193:193:void <init>(java8.util.stream.ReferencePipeline$3,java8.util.stream.Sink) -> <init>
     196:197:void accept(java.lang.Object) -> a
-java8.util.stream.ReferencePipeline$Head -> a.b.c.ay$a:
+java8.util.stream.ReferencePipeline$Head -> a.b.c.az$a:
     603:604:void <init>(java8.util.Spliterator,int,boolean) -> <init>
     608:608:boolean opIsStateful() -> e
     613:613:java8.util.stream.Sink opWrapSink(int,java8.util.stream.Sink) -> a
     620:626:void forEach(java8.util.function.Consumer) -> a
-java8.util.stream.ReferencePipeline$StatefulOp -> a.b.c.ay$b:
+java8.util.stream.ReferencePipeline$StatefulOp -> a.b.c.az$b:
     687:688:void <init>(java8.util.stream.AbstractPipeline,java8.util.stream.StreamShape,int) -> <init>
     692:692:boolean opIsStateful() -> e
     java8.util.stream.Node opEvaluateParallel(java8.util.stream.PipelineHelper,java8.util.Spliterator,java8.util.function.IntFunction) -> a
-java8.util.stream.ReferencePipeline$StatelessOp -> a.b.c.ay$c:
+java8.util.stream.ReferencePipeline$StatelessOp -> a.b.c.az$c:
     659:660:void <init>(java8.util.stream.AbstractPipeline,java8.util.stream.StreamShape,int) -> <init>
     664:664:boolean opIsStateful() -> e
-java8.util.stream.Sink -> a.b.c.ba:
+java8.util.stream.Sink -> a.b.c.bb:
     void begin(long) -> a
     void end() -> c
     boolean cancellationRequested() -> b
     void accept(int) -> a
-java8.util.stream.Sink$ChainedInt -> a.b.c.ba$a:
+java8.util.stream.Sink$ChainedInt -> a.b.c.bb$a:
     java8.util.stream.Sink downstream -> b
     274:276:void <init>(java8.util.stream.Sink) -> <init>
     280:281:void begin(long) -> a
@@ -31437,53 +31506,53 @@ java8.util.stream.Sink$ChainedInt -> a.b.c.ba$a:
     290:290:boolean cancellationRequested() -> b
     305:306:void accept(java.lang.Integer) -> a
     271:271:void accept(java.lang.Object) -> a
-java8.util.stream.Sink$ChainedReference -> a.b.c.ba$b:
+java8.util.stream.Sink$ChainedReference -> a.b.c.bb$b:
     java8.util.stream.Sink downstream -> b
     227:229:void <init>(java8.util.stream.Sink) -> <init>
     233:234:void begin(long) -> a
     238:239:void end() -> c
     243:243:boolean cancellationRequested() -> b
     248:249:void accept(int) -> a
-java8.util.stream.Sink$OfDouble -> a.b.c.ba$c:
-java8.util.stream.Sink$OfInt -> a.b.c.ba$d:
+java8.util.stream.Sink$OfDouble -> a.b.c.bb$c:
+java8.util.stream.Sink$OfInt -> a.b.c.bb$d:
     void accept(int) -> a
-java8.util.stream.Sink$OfLong -> a.b.c.ba$e:
-java8.util.stream.SinkDefaults -> a.b.c.bb:
+java8.util.stream.Sink$OfLong -> a.b.c.bb$e:
+java8.util.stream.SinkDefaults -> a.b.c.bc:
     67:67:void accept(java8.util.stream.Sink,int) -> a
-java8.util.stream.SinkDefaults$OfInt -> a.b.c.bb$a:
+java8.util.stream.SinkDefaults$OfInt -> a.b.c.bc$a:
     32:33:void accept(java8.util.stream.Sink$OfInt,java.lang.Integer) -> a
-java8.util.stream.SortedOps -> a.b.c.bc:
+java8.util.stream.SortedOps -> a.b.c.bd:
     54:54:java8.util.stream.Stream makeRef(java8.util.stream.AbstractPipeline) -> a
-java8.util.stream.SortedOps$AbstractRefSortingSink -> a.b.c.bc$a:
+java8.util.stream.SortedOps$AbstractRefSortingSink -> a.b.c.bd$a:
     java.util.Comparator comparator -> a
     boolean cancellationWasRequested -> c
     313:315:void <init>(java8.util.stream.Sink,java.util.Comparator) -> <init>
     325:326:boolean cancellationRequested() -> b
-java8.util.stream.SortedOps$OfRef -> a.b.c.bc$b:
+java8.util.stream.SortedOps$OfRef -> a.b.c.bd$b:
     boolean isNaturalSort -> b
     java.util.Comparator comparator -> c
     114:121:void <init>(java8.util.stream.AbstractPipeline) -> <init>
     137:146:java8.util.stream.Sink opWrapSink(int,java8.util.stream.Sink) -> a
     155:162:java8.util.stream.Node opEvaluateParallel(java8.util.stream.PipelineHelper,java8.util.Spliterator,java8.util.function.IntFunction) -> a
-java8.util.stream.SortedOps$RefSortingSink -> a.b.c.bc$c:
+java8.util.stream.SortedOps$RefSortingSink -> a.b.c.bd$c:
     java.util.ArrayList list -> d
     378:379:void <init>(java8.util.stream.Sink,java.util.Comparator) -> <init>
     383:386:void begin(long) -> a
     390:404:void end() -> c
     408:409:void accept(java.lang.Object) -> a
-java8.util.stream.SortedOps$RefSortingSink$$Lambda$1 -> a.b.c.bd:
+java8.util.stream.SortedOps$RefSortingSink$$Lambda$1 -> a.b.c.be:
     java8.util.stream.Sink arg$1 -> a
     void <init>(java8.util.stream.Sink) -> <init>
     void accept(java.lang.Object) -> a
     java8.util.function.Consumer lambdaFactory$(java8.util.stream.Sink) -> a
-java8.util.stream.SortedOps$SizedRefSortingSink -> a.b.c.bc$d:
+java8.util.stream.SortedOps$SizedRefSortingSink -> a.b.c.bd$d:
     java.lang.Object[] array -> d
     int offset -> e
     338:339:void <init>(java8.util.stream.Sink,java.util.Comparator) -> <init>
     344:347:void begin(long) -> a
     351:363:void end() -> c
     367:368:void accept(java.lang.Object) -> a
-java8.util.stream.SpinedBuffer -> a.b.c.be:
+java8.util.stream.SpinedBuffer -> a.b.c.bf:
     java.lang.Object[] curChunk -> e
     java.lang.Object[][] spine -> f
     108:110:void <init>() -> <init>
@@ -31498,12 +31567,12 @@ java8.util.stream.SpinedBuffer -> a.b.c.be:
     258:267:void accept(java.lang.Object) -> a
     271:273:java.lang.String toString() -> toString
     417:417:java8.util.Spliterator spliterator() -> d
-java8.util.stream.SpinedBuffer$$Lambda$1 -> a.b.c.bf:
+java8.util.stream.SpinedBuffer$$Lambda$1 -> a.b.c.bg:
     java.util.List arg$1 -> a
     void <init>(java.util.List) -> <init>
     void accept(java.lang.Object) -> a
     java8.util.function.Consumer lambdaFactory$(java.util.List) -> a
-java8.util.stream.SpinedBuffer$1Splitr -> a.b.c.be$a:
+java8.util.stream.SpinedBuffer$1Splitr -> a.b.c.bf$a:
     int splSpineIndex -> a
     int lastSpineIndex -> b
     int splElementIndex -> c
@@ -31519,7 +31588,7 @@ java8.util.stream.SpinedBuffer$1Splitr -> a.b.c.be$a:
     346:360:boolean tryAdvance(java8.util.function.Consumer) -> b
     365:388:void forEachRemaining(java8.util.function.Consumer) -> a
     392:413:java8.util.Spliterator trySplit() -> f
-java8.util.stream.SpinedBuffer$OfInt -> a.b.c.be$b:
+java8.util.stream.SpinedBuffer$OfInt -> a.b.c.bf$b:
     741:741:void <init>() -> <init>
     749:755:void forEach(java8.util.function.Consumer) -> a
     759:759:int[][] newArrayArray(int) -> f
@@ -31533,7 +31602,7 @@ java8.util.stream.SpinedBuffer$OfInt -> a.b.c.be$b:
     739:739:int arrayLength(java.lang.Object) -> c
     739:739:java.lang.Object newArray(int) -> d
     739:739:java.lang.Object[] newArrayArray(int) -> h
-java8.util.stream.SpinedBuffer$OfInt$1Splitr -> a.b.c.be$b$a:
+java8.util.stream.SpinedBuffer$OfInt$1Splitr -> a.b.c.bf$b$a:
     java8.util.stream.SpinedBuffer$OfInt this$0 -> a
     805:808:void <init>(java8.util.stream.SpinedBuffer$OfInt,int,int,int,int) -> <init>
     813:813:java8.util.stream.SpinedBuffer$OfInt$1Splitr newSpliterator(int,int,int,int) -> a
@@ -31549,7 +31618,7 @@ java8.util.stream.SpinedBuffer$OfInt$1Splitr -> a.b.c.be$b$a:
     802:802:java8.util.Spliterator$OfPrimitive newSpliterator(int,int,int,int) -> b
     802:802:void forEachRemaining(java8.util.function.IntConsumer) -> b
     802:802:boolean tryAdvance(java8.util.function.IntConsumer) -> a
-java8.util.stream.SpinedBuffer$OfPrimitive -> a.b.c.be$c:
+java8.util.stream.SpinedBuffer$OfPrimitive -> a.b.c.bf$c:
     java.lang.Object curChunk -> e
     java.lang.Object[] spine -> f
     478:480:void <init>() -> <init>
@@ -31566,7 +31635,7 @@ java8.util.stream.SpinedBuffer$OfPrimitive -> a.b.c.be$c:
     582:590:void preAccept() -> m
     593:600:void clear() -> n
     604:610:void forEach(java.lang.Object) -> b
-java8.util.stream.SpinedBuffer$OfPrimitive$BaseSpliterator -> a.b.c.be$c$a:
+java8.util.stream.SpinedBuffer$OfPrimitive$BaseSpliterator -> a.b.c.bf$c$a:
     int splSpineIndex -> b
     int lastSpineIndex -> c
     int splElementIndex -> d
@@ -31583,17 +31652,18 @@ java8.util.stream.SpinedBuffer$OfPrimitive$BaseSpliterator -> a.b.c.be$c$a:
     687:705:void forEachRemaining(java.lang.Object) -> b
     709:730:java8.util.Spliterator$OfPrimitive trySplit() -> a
     612:612:java8.util.Spliterator trySplit() -> f
-java8.util.stream.Stream -> a.b.c.bg:
+java8.util.stream.Stream -> a.b.c.bh:
     java8.util.stream.Stream filter(java8.util.function.Predicate) -> a
     java8.util.stream.Stream map(java8.util.function.Function) -> a
     java8.util.stream.Stream sorted() -> f
     void forEach(java8.util.function.Consumer) -> a
     java.lang.Object[] toArray(java8.util.function.IntFunction) -> b
     java.lang.Object collect(java8.util.stream.Collector) -> a
+    long count() -> i
     boolean noneMatch(java8.util.function.Predicate) -> b
     java8.util.Optional findFirst() -> g
     java8.util.Optional findAny() -> h
-java8.util.stream.StreamOpFlag -> a.b.c.bh:
+java8.util.stream.StreamOpFlag -> a.b.c.bi:
     java8.util.stream.StreamOpFlag DISTINCT -> a
     java8.util.stream.StreamOpFlag SORTED -> b
     java8.util.stream.StreamOpFlag ORDERED -> c
@@ -31634,7 +31704,7 @@ java8.util.stream.StreamOpFlag -> a.b.c.bh:
     702:702:int combineOpFlags(int,int) -> a
     744:751:int fromCharacteristics(java8.util.Spliterator) -> a
     207:641:void <clinit>() -> <clinit>
-java8.util.stream.StreamOpFlag$MaskBuilder -> a.b.c.bh$a:
+java8.util.stream.StreamOpFlag$MaskBuilder -> a.b.c.bi$a:
     java.util.Map map -> a
     393:395:void <init>(java.util.Map) -> <init>
     398:399:java8.util.stream.StreamOpFlag$MaskBuilder mask(java8.util.stream.StreamOpFlag$Type,java.lang.Integer) -> a
@@ -31642,7 +31712,7 @@ java8.util.stream.StreamOpFlag$MaskBuilder -> a.b.c.bh$a:
     407:407:java8.util.stream.StreamOpFlag$MaskBuilder clear(java8.util.stream.StreamOpFlag$Type) -> b
     411:411:java8.util.stream.StreamOpFlag$MaskBuilder setAndClear(java8.util.stream.StreamOpFlag$Type) -> c
     415:425:java.util.Map build() -> a
-java8.util.stream.StreamOpFlag$Type -> a.b.c.bh$b:
+java8.util.stream.StreamOpFlag$Type -> a.b.c.bi$b:
     java8.util.stream.StreamOpFlag$Type SPLITERATOR -> a
     java8.util.stream.StreamOpFlag$Type STREAM -> b
     java8.util.stream.StreamOpFlag$Type OP -> c
@@ -31653,7 +31723,7 @@ java8.util.stream.StreamOpFlag$Type -> a.b.c.bh$b:
     343:343:java8.util.stream.StreamOpFlag$Type valueOf(java.lang.String) -> valueOf
     343:343:void <init>(java.lang.String,int) -> <init>
     343:368:void <clinit>() -> <clinit>
-java8.util.stream.StreamShape -> a.b.c.bi:
+java8.util.stream.StreamShape -> a.b.c.bj:
     java8.util.stream.StreamShape REFERENCE -> a
     java8.util.stream.StreamShape INT_VALUE -> b
     java8.util.stream.StreamShape LONG_VALUE -> c
@@ -31663,16 +31733,16 @@ java8.util.stream.StreamShape -> a.b.c.bi:
     51:51:java8.util.stream.StreamShape valueOf(java.lang.String) -> valueOf
     51:51:void <init>(java.lang.String,int) -> <init>
     51:71:void <clinit>() -> <clinit>
-java8.util.stream.StreamSupport -> a.b.c.bj:
+java8.util.stream.StreamSupport -> a.b.c.bk:
     120:120:java8.util.stream.Stream stream(java.util.Collection) -> a
     303:305:java8.util.stream.Stream stream(java8.util.Spliterator,boolean) -> a
     373:374:java8.util.stream.IntStream intStream(java8.util.Spliterator$OfInt,boolean) -> a
-java8.util.stream.Streams -> a.b.c.bk:
-java8.util.stream.Streams$1 -> a.b.c.bk$1:
+java8.util.stream.Streams -> a.b.c.bl:
+java8.util.stream.Streams$1 -> a.b.c.bl$1:
     java.lang.Runnable val$a -> a
     java.lang.Runnable val$b -> b
     968:985:void run() -> run
-java8.util.stream.Streams$AbstractStreamBuilderImpl -> a.b.c.bk$a:
+java8.util.stream.Streams$AbstractStreamBuilderImpl -> a.b.c.bl$a:
     int count -> a
     335:335:void <init>() -> <init>
     348:348:java8.util.Spliterator trySplit() -> f
@@ -31682,7 +31752,7 @@ java8.util.stream.Streams$AbstractStreamBuilderImpl -> a.b.c.bk$a:
     368:368:java.util.Comparator getComparator() -> d
     373:373:int characteristics() -> c
     335:335:void <init>(java8.util.stream.Streams$1) -> <init>
-java8.util.stream.Streams$IntStreamBuilderImpl -> a.b.c.bk$b:
+java8.util.stream.Streams$IntStreamBuilderImpl -> a.b.c.bl$b:
     int first -> b
     java8.util.stream.SpinedBuffer$OfInt buffer -> c
     489:489:void <init>() -> <init>
@@ -31694,11 +31764,11 @@ java8.util.stream.Streams$IntStreamBuilderImpl -> a.b.c.bk$b:
     578:579:void forEachRemaining(java8.util.function.Consumer) -> a
     475:475:void forEachRemaining(java.lang.Object) -> b
     475:475:boolean tryAdvance(java.lang.Object) -> a
-java8.util.stream.TerminalOp -> a.b.c.bl:
+java8.util.stream.TerminalOp -> a.b.c.bm:
     int getOpFlags() -> f_
     java.lang.Object evaluateParallel(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> b
     java.lang.Object evaluateSequential(java8.util.stream.PipelineHelper,java8.util.Spliterator) -> a
-java8.util.stream.TerminalSink -> a.b.c.bm:
+java8.util.stream.TerminalSink -> a.b.c.bn:
 org.acra.ACRA -> org.acra.ACRA:
     boolean DEV_LOGGING -> DEV_LOGGING
     java.lang.String LOG_TAG -> LOG_TAG
@@ -31713,33 +31783,25 @@ org.acra.ACRA -> org.acra.ACRA:
     java.lang.String PREF_LAST_VERSION_NR -> PREF_LAST_VERSION_NR
     org.acra.ErrorReporter errorReporterSingleton -> errorReporterSingleton
     52:53:void <init>() -> <init>
-    129:130:void init(android.app.Application) -> init
-    146:147:void init(android.app.Application,org.acra.config.CoreConfigurationBuilder) -> init
-    162:166:void init(android.app.Application,org.acra.config.CoreConfigurationBuilder,boolean) -> init
-    182:183:void init(android.app.Application,org.acra.config.CoreConfiguration) -> init
-    199:243:void init(android.app.Application,org.acra.config.CoreConfiguration,boolean) -> init
-    250:250:boolean isInitialised() -> isInitialised
-    258:261:boolean isACRASenderServiceProcess() -> isACRASenderServiceProcess
-    267:269:java.lang.String getCurrentProcessName() -> getCurrentProcessName
-    279:282:org.acra.ErrorReporter getErrorReporter() -> getErrorReporter
-    296:303:boolean shouldDisableACRA(android.content.SharedPreferences) -> shouldDisableACRA
-    308:312:void setLog(org.acra.log.ACRALog) -> setLog
-    55:60:void <clinit>() -> <clinit>
+    127:128:void init(android.app.Application) -> init
+    144:145:void init(android.app.Application,org.acra.config.CoreConfigurationBuilder) -> init
+    160:164:void init(android.app.Application,org.acra.config.CoreConfigurationBuilder,boolean) -> init
+    180:181:void init(android.app.Application,org.acra.config.CoreConfiguration) -> init
+    197:242:void init(android.app.Application,org.acra.config.CoreConfiguration,boolean) -> init
+    249:249:boolean isInitialised() -> isInitialised
+    257:260:boolean isACRASenderServiceProcess() -> isACRASenderServiceProcess
+    266:268:java.lang.String getCurrentProcessName() -> getCurrentProcessName
+    278:278:org.acra.ErrorReporter getErrorReporter() -> getErrorReporter
+    284:288:void setLog(org.acra.log.ACRALog) -> setLog
+    55:111:void <clinit>() -> <clinit>
 org.acra.ACRAConstants -> org.acra.a:
     java.lang.String SILENT_SUFFIX -> a
     org.acra.ReportField[] DEFAULT_REPORT_FIELDS -> b
     41:67:void <clinit>() -> <clinit>
 org.acra.ErrorReporter -> org.acra.b:
-    boolean supportedAndroidVersion -> a
-    android.app.Application context -> b
-    org.acra.builder.ReportExecutor reportExecutor -> c
-    java.util.Map customData -> d
-    59:87:void <init>(android.app.Application,org.acra.config.CoreConfiguration,boolean,boolean) -> <init>
-    105:105:java.lang.String putCustomData(java.lang.String,java.lang.String) -> a
-    150:172:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
-    181:186:void handleSilentException(java.lang.Throwable) -> a
-    195:201:void setEnabled(boolean) -> a
-    236:239:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
+    java.lang.String putCustomData(java.lang.String,java.lang.String) -> a
+    void handleSilentException(java.lang.Throwable) -> a
+    boolean isRegistered() -> a
 org.acra.ReportField -> org.acra.ReportField:
     org.acra.ReportField REPORT_ID -> REPORT_ID
     org.acra.ReportField APP_VERSION_CODE -> APP_VERSION_CODE
@@ -31840,6 +31902,7 @@ org.acra.annotation.AcraCore -> org.acra.a.a:
     int resReportSendSuccessToast() -> y
     int resReportSendFailureToast() -> z
     org.acra.data.StringFormat reportFormat() -> A
+    boolean parallel() -> B
 org.acra.annotation.AcraHttpSender -> org.acra.a.b:
     java.lang.String uri() -> a
     java.lang.String basicAuthLogin() -> b
@@ -31855,18 +31918,18 @@ org.acra.annotation.AcraHttpSender -> org.acra.a.b:
 org.acra.attachment.AcraContentProvider -> org.acra.attachment.AcraContentProvider:
     java.lang.String[] COLUMNS -> a
     java.lang.String authority -> b
-    53:53:void <init>() -> <init>
-    62:64:boolean onCreate() -> onCreate
-    80:98:android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String) -> query
-    107:118:java.io.File getFileForUri(android.net.Uri) -> b
-    132:132:java.lang.String getType(android.net.Uri) -> getType
-    143:143:android.net.Uri insert(android.net.Uri,android.content.ContentValues) -> insert
-    154:154:int delete(android.net.Uri,java.lang.String,java.lang.String[]) -> delete
-    166:166:int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) -> update
-    180:189:android.os.ParcelFileDescriptor openFile(android.net.Uri,java.lang.String) -> openFile
-    198:198:java.lang.String getAuthority(android.content.Context) -> a
-    239:249:java.lang.String guessMimeType(android.net.Uri) -> a
-    54:54:void <clinit>() -> <clinit>
+    54:54:void <init>() -> <init>
+    63:65:boolean onCreate() -> onCreate
+    81:99:android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String) -> query
+    108:119:java.io.File getFileForUri(android.net.Uri) -> b
+    133:133:java.lang.String getType(android.net.Uri) -> getType
+    144:144:android.net.Uri insert(android.net.Uri,android.content.ContentValues) -> insert
+    155:155:int delete(android.net.Uri,java.lang.String,java.lang.String[]) -> delete
+    167:167:int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) -> update
+    181:190:android.os.ParcelFileDescriptor openFile(android.net.Uri,java.lang.String) -> openFile
+    199:199:java.lang.String getAuthority(android.content.Context) -> a
+    245:255:java.lang.String guessMimeType(android.net.Uri) -> a
+    55:55:void <clinit>() -> <clinit>
 org.acra.attachment.AttachmentUriProvider -> org.acra.attachment.a:
     java.util.List getAttachments(android.content.Context,org.acra.config.CoreConfiguration) -> a
 org.acra.attachment.DefaultAttachmentProvider -> org.acra.attachment.b:
@@ -31933,18 +31996,18 @@ org.acra.builder.ReportExecutor$1 -> org.acra.b.c$1:
     201:204:void run() -> run
 org.acra.collections.BoundedLinkedList -> org.acra.c.a:
     int maxSize -> a
-    33:35:void <init>(int) -> <init>
-    44:47:boolean add(java.lang.Object) -> add
-    57:61:void add(int,java.lang.Object) -> add
-    70:83:boolean addAll(java.util.Collection) -> addAll
-    99:102:boolean addAll(int,java.util.Collection) -> addAll
-    113:113:void addFirst(java.lang.Object) -> addFirst
-    123:124:void addLast(java.lang.Object) -> addLast
-    134:138:java.lang.String toString() -> toString
-    143:143:boolean offer(java.lang.Object) -> offer
-    148:149:boolean offerFirst(java.lang.Object) -> offerFirst
-    154:154:boolean offerLast(java.lang.Object) -> offerLast
-    159:160:void push(java.lang.Object) -> push
+    34:36:void <init>(int) -> <init>
+    45:48:boolean add(java.lang.Object) -> add
+    58:62:void add(int,java.lang.Object) -> add
+    71:79:boolean addAll(java.util.Collection) -> addAll
+    95:98:boolean addAll(int,java.util.Collection) -> addAll
+    109:109:void addFirst(java.lang.Object) -> addFirst
+    119:120:void addLast(java.lang.Object) -> addLast
+    130:134:java.lang.String toString() -> toString
+    139:139:boolean offer(java.lang.Object) -> offer
+    144:145:boolean offerFirst(java.lang.Object) -> offerFirst
+    150:150:boolean offerLast(java.lang.Object) -> offerLast
+    155:156:void push(java.lang.Object) -> push
 org.acra.collections.ImmutableList -> org.acra.c.b:
     java.util.List mList -> a
     40:41:void <init>(java.lang.Object[]) -> <init>
@@ -32131,26 +32194,26 @@ org.acra.collector.DropBoxCollector -> org.acra.collector.DropBoxCollector:
     125:127:boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder) -> shouldCollect
     56:56:void <clinit>() -> <clinit>
 org.acra.collector.LogCatCollector -> org.acra.collector.LogCatCollector:
-    53:54:void <init>() -> <init>
-    59:59:org.acra.collector.Collector$Order getOrder() -> getOrder
-    71:103:java.lang.String collectLogCat(org.acra.config.CoreConfiguration,java.lang.String) -> collectLogCat
-    109:111:boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder) -> shouldCollect
-    116:129:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
-    142:145:java.lang.String streamToString(org.acra.config.CoreConfiguration,java.io.InputStream,com.android.internal.util.Predicate,int) -> streamToString
+    int READ_TIMEOUT -> READ_TIMEOUT
+    54:55:void <init>() -> <init>
+    60:60:org.acra.collector.Collector$Order getOrder() -> getOrder
+    72:105:java.lang.String collectLogCat(org.acra.config.CoreConfiguration,java.lang.String) -> collectLogCat
+    111:113:boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder) -> shouldCollect
+    118:131:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
+    144:148:java.lang.String streamToString(org.acra.config.CoreConfiguration,java.io.InputStream,com.android.internal.util.Predicate,int) -> streamToString
 org.acra.collector.LogCatCollector$1 -> org.acra.collector.LogCatCollector$1:
     java.lang.String val$myPidStr -> a
     org.acra.collector.LogCatCollector this$0 -> b
-    96:96:void <init>(org.acra.collector.LogCatCollector,java.lang.String) -> <init>
-    99:99:boolean apply(java.lang.String) -> a
-    96:96:boolean apply(java.lang.Object) -> apply
+    98:98:void <init>(org.acra.collector.LogCatCollector,java.lang.String) -> <init>
+    101:101:boolean apply(java.lang.String) -> a
+    98:98:boolean apply(java.lang.Object) -> apply
 org.acra.collector.LogCatCollector$2 -> org.acra.collector.LogCatCollector$2:
     int[] $SwitchMap$org$acra$ReportField -> a
-    117:117:void <clinit>() -> <clinit>
+    119:119:void <clinit>() -> <clinit>
 org.acra.collector.LogFileCollector -> org.acra.collector.LogFileCollector:
-    49:50:void <init>() -> <init>
-    55:55:org.acra.collector.Collector$Order getOrder() -> getOrder
-    60:63:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
-    74:89:java.io.InputStream getStream(android.content.Context,org.acra.file.Directory,java.lang.String) -> getStream
+    41:42:void <init>() -> <init>
+    47:47:org.acra.collector.Collector$Order getOrder() -> getOrder
+    52:54:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
 org.acra.collector.MediaCodecListCollector -> org.acra.collector.MediaCodecListCollector:
     java.lang.String COLOR_FORMAT_PREFIX -> COLOR_FORMAT_PREFIX
     java.lang.String[] MPEG4_TYPES -> MPEG4_TYPES
@@ -32259,16 +32322,17 @@ org.acra.collector.ThreadCollector -> org.acra.collector.ThreadCollector:
     44:44:org.acra.collector.Collector$Order getOrder() -> getOrder
     49:62:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
 org.acra.collector.TimeCollector -> org.acra.collector.TimeCollector:
+    java.text.SimpleDateFormat dateFormat -> dateFormat
     java.util.Calendar appStartDate -> appStartDate
-    45:46:void <init>() -> <init>
-    51:63:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
-    67:70:void collectApplicationStartUp(android.content.Context,org.acra.config.CoreConfiguration) -> collectApplicationStartUp
-    74:74:boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder) -> shouldCollect
-    79:80:java.lang.String getTimeString(java.util.Calendar) -> getTimeString
+    46:48:void <init>() -> <init>
+    53:65:void collect(org.acra.ReportField,android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> collect
+    69:72:void collectApplicationStartUp(android.content.Context,org.acra.config.CoreConfiguration) -> collectApplicationStartUp
+    76:76:boolean shouldCollect(android.content.Context,org.acra.config.CoreConfiguration,org.acra.ReportField,org.acra.builder.ReportBuilder) -> shouldCollect
+    81:81:java.lang.String getTimeString(java.util.Calendar) -> getTimeString
     40:40:org.acra.collector.Collector$Order getOrder() -> getOrder
 org.acra.collector.TimeCollector$1 -> org.acra.collector.TimeCollector$1:
     int[] $SwitchMap$org$acra$ReportField -> a
-    51:51:void <clinit>() -> <clinit>
+    53:53:void <clinit>() -> <clinit>
 org.acra.config.ACRAConfigurationException -> org.acra.config.a:
     28:29:void <init>(java.lang.String) -> <init>
     32:33:void <init>(java.lang.String,java.lang.Throwable) -> <init>
@@ -32323,99 +32387,103 @@ org.acra.config.CoreConfiguration -> org.acra.config.h:
     int resReportSendSuccessToast -> z
     int resReportSendFailureToast -> A
     org.acra.data.StringFormat reportFormat -> B
-    org.acra.collections.ImmutableList pluginConfigurations -> C
-    91:121:void <init>(org.acra.config.CoreConfigurationBuilder) -> <init>
-    124:124:boolean enabled() -> a
-    128:128:java.lang.String sharedPreferencesName() -> b
-    132:132:boolean includeDropBoxSystemTags() -> c
-    136:136:org.acra.collections.ImmutableList additionalDropBoxTags() -> d
-    140:140:int dropboxCollectionMinutes() -> e
-    144:144:org.acra.collections.ImmutableList logcatArguments() -> f
-    148:148:org.acra.collections.ImmutableSet reportContent() -> g
-    152:152:boolean deleteUnapprovedReportsOnApplicationStart() -> h
-    156:156:boolean deleteOldUnsentReportsOnApplicationStart() -> i
-    160:160:boolean alsoReportToAndroidFramework() -> j
-    164:164:org.acra.collections.ImmutableList additionalSharedPreferences() -> k
-    168:168:boolean logcatFilterByPid() -> l
-    172:172:boolean logcatReadNonBlocking() -> m
-    176:176:boolean sendReportsInDevMode() -> n
-    180:180:org.acra.collections.ImmutableList excludeMatchingSharedPreferencesKeys() -> o
-    184:184:org.acra.collections.ImmutableList excludeMatchingSettingsKeys() -> p
-    188:188:java.lang.Class buildConfigClass() -> q
-    192:192:org.acra.collections.ImmutableList reportSenderFactoryClasses() -> r
-    196:196:java.lang.String applicationLogFile() -> s
-    200:200:int applicationLogFileLines() -> t
-    204:204:org.acra.file.Directory applicationLogFileDir() -> u
-    208:208:java.lang.Class retryPolicyClass() -> v
-    212:212:boolean stopServicesOnCrash() -> w
-    216:216:org.acra.collections.ImmutableList attachmentUris() -> x
-    220:220:java.lang.Class attachmentUriProvider() -> y
-    225:225:int resReportSendSuccessToast() -> z
-    230:230:int resReportSendFailureToast() -> A
-    234:234:org.acra.data.StringFormat reportFormat() -> B
-    239:239:org.acra.collections.ImmutableList pluginConfigurations() -> C
+    boolean parallel -> C
+    org.acra.collections.ImmutableList pluginConfigurations -> D
+    93:124:void <init>(org.acra.config.CoreConfigurationBuilder) -> <init>
+    127:127:boolean enabled() -> a
+    131:131:java.lang.String sharedPreferencesName() -> b
+    135:135:boolean includeDropBoxSystemTags() -> c
+    139:139:org.acra.collections.ImmutableList additionalDropBoxTags() -> d
+    143:143:int dropboxCollectionMinutes() -> e
+    147:147:org.acra.collections.ImmutableList logcatArguments() -> f
+    151:151:org.acra.collections.ImmutableSet reportContent() -> g
+    155:155:boolean deleteUnapprovedReportsOnApplicationStart() -> h
+    159:159:boolean deleteOldUnsentReportsOnApplicationStart() -> i
+    163:163:boolean alsoReportToAndroidFramework() -> j
+    167:167:org.acra.collections.ImmutableList additionalSharedPreferences() -> k
+    171:171:boolean logcatFilterByPid() -> l
+    175:175:boolean logcatReadNonBlocking() -> m
+    179:179:boolean sendReportsInDevMode() -> n
+    183:183:org.acra.collections.ImmutableList excludeMatchingSharedPreferencesKeys() -> o
+    187:187:org.acra.collections.ImmutableList excludeMatchingSettingsKeys() -> p
+    191:191:java.lang.Class buildConfigClass() -> q
+    195:195:org.acra.collections.ImmutableList reportSenderFactoryClasses() -> r
+    199:199:java.lang.String applicationLogFile() -> s
+    203:203:int applicationLogFileLines() -> t
+    207:207:org.acra.file.Directory applicationLogFileDir() -> u
+    211:211:java.lang.Class retryPolicyClass() -> v
+    215:215:boolean stopServicesOnCrash() -> w
+    219:219:org.acra.collections.ImmutableList attachmentUris() -> x
+    223:223:java.lang.Class attachmentUriProvider() -> y
+    228:228:int resReportSendSuccessToast() -> z
+    233:233:int resReportSendFailureToast() -> A
+    237:237:org.acra.data.StringFormat reportFormat() -> B
+    241:241:boolean parallel() -> C
+    246:246:org.acra.collections.ImmutableList pluginConfigurations() -> D
 org.acra.config.CoreConfigurationBuilder -> org.acra.config.i:
-    java.lang.Boolean enabled -> a
+    boolean enabled -> a
     java.lang.String sharedPreferencesName -> b
-    java.lang.Boolean includeDropBoxSystemTags -> c
+    boolean includeDropBoxSystemTags -> c
     java.lang.String[] additionalDropBoxTags -> d
-    java.lang.Integer dropboxCollectionMinutes -> e
+    int dropboxCollectionMinutes -> e
     java.lang.String[] logcatArguments -> f
     org.acra.ReportField[] reportContent -> g
-    java.lang.Boolean deleteUnapprovedReportsOnApplicationStart -> h
-    java.lang.Boolean deleteOldUnsentReportsOnApplicationStart -> i
-    java.lang.Boolean alsoReportToAndroidFramework -> j
+    boolean deleteUnapprovedReportsOnApplicationStart -> h
+    boolean deleteOldUnsentReportsOnApplicationStart -> i
+    boolean alsoReportToAndroidFramework -> j
     java.lang.String[] additionalSharedPreferences -> k
-    java.lang.Boolean logcatFilterByPid -> l
-    java.lang.Boolean logcatReadNonBlocking -> m
-    java.lang.Boolean sendReportsInDevMode -> n
+    boolean logcatFilterByPid -> l
+    boolean logcatReadNonBlocking -> m
+    boolean sendReportsInDevMode -> n
     java.lang.String[] excludeMatchingSharedPreferencesKeys -> o
     java.lang.String[] excludeMatchingSettingsKeys -> p
     java.lang.Class buildConfigClass -> q
     java.lang.Class[] reportSenderFactoryClasses -> r
     java.lang.String applicationLogFile -> s
-    java.lang.Integer applicationLogFileLines -> t
+    int applicationLogFileLines -> t
     org.acra.file.Directory applicationLogFileDir -> u
     java.lang.Class retryPolicyClass -> v
-    java.lang.Boolean stopServicesOnCrash -> w
+    boolean stopServicesOnCrash -> w
     java.lang.String[] attachmentUris -> x
     java.lang.Class attachmentUriProvider -> y
-    java.lang.Integer resReportSendSuccessToast -> z
-    java.lang.Integer resReportSendFailureToast -> A
+    int resReportSendSuccessToast -> z
+    int resReportSendFailureToast -> A
     org.acra.data.StringFormat reportFormat -> B
-    org.acra.config.BaseCoreConfigurationBuilder field0 -> C
-    94:95:void <init>(java.lang.Object) -> <init>
-    100:133:void <init>(java.lang.Class) -> <init>
-    136:136:boolean enabled() -> b
-    146:146:java.lang.String sharedPreferencesName() -> c
-    169:169:boolean includeDropBoxSystemTags() -> d
-    202:202:java.lang.String[] additionalDropBoxTags() -> e
-    218:218:int dropboxCollectionMinutes() -> f
-    234:234:java.lang.String[] logcatArguments() -> g
-    260:260:java.util.Set reportContent() -> h
-    283:283:boolean deleteUnapprovedReportsOnApplicationStart() -> i
-    311:311:boolean deleteOldUnsentReportsOnApplicationStart() -> j
-    327:327:boolean alsoReportToAndroidFramework() -> k
-    344:344:java.lang.String[] additionalSharedPreferences() -> l
-    360:360:boolean logcatFilterByPid() -> m
-    376:376:boolean logcatReadNonBlocking() -> n
-    392:392:boolean sendReportsInDevMode() -> o
-    408:408:java.lang.String[] excludeMatchingSharedPreferencesKeys() -> p
-    425:425:java.lang.String[] excludeMatchingSettingsKeys() -> q
-    442:442:java.lang.Class buildConfigClass() -> r
-    459:459:java.lang.Class[] reportSenderFactoryClasses() -> s
-    475:475:java.lang.String applicationLogFile() -> t
-    491:491:int applicationLogFileLines() -> u
-    508:508:org.acra.file.Directory applicationLogFileDir() -> v
-    524:524:java.lang.Class retryPolicyClass() -> w
-    541:541:boolean stopServicesOnCrash() -> x
-    558:558:java.lang.String[] attachmentUris() -> y
-    587:587:java.lang.Class attachmentUriProvider() -> z
-    605:605:int resReportSendSuccessToast() -> A
-    623:623:int resReportSendFailureToast() -> B
-    640:640:org.acra.data.StringFormat reportFormat() -> C
-    671:671:java.util.List pluginConfigurations() -> D
-    681:690:org.acra.config.CoreConfiguration build() -> E
+    boolean parallel -> C
+    org.acra.config.BaseCoreConfigurationBuilder field0 -> D
+    96:97:void <init>(java.lang.Object) -> <init>
+    32:136:void <init>(java.lang.Class) -> <init>
+    139:139:boolean enabled() -> b
+    149:149:java.lang.String sharedPreferencesName() -> c
+    172:172:boolean includeDropBoxSystemTags() -> d
+    205:205:java.lang.String[] additionalDropBoxTags() -> e
+    221:221:int dropboxCollectionMinutes() -> f
+    237:237:java.lang.String[] logcatArguments() -> g
+    263:263:java.util.Set reportContent() -> h
+    286:286:boolean deleteUnapprovedReportsOnApplicationStart() -> i
+    314:314:boolean deleteOldUnsentReportsOnApplicationStart() -> j
+    330:330:boolean alsoReportToAndroidFramework() -> k
+    347:347:java.lang.String[] additionalSharedPreferences() -> l
+    363:363:boolean logcatFilterByPid() -> m
+    379:379:boolean logcatReadNonBlocking() -> n
+    395:395:boolean sendReportsInDevMode() -> o
+    411:411:java.lang.String[] excludeMatchingSharedPreferencesKeys() -> p
+    428:428:java.lang.String[] excludeMatchingSettingsKeys() -> q
+    445:445:java.lang.Class buildConfigClass() -> r
+    462:462:java.lang.Class[] reportSenderFactoryClasses() -> s
+    478:478:java.lang.String applicationLogFile() -> t
+    494:494:int applicationLogFileLines() -> u
+    511:511:org.acra.file.Directory applicationLogFileDir() -> v
+    527:527:java.lang.Class retryPolicyClass() -> w
+    544:544:boolean stopServicesOnCrash() -> x
+    561:561:java.lang.String[] attachmentUris() -> y
+    590:590:java.lang.Class attachmentUriProvider() -> z
+    608:608:int resReportSendSuccessToast() -> A
+    626:626:int resReportSendFailureToast() -> B
+    643:643:org.acra.data.StringFormat reportFormat() -> C
+    660:660:boolean parallel() -> D
+    690:690:java.util.List pluginConfigurations() -> E
+    700:709:org.acra.config.CoreConfiguration build() -> F
     29:29:org.acra.config.Configuration build() -> a
 org.acra.config.DefaultRetryPolicy -> org.acra.config.j:
     28:28:void <init>() -> <init>
@@ -32449,20 +32517,20 @@ org.acra.config.HttpSenderConfiguration -> org.acra.config.k:
     116:116:java.lang.String certificateType() -> l
     121:121:org.acra.collections.ImmutableMap httpHeaders() -> m
 org.acra.config.HttpSenderConfigurationBuilder -> org.acra.config.l:
-    java.lang.Boolean enabled -> a
+    boolean enabled -> a
     java.lang.String uri -> b
     java.lang.String basicAuthLogin -> c
     java.lang.String basicAuthPassword -> d
     org.acra.sender.HttpSender$Method httpMethod -> e
-    java.lang.Integer connectionTimeout -> f
-    java.lang.Integer socketTimeout -> g
-    java.lang.Boolean dropReportsOnTimeout -> h
+    int connectionTimeout -> f
+    int socketTimeout -> g
+    boolean dropReportsOnTimeout -> h
     java.lang.Class keyStoreFactoryClass -> i
     java.lang.String certificatePath -> j
-    java.lang.Integer resCertificate -> k
+    int resCertificate -> k
     java.lang.String certificateType -> l
     org.acra.config.BaseHttpConfigurationBuilder field0 -> m
-    63:80:void <init>(java.lang.Class) -> <init>
+    30:80:void <init>(java.lang.Class) -> <init>
     83:83:boolean enabled() -> b
     93:93:java.lang.String uri() -> c
     110:110:java.lang.String basicAuthLogin() -> d
@@ -32520,14 +32588,23 @@ org.acra.data.CrashReportDataFactory -> org.acra.data.b:
     android.content.Context context -> a
     org.acra.config.CoreConfiguration config -> b
     java.util.List collectors -> c
-    51:83:void <init>(android.content.Context,org.acra.config.CoreConfiguration) -> <init>
-    93:104:org.acra.data.CrashReportData createCrashData(org.acra.builder.ReportBuilder) -> a
-    108:118:void collectStartUp() -> a
+    55:87:void <init>(android.content.Context,org.acra.config.CoreConfiguration) -> <init>
+    97:127:org.acra.data.CrashReportData createCrashData(org.acra.builder.ReportBuilder) -> a
+    131:141:void collectStartUp() -> a
+    49:49:android.content.Context access$000(org.acra.data.CrashReportDataFactory) -> a
+    49:49:org.acra.config.CoreConfiguration access$100(org.acra.data.CrashReportDataFactory) -> b
 org.acra.data.CrashReportDataFactory$1 -> org.acra.data.b$1:
     org.acra.data.CrashReportDataFactory this$0 -> a
-    65:65:void <init>(org.acra.data.CrashReportDataFactory) -> <init>
-    71:80:int compare(org.acra.collector.Collector,org.acra.collector.Collector) -> a
-    65:65:int compare(java.lang.Object,java.lang.Object) -> compare
+    69:69:void <init>(org.acra.data.CrashReportDataFactory) -> <init>
+    75:84:int compare(org.acra.collector.Collector,org.acra.collector.Collector) -> a
+    69:69:int compare(java.lang.Object,java.lang.Object) -> compare
+org.acra.data.CrashReportDataFactory$2 -> org.acra.data.b$2:
+    org.acra.collector.Collector val$collector -> a
+    org.acra.builder.ReportBuilder val$builder -> b
+    org.acra.data.CrashReportData val$crashReportData -> c
+    org.acra.data.CrashReportDataFactory this$0 -> d
+    101:101:void <init>(org.acra.data.CrashReportDataFactory,org.acra.collector.Collector,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> <init>
+    106:114:void run() -> run
 org.acra.data.StringFormat -> org.acra.data.StringFormat:
     org.acra.data.StringFormat JSON -> JSON
     org.acra.data.StringFormat KEY_VALUE_LIST -> KEY_VALUE_LIST
@@ -32559,9 +32636,9 @@ org.acra.file.CrashReportFileNameParser -> org.acra.file.b:
     38:38:boolean isSilent(java.lang.String) -> a
     55:55:boolean isApproved(java.lang.String) -> b
 org.acra.file.CrashReportPersister -> org.acra.file.c:
-    38:38:void <init>() -> <init>
-    51:55:org.acra.data.CrashReportData load(java.io.File) -> a
-    70:71:void store(org.acra.data.CrashReportData,java.io.File) -> a
+    35:35:void <init>() -> <init>
+    47:47:org.acra.data.CrashReportData load(java.io.File) -> a
+    61:62:void store(org.acra.data.CrashReportData,java.io.File) -> a
 org.acra.file.Directory -> org.acra.file.Directory:
     org.acra.file.Directory FILES_LEGACY -> FILES_LEGACY
     org.acra.file.Directory FILES -> FILES
@@ -32702,29 +32779,46 @@ org.acra.legacy.ReportMigrator$1 -> org.acra.e.c$1:
 org.acra.log.ACRALog -> org.acra.f.a:
     int v(java.lang.String,java.lang.String) -> a
     int d(java.lang.String,java.lang.String) -> b
-    int d(java.lang.String,java.lang.String,java.lang.Throwable) -> a
     int i(java.lang.String,java.lang.String) -> c
     int w(java.lang.String,java.lang.String) -> d
-    int w(java.lang.String,java.lang.String,java.lang.Throwable) -> b
+    int w(java.lang.String,java.lang.String,java.lang.Throwable) -> a
     int w(java.lang.String,java.lang.Throwable) -> a
     int e(java.lang.String,java.lang.String) -> e
-    int e(java.lang.String,java.lang.String,java.lang.Throwable) -> c
+    int e(java.lang.String,java.lang.String,java.lang.Throwable) -> b
 org.acra.log.AndroidLogDelegate -> org.acra.f.b:
     28:28:void <init>() -> <init>
     31:31:int v(java.lang.String,java.lang.String) -> a
     39:39:int d(java.lang.String,java.lang.String) -> b
-    43:43:int d(java.lang.String,java.lang.String,java.lang.Throwable) -> a
     47:47:int i(java.lang.String,java.lang.String) -> c
     55:55:int w(java.lang.String,java.lang.String) -> d
-    59:59:int w(java.lang.String,java.lang.String,java.lang.Throwable) -> b
+    59:59:int w(java.lang.String,java.lang.String,java.lang.Throwable) -> a
     64:64:int w(java.lang.String,java.lang.Throwable) -> a
     68:68:int e(java.lang.String,java.lang.String) -> e
-    72:72:int e(java.lang.String,java.lang.String,java.lang.Throwable) -> c
+    72:72:int e(java.lang.String,java.lang.String,java.lang.Throwable) -> b
 org.acra.prefs.SharedPreferencesFactory -> org.acra.g.a:
     android.content.Context context -> a
     org.acra.config.CoreConfiguration config -> b
-    39:42:void <init>(android.content.Context,org.acra.config.CoreConfiguration) -> <init>
-    50:55:android.content.SharedPreferences create() -> a
+    40:43:void <init>(android.content.Context,org.acra.config.CoreConfiguration) -> <init>
+    55:62:boolean shouldDisableACRA(android.content.SharedPreferences) -> a
+    71:76:android.content.SharedPreferences create() -> a
+org.acra.reporter.ErrorReporterImpl -> org.acra.h.a:
+    boolean supportedAndroidVersion -> a
+    android.app.Application context -> b
+    org.acra.builder.ReportExecutor reportExecutor -> c
+    java.util.Map customData -> d
+    62:90:void <init>(android.app.Application,org.acra.config.CoreConfiguration,boolean,boolean) -> <init>
+    97:97:java.lang.String putCustomData(java.lang.String,java.lang.String) -> a
+    135:157:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    164:169:void handleSilentException(java.lang.Throwable) -> a
+    176:182:void setEnabled(boolean) -> a
+    189:189:boolean isRegistered() -> a
+    216:219:void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
+org.acra.reporter.ErrorReporterStub -> org.acra.h.b:
+    14:14:void <init>() -> <init>
+    17:18:java.lang.String putCustomData(java.lang.String,java.lang.String) -> a
+    41:42:void handleSilentException(java.lang.Throwable) -> a
+    51:51:boolean isRegistered() -> a
+    65:69:void warnStubCalled() -> b
 org.acra.security.AssetKeyStoreFactory -> org.acra.security.a:
     java.lang.String assetName -> a
     44:46:void <init>(java.lang.String,java.lang.String) -> <init>
@@ -32843,7 +32937,7 @@ org.acra.sender.SenderServiceStarter -> org.acra.sender.e:
     org.acra.config.CoreConfiguration config -> b
     36:39:void <init>(android.content.Context,org.acra.config.CoreConfiguration) -> <init>
     48:54:void startService(boolean,boolean) -> a
-org.acra.util.ApplicationStartupProcessor -> org.acra.h.a:
+org.acra.util.ApplicationStartupProcessor -> org.acra.i.a:
     android.content.Context context -> a
     org.acra.config.CoreConfiguration config -> b
     org.acra.file.BulkReportDeleter reportDeleter -> c
@@ -32856,54 +32950,27 @@ org.acra.util.ApplicationStartupProcessor -> org.acra.h.a:
     118:120:int getAppVersion() -> d
     38:38:android.content.Context access$000(org.acra.util.ApplicationStartupProcessor) -> a
     38:38:org.acra.config.CoreConfiguration access$100(org.acra.util.ApplicationStartupProcessor) -> b
-org.acra.util.ApplicationStartupProcessor$1 -> org.acra.h.a$1:
+org.acra.util.ApplicationStartupProcessor$1 -> org.acra.i.a$1:
     java.io.File[] val$reports -> a
     org.acra.util.ApplicationStartupProcessor this$0 -> b
     72:72:void <init>(org.acra.util.ApplicationStartupProcessor,java.io.File[]) -> <init>
     76:77:void run() -> run
-org.acra.util.IOUtils -> org.acra.h.b:
-    com.android.internal.util.Predicate DEFAULT_FILTER -> a
-    66:73:void safeClose(java.io.Closeable) -> a
-    84:84:java.lang.String streamToString(java.io.InputStream) -> a
-    110:110:java.lang.String streamToString(java.io.InputStream,int) -> a
-    124:135:java.lang.String streamToString(java.io.InputStream,com.android.internal.util.Predicate,int) -> a
-    151:171:java.lang.String streamToStringNonBlockingRead(java.io.InputStream,com.android.internal.util.Predicate,int) -> b
-    176:180:void deleteReport(java.io.File) -> a
-    183:190:void writeStringToFile(java.io.File,java.lang.String) -> a
-    47:47:void <clinit>() -> <clinit>
-org.acra.util.IOUtils$1 -> org.acra.h.b$1:
-    47:47:void <init>() -> <init>
-    50:50:boolean apply(java.lang.String) -> a
-    47:47:boolean apply(java.lang.Object) -> apply
-org.acra.util.Installation -> org.acra.h.c:
-    java.lang.String sID -> a
-    55:70:java.lang.String id(android.content.Context) -> a
-    75:82:java.lang.String readInstallationFile(java.io.File) -> a
-    86:93:void writeInstallationFile(java.io.File) -> b
-org.acra.util.InstanceCreator -> org.acra.h.d:
+org.acra.util.IOUtils -> org.acra.i.b:
+    48:55:void safeClose(java.io.Closeable) -> a
+    58:62:void deleteFile(java.io.File) -> a
+    65:72:void writeStringToFile(java.io.File,java.lang.String) -> a
+org.acra.util.Installation -> org.acra.i.c:
+    52:60:java.lang.String id(android.content.Context) -> a
+org.acra.util.InstanceCreator -> org.acra.i.d:
     33:33:void <init>() -> <init>
     44:50:java.lang.Object create(java.lang.Class,java.lang.Object) -> a
     61:68:java.util.List create(java.util.Collection) -> a
-org.acra.util.NonBlockingBufferedReader -> org.acra.h.e:
-    java.util.concurrent.BlockingQueue lines -> a
-    java.lang.Thread backgroundReaderThread -> b
-    java.io.IOException exception -> c
-    33:58:void <init>(java.io.BufferedReader) -> <init>
-    61:64:java.lang.String readLine() -> a
-    68:72:void close() -> b
-    31:31:java.util.concurrent.BlockingQueue access$000(org.acra.util.NonBlockingBufferedReader) -> a
-    31:31:java.io.IOException access$102(org.acra.util.NonBlockingBufferedReader,java.io.IOException) -> a
-org.acra.util.NonBlockingBufferedReader$1 -> org.acra.h.e$1:
-    java.io.BufferedReader val$bufferedReader -> a
-    org.acra.util.NonBlockingBufferedReader this$0 -> b
-    38:38:void <init>(org.acra.util.NonBlockingBufferedReader,java.io.BufferedReader) -> <init>
-    42:54:void run() -> run
-org.acra.util.PackageManagerWrapper -> org.acra.h.f:
+org.acra.util.PackageManagerWrapper -> org.acra.i.e:
     android.content.Context context -> a
     48:50:void <init>(android.content.Context) -> <init>
     57:67:boolean hasPermission(java.lang.String) -> a
     76:89:android.content.pm.PackageInfo getPackageInfo() -> a
-org.acra.util.ProcessFinisher -> org.acra.h.g:
+org.acra.util.ProcessFinisher -> org.acra.i.f:
     android.content.Context context -> a
     org.acra.config.CoreConfiguration config -> b
     org.acra.builder.LastActivityManager lastActivityManager -> c
@@ -32912,21 +32979,36 @@ org.acra.util.ProcessFinisher -> org.acra.h.g:
     63:86:void finishLastActivity(java.lang.Thread) -> a
     89:109:void stopServices() -> b
     112:114:void killProcessAndExit() -> c
-org.acra.util.ProcessFinisher$1 -> org.acra.h.g$1:
+org.acra.util.ProcessFinisher$1 -> org.acra.i.f$1:
     android.app.Activity val$lastActivity -> a
     org.acra.util.ProcessFinisher this$0 -> b
     67:67:void <init>(org.acra.util.ProcessFinisher,android.app.Activity) -> <init>
     70:72:void run() -> run
-org.acra.util.SystemServices -> org.acra.h.h:
+org.acra.util.StreamReader -> org.acra.i.g:
+    java.io.InputStream inputStream -> a
+    int limit -> b
+    int timeout -> c
+    com.android.internal.util.Predicate filter -> d
+    54:55:void <init>(java.lang.String) -> <init>
+    58:59:void <init>(java.io.File) -> <init>
+    49:63:void <init>(java.io.InputStream) -> <init>
+    66:67:org.acra.util.StreamReader setLimit(int) -> a
+    71:72:org.acra.util.StreamReader setTimeout(int) -> b
+    76:77:org.acra.util.StreamReader setFilter(com.android.internal.util.Predicate) -> a
+    81:99:java.lang.String read() -> a
+    103:113:java.lang.String readFully() -> b
+    118:128:java.lang.String readWithTimeout() -> c
+    133:139:int fillBufferUntil(byte[],long) -> a
+org.acra.util.SystemServices -> org.acra.i.h:
     37:37:android.telephony.TelephonyManager getTelephonyManager(android.content.Context) -> a
     42:42:android.os.DropBoxManager getDropBoxManager(android.content.Context) -> b
     52:52:android.app.ActivityManager getActivityManager(android.content.Context) -> c
     57:61:java.lang.Object getService(android.content.Context,java.lang.String) -> a
-org.acra.util.SystemServices$ServiceNotReachedException -> org.acra.h.h$a:
+org.acra.util.SystemServices$ServiceNotReachedException -> org.acra.i.h$a:
     66:67:void <init>(java.lang.String) -> <init>
-org.acra.util.ToastSender -> org.acra.h.i:
+org.acra.util.ToastSender -> org.acra.i.i:
     47:51:void sendToast(android.content.Context,int,int) -> a
-org.acra.util.UriUtils -> org.acra.h.j:
+org.acra.util.UriUtils -> org.acra.i.j:
     45:55:byte[] uriToByteArray(android.content.Context,android.net.Uri) -> a
     59:79:java.lang.String getFileNameFromUri(android.content.Context,android.net.Uri) -> b
     83:87:java.lang.String getMimeType(android.content.Context,android.net.Uri) -> c
