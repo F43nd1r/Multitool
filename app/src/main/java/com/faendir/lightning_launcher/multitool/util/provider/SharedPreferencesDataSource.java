@@ -12,7 +12,6 @@ import android.support.annotation.Nullable;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.Utils;
-import com.google.gson.JsonSyntaxException;
 
 import java.util.Arrays;
 import java.util.HashSet;

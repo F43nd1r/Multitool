@@ -15,7 +15,7 @@ public class ItemFactory<T extends Model> {
 
     public static <T extends Model> ItemFactory<T> forLauncherIconSize(@NonNull Context context){
         //noinspection ConstantConditions
-        return new ItemFactory<T>(((ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE)).getLauncherLargeIconSize());
+        return new ItemFactory<>(((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getLauncherLargeIconSize());
     }
 
     public ItemFactory(int size) {
@@ -23,6 +23,6 @@ public class ItemFactory<T extends Model> {
     }
 
     public ExpandableItem<T> wrap(T item) {
-        return new ExpandableItem<T>(item, size);
+        return new ExpandableItem<>(item, size);
     }
 }

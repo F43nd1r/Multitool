@@ -1,8 +1,16 @@
 package com.faendir.lightning_launcher.multitool.scriptmanager;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.AsyncTask;
+import android.support.annotation.Nullable;
+import android.widget.Toast;
 
+import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.fastadapter.Model;
+import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
+import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.mozilla.javascript.CompilerEnvirons;
@@ -19,8 +27,10 @@ import org.mozilla.javascript.ast.ObjectLiteral;
 import org.mozilla.javascript.ast.SwitchCase;
 import org.mozilla.javascript.ast.SwitchStatement;
 
+import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -28,66 +38,80 @@ import java.util.List;
  * @since 11.10.2017
  */
 
-public class FormatTask3 extends FormatTask {
-    public FormatTask3(ScriptManager scriptManager, Context context, ListManager listManager) {
-        super(scriptManager, context, listManager);
+public class FormatTask3 extends AsyncTask<Model, FormatTask3.Progress, Void> {
+    private final ScriptManager scriptManager;
+    private final WeakReference<Context> context;
+    private final ListManager listManager;
+    private ProgressDialog dialog;
+
+    FormatTask3(ScriptManager scriptManager, Context context, ListManager listManager) {
+        super();
+        this.scriptManager = scriptManager;
+        this.context = new WeakReference<>(context);
+        this.listManager = listManager;
     }
 
-    @Override
-    String beautify(String script) {
-        CompilerEnvirons compilerEnvirons = new CompilerEnvirons();
-        compilerEnvirons.setRecordingLocalJsDocComments(true);
-        compilerEnvirons.setAllowSharpComments(true);
-        compilerEnvirons.setRecordingComments(true);
-        Parser parser = new Parser(compilerEnvirons);
-        AstRoot astRoot = parser.parse(script + "\n", null, 1);
-        AstNode root = astRoot;
-        for (Comment comment : astRoot.getComments()) {
-            final CloseNotes closeNotes = new CloseNotes();
-            root.visit(node -> {
-                if (comment.getCommentType() == Token.CommentType.BLOCK_COMMENT ||
-                        !(node.getParent() instanceof SwitchCase && matches(node, ((SwitchCase) node.getParent()).getExpression())
-                                || node.getParent() instanceof IfStatement && matches(node, ((IfStatement) node.getParent()).getCondition()))) {
-                    int dist1 = Math.abs(comment.getAbsolutePosition() - node.getAbsolutePosition());
-                    int dist2 = Math.abs(comment.getAbsolutePosition() + comment.getLength() - node.getAbsolutePosition());
-                    int dist3 = Math.abs(comment.getAbsolutePosition() - node.getAbsolutePosition() - node.getLength());
-                    int dist4 = Math.abs(comment.getAbsolutePosition() + comment.getLength() - node.getAbsolutePosition() - node.getLength());
-                    int dist = Math.min(Math.min(dist1, dist2), Math.min(dist3, dist4));
-                    if (comment.getLineno() == node.getLineno()) {
-                        if (dist < closeNotes.sameLineDist) {
-                            closeNotes.sameLine = node;
-                            closeNotes.sameLineDist = dist;
+    private String beautify(String script) {
+        try {
+            CompilerEnvirons compilerEnvirons = new CompilerEnvirons();
+            compilerEnvirons.setRecordingLocalJsDocComments(true);
+            compilerEnvirons.setAllowSharpComments(true);
+            compilerEnvirons.setRecordingComments(true);
+            Parser parser = new Parser(compilerEnvirons);
+            AstRoot astRoot = parser.parse(script + "\n", null, 1);
+            AstNode root = astRoot;
+            if (astRoot.getComments() != null) {
+                for (Comment comment : astRoot.getComments()) {
+                    final CloseNotes closeNotes = new CloseNotes();
+                    root.visit(node -> {
+                        if (comment.getCommentType() == Token.CommentType.BLOCK_COMMENT ||
+                                !(node.getParent() instanceof SwitchCase && matches(node, ((SwitchCase) node.getParent()).getExpression())
+                                        || node.getParent() instanceof IfStatement && matches(node, ((IfStatement) node.getParent()).getCondition()))) {
+                            int dist1 = Math.abs(comment.getAbsolutePosition() - node.getAbsolutePosition());
+                            int dist2 = Math.abs(comment.getAbsolutePosition() + comment.getLength() - node.getAbsolutePosition());
+                            int dist3 = Math.abs(comment.getAbsolutePosition() - node.getAbsolutePosition() - node.getLength());
+                            int dist4 = Math.abs(comment.getAbsolutePosition() + comment.getLength() - node.getAbsolutePosition() - node.getLength());
+                            int dist = Math.min(Math.min(dist1, dist2), Math.min(dist3, dist4));
+                            if (comment.getLineno() == node.getLineno()) {
+                                if (dist < closeNotes.sameLineDist) {
+                                    closeNotes.sameLine = node;
+                                    closeNotes.sameLineDist = dist;
+                                }
+                            } else if (comment.getLineno() > node.getLineno()) {
+                                if (dist < closeNotes.prevLinesDist) {
+                                    closeNotes.prevLines = node;
+                                    closeNotes.prevLinesDist = dist;
+                                }
+                            } else {
+                                if (dist < closeNotes.nextLinesDist) {
+                                    closeNotes.nextLines = node;
+                                    closeNotes.nextLinesDist = dist;
+                                }
+                            }
+                            return true;
                         }
-                    } else if (comment.getLineno() > node.getLineno()) {
-                        if (dist < closeNotes.prevLinesDist) {
-                            closeNotes.prevLines = node;
-                            closeNotes.prevLinesDist = dist;
-                        }
+                        return false;
+                    });
+                    if (closeNotes.sameLine != null) {
+                        boolean in = comment.getLength() < closeNotes.sameLine.getLength() && comment.getAbsolutePosition() > closeNotes.sameLine.getAbsolutePosition()
+                                && comment.getAbsolutePosition() + comment.getLength() < closeNotes.sameLine.getAbsolutePosition() + closeNotes.sameLine.getLength();
+                        boolean before = Math.abs(comment.getAbsolutePosition() + comment.getLength() - closeNotes.sameLine.getAbsolutePosition())
+                                < Math.abs(comment.getAbsolutePosition() - closeNotes.sameLine.getAbsolutePosition() - closeNotes.sameLine.getLength());
+                        root = replaceWithWrapper(closeNotes.sameLine, comment, in ? Position.IN : before ? Position.BEFORE : Position.AFTER_SAME_LINE, root);
+                    } else if (closeNotes.nextLinesDist > closeNotes.prevLinesDist) {
+                        root = replaceWithWrapper(closeNotes.prevLines, comment, Position.AFTER_NEXT_LINE, root);
+                    } else if (closeNotes.nextLines != null) {
+                        root = replaceWithWrapper(closeNotes.nextLines, comment, Position.BEFORE, root);
                     } else {
-                        if (dist < closeNotes.nextLinesDist) {
-                            closeNotes.nextLines = node;
-                            closeNotes.nextLinesDist = dist;
-                        }
+                        root = replaceWithWrapper(root, comment, Position.AFTER_SAME_LINE, root);
                     }
-                    return true;
                 }
-                return false;
-            });
-            if (closeNotes.sameLine != null) {
-                boolean in = comment.getLength() < closeNotes.sameLine.getLength() && comment.getAbsolutePosition() > closeNotes.sameLine.getAbsolutePosition()
-                        && comment.getAbsolutePosition() + comment.getLength() < closeNotes.sameLine.getAbsolutePosition() + closeNotes.sameLine.getLength();
-                boolean before = Math.abs(comment.getAbsolutePosition() + comment.getLength() - closeNotes.sameLine.getAbsolutePosition())
-                        < Math.abs(comment.getAbsolutePosition() - closeNotes.sameLine.getAbsolutePosition() - closeNotes.sameLine.getLength());
-                root = replaceWithWrapper(closeNotes.sameLine, comment, in ? Position.IN : before ? Position.BEFORE : Position.AFTER_SAME_LINE, root);
-            } else if (closeNotes.nextLinesDist > closeNotes.prevLinesDist) {
-                root = replaceWithWrapper(closeNotes.prevLines, comment, Position.AFTER_NEXT_LINE, root);
-            } else if (closeNotes.nextLines != null) {
-                root = replaceWithWrapper(closeNotes.nextLines, comment, Position.BEFORE, root);
-            } else {
-                root = replaceWithWrapper(root, comment, Position.AFTER_SAME_LINE, root);
             }
+            return root.toSource(0);
+        } catch (Throwable t) {
+            t.printStackTrace();
+            return null;
         }
-        return root.toSource(0);
     }
 
     private AstNode replaceWithWrapper(AstNode node, Comment comment, Position position, AstNode root) {
@@ -160,6 +184,66 @@ public class FormatTask3 extends FormatTask {
         }
     }
 
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        Context context = this.context.get();
+        if (context != null) {
+            dialog = new ProgressDialog(context);
+            dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            dialog.setCancelable(false);
+            dialog.setMessage(context.getString(R.string.message_pleaseWait));
+            dialog.setTitle(context.getString(R.string.title_format));
+            dialog.setButton(ProgressDialog.BUTTON_NEGATIVE, context.getString(R.string.button_cancel), (dialog1, ignore) -> cancel(true));
+            dialog.show();
+        }
+    }
+
+    @Override
+    protected void onProgressUpdate(Progress... values) {
+        super.onProgressUpdate(values);
+        Progress progress = values[0];
+        if (dialog != null) {
+            if (progress.hasTitle()) dialog.setTitle(progress.getTitle());
+            if (progress.hasMax()) dialog.setMax(progress.getMax());
+            if (progress.hasProgress()) dialog.setProgress(progress.getProgress());
+        }
+    }
+
+    @Override
+    protected Void doInBackground(Model... params) {
+        for (Model item : params) {
+            if (item instanceof Script) {
+                Script script = (Script) item;
+                publishProgress(new Progress(script.getCode().length(), 0, script.getName()));
+                String code = beautify(script.getCode());
+                if (code == null) return null;
+                script.setCode(code); //set the text to the script
+                Transfer transfer = new Transfer(Transfer.SET_CODE);
+                transfer.script = script;
+                scriptManager.getAsyncExecutorService().add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)),
+                        result -> {
+                            if (result != null) {
+                                List<Script> scripts = Arrays.asList(Utils.GSON.fromJson(result, Script[].class));
+                                listManager.updateFrom(scripts);
+                            }
+                        }).start();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    protected void onPostExecute(Void result) {
+        if (dialog != null) {
+            dialog.dismiss();
+        }
+        Context context = this.context.get();
+        if (context != null) {
+            Toast.makeText(context, R.string.message_done, Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private static class CloseNotes {
         AstNode prevLines;
         int prevLinesDist = Integer.MAX_VALUE;
@@ -170,7 +254,7 @@ public class FormatTask3 extends FormatTask {
     }
 
     private static String toSource(AstNode node, Comment comment, Position position, int depth) {
-        if(comment.getValue().startsWith("//onClickFunction has to have two arguments. first is group position, second is child position")){
+        if (comment.getValue().startsWith("//onClickFunction has to have two arguments. first is group position, second is child position")) {
             comment.getValue();
         }
         String source = node.toSource(depth);
@@ -209,7 +293,7 @@ public class FormatTask3 extends FormatTask {
         private final Comment comment;
         private final Position position;
 
-        public CommentNodeWrapper(AstNode node, Comment comment, Position position) {
+        CommentNodeWrapper(AstNode node, Comment comment, Position position) {
             this.node = node;
             this.comment = comment;
             this.position = position;
@@ -237,7 +321,7 @@ public class FormatTask3 extends FormatTask {
         private final Comment comment;
         private final Position position;
 
-        public CommentObjectLiteralWrapper(ObjectLiteral node, Comment comment, Position position) {
+        CommentObjectLiteralWrapper(ObjectLiteral node, Comment comment, Position position) {
             this.node = node;
             this.comment = comment;
             this.position = position;
@@ -265,7 +349,7 @@ public class FormatTask3 extends FormatTask {
         private final Comment comment;
         private final Position position;
 
-        public CommentSwitchCaseWrapper(SwitchCase node, Comment comment, Position position) {
+        CommentSwitchCaseWrapper(SwitchCase node, Comment comment, Position position) {
             this.node = node;
             this.comment = comment;
             this.position = position;
@@ -293,5 +377,44 @@ public class FormatTask3 extends FormatTask {
         AFTER_SAME_LINE,
         AFTER_NEXT_LINE,
         ONLY_COMMENT
+    }
+
+    static class Progress {
+
+        private final String title;
+        private final Integer max;
+        private final Integer progress;
+
+        Progress(@Nullable Integer max, @Nullable Integer progress, @Nullable String title) {
+            this.max = max;
+            this.progress = progress;
+            this.title = title;
+        }
+
+        boolean hasTitle() {
+            return title != null;
+        }
+
+        boolean hasMax() {
+            return max != null;
+        }
+
+        boolean hasProgress() {
+            return progress != null;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        Integer getProgress() {
+            return progress;
+        }
+
+        Integer getMax() {
+            return max;
+        }
+
+
     }
 }

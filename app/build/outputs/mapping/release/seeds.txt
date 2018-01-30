@@ -7910,6 +7910,194 @@ com.anjlab.android.iab.v3.PurchaseState: com.anjlab.android.iab.v3.PurchaseState
 com.anjlab.android.iab.v3.PurchaseState: com.anjlab.android.iab.v3.PurchaseState valueOf(java.lang.String)
 com.anjlab.android.iab.v3.SkuDetails: android.os.Parcelable$Creator CREATOR
 com.anjlab.android.iab.v3.TransactionDetails: android.os.Parcelable$Creator CREATOR
+com.evernote.android.job.DailyJob$DailyJobResult: com.evernote.android.job.DailyJob$DailyJobResult[] values()
+com.evernote.android.job.DailyJob$DailyJobResult: com.evernote.android.job.DailyJob$DailyJobResult valueOf(java.lang.String)
+com.evernote.android.job.Job: com.evernote.android.job.util.JobCat CAT
+com.evernote.android.job.Job: com.evernote.android.job.Job$Params mParams
+com.evernote.android.job.Job: java.lang.ref.WeakReference mContextReference
+com.evernote.android.job.Job: android.content.Context mApplicationContext
+com.evernote.android.job.Job: boolean mCanceled
+com.evernote.android.job.Job: boolean mDeleted
+com.evernote.android.job.Job: long mFinishedTimeStamp
+com.evernote.android.job.Job: com.evernote.android.job.Job$Result mResult
+com.evernote.android.job.Job: Job()
+com.evernote.android.job.Job: com.evernote.android.job.Job$Result onRunJob(com.evernote.android.job.Job$Params)
+com.evernote.android.job.Job: com.evernote.android.job.Job$Result runJob()
+com.evernote.android.job.Job: void onReschedule(int)
+com.evernote.android.job.Job: boolean meetsRequirements()
+com.evernote.android.job.Job: boolean isRequirementChargingMet()
+com.evernote.android.job.Job: boolean isRequirementDeviceIdleMet()
+com.evernote.android.job.Job: boolean isRequirementBatteryNotLowMet()
+com.evernote.android.job.Job: boolean isRequirementStorageNotLowMet()
+com.evernote.android.job.Job: boolean isRequirementNetworkTypeMet()
+com.evernote.android.job.Job: com.evernote.android.job.Job setRequest(com.evernote.android.job.JobRequest,android.os.Bundle)
+com.evernote.android.job.Job: com.evernote.android.job.Job$Params getParams()
+com.evernote.android.job.Job: com.evernote.android.job.Job setContext(android.content.Context)
+com.evernote.android.job.Job: android.content.Context getContext()
+com.evernote.android.job.Job: void cancel()
+com.evernote.android.job.Job: void cancel(boolean)
+com.evernote.android.job.Job: boolean isCanceled()
+com.evernote.android.job.Job: boolean isFinished()
+com.evernote.android.job.Job: long getFinishedTimeStamp()
+com.evernote.android.job.Job: com.evernote.android.job.Job$Result getResult()
+com.evernote.android.job.Job: boolean isDeleted()
+com.evernote.android.job.Job: boolean equals(java.lang.Object)
+com.evernote.android.job.Job: int hashCode()
+com.evernote.android.job.Job: java.lang.String toString()
+com.evernote.android.job.Job: void <clinit>()
+com.evernote.android.job.Job$Result: com.evernote.android.job.Job$Result[] values()
+com.evernote.android.job.Job$Result: com.evernote.android.job.Job$Result valueOf(java.lang.String)
+com.evernote.android.job.JobApi: com.evernote.android.job.JobApi[] values()
+com.evernote.android.job.JobApi: com.evernote.android.job.JobApi valueOf(java.lang.String)
+com.evernote.android.job.JobBootReceiver
+com.evernote.android.job.JobBootReceiver: JobBootReceiver()
+com.evernote.android.job.JobRequest$BackoffPolicy: com.evernote.android.job.JobRequest$BackoffPolicy[] values()
+com.evernote.android.job.JobRequest$BackoffPolicy: com.evernote.android.job.JobRequest$BackoffPolicy valueOf(java.lang.String)
+com.evernote.android.job.JobRequest$NetworkType: com.evernote.android.job.JobRequest$NetworkType[] values()
+com.evernote.android.job.JobRequest$NetworkType: com.evernote.android.job.JobRequest$NetworkType valueOf(java.lang.String)
+com.evernote.android.job.JobRescheduleService
+com.evernote.android.job.JobRescheduleService: com.evernote.android.job.util.JobCat CAT
+com.evernote.android.job.JobRescheduleService: java.util.concurrent.CountDownLatch latch
+com.evernote.android.job.JobRescheduleService: JobRescheduleService()
+com.evernote.android.job.JobRescheduleService: void startService(android.content.Context)
+com.evernote.android.job.JobRescheduleService: void onHandleWork(android.content.Intent)
+com.evernote.android.job.JobRescheduleService: int rescheduleJobs(com.evernote.android.job.JobManager)
+com.evernote.android.job.JobRescheduleService: int rescheduleJobs(com.evernote.android.job.JobManager,java.util.Collection)
+com.evernote.android.job.JobRescheduleService: void <clinit>()
+com.evernote.android.job.R$attr: int font
+com.evernote.android.job.R$attr: int fontProviderAuthority
+com.evernote.android.job.R$attr: int fontProviderCerts
+com.evernote.android.job.R$attr: int fontProviderFetchStrategy
+com.evernote.android.job.R$attr: int fontProviderFetchTimeout
+com.evernote.android.job.R$attr: int fontProviderPackage
+com.evernote.android.job.R$attr: int fontProviderQuery
+com.evernote.android.job.R$attr: int fontStyle
+com.evernote.android.job.R$attr: int fontWeight
+com.evernote.android.job.R$bool: int abc_action_bar_embed_tabs
+com.evernote.android.job.R$color: int notification_action_color_filter
+com.evernote.android.job.R$color: int notification_icon_bg_color
+com.evernote.android.job.R$color: int ripple_material_light
+com.evernote.android.job.R$color: int secondary_text_default_material_light
+com.evernote.android.job.R$dimen: int compat_button_inset_horizontal_material
+com.evernote.android.job.R$dimen: int compat_button_inset_vertical_material
+com.evernote.android.job.R$dimen: int compat_button_padding_horizontal_material
+com.evernote.android.job.R$dimen: int compat_button_padding_vertical_material
+com.evernote.android.job.R$dimen: int compat_control_corner_material
+com.evernote.android.job.R$dimen: int notification_action_icon_size
+com.evernote.android.job.R$dimen: int notification_action_text_size
+com.evernote.android.job.R$dimen: int notification_big_circle_margin
+com.evernote.android.job.R$dimen: int notification_content_margin_start
+com.evernote.android.job.R$dimen: int notification_large_icon_height
+com.evernote.android.job.R$dimen: int notification_large_icon_width
+com.evernote.android.job.R$dimen: int notification_main_column_padding_top
+com.evernote.android.job.R$dimen: int notification_media_narrow_margin
+com.evernote.android.job.R$dimen: int notification_right_icon_size
+com.evernote.android.job.R$dimen: int notification_right_side_padding_top
+com.evernote.android.job.R$dimen: int notification_small_icon_background_padding
+com.evernote.android.job.R$dimen: int notification_small_icon_size_as_large
+com.evernote.android.job.R$dimen: int notification_subtext_size
+com.evernote.android.job.R$dimen: int notification_top_pad
+com.evernote.android.job.R$dimen: int notification_top_pad_large_text
+com.evernote.android.job.R$drawable: int notification_action_background
+com.evernote.android.job.R$drawable: int notification_bg
+com.evernote.android.job.R$drawable: int notification_bg_low
+com.evernote.android.job.R$drawable: int notification_bg_low_normal
+com.evernote.android.job.R$drawable: int notification_bg_low_pressed
+com.evernote.android.job.R$drawable: int notification_bg_normal
+com.evernote.android.job.R$drawable: int notification_bg_normal_pressed
+com.evernote.android.job.R$drawable: int notification_icon_background
+com.evernote.android.job.R$drawable: int notification_template_icon_bg
+com.evernote.android.job.R$drawable: int notification_template_icon_low_bg
+com.evernote.android.job.R$drawable: int notification_tile_bg
+com.evernote.android.job.R$drawable: int notify_panel_notification_icon_bg
+com.evernote.android.job.R$id: int action_container
+com.evernote.android.job.R$id: int action_divider
+com.evernote.android.job.R$id: int action_image
+com.evernote.android.job.R$id: int action_text
+com.evernote.android.job.R$id: int actions
+com.evernote.android.job.R$id: int async
+com.evernote.android.job.R$id: int blocking
+com.evernote.android.job.R$id: int chronometer
+com.evernote.android.job.R$id: int forever
+com.evernote.android.job.R$id: int icon
+com.evernote.android.job.R$id: int icon_group
+com.evernote.android.job.R$id: int info
+com.evernote.android.job.R$id: int italic
+com.evernote.android.job.R$id: int line1
+com.evernote.android.job.R$id: int line3
+com.evernote.android.job.R$id: int normal
+com.evernote.android.job.R$id: int notification_background
+com.evernote.android.job.R$id: int notification_main_column
+com.evernote.android.job.R$id: int notification_main_column_container
+com.evernote.android.job.R$id: int right_icon
+com.evernote.android.job.R$id: int right_side
+com.evernote.android.job.R$id: int text
+com.evernote.android.job.R$id: int text2
+com.evernote.android.job.R$id: int time
+com.evernote.android.job.R$id: int title
+com.evernote.android.job.R$integer: int status_bar_notification_info_maxnum
+com.evernote.android.job.R$layout: int notification_action
+com.evernote.android.job.R$layout: int notification_action_tombstone
+com.evernote.android.job.R$layout: int notification_template_custom_big
+com.evernote.android.job.R$layout: int notification_template_icon_group
+com.evernote.android.job.R$layout: int notification_template_part_chronometer
+com.evernote.android.job.R$layout: int notification_template_part_time
+com.evernote.android.job.R$string: int status_bar_notification_info_overflow
+com.evernote.android.job.R$style: int TextAppearance_Compat_Notification
+com.evernote.android.job.R$style: int TextAppearance_Compat_Notification_Info
+com.evernote.android.job.R$style: int TextAppearance_Compat_Notification_Line2
+com.evernote.android.job.R$style: int TextAppearance_Compat_Notification_Time
+com.evernote.android.job.R$style: int TextAppearance_Compat_Notification_Title
+com.evernote.android.job.R$style: int Widget_Compat_NotificationActionContainer
+com.evernote.android.job.R$style: int Widget_Compat_NotificationActionText
+com.evernote.android.job.R$styleable: int[] FontFamily
+com.evernote.android.job.R$styleable: int FontFamily_fontProviderAuthority
+com.evernote.android.job.R$styleable: int FontFamily_fontProviderCerts
+com.evernote.android.job.R$styleable: int FontFamily_fontProviderFetchStrategy
+com.evernote.android.job.R$styleable: int FontFamily_fontProviderFetchTimeout
+com.evernote.android.job.R$styleable: int FontFamily_fontProviderPackage
+com.evernote.android.job.R$styleable: int FontFamily_fontProviderQuery
+com.evernote.android.job.R$styleable: int[] FontFamilyFont
+com.evernote.android.job.R$styleable: int FontFamilyFont_android_font
+com.evernote.android.job.R$styleable: int FontFamilyFont_android_fontWeight
+com.evernote.android.job.R$styleable: int FontFamilyFont_android_fontStyle
+com.evernote.android.job.R$styleable: int FontFamilyFont_font
+com.evernote.android.job.R$styleable: int FontFamilyFont_fontStyle
+com.evernote.android.job.R$styleable: int FontFamilyFont_fontWeight
+com.evernote.android.job.gcm.PlatformGcmService
+com.evernote.android.job.gcm.PlatformGcmService: PlatformGcmService()
+com.evernote.android.job.v14.PlatformAlarmReceiver
+com.evernote.android.job.v14.PlatformAlarmReceiver: PlatformAlarmReceiver()
+com.evernote.android.job.v14.PlatformAlarmService
+com.evernote.android.job.v14.PlatformAlarmService: com.evernote.android.job.util.JobCat CAT
+com.evernote.android.job.v14.PlatformAlarmService: PlatformAlarmService()
+com.evernote.android.job.v14.PlatformAlarmService: void start(android.content.Context,int,android.os.Bundle)
+com.evernote.android.job.v14.PlatformAlarmService: void onHandleWork(android.content.Intent)
+com.evernote.android.job.v14.PlatformAlarmService: void runJob(android.content.Intent,android.app.Service,com.evernote.android.job.util.JobCat)
+com.evernote.android.job.v14.PlatformAlarmService: void <clinit>()
+com.evernote.android.job.v14.PlatformAlarmServiceExact
+com.evernote.android.job.v14.PlatformAlarmServiceExact: com.evernote.android.job.util.JobCat CAT
+com.evernote.android.job.v14.PlatformAlarmServiceExact: java.lang.Object mMonitor
+com.evernote.android.job.v14.PlatformAlarmServiceExact: java.util.Set mStartIds
+com.evernote.android.job.v14.PlatformAlarmServiceExact: int mLastStartId
+com.evernote.android.job.v14.PlatformAlarmServiceExact: PlatformAlarmServiceExact()
+com.evernote.android.job.v14.PlatformAlarmServiceExact: android.content.Intent createIntent(android.content.Context,int,android.os.Bundle)
+com.evernote.android.job.v14.PlatformAlarmServiceExact: void onCreate()
+com.evernote.android.job.v14.PlatformAlarmServiceExact: int onStartCommand(android.content.Intent,int,int)
+com.evernote.android.job.v14.PlatformAlarmServiceExact: void onDestroy()
+com.evernote.android.job.v14.PlatformAlarmServiceExact: android.os.IBinder onBind(android.content.Intent)
+com.evernote.android.job.v14.PlatformAlarmServiceExact: void stopSelfIfNecessary(int)
+com.evernote.android.job.v14.PlatformAlarmServiceExact: com.evernote.android.job.util.JobCat access$000()
+com.evernote.android.job.v14.PlatformAlarmServiceExact: void access$100(com.evernote.android.job.v14.PlatformAlarmServiceExact,int)
+com.evernote.android.job.v14.PlatformAlarmServiceExact: void <clinit>()
+com.evernote.android.job.v21.PlatformJobService
+com.evernote.android.job.v21.PlatformJobService: com.evernote.android.job.util.JobCat CAT
+com.evernote.android.job.v21.PlatformJobService: PlatformJobService()
+com.evernote.android.job.v21.PlatformJobService: boolean onStartJob(android.app.job.JobParameters)
+com.evernote.android.job.v21.PlatformJobService: boolean onStopJob(android.app.job.JobParameters)
+com.evernote.android.job.v21.PlatformJobService: android.os.Bundle getTransientBundle(android.app.job.JobParameters)
+com.evernote.android.job.v21.PlatformJobService: android.os.Bundle access$000(com.evernote.android.job.v21.PlatformJobService,android.app.job.JobParameters)
+com.evernote.android.job.v21.PlatformJobService: void <clinit>()
 com.faendir.lightning_launcher.multitool.Loader
 com.faendir.lightning_launcher.multitool.Loader: Loader()
 com.faendir.lightning_launcher.multitool.MainActivity
@@ -9633,6 +9821,7 @@ com.faendir.lightning_launcher.multitool.R$string: int define_materialdrawer
 com.faendir.lightning_launcher.multitool.R$string: int define_materialize
 com.faendir.lightning_launcher.multitool.R$string: int edit_enterName
 com.faendir.lightning_launcher.multitool.R$string: int email
+com.faendir.lightning_launcher.multitool.R$string: int fastadapter_lib_version
 com.faendir.lightning_launcher.multitool.R$string: int google_community
 com.faendir.lightning_launcher.multitool.R$string: int hint_nameOfScript
 com.faendir.lightning_launcher.multitool.R$string: int imageDescription_divider
@@ -9713,9 +9902,13 @@ com.faendir.lightning_launcher.multitool.R$string: int message_pleaseWait
 com.faendir.lightning_launcher.multitool.R$string: int message_trial
 com.faendir.lightning_launcher.multitool.R$string: int nnf_create_folder_error
 com.faendir.lightning_launcher.multitool.R$string: int nnf_filename
+com.faendir.lightning_launcher.multitool.R$string: int nnf_list_cancel
+com.faendir.lightning_launcher.multitool.R$string: int nnf_list_ok
 com.faendir.lightning_launcher.multitool.R$string: int nnf_name
 com.faendir.lightning_launcher.multitool.R$string: int nnf_need_valid_filename
 com.faendir.lightning_launcher.multitool.R$string: int nnf_new_folder
+com.faendir.lightning_launcher.multitool.R$string: int nnf_new_folder_cancel
+com.faendir.lightning_launcher.multitool.R$string: int nnf_new_folder_ok
 com.faendir.lightning_launcher.multitool.R$string: int nnf_permission_external_write_denied
 com.faendir.lightning_launcher.multitool.R$string: int nnf_select_something_first
 com.faendir.lightning_launcher.multitool.R$string: int password_toggle_content_description
@@ -9733,6 +9926,7 @@ com.faendir.lightning_launcher.multitool.R$string: int pref_enableAcra
 com.faendir.lightning_launcher.multitool.R$string: int pref_enableBackup
 com.faendir.lightning_launcher.multitool.R$string: int pref_hiddenApps
 com.faendir.lightning_launcher.multitool.R$string: int pref_id
+com.faendir.lightning_launcher.multitool.R$string: int pref_jobIds
 com.faendir.lightning_launcher.multitool.R$string: int pref_keepSorted
 com.faendir.lightning_launcher.multitool.R$string: int pref_lastFragment
 com.faendir.lightning_launcher.multitool.R$string: int pref_musicDefault
@@ -10864,13 +11058,12 @@ com.faendir.lightning_launcher.multitool.R$styleable: int ViewStubCompat_android
 com.faendir.lightning_launcher.multitool.R$styleable: int ViewStubCompat_android_layout
 com.faendir.lightning_launcher.multitool.R$styleable: int ViewStubCompat_android_inflatedId
 com.faendir.lightning_launcher.multitool.R$xml: int drawer
+com.faendir.lightning_launcher.multitool.R$xml: int nnf_provider_paths
 com.faendir.lightning_launcher.multitool.R$xml: int prefs
-com.faendir.lightning_launcher.multitool.backup.BackupService
-com.faendir.lightning_launcher.multitool.backup.BackupService: BackupService()
-com.faendir.lightning_launcher.multitool.backup.BackupService: void onHandleIntent(android.content.Intent)
-com.faendir.lightning_launcher.multitool.backup.BackupService: void lambda$onHandleIntent$0$BackupService(java.lang.String)
-com.faendir.lightning_launcher.multitool.backup.BootBroadcastReceiver
-com.faendir.lightning_launcher.multitool.backup.BootBroadcastReceiver: BootBroadcastReceiver()
+com.faendir.lightning_launcher.multitool.backup.BackupJob
+com.faendir.lightning_launcher.multitool.backup.BackupJob: BackupJob()
+com.faendir.lightning_launcher.multitool.backup.BackupJob: com.evernote.android.job.Job$Result onRunJob(com.evernote.android.job.Job$Params)
+com.faendir.lightning_launcher.multitool.backup.BackupJob: void lambda$onRunJob$0$BackupJob(java.lang.String)
 com.faendir.lightning_launcher.multitool.badge.AppChooser
 com.faendir.lightning_launcher.multitool.badge.AppChooser: AppChooser()
 com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver
@@ -10979,7 +11172,7 @@ com.faendir.lightning_launcher.multitool.music.MusicListenerService: java.lang.r
 com.faendir.lightning_launcher.multitool.music.MusicListenerService: org.apache.commons.collections4.BidiMap access$400(com.faendir.lightning_launcher.multitool.music.MusicListenerService)
 com.faendir.lightning_launcher.multitool.music.MusicListenerService: void access$500(com.faendir.lightning_launcher.multitool.music.MusicListenerService,android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String)
 com.faendir.lightning_launcher.multitool.music.MusicListenerService: void <clinit>()
-com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask$$Lambda$0: void onClick(android.content.DialogInterface,int)
+com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask3$$Lambda$1: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask3$Position: com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask3$Position[] values()
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask3$Position: com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask3$Position valueOf(java.lang.String)
 com.faendir.lightning_launcher.multitool.scriptmanager.Script
@@ -11829,6 +12022,7 @@ com.mikepenz.fastadapter.R$string: int abc_shareactionprovider_share_with
 com.mikepenz.fastadapter.R$string: int abc_shareactionprovider_share_with_application
 com.mikepenz.fastadapter.R$string: int abc_toolbar_collapse_description
 com.mikepenz.fastadapter.R$string: int define_fastadapter
+com.mikepenz.fastadapter.R$string: int fastadapter_lib_version
 com.mikepenz.fastadapter.R$string: int library_fastadapter_author
 com.mikepenz.fastadapter.R$string: int library_fastadapter_authorWebsite
 com.mikepenz.fastadapter.R$string: int library_fastadapter_isOpenSource
@@ -13348,6 +13542,7 @@ com.mikepenz.fastadapter.commons.R$string: int abc_shareactionprovider_share_wit
 com.mikepenz.fastadapter.commons.R$string: int abc_shareactionprovider_share_with_application
 com.mikepenz.fastadapter.commons.R$string: int abc_toolbar_collapse_description
 com.mikepenz.fastadapter.commons.R$string: int define_fastadapter
+com.mikepenz.fastadapter.commons.R$string: int fastadapter_lib_version
 com.mikepenz.fastadapter.commons.R$string: int library_fastadapter_author
 com.mikepenz.fastadapter.commons.R$string: int library_fastadapter_authorWebsite
 com.mikepenz.fastadapter.commons.R$string: int library_fastadapter_isOpenSource
@@ -14868,6 +15063,7 @@ com.mikepenz.fastadapter.expandable.R$string: int abc_shareactionprovider_share_
 com.mikepenz.fastadapter.expandable.R$string: int abc_shareactionprovider_share_with_application
 com.mikepenz.fastadapter.expandable.R$string: int abc_toolbar_collapse_description
 com.mikepenz.fastadapter.expandable.R$string: int define_fastadapter
+com.mikepenz.fastadapter.expandable.R$string: int fastadapter_lib_version
 com.mikepenz.fastadapter.expandable.R$string: int library_fastadapter_author
 com.mikepenz.fastadapter.expandable.R$string: int library_fastadapter_authorWebsite
 com.mikepenz.fastadapter.expandable.R$string: int library_fastadapter_isOpenSource
@@ -18473,6 +18669,7 @@ com.mikepenz.library_extensions.R$string: int bottom_sheet_behavior
 com.mikepenz.library_extensions.R$string: int character_counter_pattern
 com.mikepenz.library_extensions.R$string: int define_fastadapter
 com.mikepenz.library_extensions.R$string: int define_materialize
+com.mikepenz.library_extensions.R$string: int fastadapter_lib_version
 com.mikepenz.library_extensions.R$string: int library_fastadapter_author
 com.mikepenz.library_extensions.R$string: int library_fastadapter_authorWebsite
 com.mikepenz.library_extensions.R$string: int library_fastadapter_isOpenSource
@@ -20945,6 +21142,7 @@ com.mikepenz.materialdrawer.R$string: int define_AndroidIconics
 com.mikepenz.materialdrawer.R$string: int define_fastadapter
 com.mikepenz.materialdrawer.R$string: int define_materialdrawer
 com.mikepenz.materialdrawer.R$string: int define_materialize
+com.mikepenz.materialdrawer.R$string: int fastadapter_lib_version
 com.mikepenz.materialdrawer.R$string: int library_AndroidIconics_author
 com.mikepenz.materialdrawer.R$string: int library_AndroidIconics_authorWebsite
 com.mikepenz.materialdrawer.R$string: int library_AndroidIconics_isOpenSource
@@ -24638,9 +24836,13 @@ com.nononsenseapps.filepicker.R$string: int abc_shareactionprovider_share_with_a
 com.nononsenseapps.filepicker.R$string: int abc_toolbar_collapse_description
 com.nononsenseapps.filepicker.R$string: int nnf_create_folder_error
 com.nononsenseapps.filepicker.R$string: int nnf_filename
+com.nononsenseapps.filepicker.R$string: int nnf_list_cancel
+com.nononsenseapps.filepicker.R$string: int nnf_list_ok
 com.nononsenseapps.filepicker.R$string: int nnf_name
 com.nononsenseapps.filepicker.R$string: int nnf_need_valid_filename
 com.nononsenseapps.filepicker.R$string: int nnf_new_folder
+com.nononsenseapps.filepicker.R$string: int nnf_new_folder_cancel
+com.nononsenseapps.filepicker.R$string: int nnf_new_folder_ok
 com.nononsenseapps.filepicker.R$string: int nnf_permission_external_write_denied
 com.nononsenseapps.filepicker.R$string: int nnf_select_something_first
 com.nononsenseapps.filepicker.R$string: int search_menu_title
@@ -25366,6 +25568,7 @@ com.nononsenseapps.filepicker.R$styleable: int[] ViewStubCompat
 com.nononsenseapps.filepicker.R$styleable: int ViewStubCompat_android_id
 com.nononsenseapps.filepicker.R$styleable: int ViewStubCompat_android_layout
 com.nononsenseapps.filepicker.R$styleable: int ViewStubCompat_android_inflatedId
+com.nononsenseapps.filepicker.R$xml: int nnf_provider_paths
 com.trianguloy.llscript.repository.aidl.Failure: android.os.Parcelable$Creator CREATOR
 com.trianguloy.llscript.repository.aidl.Failure: com.trianguloy.llscript.repository.aidl.Failure[] values()
 com.trianguloy.llscript.repository.aidl.Failure: com.trianguloy.llscript.repository.aidl.Failure valueOf(java.lang.String)
@@ -25837,6 +26040,8 @@ org.greenrobot.eventbus.util.ErrorDialogFragments$Honeycomb
 org.greenrobot.eventbus.util.ErrorDialogFragments$Honeycomb: void onClick(android.content.DialogInterface,int)
 org.greenrobot.eventbus.util.ErrorDialogFragments$Support: void onClick(android.content.DialogInterface,int)
 org.greenrobot.eventbus.util.ErrorDialogManager$HoneycombManagerFragment
+org.mozilla.javascript.ScriptableObject$SlotAccess: org.mozilla.javascript.ScriptableObject$SlotAccess[] values()
+org.mozilla.javascript.ScriptableObject$SlotAccess: org.mozilla.javascript.ScriptableObject$SlotAccess valueOf(java.lang.String)
 org.mozilla.javascript.StackStyle: org.mozilla.javascript.StackStyle[] values()
 org.mozilla.javascript.StackStyle: org.mozilla.javascript.StackStyle valueOf(java.lang.String)
 org.mozilla.javascript.Token$CommentType: org.mozilla.javascript.Token$CommentType[] values()

@@ -51,8 +51,8 @@ public class LauncherScriptFragment extends Fragment {
         checkImporter();
 
         //prepare variables
-        nameTextView = (TextView) layout.findViewById(R.id.main_scriptName);
-        importButton = (Button) layout.findViewById(R.id.button_import);
+        nameTextView = layout.findViewById(R.id.main_scriptName);
+        importButton = layout.findViewById(R.id.button_import);
         shareprefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         //set name text

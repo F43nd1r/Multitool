@@ -9,11 +9,6 @@
         <Preference
             android:key="@string/pref_directory"
             android:title="@string/title_backupDir" />
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="@string/pref_spaces"
-            android:summary="@string/summary_spaces"
-            android:title="@string/title_spaces" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/title_musicWidget">
         <com.faendir.lightning_launcher.multitool.settings.TrialPreference android:title="@string/title_musicWidget" />

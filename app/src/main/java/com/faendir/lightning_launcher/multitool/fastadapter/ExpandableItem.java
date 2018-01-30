@@ -14,6 +14,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
 import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
@@ -43,8 +44,9 @@ public class ExpandableItem<T extends Model> extends ModelAbstractExpandableItem
         this.size = size;
     }
 
+    @NonNull
     @Override
-    public ViewHolder getViewHolder(View v) {
+    public ViewHolder getViewHolder(@NonNull View v) {
         return new ViewHolder(v);
     }
 
@@ -157,7 +159,6 @@ public class ExpandableItem<T extends Model> extends ModelAbstractExpandableItem
                 background = drawable;
             }
             drawable.addState(new int[0], view.getBackground());
-            //noinspection deprecation
             view.setBackgroundDrawable(background);
         }
 

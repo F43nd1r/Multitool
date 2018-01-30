@@ -34,7 +34,6 @@ public class LightningGestureView extends GestureOverlayView implements GestureO
     public LightningGestureView(Context context) {
         super(context);
         addOnGesturePerformedListener(this);
-        //noinspection deprecation
         int color = context.getResources().getColor(R.color.accent);
         setGestureColor(color);
         setUncertainGestureColor(color);

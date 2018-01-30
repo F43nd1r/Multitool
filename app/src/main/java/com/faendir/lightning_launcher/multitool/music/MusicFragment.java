@@ -119,11 +119,6 @@ public class MusicFragment extends Fragment {
         super.onPause();
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
     @Subscribe
     public void onClick(ClickEvent event) {
         switch (event.getId()) {

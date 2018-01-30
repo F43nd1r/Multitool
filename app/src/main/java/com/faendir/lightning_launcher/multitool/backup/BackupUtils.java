@@ -1,14 +1,14 @@
 package com.faendir.lightning_launcher.multitool.backup;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.evernote.android.job.JobManager;
+import com.evernote.android.job.JobRequest;
+import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.LambdaUtils.ExceptionalBiFunction;
 import com.google.gson.JsonSyntaxException;
@@ -32,6 +32,7 @@ import static com.faendir.lightning_launcher.multitool.util.Utils.GSON;
  */
 
 public class BackupUtils {
+    private static final int HOUR_IN_MS = 1000 * 60 * 60;
     private static final BackupTime DEFAULT = new BackupTime(0, 0, Collections.singletonList(Calendar.SUNDAY));
 
     @NonNull
@@ -63,9 +64,7 @@ public class BackupUtils {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
         boolean shouldEnable = sharedPref.getBoolean(context.getString(R.string.pref_enableBackup), false);
         BackupTime time = BackupUtils.getBackupTime(sharedPref.getString(context.getString(R.string.pref_backupTime), null));
-        PendingIntent intent = PendingIntent.getService(context, 0, new Intent(context, BackupService.class), PendingIntent.FLAG_UPDATE_CURRENT);
         if (shouldEnable) {
-            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             Calendar calendar = Calendar.getInstance();
             calendar.set(Calendar.MINUTE, time.getMinute());
             calendar.set(Calendar.HOUR_OF_DAY, time.getHour());
@@ -75,9 +74,14 @@ public class BackupUtils {
             while (!time.getDays().contains(calendar.get(Calendar.DAY_OF_WEEK))) {
                 calendar.add(Calendar.DATE, 1);
             }
-            alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), intent);
+            long timeMs = calendar.getTimeInMillis() - Calendar.getInstance().getTimeInMillis();
+            new JobRequest.Builder(BackupJob.class.getName())
+                    .setUpdateCurrent(true)
+                    .setExecutionWindow(timeMs, timeMs + (MultiTool.DEBUG ? 1000 : HOUR_IN_MS))
+                    .build()
+                    .schedule();
         } else {
-            intent.cancel();
+            JobManager.instance().cancelAllForTag(BackupJob.class.getName());
         }
     }
 }

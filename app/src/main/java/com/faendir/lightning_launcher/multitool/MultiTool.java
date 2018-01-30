@@ -3,6 +3,9 @@ package com.faendir.lightning_launcher.multitool;
 import android.app.Application;
 import android.content.Context;
 
+import com.evernote.android.job.JobManager;
+import com.faendir.lightning_launcher.multitool.util.ReflectionJobCreator;
+
 import org.acra.ACRA;
 import org.acra.annotation.AcraCore;
 import org.acra.annotation.AcraHttpSender;
@@ -30,5 +33,6 @@ public class MultiTool extends Application {
             ACRA.DEV_LOGGING = true;
         }
         ACRA.init(this);
+        JobManager.create(this).addJobCreator(new ReflectionJobCreator());
     }
 }

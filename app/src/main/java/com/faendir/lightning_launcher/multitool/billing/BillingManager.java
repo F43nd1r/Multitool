@@ -3,6 +3,7 @@ package com.faendir.lightning_launcher.multitool.billing;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.annotation.UiThread;
@@ -36,7 +37,7 @@ public class BillingManager extends BaseBillingManager {
     }
 
     @Override
-    public void onProductPurchased(String productId, TransactionDetails details) {
+    public void onProductPurchased(@NonNull String productId, TransactionDetails details) {
         super.onProductPurchased(productId, details);
         EventBus.getDefault().post(new SwitchFragmentRequest(mapping.getKey(productId)));
     }

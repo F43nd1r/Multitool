@@ -52,7 +52,6 @@ public class BackupTimePreference extends DialogPreference implements View.OnCli
         return root;
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onBindDialogView(View v) {
         super.onBindDialogView(v);
@@ -64,7 +63,6 @@ public class BackupTimePreference extends DialogPreference implements View.OnCli
         }
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void onDialogClosed(boolean positiveResult) {
         super.onDialogClosed(positiveResult);

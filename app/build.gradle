@@ -8,8 +8,8 @@ android {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 88
-        versionName "2.12.3"
+        versionCode 89
+        versionName "2.12.4"
     }
     buildTypes {
         release {
@@ -35,8 +35,8 @@ android {
 dependencies {
     def supportVersion = '27.0.2'
     def streamVersion = '1.5.6'
-    def acraVersion = '5.0.1'
-    def fastAdapterVersion = '3.0.5'
+    def acraVersion = '5.0.2'
+    def fastAdapterVersion = '3.2.2'
     implementation('com.faendir.lightninglauncher:scriptlib:3.0-SNAPSHOT') {
         changing = true
     }
@@ -45,12 +45,12 @@ dependencies {
     implementation "com.android.support:design:$supportVersion"
     implementation "com.android.support:percent:$supportVersion"
     implementation 'com.google.code.gson:gson:2.8.2'
-    implementation 'com.nononsenseapps:filepicker:3.1.0'
+    implementation 'com.nononsenseapps:filepicker:4.2.1'
     implementation "ch.acra:acra-http:$acraVersion"
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'org.apache.commons:commons-collections4:4.1'
     implementation 'com.anjlab.android.iab.v3:library:1.0.44'
-    implementation 'com.mikepenz:materialdrawer:6.0.0'
+    implementation 'com.mikepenz:materialdrawer:6.0.4'
     implementation "com.mikepenz:fastadapter:$fastAdapterVersion@aar"
     implementation "com.mikepenz:fastadapter-commons:$fastAdapterVersion@aar"
     implementation "com.mikepenz:fastadapter-extensions-expandable:$fastAdapterVersion@aar"
@@ -60,7 +60,8 @@ dependencies {
     implementation "net.sourceforge.streamsupport:streamsupport-atomic:$streamVersion"
     implementation "net.sourceforge.streamsupport:streamsupport-flow:$streamVersion"
     implementation "net.sourceforge.streamsupport:streamsupport-literal:$streamVersion"
-    implementation 'org.mozilla:rhino:1.7.7.2'
+    implementation 'org.mozilla:rhino:1.7.8'
+    implementation 'com.evernote:android-job:1.2.2'
     compileOnly "com.google.auto.service:auto-service:1.0-rc4"
     annotationProcessor "com.google.auto.service:auto-service:1.0-rc4"
 }

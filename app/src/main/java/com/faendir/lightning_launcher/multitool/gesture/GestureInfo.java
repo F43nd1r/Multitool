@@ -131,7 +131,6 @@ public class GestureInfo implements Parcelable, DeletableModel {
     public Drawable getIcon(@NonNull Context context) {
         if (drawable == null) {
             int iconSize = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getLauncherLargeIconSize();
-            //noinspection deprecation
             int color = context.getResources().getColor(R.color.accent);
             Gesture gesture = getGesture(context);
             if (gesture != null) {

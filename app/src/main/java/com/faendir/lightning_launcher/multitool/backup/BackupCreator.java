@@ -57,10 +57,6 @@ public class BackupCreator extends AsyncTask<Object, Void, Boolean> {
         //noinspection ResultOfMethodCallIgnored
         directory.mkdirs();
         File file = new File(directory, "Autobackup.lla");
-        if (!file.canWrite()) {
-            Log.i(MultiTool.LOG_TAG, "Skipped backup because file is not writable");
-            return false;
-        }
         try (ZipOutputStream stream = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(file)))) {
             stream.setMethod(ZipOutputStream.DEFLATED);
             stream.setLevel(0);

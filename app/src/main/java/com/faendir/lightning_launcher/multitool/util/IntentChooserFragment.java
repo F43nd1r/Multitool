@@ -25,6 +25,7 @@ import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
 import com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.adapters.ModelAdapter;
+import com.mikepenz.fastadapter.utils.ComparableItemListImpl;
 
 import org.acra.ACRA;
 
@@ -83,9 +84,9 @@ public class IntentChooserFragment extends Fragment implements SearchView.OnQuer
         View root = inflater.inflate(R.layout.intent_chooser_page, container, false);
         Bundle args = getArguments();
         if(args != null) {
-            adapter = new ModelAdapter<>(ItemFactory.<IntentInfo>forLauncherIconSize(getActivity())::wrap);
+            adapter = new ModelAdapter<>(new ComparableItemListImpl<>((o1, o2) -> o1.getModel().compareTo(o2.getModel())),
+                    ItemFactory.<IntentInfo>forLauncherIconSize(getActivity())::wrap);
             fastAdapter = FastAdapter.with(adapter);
-            adapter.withComparator((o1, o2) -> o1.getModel().compareTo(o2.getModel()));
             fastAdapter.withOnClickListener((v, adapter1, item, position) -> handleSelection(item.getModel()));
             adapter.getItemFilter().withFilterPredicate(((item, constraint) -> !item.getModel().getName().toLowerCase().contains(constraint.toString().toLowerCase())));
             Intent intent = args.getParcelable(KEY_INTENT);
@@ -111,8 +112,7 @@ public class IntentChooserFragment extends Fragment implements SearchView.OnQuer
     }
 
     public void setComparator(Comparator<IntentInfo> comparator){
-        adapter.withComparator((o1, o2) -> comparator.compare(o1.getModel(), o2.getModel()));
-        fastAdapter.notifyAdapterDataSetChanged();
+        ((ComparableItemListImpl<ExpandableItem<IntentInfo>>) adapter.getItemList()).withComparator((o1, o2) -> comparator.compare(o1.getModel(), o2.getModel()));
     }
 
     private boolean handleSelection(IntentInfo info) {

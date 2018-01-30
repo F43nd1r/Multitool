@@ -58,7 +58,6 @@ var listener = function(titleInfo) {
                 item.setBoxBackground(img, "nsf", false);
             getVariables().edit().setString("title", title).setString("album", album).setString("artist", artist).setString("player",player).commit();
         } catch (e) {
-            e.javaException.printStackTrace();
         }
 };
 panel.my.musicListener = getObjectFactory().constructMusicListener(new Handler(), getActiveScreen().getContext(), listener);
