@@ -9,10 +9,8 @@ import android.preference.MultiSelectListPreference;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 
-import com.faendir.lightning_launcher.multitool.R;
-
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.Collections;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -34,23 +32,6 @@ public class PlayersPreference extends MultiSelectListPreference implements Summ
                         info -> info.applicationInfo.loadLabel(pm).toString(), info -> info.packageName, (k1, k2) -> k1, TreeMap::new));
         setEntries(map.keySet().toArray(new String[0]));
         setEntryValues(map.values().toArray(new String[0]));
-        TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.PlayersPreference);
-
-        final int N = a.getIndexCount();
-        for (int i = 0; i < N; ++i) {
-            int attr = a.getIndex(i);
-            switch (attr) {
-                case R.styleable.PlayersPreference_checked_by_default:
-                    if (a.getBoolean(attr, false)) {
-                        setDefaultValue(new HashSet<>(map.values()));
-                    } else {
-                        setDefaultValue(new HashSet<>());
-                    }
-                    break;
-            }
-        }
-        a.recycle();
     }
 
     private List<CharSequence> getSelectedEntries() {
@@ -63,5 +44,15 @@ public class PlayersPreference extends MultiSelectListPreference implements Summ
     @Override
     public CharSequence getSummaryText() {
         return TextUtils.join(", ", getSelectedEntries());
+    }
+
+    @Override
+    protected Object onGetDefaultValue(TypedArray a, int index) {
+        if (a.getBoolean(index, false)) {
+            return StreamSupport.stream(getContext().getPackageManager().queryBroadcastReceivers(new Intent(Intent.ACTION_MEDIA_BUTTON), 0))
+                    .map(info -> info.activityInfo.packageName).collect(Collectors.toSet());
+        } else {
+            return Collections.emptySet();
+        }
     }
 }
