@@ -195,4 +195,9 @@
     <string name="summary_showZero">If this is disabled, badges without notifications are hidden. That means badges might be invisible when you create them!</string>
     <string name="title_showZero">Show Zero</string>
     <string name="pref_jobIds">backup.job_ids</string>
+    <string name="action_change_sorting">Sorting</string>
+    <string-array name="sortings">
+        <item>Relevance</item>
+        <item>Alphabetical</item>
+    </string-array>
 </resources>

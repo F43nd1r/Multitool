@@ -43,7 +43,7 @@ public class IntentChooserFragment extends Fragment implements SearchView.OnQuer
     private FastAdapter<ExpandableItem<IntentInfo>> fastAdapter;
     private String search;
 
-    public static IntentChooserFragment newInstance(Intent intent, boolean isIndirect){
+    public static IntentChooserFragment newInstance(Intent intent, boolean isIndirect) {
         IntentChooserFragment fragment = new IntentChooserFragment();
         Bundle args = new Bundle();
         args.putParcelable(KEY_INTENT, intent);
@@ -83,7 +83,7 @@ public class IntentChooserFragment extends Fragment implements SearchView.OnQuer
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.intent_chooser_page, container, false);
         Bundle args = getArguments();
-        if(args != null) {
+        if (args != null) {
             adapter = new ModelAdapter<>(new ComparableItemListImpl<>((o1, o2) -> o1.getModel().compareTo(o2.getModel())),
                     ItemFactory.<IntentInfo>forLauncherIconSize(getActivity())::wrap);
             fastAdapter = FastAdapter.with(adapter);
@@ -95,6 +95,8 @@ public class IntentChooserFragment extends Fragment implements SearchView.OnQuer
                 if (root.getParent() != null) {
                     RecyclerView recyclerView = root.findViewById(R.id.list);
                     adapter.set(infos);
+                    ComparableItemListImpl<ExpandableItem<IntentInfo>> list = ((ComparableItemListImpl<ExpandableItem<IntentInfo>>) adapter.getItemList());
+                    list.withComparator(list.getComparator());
                     recyclerView.setVisibility(View.VISIBLE);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setAdapter(fastAdapter);
@@ -111,7 +113,7 @@ public class IntentChooserFragment extends Fragment implements SearchView.OnQuer
         setHasOptionsMenu(true);
     }
 
-    public void setComparator(Comparator<IntentInfo> comparator){
+    public void setComparator(Comparator<IntentInfo> comparator) {
         ((ComparableItemListImpl<ExpandableItem<IntentInfo>>) adapter.getItemList()).withComparator((o1, o2) -> comparator.compare(o1.getModel(), o2.getModel()));
     }
 
@@ -163,7 +165,7 @@ public class IntentChooserFragment extends Fragment implements SearchView.OnQuer
         MenuItem search = menu.findItem(R.id.action_search);
         SearchView view = (SearchView) search.getActionView();
         view.setOnQueryTextListener(this);
-        if(this.search != null && !"".equals(this.search)){
+        if (this.search != null && !"".equals(this.search)) {
             view.setQuery(this.search, true);
             view.setIconified(false);
         }
