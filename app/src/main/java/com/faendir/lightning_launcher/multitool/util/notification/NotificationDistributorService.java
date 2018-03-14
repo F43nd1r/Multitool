@@ -1,72 +1,51 @@
-package com.faendir.lightning_launcher.multitool.badge;
+package com.faendir.lightning_launcher.multitool.util.notification;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
-import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.badge.BadgeNotificationListener;
+import com.faendir.lightning_launcher.multitool.billing.BaseBillingManager;
+import com.faendir.lightning_launcher.multitool.music.MusicNotificationListener;
 import com.faendir.lightning_launcher.scriptlib.DialogActivity;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-import java8.lang.Iterables;
-import java8.util.stream.Collectors;
-import java8.util.stream.RefStreams;
 import java8.util.stream.StreamSupport;
 
-/**
- * @author F43nd1r
- * @since 03.07.2016
- */
+@TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
+public class NotificationDistributorService extends NotificationListenerService {
+    private List<NotificationListener> listeners;
 
-@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
-public class NotificationListener extends NotificationListenerService {
-    private SharedPreferences sharedPref;
+    public NotificationDistributorService() {
+        listeners = new ArrayList<>();
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        listeners.add(new BadgeNotificationListener());
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && new BaseBillingManager(this).isBoughtOrTrial(R.string.title_musicWidget)){
+            listeners.add(new MusicNotificationListener());
+        }
+        StreamSupport.stream(listeners).forEach(l -> l.onCreate(this));
     }
 
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
-        final String packageName = sbn.getPackageName();
-        if (supportsIntentBasedCount(packageName)) {
-            return;
-        }
-        int number = sbn.getNotification().number;
-        if (number == 0) {
-            StatusBarNotification[] array = getActiveNotifications();
-            if (array != null) {
-                List<StatusBarNotification> notifications = RefStreams.of(array).filter(n -> packageName.equals(n.getPackageName())).collect(Collectors.toList());
-                int reduceBy = 0;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    Map<String, Integer> groupSizes = StreamSupport.stream(notifications).collect(Collectors.toMap(StatusBarNotification::getGroupKey, n -> 1, (i1, i2) -> i1 + i2));
-                    Iterables.removeIf(groupSizes.entrySet(), e -> e.getValue() == 1);
-                    reduceBy = groupSizes.size();
-                }
-                number = (int) (RefStreams.of(array).filter(n -> packageName.equals(n.getPackageName())).count() - reduceBy);
-            } else {
-                number = 1;
-            }
-        }
-        BadgeDataSource.setBadgeCount(this, packageName, number);
+        StreamSupport.stream(listeners).forEach(l -> l.onNotificationPosted(this, sbn));
     }
 
     @Override
@@ -76,10 +55,7 @@ public class NotificationListener extends NotificationListenerService {
 
     @Override
     public void onNotificationRemoved(StatusBarNotification sbn) {
-        if (supportsIntentBasedCount(sbn.getPackageName())) {
-            return;
-        }
-        BadgeDataSource.setBadgeCount(this, sbn.getPackageName(), 0);
+        StreamSupport.stream(listeners).forEach(l -> l.onNotificationRemoved(this, sbn));
     }
 
     @Override
@@ -87,13 +63,8 @@ public class NotificationListener extends NotificationListenerService {
         onNotificationRemoved(sbn);
     }
 
-    private boolean supportsIntentBasedCount(String packageName) {
-        Set<String> set = sharedPref.getStringSet(getString(R.string.key_badgeIntentPackages), Collections.emptySet());
-        return set.contains(packageName);
-    }
-
     public static boolean isEnabled(@NonNull Context context) {
-        ComponentName notificationListener = new ComponentName(context, NotificationListener.class);
+        ComponentName notificationListener = new ComponentName(context, NotificationDistributorService.class);
         String flat = Settings.Secure.getString(context.getContentResolver(), "enabled_notification_listeners");
         return flat != null && flat.contains(notificationListener.flattenToString());
     }

@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.faendir.lightning_launcher.multitool.util.provider.DataProvider;
 import com.faendir.lightning_launcher.multitool.util.provider.FileDataSource;
 import com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSource;
@@ -67,23 +68,25 @@ public class MusicDataSource extends SharedPreferencesDataSource implements File
         String artist = null;
         String packageName = null;
         Cursor cursor = context.getContentResolver().query(DataProvider.getContentUri(MusicDataSource.class), null, null, null, null);
-        while (cursor.moveToNext()) {
-            switch (cursor.getString(0)) {
-                case KEY_TITLE:
-                    title = cursor.getString(1);
-                    break;
-                case KEY_ALBUM:
-                    album = cursor.getString(1);
-                    break;
-                case KEY_ARTIST:
-                    artist = cursor.getString(1);
-                    break;
-                case KEY_PACKAGE:
-                    packageName = cursor.getString(1);
-                    break;
+        if(cursor != null) {
+            while (cursor.moveToNext()) {
+                switch (cursor.getString(0)) {
+                    case KEY_TITLE:
+                        title = Utils.GSON.fromJson(cursor.getString(1), String.class);
+                        break;
+                    case KEY_ALBUM:
+                        album = Utils.GSON.fromJson(cursor.getString(1), String.class);
+                        break;
+                    case KEY_ARTIST:
+                        artist = Utils.GSON.fromJson(cursor.getString(1), String.class);
+                        break;
+                    case KEY_PACKAGE:
+                        packageName = Utils.GSON.fromJson(cursor.getString(1), String.class);
+                        break;
+                }
             }
+            cursor.close();
         }
-        cursor.close();
         Bitmap albumArt = null;
         try (InputStream inputStream = DataProvider.openFileForRead(context, MusicDataSource.class)) {
             albumArt = BitmapFactory.decodeStream(inputStream);

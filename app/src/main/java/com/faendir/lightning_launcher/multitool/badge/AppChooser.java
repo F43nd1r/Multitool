@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.BaseActivity;
 import com.faendir.lightning_launcher.multitool.util.IntentChooserFragment;
+import com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService;
 
 import java.util.Collections;
 import java.util.Set;
@@ -36,15 +37,15 @@ public class AppChooser extends BaseActivity {
         String prefix = getString(R.string.unread_prefix);
         Set<String> midPriority = StreamSupport.stream(sharedPref.getAll().keySet()).filter(key -> key.startsWith(prefix)).map(key -> key.substring(prefix.length())).collect(Collectors.toSet());
         fragment.setComparator((o1, o2) -> {
-            String pn1 = o1.getIntent().getComponent().getPackageName();
-            String pn2 = o2.getIntent().getComponent().getPackageName();
+            String pn1 = o1.getIntent().getPackage();
+            String pn2 = o2.getIntent().getPackage();
             int p1 = highPriority.contains(pn1) ? 2 : midPriority.contains(pn1) ? 1 : 0;
             int p2 = highPriority.contains(pn2) ? 2 : midPriority.contains(pn2) ? 1 : 0;
             int compare = Integer.compare(p2, p1);
             return compare != 0 ? compare : o1.compareTo(o2);
         });
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2 && !NotificationListener.isEnabled(this)) {
-            NotificationListener.askForEnable(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2 && !NotificationDistributorService.isEnabled(this)) {
+            NotificationDistributorService.askForEnable(this);
         }
     }
 }

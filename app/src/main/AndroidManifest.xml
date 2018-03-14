@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          package="com.faendir.lightning_launcher.multitool">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.faendir.lightning_launcher.multitool">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
         android:name=".MultiTool"
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_multitool"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -20,9 +21,9 @@
             android:label="@string/app_name"
             android:theme="@style/FilePickerTheme">
             <intent-filter>
-                <action android:name="android.intent.action.GET_CONTENT"/>
+                <action android:name="android.intent.action.GET_CONTENT" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
@@ -32,9 +33,9 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
@@ -44,21 +45,22 @@
             tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.faendir.lightning_launcher.multitool.MainActivity"/>
+                android:value="com.faendir.lightning_launcher.multitool.MainActivity" />
         </activity>
         <activity
             android:name=".gesture.IntentChooser"
             android:label="@string/title_activity_intent_chooser"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".badge.AppChooser"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:exported="true"/>
+        <activity
+            android:name=".badge.AppChooser"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
 
 
         <activity
             android:name=".Loader"
-            android:theme="@style/AppTheme.Translucent"/>
+            android:theme="@style/AppTheme.Translucent" />
 
         <activity-alias
             android:name=".LoadLauncherScript"
@@ -66,7 +68,7 @@
             android:label="@string/browse_name"
             android:targetActivity=".Loader">
             <intent-filter>
-                <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE"/>
+                <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE" />
             </intent-filter>
         </activity-alias>
         <activity-alias
@@ -75,7 +77,7 @@
             android:label="@string/title_gestureLauncher"
             android:targetActivity=".Loader">
             <intent-filter>
-                <action android:name="net.pierrox.lightning_launcher.script.PLUGIN"/>
+                <action android:name="net.pierrox.lightning_launcher.script.PLUGIN" />
             </intent-filter>
         </activity-alias>
         <activity-alias
@@ -85,7 +87,7 @@
             android:label="@string/title_musicWidget"
             android:targetActivity=".Loader">
             <intent-filter>
-                <action android:name="net.pierrox.lightning_launcher.script.PLUGIN"/>
+                <action android:name="net.pierrox.lightning_launcher.script.PLUGIN" />
             </intent-filter>
         </activity-alias>
         <activity-alias
@@ -94,7 +96,7 @@
             android:label="@string/title_drawer"
             android:targetActivity=".Loader">
             <intent-filter>
-                <action android:name="net.pierrox.lightning_launcher.script.PLUGIN"/>
+                <action android:name="net.pierrox.lightning_launcher.script.PLUGIN" />
             </intent-filter>
         </activity-alias>
         <activity-alias
@@ -103,7 +105,7 @@
             android:label="@string/title_immersive"
             android:targetActivity=".Loader">
             <intent-filter>
-                <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE"/>
+                <action android:name="net.pierrox.lightning_launcher.script.ENUMERATE" />
             </intent-filter>
         </activity-alias>
         <activity-alias
@@ -112,7 +114,7 @@
             android:label="@string/title_animation"
             android:targetActivity=".Loader">
             <intent-filter>
-                <action android:name="net.pierrox.lightning_launcher.script.PLUGIN"/>
+                <action android:name="net.pierrox.lightning_launcher.script.PLUGIN" />
             </intent-filter>
         </activity-alias>
         <activity-alias
@@ -121,25 +123,21 @@
             android:label="@string/title_badge"
             android:targetActivity=".Loader">
             <intent-filter>
-                <action android:name="net.pierrox.lightning_launcher.script.PLUGIN"/>
+                <action android:name="net.pierrox.lightning_launcher.script.PLUGIN" />
             </intent-filter>
         </activity-alias>
 
         <service
-            android:name=".badge.NotificationListener"
+            android:name=".util.notification.NotificationDistributorService"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService"/>
+                <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
-        <service
-            android:name=".music.MusicListenerService"
-            android:exported="true"
-            tools:ignore="ExportedService"/>
 
         <receiver android:name=".badge.BadgeBroadcastReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BADGE_COUNT_UPDATE"/>
+                <action android:name="android.intent.action.BADGE_COUNT_UPDATE" />
             </intent-filter>
         </receiver>
 
@@ -148,7 +146,7 @@
             android:authorities="com.faendir.lightning_launcher.multitool.provider"
             android:enabled="true"
             android:exported="true"
-            tools:ignore="ExportedContentProvider"/>
+            tools:ignore="ExportedContentProvider" />
     </application>
 
 </manifest>

@@ -22,7 +22,7 @@ public class BadgeBroadcastReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(INTENT_BADGE_COUNT_UPDATE)) {
+        if (INTENT_BADGE_COUNT_UPDATE.equals(intent.getAction())) {
             if (intent.hasExtra(BADGE_COUNT) && intent.hasExtra(PACKAGE_NAME)) {
                 String packageName = intent.getStringExtra(PACKAGE_NAME);
                 int count = intent.getIntExtra(BADGE_COUNT, 0);

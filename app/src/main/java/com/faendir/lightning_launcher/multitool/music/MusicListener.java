@@ -2,12 +2,10 @@ package com.faendir.lightning_launcher.multitool.music;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.support.annotation.Keep;
 import android.view.KeyEvent;
 
-import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener;
 import com.faendir.lightning_launcher.multitool.util.provider.DataProvider;
 
@@ -20,7 +18,8 @@ import java8.util.function.Consumer;
  */
 @Keep
 public class MusicListener extends BaseContentListener {
-
+    public static final String EXTRA_COMMAND_CODE = "command_code";
+    public static final String INTENT_ACTION = "com.faendir.lightning_launcher.multitool.music.ACTION";
 
     public MusicListener(Handler handler, Context context, Consumer<TitleInfo> onChangeConsumer) {
         super(handler, context, DataProvider.getContentUri(MusicDataSource.class), () -> onChangeConsumer.accept(MusicDataSource.queryInfo(context)));
@@ -45,14 +44,10 @@ public class MusicListener extends BaseContentListener {
     }
 
     private void startWithCode(int code) {
-        try {
-            Intent intent = new Intent(getContext().createPackageContext(BuildConfig.APPLICATION_ID, 0), MusicListenerService.class);
-            if (code != -1) {
-                intent.putExtra(MusicListenerService.EXTRA_COMMAND_CODE, code);
-            }
-            getContext().startService(intent);
-        } catch (PackageManager.NameNotFoundException e) {
-            throw new RuntimeException(e);
+        Intent intent = new Intent(INTENT_ACTION);
+        if (code != -1) {
+            intent.putExtra(EXTRA_COMMAND_CODE, code);
         }
+        getContext().sendBroadcast(intent);
     }
 }
