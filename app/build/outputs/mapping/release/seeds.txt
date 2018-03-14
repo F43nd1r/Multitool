@@ -8125,6 +8125,7 @@ com.faendir.lightning_launcher.multitool.R$anim: int tooltip_exit
 com.faendir.lightning_launcher.multitool.R$animator: int design_appbar_state_list_animator
 com.faendir.lightning_launcher.multitool.R$array: int listCoverModeKeys
 com.faendir.lightning_launcher.multitool.R$array: int list_coverMode
+com.faendir.lightning_launcher.multitool.R$array: int sortings
 com.faendir.lightning_launcher.multitool.R$attr: int actionBarDivider
 com.faendir.lightning_launcher.multitool.R$attr: int actionBarItemBackground
 com.faendir.lightning_launcher.multitool.R$attr: int actionBarPopupTheme
@@ -8205,7 +8206,6 @@ com.faendir.lightning_launcher.multitool.R$attr: int buttonTint
 com.faendir.lightning_launcher.multitool.R$attr: int buttonTintMode
 com.faendir.lightning_launcher.multitool.R$attr: int checkboxStyle
 com.faendir.lightning_launcher.multitool.R$attr: int checkedTextViewStyle
-com.faendir.lightning_launcher.multitool.R$attr: int checked_by_default
 com.faendir.lightning_launcher.multitool.R$attr: int closeIcon
 com.faendir.lightning_launcher.multitool.R$attr: int closeItemLayout
 com.faendir.lightning_launcher.multitool.R$attr: int collapseContentDescription
@@ -9271,6 +9271,7 @@ com.faendir.lightning_launcher.multitool.R$drawable: int ic_next
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_play
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_previous
 com.faendir.lightning_launcher.multitool.R$drawable: int ic_search_white
+com.faendir.lightning_launcher.multitool.R$drawable: int ic_sort_white
 com.faendir.lightning_launcher.multitool.R$drawable: int material_drawer_badge
 com.faendir.lightning_launcher.multitool.R$drawable: int material_drawer_circle_mask
 com.faendir.lightning_launcher.multitool.R$drawable: int material_drawer_shadow_bottom
@@ -9312,6 +9313,7 @@ com.faendir.lightning_launcher.multitool.R$id: int action_bar_root
 com.faendir.lightning_launcher.multitool.R$id: int action_bar_spinner
 com.faendir.lightning_launcher.multitool.R$id: int action_bar_subtitle
 com.faendir.lightning_launcher.multitool.R$id: int action_bar_title
+com.faendir.lightning_launcher.multitool.R$id: int action_change_sorting
 com.faendir.lightning_launcher.multitool.R$id: int action_container
 com.faendir.lightning_launcher.multitool.R$id: int action_context_bar
 com.faendir.lightning_launcher.multitool.R$id: int action_disable
@@ -9724,6 +9726,7 @@ com.faendir.lightning_launcher.multitool.R$layout: int textview_empty_gestures_l
 com.faendir.lightning_launcher.multitool.R$layout: int three_line_item
 com.faendir.lightning_launcher.multitool.R$layout: int tooltip
 com.faendir.lightning_launcher.multitool.R$layout: int two_line_item
+com.faendir.lightning_launcher.multitool.R$menu: int menu_badge_app_chooser
 com.faendir.lightning_launcher.multitool.R$menu: int menu_context_scriptmanager
 com.faendir.lightning_launcher.multitool.R$menu: int menu_gesture
 com.faendir.lightning_launcher.multitool.R$menu: int menu_music_widget
@@ -9785,6 +9788,7 @@ com.faendir.lightning_launcher.multitool.R$string: int abc_searchview_descriptio
 com.faendir.lightning_launcher.multitool.R$string: int abc_shareactionprovider_share_with
 com.faendir.lightning_launcher.multitool.R$string: int abc_shareactionprovider_share_with_application
 com.faendir.lightning_launcher.multitool.R$string: int abc_toolbar_collapse_description
+com.faendir.lightning_launcher.multitool.R$string: int action_change_sorting
 com.faendir.lightning_launcher.multitool.R$string: int action_help
 com.faendir.lightning_launcher.multitool.R$string: int action_search
 com.faendir.lightning_launcher.multitool.R$string: int add_gesture
@@ -10887,8 +10891,6 @@ com.faendir.lightning_launcher.multitool.R$styleable: int PercentLayout_Layout_l
 com.faendir.lightning_launcher.multitool.R$styleable: int PercentLayout_Layout_layout_marginStartPercent
 com.faendir.lightning_launcher.multitool.R$styleable: int PercentLayout_Layout_layout_marginTopPercent
 com.faendir.lightning_launcher.multitool.R$styleable: int PercentLayout_Layout_layout_widthPercent
-com.faendir.lightning_launcher.multitool.R$styleable: int[] PlayersPreference
-com.faendir.lightning_launcher.multitool.R$styleable: int PlayersPreference_checked_by_default
 com.faendir.lightning_launcher.multitool.R$styleable: int[] PopupWindow
 com.faendir.lightning_launcher.multitool.R$styleable: int PopupWindow_android_popupBackground
 com.faendir.lightning_launcher.multitool.R$styleable: int PopupWindow_android_popupAnimationStyle
@@ -11057,6 +11059,7 @@ com.faendir.lightning_launcher.multitool.R$styleable: int[] ViewStubCompat
 com.faendir.lightning_launcher.multitool.R$styleable: int ViewStubCompat_android_id
 com.faendir.lightning_launcher.multitool.R$styleable: int ViewStubCompat_android_layout
 com.faendir.lightning_launcher.multitool.R$styleable: int ViewStubCompat_android_inflatedId
+com.faendir.lightning_launcher.multitool.R$xml: int backup_descriptor
 com.faendir.lightning_launcher.multitool.R$xml: int drawer
 com.faendir.lightning_launcher.multitool.R$xml: int nnf_provider_paths
 com.faendir.lightning_launcher.multitool.R$xml: int prefs
@@ -11066,27 +11069,12 @@ com.faendir.lightning_launcher.multitool.backup.BackupJob: com.evernote.android.
 com.faendir.lightning_launcher.multitool.backup.BackupJob: void lambda$onRunJob$0$BackupJob(java.lang.String)
 com.faendir.lightning_launcher.multitool.badge.AppChooser
 com.faendir.lightning_launcher.multitool.badge.AppChooser: AppChooser()
+com.faendir.lightning_launcher.multitool.badge.AppChooser$$Lambda$4: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver
 com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: BadgeBroadcastReceiver()
 com.faendir.lightning_launcher.multitool.badge.BadgeListener
 com.faendir.lightning_launcher.multitool.badge.BadgeListener: BadgeListener(android.os.Handler,android.content.Context,java.lang.String,java8.util.function.Consumer)
 com.faendir.lightning_launcher.multitool.badge.BadgeListener: void lambda$new$0$BadgeListener(java8.util.function.Consumer,android.content.Context,java.lang.String)
-com.faendir.lightning_launcher.multitool.badge.NotificationListener
-com.faendir.lightning_launcher.multitool.badge.NotificationListener: android.content.SharedPreferences sharedPref
-com.faendir.lightning_launcher.multitool.badge.NotificationListener: NotificationListener()
-com.faendir.lightning_launcher.multitool.badge.NotificationListener: void onCreate()
-com.faendir.lightning_launcher.multitool.badge.NotificationListener: void onNotificationPosted(android.service.notification.StatusBarNotification)
-com.faendir.lightning_launcher.multitool.badge.NotificationListener: void onNotificationPosted(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap)
-com.faendir.lightning_launcher.multitool.badge.NotificationListener: void onNotificationRemoved(android.service.notification.StatusBarNotification)
-com.faendir.lightning_launcher.multitool.badge.NotificationListener: void onNotificationRemoved(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap)
-com.faendir.lightning_launcher.multitool.badge.NotificationListener: boolean supportsIntentBasedCount(java.lang.String)
-com.faendir.lightning_launcher.multitool.badge.NotificationListener: boolean isEnabled(android.content.Context)
-com.faendir.lightning_launcher.multitool.badge.NotificationListener: void askForEnable(android.content.Context)
-com.faendir.lightning_launcher.multitool.badge.NotificationListener: boolean lambda$onNotificationPosted$4$NotificationListener(java.lang.String,android.service.notification.StatusBarNotification)
-com.faendir.lightning_launcher.multitool.badge.NotificationListener: boolean lambda$onNotificationPosted$3$NotificationListener(java.util.Map$Entry)
-com.faendir.lightning_launcher.multitool.badge.NotificationListener: java.lang.Integer lambda$onNotificationPosted$2$NotificationListener(java.lang.Integer,java.lang.Integer)
-com.faendir.lightning_launcher.multitool.badge.NotificationListener: java.lang.Integer lambda$onNotificationPosted$1$NotificationListener(android.service.notification.StatusBarNotification)
-com.faendir.lightning_launcher.multitool.badge.NotificationListener: boolean lambda$onNotificationPosted$0$NotificationListener(java.lang.String,android.service.notification.StatusBarNotification)
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState[] values()
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState: com.faendir.lightning_launcher.multitool.billing.BaseBillingManager$TrialState valueOf(java.lang.String)
 com.faendir.lightning_launcher.multitool.billing.BillingManager$$Lambda$0: void onClick(android.content.DialogInterface,int)
@@ -11143,6 +11131,8 @@ com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment: 
 com.faendir.lightning_launcher.multitool.music.MusicFragment
 com.faendir.lightning_launcher.multitool.music.MusicFragment: void onClick(com.faendir.lightning_launcher.multitool.event.ClickEvent)
 com.faendir.lightning_launcher.multitool.music.MusicListener
+com.faendir.lightning_launcher.multitool.music.MusicListener: java.lang.String EXTRA_COMMAND_CODE
+com.faendir.lightning_launcher.multitool.music.MusicListener: java.lang.String INTENT_ACTION
 com.faendir.lightning_launcher.multitool.music.MusicListener: MusicListener(android.os.Handler,android.content.Context,java8.util.function.Consumer)
 com.faendir.lightning_launcher.multitool.music.MusicListener: void register()
 com.faendir.lightning_launcher.multitool.music.MusicListener: void sendNext()
@@ -11150,28 +11140,6 @@ com.faendir.lightning_launcher.multitool.music.MusicListener: void sendPrevious(
 com.faendir.lightning_launcher.multitool.music.MusicListener: void sendPlayPause()
 com.faendir.lightning_launcher.multitool.music.MusicListener: void startWithCode(int)
 com.faendir.lightning_launcher.multitool.music.MusicListener: void lambda$new$0$MusicListener(java8.util.function.Consumer,android.content.Context)
-com.faendir.lightning_launcher.multitool.music.MusicListenerService
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: java.util.List PLAYING_STATES
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: java.lang.String EXTRA_COMMAND_CODE
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: org.apache.commons.collections4.BidiMap controllers
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: android.content.SharedPreferences sharedPref
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: java.lang.ref.WeakReference currentController
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: android.media.session.MediaSessionManager$OnActiveSessionsChangedListener sessionsChangedListener
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: boolean enabled
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: MusicListenerService()
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: int onStartCommand(android.content.Intent,int,int)
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: android.os.IBinder onBind(android.content.Intent)
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: void onCreate()
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: void updateCurrentInfo(android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String)
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: void onActiveSessionsChanged(java.util.List)
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: void startDefaultPlayerWithKeyCode(int)
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: void sendKeyCodeToPlayer(int,java.lang.String)
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: boolean isAlternativeControl(android.media.session.MediaController)
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: java.util.List access$200()
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: java.lang.ref.WeakReference access$300(com.faendir.lightning_launcher.multitool.music.MusicListenerService)
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: org.apache.commons.collections4.BidiMap access$400(com.faendir.lightning_launcher.multitool.music.MusicListenerService)
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: void access$500(com.faendir.lightning_launcher.multitool.music.MusicListenerService,android.media.session.MediaController,android.graphics.Bitmap,java.lang.String,java.lang.String,java.lang.String)
-com.faendir.lightning_launcher.multitool.music.MusicListenerService: void <clinit>()
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask3$$Lambda$1: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask3$Position: com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask3$Position[] values()
 com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask3$Position: com.faendir.lightning_launcher.multitool.scriptmanager.FormatTask3$Position valueOf(java.lang.String)
@@ -11235,6 +11203,19 @@ com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: boolean shouldS
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: boolean shouldSendReport(android.content.Context,org.acra.config.CoreConfiguration,org.acra.data.CrashReportData)
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: void notifyReportDropped(android.content.Context,org.acra.config.CoreConfiguration)
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: boolean enabled(org.acra.config.CoreConfiguration)
+com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService
+com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: java.util.List listeners
+com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: NotificationDistributorService()
+com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: void onCreate()
+com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: void onNotificationPosted(android.service.notification.StatusBarNotification)
+com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: void onNotificationPosted(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap)
+com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: void onNotificationRemoved(android.service.notification.StatusBarNotification)
+com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: void onNotificationRemoved(android.service.notification.StatusBarNotification,android.service.notification.NotificationListenerService$RankingMap)
+com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: boolean isEnabled(android.content.Context)
+com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: void askForEnable(android.content.Context)
+com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: void lambda$onNotificationRemoved$2$NotificationDistributorService(android.service.notification.StatusBarNotification,com.faendir.lightning_launcher.multitool.util.notification.NotificationListener)
+com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: void lambda$onNotificationPosted$1$NotificationDistributorService(android.service.notification.StatusBarNotification,com.faendir.lightning_launcher.multitool.util.notification.NotificationListener)
+com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: void lambda$onCreate$0$NotificationDistributorService(com.faendir.lightning_launcher.multitool.util.notification.NotificationListener)
 com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener: android.content.Context context
 com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener: android.net.Uri uri
 com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener: java.lang.Runnable onChange

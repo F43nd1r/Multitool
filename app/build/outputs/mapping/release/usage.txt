@@ -5148,6 +5148,8 @@ com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiConsumer
 com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalConsumer
 com.faendir.lightning_launcher.multitool.util.Utils:
     25:26:private Utils()
+com.faendir.lightning_launcher.multitool.util.notification.NotificationListener$$CC:
+    9:9:public static void onCreate(com.faendir.lightning_launcher.multitool.util.notification.NotificationListener,android.service.notification.NotificationListenerService)
 com.faendir.lightning_launcher.multitool.util.provider.DataProvider:
     private static final java.lang.String AUTHORITY
 com.faendir.lightning_launcher.scriptlib.Action
@@ -5200,18 +5202,19 @@ com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader:
 com.google.devtools.build.android.desugar.runtime.ThrowableExtension:
     public static final java.lang.String SYSTEM_PROPERTY_TWR_DISABLE_MIMIC
     private static final java.lang.String ANDROID_OS_BUILD_VERSION
-    33:33:public ThrowableExtension()
-    72:72:public static com.google.devtools.build.android.desugar.runtime.ThrowableExtension$AbstractDesugaringStrategy getStrategy()
-    80:80:public static java.lang.Throwable[] getSuppressed(java.lang.Throwable)
+    36:36:public ThrowableExtension()
+    80:80:public static com.google.devtools.build.android.desugar.runtime.ThrowableExtension$AbstractDesugaringStrategy getStrategy()
+    88:88:public static java.lang.Throwable[] getSuppressed(java.lang.Throwable)
+    104:139:public static void closeResource(java.lang.Throwable,java.lang.Object)
 com.google.devtools.build.android.desugar.runtime.ThrowableExtension$AbstractDesugaringStrategy:
     public abstract java.lang.Throwable[] getSuppressed(java.lang.Throwable)
 com.google.devtools.build.android.desugar.runtime.ThrowableExtension$ConcurrentWeakIdentityHashMap
 com.google.devtools.build.android.desugar.runtime.ThrowableExtension$ConcurrentWeakIdentityHashMap$WeakKey
 com.google.devtools.build.android.desugar.runtime.ThrowableExtension$MimicDesugaringStrategy
 com.google.devtools.build.android.desugar.runtime.ThrowableExtension$NullDesugaringStrategy:
-    348:348:public java.lang.Throwable[] getSuppressed(java.lang.Throwable)
+    394:394:public java.lang.Throwable[] getSuppressed(java.lang.Throwable)
 com.google.devtools.build.android.desugar.runtime.ThrowableExtension$ReuseDesugaringStrategy:
-    157:157:public java.lang.Throwable[] getSuppressed(java.lang.Throwable)
+    203:203:public java.lang.Throwable[] getSuppressed(java.lang.Throwable)
 com.google.gson.DefaultDateTypeAdapter:
     private static final java.lang.String SIMPLE_NAME
     49:52:DefaultDateTypeAdapter(java.lang.Class)
@@ -5698,7 +5701,6 @@ com.mikepenz.fastadapter.select.package-info
 com.mikepenz.fastadapter.utils.AdapterUtil
 com.mikepenz.fastadapter.utils.ComparableItemListImpl:
     25:28:public ComparableItemListImpl(java.util.Comparator,java.util.List)
-    34:34:public java.util.Comparator getComparator()
     70:77:public void move(int,int,int)
 com.mikepenz.fastadapter.utils.DefaultIdDistributor:
     35:38:public varargs com.mikepenz.fastadapter.IIdentifyable[] checkIds(com.mikepenz.fastadapter.IIdentifyable[])
