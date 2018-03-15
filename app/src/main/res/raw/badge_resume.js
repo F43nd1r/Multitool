@@ -1,5 +1,7 @@
 eval(loadRawResource("com.faendir.lightning_launcher.multitool","library"));
 
+bindClass("android.os.Handler");
+
 var item = getEvent().getItem();
 var showZero = bindPrefs(["badgeShowZero"]).badgeShowZero == "true";
 

@@ -8,8 +8,8 @@ android {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 90
-        versionName "2.13"
+        versionCode 91
+        versionName "2.13.1"
     }
     buildTypes {
         release {
@@ -33,9 +33,9 @@ android {
 }
 
 dependencies {
-    def supportVersion = '27.0.2'
+    def supportVersion = '27.1.0'
     def streamVersion = '1.5.6'
-    def acraVersion = '5.0.2'
+    def acraVersion = '5.1.1'
     def fastAdapterVersion = '3.2.2'
     implementation('com.faendir.lightninglauncher:scriptlib:3.0-SNAPSHOT') {
         changing = true
