@@ -8,8 +8,8 @@ android {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 91
-        versionName "2.13.1"
+        versionCode 92
+        versionName "2.13.2"
     }
     buildTypes {
         release {
@@ -33,7 +33,7 @@ android {
 }
 
 dependencies {
-    def supportVersion = '27.1.0'
+    def supportVersion = '27.1.1'
     def streamVersion = '1.5.6'
     def acraVersion = '5.1.1'
     def fastAdapterVersion = '3.2.2'
@@ -61,7 +61,7 @@ dependencies {
     implementation "net.sourceforge.streamsupport:streamsupport-flow:$streamVersion"
     implementation "net.sourceforge.streamsupport:streamsupport-literal:$streamVersion"
     implementation 'org.mozilla:rhino:1.7.8'
-    implementation 'com.evernote:android-job:1.2.2'
+    implementation 'com.evernote:android-job:1.2.5'
     compileOnly "com.google.auto.service:auto-service:1.0-rc4"
     annotationProcessor "com.google.auto.service:auto-service:1.0-rc4"
 }

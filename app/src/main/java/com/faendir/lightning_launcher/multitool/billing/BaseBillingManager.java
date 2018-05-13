@@ -198,6 +198,7 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
         }
     }
 
+    @WorkerThread
     @CheckResult
     boolean init() {
         while (!error && !billingProcessor.isInitialized()) {

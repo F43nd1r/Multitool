@@ -5351,6 +5351,7 @@ android.support.v4.app.Fragment: int RESUMED
 android.support.v4.app.Fragment: int mState
 android.support.v4.app.Fragment: android.os.Bundle mSavedFragmentState
 android.support.v4.app.Fragment: android.util.SparseArray mSavedViewState
+android.support.v4.app.Fragment: java.lang.Boolean mSavedUserVisibleHint
 android.support.v4.app.Fragment: int mIndex
 android.support.v4.app.Fragment: java.lang.String mWho
 android.support.v4.app.Fragment: android.os.Bundle mArguments
@@ -5859,6 +5860,7 @@ android.support.v7.app.AppCompatDialog: android.support.v7.view.ActionMode onWin
 android.support.v7.app.AppCompatDialogFragment: AppCompatDialogFragment()
 android.support.v7.app.AppCompatDialogFragment: android.app.Dialog onCreateDialog(android.os.Bundle)
 android.support.v7.app.AppCompatDialogFragment: void setupDialog(android.app.Dialog,int)
+android.support.v7.app.AppCompatViewInflater
 android.support.v7.app.AppCompatViewInflater$DeclaredOnClickListener: void onClick(android.view.View)
 android.support.v7.appcompat.R$anim: int abc_fade_in
 android.support.v7.appcompat.R$anim: int abc_fade_out
@@ -8072,9 +8074,11 @@ com.evernote.android.job.Job: long mFinishedTimeStamp
 com.evernote.android.job.Job: com.evernote.android.job.Job$Result mResult
 com.evernote.android.job.Job: Job()
 com.evernote.android.job.Job: com.evernote.android.job.Job$Result onRunJob(com.evernote.android.job.Job$Params)
+com.evernote.android.job.Job: void onCancel()
 com.evernote.android.job.Job: com.evernote.android.job.Job$Result runJob()
 com.evernote.android.job.Job: void onReschedule(int)
 com.evernote.android.job.Job: boolean meetsRequirements()
+com.evernote.android.job.Job: boolean meetsRequirements(boolean)
 com.evernote.android.job.Job: boolean isRequirementChargingMet()
 com.evernote.android.job.Job: boolean isRequirementDeviceIdleMet()
 com.evernote.android.job.Job: boolean isRequirementBatteryNotLowMet()
@@ -8085,7 +8089,7 @@ com.evernote.android.job.Job: com.evernote.android.job.Job$Params getParams()
 com.evernote.android.job.Job: com.evernote.android.job.Job setContext(android.content.Context)
 com.evernote.android.job.Job: android.content.Context getContext()
 com.evernote.android.job.Job: void cancel()
-com.evernote.android.job.Job: void cancel(boolean)
+com.evernote.android.job.Job: boolean cancel(boolean)
 com.evernote.android.job.Job: boolean isCanceled()
 com.evernote.android.job.Job: boolean isFinished()
 com.evernote.android.job.Job: long getFinishedTimeStamp()
@@ -8246,7 +8250,8 @@ com.evernote.android.job.v21.PlatformJobService: PlatformJobService()
 com.evernote.android.job.v21.PlatformJobService: boolean onStartJob(android.app.job.JobParameters)
 com.evernote.android.job.v21.PlatformJobService: boolean onStopJob(android.app.job.JobParameters)
 com.evernote.android.job.v21.PlatformJobService: android.os.Bundle getTransientBundle(android.app.job.JobParameters)
-com.evernote.android.job.v21.PlatformJobService: android.os.Bundle access$000(com.evernote.android.job.v21.PlatformJobService,android.app.job.JobParameters)
+com.evernote.android.job.v21.PlatformJobService: com.evernote.android.job.util.JobCat access$000()
+com.evernote.android.job.v21.PlatformJobService: android.os.Bundle access$100(com.evernote.android.job.v21.PlatformJobService,android.app.job.JobParameters)
 com.evernote.android.job.v21.PlatformJobService: void <clinit>()
 com.faendir.lightning_launcher.multitool.Loader
 com.faendir.lightning_launcher.multitool.Loader: Loader()
@@ -11365,7 +11370,7 @@ com.faendir.lightning_launcher.multitool.util.notification.NotificationDistribut
 com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: void askForEnable(android.content.Context)
 com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: void lambda$onNotificationRemoved$2$NotificationDistributorService(android.service.notification.StatusBarNotification,com.faendir.lightning_launcher.multitool.util.notification.NotificationListener)
 com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: void lambda$onNotificationPosted$1$NotificationDistributorService(android.service.notification.StatusBarNotification,com.faendir.lightning_launcher.multitool.util.notification.NotificationListener)
-com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: void lambda$onCreate$0$NotificationDistributorService(com.faendir.lightning_launcher.multitool.util.notification.NotificationListener)
+com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService: void lambda$onCreate$0$NotificationDistributorService()
 com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener: android.content.Context context
 com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener: android.net.Uri uri
 com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener: java.lang.Runnable onChange

@@ -36,11 +36,18 @@ public class NotificationDistributorService extends NotificationListenerService 
     @Override
     public void onCreate() {
         super.onCreate();
-        listeners.add(new BadgeNotificationListener());
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && new BaseBillingManager(this).isBoughtOrTrial(R.string.title_musicWidget)){
-            listeners.add(new MusicNotificationListener());
+        final BadgeNotificationListener badgeNotificationListener = new BadgeNotificationListener();
+        badgeNotificationListener.onCreate(this);
+        listeners.add(badgeNotificationListener);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            new Thread(() -> {
+                if(new BaseBillingManager(this).isBoughtOrTrial(R.string.title_musicWidget)){
+                    final MusicNotificationListener musicNotificationListener = new MusicNotificationListener();
+                    musicNotificationListener.onCreate(this);
+                    listeners.add(musicNotificationListener);
+                }
+            }).start();
         }
-        StreamSupport.stream(listeners).forEach(l -> l.onCreate(this));
     }
 
     @Override

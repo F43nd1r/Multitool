@@ -800,7 +800,7 @@ android.support.v4.app.BundleCompat$BundleCompatBaseImpl:
     34:34:BundleCompat$BundleCompatBaseImpl()
 android.support.v4.app.DialogFragment$DialogStyle
 android.support.v4.app.Fragment$SavedState:
-    268:270:Fragment$SavedState(android.os.Bundle)
+    271:273:Fragment$SavedState(android.os.Bundle)
 android.support.v4.app.FragmentActivity:
     private static final java.lang.String TAG
     static final java.lang.String FRAGMENTS_TAG
@@ -873,26 +873,26 @@ android.support.v4.app.FragmentManagerImpl:
     public static final int ANIM_STYLE_CLOSE_EXIT
     public static final int ANIM_STYLE_FADE_ENTER
     public static final int ANIM_STYLE_FADE_EXIT
-    783:785:public boolean executePendingTransactions()
-    790:791:public void popBackStack()
-    801:802:public void popBackStack(java.lang.String,int)
-    806:807:public boolean popBackStackImmediate(java.lang.String,int)
-    820:825:public boolean popBackStackImmediate(int,int)
-    866:866:public int getBackStackEntryCount()
-    871:871:public android.support.v4.app.FragmentManager$BackStackEntry getBackStackEntryAt(int)
-    876:880:public void addOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
-    884:887:public void removeOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
-    929:937:java.util.List getActiveFragments()
-    946:949:int getActiveFragmentCount()
-    954:962:public android.support.v4.app.Fragment$SavedState saveFragmentInstanceState(android.support.v4.app.Fragment)
-    967:967:public boolean isDestroyed()
-    3403:3404:public void registerFragmentLifecycleCallbacks(android.support.v4.app.FragmentManager$FragmentLifecycleCallbacks,boolean)
-    3408:3416:public void unregisterFragmentLifecycleCallbacks(android.support.v4.app.FragmentManager$FragmentLifecycleCallbacks)
+    784:786:public boolean executePendingTransactions()
+    791:792:public void popBackStack()
+    802:803:public void popBackStack(java.lang.String,int)
+    807:808:public boolean popBackStackImmediate(java.lang.String,int)
+    821:826:public boolean popBackStackImmediate(int,int)
+    867:867:public int getBackStackEntryCount()
+    872:872:public android.support.v4.app.FragmentManager$BackStackEntry getBackStackEntryAt(int)
+    877:881:public void addOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
+    885:888:public void removeOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
+    930:938:java.util.List getActiveFragments()
+    947:950:int getActiveFragmentCount()
+    955:963:public android.support.v4.app.Fragment$SavedState saveFragmentInstanceState(android.support.v4.app.Fragment)
+    968:968:public boolean isDestroyed()
+    3396:3397:public void registerFragmentLifecycleCallbacks(android.support.v4.app.FragmentManager$FragmentLifecycleCallbacks,boolean)
+    3401:3409:public void unregisterFragmentLifecycleCallbacks(android.support.v4.app.FragmentManager$FragmentLifecycleCallbacks)
 android.support.v4.app.FragmentManagerImpl$FragmentTag:
     public static final int Fragment_id
     public static final int Fragment_name
     public static final int Fragment_tag
-    3776:3776:FragmentManagerImpl$FragmentTag()
+    3769:3769:FragmentManagerImpl$FragmentTag()
 android.support.v4.app.FragmentPagerAdapter:
     private static final java.lang.String TAG
     private static final boolean DEBUG
@@ -958,10 +958,16 @@ android.support.v4.app.LoaderManager:
     public abstract android.support.v4.content.Loader initLoader(int,android.os.Bundle,android.support.v4.app.LoaderManager$LoaderCallbacks)
     public abstract android.support.v4.content.Loader getLoader(int)
     197:198:public static void enableDebugLogging(boolean)
+    204:204:public boolean hasRunningLoaders()
 android.support.v4.app.LoaderManagerImpl:
     static final java.lang.String TAG
-    364:380:public android.support.v4.content.Loader initLoader(int,android.os.Bundle,android.support.v4.app.LoaderManager$LoaderCallbacks)
-    424:429:public android.support.v4.content.Loader getLoader(int)
+    391:407:public android.support.v4.content.Loader initLoader(int,android.os.Bundle,android.support.v4.app.LoaderManager$LoaderCallbacks)
+    454:459:public android.support.v4.content.Loader getLoader(int)
+    492:492:public boolean hasRunningLoaders()
+android.support.v4.app.LoaderManagerImpl$LoaderInfo:
+    124:128:boolean isCallbackWaitingForData()
+android.support.v4.app.LoaderManagerImpl$LoaderViewModel:
+    309:316:boolean hasRunningLoaders()
 android.support.v4.app.NavUtils:
     private static final java.lang.String TAG
     public static final java.lang.String PARENT_ACTIVITY
@@ -4509,29 +4515,29 @@ android.support.v7.widget.StaggeredGridLayoutManager:
     public static final int GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
     static final int INVALID_OFFSET
     private static final float MAX_SCROLL_FACTOR
-    502:502:public int getGapStrategy()
-    515:526:public void setGapStrategy(int)
-    541:541:public int getSpanCount()
-    582:582:public boolean getReverseLayout()
-    960:969:public int[] findFirstVisibleItemPositions(int[])
-    992:1001:public int[] findFirstCompletelyVisibleItemPositions(int[])
-    1024:1033:public int[] findLastVisibleItemPositions(int[])
-    1056:1065:public int[] findLastCompletelyVisibleItemPositions(int[])
-    2103:2109:public void scrollToPositionWithOffset(int,int)
-    2281:2281:public int getOrientation()
+    504:504:public int getGapStrategy()
+    517:528:public void setGapStrategy(int)
+    543:543:public int getSpanCount()
+    584:584:public boolean getReverseLayout()
+    962:971:public int[] findFirstVisibleItemPositions(int[])
+    994:1003:public int[] findFirstCompletelyVisibleItemPositions(int[])
+    1026:1035:public int[] findLastVisibleItemPositions(int[])
+    1058:1067:public int[] findLastCompletelyVisibleItemPositions(int[])
+    2105:2111:public void scrollToPositionWithOffset(int,int)
+    2283:2283:public int getOrientation()
 android.support.v7.widget.StaggeredGridLayoutManager$LayoutParams:
     public static final int INVALID_SPAN_ID
-    2470:2471:public StaggeredGridLayoutManager$LayoutParams(android.support.v7.widget.RecyclerView$LayoutParams)
-    2482:2483:public void setFullSpan(boolean)
+    2472:2473:public StaggeredGridLayoutManager$LayoutParams(android.support.v7.widget.RecyclerView$LayoutParams)
+    2484:2485:public void setFullSpan(boolean)
 android.support.v7.widget.StaggeredGridLayoutManager$LazySpanLookup:
     private static final int MIN_SIZE
 android.support.v7.widget.StaggeredGridLayoutManager$Span:
     static final int INVALID_LINE
-    2698:2700:public int findFirstVisibleItemPosition()
-    2710:2712:public int findFirstCompletelyVisibleItemPosition()
-    2716:2718:public int findLastVisibleItemPosition()
-    2728:2730:public int findLastCompletelyVisibleItemPosition()
-    2791:2791:int findOneVisibleChild(int,int,boolean)
+    2700:2702:public int findFirstVisibleItemPosition()
+    2712:2714:public int findFirstCompletelyVisibleItemPosition()
+    2718:2720:public int findLastVisibleItemPosition()
+    2730:2732:public int findLastCompletelyVisibleItemPosition()
+    2793:2793:int findOneVisibleChild(int,int,boolean)
 android.support.v7.widget.SuggestionsAdapter:
     private static final boolean DBG
     private static final java.lang.String LOG_TAG
@@ -4779,11 +4785,14 @@ com.evernote.android.job.DailyJob:
     static final java.lang.String EXTRA_START_MS
     static final java.lang.String EXTRA_END_MS
     private static final java.lang.String EXTRA_ONCE
-    66:66:public static int schedule(com.evernote.android.job.JobRequest$Builder,long,long)
-    79:86:public static int startNowOnce(com.evernote.android.job.JobRequest$Builder)
-    90:142:private static int schedule(com.evernote.android.job.JobRequest$Builder,boolean,long,long)
-    148:193:protected final com.evernote.android.job.Job$Result onRunJob(com.evernote.android.job.Job$Params)
+    67:67:public static int schedule(com.evernote.android.job.JobRequest$Builder,long,long)
+    80:81:public static void scheduleAsync(com.evernote.android.job.JobRequest$Builder,long,long)
+    92:104:public static void scheduleAsync(com.evernote.android.job.JobRequest$Builder,long,long,com.evernote.android.job.JobRequest$JobScheduledCallback)
+    116:123:public static int startNowOnce(com.evernote.android.job.JobRequest$Builder)
+    127:184:private static int schedule(com.evernote.android.job.JobRequest$Builder,boolean,long,long,boolean)
+    190:235:protected final com.evernote.android.job.Job$Result onRunJob(com.evernote.android.job.Job$Params)
     protected abstract com.evernote.android.job.DailyJob$DailyJobResult onRunDailyJob(com.evernote.android.job.Job$Params)
+com.evernote.android.job.DailyJob$1
 com.evernote.android.job.DailyJob$DailyJobResult
 com.evernote.android.job.GcmAvailableHelper:
     private static final java.lang.String ACTION_TASK_READY
@@ -4791,46 +4800,47 @@ com.evernote.android.job.GcmAvailableHelper:
     140:142:private GcmAvailableHelper()
 com.evernote.android.job.Job$Params:
     private com.evernote.android.job.util.support.PersistableBundleCompat mExtras
-    369:369:public boolean isExact()
-    379:379:public long getStartMs()
-    389:389:public long getEndMs()
-    399:399:public long getIntervalMs()
-    410:410:public long getFlexMs()
-    426:426:public long getScheduledAt()
-    437:437:public long getBackoffMs()
-    447:447:public com.evernote.android.job.JobRequest$BackoffPolicy getBackoffPolicy()
-    457:457:public boolean requiresCharging()
-    467:467:public boolean requiresDeviceIdle()
-    477:477:public com.evernote.android.job.JobRequest$NetworkType requiredNetworkType()
-    484:484:public boolean requiresBatteryNotLow()
-    491:491:public boolean requiresStorageNotLow()
-    500:500:public boolean requirementsEnforced()
-    510:510:public int getFailureCount()
-    520:520:public long getLastRun()
-    531:531:public boolean isTransient()
-    549:549:public android.os.Bundle getTransientExtras()
-    557:563:public com.evernote.android.job.util.support.PersistableBundleCompat getExtras()
+    406:406:public boolean isExact()
+    416:416:public long getStartMs()
+    426:426:public long getEndMs()
+    436:436:public long getIntervalMs()
+    447:447:public long getFlexMs()
+    463:463:public long getScheduledAt()
+    474:474:public long getBackoffMs()
+    484:484:public com.evernote.android.job.JobRequest$BackoffPolicy getBackoffPolicy()
+    494:494:public boolean requiresCharging()
+    504:504:public boolean requiresDeviceIdle()
+    514:514:public com.evernote.android.job.JobRequest$NetworkType requiredNetworkType()
+    521:521:public boolean requiresBatteryNotLow()
+    528:528:public boolean requiresStorageNotLow()
+    537:537:public boolean requirementsEnforced()
+    547:547:public int getFailureCount()
+    557:557:public long getLastRun()
+    568:568:public boolean isTransient()
+    586:586:public android.os.Bundle getTransientExtras()
+    594:600:public com.evernote.android.job.util.support.PersistableBundleCompat getExtras()
 com.evernote.android.job.JobApi:
     private static final java.lang.String JOB_SCHEDULER_PERMISSION
     106:106:boolean supportsTransientJobs()
 com.evernote.android.job.JobConfig:
     private static final long DEFAULT_JOB_RESCHEDULE_PAUSE
     55:56:private JobConfig()
-    120:122:public static void setApiEnabled(com.evernote.android.job.JobApi,boolean)
-    131:135:public static void forceApi(com.evernote.android.job.JobApi)
-    156:160:public static void setAllowSmallerIntervalsForMarshmallow(boolean)
-    177:178:public static void setForceAllowApi14(boolean)
-    195:195:public static synchronized boolean addLogger(com.evernote.android.job.util.JobLogger)
-    205:206:public static synchronized void removeLogger(com.evernote.android.job.util.JobLogger)
-    214:215:public static void setLogcatEnabled(boolean)
-    221:221:public static boolean isLogcatEnabled()
-    238:239:public static void setJobReschedulePause(long,java.util.concurrent.TimeUnit)
-    246:247:static void setSkipJobReschedule(boolean)
-    263:269:public static void setJobIdOffset(int)
-    286:287:public static void setForceRtc(boolean)
-    298:299:static void setClock(com.evernote.android.job.util.Clock)
-    315:316:public static void setExecutorService(java.util.concurrent.ExecutorService)
-    322:335:public static void reset()
+    121:123:public static void setApiEnabled(com.evernote.android.job.JobApi,boolean)
+    132:136:public static void forceApi(com.evernote.android.job.JobApi)
+    157:161:public static void setAllowSmallerIntervalsForMarshmallow(boolean)
+    178:179:public static void setForceAllowApi14(boolean)
+    196:196:public static synchronized boolean addLogger(com.evernote.android.job.util.JobLogger)
+    206:207:public static synchronized void removeLogger(com.evernote.android.job.util.JobLogger)
+    215:216:public static void setLogcatEnabled(boolean)
+    222:222:public static boolean isLogcatEnabled()
+    239:240:public static void setJobReschedulePause(long,java.util.concurrent.TimeUnit)
+    247:248:static void setSkipJobReschedule(boolean)
+    264:270:public static void setJobIdOffset(int)
+    287:288:public static void setForceRtc(boolean)
+    299:300:static void setClock(com.evernote.android.job.util.Clock)
+    316:317:public static void setExecutorService(java.util.concurrent.ExecutorService)
+    333:334:public static void setCloseDatabase(boolean)
+    340:354:public static void reset()
 com.evernote.android.job.JobCreator:
     public static final java.lang.String ACTION_ADD_JOB_CREATOR
 com.evernote.android.job.JobCreator$AddJobCreatorReceiver:
@@ -4841,40 +4851,48 @@ com.evernote.android.job.JobExecutor:
     128:128:public android.util.SparseArray getAllJobResults()
 com.evernote.android.job.JobIdsInternal
 com.evernote.android.job.JobManager:
-    249:254:public com.evernote.android.job.JobRequest getJobRequest(int)
-    275:275:public java.util.Set getAllJobRequests()
-    285:285:public java.util.Set getAllJobRequestsForTag(java.lang.String)
-    359:359:public android.util.SparseArray getAllJobResults()
-    381:381:public int cancelAll()
-    452:453:public void removeJobCreator(com.evernote.android.job.JobCreator)
-    472:478:void destroy()
+    251:256:public com.evernote.android.job.JobRequest getJobRequest(int)
+    277:277:public java.util.Set getAllJobRequests()
+    287:287:public java.util.Set getAllJobRequestsForTag(java.lang.String)
+    361:361:public android.util.SparseArray getAllJobResults()
+    383:383:public int cancelAll()
+    453:454:public void removeJobCreator(com.evernote.android.job.JobCreator)
+    473:479:void destroy()
 com.evernote.android.job.JobRequest:
     public static final long DEFAULT_BACKOFF_MS
     private static final long WINDOW_THRESHOLD_WARNING
     private static final long WINDOW_THRESHOLD_MAX
     static final long START_NOW
-    266:269:public com.evernote.android.job.util.support.PersistableBundleCompat getExtras()
-    374:374:public long getLastRun()
-    444:444:com.evernote.android.job.JobRequest$Builder createBuilder()
+    280:283:public com.evernote.android.job.util.support.PersistableBundleCompat getExtras()
+    388:388:public long getLastRun()
+    450:451:public void scheduleAsync()
+    460:472:public void scheduleAsync(com.evernote.android.job.JobRequest$JobScheduledCallback)
+    500:500:com.evernote.android.job.JobRequest$Builder createBuilder()
+com.evernote.android.job.JobRequest$1:
+    81:84:public void onJobScheduled(int,java.lang.String,java.lang.Exception)
+com.evernote.android.job.JobRequest$2
 com.evernote.android.job.JobRequest$Builder:
     private static final int CREATE_ID
-    741:747:public com.evernote.android.job.JobRequest$Builder setExtras(com.evernote.android.job.util.support.PersistableBundleCompat)
-    757:763:public com.evernote.android.job.JobRequest$Builder addExtras(com.evernote.android.job.util.support.PersistableBundleCompat)
-    793:794:public com.evernote.android.job.JobRequest$Builder setRequirementsEnforced(boolean)
-    813:814:public com.evernote.android.job.JobRequest$Builder setRequiredNetworkType(com.evernote.android.job.JobRequest$NetworkType)
-    832:833:public com.evernote.android.job.JobRequest$Builder setRequiresCharging(boolean)
-    853:854:public com.evernote.android.job.JobRequest$Builder setRequiresDeviceIdle(boolean)
-    872:873:public com.evernote.android.job.JobRequest$Builder setRequiresBatteryNotLow(boolean)
-    893:894:public com.evernote.android.job.JobRequest$Builder setRequiresStorageNotLow(boolean)
-    934:940:public com.evernote.android.job.JobRequest$Builder setExact(long)
-    959:959:public com.evernote.android.job.JobRequest$Builder startNow()
-    976:976:public com.evernote.android.job.JobRequest$Builder setPeriodic(long)
-    998:1000:public com.evernote.android.job.JobRequest$Builder setPeriodic(long,long)
-    1019:1021:public com.evernote.android.job.JobRequest$Builder setBackoffCriteria(long,com.evernote.android.job.JobRequest$BackoffPolicy)
-    1051:1053:public com.evernote.android.job.JobRequest$Builder setTransientExtras(android.os.Bundle)
-    530:530:static synthetic com.evernote.android.job.util.support.PersistableBundleCompat access$1300(com.evernote.android.job.JobRequest$Builder)
-    530:530:static synthetic java.lang.String access$1400(com.evernote.android.job.JobRequest$Builder)
-    530:530:static synthetic com.evernote.android.job.util.support.PersistableBundleCompat access$1302(com.evernote.android.job.JobRequest$Builder,com.evernote.android.job.util.support.PersistableBundleCompat)
+    797:803:public com.evernote.android.job.JobRequest$Builder setExtras(com.evernote.android.job.util.support.PersistableBundleCompat)
+    813:819:public com.evernote.android.job.JobRequest$Builder addExtras(com.evernote.android.job.util.support.PersistableBundleCompat)
+    849:850:public com.evernote.android.job.JobRequest$Builder setRequirementsEnforced(boolean)
+    869:870:public com.evernote.android.job.JobRequest$Builder setRequiredNetworkType(com.evernote.android.job.JobRequest$NetworkType)
+    888:889:public com.evernote.android.job.JobRequest$Builder setRequiresCharging(boolean)
+    909:910:public com.evernote.android.job.JobRequest$Builder setRequiresDeviceIdle(boolean)
+    928:929:public com.evernote.android.job.JobRequest$Builder setRequiresBatteryNotLow(boolean)
+    949:950:public com.evernote.android.job.JobRequest$Builder setRequiresStorageNotLow(boolean)
+    990:996:public com.evernote.android.job.JobRequest$Builder setExact(long)
+    1015:1015:public com.evernote.android.job.JobRequest$Builder startNow()
+    1032:1032:public com.evernote.android.job.JobRequest$Builder setPeriodic(long)
+    1054:1056:public com.evernote.android.job.JobRequest$Builder setPeriodic(long,long)
+    1075:1077:public com.evernote.android.job.JobRequest$Builder setBackoffCriteria(long,com.evernote.android.job.JobRequest$BackoffPolicy)
+    1107:1109:public com.evernote.android.job.JobRequest$Builder setTransientExtras(android.os.Bundle)
+    586:586:static synthetic com.evernote.android.job.util.support.PersistableBundleCompat access$1400(com.evernote.android.job.JobRequest$Builder)
+    586:586:static synthetic java.lang.String access$1500(com.evernote.android.job.JobRequest$Builder)
+    586:586:static synthetic com.evernote.android.job.util.support.PersistableBundleCompat access$1402(com.evernote.android.job.JobRequest$Builder,com.evernote.android.job.util.support.PersistableBundleCompat)
+com.evernote.android.job.JobRequest$JobScheduledCallback:
+    public static final int JOB_ID_ERROR
+    public abstract void onJobScheduled(int,java.lang.String,java.lang.Exception)
 com.evernote.android.job.JobStorage:
     public static final java.lang.String JOB_ID_COUNTER
     private static final java.lang.String FAILED_DELETE_IDS
@@ -5187,6 +5205,8 @@ com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiConsumer
 com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalConsumer
 com.faendir.lightning_launcher.multitool.util.Utils:
     25:26:private Utils()
+com.faendir.lightning_launcher.multitool.util.notification.NotificationListener:
+    public abstract void onCreate(android.service.notification.NotificationListenerService)
 com.faendir.lightning_launcher.multitool.util.notification.NotificationListener$$CC:
     9:9:public static void onCreate(com.faendir.lightning_launcher.multitool.util.notification.NotificationListener,android.service.notification.NotificationListenerService)
 com.faendir.lightning_launcher.multitool.util.provider.DataProvider:
