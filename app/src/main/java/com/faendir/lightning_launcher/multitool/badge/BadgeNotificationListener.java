@@ -43,17 +43,23 @@ public class BadgeNotificationListener implements NotificationListener {
         }
         int number = sbn.getNotification().number;
         if (number == 0) {
-            StatusBarNotification[] array = context.getActiveNotifications();
+            StatusBarNotification[] array = null;
+            try {
+                array = context.getActiveNotifications();
+            } catch (RuntimeException ignored) {
+            }
             if (array != null) {
                 List<StatusBarNotification> notifications = RefStreams.of(array).filter(n -> packageName.equals(n.getPackageName())).collect(Collectors.toList());
                 int reduceBy = 0;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    Map<String, Integer> groupSizes = StreamSupport.stream(notifications).collect(Collectors.toMap(StatusBarNotification::getGroupKey, n -> 1, (i1, i2) -> i1 + i2));
+                    Map<String, Integer> groupSizes = StreamSupport.stream(notifications)
+                            .collect(Collectors.toMap(StatusBarNotification::getGroupKey, n -> 1, (i1, i2) -> i1 + i2));
                     Iterables.removeIf(groupSizes.entrySet(), e -> e.getValue() == 1);
                     reduceBy = groupSizes.size();
                 }
                 number = (int) (RefStreams.of(array).filter(n -> packageName.equals(n.getPackageName())).count() - reduceBy);
-            } else {
+            }
+            if (number == 0) {
                 number = 1;
             }
         }
