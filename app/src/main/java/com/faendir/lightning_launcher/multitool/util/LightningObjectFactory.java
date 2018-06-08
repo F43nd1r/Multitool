@@ -6,6 +6,7 @@ import android.support.annotation.Keep;
 
 import com.faendir.lightning_launcher.multitool.backup.BackupCreator;
 import com.faendir.lightning_launcher.multitool.badge.BadgeListener;
+import com.faendir.lightning_launcher.multitool.gesture.LightningGestureView;
 import com.faendir.lightning_launcher.multitool.music.MusicListener;
 import com.faendir.lightning_launcher.multitool.music.TitleInfo;
 
@@ -29,5 +30,9 @@ public class LightningObjectFactory {
 
     public BackupCreator constructBackupCreator(Context context) {
         return new BackupCreator(context);
+    }
+
+    public LightningGestureView constructLightningGestureView(Context context) {
+        return new LightningGestureView(context);
     }
 }

@@ -2,6 +2,7 @@ package com.faendir.lightning_launcher.multitool.gesture;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.gesture.Gesture;
 import android.gesture.GestureOverlayView;
 import android.gesture.Prediction;
@@ -9,6 +10,7 @@ import android.support.annotation.Keep;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
 
@@ -34,9 +36,13 @@ public class LightningGestureView extends GestureOverlayView implements GestureO
     public LightningGestureView(Context context) {
         super(context);
         addOnGesturePerformedListener(this);
-        int color = context.getResources().getColor(R.color.accent);
-        setGestureColor(color);
-        setUncertainGestureColor(color);
+        try {
+            int color = context.createPackageContext(BuildConfig.APPLICATION_ID, Context.CONTEXT_IGNORE_SECURITY).getResources().getColor(R.color.accent);
+            setGestureColor(color);
+            setUncertainGestureColor(color);
+        } catch (PackageManager.NameNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         setEventsInterceptionEnabled(true);
         if (DEBUG) Log.d(LOG_TAG, "Created gesture view");
     }
