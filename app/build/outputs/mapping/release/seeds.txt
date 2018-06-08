@@ -8072,6 +8072,7 @@ com.evernote.android.job.Job: boolean mCanceled
 com.evernote.android.job.Job: boolean mDeleted
 com.evernote.android.job.Job: long mFinishedTimeStamp
 com.evernote.android.job.Job: com.evernote.android.job.Job$Result mResult
+com.evernote.android.job.Job: java.lang.Object mMonitor
 com.evernote.android.job.Job: Job()
 com.evernote.android.job.Job: com.evernote.android.job.Job$Result onRunJob(com.evernote.android.job.Job$Params)
 com.evernote.android.job.Job: void onCancel()
@@ -11351,6 +11352,7 @@ com.faendir.lightning_launcher.multitool.util.LightningObjectFactory: LightningO
 com.faendir.lightning_launcher.multitool.util.LightningObjectFactory: com.faendir.lightning_launcher.multitool.music.MusicListener constructMusicListener(android.os.Handler,android.content.Context,java8.util.function.Consumer)
 com.faendir.lightning_launcher.multitool.util.LightningObjectFactory: com.faendir.lightning_launcher.multitool.badge.BadgeListener constructBadgeListener(android.os.Handler,android.content.Context,java.lang.String,java8.util.function.Consumer)
 com.faendir.lightning_launcher.multitool.util.LightningObjectFactory: com.faendir.lightning_launcher.multitool.backup.BackupCreator constructBackupCreator(android.content.Context)
+com.faendir.lightning_launcher.multitool.util.LightningObjectFactory: com.faendir.lightning_launcher.multitool.gesture.LightningGestureView constructLightningGestureView(android.content.Context)
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: ResetReportPrimer()
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: boolean shouldStartCollecting(android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder)
@@ -11420,6 +11422,8 @@ com.mikepenz.fastadapter.R$anim: int abc_slide_in_bottom
 com.mikepenz.fastadapter.R$anim: int abc_slide_in_top
 com.mikepenz.fastadapter.R$anim: int abc_slide_out_bottom
 com.mikepenz.fastadapter.R$anim: int abc_slide_out_top
+com.mikepenz.fastadapter.R$anim: int abc_tooltip_enter
+com.mikepenz.fastadapter.R$anim: int abc_tooltip_exit
 com.mikepenz.fastadapter.R$attr: int actionBarDivider
 com.mikepenz.fastadapter.R$attr: int actionBarItemBackground
 com.mikepenz.fastadapter.R$attr: int actionBarPopupTheme
@@ -11482,6 +11486,7 @@ com.mikepenz.fastadapter.R$attr: int buttonBarNeutralButtonStyle
 com.mikepenz.fastadapter.R$attr: int buttonBarPositiveButtonStyle
 com.mikepenz.fastadapter.R$attr: int buttonBarStyle
 com.mikepenz.fastadapter.R$attr: int buttonGravity
+com.mikepenz.fastadapter.R$attr: int buttonIconDimen
 com.mikepenz.fastadapter.R$attr: int buttonPanelSideLayout
 com.mikepenz.fastadapter.R$attr: int buttonStyle
 com.mikepenz.fastadapter.R$attr: int buttonStyleSmall
@@ -11513,6 +11518,7 @@ com.mikepenz.fastadapter.R$attr: int contentInsetRight
 com.mikepenz.fastadapter.R$attr: int contentInsetStart
 com.mikepenz.fastadapter.R$attr: int contentInsetStartWithNavigation
 com.mikepenz.fastadapter.R$attr: int controlBackground
+com.mikepenz.fastadapter.R$attr: int coordinatorLayoutStyle
 com.mikepenz.fastadapter.R$attr: int customNavigationLayout
 com.mikepenz.fastadapter.R$attr: int defaultQueryHint
 com.mikepenz.fastadapter.R$attr: int dialogPreferredPadding
@@ -11561,8 +11567,15 @@ com.mikepenz.fastadapter.R$attr: int indeterminateProgressStyle
 com.mikepenz.fastadapter.R$attr: int initialActivityCount
 com.mikepenz.fastadapter.R$attr: int isLightTheme
 com.mikepenz.fastadapter.R$attr: int itemPadding
+com.mikepenz.fastadapter.R$attr: int keylines
 com.mikepenz.fastadapter.R$attr: int layout
 com.mikepenz.fastadapter.R$attr: int layoutManager
+com.mikepenz.fastadapter.R$attr: int layout_anchor
+com.mikepenz.fastadapter.R$attr: int layout_anchorGravity
+com.mikepenz.fastadapter.R$attr: int layout_behavior
+com.mikepenz.fastadapter.R$attr: int layout_dodgeInsetEdges
+com.mikepenz.fastadapter.R$attr: int layout_insetEdge
+com.mikepenz.fastadapter.R$attr: int layout_keyline
 com.mikepenz.fastadapter.R$attr: int listChoiceBackgroundIndicator
 com.mikepenz.fastadapter.R$attr: int listDividerAlertDialog
 com.mikepenz.fastadapter.R$attr: int listItemLayout
@@ -11623,6 +11636,7 @@ com.mikepenz.fastadapter.R$attr: int splitTrack
 com.mikepenz.fastadapter.R$attr: int srcCompat
 com.mikepenz.fastadapter.R$attr: int stackFromEnd
 com.mikepenz.fastadapter.R$attr: int state_above_anchor
+com.mikepenz.fastadapter.R$attr: int statusBarBackground
 com.mikepenz.fastadapter.R$attr: int subMenuArrow
 com.mikepenz.fastadapter.R$attr: int submitBackground
 com.mikepenz.fastadapter.R$attr: int subtitle
@@ -11673,6 +11687,7 @@ com.mikepenz.fastadapter.R$attr: int tooltipText
 com.mikepenz.fastadapter.R$attr: int track
 com.mikepenz.fastadapter.R$attr: int trackTint
 com.mikepenz.fastadapter.R$attr: int trackTintMode
+com.mikepenz.fastadapter.R$attr: int viewInflaterClass
 com.mikepenz.fastadapter.R$attr: int voiceIcon
 com.mikepenz.fastadapter.R$attr: int windowActionBar
 com.mikepenz.fastadapter.R$attr: int windowActionBarOverlay
@@ -11789,6 +11804,7 @@ com.mikepenz.fastadapter.R$dimen: int abc_action_button_min_height_material
 com.mikepenz.fastadapter.R$dimen: int abc_action_button_min_width_material
 com.mikepenz.fastadapter.R$dimen: int abc_action_button_min_width_overflow_material
 com.mikepenz.fastadapter.R$dimen: int abc_alert_dialog_button_bar_height
+com.mikepenz.fastadapter.R$dimen: int abc_alert_dialog_button_dimen
 com.mikepenz.fastadapter.R$dimen: int abc_button_inset_horizontal_material
 com.mikepenz.fastadapter.R$dimen: int abc_button_inset_vertical_material
 com.mikepenz.fastadapter.R$dimen: int abc_button_padding_horizontal_material
@@ -12008,6 +12024,7 @@ com.mikepenz.fastadapter.R$id: int add
 com.mikepenz.fastadapter.R$id: int alertTitle
 com.mikepenz.fastadapter.R$id: int async
 com.mikepenz.fastadapter.R$id: int blocking
+com.mikepenz.fastadapter.R$id: int bottom
 com.mikepenz.fastadapter.R$id: int buttonPanel
 com.mikepenz.fastadapter.R$id: int checkbox
 com.mikepenz.fastadapter.R$id: int chronometer
@@ -12017,6 +12034,7 @@ com.mikepenz.fastadapter.R$id: int customPanel
 com.mikepenz.fastadapter.R$id: int decor_content_parent
 com.mikepenz.fastadapter.R$id: int default_activity_button
 com.mikepenz.fastadapter.R$id: int edit_query
+com.mikepenz.fastadapter.R$id: int end
 com.mikepenz.fastadapter.R$id: int expand_activities_button
 com.mikepenz.fastadapter.R$id: int expanded_menu
 com.mikepenz.fastadapter.R$id: int fastadapter_item
@@ -12029,6 +12047,7 @@ com.mikepenz.fastadapter.R$id: int image
 com.mikepenz.fastadapter.R$id: int info
 com.mikepenz.fastadapter.R$id: int italic
 com.mikepenz.fastadapter.R$id: int item_touch_helper_previous_elevation
+com.mikepenz.fastadapter.R$id: int left
 com.mikepenz.fastadapter.R$id: int line1
 com.mikepenz.fastadapter.R$id: int line3
 com.mikepenz.fastadapter.R$id: int listMode
@@ -12044,6 +12063,7 @@ com.mikepenz.fastadapter.R$id: int parentPanel
 com.mikepenz.fastadapter.R$id: int progress_circular
 com.mikepenz.fastadapter.R$id: int progress_horizontal
 com.mikepenz.fastadapter.R$id: int radio
+com.mikepenz.fastadapter.R$id: int right
 com.mikepenz.fastadapter.R$id: int right_icon
 com.mikepenz.fastadapter.R$id: int right_side
 com.mikepenz.fastadapter.R$id: int screen
@@ -12067,6 +12087,7 @@ com.mikepenz.fastadapter.R$id: int split_action_bar
 com.mikepenz.fastadapter.R$id: int src_atop
 com.mikepenz.fastadapter.R$id: int src_in
 com.mikepenz.fastadapter.R$id: int src_over
+com.mikepenz.fastadapter.R$id: int start
 com.mikepenz.fastadapter.R$id: int submenuarrow
 com.mikepenz.fastadapter.R$id: int submit_area
 com.mikepenz.fastadapter.R$id: int tabMode
@@ -12079,6 +12100,7 @@ com.mikepenz.fastadapter.R$id: int time
 com.mikepenz.fastadapter.R$id: int title
 com.mikepenz.fastadapter.R$id: int titleDividerNoCustom
 com.mikepenz.fastadapter.R$id: int title_template
+com.mikepenz.fastadapter.R$id: int top
 com.mikepenz.fastadapter.R$id: int topPanel
 com.mikepenz.fastadapter.R$id: int uniform
 com.mikepenz.fastadapter.R$id: int up
@@ -12114,6 +12136,7 @@ com.mikepenz.fastadapter.R$layout: int abc_screen_toolbar
 com.mikepenz.fastadapter.R$layout: int abc_search_dropdown_item_icons_2line
 com.mikepenz.fastadapter.R$layout: int abc_search_view
 com.mikepenz.fastadapter.R$layout: int abc_select_dialog_material
+com.mikepenz.fastadapter.R$layout: int abc_tooltip
 com.mikepenz.fastadapter.R$layout: int notification_action
 com.mikepenz.fastadapter.R$layout: int notification_action_tombstone
 com.mikepenz.fastadapter.R$layout: int notification_template_custom_big
@@ -12508,6 +12531,7 @@ com.mikepenz.fastadapter.R$style: int Widget_AppCompat_Toolbar
 com.mikepenz.fastadapter.R$style: int Widget_AppCompat_Toolbar_Button_Navigation
 com.mikepenz.fastadapter.R$style: int Widget_Compat_NotificationActionContainer
 com.mikepenz.fastadapter.R$style: int Widget_Compat_NotificationActionText
+com.mikepenz.fastadapter.R$style: int Widget_Support_CoordinatorLayout
 com.mikepenz.fastadapter.R$styleable: int[] ActionBar
 com.mikepenz.fastadapter.R$styleable: int ActionBar_background
 com.mikepenz.fastadapter.R$styleable: int ActionBar_backgroundSplit
@@ -12719,6 +12743,17 @@ com.mikepenz.fastadapter.R$styleable: int[] CompoundButton
 com.mikepenz.fastadapter.R$styleable: int CompoundButton_android_button
 com.mikepenz.fastadapter.R$styleable: int CompoundButton_buttonTint
 com.mikepenz.fastadapter.R$styleable: int CompoundButton_buttonTintMode
+com.mikepenz.fastadapter.R$styleable: int[] CoordinatorLayout
+com.mikepenz.fastadapter.R$styleable: int CoordinatorLayout_keylines
+com.mikepenz.fastadapter.R$styleable: int CoordinatorLayout_statusBarBackground
+com.mikepenz.fastadapter.R$styleable: int[] CoordinatorLayout_Layout
+com.mikepenz.fastadapter.R$styleable: int CoordinatorLayout_Layout_android_layout_gravity
+com.mikepenz.fastadapter.R$styleable: int CoordinatorLayout_Layout_layout_anchor
+com.mikepenz.fastadapter.R$styleable: int CoordinatorLayout_Layout_layout_anchorGravity
+com.mikepenz.fastadapter.R$styleable: int CoordinatorLayout_Layout_layout_behavior
+com.mikepenz.fastadapter.R$styleable: int CoordinatorLayout_Layout_layout_dodgeInsetEdges
+com.mikepenz.fastadapter.R$styleable: int CoordinatorLayout_Layout_layout_insetEdge
+com.mikepenz.fastadapter.R$styleable: int CoordinatorLayout_Layout_layout_keyline
 com.mikepenz.fastadapter.R$styleable: int[] DrawerArrowToggle
 com.mikepenz.fastadapter.R$styleable: int DrawerArrowToggle_arrowHeadLength
 com.mikepenz.fastadapter.R$styleable: int DrawerArrowToggle_arrowShaftLength
@@ -12929,6 +12964,8 @@ com.mikepenz.fastadapter.commons.R$anim: int abc_slide_in_bottom
 com.mikepenz.fastadapter.commons.R$anim: int abc_slide_in_top
 com.mikepenz.fastadapter.commons.R$anim: int abc_slide_out_bottom
 com.mikepenz.fastadapter.commons.R$anim: int abc_slide_out_top
+com.mikepenz.fastadapter.commons.R$anim: int abc_tooltip_enter
+com.mikepenz.fastadapter.commons.R$anim: int abc_tooltip_exit
 com.mikepenz.fastadapter.commons.R$attr: int actionBarDivider
 com.mikepenz.fastadapter.commons.R$attr: int actionBarItemBackground
 com.mikepenz.fastadapter.commons.R$attr: int actionBarPopupTheme
@@ -12991,6 +13028,7 @@ com.mikepenz.fastadapter.commons.R$attr: int buttonBarNeutralButtonStyle
 com.mikepenz.fastadapter.commons.R$attr: int buttonBarPositiveButtonStyle
 com.mikepenz.fastadapter.commons.R$attr: int buttonBarStyle
 com.mikepenz.fastadapter.commons.R$attr: int buttonGravity
+com.mikepenz.fastadapter.commons.R$attr: int buttonIconDimen
 com.mikepenz.fastadapter.commons.R$attr: int buttonPanelSideLayout
 com.mikepenz.fastadapter.commons.R$attr: int buttonStyle
 com.mikepenz.fastadapter.commons.R$attr: int buttonStyleSmall
@@ -13022,6 +13060,7 @@ com.mikepenz.fastadapter.commons.R$attr: int contentInsetRight
 com.mikepenz.fastadapter.commons.R$attr: int contentInsetStart
 com.mikepenz.fastadapter.commons.R$attr: int contentInsetStartWithNavigation
 com.mikepenz.fastadapter.commons.R$attr: int controlBackground
+com.mikepenz.fastadapter.commons.R$attr: int coordinatorLayoutStyle
 com.mikepenz.fastadapter.commons.R$attr: int customNavigationLayout
 com.mikepenz.fastadapter.commons.R$attr: int defaultQueryHint
 com.mikepenz.fastadapter.commons.R$attr: int dialogPreferredPadding
@@ -13070,8 +13109,15 @@ com.mikepenz.fastadapter.commons.R$attr: int indeterminateProgressStyle
 com.mikepenz.fastadapter.commons.R$attr: int initialActivityCount
 com.mikepenz.fastadapter.commons.R$attr: int isLightTheme
 com.mikepenz.fastadapter.commons.R$attr: int itemPadding
+com.mikepenz.fastadapter.commons.R$attr: int keylines
 com.mikepenz.fastadapter.commons.R$attr: int layout
 com.mikepenz.fastadapter.commons.R$attr: int layoutManager
+com.mikepenz.fastadapter.commons.R$attr: int layout_anchor
+com.mikepenz.fastadapter.commons.R$attr: int layout_anchorGravity
+com.mikepenz.fastadapter.commons.R$attr: int layout_behavior
+com.mikepenz.fastadapter.commons.R$attr: int layout_dodgeInsetEdges
+com.mikepenz.fastadapter.commons.R$attr: int layout_insetEdge
+com.mikepenz.fastadapter.commons.R$attr: int layout_keyline
 com.mikepenz.fastadapter.commons.R$attr: int listChoiceBackgroundIndicator
 com.mikepenz.fastadapter.commons.R$attr: int listDividerAlertDialog
 com.mikepenz.fastadapter.commons.R$attr: int listItemLayout
@@ -13132,6 +13178,7 @@ com.mikepenz.fastadapter.commons.R$attr: int splitTrack
 com.mikepenz.fastadapter.commons.R$attr: int srcCompat
 com.mikepenz.fastadapter.commons.R$attr: int stackFromEnd
 com.mikepenz.fastadapter.commons.R$attr: int state_above_anchor
+com.mikepenz.fastadapter.commons.R$attr: int statusBarBackground
 com.mikepenz.fastadapter.commons.R$attr: int subMenuArrow
 com.mikepenz.fastadapter.commons.R$attr: int submitBackground
 com.mikepenz.fastadapter.commons.R$attr: int subtitle
@@ -13182,6 +13229,7 @@ com.mikepenz.fastadapter.commons.R$attr: int tooltipText
 com.mikepenz.fastadapter.commons.R$attr: int track
 com.mikepenz.fastadapter.commons.R$attr: int trackTint
 com.mikepenz.fastadapter.commons.R$attr: int trackTintMode
+com.mikepenz.fastadapter.commons.R$attr: int viewInflaterClass
 com.mikepenz.fastadapter.commons.R$attr: int voiceIcon
 com.mikepenz.fastadapter.commons.R$attr: int windowActionBar
 com.mikepenz.fastadapter.commons.R$attr: int windowActionBarOverlay
@@ -13298,6 +13346,7 @@ com.mikepenz.fastadapter.commons.R$dimen: int abc_action_button_min_height_mater
 com.mikepenz.fastadapter.commons.R$dimen: int abc_action_button_min_width_material
 com.mikepenz.fastadapter.commons.R$dimen: int abc_action_button_min_width_overflow_material
 com.mikepenz.fastadapter.commons.R$dimen: int abc_alert_dialog_button_bar_height
+com.mikepenz.fastadapter.commons.R$dimen: int abc_alert_dialog_button_dimen
 com.mikepenz.fastadapter.commons.R$dimen: int abc_button_inset_horizontal_material
 com.mikepenz.fastadapter.commons.R$dimen: int abc_button_inset_vertical_material
 com.mikepenz.fastadapter.commons.R$dimen: int abc_button_padding_horizontal_material
@@ -13517,6 +13566,7 @@ com.mikepenz.fastadapter.commons.R$id: int add
 com.mikepenz.fastadapter.commons.R$id: int alertTitle
 com.mikepenz.fastadapter.commons.R$id: int async
 com.mikepenz.fastadapter.commons.R$id: int blocking
+com.mikepenz.fastadapter.commons.R$id: int bottom
 com.mikepenz.fastadapter.commons.R$id: int buttonPanel
 com.mikepenz.fastadapter.commons.R$id: int checkbox
 com.mikepenz.fastadapter.commons.R$id: int chronometer
@@ -13526,6 +13576,7 @@ com.mikepenz.fastadapter.commons.R$id: int customPanel
 com.mikepenz.fastadapter.commons.R$id: int decor_content_parent
 com.mikepenz.fastadapter.commons.R$id: int default_activity_button
 com.mikepenz.fastadapter.commons.R$id: int edit_query
+com.mikepenz.fastadapter.commons.R$id: int end
 com.mikepenz.fastadapter.commons.R$id: int expand_activities_button
 com.mikepenz.fastadapter.commons.R$id: int expanded_menu
 com.mikepenz.fastadapter.commons.R$id: int fastadapter_item
@@ -13538,6 +13589,7 @@ com.mikepenz.fastadapter.commons.R$id: int image
 com.mikepenz.fastadapter.commons.R$id: int info
 com.mikepenz.fastadapter.commons.R$id: int italic
 com.mikepenz.fastadapter.commons.R$id: int item_touch_helper_previous_elevation
+com.mikepenz.fastadapter.commons.R$id: int left
 com.mikepenz.fastadapter.commons.R$id: int line1
 com.mikepenz.fastadapter.commons.R$id: int line3
 com.mikepenz.fastadapter.commons.R$id: int listMode
@@ -13553,6 +13605,7 @@ com.mikepenz.fastadapter.commons.R$id: int parentPanel
 com.mikepenz.fastadapter.commons.R$id: int progress_circular
 com.mikepenz.fastadapter.commons.R$id: int progress_horizontal
 com.mikepenz.fastadapter.commons.R$id: int radio
+com.mikepenz.fastadapter.commons.R$id: int right
 com.mikepenz.fastadapter.commons.R$id: int right_icon
 com.mikepenz.fastadapter.commons.R$id: int right_side
 com.mikepenz.fastadapter.commons.R$id: int screen
@@ -13576,6 +13629,7 @@ com.mikepenz.fastadapter.commons.R$id: int split_action_bar
 com.mikepenz.fastadapter.commons.R$id: int src_atop
 com.mikepenz.fastadapter.commons.R$id: int src_in
 com.mikepenz.fastadapter.commons.R$id: int src_over
+com.mikepenz.fastadapter.commons.R$id: int start
 com.mikepenz.fastadapter.commons.R$id: int submenuarrow
 com.mikepenz.fastadapter.commons.R$id: int submit_area
 com.mikepenz.fastadapter.commons.R$id: int tabMode
@@ -13588,6 +13642,7 @@ com.mikepenz.fastadapter.commons.R$id: int time
 com.mikepenz.fastadapter.commons.R$id: int title
 com.mikepenz.fastadapter.commons.R$id: int titleDividerNoCustom
 com.mikepenz.fastadapter.commons.R$id: int title_template
+com.mikepenz.fastadapter.commons.R$id: int top
 com.mikepenz.fastadapter.commons.R$id: int topPanel
 com.mikepenz.fastadapter.commons.R$id: int uniform
 com.mikepenz.fastadapter.commons.R$id: int up
@@ -13623,6 +13678,7 @@ com.mikepenz.fastadapter.commons.R$layout: int abc_screen_toolbar
 com.mikepenz.fastadapter.commons.R$layout: int abc_search_dropdown_item_icons_2line
 com.mikepenz.fastadapter.commons.R$layout: int abc_search_view
 com.mikepenz.fastadapter.commons.R$layout: int abc_select_dialog_material
+com.mikepenz.fastadapter.commons.R$layout: int abc_tooltip
 com.mikepenz.fastadapter.commons.R$layout: int notification_action
 com.mikepenz.fastadapter.commons.R$layout: int notification_action_tombstone
 com.mikepenz.fastadapter.commons.R$layout: int notification_template_custom_big
@@ -14017,6 +14073,7 @@ com.mikepenz.fastadapter.commons.R$style: int Widget_AppCompat_Toolbar
 com.mikepenz.fastadapter.commons.R$style: int Widget_AppCompat_Toolbar_Button_Navigation
 com.mikepenz.fastadapter.commons.R$style: int Widget_Compat_NotificationActionContainer
 com.mikepenz.fastadapter.commons.R$style: int Widget_Compat_NotificationActionText
+com.mikepenz.fastadapter.commons.R$style: int Widget_Support_CoordinatorLayout
 com.mikepenz.fastadapter.commons.R$styleable: int[] ActionBar
 com.mikepenz.fastadapter.commons.R$styleable: int ActionBar_background
 com.mikepenz.fastadapter.commons.R$styleable: int ActionBar_backgroundSplit
@@ -14228,6 +14285,17 @@ com.mikepenz.fastadapter.commons.R$styleable: int[] CompoundButton
 com.mikepenz.fastadapter.commons.R$styleable: int CompoundButton_android_button
 com.mikepenz.fastadapter.commons.R$styleable: int CompoundButton_buttonTint
 com.mikepenz.fastadapter.commons.R$styleable: int CompoundButton_buttonTintMode
+com.mikepenz.fastadapter.commons.R$styleable: int[] CoordinatorLayout
+com.mikepenz.fastadapter.commons.R$styleable: int CoordinatorLayout_keylines
+com.mikepenz.fastadapter.commons.R$styleable: int CoordinatorLayout_statusBarBackground
+com.mikepenz.fastadapter.commons.R$styleable: int[] CoordinatorLayout_Layout
+com.mikepenz.fastadapter.commons.R$styleable: int CoordinatorLayout_Layout_android_layout_gravity
+com.mikepenz.fastadapter.commons.R$styleable: int CoordinatorLayout_Layout_layout_anchor
+com.mikepenz.fastadapter.commons.R$styleable: int CoordinatorLayout_Layout_layout_anchorGravity
+com.mikepenz.fastadapter.commons.R$styleable: int CoordinatorLayout_Layout_layout_behavior
+com.mikepenz.fastadapter.commons.R$styleable: int CoordinatorLayout_Layout_layout_dodgeInsetEdges
+com.mikepenz.fastadapter.commons.R$styleable: int CoordinatorLayout_Layout_layout_insetEdge
+com.mikepenz.fastadapter.commons.R$styleable: int CoordinatorLayout_Layout_layout_keyline
 com.mikepenz.fastadapter.commons.R$styleable: int[] DrawerArrowToggle
 com.mikepenz.fastadapter.commons.R$styleable: int DrawerArrowToggle_arrowHeadLength
 com.mikepenz.fastadapter.commons.R$styleable: int DrawerArrowToggle_arrowShaftLength
@@ -14439,6 +14507,8 @@ com.mikepenz.fastadapter.expandable.R$anim: int abc_slide_in_bottom
 com.mikepenz.fastadapter.expandable.R$anim: int abc_slide_in_top
 com.mikepenz.fastadapter.expandable.R$anim: int abc_slide_out_bottom
 com.mikepenz.fastadapter.expandable.R$anim: int abc_slide_out_top
+com.mikepenz.fastadapter.expandable.R$anim: int abc_tooltip_enter
+com.mikepenz.fastadapter.expandable.R$anim: int abc_tooltip_exit
 com.mikepenz.fastadapter.expandable.R$attr: int actionBarDivider
 com.mikepenz.fastadapter.expandable.R$attr: int actionBarItemBackground
 com.mikepenz.fastadapter.expandable.R$attr: int actionBarPopupTheme
@@ -14501,6 +14571,7 @@ com.mikepenz.fastadapter.expandable.R$attr: int buttonBarNeutralButtonStyle
 com.mikepenz.fastadapter.expandable.R$attr: int buttonBarPositiveButtonStyle
 com.mikepenz.fastadapter.expandable.R$attr: int buttonBarStyle
 com.mikepenz.fastadapter.expandable.R$attr: int buttonGravity
+com.mikepenz.fastadapter.expandable.R$attr: int buttonIconDimen
 com.mikepenz.fastadapter.expandable.R$attr: int buttonPanelSideLayout
 com.mikepenz.fastadapter.expandable.R$attr: int buttonStyle
 com.mikepenz.fastadapter.expandable.R$attr: int buttonStyleSmall
@@ -14532,6 +14603,7 @@ com.mikepenz.fastadapter.expandable.R$attr: int contentInsetRight
 com.mikepenz.fastadapter.expandable.R$attr: int contentInsetStart
 com.mikepenz.fastadapter.expandable.R$attr: int contentInsetStartWithNavigation
 com.mikepenz.fastadapter.expandable.R$attr: int controlBackground
+com.mikepenz.fastadapter.expandable.R$attr: int coordinatorLayoutStyle
 com.mikepenz.fastadapter.expandable.R$attr: int customNavigationLayout
 com.mikepenz.fastadapter.expandable.R$attr: int defaultQueryHint
 com.mikepenz.fastadapter.expandable.R$attr: int dialogPreferredPadding
@@ -14580,8 +14652,15 @@ com.mikepenz.fastadapter.expandable.R$attr: int indeterminateProgressStyle
 com.mikepenz.fastadapter.expandable.R$attr: int initialActivityCount
 com.mikepenz.fastadapter.expandable.R$attr: int isLightTheme
 com.mikepenz.fastadapter.expandable.R$attr: int itemPadding
+com.mikepenz.fastadapter.expandable.R$attr: int keylines
 com.mikepenz.fastadapter.expandable.R$attr: int layout
 com.mikepenz.fastadapter.expandable.R$attr: int layoutManager
+com.mikepenz.fastadapter.expandable.R$attr: int layout_anchor
+com.mikepenz.fastadapter.expandable.R$attr: int layout_anchorGravity
+com.mikepenz.fastadapter.expandable.R$attr: int layout_behavior
+com.mikepenz.fastadapter.expandable.R$attr: int layout_dodgeInsetEdges
+com.mikepenz.fastadapter.expandable.R$attr: int layout_insetEdge
+com.mikepenz.fastadapter.expandable.R$attr: int layout_keyline
 com.mikepenz.fastadapter.expandable.R$attr: int listChoiceBackgroundIndicator
 com.mikepenz.fastadapter.expandable.R$attr: int listDividerAlertDialog
 com.mikepenz.fastadapter.expandable.R$attr: int listItemLayout
@@ -14642,6 +14721,7 @@ com.mikepenz.fastadapter.expandable.R$attr: int splitTrack
 com.mikepenz.fastadapter.expandable.R$attr: int srcCompat
 com.mikepenz.fastadapter.expandable.R$attr: int stackFromEnd
 com.mikepenz.fastadapter.expandable.R$attr: int state_above_anchor
+com.mikepenz.fastadapter.expandable.R$attr: int statusBarBackground
 com.mikepenz.fastadapter.expandable.R$attr: int subMenuArrow
 com.mikepenz.fastadapter.expandable.R$attr: int submitBackground
 com.mikepenz.fastadapter.expandable.R$attr: int subtitle
@@ -14692,6 +14772,7 @@ com.mikepenz.fastadapter.expandable.R$attr: int tooltipText
 com.mikepenz.fastadapter.expandable.R$attr: int track
 com.mikepenz.fastadapter.expandable.R$attr: int trackTint
 com.mikepenz.fastadapter.expandable.R$attr: int trackTintMode
+com.mikepenz.fastadapter.expandable.R$attr: int viewInflaterClass
 com.mikepenz.fastadapter.expandable.R$attr: int voiceIcon
 com.mikepenz.fastadapter.expandable.R$attr: int windowActionBar
 com.mikepenz.fastadapter.expandable.R$attr: int windowActionBarOverlay
@@ -14808,6 +14889,7 @@ com.mikepenz.fastadapter.expandable.R$dimen: int abc_action_button_min_height_ma
 com.mikepenz.fastadapter.expandable.R$dimen: int abc_action_button_min_width_material
 com.mikepenz.fastadapter.expandable.R$dimen: int abc_action_button_min_width_overflow_material
 com.mikepenz.fastadapter.expandable.R$dimen: int abc_alert_dialog_button_bar_height
+com.mikepenz.fastadapter.expandable.R$dimen: int abc_alert_dialog_button_dimen
 com.mikepenz.fastadapter.expandable.R$dimen: int abc_button_inset_horizontal_material
 com.mikepenz.fastadapter.expandable.R$dimen: int abc_button_inset_vertical_material
 com.mikepenz.fastadapter.expandable.R$dimen: int abc_button_padding_horizontal_material
@@ -15027,6 +15109,7 @@ com.mikepenz.fastadapter.expandable.R$id: int add
 com.mikepenz.fastadapter.expandable.R$id: int alertTitle
 com.mikepenz.fastadapter.expandable.R$id: int async
 com.mikepenz.fastadapter.expandable.R$id: int blocking
+com.mikepenz.fastadapter.expandable.R$id: int bottom
 com.mikepenz.fastadapter.expandable.R$id: int buttonPanel
 com.mikepenz.fastadapter.expandable.R$id: int checkbox
 com.mikepenz.fastadapter.expandable.R$id: int chronometer
@@ -15036,6 +15119,7 @@ com.mikepenz.fastadapter.expandable.R$id: int customPanel
 com.mikepenz.fastadapter.expandable.R$id: int decor_content_parent
 com.mikepenz.fastadapter.expandable.R$id: int default_activity_button
 com.mikepenz.fastadapter.expandable.R$id: int edit_query
+com.mikepenz.fastadapter.expandable.R$id: int end
 com.mikepenz.fastadapter.expandable.R$id: int expand_activities_button
 com.mikepenz.fastadapter.expandable.R$id: int expanded_menu
 com.mikepenz.fastadapter.expandable.R$id: int fastadapter_item
@@ -15048,6 +15132,7 @@ com.mikepenz.fastadapter.expandable.R$id: int image
 com.mikepenz.fastadapter.expandable.R$id: int info
 com.mikepenz.fastadapter.expandable.R$id: int italic
 com.mikepenz.fastadapter.expandable.R$id: int item_touch_helper_previous_elevation
+com.mikepenz.fastadapter.expandable.R$id: int left
 com.mikepenz.fastadapter.expandable.R$id: int line1
 com.mikepenz.fastadapter.expandable.R$id: int line3
 com.mikepenz.fastadapter.expandable.R$id: int listMode
@@ -15063,6 +15148,7 @@ com.mikepenz.fastadapter.expandable.R$id: int parentPanel
 com.mikepenz.fastadapter.expandable.R$id: int progress_circular
 com.mikepenz.fastadapter.expandable.R$id: int progress_horizontal
 com.mikepenz.fastadapter.expandable.R$id: int radio
+com.mikepenz.fastadapter.expandable.R$id: int right
 com.mikepenz.fastadapter.expandable.R$id: int right_icon
 com.mikepenz.fastadapter.expandable.R$id: int right_side
 com.mikepenz.fastadapter.expandable.R$id: int screen
@@ -15086,6 +15172,7 @@ com.mikepenz.fastadapter.expandable.R$id: int split_action_bar
 com.mikepenz.fastadapter.expandable.R$id: int src_atop
 com.mikepenz.fastadapter.expandable.R$id: int src_in
 com.mikepenz.fastadapter.expandable.R$id: int src_over
+com.mikepenz.fastadapter.expandable.R$id: int start
 com.mikepenz.fastadapter.expandable.R$id: int submenuarrow
 com.mikepenz.fastadapter.expandable.R$id: int submit_area
 com.mikepenz.fastadapter.expandable.R$id: int tabMode
@@ -15098,6 +15185,7 @@ com.mikepenz.fastadapter.expandable.R$id: int time
 com.mikepenz.fastadapter.expandable.R$id: int title
 com.mikepenz.fastadapter.expandable.R$id: int titleDividerNoCustom
 com.mikepenz.fastadapter.expandable.R$id: int title_template
+com.mikepenz.fastadapter.expandable.R$id: int top
 com.mikepenz.fastadapter.expandable.R$id: int topPanel
 com.mikepenz.fastadapter.expandable.R$id: int uniform
 com.mikepenz.fastadapter.expandable.R$id: int up
@@ -15133,6 +15221,7 @@ com.mikepenz.fastadapter.expandable.R$layout: int abc_screen_toolbar
 com.mikepenz.fastadapter.expandable.R$layout: int abc_search_dropdown_item_icons_2line
 com.mikepenz.fastadapter.expandable.R$layout: int abc_search_view
 com.mikepenz.fastadapter.expandable.R$layout: int abc_select_dialog_material
+com.mikepenz.fastadapter.expandable.R$layout: int abc_tooltip
 com.mikepenz.fastadapter.expandable.R$layout: int notification_action
 com.mikepenz.fastadapter.expandable.R$layout: int notification_action_tombstone
 com.mikepenz.fastadapter.expandable.R$layout: int notification_template_custom_big
@@ -15527,6 +15616,7 @@ com.mikepenz.fastadapter.expandable.R$style: int Widget_AppCompat_Toolbar
 com.mikepenz.fastadapter.expandable.R$style: int Widget_AppCompat_Toolbar_Button_Navigation
 com.mikepenz.fastadapter.expandable.R$style: int Widget_Compat_NotificationActionContainer
 com.mikepenz.fastadapter.expandable.R$style: int Widget_Compat_NotificationActionText
+com.mikepenz.fastadapter.expandable.R$style: int Widget_Support_CoordinatorLayout
 com.mikepenz.fastadapter.expandable.R$styleable: int[] ActionBar
 com.mikepenz.fastadapter.expandable.R$styleable: int ActionBar_background
 com.mikepenz.fastadapter.expandable.R$styleable: int ActionBar_backgroundSplit
@@ -15738,6 +15828,17 @@ com.mikepenz.fastadapter.expandable.R$styleable: int[] CompoundButton
 com.mikepenz.fastadapter.expandable.R$styleable: int CompoundButton_android_button
 com.mikepenz.fastadapter.expandable.R$styleable: int CompoundButton_buttonTint
 com.mikepenz.fastadapter.expandable.R$styleable: int CompoundButton_buttonTintMode
+com.mikepenz.fastadapter.expandable.R$styleable: int[] CoordinatorLayout
+com.mikepenz.fastadapter.expandable.R$styleable: int CoordinatorLayout_keylines
+com.mikepenz.fastadapter.expandable.R$styleable: int CoordinatorLayout_statusBarBackground
+com.mikepenz.fastadapter.expandable.R$styleable: int[] CoordinatorLayout_Layout
+com.mikepenz.fastadapter.expandable.R$styleable: int CoordinatorLayout_Layout_android_layout_gravity
+com.mikepenz.fastadapter.expandable.R$styleable: int CoordinatorLayout_Layout_layout_anchor
+com.mikepenz.fastadapter.expandable.R$styleable: int CoordinatorLayout_Layout_layout_anchorGravity
+com.mikepenz.fastadapter.expandable.R$styleable: int CoordinatorLayout_Layout_layout_behavior
+com.mikepenz.fastadapter.expandable.R$styleable: int CoordinatorLayout_Layout_layout_dodgeInsetEdges
+com.mikepenz.fastadapter.expandable.R$styleable: int CoordinatorLayout_Layout_layout_insetEdge
+com.mikepenz.fastadapter.expandable.R$styleable: int CoordinatorLayout_Layout_layout_keyline
 com.mikepenz.fastadapter.expandable.R$styleable: int[] DrawerArrowToggle
 com.mikepenz.fastadapter.expandable.R$styleable: int DrawerArrowToggle_arrowHeadLength
 com.mikepenz.fastadapter.expandable.R$styleable: int DrawerArrowToggle_arrowShaftLength
@@ -15944,6 +16045,7 @@ com.mikepenz.fastadapter.select.SelectExtension: boolean onClick(android.view.Vi
 com.mikepenz.fastadapter.utils.EventHookUtil$1: void onClick(android.view.View)
 com.mikepenz.fastadapter_extensions.ActionModeHelper: java.lang.Boolean onClick(com.mikepenz.fastadapter.IItem)
 com.mikepenz.fastadapter_extensions.ActionModeHelper: java.lang.Boolean onClick(android.support.v7.app.AppCompatActivity,com.mikepenz.fastadapter.IItem)
+com.mikepenz.fastadapter_extensions.ActionModeHelper$ActionItemClickedListener: boolean onClick(android.support.v7.view.ActionMode,android.view.MenuItem)
 com.mikepenz.fastadapter_extensions.RangeSelectorHelper: void onClick()
 com.mikepenz.fastadapter_extensions.UndoHelper$1: void onClick(android.view.View)
 com.mikepenz.fastadapter_extensions.UndoHelper$5: void onClick(android.view.View)
@@ -17461,6 +17563,8 @@ com.mikepenz.library_extensions.R$anim: int abc_slide_in_bottom
 com.mikepenz.library_extensions.R$anim: int abc_slide_in_top
 com.mikepenz.library_extensions.R$anim: int abc_slide_out_bottom
 com.mikepenz.library_extensions.R$anim: int abc_slide_out_top
+com.mikepenz.library_extensions.R$anim: int abc_tooltip_enter
+com.mikepenz.library_extensions.R$anim: int abc_tooltip_exit
 com.mikepenz.library_extensions.R$anim: int design_bottom_sheet_slide_in
 com.mikepenz.library_extensions.R$anim: int design_bottom_sheet_slide_out
 com.mikepenz.library_extensions.R$anim: int design_snackbar_in
@@ -17536,6 +17640,7 @@ com.mikepenz.library_extensions.R$attr: int buttonBarNeutralButtonStyle
 com.mikepenz.library_extensions.R$attr: int buttonBarPositiveButtonStyle
 com.mikepenz.library_extensions.R$attr: int buttonBarStyle
 com.mikepenz.library_extensions.R$attr: int buttonGravity
+com.mikepenz.library_extensions.R$attr: int buttonIconDimen
 com.mikepenz.library_extensions.R$attr: int buttonPanelSideLayout
 com.mikepenz.library_extensions.R$attr: int buttonStyle
 com.mikepenz.library_extensions.R$attr: int buttonStyleSmall
@@ -17570,6 +17675,7 @@ com.mikepenz.library_extensions.R$attr: int contentInsetStart
 com.mikepenz.library_extensions.R$attr: int contentInsetStartWithNavigation
 com.mikepenz.library_extensions.R$attr: int contentScrim
 com.mikepenz.library_extensions.R$attr: int controlBackground
+com.mikepenz.library_extensions.R$attr: int coordinatorLayoutStyle
 com.mikepenz.library_extensions.R$attr: int counterEnabled
 com.mikepenz.library_extensions.R$attr: int counterMaxLength
 com.mikepenz.library_extensions.R$attr: int counterOverflowTextAppearance
@@ -17602,6 +17708,7 @@ com.mikepenz.library_extensions.R$attr: int expandedTitleMarginEnd
 com.mikepenz.library_extensions.R$attr: int expandedTitleMarginStart
 com.mikepenz.library_extensions.R$attr: int expandedTitleMarginTop
 com.mikepenz.library_extensions.R$attr: int expandedTitleTextAppearance
+com.mikepenz.library_extensions.R$attr: int fabCustomSize
 com.mikepenz.library_extensions.R$attr: int fabSize
 com.mikepenz.library_extensions.R$attr: int fastScrollEnabled
 com.mikepenz.library_extensions.R$attr: int fastScrollHorizontalThumbDrawable
@@ -17803,6 +17910,7 @@ com.mikepenz.library_extensions.R$attr: int track
 com.mikepenz.library_extensions.R$attr: int trackTint
 com.mikepenz.library_extensions.R$attr: int trackTintMode
 com.mikepenz.library_extensions.R$attr: int useCompatPadding
+com.mikepenz.library_extensions.R$attr: int viewInflaterClass
 com.mikepenz.library_extensions.R$attr: int voiceIcon
 com.mikepenz.library_extensions.R$attr: int windowActionBar
 com.mikepenz.library_extensions.R$attr: int windowActionBarOverlay
@@ -18220,6 +18328,7 @@ com.mikepenz.library_extensions.R$dimen: int abc_action_button_min_height_materi
 com.mikepenz.library_extensions.R$dimen: int abc_action_button_min_width_material
 com.mikepenz.library_extensions.R$dimen: int abc_action_button_min_width_overflow_material
 com.mikepenz.library_extensions.R$dimen: int abc_alert_dialog_button_bar_height
+com.mikepenz.library_extensions.R$dimen: int abc_alert_dialog_button_dimen
 com.mikepenz.library_extensions.R$dimen: int abc_button_inset_horizontal_material
 com.mikepenz.library_extensions.R$dimen: int abc_button_inset_vertical_material
 com.mikepenz.library_extensions.R$dimen: int abc_button_padding_horizontal_material
@@ -18685,6 +18794,7 @@ com.mikepenz.library_extensions.R$layout: int abc_screen_toolbar
 com.mikepenz.library_extensions.R$layout: int abc_search_dropdown_item_icons_2line
 com.mikepenz.library_extensions.R$layout: int abc_search_view
 com.mikepenz.library_extensions.R$layout: int abc_select_dialog_material
+com.mikepenz.library_extensions.R$layout: int abc_tooltip
 com.mikepenz.library_extensions.R$layout: int design_bottom_navigation_item
 com.mikepenz.library_extensions.R$layout: int design_bottom_sheet_dialog
 com.mikepenz.library_extensions.R$layout: int design_layout_snackbar
@@ -19196,6 +19306,7 @@ com.mikepenz.library_extensions.R$style: int Widget_Design_Snackbar
 com.mikepenz.library_extensions.R$style: int Widget_Design_TabLayout
 com.mikepenz.library_extensions.R$style: int Widget_Design_TextInputLayout
 com.mikepenz.library_extensions.R$style: int Widget_Materialize_ScrimInsetsRelativeLayout
+com.mikepenz.library_extensions.R$style: int Widget_Support_CoordinatorLayout
 com.mikepenz.library_extensions.R$styleable: int[] ActionBar
 com.mikepenz.library_extensions.R$styleable: int ActionBar_background
 com.mikepenz.library_extensions.R$styleable: int ActionBar_backgroundSplit

@@ -4785,111 +4785,111 @@ com.evernote.android.job.DailyJob:
     static final java.lang.String EXTRA_START_MS
     static final java.lang.String EXTRA_END_MS
     private static final java.lang.String EXTRA_ONCE
-    67:67:public static int schedule(com.evernote.android.job.JobRequest$Builder,long,long)
-    80:81:public static void scheduleAsync(com.evernote.android.job.JobRequest$Builder,long,long)
-    92:104:public static void scheduleAsync(com.evernote.android.job.JobRequest$Builder,long,long,com.evernote.android.job.JobRequest$JobScheduledCallback)
-    116:123:public static int startNowOnce(com.evernote.android.job.JobRequest$Builder)
-    127:184:private static int schedule(com.evernote.android.job.JobRequest$Builder,boolean,long,long,boolean)
-    190:235:protected final com.evernote.android.job.Job$Result onRunJob(com.evernote.android.job.Job$Params)
+    82:82:public static int schedule(com.evernote.android.job.JobRequest$Builder,long,long)
+    95:96:public static void scheduleAsync(com.evernote.android.job.JobRequest$Builder,long,long)
+    107:119:public static void scheduleAsync(com.evernote.android.job.JobRequest$Builder,long,long,com.evernote.android.job.JobRequest$JobScheduledCallback)
+    131:138:public static int startNowOnce(com.evernote.android.job.JobRequest$Builder)
+    142:199:private static int schedule(com.evernote.android.job.JobRequest$Builder,boolean,long,long,boolean)
+    205:250:protected final com.evernote.android.job.Job$Result onRunJob(com.evernote.android.job.Job$Params)
     protected abstract com.evernote.android.job.DailyJob$DailyJobResult onRunDailyJob(com.evernote.android.job.Job$Params)
 com.evernote.android.job.DailyJob$1
 com.evernote.android.job.DailyJob$DailyJobResult
 com.evernote.android.job.GcmAvailableHelper:
     private static final java.lang.String ACTION_TASK_READY
     private static final java.lang.String GCM_PERMISSION
-    140:142:private GcmAvailableHelper()
+    155:157:private GcmAvailableHelper()
 com.evernote.android.job.Job$Params:
     private com.evernote.android.job.util.support.PersistableBundleCompat mExtras
-    406:406:public boolean isExact()
-    416:416:public long getStartMs()
-    426:426:public long getEndMs()
-    436:436:public long getIntervalMs()
-    447:447:public long getFlexMs()
-    463:463:public long getScheduledAt()
-    474:474:public long getBackoffMs()
-    484:484:public com.evernote.android.job.JobRequest$BackoffPolicy getBackoffPolicy()
-    494:494:public boolean requiresCharging()
-    504:504:public boolean requiresDeviceIdle()
-    514:514:public com.evernote.android.job.JobRequest$NetworkType requiredNetworkType()
-    521:521:public boolean requiresBatteryNotLow()
-    528:528:public boolean requiresStorageNotLow()
-    537:537:public boolean requirementsEnforced()
-    547:547:public int getFailureCount()
-    557:557:public long getLastRun()
-    568:568:public boolean isTransient()
-    586:586:public android.os.Bundle getTransientExtras()
-    594:600:public com.evernote.android.job.util.support.PersistableBundleCompat getExtras()
+    408:408:public boolean isExact()
+    418:418:public long getStartMs()
+    428:428:public long getEndMs()
+    438:438:public long getIntervalMs()
+    449:449:public long getFlexMs()
+    465:465:public long getScheduledAt()
+    476:476:public long getBackoffMs()
+    486:486:public com.evernote.android.job.JobRequest$BackoffPolicy getBackoffPolicy()
+    496:496:public boolean requiresCharging()
+    506:506:public boolean requiresDeviceIdle()
+    516:516:public com.evernote.android.job.JobRequest$NetworkType requiredNetworkType()
+    523:523:public boolean requiresBatteryNotLow()
+    530:530:public boolean requiresStorageNotLow()
+    539:539:public boolean requirementsEnforced()
+    549:549:public int getFailureCount()
+    559:559:public long getLastRun()
+    570:570:public boolean isTransient()
+    588:588:public android.os.Bundle getTransientExtras()
+    596:602:public com.evernote.android.job.util.support.PersistableBundleCompat getExtras()
 com.evernote.android.job.JobApi:
     private static final java.lang.String JOB_SCHEDULER_PERMISSION
-    106:106:boolean supportsTransientJobs()
+    96:96:boolean supportsTransientJobs()
 com.evernote.android.job.JobConfig:
     private static final long DEFAULT_JOB_RESCHEDULE_PAUSE
-    55:56:private JobConfig()
-    121:123:public static void setApiEnabled(com.evernote.android.job.JobApi,boolean)
-    132:136:public static void forceApi(com.evernote.android.job.JobApi)
-    157:161:public static void setAllowSmallerIntervalsForMarshmallow(boolean)
-    178:179:public static void setForceAllowApi14(boolean)
-    196:196:public static synchronized boolean addLogger(com.evernote.android.job.util.JobLogger)
-    206:207:public static synchronized void removeLogger(com.evernote.android.job.util.JobLogger)
-    215:216:public static void setLogcatEnabled(boolean)
-    222:222:public static boolean isLogcatEnabled()
-    239:240:public static void setJobReschedulePause(long,java.util.concurrent.TimeUnit)
-    247:248:static void setSkipJobReschedule(boolean)
-    264:270:public static void setJobIdOffset(int)
-    287:288:public static void setForceRtc(boolean)
-    299:300:static void setClock(com.evernote.android.job.util.Clock)
-    316:317:public static void setExecutorService(java.util.concurrent.ExecutorService)
-    333:334:public static void setCloseDatabase(boolean)
-    340:354:public static void reset()
+    45:46:private JobConfig()
+    111:113:public static void setApiEnabled(com.evernote.android.job.JobApi,boolean)
+    122:126:public static void forceApi(com.evernote.android.job.JobApi)
+    147:151:public static void setAllowSmallerIntervalsForMarshmallow(boolean)
+    168:169:public static void setForceAllowApi14(boolean)
+    186:186:public static synchronized boolean addLogger(com.evernote.android.job.util.JobLogger)
+    196:197:public static synchronized void removeLogger(com.evernote.android.job.util.JobLogger)
+    205:206:public static void setLogcatEnabled(boolean)
+    212:212:public static boolean isLogcatEnabled()
+    229:230:public static void setJobReschedulePause(long,java.util.concurrent.TimeUnit)
+    237:238:static void setSkipJobReschedule(boolean)
+    254:260:public static void setJobIdOffset(int)
+    277:278:public static void setForceRtc(boolean)
+    289:290:static void setClock(com.evernote.android.job.util.Clock)
+    306:307:public static void setExecutorService(java.util.concurrent.ExecutorService)
+    323:324:public static void setCloseDatabase(boolean)
+    330:344:public static void reset()
 com.evernote.android.job.JobCreator:
     public static final java.lang.String ACTION_ADD_JOB_CREATOR
 com.evernote.android.job.JobCreator$AddJobCreatorReceiver:
-    50:58:public final void onReceive(android.content.Context,android.content.Intent)
+    65:73:public final void onReceive(android.content.Context,android.content.Intent)
 com.evernote.android.job.JobCreatorHolder:
-    26:27:public void removeJobCreator(com.evernote.android.job.JobCreator)
+    41:42:public void removeJobCreator(com.evernote.android.job.JobCreator)
 com.evernote.android.job.JobExecutor:
-    128:128:public android.util.SparseArray getAllJobResults()
+    118:118:public android.util.SparseArray getAllJobResults()
 com.evernote.android.job.JobIdsInternal
 com.evernote.android.job.JobManager:
-    251:256:public com.evernote.android.job.JobRequest getJobRequest(int)
-    277:277:public java.util.Set getAllJobRequests()
-    287:287:public java.util.Set getAllJobRequestsForTag(java.lang.String)
-    361:361:public android.util.SparseArray getAllJobResults()
-    383:383:public int cancelAll()
-    453:454:public void removeJobCreator(com.evernote.android.job.JobCreator)
-    473:479:void destroy()
+    241:246:public com.evernote.android.job.JobRequest getJobRequest(int)
+    267:267:public java.util.Set getAllJobRequests()
+    277:277:public java.util.Set getAllJobRequestsForTag(java.lang.String)
+    351:351:public android.util.SparseArray getAllJobResults()
+    373:373:public int cancelAll()
+    443:444:public void removeJobCreator(com.evernote.android.job.JobCreator)
+    463:469:void destroy()
 com.evernote.android.job.JobRequest:
     public static final long DEFAULT_BACKOFF_MS
     private static final long WINDOW_THRESHOLD_WARNING
     private static final long WINDOW_THRESHOLD_MAX
     static final long START_NOW
-    280:283:public com.evernote.android.job.util.support.PersistableBundleCompat getExtras()
-    388:388:public long getLastRun()
-    450:451:public void scheduleAsync()
-    460:472:public void scheduleAsync(com.evernote.android.job.JobRequest$JobScheduledCallback)
-    500:500:com.evernote.android.job.JobRequest$Builder createBuilder()
+    270:273:public com.evernote.android.job.util.support.PersistableBundleCompat getExtras()
+    378:378:public long getLastRun()
+    440:441:public void scheduleAsync()
+    450:462:public void scheduleAsync(com.evernote.android.job.JobRequest$JobScheduledCallback)
+    490:490:com.evernote.android.job.JobRequest$Builder createBuilder()
 com.evernote.android.job.JobRequest$1:
-    81:84:public void onJobScheduled(int,java.lang.String,java.lang.Exception)
+    71:74:public void onJobScheduled(int,java.lang.String,java.lang.Exception)
 com.evernote.android.job.JobRequest$2
 com.evernote.android.job.JobRequest$Builder:
     private static final int CREATE_ID
-    797:803:public com.evernote.android.job.JobRequest$Builder setExtras(com.evernote.android.job.util.support.PersistableBundleCompat)
-    813:819:public com.evernote.android.job.JobRequest$Builder addExtras(com.evernote.android.job.util.support.PersistableBundleCompat)
-    849:850:public com.evernote.android.job.JobRequest$Builder setRequirementsEnforced(boolean)
-    869:870:public com.evernote.android.job.JobRequest$Builder setRequiredNetworkType(com.evernote.android.job.JobRequest$NetworkType)
-    888:889:public com.evernote.android.job.JobRequest$Builder setRequiresCharging(boolean)
-    909:910:public com.evernote.android.job.JobRequest$Builder setRequiresDeviceIdle(boolean)
-    928:929:public com.evernote.android.job.JobRequest$Builder setRequiresBatteryNotLow(boolean)
-    949:950:public com.evernote.android.job.JobRequest$Builder setRequiresStorageNotLow(boolean)
-    990:996:public com.evernote.android.job.JobRequest$Builder setExact(long)
-    1015:1015:public com.evernote.android.job.JobRequest$Builder startNow()
-    1032:1032:public com.evernote.android.job.JobRequest$Builder setPeriodic(long)
-    1054:1056:public com.evernote.android.job.JobRequest$Builder setPeriodic(long,long)
-    1075:1077:public com.evernote.android.job.JobRequest$Builder setBackoffCriteria(long,com.evernote.android.job.JobRequest$BackoffPolicy)
-    1107:1109:public com.evernote.android.job.JobRequest$Builder setTransientExtras(android.os.Bundle)
-    586:586:static synthetic com.evernote.android.job.util.support.PersistableBundleCompat access$1400(com.evernote.android.job.JobRequest$Builder)
-    586:586:static synthetic java.lang.String access$1500(com.evernote.android.job.JobRequest$Builder)
-    586:586:static synthetic com.evernote.android.job.util.support.PersistableBundleCompat access$1402(com.evernote.android.job.JobRequest$Builder,com.evernote.android.job.util.support.PersistableBundleCompat)
+    787:793:public com.evernote.android.job.JobRequest$Builder setExtras(com.evernote.android.job.util.support.PersistableBundleCompat)
+    803:809:public com.evernote.android.job.JobRequest$Builder addExtras(com.evernote.android.job.util.support.PersistableBundleCompat)
+    839:840:public com.evernote.android.job.JobRequest$Builder setRequirementsEnforced(boolean)
+    859:860:public com.evernote.android.job.JobRequest$Builder setRequiredNetworkType(com.evernote.android.job.JobRequest$NetworkType)
+    878:879:public com.evernote.android.job.JobRequest$Builder setRequiresCharging(boolean)
+    899:900:public com.evernote.android.job.JobRequest$Builder setRequiresDeviceIdle(boolean)
+    918:919:public com.evernote.android.job.JobRequest$Builder setRequiresBatteryNotLow(boolean)
+    939:940:public com.evernote.android.job.JobRequest$Builder setRequiresStorageNotLow(boolean)
+    980:986:public com.evernote.android.job.JobRequest$Builder setExact(long)
+    1005:1005:public com.evernote.android.job.JobRequest$Builder startNow()
+    1022:1022:public com.evernote.android.job.JobRequest$Builder setPeriodic(long)
+    1044:1046:public com.evernote.android.job.JobRequest$Builder setPeriodic(long,long)
+    1065:1067:public com.evernote.android.job.JobRequest$Builder setBackoffCriteria(long,com.evernote.android.job.JobRequest$BackoffPolicy)
+    1097:1099:public com.evernote.android.job.JobRequest$Builder setTransientExtras(android.os.Bundle)
+    576:576:static synthetic com.evernote.android.job.util.support.PersistableBundleCompat access$1400(com.evernote.android.job.JobRequest$Builder)
+    576:576:static synthetic java.lang.String access$1500(com.evernote.android.job.JobRequest$Builder)
+    576:576:static synthetic com.evernote.android.job.util.support.PersistableBundleCompat access$1402(com.evernote.android.job.JobRequest$Builder,com.evernote.android.job.util.support.PersistableBundleCompat)
 com.evernote.android.job.JobRequest$JobScheduledCallback:
     public static final int JOB_ID_ERROR
     public abstract void onJobScheduled(int,java.lang.String,java.lang.Exception)
@@ -4926,8 +4926,8 @@ com.evernote.android.job.JobStorage:
     public static final java.lang.String COLUMN_REQUIRES_STORAGE_NOT_LOW
     private static final int CACHE_SIZE
     private static final java.lang.String WHERE_NOT_STARTED
-    345:346:void injectDatabase(android.database.sqlite.SQLiteDatabase)
-    350:350:java.util.Set getFailedDeleteIds()
+    335:336:void injectDatabase(android.database.sqlite.SQLiteDatabase)
+    340:340:java.util.Set getFailedDeleteIds()
 com.evernote.android.job.R
 com.evernote.android.job.R$attr
 com.evernote.android.job.R$bool
@@ -4942,22 +4942,22 @@ com.evernote.android.job.R$style
 com.evernote.android.job.R$styleable
 com.evernote.android.job.WakeLockUtil:
     private static final java.lang.String EXTRA_WAKE_LOCK_ID
-    25:27:private WakeLockUtil()
+    40:42:private WakeLockUtil()
 com.evernote.android.job.gcm.PlatformGcmService:
-    47:59:public int onRunTask(com.google.android.gms.gcm.TaskParams)
-    65:76:public void onInitializeTasks()
+    37:49:public int onRunTask(com.google.android.gms.gcm.TaskParams)
+    55:66:public void onInitializeTasks()
 com.evernote.android.job.util.BatteryStatus:
-    29:29:public float getBatteryPercent()
+    44:44:public float getBatteryPercent()
 com.evernote.android.job.util.Device:
-    49:51:private Device()
+    39:41:private Device()
 com.evernote.android.job.util.JobCat:
-    52:68:public static synchronized boolean addLogger(com.evernote.android.job.util.JobLogger)
-    78:84:public static synchronized void removeLogger(com.evernote.android.job.util.JobLogger)
-    87:88:public static synchronized void clearLogger()
-    96:97:public static void setLogcatEnabled(boolean)
-    103:103:public static boolean isLogcatEnabled()
-    110:111:public JobCat(java.lang.Class)
-    139:140:public varargs void d(java.lang.Throwable,java.lang.String,java.lang.Object[])
+    42:58:public static synchronized boolean addLogger(com.evernote.android.job.util.JobLogger)
+    68:74:public static synchronized void removeLogger(com.evernote.android.job.util.JobLogger)
+    77:78:public static synchronized void clearLogger()
+    86:87:public static void setLogcatEnabled(boolean)
+    93:93:public static boolean isLogcatEnabled()
+    100:101:public JobCat(java.lang.Class)
+    129:130:public varargs void d(java.lang.Throwable,java.lang.String,java.lang.Object[])
 com.evernote.android.job.util.JobPreconditions:
     31:33:private JobPreconditions()
     90:93:public static void checkState(boolean)
@@ -4971,43 +4971,43 @@ com.evernote.android.job.util.JobPreconditions:
     347:353:public static java.util.Collection checkCollectionNotEmpty(java.util.Collection,java.lang.String)
     374:392:public static float[] checkArrayElementsInRange(float[],float,float,java.lang.String)
 com.evernote.android.job.util.JobUtil:
-    51:53:private JobUtil()
+    41:43:private JobUtil()
 com.evernote.android.job.util.support.FastXmlSerializer:
     private static final int BUFFER_LEN
 com.evernote.android.job.util.support.PersistableBundleCompat:
     private static final java.lang.String UTF_8
-    57:58:public PersistableBundleCompat()
-    61:62:public PersistableBundleCompat(com.evernote.android.job.util.support.PersistableBundleCompat)
-    64:66:private PersistableBundleCompat(java.util.Map)
-    69:70:public void putBoolean(java.lang.String,boolean)
-    73:77:public boolean getBoolean(java.lang.String,boolean)
-    82:83:public void putInt(java.lang.String,int)
-    86:90:public int getInt(java.lang.String,int)
-    95:96:public void putIntArray(java.lang.String,int[])
-    99:103:public int[] getIntArray(java.lang.String)
-    108:109:public void putLong(java.lang.String,long)
-    112:116:public long getLong(java.lang.String,long)
-    121:122:public void putLongArray(java.lang.String,long[])
-    125:129:public long[] getLongArray(java.lang.String)
-    134:135:public void putDouble(java.lang.String,double)
-    138:142:public double getDouble(java.lang.String,double)
-    147:148:public void putDoubleArray(java.lang.String,double[])
-    151:155:public double[] getDoubleArray(java.lang.String)
-    160:161:public void putString(java.lang.String,java.lang.String)
-    164:168:public java.lang.String getString(java.lang.String,java.lang.String)
-    173:174:public void putStringArray(java.lang.String,java.lang.String[])
-    177:181:public java.lang.String[] getStringArray(java.lang.String)
-    186:187:public void putPersistableBundleCompat(java.lang.String,com.evernote.android.job.util.support.PersistableBundleCompat)
-    191:195:public com.evernote.android.job.util.support.PersistableBundleCompat getPersistableBundleCompat(java.lang.String)
-    200:201:public void clear()
-    204:204:public boolean containsKey(java.lang.String)
-    208:208:public java.lang.Object get(java.lang.String)
-    212:212:public boolean isEmpty()
-    216:216:public java.util.Set keySet()
-    220:221:public void putAll(com.evernote.android.job.util.support.PersistableBundleCompat)
-    224:225:public void remove(java.lang.String)
-    228:228:public int size()
-    259:279:public static com.evernote.android.job.util.support.PersistableBundleCompat fromXml(java.lang.String)
+    47:48:public PersistableBundleCompat()
+    51:52:public PersistableBundleCompat(com.evernote.android.job.util.support.PersistableBundleCompat)
+    54:56:private PersistableBundleCompat(java.util.Map)
+    59:60:public void putBoolean(java.lang.String,boolean)
+    63:67:public boolean getBoolean(java.lang.String,boolean)
+    72:73:public void putInt(java.lang.String,int)
+    76:80:public int getInt(java.lang.String,int)
+    85:86:public void putIntArray(java.lang.String,int[])
+    89:93:public int[] getIntArray(java.lang.String)
+    98:99:public void putLong(java.lang.String,long)
+    102:106:public long getLong(java.lang.String,long)
+    111:112:public void putLongArray(java.lang.String,long[])
+    115:119:public long[] getLongArray(java.lang.String)
+    124:125:public void putDouble(java.lang.String,double)
+    128:132:public double getDouble(java.lang.String,double)
+    137:138:public void putDoubleArray(java.lang.String,double[])
+    141:145:public double[] getDoubleArray(java.lang.String)
+    150:151:public void putString(java.lang.String,java.lang.String)
+    154:158:public java.lang.String getString(java.lang.String,java.lang.String)
+    163:164:public void putStringArray(java.lang.String,java.lang.String[])
+    167:171:public java.lang.String[] getStringArray(java.lang.String)
+    176:177:public void putPersistableBundleCompat(java.lang.String,com.evernote.android.job.util.support.PersistableBundleCompat)
+    181:185:public com.evernote.android.job.util.support.PersistableBundleCompat getPersistableBundleCompat(java.lang.String)
+    190:191:public void clear()
+    194:194:public boolean containsKey(java.lang.String)
+    198:198:public java.lang.Object get(java.lang.String)
+    202:202:public boolean isEmpty()
+    206:206:public java.util.Set keySet()
+    210:211:public void putAll(com.evernote.android.job.util.support.PersistableBundleCompat)
+    214:215:public void remove(java.lang.String)
+    218:218:public int size()
+    249:269:public static com.evernote.android.job.util.support.PersistableBundleCompat fromXml(java.lang.String)
 com.evernote.android.job.util.support.XmlUtils:
     45:47:private XmlUtils()
     51:57:public static void skipCurrentTag(org.xmlpull.v1.XmlPullParser)
@@ -5067,12 +5067,12 @@ com.evernote.android.job.v21.JobProxy21:
     private static final java.lang.String TAG
     private static final int ERROR_BOOT_PERMISSION
 com.evernote.android.job.v21.TransientBundleCompat:
-    58:59:private TransientBundleCompat()
+    48:49:private TransientBundleCompat()
 com.evernote.android.job.v24.JobProxy24:
     private static final java.lang.String TAG
 com.evernote.android.job.v26.JobProxy26:
     private static final java.lang.String TAG
-    53:54:public JobProxy26(android.content.Context,java.lang.String)
+    43:44:public JobProxy26(android.content.Context,java.lang.String)
 com.faendir.lightning_launcher.multitool.BuildConfig:
     public static final boolean DEBUG
     public static final java.lang.String APPLICATION_ID
@@ -5128,9 +5128,27 @@ com.faendir.lightning_launcher.multitool.backup.BackupUtils:
     private static final int HOUR_IN_MS
     34:34:public BackupUtils()
 com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver:
-    private static final java.lang.String BADGE_COUNT
-    private static final java.lang.String PACKAGE_NAME
-    private static final java.lang.String INTENT_BADGE_COUNT_UPDATE
+    private static final java.lang.String ASUS_BADGE_COUNT
+    private static final java.lang.String ASUS_PACKAGE_NAME
+    private static final java.lang.String ASUS_INTENT_BADGE_COUNT_UPDATE
+    private static final java.lang.String ADW_INTENT_BADGE_COUNT_UPDATE
+    private static final java.lang.String ADW_PACKAGE_NAME
+    private static final java.lang.String ADW_BADGE_COUNT
+    private static final java.lang.String APEX_INTENT_BADGE_COUNT_UPDATE
+    private static final java.lang.String APEX_PACKAGE_NAME
+    private static final java.lang.String APEX_BADGE_COUNT
+    private static final java.lang.String HTC_INTENT_BADGE_COUNT_UPDATE
+    private static final java.lang.String HTC_PACKAGE_NAME
+    private static final java.lang.String HTC_BADGE_COUNT
+    private static final java.lang.String HTC_NEW_INTENT_BADGE_COUNT_UPDATE
+    private static final java.lang.String HTC_NEW_COMPONENT
+    private static final java.lang.String HTC_NEW_BADGE_COUNT
+    private static final java.lang.String SONY_INTENT_BADGE_COUNT_UPDATE
+    private static final java.lang.String SONY_PACKAGE_NAME
+    private static final java.lang.String SONY_BADGE_COUNT
+    private static final java.lang.String VIVO_INTENT_BADGE_COUNT_UPDATE
+    private static final java.lang.String VIVO_PACKAGE_NAME
+    private static final java.lang.String VIVO_BADGE_COUNT
 com.faendir.lightning_launcher.multitool.billing.BaseBillingManager:
     private static final java.lang.String MUSIC_WIDGET
     private static final java.lang.String DRAWER
@@ -5276,9 +5294,9 @@ com.google.devtools.build.android.desugar.runtime.ThrowableExtension$ReuseDesuga
     203:203:public java.lang.Throwable[] getSuppressed(java.lang.Throwable)
 com.google.gson.DefaultDateTypeAdapter:
     private static final java.lang.String SIMPLE_NAME
-    49:52:DefaultDateTypeAdapter(java.lang.Class)
-    59:60:DefaultDateTypeAdapter(java.lang.Class,int)
-    63:66:public DefaultDateTypeAdapter(int,int)
+    54:65:DefaultDateTypeAdapter(java.lang.Class)
+    54:84:DefaultDateTypeAdapter(java.lang.Class,int)
+    87:88:public DefaultDateTypeAdapter(int,int)
 com.google.gson.FieldAttributes:
     53:53:public java.lang.Class getDeclaringClass()
     60:60:public java.lang.String getName()
@@ -5298,38 +5316,40 @@ com.google.gson.Gson:
     static final boolean DEFAULT_COMPLEX_MAP_KEYS
     static final boolean DEFAULT_SPECIALIZE_FLOAT_VALUES
     private static final java.lang.String JSON_NON_EXECUTABLE_PREFIX
-    259:259:public com.google.gson.internal.Excluder excluder()
-    263:263:public com.google.gson.FieldNamingStrategy fieldNamingStrategy()
-    267:267:public boolean serializeNulls()
-    271:271:public boolean htmlSafe()
-    538:541:public com.google.gson.JsonElement toJsonTree(java.lang.Object)
-    561:563:public com.google.gson.JsonElement toJsonTree(java.lang.Object,java.lang.reflect.Type)
-    622:627:public void toJson(java.lang.Object,java.lang.Appendable)
-    926:927:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.Class)
-    950:953:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.reflect.Type)
+    289:289:public com.google.gson.GsonBuilder newBuilder()
+    293:293:public com.google.gson.internal.Excluder excluder()
+    297:297:public com.google.gson.FieldNamingStrategy fieldNamingStrategy()
+    301:301:public boolean serializeNulls()
+    305:305:public boolean htmlSafe()
+    572:575:public com.google.gson.JsonElement toJsonTree(java.lang.Object)
+    595:597:public com.google.gson.JsonElement toJsonTree(java.lang.Object,java.lang.reflect.Type)
+    656:661:public void toJson(java.lang.Object,java.lang.Appendable)
+    960:961:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.Class)
+    984:987:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.reflect.Type)
 com.google.gson.GsonBuilder:
-    115:116:public com.google.gson.GsonBuilder setVersion(double)
-    131:132:public varargs com.google.gson.GsonBuilder excludeFieldsWithModifiers(int[])
-    145:146:public com.google.gson.GsonBuilder generateNonExecutableJson()
-    156:157:public com.google.gson.GsonBuilder excludeFieldsWithoutExposeAnnotation()
-    168:169:public com.google.gson.GsonBuilder serializeNulls()
-    249:250:public com.google.gson.GsonBuilder enableComplexMapKeySerialization()
-    260:261:public com.google.gson.GsonBuilder disableInnerClassSerialization()
-    273:274:public com.google.gson.GsonBuilder setLongSerializationPolicy(com.google.gson.LongSerializationPolicy)
-    286:287:public com.google.gson.GsonBuilder setFieldNamingPolicy(com.google.gson.FieldNamingPolicy)
-    299:300:public com.google.gson.GsonBuilder setFieldNamingStrategy(com.google.gson.FieldNamingStrategy)
-    314:317:public varargs com.google.gson.GsonBuilder setExclusionStrategies(com.google.gson.ExclusionStrategy[])
-    333:334:public com.google.gson.GsonBuilder addSerializationExclusionStrategy(com.google.gson.ExclusionStrategy)
-    350:351:public com.google.gson.GsonBuilder addDeserializationExclusionStrategy(com.google.gson.ExclusionStrategy)
-    361:362:public com.google.gson.GsonBuilder setPrettyPrinting()
-    374:375:public com.google.gson.GsonBuilder setLenient()
-    386:387:public com.google.gson.GsonBuilder disableHtmlEscaping()
-    408:409:public com.google.gson.GsonBuilder setDateFormat(java.lang.String)
-    427:429:public com.google.gson.GsonBuilder setDateFormat(int)
-    448:451:public com.google.gson.GsonBuilder setDateFormat(int,int)
-    498:499:public com.google.gson.GsonBuilder registerTypeAdapterFactory(com.google.gson.TypeAdapterFactory)
-    518:527:public com.google.gson.GsonBuilder registerTypeHierarchyAdapter(java.lang.Class,java.lang.Object)
-    551:552:public com.google.gson.GsonBuilder serializeSpecialFloatingPointValues()
+    79:130:GsonBuilder(com.google.gson.Gson)
+    140:141:public com.google.gson.GsonBuilder setVersion(double)
+    156:157:public varargs com.google.gson.GsonBuilder excludeFieldsWithModifiers(int[])
+    170:171:public com.google.gson.GsonBuilder generateNonExecutableJson()
+    181:182:public com.google.gson.GsonBuilder excludeFieldsWithoutExposeAnnotation()
+    193:194:public com.google.gson.GsonBuilder serializeNulls()
+    274:275:public com.google.gson.GsonBuilder enableComplexMapKeySerialization()
+    285:286:public com.google.gson.GsonBuilder disableInnerClassSerialization()
+    298:299:public com.google.gson.GsonBuilder setLongSerializationPolicy(com.google.gson.LongSerializationPolicy)
+    311:312:public com.google.gson.GsonBuilder setFieldNamingPolicy(com.google.gson.FieldNamingPolicy)
+    324:325:public com.google.gson.GsonBuilder setFieldNamingStrategy(com.google.gson.FieldNamingStrategy)
+    339:342:public varargs com.google.gson.GsonBuilder setExclusionStrategies(com.google.gson.ExclusionStrategy[])
+    358:359:public com.google.gson.GsonBuilder addSerializationExclusionStrategy(com.google.gson.ExclusionStrategy)
+    375:376:public com.google.gson.GsonBuilder addDeserializationExclusionStrategy(com.google.gson.ExclusionStrategy)
+    386:387:public com.google.gson.GsonBuilder setPrettyPrinting()
+    399:400:public com.google.gson.GsonBuilder setLenient()
+    411:412:public com.google.gson.GsonBuilder disableHtmlEscaping()
+    433:434:public com.google.gson.GsonBuilder setDateFormat(java.lang.String)
+    452:454:public com.google.gson.GsonBuilder setDateFormat(int)
+    473:476:public com.google.gson.GsonBuilder setDateFormat(int,int)
+    523:524:public com.google.gson.GsonBuilder registerTypeAdapterFactory(com.google.gson.TypeAdapterFactory)
+    543:552:public com.google.gson.GsonBuilder registerTypeHierarchyAdapter(java.lang.Class,java.lang.Object)
+    576:577:public com.google.gson.GsonBuilder serializeSpecialFloatingPointValues()
 com.google.gson.JsonArray:
     43:45:public JsonArray(int)
     53:60:public com.google.gson.JsonArray deepCopy()
@@ -5364,7 +5384,6 @@ com.google.gson.JsonElement:
     313:313:public short getAsShort()
 com.google.gson.JsonIOException:
     private static final long serialVersionUID
-    33:34:public JsonIOException(java.lang.String,java.lang.Throwable)
 com.google.gson.JsonNull:
     49:49:public com.google.gson.JsonNull deepCopy()
     26:26:public bridge synthetic com.google.gson.JsonElement deepCopy()
@@ -5447,6 +5466,10 @@ com.google.gson.internal.LinkedHashTreeMap$LinkedTreeMapIterator
 com.google.gson.internal.LinkedHashTreeMap$Node
 com.google.gson.internal.LinkedTreeMap:
     628:628:private java.lang.Object writeReplace()
+com.google.gson.internal.PreJava9DateFormatProvider:
+    25:25:public PreJava9DateFormatProvider()
+    31:31:public static java.text.DateFormat getUSDateFormat(int)
+    44:54:private static java.lang.String getDateFormatPattern(int)
 com.google.gson.internal.Primitives:
     32:33:private Primitives()
     82:83:public static boolean isWrapperType(java.lang.reflect.Type)
@@ -5527,6 +5550,8 @@ com.google.gson.stream.MalformedJsonException:
     private static final long serialVersionUID
     33:37:public MalformedJsonException(java.lang.String,java.lang.Throwable)
     39:43:public MalformedJsonException(java.lang.Throwable)
+com.google.gson.util.VersionUtils:
+    22:22:public VersionUtils()
 com.mikepenz.fastadapter.BuildConfig
 com.mikepenz.fastadapter.FastAdapter:
     private static final java.lang.String TAG
@@ -5562,7 +5587,7 @@ com.mikepenz.fastadapter.FastAdapter:
     1268:1269:public void notifyAdapterItemInserted(int)
     1319:1323:public void notifyAdapterItemMoved(int,int)
 com.mikepenz.fastadapter.FastAdapter$ViewHolder:
-    1493:1494:public FastAdapter$ViewHolder(android.view.View)
+    1507:1508:public FastAdapter$ViewHolder(android.view.View)
 com.mikepenz.fastadapter.IAdapter:
     public abstract com.mikepenz.fastadapter.FastAdapter getFastAdapter()
 com.mikepenz.fastadapter.IAdapterExtension:
@@ -5609,7 +5634,7 @@ com.mikepenz.fastadapter.R$color
 com.mikepenz.fastadapter.R$dimen
 com.mikepenz.fastadapter.R$drawable
 com.mikepenz.fastadapter.R$id:
-    597:597:public R$id()
+    611:611:public R$id()
 com.mikepenz.fastadapter.R$integer
 com.mikepenz.fastadapter.R$layout
 com.mikepenz.fastadapter.R$string
@@ -5648,7 +5673,7 @@ com.mikepenz.fastadapter.adapters.ModelAdapter:
     471:472:public com.mikepenz.fastadapter.adapters.ModelAdapter move(int,int)
     500:501:public com.mikepenz.fastadapter.adapters.ModelAdapter clear()
     511:533:public com.mikepenz.fastadapter.adapters.ModelAdapter removeByIdentifier(long)
-    547:564:public com.mikepenz.fastadapter.utils.Triple recursive(com.mikepenz.fastadapter.utils.AdapterPredicate,boolean)
+    546:566:public com.mikepenz.fastadapter.utils.Triple recursive(com.mikepenz.fastadapter.utils.AdapterPredicate,boolean)
     34:34:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter clear()
     34:34:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter remove(int)
     34:34:public bridge synthetic com.mikepenz.fastadapter.IItemAdapter setInternal(int,com.mikepenz.fastadapter.IItem)
@@ -5686,17 +5711,17 @@ com.mikepenz.fastadapter.expandable.BuildConfig
 com.mikepenz.fastadapter.expandable.ExpandableExtension:
     protected static final java.lang.String BUNDLE_EXPANDED
     protected static final java.lang.String BUNDLE_EXPANDED_SELECTIONS
-    52:53:public com.mikepenz.fastadapter.expandable.ExpandableExtension withOnlyOneExpandedItem(boolean)
-    60:60:public boolean isOnlyOneExpandedItem()
-    147:149:public void notifyAdapterItemMoved(int,int)
-    181:191:public int notifyAdapterSubItemsChanged(int,int)
-    207:215:public android.util.SparseIntArray getExpanded()
-    320:321:public void collapse()
-    410:411:public void expand()
-    419:423:public void expand(boolean)
-    471:484:public int getExpandedItemsCount(int,int)
-    491:499:public void deselect()
-    507:515:public void select(boolean)
+    54:55:public com.mikepenz.fastadapter.expandable.ExpandableExtension withOnlyOneExpandedItem(boolean)
+    62:62:public boolean isOnlyOneExpandedItem()
+    149:151:public void notifyAdapterItemMoved(int,int)
+    183:193:public int notifyAdapterSubItemsChanged(int,int)
+    209:217:public android.util.SparseIntArray getExpanded()
+    322:323:public void collapse()
+    405:406:public void expand()
+    414:418:public void expand(boolean)
+    466:479:public int getExpandedItemsCount(int,int)
+    486:494:public void deselect()
+    502:510:public void select(boolean)
 com.mikepenz.fastadapter.expandable.R
 com.mikepenz.fastadapter.expandable.R$anim
 com.mikepenz.fastadapter.expandable.R$attr
@@ -5741,21 +5766,21 @@ com.mikepenz.fastadapter.select.SelectExtension:
     protected static final java.lang.String BUNDLE_SELECTIONS
     114:114:public boolean isSelectable()
     202:202:public void notifyAdapterItemMoved(int,int)
-    261:266:public void toggleSelection(int)
-    321:322:public void select()
-    330:338:public void select(boolean)
-    347:354:public void select(com.mikepenz.fastadapter.IItem,boolean)
-    362:365:public void select(java.lang.Iterable)
-    453:462:public void selectByIdentifiers(java.util.Set,boolean,boolean)
-    493:497:public void deselect(java.lang.Iterable)
-    553:563:public void deselectByIdentifier(long)
-    569:578:public void deselectByIdentifiers(java.util.Set)
-    586:620:public java.util.List deleteAllSelectedItems()
+    260:265:public void toggleSelection(int)
+    317:318:public void select()
+    326:334:public void select(boolean)
+    343:350:public void select(com.mikepenz.fastadapter.IItem,boolean)
+    358:361:public void select(java.lang.Iterable)
+    449:458:public void selectByIdentifiers(java.util.Set,boolean,boolean)
+    489:493:public void deselect(java.lang.Iterable)
+    549:559:public void deselectByIdentifier(long)
+    565:574:public void deselectByIdentifiers(java.util.Set)
+    597:631:public java.util.List deleteAllSelectedItems()
 com.mikepenz.fastadapter.select.SelectExtension$2
 com.mikepenz.fastadapter.select.SelectExtension$4
 com.mikepenz.fastadapter.select.SelectExtension$6
 com.mikepenz.fastadapter.select.SelectExtension$7
-com.mikepenz.fastadapter.select.SelectExtension$8
+com.mikepenz.fastadapter.select.SelectExtension$9
 com.mikepenz.fastadapter.select.package-info
 com.mikepenz.fastadapter.utils.AdapterUtil
 com.mikepenz.fastadapter.utils.ComparableItemListImpl:
@@ -5776,6 +5801,7 @@ com.mikepenz.fastadapter.utils.package-info
 com.mikepenz.fastadapter_extensions.ActionModeHelper
 com.mikepenz.fastadapter_extensions.ActionModeHelper$1
 com.mikepenz.fastadapter_extensions.ActionModeHelper$ActionBarCallBack
+com.mikepenz.fastadapter_extensions.ActionModeHelper$ActionItemClickedListener
 com.mikepenz.fastadapter_extensions.ActionModeHelper$ActionModeTitleProvider
 com.mikepenz.fastadapter_extensions.HeaderHelper
 com.mikepenz.fastadapter_extensions.HeaderHelper$GroupingFunction
@@ -6037,7 +6063,7 @@ com.mikepenz.materialdrawer.AccountHeaderBuilder:
     private android.view.View$OnLongClickListener onCurrentProfileLongClickListener
     private android.view.View$OnLongClickListener onProfileLongClickListener
     private android.view.View$OnClickListener onSelectionClickListener
-    47:1450:public AccountHeaderBuilder()
+    47:1451:public AccountHeaderBuilder()
     81:82:public com.mikepenz.materialdrawer.AccountHeaderBuilder withActivity(android.app.Activity)
     95:96:public com.mikepenz.materialdrawer.AccountHeaderBuilder withCompactStyle(boolean)
     115:116:public com.mikepenz.materialdrawer.AccountHeaderBuilder withTypeface(android.graphics.Typeface)
@@ -6085,14 +6111,14 @@ com.mikepenz.materialdrawer.AccountHeaderBuilder:
     702:723:private void setHeaderHeight(int)
     731:750:private void handleSelectionView(com.mikepenz.materialdrawer.model.interfaces.IProfile,boolean)
     759:886:public com.mikepenz.materialdrawer.AccountHeader build()
-    893:981:protected void calculateProfiles()
-    990:1059:protected boolean switchProfiles(com.mikepenz.materialdrawer.model.interfaces.IProfile)
-    1066:1191:protected void buildProfiles()
-    1201:1206:private void setImageOrPlaceholder(android.widget.ImageView,com.mikepenz.materialdrawer.holder.ImageHolder)
-    1235:1246:private void onProfileImageClick(android.view.View,boolean)
-    1277:1310:protected void onProfileClick(android.view.View,boolean)
-    1318:1327:protected int getCurrentSelection()
-    1484:1491:protected void updateHeaderAndList()
+    893:982:protected void calculateProfiles()
+    991:1060:protected boolean switchProfiles(com.mikepenz.materialdrawer.model.interfaces.IProfile)
+    1067:1192:protected void buildProfiles()
+    1202:1207:private void setImageOrPlaceholder(android.widget.ImageView,com.mikepenz.materialdrawer.holder.ImageHolder)
+    1236:1247:private void onProfileImageClick(android.view.View,boolean)
+    1278:1311:protected void onProfileClick(android.view.View,boolean)
+    1319:1328:protected int getCurrentSelection()
+    1485:1492:protected void updateHeaderAndList()
     47:47:static synthetic void access$000(com.mikepenz.materialdrawer.AccountHeaderBuilder,android.view.View,boolean)
     47:47:static synthetic void access$100(com.mikepenz.materialdrawer.AccountHeaderBuilder,android.content.Context)
 com.mikepenz.materialdrawer.AccountHeaderBuilder$1
@@ -6906,38 +6932,59 @@ java8.util.Comparators$$Lambda$4
 java8.util.Comparators$$Lambda$5
 java8.util.Comparators$$Lambda$6
 java8.util.Comparators$NullComparator
-java8.util.DoubleSummaryStatistics
+java8.util.DoubleSummaryStatistics:
+    68:138:public DoubleSummaryStatistics(long,double,double,double)
+    147:152:public void accept(double)
+    162:168:public void combine(java8.util.DoubleSummaryStatistics)
+    175:179:private void sumWithCompensation(double)
 java8.util.DualPivotQuicksort
+java8.util.FactoryUtil
+java8.util.FactoryUtil$1
+java8.util.FactoryUtil$EmptyIt
+java8.util.FactoryUtil$ImmutableIt
 java8.util.HMSpliterators:
     40:41:private HMSpliterators()
 java8.util.HMSpliterators$HashMapSpliterator:
     public abstract int characteristics()
-java8.util.ImmutableCollections
+java8.util.ImmutableCollections:
+    static final int EXPAND_FACTOR
+    66:66:private ImmutableCollections()
+    785:789:static void rangeCheckForAdd(int,int)
+    792:800:static java.util.List listOf(java.lang.Object[])
+    809:817:static java.util.Set setOf(java.lang.Object[])
 java8.util.ImmutableCollections$AbstractImmutableList
-java8.util.ImmutableCollections$AbstractImmutableMap
-java8.util.ImmutableCollections$AbstractImmutableSet
 java8.util.ImmutableCollections$List0
 java8.util.ImmutableCollections$List1
 java8.util.ImmutableCollections$List2
 java8.util.ImmutableCollections$ListN
-java8.util.ImmutableCollections$Map0
-java8.util.ImmutableCollections$Map1
-java8.util.ImmutableCollections$MapN
-java8.util.ImmutableCollections$MapN$1
-java8.util.ImmutableCollections$MapN$1$1
-java8.util.ImmutableCollections$Set0
-java8.util.ImmutableCollections$Set1
+java8.util.ImmutableCollections$Map0:
+    576:576:private void readObject(java.io.ObjectInputStream)
+    580:580:private java.lang.Object writeReplace()
+java8.util.ImmutableCollections$Map1:
+    614:614:private void readObject(java.io.ObjectInputStream)
+    618:618:private java.lang.Object writeReplace()
+java8.util.ImmutableCollections$MapN:
+    767:767:private void readObject(java.io.ObjectInputStream)
+    771:780:private java.lang.Object writeReplace()
+java8.util.ImmutableCollections$Set0:
+    317:317:private void readObject(java.io.ObjectInputStream)
+    321:321:private java.lang.Object writeReplace()
+java8.util.ImmutableCollections$Set1:
+    353:353:private void readObject(java.io.ObjectInputStream)
+    357:357:private java.lang.Object writeReplace()
 java8.util.ImmutableCollections$Set2
 java8.util.ImmutableCollections$Set2$1
 java8.util.ImmutableCollections$SetN
 java8.util.ImmutableCollections$SetN$1
-java8.util.IntSummaryStatistics
+java8.util.IntSummaryStatistics:
+    68:121:public IntSummaryStatistics(long,int,int,long)
+    143:147:public void combine(java8.util.IntSummaryStatistics)
 java8.util.Iterators:
-    105:110:public static void forEachRemaining(java8.util.PrimitiveIterator$OfInt,java8.util.function.IntConsumer)
-    140:145:public static void forEachRemaining(java8.util.PrimitiveIterator$OfLong,java8.util.function.LongConsumer)
-    175:180:public static void forEachRemaining(java8.util.PrimitiveIterator$OfDouble,java8.util.function.DoubleConsumer)
-    218:219:public static java.util.Iterator asIterator(java.util.Enumeration)
-    235:236:private Iterators()
+    106:111:public static void forEachRemaining(java8.util.PrimitiveIterator$OfInt,java8.util.function.IntConsumer)
+    141:146:public static void forEachRemaining(java8.util.PrimitiveIterator$OfLong,java8.util.function.LongConsumer)
+    176:181:public static void forEachRemaining(java8.util.PrimitiveIterator$OfDouble,java8.util.function.DoubleConsumer)
+    219:220:public static java.util.Iterator asIterator(java.util.Enumeration)
+    292:293:private Iterators()
 java8.util.Iterators$1
 java8.util.J8Arrays:
     private static final int MIN_ARRAY_SORT_GRAN
@@ -6988,19 +7035,15 @@ java8.util.J8Arrays:
     1507:1512:public static void parallelPrefix(int[],int,int,java8.util.function.IntBinaryOperator)
     1519:1529:private static void rangeCheck(int,int,int)
     1531:1532:private J8Arrays()
-    1324:1324:static synthetic void lambda$parallelSetAll$131(double[],java8.util.function.IntToDoubleFunction,int)
-    1268:1268:static synthetic void lambda$parallelSetAll$130(long[],java8.util.function.IntToLongFunction,int)
-    1212:1212:static synthetic void lambda$parallelSetAll$129(int[],java8.util.function.IntUnaryOperator,int)
-    1156:1156:static synthetic void lambda$parallelSetAll$128(java.lang.Object[],java8.util.function.IntFunction,int)
+    1324:1324:static synthetic void lambda$parallelSetAll$130(double[],java8.util.function.IntToDoubleFunction,int)
+    1268:1268:static synthetic void lambda$parallelSetAll$129(long[],java8.util.function.IntToLongFunction,int)
+    1212:1212:static synthetic void lambda$parallelSetAll$128(int[],java8.util.function.IntUnaryOperator,int)
+    1156:1156:static synthetic void lambda$parallelSetAll$127(java.lang.Object[],java8.util.function.IntFunction,int)
 java8.util.J8Arrays$$Lambda$1
 java8.util.J8Arrays$$Lambda$2
 java8.util.J8Arrays$$Lambda$3
 java8.util.J8Arrays$$Lambda$4
-java8.util.J9Collections
-java8.util.J9Collections$1
-java8.util.J9Collections$EmptyIt
-java8.util.J9Collections$ImmutableIt
-java8.util.KeyValueHolder
+java8.util.KVHolder
 java8.util.LBDSpliterator:
     private static final int MAX_BATCH
 java8.util.LBQSpliterator:
@@ -7009,22 +7052,50 @@ java8.util.LinkedListSpliterator:
     private static final int BATCH_UNIT
     private static final int MAX_BATCH
 java8.util.Lists:
-    98:104:public static void replaceAll(java.util.List,java8.util.function.UnaryOperator)
-    125:125:public static java8.util.Spliterator spliterator(java.util.List)
-    128:129:private Lists()
+    143:149:public static void replaceAll(java.util.List,java8.util.function.UnaryOperator)
+    170:170:public static java8.util.Spliterator spliterator(java.util.List)
+    184:184:public static java.util.List of()
+    200:200:public static java.util.List of(java.lang.Object)
+    217:217:public static java.util.List of(java.lang.Object,java.lang.Object)
+    235:235:public static java.util.List of(java.lang.Object,java.lang.Object,java.lang.Object)
+    254:254:public static java.util.List of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    274:274:public static java.util.List of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    295:295:public static java.util.List of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    318:318:public static java.util.List of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    342:342:public static java.util.List of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    367:367:public static java.util.List of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    393:393:public static java.util.List of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    423:423:public static varargs java.util.List of(java.lang.Object[])
+    444:447:public static java.util.List copyOf(java.util.Collection)
+    451:452:private Lists()
 java8.util.Lists2
-java8.util.LongSummaryStatistics
+java8.util.LongSummaryStatistics:
+    69:122:public LongSummaryStatistics(long,long,long,long)
+    155:159:public void combine(java8.util.LongSummaryStatistics)
 java8.util.Maps:
-    127:134:public static java.lang.Object getOrDefault(java.util.Map,java.lang.Object,java.lang.Object)
-    169:190:public static void forEach(java.util.Map,java8.util.function.BiConsumer)
-    366:381:public static java.lang.Object computeIfAbsent(java.util.Map,java.lang.Object,java8.util.function.Function)
-    428:440:public static boolean replace(java.util.Map,java.lang.Object,java.lang.Object,java.lang.Object)
-    483:493:public static java.lang.Object replace(java.util.Map,java.lang.Object,java.lang.Object)
-    537:569:public static void replaceAll(java.util.Map,java8.util.function.BiFunction)
-    648:671:public static java.lang.Object compute(java.util.Map,java.lang.Object,java8.util.function.BiFunction)
-    741:759:public static java.lang.Object computeIfPresent(java.util.Map,java.lang.Object,java8.util.function.BiFunction)
-    798:810:public static boolean remove(java.util.Map,java.lang.Object,java.lang.Object)
-    915:916:private Maps()
+    158:165:public static java.lang.Object getOrDefault(java.util.Map,java.lang.Object,java.lang.Object)
+    200:221:public static void forEach(java.util.Map,java8.util.function.BiConsumer)
+    397:412:public static java.lang.Object computeIfAbsent(java.util.Map,java.lang.Object,java8.util.function.Function)
+    459:471:public static boolean replace(java.util.Map,java.lang.Object,java.lang.Object,java.lang.Object)
+    514:524:public static java.lang.Object replace(java.util.Map,java.lang.Object,java.lang.Object)
+    568:600:public static void replaceAll(java.util.Map,java8.util.function.BiFunction)
+    679:702:public static java.lang.Object compute(java.util.Map,java.lang.Object,java8.util.function.BiFunction)
+    772:790:public static java.lang.Object computeIfPresent(java.util.Map,java.lang.Object,java8.util.function.BiFunction)
+    829:841:public static boolean remove(java.util.Map,java.lang.Object,java.lang.Object)
+    957:957:public static java.util.Map of()
+    974:974:public static java.util.Map of(java.lang.Object,java.lang.Object)
+    994:994:public static java.util.Map of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    1016:1016:public static java.util.Map of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    1040:1040:public static java.util.Map of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    1066:1066:public static java.util.Map of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    1095:1095:public static java.util.Map of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    1127:1127:public static java.util.Map of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    1161:1161:public static java.util.Map of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    1197:1197:public static java.util.Map of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    1235:1235:public static java.util.Map of(java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object)
+    1325:1325:public static java.util.Map$Entry entry(java.lang.Object,java.lang.Object)
+    1347:1350:public static java.util.Map copyOf(java.util.Map)
+    1354:1355:private Maps()
 java8.util.Maps$Entry
 java8.util.Maps$Entry$$Lambda$1
 java8.util.Maps$Entry$$Lambda$2
@@ -7088,6 +7159,7 @@ java8.util.PrimitiveIterator$OfInt
 java8.util.PrimitiveIterator$OfInt$
 java8.util.PrimitiveIterator$OfLong
 java8.util.PrimitiveIterator$OfLong$
+java8.util.Sets
 java8.util.Sets2
 java8.util.Spliterator:
     public static final int ORDERED
@@ -7193,14 +7265,181 @@ java8.util.TimSort:
     private static final int MIN_MERGE
     private static final int MIN_GALLOP
     private static final int INITIAL_TMP_STORAGE_LENGTH
+java8.util.Unmodifiable
+java8.util.Unmodifiable$AbstractImmutableList
+java8.util.Unmodifiable$AbstractImmutableMap
+java8.util.Unmodifiable$AbstractImmutableSet
+java8.util.Unmodifiable$List0
+java8.util.Unmodifiable$List1
+java8.util.Unmodifiable$List2
+java8.util.Unmodifiable$ListN
+java8.util.Unmodifiable$Map0
+java8.util.Unmodifiable$Map1
+java8.util.Unmodifiable$MapN
+java8.util.Unmodifiable$MapN$1
+java8.util.Unmodifiable$MapN$1$1
+java8.util.Unmodifiable$Set0
+java8.util.Unmodifiable$Set1
+java8.util.Unmodifiable$Set2
+java8.util.Unmodifiable$Set2$1
+java8.util.Unmodifiable$SetN
+java8.util.Unmodifiable$SetN$1
 java8.util.UnsafeAccess:
     31:32:private UnsafeAccess()
-java8.util.concurrent.CompletableFuture
-java8.util.concurrent.CompletableFuture$AltResult
+java8.util.concurrent.CompletableFuture:
+    static final int SYNC
+    static final int ASYNC
+    static final int NESTED
+    281:281:final boolean completeNull()
+    287:287:final java.lang.Object encodeValue(java.lang.Object)
+    292:292:final boolean completeValue(java.lang.Object)
+    301:301:static java8.util.concurrent.CompletableFuture$AltResult encodeThrowable(java.lang.Throwable)
+    307:308:final boolean completeThrowable(java.lang.Throwable)
+    319:323:static java.lang.Object encodeThrowable(java.lang.Throwable,java.lang.Object)
+    335:336:final boolean completeThrowable(java.lang.Throwable,java.lang.Object)
+    345:345:java.lang.Object encodeOutcome(java.lang.Object,java.lang.Throwable)
+    354:358:static java.lang.Object encodeRelay(java.lang.Object)
+    366:367:final boolean completeRelay(java.lang.Object)
+    395:405:private static java.lang.Object reportJoin(java.lang.Object)
+    440:442:static java.util.concurrent.Executor screenExecutor(java.util.concurrent.Executor)
+    569:579:final void unipush(java8.util.concurrent.CompletableFuture$Completion)
+    587:600:final java8.util.concurrent.CompletableFuture postFire(java8.util.concurrent.CompletableFuture,int)
+    643:649:private java8.util.concurrent.CompletableFuture uniApplyStage(java.util.concurrent.Executor,java8.util.function.Function)
+    655:673:private java8.util.concurrent.CompletableFuture uniApplyNow(java.lang.Object,java.util.concurrent.Executor,java8.util.function.Function)
+    716:722:private java8.util.concurrent.CompletableFuture uniAcceptStage(java.util.concurrent.Executor,java8.util.function.Consumer)
+    728:747:private java8.util.concurrent.CompletableFuture uniAcceptNow(java.lang.Object,java.util.concurrent.Executor,java8.util.function.Consumer)
+    784:790:private java8.util.concurrent.CompletableFuture uniRunStage(java.util.concurrent.Executor,java.lang.Runnable)
+    795:809:private java8.util.concurrent.CompletableFuture uniRunNow(java.lang.Object,java.util.concurrent.Executor,java.lang.Runnable)
+    835:862:final boolean uniWhenComplete(java.lang.Object,java8.util.function.BiConsumer,java8.util.concurrent.CompletableFuture$UniWhenComplete)
+    867:881:private java8.util.concurrent.CompletableFuture uniWhenCompleteStage(java.util.concurrent.Executor,java8.util.function.BiConsumer)
+    908:926:final boolean uniHandle(java.lang.Object,java8.util.function.BiFunction,java8.util.concurrent.CompletableFuture$UniHandle)
+    931:945:private java8.util.concurrent.CompletableFuture uniHandleStage(java.util.concurrent.Executor,java8.util.function.BiFunction)
+    971:983:final boolean uniExceptionally(java.lang.Object,java8.util.function.Function,java8.util.concurrent.CompletableFuture$UniExceptionally)
+    988:995:private java8.util.concurrent.CompletableFuture uniExceptionallyStage(java8.util.function.Function)
+    1018:1023:private static java8.util.concurrent.CompletableFuture uniCopyStage(java8.util.concurrent.CompletableFuture)
+    1028:1032:private java8.util.concurrent.CompletableFuture$MinimalStage uniAsMinimalStage()
+    1081:1112:private java8.util.concurrent.CompletableFuture uniComposeStage(java.util.concurrent.Executor,java8.util.function.Function)
+    1152:1164:final void bipush(java8.util.concurrent.CompletableFuture,java8.util.concurrent.CompletableFuture$BiCompletion)
+    1169:1176:final java8.util.concurrent.CompletableFuture postFire(java8.util.concurrent.CompletableFuture,java8.util.concurrent.CompletableFuture,int)
+    1205:1232:final boolean biApply(java.lang.Object,java.lang.Object,java8.util.function.BiFunction,java8.util.concurrent.CompletableFuture$BiApply)
+    1239:1252:private java8.util.concurrent.CompletableFuture biApplyStage(java.util.concurrent.Executor,java8.util.concurrent.CompletionStage,java8.util.function.BiFunction)
+    1281:1309:final boolean biAccept(java.lang.Object,java.lang.Object,java8.util.function.BiConsumer,java8.util.concurrent.CompletableFuture$BiAccept)
+    1316:1329:private java8.util.concurrent.CompletableFuture biAcceptStage(java.util.concurrent.Executor,java8.util.concurrent.CompletionStage,java8.util.function.BiConsumer)
+    1357:1373:final boolean biRun(java.lang.Object,java.lang.Object,java.lang.Runnable,java8.util.concurrent.CompletableFuture$BiRun)
+    1380:1393:private java8.util.concurrent.CompletableFuture biRunStage(java.util.concurrent.Executor,java8.util.concurrent.CompletionStage,java.lang.Runnable)
+    1428:1449:static java8.util.concurrent.CompletableFuture andTree(java8.util.concurrent.CompletableFuture[],int,int)
+    1459:1471:final void orpush(java8.util.concurrent.CompletableFuture,java8.util.concurrent.CompletableFuture$BiCompletion)
+    1515:1525:private java8.util.concurrent.CompletableFuture orApplyStage(java.util.concurrent.Executor,java8.util.concurrent.CompletionStage,java8.util.function.Function)
+    1571:1581:private java8.util.concurrent.CompletableFuture orAcceptStage(java.util.concurrent.Executor,java8.util.concurrent.CompletionStage,java8.util.function.Consumer)
+    1624:1634:private java8.util.concurrent.CompletableFuture orRunStage(java.util.concurrent.Executor,java8.util.concurrent.CompletionStage,java.lang.Runnable)
+    1705:1708:static java8.util.concurrent.CompletableFuture asyncSupplyStage(java.util.concurrent.Executor,java8.util.function.Supplier)
+    1741:1744:static java8.util.concurrent.CompletableFuture asyncRunStage(java.util.concurrent.Executor,java.lang.Runnable)
+    1893:1895:CompletableFuture(java.lang.Object)
+    1908:1908:public static java8.util.concurrent.CompletableFuture supplyAsync(java8.util.function.Supplier)
+    1924:1924:public static java8.util.concurrent.CompletableFuture supplyAsync(java8.util.function.Supplier,java.util.concurrent.Executor)
+    1937:1937:public static java8.util.concurrent.CompletableFuture runAsync(java.lang.Runnable)
+    1952:1952:public static java8.util.concurrent.CompletableFuture runAsync(java.lang.Runnable,java.util.concurrent.Executor)
+    1964:1964:public static java8.util.concurrent.CompletableFuture completedFuture(java.lang.Object)
+    2034:2036:public java.lang.Object join()
+    2052:2052:public java.lang.Object getNow(java.lang.Object)
+    2064:2066:public boolean complete(java.lang.Object)
+    2078:2080:public boolean completeExceptionally(java.lang.Throwable)
+    2085:2085:public java8.util.concurrent.CompletableFuture thenApply(java8.util.function.Function)
+    2090:2090:public java8.util.concurrent.CompletableFuture thenApplyAsync(java8.util.function.Function)
+    2095:2095:public java8.util.concurrent.CompletableFuture thenApplyAsync(java8.util.function.Function,java.util.concurrent.Executor)
+    2099:2099:public java8.util.concurrent.CompletableFuture thenAccept(java8.util.function.Consumer)
+    2103:2103:public java8.util.concurrent.CompletableFuture thenAcceptAsync(java8.util.function.Consumer)
+    2108:2108:public java8.util.concurrent.CompletableFuture thenAcceptAsync(java8.util.function.Consumer,java.util.concurrent.Executor)
+    2112:2112:public java8.util.concurrent.CompletableFuture thenRun(java.lang.Runnable)
+    2116:2116:public java8.util.concurrent.CompletableFuture thenRunAsync(java.lang.Runnable)
+    2121:2121:public java8.util.concurrent.CompletableFuture thenRunAsync(java.lang.Runnable,java.util.concurrent.Executor)
+    2127:2127:public java8.util.concurrent.CompletableFuture thenCombine(java8.util.concurrent.CompletionStage,java8.util.function.BiFunction)
+    2133:2133:public java8.util.concurrent.CompletableFuture thenCombineAsync(java8.util.concurrent.CompletionStage,java8.util.function.BiFunction)
+    2139:2139:public java8.util.concurrent.CompletableFuture thenCombineAsync(java8.util.concurrent.CompletionStage,java8.util.function.BiFunction,java.util.concurrent.Executor)
+    2145:2145:public java8.util.concurrent.CompletableFuture thenAcceptBoth(java8.util.concurrent.CompletionStage,java8.util.function.BiConsumer)
+    2151:2151:public java8.util.concurrent.CompletableFuture thenAcceptBothAsync(java8.util.concurrent.CompletionStage,java8.util.function.BiConsumer)
+    2157:2157:public java8.util.concurrent.CompletableFuture thenAcceptBothAsync(java8.util.concurrent.CompletionStage,java8.util.function.BiConsumer,java.util.concurrent.Executor)
+    2162:2162:public java8.util.concurrent.CompletableFuture runAfterBoth(java8.util.concurrent.CompletionStage,java.lang.Runnable)
+    2167:2167:public java8.util.concurrent.CompletableFuture runAfterBothAsync(java8.util.concurrent.CompletionStage,java.lang.Runnable)
+    2173:2173:public java8.util.concurrent.CompletableFuture runAfterBothAsync(java8.util.concurrent.CompletionStage,java.lang.Runnable,java.util.concurrent.Executor)
+    2178:2178:public java8.util.concurrent.CompletableFuture applyToEither(java8.util.concurrent.CompletionStage,java8.util.function.Function)
+    2183:2183:public java8.util.concurrent.CompletableFuture applyToEitherAsync(java8.util.concurrent.CompletionStage,java8.util.function.Function)
+    2189:2189:public java8.util.concurrent.CompletableFuture applyToEitherAsync(java8.util.concurrent.CompletionStage,java8.util.function.Function,java.util.concurrent.Executor)
+    2194:2194:public java8.util.concurrent.CompletableFuture acceptEither(java8.util.concurrent.CompletionStage,java8.util.function.Consumer)
+    2199:2199:public java8.util.concurrent.CompletableFuture acceptEitherAsync(java8.util.concurrent.CompletionStage,java8.util.function.Consumer)
+    2205:2205:public java8.util.concurrent.CompletableFuture acceptEitherAsync(java8.util.concurrent.CompletionStage,java8.util.function.Consumer,java.util.concurrent.Executor)
+    2210:2210:public java8.util.concurrent.CompletableFuture runAfterEither(java8.util.concurrent.CompletionStage,java.lang.Runnable)
+    2215:2215:public java8.util.concurrent.CompletableFuture runAfterEitherAsync(java8.util.concurrent.CompletionStage,java.lang.Runnable)
+    2221:2221:public java8.util.concurrent.CompletableFuture runAfterEitherAsync(java8.util.concurrent.CompletionStage,java.lang.Runnable,java.util.concurrent.Executor)
+    2226:2226:public java8.util.concurrent.CompletableFuture thenCompose(java8.util.function.Function)
+    2231:2231:public java8.util.concurrent.CompletableFuture thenComposeAsync(java8.util.function.Function)
+    2237:2237:public java8.util.concurrent.CompletableFuture thenComposeAsync(java8.util.function.Function,java.util.concurrent.Executor)
+    2242:2242:public java8.util.concurrent.CompletableFuture whenComplete(java8.util.function.BiConsumer)
+    2247:2247:public java8.util.concurrent.CompletableFuture whenCompleteAsync(java8.util.function.BiConsumer)
+    2252:2252:public java8.util.concurrent.CompletableFuture whenCompleteAsync(java8.util.function.BiConsumer,java.util.concurrent.Executor)
+    2257:2257:public java8.util.concurrent.CompletableFuture handle(java8.util.function.BiFunction)
+    2262:2262:public java8.util.concurrent.CompletableFuture handleAsync(java8.util.function.BiFunction)
+    2267:2267:public java8.util.concurrent.CompletableFuture handleAsync(java8.util.function.BiFunction,java.util.concurrent.Executor)
+    2276:2276:public java8.util.concurrent.CompletableFuture toCompletableFuture()
+    2298:2298:public java8.util.concurrent.CompletableFuture exceptionally(java8.util.function.Function)
+    2328:2328:public static varargs java8.util.concurrent.CompletableFuture allOf(java8.util.concurrent.CompletableFuture[])
+    2348:2368:public static varargs java8.util.concurrent.CompletableFuture anyOf(java8.util.concurrent.CompletableFuture[])
+    2418:2418:public boolean isCompletedExceptionally()
+    2432:2434:public void obtrudeValue(java.lang.Object)
+    2448:2450:public void obtrudeException(java.lang.Throwable)
+    2461:2464:public int getNumberOfDependents()
+    2506:2506:public java8.util.concurrent.CompletableFuture newIncompleteFuture()
+    2539:2539:public java8.util.concurrent.CompletableFuture copy()
+    2563:2563:public java8.util.concurrent.CompletionStage minimalCompletionStage()
+    2579:2582:public java8.util.concurrent.CompletableFuture completeAsync(java8.util.function.Supplier,java.util.concurrent.Executor)
+    2596:2596:public java8.util.concurrent.CompletableFuture completeAsync(java8.util.function.Supplier)
+    2612:2616:public java8.util.concurrent.CompletableFuture orTimeout(long,java.util.concurrent.TimeUnit)
+    2633:2638:public java8.util.concurrent.CompletableFuture completeOnTimeout(java.lang.Object,long,java.util.concurrent.TimeUnit)
+    2656:2658:public static java.util.concurrent.Executor delayedExecutor(long,java.util.concurrent.TimeUnit,java.util.concurrent.Executor)
+    2674:2674:public static java.util.concurrent.Executor delayedExecutor(long,java.util.concurrent.TimeUnit)
+    2688:2688:public static java8.util.concurrent.CompletionStage completedStage(java.lang.Object)
+    2701:2701:public static java8.util.concurrent.CompletableFuture failedFuture(java.lang.Throwable)
+    2715:2715:public static java8.util.concurrent.CompletionStage failedStage(java.lang.Throwable)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage exceptionally(java8.util.function.Function)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage whenCompleteAsync(java8.util.function.BiConsumer,java.util.concurrent.Executor)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage whenCompleteAsync(java8.util.function.BiConsumer)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage whenComplete(java8.util.function.BiConsumer)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage handleAsync(java8.util.function.BiFunction,java.util.concurrent.Executor)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage handleAsync(java8.util.function.BiFunction)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage handle(java8.util.function.BiFunction)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenComposeAsync(java8.util.function.Function,java.util.concurrent.Executor)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenComposeAsync(java8.util.function.Function)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenCompose(java8.util.function.Function)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage runAfterEitherAsync(java8.util.concurrent.CompletionStage,java.lang.Runnable,java.util.concurrent.Executor)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage runAfterEitherAsync(java8.util.concurrent.CompletionStage,java.lang.Runnable)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage runAfterEither(java8.util.concurrent.CompletionStage,java.lang.Runnable)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage acceptEitherAsync(java8.util.concurrent.CompletionStage,java8.util.function.Consumer,java.util.concurrent.Executor)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage acceptEitherAsync(java8.util.concurrent.CompletionStage,java8.util.function.Consumer)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage acceptEither(java8.util.concurrent.CompletionStage,java8.util.function.Consumer)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage applyToEitherAsync(java8.util.concurrent.CompletionStage,java8.util.function.Function,java.util.concurrent.Executor)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage applyToEitherAsync(java8.util.concurrent.CompletionStage,java8.util.function.Function)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage applyToEither(java8.util.concurrent.CompletionStage,java8.util.function.Function)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage runAfterBothAsync(java8.util.concurrent.CompletionStage,java.lang.Runnable,java.util.concurrent.Executor)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage runAfterBothAsync(java8.util.concurrent.CompletionStage,java.lang.Runnable)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage runAfterBoth(java8.util.concurrent.CompletionStage,java.lang.Runnable)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenAcceptBothAsync(java8.util.concurrent.CompletionStage,java8.util.function.BiConsumer,java.util.concurrent.Executor)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenAcceptBothAsync(java8.util.concurrent.CompletionStage,java8.util.function.BiConsumer)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenAcceptBoth(java8.util.concurrent.CompletionStage,java8.util.function.BiConsumer)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenCombineAsync(java8.util.concurrent.CompletionStage,java8.util.function.BiFunction,java.util.concurrent.Executor)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenCombineAsync(java8.util.concurrent.CompletionStage,java8.util.function.BiFunction)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenCombine(java8.util.concurrent.CompletionStage,java8.util.function.BiFunction)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenRunAsync(java.lang.Runnable,java.util.concurrent.Executor)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenRunAsync(java.lang.Runnable)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenRun(java.lang.Runnable)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenAcceptAsync(java8.util.function.Consumer,java.util.concurrent.Executor)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenAcceptAsync(java8.util.function.Consumer)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenAccept(java8.util.function.Consumer)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenApplyAsync(java8.util.function.Function,java.util.concurrent.Executor)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenApplyAsync(java8.util.function.Function)
+    125:125:public bridge synthetic java8.util.concurrent.CompletionStage thenApply(java8.util.function.Function)
 java8.util.concurrent.CompletableFuture$AnyOf
 java8.util.concurrent.CompletableFuture$AsyncRun
 java8.util.concurrent.CompletableFuture$AsyncSupply
-java8.util.concurrent.CompletableFuture$AsynchronousCompletionTask
 java8.util.concurrent.CompletableFuture$BiAccept
 java8.util.concurrent.CompletableFuture$BiApply
 java8.util.concurrent.CompletableFuture$BiCompletion
@@ -7208,7 +7447,9 @@ java8.util.concurrent.CompletableFuture$BiRelay
 java8.util.concurrent.CompletableFuture$BiRun
 java8.util.concurrent.CompletableFuture$Canceller
 java8.util.concurrent.CompletableFuture$CoCompletion
-java8.util.concurrent.CompletableFuture$Completion
+java8.util.concurrent.CompletableFuture$Completion:
+    471:471:public final void setRawResult(java.lang.Void)
+    452:452:public bridge synthetic void setRawResult(java.lang.Object)
 java8.util.concurrent.CompletableFuture$DelayedCompleter
 java8.util.concurrent.CompletableFuture$DelayedExecutor
 java8.util.concurrent.CompletableFuture$Delayer
@@ -7217,9 +7458,7 @@ java8.util.concurrent.CompletableFuture$MinimalStage
 java8.util.concurrent.CompletableFuture$OrAccept
 java8.util.concurrent.CompletableFuture$OrApply
 java8.util.concurrent.CompletableFuture$OrRun
-java8.util.concurrent.CompletableFuture$Signaller
 java8.util.concurrent.CompletableFuture$TaskSubmitter
-java8.util.concurrent.CompletableFuture$ThreadPerTaskExecutor
 java8.util.concurrent.CompletableFuture$Timeout
 java8.util.concurrent.CompletableFuture$UniAccept
 java8.util.concurrent.CompletableFuture$UniApply
@@ -7230,7 +7469,11 @@ java8.util.concurrent.CompletableFuture$UniHandle
 java8.util.concurrent.CompletableFuture$UniRelay
 java8.util.concurrent.CompletableFuture$UniRun
 java8.util.concurrent.CompletableFuture$UniWhenComplete
-java8.util.concurrent.CompletionException
+java8.util.concurrent.CompletionException:
+    private static final long serialVersionUID
+    34:35:protected CompletionException(java.lang.String)
+    46:47:public CompletionException(java.lang.String,java.lang.Throwable)
+    59:60:public CompletionException(java.lang.Throwable)
 java8.util.concurrent.CompletionStage
 java8.util.concurrent.ConcurrentMaps:
     213:218:public static java.lang.Object computeIfAbsent(java.util.concurrent.ConcurrentMap,java.lang.Object,java8.util.function.Function)
@@ -7240,7 +7483,7 @@ java8.util.concurrent.ConcurrentMaps:
     457:459:public static java.lang.Object getOrDefault(java.util.concurrent.ConcurrentMap,java.lang.Object,java.lang.Object)
     493:507:public static void forEach(java.util.concurrent.ConcurrentMap,java8.util.function.BiConsumer)
     509:510:private ConcurrentMaps()
-    423:430:static synthetic void lambda$replaceAll$49(java.util.concurrent.ConcurrentMap,java8.util.function.BiFunction,java.lang.Object,java.lang.Object)
+    423:430:static synthetic void lambda$replaceAll$43(java.util.concurrent.ConcurrentMap,java8.util.function.BiFunction,java.lang.Object,java.lang.Object)
 java8.util.concurrent.ConcurrentMaps$$Lambda$1
 java8.util.concurrent.CountedCompleter:
     private static final long serialVersionUID
@@ -7318,38 +7561,32 @@ java8.util.concurrent.ForkJoinPool:
     volatile long pad1c
     volatile long pad1d
     volatile long pad1e
-    1918:1922:final java8.util.concurrent.ForkJoinTask nextTaskFor(java8.util.concurrent.ForkJoinPool$WorkQueue)
-    2021:2024:static java8.util.concurrent.ForkJoinPool$WorkQueue commonSubmitterQueue()
-    2064:2064:final int helpComplete(java8.util.concurrent.ForkJoinPool$WorkQueue,java8.util.concurrent.CountedCompleter,int)
-    2111:2123:static int getSurplusQueuedTaskCount()
-    2254:2256:public ForkJoinPool(int)
-    2289:2291:public ForkJoinPool(int,java8.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory,java.lang.Thread$UncaughtExceptionHandler,boolean)
-    2487:2487:public static java8.util.concurrent.ForkJoinPool commonPool()
-    2510:2511:public java.lang.Object invoke(java8.util.concurrent.ForkJoinTask)
-    2523:2524:public void execute(java8.util.concurrent.ForkJoinTask)
-    2554:2554:public java8.util.concurrent.ForkJoinTask submit(java8.util.concurrent.ForkJoinTask)
-    2620:2620:public java8.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory getFactory()
-    2630:2630:public java.lang.Thread$UncaughtExceptionHandler getUncaughtExceptionHandler()
-    2639:2640:public int getParallelism()
-    2662:2662:public int getPoolSize()
-    2672:2672:public boolean getAsyncMode()
-    2684:2692:public int getRunningThreadCount()
-    2703:2704:public int getActiveThreadCount()
-    2757:2765:public long getStealCount()
-    2779:2787:public long getQueuedTaskCount()
-    2798:2806:public int getQueuedSubmissionCount()
-    2817:2823:public boolean hasQueuedSubmissions()
-    2834:2834:protected java8.util.concurrent.ForkJoinTask pollSubmission()
-    2855:2867:protected int drainTasksTo(java.util.Collection)
-    2987:2988:public boolean isTerminating()
-    3081:3082:static void quiesceCommonPool()
-    3189:3210:public static void managedBlock(java8.util.concurrent.ForkJoinPool$ManagedBlocker)
-    3218:3260:static void helpAsyncBlocker(java.util.concurrent.Executor,java8.util.concurrent.ForkJoinPool$ManagedBlocker)
-    3264:3267:static boolean isInstanceOfAsynCompTask(java8.util.concurrent.ForkJoinTask)
-java8.util.concurrent.ForkJoinPool$ManagedBlocker
+    1939:1943:final java8.util.concurrent.ForkJoinTask nextTaskFor(java8.util.concurrent.ForkJoinPool$WorkQueue)
+    2042:2045:static java8.util.concurrent.ForkJoinPool$WorkQueue commonSubmitterQueue()
+    2085:2085:final int helpComplete(java8.util.concurrent.ForkJoinPool$WorkQueue,java8.util.concurrent.CountedCompleter,int)
+    2132:2144:static int getSurplusQueuedTaskCount()
+    2275:2277:public ForkJoinPool(int)
+    2310:2312:public ForkJoinPool(int,java8.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory,java.lang.Thread$UncaughtExceptionHandler,boolean)
+    2531:2532:public java.lang.Object invoke(java8.util.concurrent.ForkJoinTask)
+    2544:2545:public void execute(java8.util.concurrent.ForkJoinTask)
+    2575:2575:public java8.util.concurrent.ForkJoinTask submit(java8.util.concurrent.ForkJoinTask)
+    2641:2641:public java8.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory getFactory()
+    2651:2651:public java.lang.Thread$UncaughtExceptionHandler getUncaughtExceptionHandler()
+    2683:2683:public int getPoolSize()
+    2693:2693:public boolean getAsyncMode()
+    2705:2713:public int getRunningThreadCount()
+    2724:2725:public int getActiveThreadCount()
+    2778:2786:public long getStealCount()
+    2800:2808:public long getQueuedTaskCount()
+    2819:2827:public int getQueuedSubmissionCount()
+    2838:2844:public boolean hasQueuedSubmissions()
+    2855:2855:protected java8.util.concurrent.ForkJoinTask pollSubmission()
+    2876:2888:protected int drainTasksTo(java.util.Collection)
+    3008:3009:public boolean isTerminating()
+    3102:3103:static void quiesceCommonPool()
 java8.util.concurrent.ForkJoinPool$MemBar:
-    3373:3374:static void loadFence()
-    3382:3383:private ForkJoinPool$MemBar()
+    3394:3395:static void loadFence()
+    3403:3404:private ForkJoinPool$MemBar()
 java8.util.concurrent.ForkJoinPool$WorkQueue:
     static final int INITIAL_QUEUE_CAPACITY
     static final int MAXIMUM_QUEUE_CAPACITY
@@ -7398,56 +7635,55 @@ java8.util.concurrent.ForkJoinTask:
     static final int SIGNAL
     static final int SMASK
     private static final long serialVersionUID
-    498:523:private void clearExceptionalCompletion()
-    688:690:public final java.lang.Object join()
-    727:732:public static void invokeAll(java8.util.concurrent.ForkJoinTask,java8.util.concurrent.ForkJoinTask)
-    750:774:public static varargs void invokeAll(java8.util.concurrent.ForkJoinTask[])
-    795:825:public static java.util.Collection invokeAll(java.util.Collection)
-    873:873:public final boolean isCompletedAbnormally()
-    884:884:public final boolean isCompletedNormally()
-    895:898:public final java.lang.Throwable getException()
-    916:919:public void completeExceptionally(java.lang.Throwable)
-    936:942:public void complete(java.lang.Object)
-    1053:1054:public final void quietlyInvoke()
-    1065:1071:public static void helpQuiesce()
-    1090:1094:public void reinitialize()
-    1106:1107:public static java8.util.concurrent.ForkJoinPool getPool()
-    1120:1120:public static boolean inForkJoinPool()
-    1135:1137:public boolean tryUnfork()
-    1150:1154:public static int getQueuedTaskCount()
-    1171:1171:public static int getSurplusQueuedTaskCount()
+    500:525:private void clearExceptionalCompletion()
+    690:692:public final java.lang.Object join()
+    729:734:public static void invokeAll(java8.util.concurrent.ForkJoinTask,java8.util.concurrent.ForkJoinTask)
+    752:776:public static varargs void invokeAll(java8.util.concurrent.ForkJoinTask[])
+    797:828:public static java.util.Collection invokeAll(java.util.Collection)
+    876:876:public final boolean isCompletedAbnormally()
+    887:887:public final boolean isCompletedNormally()
+    898:901:public final java.lang.Throwable getException()
+    919:922:public void completeExceptionally(java.lang.Throwable)
+    939:945:public void complete(java.lang.Object)
+    1056:1057:public final void quietlyInvoke()
+    1068:1074:public static void helpQuiesce()
+    1093:1097:public void reinitialize()
+    1109:1110:public static java8.util.concurrent.ForkJoinPool getPool()
+    1123:1123:public static boolean inForkJoinPool()
+    1138:1140:public boolean tryUnfork()
+    1153:1157:public static int getQueuedTaskCount()
+    1174:1174:public static int getSurplusQueuedTaskCount()
     protected abstract void setRawResult(java.lang.Object)
-    1226:1230:protected static java8.util.concurrent.ForkJoinTask peekNextLocalTask()
-    1244:1245:protected static java8.util.concurrent.ForkJoinTask pollNextLocalTask()
-    1264:1265:protected static java8.util.concurrent.ForkJoinTask pollTask()
-    1282:1283:protected static java8.util.concurrent.ForkJoinTask pollSubmission()
-    1295:1295:public final short getForkJoinTaskTag()
-    1307:1309:public final short setForkJoinTaskTag(short)
-    1329:1333:public final boolean compareAndSetForkJoinTaskTag(short,short)
-    1425:1425:public static java8.util.concurrent.ForkJoinTask adapt(java.lang.Runnable)
-    1439:1439:public static java8.util.concurrent.ForkJoinTask adapt(java.lang.Runnable,java.lang.Object)
-    1453:1453:public static java8.util.concurrent.ForkJoinTask adapt(java.util.concurrent.Callable)
-    1470:1472:private void writeObject(java.io.ObjectOutputStream)
-    1483:1488:private void readObject(java.io.ObjectInputStream)
+    1229:1233:protected static java8.util.concurrent.ForkJoinTask peekNextLocalTask()
+    1247:1248:protected static java8.util.concurrent.ForkJoinTask pollNextLocalTask()
+    1267:1268:protected static java8.util.concurrent.ForkJoinTask pollTask()
+    1285:1286:protected static java8.util.concurrent.ForkJoinTask pollSubmission()
+    1298:1298:public final short getForkJoinTaskTag()
+    1310:1312:public final short setForkJoinTaskTag(short)
+    1332:1336:public final boolean compareAndSetForkJoinTaskTag(short,short)
+    1437:1437:public static java8.util.concurrent.ForkJoinTask adapt(java.lang.Runnable)
+    1451:1451:public static java8.util.concurrent.ForkJoinTask adapt(java.lang.Runnable,java.lang.Object)
+    1465:1465:public static java8.util.concurrent.ForkJoinTask adapt(java.util.concurrent.Callable)
+    1482:1484:private void writeObject(java.io.ObjectOutputStream)
+    1495:1499:private void readObject(java.io.ObjectInputStream)
 java8.util.concurrent.ForkJoinTask$AdaptedCallable:
     private static final long serialVersionUID
-    1401:1401:public final void setRawResult(java.lang.Object)
+    1410:1410:public final void setRawResult(java.lang.Object)
 java8.util.concurrent.ForkJoinTask$AdaptedRunnable:
     private static final long serialVersionUID
-    1351:1351:public final void setRawResult(java.lang.Object)
+    1354:1354:public final void setRawResult(java.lang.Object)
 java8.util.concurrent.ForkJoinTask$AdaptedRunnableAction:
     private static final long serialVersionUID
-    1367:1367:public final void setRawResult(java.lang.Void)
-    1360:1360:public bridge synthetic void setRawResult(java.lang.Object)
+    1373:1373:public final void setRawResult(java.lang.Void)
+    1366:1366:public bridge synthetic void setRawResult(java.lang.Object)
 java8.util.concurrent.ForkJoinTask$RunnableExecuteAction:
     private static final long serialVersionUID
-    1382:1382:public final void setRawResult(java.lang.Void)
-    1376:1376:public bridge synthetic void setRawResult(java.lang.Object)
+    1391:1391:public final void setRawResult(java.lang.Void)
+    1385:1385:public bridge synthetic void setRawResult(java.lang.Object)
 java8.util.concurrent.ForkJoinWorkerThread:
     private static final java.lang.String NAME_PLACEHOLDER
-    61:64:protected ForkJoinWorkerThread(java8.util.concurrent.ForkJoinPool)
-    100:100:public java8.util.concurrent.ForkJoinPool getPool()
-    114:114:public int getPoolIndex()
+    62:65:protected ForkJoinWorkerThread(java8.util.concurrent.ForkJoinPool)
+    115:115:public int getPoolIndex()
 java8.util.concurrent.Phaser
 java8.util.concurrent.Phaser$QNode
 java8.util.concurrent.RecursiveAction
@@ -7605,127 +7841,138 @@ java8.util.stream.AbstractSpinedBuffer:
     101:101:public boolean isEmpty()
     public abstract void clear()
 java8.util.stream.AbstractTask:
-    223:225:protected void setRawResult(java.lang.Object)
+    234:236:protected void setRawResult(java.lang.Object)
 java8.util.stream.BaseStream
 java8.util.stream.Collectors:
-    126:126:private Collectors()
-    133:133:private static java8.util.function.Supplier concurrentHashMapFactory()
-    157:165:public static varargs java8.util.stream.Collector of(java8.util.function.Supplier,java8.util.function.BiConsumer,java8.util.function.BinaryOperator,java8.util.stream.Collector$Characteristics[])
-    189:200:public static varargs java8.util.stream.Collector of(java8.util.function.Supplier,java8.util.function.BiConsumer,java8.util.function.BinaryOperator,java8.util.function.Function,java8.util.stream.Collector$Characteristics[])
-    212:212:private static java.lang.IllegalStateException duplicateKeyException(java.lang.Object,java.lang.Object,java.lang.Object)
-    229:229:private static java8.util.function.BinaryOperator uniqKeysMapMerger()
-    262:262:private static java8.util.function.BiConsumer uniqKeysMapAccumulator(java8.util.function.Function,java8.util.function.Function)
-    350:350:public static java8.util.stream.Collector toCollection(java8.util.function.Supplier)
-    407:407:public static java8.util.stream.Collector joining()
-    422:422:public static java8.util.stream.Collector joining(java.lang.CharSequence)
-    471:471:private static java8.util.function.BinaryOperator mapMergerConcurrent(java8.util.function.BinaryOperator)
-    507:511:public static java8.util.stream.Collector mapping(java8.util.function.Function,java8.util.stream.Collector)
-    550:569:public static java8.util.stream.Collector flatMapping(java8.util.function.Function,java8.util.stream.Collector)
-    608:616:public static java8.util.stream.Collector filtering(java8.util.function.Predicate,java8.util.stream.Collector)
-    639:652:public static java8.util.stream.Collector collectingAndThen(java8.util.stream.Collector,java8.util.function.Function)
-    672:672:public static java8.util.stream.Collector counting()
-    691:691:public static java8.util.stream.Collector minBy(java.util.Comparator)
-    710:710:public static java8.util.stream.Collector maxBy(java.util.Comparator)
-    724:724:public static java8.util.stream.Collector summingInt(java8.util.function.ToIntFunction)
-    742:742:public static java8.util.stream.Collector summingLong(java8.util.function.ToLongFunction)
-    775:775:public static java8.util.stream.Collector summingDouble(java8.util.function.ToDoubleFunction)
-    799:804:static double[] sumWithCompensation(double[],double)
-    814:819:static double computeFinalSum(double[])
-    835:835:public static java8.util.stream.Collector averagingInt(java8.util.function.ToIntFunction)
-    854:854:public static java8.util.stream.Collector averagingLong(java8.util.function.ToLongFunction)
-    892:892:public static java8.util.stream.Collector averagingDouble(java8.util.function.ToDoubleFunction)
-    922:923:public static java8.util.stream.Collector reducing(java.lang.Object,java8.util.function.BinaryOperator)
-    932:932:private static java8.util.function.Supplier boxSupplier(java.lang.Object)
-    979:979:public static java8.util.stream.Collector reducing(java8.util.function.BinaryOperator)
-    1023:1024:public static java8.util.stream.Collector reducing(java.lang.Object,java8.util.function.Function,java8.util.function.BinaryOperator)
-    1069:1069:public static java8.util.stream.Collector groupingBy(java8.util.function.Function)
-    1117:1117:public static java8.util.stream.Collector groupingBy(java8.util.function.Function,java8.util.stream.Collector)
-    1168:1191:public static java8.util.stream.Collector groupingBy(java8.util.function.Function,java8.util.function.Supplier,java8.util.stream.Collector)
-    1231:1231:public static java8.util.stream.Collector groupingByConcurrent(java8.util.function.Function)
-    1275:1275:public static java8.util.stream.Collector groupingByConcurrent(java8.util.function.Function,java8.util.stream.Collector)
-    1322:1357:public static java8.util.stream.Collector groupingByConcurrent(java8.util.function.Function,java8.util.function.Supplier,java8.util.stream.Collector)
-    1497:1499:public static java8.util.stream.Collector toMap(java8.util.function.Function,java8.util.function.Function)
-    1666:1668:public static java8.util.stream.Collector toConcurrentMap(java8.util.function.Function,java8.util.function.Function)
-    1726:1726:public static java8.util.stream.Collector toConcurrentMap(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator)
-    1768:1770:public static java8.util.stream.Collector toConcurrentMap(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator,java8.util.function.Supplier)
-    1787:1787:public static java8.util.stream.Collector summarizingInt(java8.util.function.ToIntFunction)
-    1807:1807:public static java8.util.stream.Collector summarizingLong(java8.util.function.ToLongFunction)
-    1827:1827:public static java8.util.stream.Collector summarizingDouble(java8.util.function.ToDoubleFunction)
-    1830:1830:static synthetic java8.util.DoubleSummaryStatistics lambda$summarizingDouble$127(java8.util.DoubleSummaryStatistics,java8.util.DoubleSummaryStatistics)
-    1829:1829:static synthetic void lambda$summarizingDouble$126(java8.util.function.ToDoubleFunction,java8.util.DoubleSummaryStatistics,java.lang.Object)
-    1810:1810:static synthetic java8.util.LongSummaryStatistics lambda$summarizingLong$125(java8.util.LongSummaryStatistics,java8.util.LongSummaryStatistics)
-    1809:1809:static synthetic void lambda$summarizingLong$124(java8.util.function.ToLongFunction,java8.util.LongSummaryStatistics,java.lang.Object)
-    1790:1790:static synthetic java8.util.IntSummaryStatistics lambda$summarizingInt$123(java8.util.IntSummaryStatistics,java8.util.IntSummaryStatistics)
-    1789:1789:static synthetic void lambda$summarizingInt$122(java8.util.function.ToIntFunction,java8.util.IntSummaryStatistics,java.lang.Object)
-    1769:1769:static synthetic void lambda$toConcurrentMap$121(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator,java.util.concurrent.ConcurrentMap,java.lang.Object)
-    1352:1355:static synthetic java.util.concurrent.ConcurrentMap lambda$groupingByConcurrent$115(java8.util.function.Function,java.util.concurrent.ConcurrentMap)
-    1352:1352:static synthetic java.lang.Object lambda$null$114(java8.util.function.Function,java.lang.Object,java.lang.Object)
-    1337:1342:static synthetic void lambda$groupingByConcurrent$113(java8.util.function.Function,java8.util.function.Supplier,java8.util.function.BiConsumer,java.util.concurrent.ConcurrentMap,java.lang.Object)
-    1338:1338:static synthetic java.lang.Object lambda$null$112(java8.util.function.Supplier,java.lang.Object)
-    1330:1333:static synthetic void lambda$groupingByConcurrent$111(java8.util.function.Function,java8.util.function.Supplier,java8.util.function.BiConsumer,java.util.concurrent.ConcurrentMap,java.lang.Object)
-    1331:1331:static synthetic java.lang.Object lambda$null$110(java8.util.function.Supplier,java.lang.Object)
-    1186:1189:static synthetic java.util.Map lambda$groupingBy$109(java8.util.function.Function,java.util.Map)
-    1186:1186:static synthetic java.lang.Object lambda$null$108(java8.util.function.Function,java.lang.Object,java.lang.Object)
-    1171:1174:static synthetic void lambda$groupingBy$107(java8.util.function.Function,java8.util.function.Supplier,java8.util.function.BiConsumer,java.util.Map,java.lang.Object)
-    1172:1172:static synthetic java.lang.Object lambda$null$106(java8.util.function.Supplier,java.lang.Object)
-    1027:1027:static synthetic java.lang.Object lambda$reducing$105(java.lang.Object[])
-    1026:1026:static synthetic java.lang.Object[] lambda$reducing$104(java8.util.function.BinaryOperator,java.lang.Object[],java.lang.Object[])
-    1025:1025:static synthetic void lambda$reducing$103(java8.util.function.BinaryOperator,java8.util.function.Function,java.lang.Object[],java.lang.Object)
-    982:982:static synthetic java8.util.Optional lambda$reducing$102(java8.util.stream.Collectors$1OptionalBox)
-    981:981:static synthetic java8.util.stream.Collectors$1OptionalBox lambda$reducing$101(java8.util.stream.Collectors$1OptionalBox,java8.util.stream.Collectors$1OptionalBox)
-    980:980:static synthetic java8.util.stream.Collectors$1OptionalBox lambda$reducing$100(java8.util.function.BinaryOperator)
-    932:932:static synthetic java.lang.Object[] lambda$boxSupplier$99(java.lang.Object)
-    926:926:static synthetic java.lang.Object lambda$reducing$98(java.lang.Object[])
-    925:925:static synthetic java.lang.Object[] lambda$reducing$97(java8.util.function.BinaryOperator,java.lang.Object[],java.lang.Object[])
-    924:924:static synthetic void lambda$reducing$96(java8.util.function.BinaryOperator,java.lang.Object[],java.lang.Object)
-    896:896:static synthetic java.lang.Double lambda$averagingDouble$95(double[])
-    895:895:static synthetic double[] lambda$averagingDouble$94(double[],double[])
-    894:894:static synthetic void lambda$averagingDouble$93(java8.util.function.ToDoubleFunction,double[],java.lang.Object)
-    893:893:static synthetic double[] lambda$averagingDouble$92()
-    858:858:static synthetic java.lang.Double lambda$averagingLong$91(long[])
-    857:857:static synthetic long[] lambda$averagingLong$90(long[],long[])
-    856:856:static synthetic void lambda$averagingLong$89(java8.util.function.ToLongFunction,long[],java.lang.Object)
-    855:855:static synthetic long[] lambda$averagingLong$88()
-    839:839:static synthetic java.lang.Double lambda$averagingInt$87(long[])
-    838:838:static synthetic long[] lambda$averagingInt$86(long[],long[])
-    837:837:static synthetic void lambda$averagingInt$85(java8.util.function.ToIntFunction,long[],java.lang.Object)
-    836:836:static synthetic long[] lambda$averagingInt$84()
-    783:783:static synthetic java.lang.Double lambda$summingDouble$83(double[])
-    780:782:static synthetic double[] lambda$summingDouble$82(double[],double[])
-    777:779:static synthetic void lambda$summingDouble$81(java8.util.function.ToDoubleFunction,double[],java.lang.Object)
-    776:776:static synthetic double[] lambda$summingDouble$80()
-    746:746:static synthetic java.lang.Long lambda$summingLong$79(long[])
-    745:745:static synthetic long[] lambda$summingLong$78(long[],long[])
-    744:744:static synthetic void lambda$summingLong$77(java8.util.function.ToLongFunction,long[],java.lang.Object)
-    743:743:static synthetic long[] lambda$summingLong$76()
-    728:728:static synthetic java.lang.Integer lambda$summingInt$75(int[])
-    727:727:static synthetic int[] lambda$summingInt$74(int[],int[])
-    726:726:static synthetic void lambda$summingInt$73(java8.util.function.ToIntFunction,int[],java.lang.Object)
-    725:725:static synthetic int[] lambda$summingInt$72()
-    672:672:static synthetic long lambda$counting$71(java.lang.Object)
-    611:614:static synthetic void lambda$filtering$70(java8.util.function.Predicate,java8.util.function.BiConsumer,java.lang.Object,java.lang.Object)
-    553:567:static synthetic void lambda$flatMapping$69(java8.util.function.Function,java8.util.function.BiConsumer,java.lang.Object,java.lang.Object)
-    557:557:static synthetic void lambda$null$68(java8.util.function.BiConsumer,java.lang.Object,java.lang.Object)
-    509:509:static synthetic void lambda$mapping$67(java8.util.function.BiConsumer,java8.util.function.Function,java.lang.Object,java.lang.Object)
-    472:475:static synthetic java.util.concurrent.ConcurrentMap lambda$mapMergerConcurrent$66(java8.util.function.BinaryOperator,java.util.concurrent.ConcurrentMap,java.util.concurrent.ConcurrentMap)
-    409:409:static synthetic java.lang.StringBuilder lambda$joining$63(java.lang.StringBuilder,java.lang.StringBuilder)
-    351:351:static synthetic java.util.Collection lambda$toCollection$60(java.util.Collection,java.util.Collection)
-    263:274:static synthetic void lambda$uniqKeysMapAccumulator$58(java8.util.function.Function,java8.util.function.Function,java.util.Map,java.lang.Object)
-    230:243:static synthetic java.util.Map lambda$uniqKeysMapMerger$57(java.util.Map,java.util.Map)
+    130:130:private Collectors()
+    141:141:private static java8.util.function.Supplier concHashMapNew()
+    146:146:private static java8.util.function.Supplier concHashMapNew2()
+    163:163:private static final java8.util.function.Function unmodMapFinisher()
+    200:208:public static varargs java8.util.stream.Collector of(java8.util.function.Supplier,java8.util.function.BiConsumer,java8.util.function.BinaryOperator,java8.util.stream.Collector$Characteristics[])
+    232:243:public static varargs java8.util.stream.Collector of(java8.util.function.Supplier,java8.util.function.BiConsumer,java8.util.function.BinaryOperator,java8.util.function.Function,java8.util.stream.Collector$Characteristics[])
+    255:255:private static java.lang.IllegalStateException duplicateKeyException(java.lang.Object,java.lang.Object,java.lang.Object)
+    272:272:private static java8.util.function.BinaryOperator uniqKeysMapMerger()
+    305:305:private static java8.util.function.BiConsumer uniqKeysMapAccumulator(java8.util.function.Function,java8.util.function.Function)
+    393:393:public static java8.util.stream.Collector toCollection(java8.util.function.Supplier)
+    429:429:public static java8.util.stream.Collector toUnmodifiableList()
+    480:480:public static java8.util.stream.Collector toUnmodifiableSet()
+    500:500:public static java8.util.stream.Collector joining()
+    515:515:public static java8.util.stream.Collector joining(java.lang.CharSequence)
+    564:564:private static java8.util.function.BinaryOperator mapMergerConcurrent(java8.util.function.BinaryOperator)
+    600:604:public static java8.util.stream.Collector mapping(java8.util.function.Function,java8.util.stream.Collector)
+    643:662:public static java8.util.stream.Collector flatMapping(java8.util.function.Function,java8.util.stream.Collector)
+    701:709:public static java8.util.stream.Collector filtering(java8.util.function.Predicate,java8.util.stream.Collector)
+    732:745:public static java8.util.stream.Collector collectingAndThen(java8.util.stream.Collector,java8.util.function.Function)
+    765:765:public static java8.util.stream.Collector counting()
+    784:784:public static java8.util.stream.Collector minBy(java.util.Comparator)
+    803:803:public static java8.util.stream.Collector maxBy(java.util.Comparator)
+    817:817:public static java8.util.stream.Collector summingInt(java8.util.function.ToIntFunction)
+    835:835:public static java8.util.stream.Collector summingLong(java8.util.function.ToLongFunction)
+    868:868:public static java8.util.stream.Collector summingDouble(java8.util.function.ToDoubleFunction)
+    892:897:static double[] sumWithCompensation(double[],double)
+    907:912:static double computeFinalSum(double[])
+    928:928:public static java8.util.stream.Collector averagingInt(java8.util.function.ToIntFunction)
+    947:947:public static java8.util.stream.Collector averagingLong(java8.util.function.ToLongFunction)
+    985:985:public static java8.util.stream.Collector averagingDouble(java8.util.function.ToDoubleFunction)
+    1015:1016:public static java8.util.stream.Collector reducing(java.lang.Object,java8.util.function.BinaryOperator)
+    1025:1025:private static java8.util.function.Supplier boxSupplier(java.lang.Object)
+    1072:1072:public static java8.util.stream.Collector reducing(java8.util.function.BinaryOperator)
+    1116:1117:public static java8.util.stream.Collector reducing(java.lang.Object,java8.util.function.Function,java8.util.function.BinaryOperator)
+    1162:1162:public static java8.util.stream.Collector groupingBy(java8.util.function.Function)
+    1210:1210:public static java8.util.stream.Collector groupingBy(java8.util.function.Function,java8.util.stream.Collector)
+    1261:1284:public static java8.util.stream.Collector groupingBy(java8.util.function.Function,java8.util.function.Supplier,java8.util.stream.Collector)
+    1324:1324:public static java8.util.stream.Collector groupingByConcurrent(java8.util.function.Function)
+    1368:1368:public static java8.util.stream.Collector groupingByConcurrent(java8.util.function.Function,java8.util.stream.Collector)
+    1415:1450:public static java8.util.stream.Collector groupingByConcurrent(java8.util.function.Function,java8.util.function.Supplier,java8.util.stream.Collector)
+    1590:1592:public static java8.util.stream.Collector toMap(java8.util.function.Function,java8.util.function.Function)
+    1627:1631:public static java8.util.stream.Collector toUnmodifiableMap(java8.util.function.Function,java8.util.function.Function)
+    1732:1737:public static java8.util.stream.Collector toUnmodifiableMap(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator)
+    1842:1844:public static java8.util.stream.Collector toConcurrentMap(java8.util.function.Function,java8.util.function.Function)
+    1902:1902:public static java8.util.stream.Collector toConcurrentMap(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator)
+    1944:1946:public static java8.util.stream.Collector toConcurrentMap(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator,java8.util.function.Supplier)
+    1963:1963:public static java8.util.stream.Collector summarizingInt(java8.util.function.ToIntFunction)
+    1983:1983:public static java8.util.stream.Collector summarizingLong(java8.util.function.ToLongFunction)
+    2003:2003:public static java8.util.stream.Collector summarizingDouble(java8.util.function.ToDoubleFunction)
+    2006:2006:static synthetic java8.util.DoubleSummaryStatistics lambda$summarizingDouble$126(java8.util.DoubleSummaryStatistics,java8.util.DoubleSummaryStatistics)
+    2005:2005:static synthetic void lambda$summarizingDouble$125(java8.util.function.ToDoubleFunction,java8.util.DoubleSummaryStatistics,java.lang.Object)
+    1986:1986:static synthetic java8.util.LongSummaryStatistics lambda$summarizingLong$124(java8.util.LongSummaryStatistics,java8.util.LongSummaryStatistics)
+    1985:1985:static synthetic void lambda$summarizingLong$123(java8.util.function.ToLongFunction,java8.util.LongSummaryStatistics,java.lang.Object)
+    1966:1966:static synthetic java8.util.IntSummaryStatistics lambda$summarizingInt$122(java8.util.IntSummaryStatistics,java8.util.IntSummaryStatistics)
+    1965:1965:static synthetic void lambda$summarizingInt$121(java8.util.function.ToIntFunction,java8.util.IntSummaryStatistics,java.lang.Object)
+    1945:1945:static synthetic void lambda$toConcurrentMap$120(java8.util.function.Function,java8.util.function.Function,java8.util.function.BinaryOperator,java.util.concurrent.ConcurrentMap,java.lang.Object)
+    1445:1448:static synthetic java.util.concurrent.ConcurrentMap lambda$groupingByConcurrent$114(java8.util.function.Function,java.util.concurrent.ConcurrentMap)
+    1445:1445:static synthetic java.lang.Object lambda$null$113(java8.util.function.Function,java.lang.Object,java.lang.Object)
+    1430:1435:static synthetic void lambda$groupingByConcurrent$112(java8.util.function.Function,java8.util.function.Supplier,java8.util.function.BiConsumer,java.util.concurrent.ConcurrentMap,java.lang.Object)
+    1431:1431:static synthetic java.lang.Object lambda$null$111(java8.util.function.Supplier,java.lang.Object)
+    1423:1426:static synthetic void lambda$groupingByConcurrent$110(java8.util.function.Function,java8.util.function.Supplier,java8.util.function.BiConsumer,java.util.concurrent.ConcurrentMap,java.lang.Object)
+    1424:1424:static synthetic java.lang.Object lambda$null$109(java8.util.function.Supplier,java.lang.Object)
+    1279:1282:static synthetic java.util.Map lambda$groupingBy$108(java8.util.function.Function,java.util.Map)
+    1279:1279:static synthetic java.lang.Object lambda$null$107(java8.util.function.Function,java.lang.Object,java.lang.Object)
+    1264:1267:static synthetic void lambda$groupingBy$106(java8.util.function.Function,java8.util.function.Supplier,java8.util.function.BiConsumer,java.util.Map,java.lang.Object)
+    1265:1265:static synthetic java.lang.Object lambda$null$105(java8.util.function.Supplier,java.lang.Object)
+    1120:1120:static synthetic java.lang.Object lambda$reducing$104(java.lang.Object[])
+    1119:1119:static synthetic java.lang.Object[] lambda$reducing$103(java8.util.function.BinaryOperator,java.lang.Object[],java.lang.Object[])
+    1118:1118:static synthetic void lambda$reducing$102(java8.util.function.BinaryOperator,java8.util.function.Function,java.lang.Object[],java.lang.Object)
+    1075:1075:static synthetic java8.util.Optional lambda$reducing$101(java8.util.stream.Collectors$1OptionalBox)
+    1074:1074:static synthetic java8.util.stream.Collectors$1OptionalBox lambda$reducing$100(java8.util.stream.Collectors$1OptionalBox,java8.util.stream.Collectors$1OptionalBox)
+    1073:1073:static synthetic java8.util.stream.Collectors$1OptionalBox lambda$reducing$99(java8.util.function.BinaryOperator)
+    1025:1025:static synthetic java.lang.Object[] lambda$boxSupplier$98(java.lang.Object)
+    1019:1019:static synthetic java.lang.Object lambda$reducing$97(java.lang.Object[])
+    1018:1018:static synthetic java.lang.Object[] lambda$reducing$96(java8.util.function.BinaryOperator,java.lang.Object[],java.lang.Object[])
+    1017:1017:static synthetic void lambda$reducing$95(java8.util.function.BinaryOperator,java.lang.Object[],java.lang.Object)
+    989:989:static synthetic java.lang.Double lambda$averagingDouble$94(double[])
+    988:988:static synthetic double[] lambda$averagingDouble$93(double[],double[])
+    987:987:static synthetic void lambda$averagingDouble$92(java8.util.function.ToDoubleFunction,double[],java.lang.Object)
+    986:986:static synthetic double[] lambda$averagingDouble$91()
+    951:951:static synthetic java.lang.Double lambda$averagingLong$90(long[])
+    950:950:static synthetic long[] lambda$averagingLong$89(long[],long[])
+    949:949:static synthetic void lambda$averagingLong$88(java8.util.function.ToLongFunction,long[],java.lang.Object)
+    948:948:static synthetic long[] lambda$averagingLong$87()
+    932:932:static synthetic java.lang.Double lambda$averagingInt$86(long[])
+    931:931:static synthetic long[] lambda$averagingInt$85(long[],long[])
+    930:930:static synthetic void lambda$averagingInt$84(java8.util.function.ToIntFunction,long[],java.lang.Object)
+    929:929:static synthetic long[] lambda$averagingInt$83()
+    876:876:static synthetic java.lang.Double lambda$summingDouble$82(double[])
+    873:875:static synthetic double[] lambda$summingDouble$81(double[],double[])
+    870:872:static synthetic void lambda$summingDouble$80(java8.util.function.ToDoubleFunction,double[],java.lang.Object)
+    869:869:static synthetic double[] lambda$summingDouble$79()
+    839:839:static synthetic java.lang.Long lambda$summingLong$78(long[])
+    838:838:static synthetic long[] lambda$summingLong$77(long[],long[])
+    837:837:static synthetic void lambda$summingLong$76(java8.util.function.ToLongFunction,long[],java.lang.Object)
+    836:836:static synthetic long[] lambda$summingLong$75()
+    821:821:static synthetic java.lang.Integer lambda$summingInt$74(int[])
+    820:820:static synthetic int[] lambda$summingInt$73(int[],int[])
+    819:819:static synthetic void lambda$summingInt$72(java8.util.function.ToIntFunction,int[],java.lang.Object)
+    818:818:static synthetic int[] lambda$summingInt$71()
+    765:765:static synthetic long lambda$counting$70(java.lang.Object)
+    704:707:static synthetic void lambda$filtering$69(java8.util.function.Predicate,java8.util.function.BiConsumer,java.lang.Object,java.lang.Object)
+    646:660:static synthetic void lambda$flatMapping$68(java8.util.function.Function,java8.util.function.BiConsumer,java.lang.Object,java.lang.Object)
+    650:650:static synthetic void lambda$null$67(java8.util.function.BiConsumer,java.lang.Object,java.lang.Object)
+    602:602:static synthetic void lambda$mapping$66(java8.util.function.BiConsumer,java8.util.function.Function,java.lang.Object,java.lang.Object)
+    565:568:static synthetic java.util.concurrent.ConcurrentMap lambda$mapMergerConcurrent$65(java8.util.function.BinaryOperator,java.util.concurrent.ConcurrentMap,java.util.concurrent.ConcurrentMap)
+    502:502:static synthetic java.lang.StringBuilder lambda$joining$62(java.lang.StringBuilder,java.lang.StringBuilder)
+    488:488:static synthetic java.util.Set lambda$toUnmodifiableSet$61(java.util.Set)
+    482:485:static synthetic java.util.Set lambda$toUnmodifiableSet$60(java.util.Set,java.util.Set)
+    431:431:static synthetic java.util.List lambda$toUnmodifiableList$58(java.util.List)
+    430:430:static synthetic java.util.List lambda$toUnmodifiableList$57(java.util.List,java.util.List)
+    394:394:static synthetic java.util.Collection lambda$toCollection$55(java.util.Collection,java.util.Collection)
+    306:317:static synthetic void lambda$uniqKeysMapAccumulator$53(java8.util.function.Function,java8.util.function.Function,java.util.Map,java.lang.Object)
+    273:286:static synthetic java.util.Map lambda$uniqKeysMapMerger$52(java.util.Map,java.util.Map)
+java8.util.stream.Collectors$$Lambda$10
+java8.util.stream.Collectors$$Lambda$11
 java8.util.stream.Collectors$$Lambda$13
 java8.util.stream.Collectors$$Lambda$14
 java8.util.stream.Collectors$$Lambda$15
 java8.util.stream.Collectors$$Lambda$16
+java8.util.stream.Collectors$$Lambda$17
+java8.util.stream.Collectors$$Lambda$18
 java8.util.stream.Collectors$$Lambda$2
-java8.util.stream.Collectors$$Lambda$22
-java8.util.stream.Collectors$$Lambda$23
 java8.util.stream.Collectors$$Lambda$24
 java8.util.stream.Collectors$$Lambda$25
 java8.util.stream.Collectors$$Lambda$26
 java8.util.stream.Collectors$$Lambda$27
 java8.util.stream.Collectors$$Lambda$28
 java8.util.stream.Collectors$$Lambda$29
-java8.util.stream.Collectors$$Lambda$3
 java8.util.stream.Collectors$$Lambda$30
 java8.util.stream.Collectors$$Lambda$31
 java8.util.stream.Collectors$$Lambda$32
@@ -7736,7 +7983,6 @@ java8.util.stream.Collectors$$Lambda$36
 java8.util.stream.Collectors$$Lambda$37
 java8.util.stream.Collectors$$Lambda$38
 java8.util.stream.Collectors$$Lambda$39
-java8.util.stream.Collectors$$Lambda$4
 java8.util.stream.Collectors$$Lambda$40
 java8.util.stream.Collectors$$Lambda$41
 java8.util.stream.Collectors$$Lambda$42
@@ -7766,14 +8012,16 @@ java8.util.stream.Collectors$$Lambda$63
 java8.util.stream.Collectors$$Lambda$64
 java8.util.stream.Collectors$$Lambda$65
 java8.util.stream.Collectors$$Lambda$66
-java8.util.stream.Collectors$$Lambda$72
-java8.util.stream.Collectors$$Lambda$73
+java8.util.stream.Collectors$$Lambda$67
+java8.util.stream.Collectors$$Lambda$68
+java8.util.stream.Collectors$$Lambda$7
 java8.util.stream.Collectors$$Lambda$74
 java8.util.stream.Collectors$$Lambda$75
 java8.util.stream.Collectors$$Lambda$76
 java8.util.stream.Collectors$$Lambda$77
 java8.util.stream.Collectors$$Lambda$78
 java8.util.stream.Collectors$$Lambda$79
+java8.util.stream.Collectors$$Lambda$8
 java8.util.stream.Collectors$$Lambda$80
 java8.util.stream.Collectors$$Lambda$81
 java8.util.stream.Collectors$$Lambda$82
@@ -7781,8 +8029,6 @@ java8.util.stream.Collectors$$Lambda$83
 java8.util.stream.Collectors$$Lambda$84
 java8.util.stream.Collectors$$Lambda$85
 java8.util.stream.Collectors$$Lambda$86
-java8.util.stream.Collectors$$Lambda$87
-java8.util.stream.Collectors$$Lambda$88
 java8.util.stream.Collectors$1OptionalBox
 java8.util.stream.DistinctOps
 java8.util.stream.DistinctOps$1
@@ -7801,8 +8047,6 @@ java8.util.stream.DoublePipeline$$Lambda$11
 java8.util.stream.DoublePipeline$$Lambda$12
 java8.util.stream.DoublePipeline$$Lambda$13
 java8.util.stream.DoublePipeline$$Lambda$14
-java8.util.stream.DoublePipeline$$Lambda$15
-java8.util.stream.DoublePipeline$$Lambda$16
 java8.util.stream.DoublePipeline$$Lambda$2
 java8.util.stream.DoublePipeline$$Lambda$3
 java8.util.stream.DoublePipeline$$Lambda$4
@@ -7913,18 +8157,15 @@ java8.util.stream.IntPipeline:
     54:54:public bridge synthetic java.util.Iterator iterator()
     54:54:public bridge synthetic java8.util.stream.IntStream parallel()
     54:54:public bridge synthetic java8.util.stream.IntStream sequential()
-    518:518:static synthetic java.lang.Integer[] lambda$toArray$26(int)
-    485:486:static synthetic java.lang.Object lambda$collect$25(java8.util.function.BiConsumer,java.lang.Object,java.lang.Object)
-    455:457:static synthetic void lambda$average$24(long[],long[])
-    451:453:static synthetic void lambda$average$23(long[],int)
-    449:449:static synthetic long[] lambda$average$22()
-    412:412:static synthetic int lambda$distinct$21(java.lang.Integer)
+    485:486:static synthetic java.lang.Object lambda$collect$23(java8.util.function.BiConsumer,java.lang.Object,java.lang.Object)
+    455:457:static synthetic void lambda$average$22(long[],long[])
+    451:453:static synthetic void lambda$average$21(long[],int)
+    449:449:static synthetic long[] lambda$average$20()
+    412:412:static synthetic int lambda$distinct$19(java.lang.Integer)
     54:54:static synthetic java8.util.Spliterator$OfInt access$000(java8.util.Spliterator)
 java8.util.stream.IntPipeline$$Lambda$10
 java8.util.stream.IntPipeline$$Lambda$11
 java8.util.stream.IntPipeline$$Lambda$12
-java8.util.stream.IntPipeline$$Lambda$13
-java8.util.stream.IntPipeline$$Lambda$14
 java8.util.stream.IntPipeline$$Lambda$2
 java8.util.stream.IntPipeline$$Lambda$3
 java8.util.stream.IntPipeline$$Lambda$4
@@ -8014,8 +8255,8 @@ java8.util.stream.IntStreams:
     274:275:public static java8.util.stream.IntStream generate(java8.util.function.IntSupplier)
     297:300:public static java8.util.stream.IntStream range(int,int)
     323:326:public static java8.util.stream.IntStream rangeClosed(int,int)
-    351:357:public static java8.util.stream.IntStream concat(java8.util.stream.IntStream,java8.util.stream.IntStream)
-    360:361:private IntStreams()
+    367:373:public static java8.util.stream.IntStream concat(java8.util.stream.IntStream,java8.util.stream.IntStream)
+    376:377:private IntStreams()
 java8.util.stream.IntStreams$1
 java8.util.stream.IntStreams$2
 java8.util.stream.LongPipeline
@@ -8023,8 +8264,6 @@ java8.util.stream.LongPipeline$$Lambda$1
 java8.util.stream.LongPipeline$$Lambda$10
 java8.util.stream.LongPipeline$$Lambda$11
 java8.util.stream.LongPipeline$$Lambda$12
-java8.util.stream.LongPipeline$$Lambda$13
-java8.util.stream.LongPipeline$$Lambda$14
 java8.util.stream.LongPipeline$$Lambda$2
 java8.util.stream.LongPipeline$$Lambda$3
 java8.util.stream.LongPipeline$$Lambda$4
@@ -8065,9 +8304,9 @@ java8.util.stream.MatchOps:
     110:131:public static java8.util.stream.TerminalOp makeInt(java8.util.function.IntPredicate,java8.util.stream.MatchOps$MatchKind)
     144:166:public static java8.util.stream.TerminalOp makeLong(java8.util.function.LongPredicate,java8.util.stream.MatchOps$MatchKind)
     179:201:public static java8.util.stream.TerminalOp makeDouble(java8.util.function.DoublePredicate,java8.util.stream.MatchOps$MatchKind)
-    201:201:static synthetic java8.util.stream.MatchOps$BooleanTerminalSink lambda$makeDouble$166(java8.util.stream.MatchOps$MatchKind,java8.util.function.DoublePredicate)
-    166:166:static synthetic java8.util.stream.MatchOps$BooleanTerminalSink lambda$makeLong$165(java8.util.stream.MatchOps$MatchKind,java8.util.function.LongPredicate)
-    131:131:static synthetic java8.util.stream.MatchOps$BooleanTerminalSink lambda$makeInt$164(java8.util.stream.MatchOps$MatchKind,java8.util.function.IntPredicate)
+    201:201:static synthetic java8.util.stream.MatchOps$BooleanTerminalSink lambda$makeDouble$165(java8.util.stream.MatchOps$MatchKind,java8.util.function.DoublePredicate)
+    166:166:static synthetic java8.util.stream.MatchOps$BooleanTerminalSink lambda$makeLong$164(java8.util.stream.MatchOps$MatchKind,java8.util.function.LongPredicate)
+    131:131:static synthetic java8.util.stream.MatchOps$BooleanTerminalSink lambda$makeInt$163(java8.util.stream.MatchOps$MatchKind,java8.util.function.IntPredicate)
 java8.util.stream.MatchOps$$Lambda$2
 java8.util.stream.MatchOps$$Lambda$3
 java8.util.stream.MatchOps$$Lambda$4
@@ -8119,120 +8358,121 @@ java8.util.stream.Nodes:
     static final java.lang.String BAD_SIZE
     55:56:private Nodes()
     82:82:static java8.util.stream.StreamShape getShape()
-    125:139:static java8.util.stream.Node truncate(java8.util.stream.Node,long,long,java8.util.function.IntFunction)
-    371:371:static java8.util.function.IntFunction castingArray()
-    385:391:static java8.util.stream.Node emptyNode(java8.util.stream.StreamShape)
-    416:426:static java8.util.stream.Node conc(java8.util.stream.StreamShape,java8.util.stream.Node,java8.util.stream.Node)
-    455:455:static java8.util.stream.Node node(java.util.Collection)
-    532:532:static java8.util.stream.Node$OfLong node(long[])
-    544:546:static java8.util.stream.Node$Builder$OfLong longBuilder(long)
-    555:555:static java8.util.stream.Node$Builder$OfLong longBuilder()
-    569:569:static java8.util.stream.Node$OfDouble node(double[])
-    581:583:static java8.util.stream.Node$Builder$OfDouble doubleBuilder(long)
-    592:592:static java8.util.stream.Node$Builder$OfDouble doubleBuilder()
-    697:707:public static java8.util.stream.Node$OfLong collectLong(java8.util.stream.PipelineHelper,java8.util.Spliterator,boolean)
-    735:745:public static java8.util.stream.Node$OfDouble collectDouble(java8.util.stream.PipelineHelper,java8.util.Spliterator,boolean)
-    819:827:public static java8.util.stream.Node$OfLong flattenLong(java8.util.stream.Node$OfLong)
-    845:853:public static java8.util.stream.Node$OfDouble flattenDouble(java8.util.stream.Node$OfDouble)
-    371:371:static synthetic java.lang.Object[] lambda$castingArray$55(int)
-    132:132:static synthetic void lambda$truncate$51(java.lang.Object)
+    124:138:static java8.util.stream.Node truncate(java8.util.stream.Node,long,long,java8.util.function.IntFunction)
+    370:370:static java8.util.function.IntFunction castingArray()
+    384:390:static java8.util.stream.Node emptyNode(java8.util.stream.StreamShape)
+    415:425:static java8.util.stream.Node conc(java8.util.stream.StreamShape,java8.util.stream.Node,java8.util.stream.Node)
+    454:454:static java8.util.stream.Node node(java.util.Collection)
+    531:531:static java8.util.stream.Node$OfLong node(long[])
+    543:545:static java8.util.stream.Node$Builder$OfLong longBuilder(long)
+    554:554:static java8.util.stream.Node$Builder$OfLong longBuilder()
+    568:568:static java8.util.stream.Node$OfDouble node(double[])
+    580:582:static java8.util.stream.Node$Builder$OfDouble doubleBuilder(long)
+    591:591:static java8.util.stream.Node$Builder$OfDouble doubleBuilder()
+    696:706:public static java8.util.stream.Node$OfLong collectLong(java8.util.stream.PipelineHelper,java8.util.Spliterator,boolean)
+    734:744:public static java8.util.stream.Node$OfDouble collectDouble(java8.util.stream.PipelineHelper,java8.util.Spliterator,boolean)
+    818:826:public static java8.util.stream.Node$OfLong flattenLong(java8.util.stream.Node$OfLong)
+    844:852:public static java8.util.stream.Node$OfDouble flattenDouble(java8.util.stream.Node$OfDouble)
+    370:370:static synthetic java.lang.Object[] lambda$castingArray$49(int)
+    131:131:static synthetic void lambda$truncate$45(java.lang.Object)
 java8.util.stream.Nodes$$Lambda$1
 java8.util.stream.Nodes$$Lambda$2
 java8.util.stream.Nodes$AbstractConcNode:
-    1209:1209:public java8.util.stream.StreamShape getShape()
+    1208:1208:public java8.util.stream.StreamShape getShape()
 java8.util.stream.Nodes$ArrayNode:
-    1063:1063:public java8.util.stream.StreamShape getShape()
-    1078:1078:public java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+    1062:1062:public java8.util.stream.StreamShape getShape()
+    1077:1077:public java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
 java8.util.stream.Nodes$CollectionNode
 java8.util.stream.Nodes$CollectorTask$OfDouble
 java8.util.stream.Nodes$CollectorTask$OfDouble$$Lambda$1
 java8.util.stream.Nodes$CollectorTask$OfDouble$$Lambda$2
+java8.util.stream.Nodes$CollectorTask$OfInt$$Lambda$4
 java8.util.stream.Nodes$CollectorTask$OfLong
 java8.util.stream.Nodes$CollectorTask$OfLong$$Lambda$1
 java8.util.stream.Nodes$CollectorTask$OfLong$$Lambda$2
 java8.util.stream.Nodes$ConcNode:
-    1265:1274:public java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+    1264:1273:public java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
 java8.util.stream.Nodes$ConcNode$OfDouble
 java8.util.stream.Nodes$ConcNode$OfInt:
-    1356:1356:public java8.util.stream.Node$OfInt truncate(long,long,java8.util.function.IntFunction)
-    1335:1335:public bridge synthetic java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
-    1335:1335:public bridge synthetic java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+    1355:1355:public java8.util.stream.Node$OfInt truncate(long,long,java8.util.function.IntFunction)
+    1334:1334:public bridge synthetic java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
+    1334:1334:public bridge synthetic java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
 java8.util.stream.Nodes$ConcNode$OfLong
 java8.util.stream.Nodes$DoubleArrayNode
 java8.util.stream.Nodes$DoubleFixedNodeBuilder
 java8.util.stream.Nodes$DoubleSpinedNodeBuilder
 java8.util.stream.Nodes$EmptyNode:
-    876:876:public java8.util.stream.StreamShape getShape()
-    891:891:public java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+    875:875:public java8.util.stream.StreamShape getShape()
+    890:890:public java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
 java8.util.stream.Nodes$EmptyNode$OfDouble:
-    1012:1012:public java8.util.stream.Node$OfDouble truncate(long,long,java8.util.function.IntFunction)
-    993:993:public bridge synthetic java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
-    993:993:public bridge synthetic java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
+    1011:1011:public java8.util.stream.Node$OfDouble truncate(long,long,java8.util.function.IntFunction)
+    992:992:public bridge synthetic java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+    992:992:public bridge synthetic java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
 java8.util.stream.Nodes$EmptyNode$OfInt:
-    931:931:public java8.util.stream.Node$OfInt truncate(long,long,java8.util.function.IntFunction)
-    907:907:public bridge synthetic java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
-    907:907:public bridge synthetic java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
+    930:930:public java8.util.stream.Node$OfInt truncate(long,long,java8.util.function.IntFunction)
+    906:906:public bridge synthetic java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+    906:906:public bridge synthetic java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
 java8.util.stream.Nodes$EmptyNode$OfLong:
-    974:974:public java8.util.stream.Node$OfLong truncate(long,long,java8.util.function.IntFunction)
-    950:950:public bridge synthetic java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
-    950:950:public bridge synthetic java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
+    973:973:public java8.util.stream.Node$OfLong truncate(long,long,java8.util.function.IntFunction)
+    949:949:public bridge synthetic java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+    949:949:public bridge synthetic java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
 java8.util.stream.Nodes$FixedNodeBuilder:
-    1822:1823:public void accept(long)
-    1827:1828:public void accept(double)
+    1821:1822:public void accept(long)
+    1826:1827:public void accept(double)
 java8.util.stream.Nodes$IntArrayNode:
-    1975:1975:public java8.util.stream.Node$OfInt truncate(long,long,java8.util.function.IntFunction)
-    2004:2004:public java8.util.stream.StreamShape getShape()
-    1934:1934:public bridge synthetic java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
-    1934:1934:public bridge synthetic java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+    1974:1974:public java8.util.stream.Node$OfInt truncate(long,long,java8.util.function.IntFunction)
+    2003:2003:public java8.util.stream.StreamShape getShape()
+    1933:1933:public bridge synthetic java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
+    1933:1933:public bridge synthetic java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
 java8.util.stream.Nodes$IntFixedNodeBuilder:
-    2279:2280:public void accept(long)
-    2284:2285:public void accept(double)
+    2278:2279:public void accept(long)
+    2283:2284:public void accept(double)
 java8.util.stream.Nodes$IntSpinedNodeBuilder:
-    2485:2486:public void accept(long)
-    2490:2491:public void accept(double)
-    2506:2506:public java8.util.stream.Node$OfInt truncate(long,long,java8.util.function.IntFunction)
-    2521:2521:public java8.util.stream.StreamShape getShape()
-    2440:2440:public bridge synthetic java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
-    2440:2440:public bridge synthetic java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+    2484:2485:public void accept(long)
+    2489:2490:public void accept(double)
+    2505:2505:public java8.util.stream.Node$OfInt truncate(long,long,java8.util.function.IntFunction)
+    2520:2520:public java8.util.stream.StreamShape getShape()
+    2439:2439:public bridge synthetic java8.util.stream.Node$OfPrimitive truncate(long,long,java8.util.function.IntFunction)
+    2439:2439:public bridge synthetic java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
 java8.util.stream.Nodes$InternalNodeSpliterator$OfDouble
 java8.util.stream.Nodes$InternalNodeSpliterator$OfInt:
-    1708:1708:public bridge synthetic java8.util.Spliterator$OfInt trySplit()
+    1707:1707:public bridge synthetic java8.util.Spliterator$OfInt trySplit()
 java8.util.stream.Nodes$InternalNodeSpliterator$OfLong
 java8.util.stream.Nodes$InternalNodeSpliterator$OfPrimitive:
-    1639:1639:public bridge synthetic java8.util.Spliterator$OfPrimitive trySplit()
+    1638:1638:public bridge synthetic java8.util.Spliterator$OfPrimitive trySplit()
 java8.util.stream.Nodes$LongArrayNode
 java8.util.stream.Nodes$LongFixedNodeBuilder
 java8.util.stream.Nodes$LongSpinedNodeBuilder
 java8.util.stream.Nodes$OfDouble:
-    164:177:static java8.util.stream.Node$OfDouble truncate(java8.util.stream.Node$OfDouble,long,long,java8.util.function.IntFunction)
-    223:223:static java8.util.stream.StreamShape getShape()
-    226:227:private Nodes$OfDouble()
-    170:170:static synthetic void lambda$truncate$52(double)
+    163:176:static java8.util.stream.Node$OfDouble truncate(java8.util.stream.Node$OfDouble,long,long,java8.util.function.IntFunction)
+    222:222:static java8.util.stream.StreamShape getShape()
+    225:226:private Nodes$OfDouble()
+    169:169:static synthetic void lambda$truncate$46(double)
 java8.util.stream.Nodes$OfDouble$$Lambda$1
 java8.util.stream.Nodes$OfInt:
-    301:314:static java8.util.stream.Node$OfInt truncate(java8.util.stream.Node$OfInt,long,long,java8.util.function.IntFunction)
-    359:359:static java8.util.stream.StreamShape getShape()
-    362:363:private Nodes$OfInt()
-    307:307:static synthetic void lambda$truncate$54(int)
+    300:313:static java8.util.stream.Node$OfInt truncate(java8.util.stream.Node$OfInt,long,long,java8.util.function.IntFunction)
+    358:358:static java8.util.stream.StreamShape getShape()
+    361:362:private Nodes$OfInt()
+    306:306:static synthetic void lambda$truncate$48(int)
 java8.util.stream.Nodes$OfInt$$Lambda$1
 java8.util.stream.Nodes$OfLong:
-    233:246:static java8.util.stream.Node$OfLong truncate(java8.util.stream.Node$OfLong,long,long,java8.util.function.IntFunction)
-    291:291:static java8.util.stream.StreamShape getShape()
-    294:295:private Nodes$OfLong()
-    239:239:static synthetic void lambda$truncate$53(long)
+    232:245:static java8.util.stream.Node$OfLong truncate(java8.util.stream.Node$OfLong,long,long,java8.util.function.IntFunction)
+    290:290:static java8.util.stream.StreamShape getShape()
+    293:294:private Nodes$OfLong()
+    238:238:static synthetic void lambda$truncate$47(long)
 java8.util.stream.Nodes$OfLong$$Lambda$1
 java8.util.stream.Nodes$OfPrimitive:
-    157:158:private Nodes$OfPrimitive()
+    156:157:private Nodes$OfPrimitive()
 java8.util.stream.Nodes$SizedCollectorTask:
-    2832:2833:public void accept(long)
-    2837:2838:public void accept(double)
+    2831:2832:public void accept(long)
+    2836:2837:public void accept(double)
 java8.util.stream.Nodes$SizedCollectorTask$OfDouble
 java8.util.stream.Nodes$SizedCollectorTask$OfLong
 java8.util.stream.Nodes$SpinedNodeBuilder:
-    1858:1858:public java8.util.stream.StreamShape getShape()
-    1873:1873:public java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
-    1899:1900:public void accept(long)
-    1904:1905:public void accept(double)
+    1857:1857:public java8.util.stream.StreamShape getShape()
+    1872:1872:public java8.util.stream.Node truncate(long,long,java8.util.function.IntFunction)
+    1898:1899:public void accept(long)
+    1903:1904:public void accept(double)
 java8.util.stream.Nodes$ToArrayTask$OfDouble
 java8.util.stream.Nodes$ToArrayTask$OfLong
 java8.util.stream.PipelineHelper:
@@ -8305,8 +8545,8 @@ java8.util.stream.RefStreams:
     287:307:public static java8.util.stream.Stream iterate(java.lang.Object,java8.util.function.UnaryOperator)
     350:394:public static java8.util.stream.Stream iterate(java.lang.Object,java8.util.function.Predicate,java8.util.function.UnaryOperator)
     408:409:public static java8.util.stream.Stream generate(java8.util.function.Supplier)
-    434:441:public static java8.util.stream.Stream concat(java8.util.stream.Stream,java8.util.stream.Stream)
-    444:445:private RefStreams()
+    450:457:public static java8.util.stream.Stream concat(java8.util.stream.Stream,java8.util.stream.Stream)
+    460:461:private RefStreams()
 java8.util.stream.RefStreams$1
 java8.util.stream.RefStreams$2
 java8.util.stream.ReferencePipeline:
@@ -8341,7 +8581,7 @@ java8.util.stream.ReferencePipeline:
     556:556:public final java8.util.Optional max(java.util.Comparator)
     561:561:public final java8.util.Optional min(java.util.Comparator)
     59:59:public bridge synthetic java8.util.stream.BaseStream unordered()
-    485:485:static synthetic java.lang.Object[] lambda$toArray$27(int)
+    485:485:static synthetic java.lang.Object[] lambda$toArray$24(int)
 java8.util.stream.ReferencePipeline$$Lambda$1
 java8.util.stream.ReferencePipeline$1
 java8.util.stream.ReferencePipeline$10
@@ -8394,9 +8634,7 @@ java8.util.stream.Sink$OfLong:
     public abstract void accept(java.lang.Long)
 java8.util.stream.Sink$OfLong$
 java8.util.stream.SinkDefaults:
-    78:78:static void accept(java8.util.stream.Sink,long)
-    89:89:static void accept(java8.util.stream.Sink,double)
-    92:93:private SinkDefaults()
+    70:71:private SinkDefaults()
 java8.util.stream.SinkDefaults$OfDouble
 java8.util.stream.SinkDefaults$OfInt:
     35:36:private SinkDefaults$OfInt()
@@ -8405,13 +8643,10 @@ java8.util.stream.SliceOps
 java8.util.stream.SliceOps$1
 java8.util.stream.SliceOps$1$1
 java8.util.stream.SliceOps$2
-java8.util.stream.SliceOps$2$$Lambda$1
 java8.util.stream.SliceOps$2$1
 java8.util.stream.SliceOps$3
-java8.util.stream.SliceOps$3$$Lambda$1
 java8.util.stream.SliceOps$3$1
 java8.util.stream.SliceOps$4
-java8.util.stream.SliceOps$4$$Lambda$1
 java8.util.stream.SliceOps$4$1
 java8.util.stream.SliceOps$5
 java8.util.stream.SliceOps$SliceTask
@@ -8683,39 +8918,39 @@ org.acra.config.ClassValidator:
 org.acra.config.ConfigUtils:
     27:27:public ConfigUtils()
 org.acra.config.CoreConfigurationBuilder:
-    161:162:public org.acra.config.CoreConfigurationBuilder setEnabled(boolean)
-    184:185:public org.acra.config.CoreConfigurationBuilder setSharedPreferencesName(java.lang.String)
-    218:219:public org.acra.config.CoreConfigurationBuilder setIncludeDropBoxSystemTags(boolean)
-    234:235:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalDropBoxTags(java.lang.String[])
-    251:252:public org.acra.config.CoreConfigurationBuilder setDropboxCollectionMinutes(int)
-    277:278:public varargs org.acra.config.CoreConfigurationBuilder setLogcatArguments(java.lang.String[])
-    301:302:public varargs org.acra.config.CoreConfigurationBuilder setReportContent(org.acra.ReportField[])
-    330:331:public org.acra.config.CoreConfigurationBuilder setDeleteUnapprovedReportsOnApplicationStart(boolean)
-    346:347:public org.acra.config.CoreConfigurationBuilder setDeleteOldUnsentReportsOnApplicationStart(boolean)
-    363:364:public org.acra.config.CoreConfigurationBuilder setAlsoReportToAndroidFramework(boolean)
-    379:380:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalSharedPreferences(java.lang.String[])
-    396:397:public org.acra.config.CoreConfigurationBuilder setLogcatFilterByPid(boolean)
-    412:413:public org.acra.config.CoreConfigurationBuilder setLogcatReadNonBlocking(boolean)
-    428:429:public org.acra.config.CoreConfigurationBuilder setSendReportsInDevMode(boolean)
-    445:446:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSharedPreferencesKeys(java.lang.String[])
-    463:464:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSettingsKeys(java.lang.String[])
-    481:482:public org.acra.config.CoreConfigurationBuilder setBuildConfigClass(java.lang.Class)
-    498:499:public varargs org.acra.config.CoreConfigurationBuilder setReportSenderFactoryClasses(java.lang.Class[])
-    515:516:public org.acra.config.CoreConfigurationBuilder setApplicationLogFile(java.lang.String)
-    533:534:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileLines(int)
-    549:550:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileDir(org.acra.file.Directory)
-    567:568:public org.acra.config.CoreConfigurationBuilder setRetryPolicyClass(java.lang.Class)
-    585:586:public org.acra.config.CoreConfigurationBuilder setStopServicesOnCrash(boolean)
-    614:615:public varargs org.acra.config.CoreConfigurationBuilder setAttachmentUris(java.lang.String[])
-    632:633:public org.acra.config.CoreConfigurationBuilder setAttachmentUriProvider(java.lang.Class)
-    650:651:public org.acra.config.CoreConfigurationBuilder setReportSendSuccessToast(java.lang.String)
-    663:664:public org.acra.config.CoreConfigurationBuilder setResReportSendSuccessToast(int)
-    681:682:public org.acra.config.CoreConfigurationBuilder setReportSendFailureToast(java.lang.String)
-    694:695:public org.acra.config.CoreConfigurationBuilder setResReportSendFailureToast(int)
-    712:713:public org.acra.config.CoreConfigurationBuilder setReportFormat(org.acra.data.StringFormat)
-    729:730:public org.acra.config.CoreConfigurationBuilder setParallel(boolean)
-    746:747:public org.acra.config.CoreConfigurationBuilder setReportField(org.acra.ReportField,boolean)
-    757:757:public org.acra.config.ConfigurationBuilder getPluginConfigurationBuilder(java.lang.Class)
+    188:189:public org.acra.config.CoreConfigurationBuilder setEnabled(boolean)
+    211:212:public org.acra.config.CoreConfigurationBuilder setSharedPreferencesName(java.lang.String)
+    245:246:public org.acra.config.CoreConfigurationBuilder setIncludeDropBoxSystemTags(boolean)
+    261:262:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalDropBoxTags(java.lang.String[])
+    278:279:public org.acra.config.CoreConfigurationBuilder setDropboxCollectionMinutes(int)
+    304:305:public varargs org.acra.config.CoreConfigurationBuilder setLogcatArguments(java.lang.String[])
+    328:329:public varargs org.acra.config.CoreConfigurationBuilder setReportContent(org.acra.ReportField[])
+    357:358:public org.acra.config.CoreConfigurationBuilder setDeleteUnapprovedReportsOnApplicationStart(boolean)
+    373:374:public org.acra.config.CoreConfigurationBuilder setDeleteOldUnsentReportsOnApplicationStart(boolean)
+    390:391:public org.acra.config.CoreConfigurationBuilder setAlsoReportToAndroidFramework(boolean)
+    406:407:public varargs org.acra.config.CoreConfigurationBuilder setAdditionalSharedPreferences(java.lang.String[])
+    423:424:public org.acra.config.CoreConfigurationBuilder setLogcatFilterByPid(boolean)
+    439:440:public org.acra.config.CoreConfigurationBuilder setLogcatReadNonBlocking(boolean)
+    455:456:public org.acra.config.CoreConfigurationBuilder setSendReportsInDevMode(boolean)
+    472:473:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSharedPreferencesKeys(java.lang.String[])
+    490:491:public varargs org.acra.config.CoreConfigurationBuilder setExcludeMatchingSettingsKeys(java.lang.String[])
+    508:509:public org.acra.config.CoreConfigurationBuilder setBuildConfigClass(java.lang.Class)
+    525:526:public varargs org.acra.config.CoreConfigurationBuilder setReportSenderFactoryClasses(java.lang.Class[])
+    542:543:public org.acra.config.CoreConfigurationBuilder setApplicationLogFile(java.lang.String)
+    560:561:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileLines(int)
+    576:577:public org.acra.config.CoreConfigurationBuilder setApplicationLogFileDir(org.acra.file.Directory)
+    594:595:public org.acra.config.CoreConfigurationBuilder setRetryPolicyClass(java.lang.Class)
+    612:613:public org.acra.config.CoreConfigurationBuilder setStopServicesOnCrash(boolean)
+    641:642:public varargs org.acra.config.CoreConfigurationBuilder setAttachmentUris(java.lang.String[])
+    659:660:public org.acra.config.CoreConfigurationBuilder setAttachmentUriProvider(java.lang.Class)
+    677:678:public org.acra.config.CoreConfigurationBuilder setReportSendSuccessToast(java.lang.String)
+    690:691:public org.acra.config.CoreConfigurationBuilder setResReportSendSuccessToast(int)
+    708:709:public org.acra.config.CoreConfigurationBuilder setReportSendFailureToast(java.lang.String)
+    721:722:public org.acra.config.CoreConfigurationBuilder setResReportSendFailureToast(int)
+    739:740:public org.acra.config.CoreConfigurationBuilder setReportFormat(org.acra.data.StringFormat)
+    756:757:public org.acra.config.CoreConfigurationBuilder setParallel(boolean)
+    773:774:public org.acra.config.CoreConfigurationBuilder setReportField(org.acra.ReportField,boolean)
+    784:784:public org.acra.config.ConfigurationBuilder getPluginConfigurationBuilder(java.lang.Class)
 org.acra.config.HttpSenderConfigurationBuilder:
     public abstract org.acra.config.HttpSenderConfigurationBuilder setEnabled(boolean)
     public abstract org.acra.config.HttpSenderConfigurationBuilder setUri(java.lang.String)
@@ -8731,19 +8966,19 @@ org.acra.config.HttpSenderConfigurationBuilder:
     public abstract org.acra.config.HttpSenderConfigurationBuilder setCertificateType(java.lang.String)
     public abstract org.acra.config.HttpSenderConfigurationBuilder setHttpHeaders(java.util.Map)
 org.acra.config.HttpSenderConfigurationBuilderImpl:
-    91:92:public org.acra.config.HttpSenderConfigurationBuilderImpl setEnabled(boolean)
-    108:109:public org.acra.config.HttpSenderConfigurationBuilderImpl setUri(java.lang.String)
-    126:127:public org.acra.config.HttpSenderConfigurationBuilderImpl setBasicAuthLogin(java.lang.String)
-    144:145:public org.acra.config.HttpSenderConfigurationBuilderImpl setBasicAuthPassword(java.lang.String)
-    164:165:public org.acra.config.HttpSenderConfigurationBuilderImpl setHttpMethod(org.acra.sender.HttpSender$Method)
-    183:184:public org.acra.config.HttpSenderConfigurationBuilderImpl setConnectionTimeout(int)
-    201:202:public org.acra.config.HttpSenderConfigurationBuilderImpl setSocketTimeout(int)
-    218:219:public org.acra.config.HttpSenderConfigurationBuilderImpl setDropReportsOnTimeout(boolean)
-    236:237:public org.acra.config.HttpSenderConfigurationBuilderImpl setKeyStoreFactoryClass(java.lang.Class)
-    254:255:public org.acra.config.HttpSenderConfigurationBuilderImpl setCertificatePath(java.lang.String)
-    272:273:public org.acra.config.HttpSenderConfigurationBuilderImpl setResCertificate(int)
-    290:291:public org.acra.config.HttpSenderConfigurationBuilderImpl setCertificateType(java.lang.String)
-    308:309:public org.acra.config.HttpSenderConfigurationBuilderImpl setHttpHeaders(java.util.Map)
+    101:102:public org.acra.config.HttpSenderConfigurationBuilderImpl setEnabled(boolean)
+    118:119:public org.acra.config.HttpSenderConfigurationBuilderImpl setUri(java.lang.String)
+    136:137:public org.acra.config.HttpSenderConfigurationBuilderImpl setBasicAuthLogin(java.lang.String)
+    154:155:public org.acra.config.HttpSenderConfigurationBuilderImpl setBasicAuthPassword(java.lang.String)
+    174:175:public org.acra.config.HttpSenderConfigurationBuilderImpl setHttpMethod(org.acra.sender.HttpSender$Method)
+    193:194:public org.acra.config.HttpSenderConfigurationBuilderImpl setConnectionTimeout(int)
+    211:212:public org.acra.config.HttpSenderConfigurationBuilderImpl setSocketTimeout(int)
+    228:229:public org.acra.config.HttpSenderConfigurationBuilderImpl setDropReportsOnTimeout(boolean)
+    246:247:public org.acra.config.HttpSenderConfigurationBuilderImpl setKeyStoreFactoryClass(java.lang.Class)
+    264:265:public org.acra.config.HttpSenderConfigurationBuilderImpl setCertificatePath(java.lang.String)
+    282:283:public org.acra.config.HttpSenderConfigurationBuilderImpl setResCertificate(int)
+    300:301:public org.acra.config.HttpSenderConfigurationBuilderImpl setCertificateType(java.lang.String)
+    318:319:public org.acra.config.HttpSenderConfigurationBuilderImpl setHttpHeaders(java.util.Map)
     27:27:public bridge synthetic org.acra.config.HttpSenderConfigurationBuilder setHttpHeaders(java.util.Map)
     27:27:public bridge synthetic org.acra.config.HttpSenderConfigurationBuilder setCertificateType(java.lang.String)
     27:27:public bridge synthetic org.acra.config.HttpSenderConfigurationBuilder setResCertificate(int)
@@ -10408,7 +10643,7 @@ org.mozilla.javascript.CompilerEnvirons:
     264:273:public static org.mozilla.javascript.CompilerEnvirons ideEnvirons()
 org.mozilla.javascript.ConsString:
     private static final long serialVersionUID
-    51:51:private java.lang.Object writeReplace()
+    45:45:private java.lang.Object writeReplace()
 org.mozilla.javascript.Context:
     public static final int VERSION_UNKNOWN
     public static final int VERSION_DEFAULT
@@ -10440,6 +10675,7 @@ org.mozilla.javascript.Context:
     public static final int FEATURE_OLD_UNDEF_NULL_THIS
     public static final int FEATURE_ENUMERATE_IDS_FIRST
     public static final int FEATURE_THREAD_SAFE_OBJECTS
+    public static final int FEATURE_INTEGER_WITHOUT_DECIMAL_PLACE
     public static final java.lang.String languageVersionProperty
     public static final java.lang.String errorReporterProperty
     private static java.lang.String implementationVersion
@@ -10447,73 +10683,73 @@ org.mozilla.javascript.Context:
     private java.lang.Object debuggerData
     private java.lang.Object propertyListeners
     long scratchUint32
-    405:405:public static org.mozilla.javascript.Context enter()
-    426:426:public static org.mozilla.javascript.Context enter(org.mozilla.javascript.Context)
-    498:498:public static java.lang.Object call(org.mozilla.javascript.ContextAction)
-    520:523:public static java.lang.Object call(org.mozilla.javascript.ContextFactory,org.mozilla.javascript.Callable,org.mozilla.javascript.Scriptable,org.mozilla.javascript.Scriptable,java.lang.Object[])
-    534:539:static java.lang.Object call(org.mozilla.javascript.ContextFactory,org.mozilla.javascript.ContextAction)
-    552:571:public static void addContextListener(org.mozilla.javascript.ContextListener)
-    581:582:public static void removeContextListener(org.mozilla.javascript.ContextListener)
-    633:638:public final void unseal(java.lang.Object)
-    670:679:public void setLanguageVersion(int)
-    683:697:public static boolean isValidLanguageVersion(int)
-    702:705:public static void checkLanguageVersion(int)
-    726:759:public final java.lang.String getImplementationVersion()
-    783:795:public final org.mozilla.javascript.ErrorReporter setErrorReporter(org.mozilla.javascript.ErrorReporter)
-    819:822:public final java.util.Locale setLocale(java.util.Locale)
-    834:836:public final void addPropertyChangeListener(java.beans.PropertyChangeListener)
-    847:849:public final void removePropertyChangeListener(java.beans.PropertyChangeListener)
-    864:868:final void firePropertyChange(java.lang.String,java.lang.Object,java.lang.Object)
-    873:883:private void firePropertyChangeImpl(java.lang.Object,java.lang.String,java.lang.Object,java.lang.Object)
-    922:930:public static void reportWarning(java.lang.String,java.lang.Throwable)
-    964:967:public static void reportError(java.lang.String)
-    1064:1064:public final org.mozilla.javascript.ScriptableObject initStandardObjects()
-    1091:1091:public final org.mozilla.javascript.ScriptableObject initSafeStandardObjects()
-    1114:1114:public final org.mozilla.javascript.Scriptable initStandardObjects(org.mozilla.javascript.ScriptableObject)
-    1145:1145:public final org.mozilla.javascript.Scriptable initSafeStandardObjects(org.mozilla.javascript.ScriptableObject)
-    1178:1178:public org.mozilla.javascript.ScriptableObject initStandardObjects(org.mozilla.javascript.ScriptableObject,boolean)
-    1219:1219:public org.mozilla.javascript.ScriptableObject initSafeStandardObjects(org.mozilla.javascript.ScriptableObject,boolean)
-    1227:1227:public static java.lang.Object getUndefinedValue()
-    1251:1256:public final java.lang.Object evaluateString(org.mozilla.javascript.Scriptable,java.lang.String,java.lang.String,int,java.lang.Object)
-    1282:1287:public final java.lang.Object evaluateReader(org.mozilla.javascript.Scriptable,java.io.Reader,java.lang.String,int,java.lang.Object)
-    1307:1314:public java.lang.Object executeScriptWithContinuations(org.mozilla.javascript.Script,org.mozilla.javascript.Scriptable)
-    1335:1347:public java.lang.Object callFunctionWithContinuations(org.mozilla.javascript.Callable,org.mozilla.javascript.Scriptable,java.lang.Object[])
-    1364:1365:public org.mozilla.javascript.ContinuationPending captureContinuation()
-    1388:1389:public java.lang.Object resumeContinuation(java.lang.Object,org.mozilla.javascript.Scriptable,java.lang.Object)
-    1411:1426:public final boolean stringIsCompilableUnit(java.lang.String)
-    1440:1440:public final org.mozilla.javascript.Script compileReader(org.mozilla.javascript.Scriptable,java.io.Reader,java.lang.String,int,java.lang.Object)
-    1464:1468:public final org.mozilla.javascript.Script compileReader(java.io.Reader,java.lang.String,int,java.lang.Object)
-    1492:1496:public final org.mozilla.javascript.Script compileString(java.lang.String,java.lang.String,int,java.lang.Object)
-    1537:1537:public final org.mozilla.javascript.Function compileFunction(org.mozilla.javascript.Scriptable,java.lang.String,java.lang.String,int,java.lang.Object)
-    1570:1571:public final java.lang.String decompileScript(org.mozilla.javascript.Script,int)
-    1589:1592:public final java.lang.String decompileFunction(org.mozilla.javascript.Function,int)
-    1611:1616:public final java.lang.String decompileFunctionBody(org.mozilla.javascript.Function,int)
-    1744:1744:public static boolean toBoolean(java.lang.Object)
-    1807:1807:public static org.mozilla.javascript.Scriptable toObject(java.lang.Object,org.mozilla.javascript.Scriptable,java.lang.Class)
-    1881:1886:public static java.lang.Object toType(java.lang.Object,java.lang.Class)
-    1945:1950:public final void setGeneratingDebug(boolean)
-    1973:1975:public final void setGeneratingSource(boolean)
-    2009:2018:public final void setOptimizationLevel(int)
-    2022:2022:public static boolean isValidOptimizationLevel(int)
-    2027:2030:public static void checkOptimizationLevel(int)
-    2072:2080:public final void setMaximumInterpreterStackDepth(int)
-    2095:2104:public final void setSecurityController(org.mozilla.javascript.SecurityController)
-    2116:2124:public final synchronized void setClassShutter(org.mozilla.javascript.ClassShutter)
-    2137:2140:public final synchronized org.mozilla.javascript.Context$ClassShutterSetter getClassShutterSetter()
-    2207:2207:public static void setCachingEnabled(boolean)
-    2219:2222:public final void setWrapFactory(org.mozilla.javascript.WrapFactory)
-    2243:2243:public final org.mozilla.javascript.debug.Debugger getDebugger()
-    2252:2252:public final java.lang.Object getDebuggerContextData()
-    2264:2267:public final void setDebugger(org.mozilla.javascript.debug.Debugger,java.lang.Object)
-    2276:2279:public static org.mozilla.javascript.debug.DebuggableScript getDebuggableView(org.mozilla.javascript.Script)
-    2326:2326:public org.mozilla.javascript.xml.XMLLib$Factory getE4xImplementationFactory()
-    2339:2339:public final int getInstructionObserverThreshold()
-    2359:2363:public final void setInstructionObserverThreshold(int)
-    2377:2378:public void setGenerateObserverCount(boolean)
-    2450:2461:public final void setApplicationClassLoader(java.lang.ClassLoader)
-    2674:2678:public void addActivationName(java.lang.String)
-    2690:2690:public final boolean isActivationNeeded(java.lang.String)
-    2701:2704:public void removeActivationName(java.lang.String)
+    413:413:public static org.mozilla.javascript.Context enter()
+    434:434:public static org.mozilla.javascript.Context enter(org.mozilla.javascript.Context)
+    506:506:public static java.lang.Object call(org.mozilla.javascript.ContextAction)
+    528:531:public static java.lang.Object call(org.mozilla.javascript.ContextFactory,org.mozilla.javascript.Callable,org.mozilla.javascript.Scriptable,org.mozilla.javascript.Scriptable,java.lang.Object[])
+    542:547:static java.lang.Object call(org.mozilla.javascript.ContextFactory,org.mozilla.javascript.ContextAction)
+    560:579:public static void addContextListener(org.mozilla.javascript.ContextListener)
+    589:590:public static void removeContextListener(org.mozilla.javascript.ContextListener)
+    641:646:public final void unseal(java.lang.Object)
+    678:687:public void setLanguageVersion(int)
+    691:705:public static boolean isValidLanguageVersion(int)
+    710:713:public static void checkLanguageVersion(int)
+    734:767:public final java.lang.String getImplementationVersion()
+    791:803:public final org.mozilla.javascript.ErrorReporter setErrorReporter(org.mozilla.javascript.ErrorReporter)
+    827:830:public final java.util.Locale setLocale(java.util.Locale)
+    842:844:public final void addPropertyChangeListener(java.beans.PropertyChangeListener)
+    855:857:public final void removePropertyChangeListener(java.beans.PropertyChangeListener)
+    872:876:final void firePropertyChange(java.lang.String,java.lang.Object,java.lang.Object)
+    881:891:private void firePropertyChangeImpl(java.lang.Object,java.lang.String,java.lang.Object,java.lang.Object)
+    930:938:public static void reportWarning(java.lang.String,java.lang.Throwable)
+    972:975:public static void reportError(java.lang.String)
+    1072:1072:public final org.mozilla.javascript.ScriptableObject initStandardObjects()
+    1099:1099:public final org.mozilla.javascript.ScriptableObject initSafeStandardObjects()
+    1122:1122:public final org.mozilla.javascript.Scriptable initStandardObjects(org.mozilla.javascript.ScriptableObject)
+    1153:1153:public final org.mozilla.javascript.Scriptable initSafeStandardObjects(org.mozilla.javascript.ScriptableObject)
+    1186:1186:public org.mozilla.javascript.ScriptableObject initStandardObjects(org.mozilla.javascript.ScriptableObject,boolean)
+    1227:1227:public org.mozilla.javascript.ScriptableObject initSafeStandardObjects(org.mozilla.javascript.ScriptableObject,boolean)
+    1235:1235:public static java.lang.Object getUndefinedValue()
+    1259:1264:public final java.lang.Object evaluateString(org.mozilla.javascript.Scriptable,java.lang.String,java.lang.String,int,java.lang.Object)
+    1290:1295:public final java.lang.Object evaluateReader(org.mozilla.javascript.Scriptable,java.io.Reader,java.lang.String,int,java.lang.Object)
+    1315:1322:public java.lang.Object executeScriptWithContinuations(org.mozilla.javascript.Script,org.mozilla.javascript.Scriptable)
+    1343:1355:public java.lang.Object callFunctionWithContinuations(org.mozilla.javascript.Callable,org.mozilla.javascript.Scriptable,java.lang.Object[])
+    1372:1373:public org.mozilla.javascript.ContinuationPending captureContinuation()
+    1396:1397:public java.lang.Object resumeContinuation(java.lang.Object,org.mozilla.javascript.Scriptable,java.lang.Object)
+    1419:1434:public final boolean stringIsCompilableUnit(java.lang.String)
+    1448:1448:public final org.mozilla.javascript.Script compileReader(org.mozilla.javascript.Scriptable,java.io.Reader,java.lang.String,int,java.lang.Object)
+    1472:1476:public final org.mozilla.javascript.Script compileReader(java.io.Reader,java.lang.String,int,java.lang.Object)
+    1500:1504:public final org.mozilla.javascript.Script compileString(java.lang.String,java.lang.String,int,java.lang.Object)
+    1545:1545:public final org.mozilla.javascript.Function compileFunction(org.mozilla.javascript.Scriptable,java.lang.String,java.lang.String,int,java.lang.Object)
+    1578:1579:public final java.lang.String decompileScript(org.mozilla.javascript.Script,int)
+    1597:1600:public final java.lang.String decompileFunction(org.mozilla.javascript.Function,int)
+    1619:1624:public final java.lang.String decompileFunctionBody(org.mozilla.javascript.Function,int)
+    1752:1752:public static boolean toBoolean(java.lang.Object)
+    1815:1815:public static org.mozilla.javascript.Scriptable toObject(java.lang.Object,org.mozilla.javascript.Scriptable,java.lang.Class)
+    1889:1894:public static java.lang.Object toType(java.lang.Object,java.lang.Class)
+    1953:1958:public final void setGeneratingDebug(boolean)
+    1981:1983:public final void setGeneratingSource(boolean)
+    2017:2026:public final void setOptimizationLevel(int)
+    2030:2030:public static boolean isValidOptimizationLevel(int)
+    2035:2038:public static void checkOptimizationLevel(int)
+    2080:2088:public final void setMaximumInterpreterStackDepth(int)
+    2103:2112:public final void setSecurityController(org.mozilla.javascript.SecurityController)
+    2124:2132:public final synchronized void setClassShutter(org.mozilla.javascript.ClassShutter)
+    2145:2148:public final synchronized org.mozilla.javascript.Context$ClassShutterSetter getClassShutterSetter()
+    2215:2215:public static void setCachingEnabled(boolean)
+    2227:2230:public final void setWrapFactory(org.mozilla.javascript.WrapFactory)
+    2251:2251:public final org.mozilla.javascript.debug.Debugger getDebugger()
+    2260:2260:public final java.lang.Object getDebuggerContextData()
+    2272:2275:public final void setDebugger(org.mozilla.javascript.debug.Debugger,java.lang.Object)
+    2284:2287:public static org.mozilla.javascript.debug.DebuggableScript getDebuggableView(org.mozilla.javascript.Script)
+    2334:2334:public org.mozilla.javascript.xml.XMLLib$Factory getE4xImplementationFactory()
+    2347:2347:public final int getInstructionObserverThreshold()
+    2367:2371:public final void setInstructionObserverThreshold(int)
+    2385:2386:public void setGenerateObserverCount(boolean)
+    2458:2469:public final void setApplicationClassLoader(java.lang.ClassLoader)
+    2682:2686:public void addActivationName(java.lang.String)
+    2698:2698:public final boolean isActivationNeeded(java.lang.String)
+    2709:2712:public void removeActivationName(java.lang.String)
     60:60:static synthetic org.mozilla.javascript.ClassShutter access$002(org.mozilla.javascript.Context,org.mozilla.javascript.ClassShutter)
     60:60:static synthetic org.mozilla.javascript.ClassShutter access$000(org.mozilla.javascript.Context)
 org.mozilla.javascript.Context$1
@@ -10526,17 +10762,17 @@ org.mozilla.javascript.ContextFactory:
     161:161:public static boolean hasExplicitGlobal()
     173:181:public static synchronized void initGlobal(org.mozilla.javascript.ContextFactory)
     189:201:public static synchronized org.mozilla.javascript.ContextFactory$GlobalSetter getGlobalSetter()
-    300:308:private boolean isDom3Present()
-    332:337:protected org.mozilla.javascript.xml.XMLLib$Factory getE4xImplementationFactory()
-    377:389:public final void initApplicationClassLoader(java.lang.ClassLoader)
-    439:446:public final void addListener(org.mozilla.javascript.ContextFactory$Listener)
-    450:457:public final void removeListener(org.mozilla.javascript.ContextFactory$Listener)
-    465:470:final void disableContextListening()
-    488:490:public final void seal()
-    494:495:protected final void checkNotSealed()
-    512:512:public final java.lang.Object call(org.mozilla.javascript.ContextAction)
-    566:566:public final org.mozilla.javascript.Context enter()
-    575:576:public final void exit()
+    303:311:private boolean isDom3Present()
+    335:340:protected org.mozilla.javascript.xml.XMLLib$Factory getE4xImplementationFactory()
+    380:392:public final void initApplicationClassLoader(java.lang.ClassLoader)
+    442:449:public final void addListener(org.mozilla.javascript.ContextFactory$Listener)
+    453:460:public final void removeListener(org.mozilla.javascript.ContextFactory$Listener)
+    468:473:final void disableContextListening()
+    491:493:public final void seal()
+    497:498:protected final void checkNotSealed()
+    515:515:public final java.lang.Object call(org.mozilla.javascript.ContextAction)
+    569:569:public final org.mozilla.javascript.Context enter()
+    578:579:public final void exit()
     110:110:static synthetic org.mozilla.javascript.ContextFactory access$002(org.mozilla.javascript.ContextFactory)
     110:110:static synthetic org.mozilla.javascript.ContextFactory access$000()
 org.mozilla.javascript.ContextFactory$1GlobalSetterImpl
@@ -11098,8 +11334,8 @@ org.mozilla.javascript.NativeJavaObject:
     static final byte CONVERSION_NONE
     150:151:public static java.lang.Object wrap(org.mozilla.javascript.Scriptable,java.lang.Object,java.lang.Class)
     467:467:public static java.lang.Object coerceType(java.lang.Class,java.lang.Object)
-    872:894:private void writeObject(java.io.ObjectOutputStream)
-    899:923:private void readObject(java.io.ObjectInputStream)
+    880:902:private void writeObject(java.io.ObjectOutputStream)
+    907:931:private void readObject(java.io.ObjectInputStream)
 org.mozilla.javascript.NativeJavaPackage
 org.mozilla.javascript.NativeJavaTopPackage
 org.mozilla.javascript.NativeMath
@@ -11338,8 +11574,8 @@ org.mozilla.javascript.Parser:
     private static final int GET_ENTRY
     private static final int SET_ENTRY
     private static final int METHOD_ENTRY
-    442:445:private int nextFlaggedToken()
-    498:498:public boolean eof()
+    448:451:private int nextFlaggedToken()
+    504:504:public boolean eof()
 org.mozilla.javascript.Parser$ParserException:
     static final long serialVersionUID
 org.mozilla.javascript.PolicySecurityController:
@@ -11378,48 +11614,48 @@ org.mozilla.javascript.ScriptRuntime:
     158:268:public static org.mozilla.javascript.ScriptableObject initSafeStandardObjects(org.mozilla.javascript.Context,org.mozilla.javascript.ScriptableObject,boolean)
     275:291:public static org.mozilla.javascript.ScriptableObject initStandardObjects(org.mozilla.javascript.Context,org.mozilla.javascript.ScriptableObject,boolean)
     296:296:static java.lang.String[] getTopPackageNames()
-    698:711:public static java.lang.Object[] padArguments(java.lang.Object[],int)
-    1025:1030:public static org.mozilla.javascript.Scriptable toObjectOrNull(org.mozilla.javascript.Context,java.lang.Object)
-    1054:1057:public static org.mozilla.javascript.Scriptable toObject(org.mozilla.javascript.Scriptable,java.lang.Object,java.lang.Class)
-    1112:1112:public static org.mozilla.javascript.Scriptable toObject(org.mozilla.javascript.Context,org.mozilla.javascript.Scriptable,java.lang.Object,java.lang.Class)
-    1122:1130:public static java.lang.Object call(org.mozilla.javascript.Context,java.lang.Object,java.lang.Object,java.lang.Object[],org.mozilla.javascript.Scriptable)
-    1146:1149:public static org.mozilla.javascript.Scriptable newBuiltinObject(org.mozilla.javascript.Context,org.mozilla.javascript.Scriptable,org.mozilla.javascript.TopLevel$Builtins,java.lang.Object[])
-    1261:1281:public static java.lang.Object searchDefaultNamespace(org.mozilla.javascript.Context)
-    1285:1286:public static java.lang.Object getTopLevelProp(org.mozilla.javascript.Scriptable,java.lang.String)
-    1371:1396:public static long testUint32String(java.lang.String)
-    1464:1464:public static java.lang.Object getObjectElem(java.lang.Object,java.lang.Object,org.mozilla.javascript.Context)
-    1515:1515:public static java.lang.Object getObjectProp(java.lang.Object,java.lang.String,org.mozilla.javascript.Context)
-    1556:1556:public static java.lang.Object getObjectPropNoWarn(java.lang.Object,java.lang.String,org.mozilla.javascript.Context)
-    1583:1583:public static java.lang.Object getObjectIndex(java.lang.Object,double,org.mozilla.javascript.Context)
-    1627:1627:public static java.lang.Object setObjectElem(java.lang.Object,java.lang.Object,java.lang.Object,org.mozilla.javascript.Context)
-    1672:1672:public static java.lang.Object setObjectProp(java.lang.Object,java.lang.String,java.lang.Object,org.mozilla.javascript.Context)
-    1706:1706:public static java.lang.Object setObjectIndex(java.lang.Object,double,java.lang.Object,org.mozilla.javascript.Context)
-    1789:1789:public static java.lang.Object refSet(org.mozilla.javascript.Ref,java.lang.Object,org.mozilla.javascript.Context)
-    1815:1815:public static org.mozilla.javascript.Ref specialRef(java.lang.Object,java.lang.String,org.mozilla.javascript.Context)
-    1830:1830:public static java.lang.Object delete(java.lang.Object,java.lang.Object,org.mozilla.javascript.Context)
-    1849:1849:public static java.lang.Object delete(java.lang.Object,java.lang.Object,org.mozilla.javascript.Context,boolean)
-    2170:2170:public static java.lang.Object enumInit(java.lang.Object,org.mozilla.javascript.Context,boolean)
-    2188:2188:public static java.lang.Object enumInit(java.lang.Object,org.mozilla.javascript.Context,int)
-    2438:2438:public static org.mozilla.javascript.Callable getElemFunctionAndThis(java.lang.Object,java.lang.Object,org.mozilla.javascript.Context)
-    2500:2500:public static org.mozilla.javascript.Callable getPropFunctionAndThis(java.lang.Object,java.lang.String,org.mozilla.javascript.Context)
-    2873:2873:public static java.lang.CharSequence add(java.lang.CharSequence,java.lang.Object)
-    2877:2877:public static java.lang.CharSequence add(java.lang.Object,java.lang.CharSequence)
-    2889:2889:public static java.lang.Object nameIncrDecr(org.mozilla.javascript.Scriptable,java.lang.String,int)
-    2929:2929:public static java.lang.Object propIncrDecr(java.lang.Object,java.lang.String,org.mozilla.javascript.Context,int)
-    2996:2996:public static java.lang.Object elemIncrDecr(java.lang.Object,java.lang.Object,org.mozilla.javascript.Context,int)
-    3035:3035:public static java.lang.Object refIncrDecr(org.mozilla.javascript.Ref,org.mozilla.javascript.Context,int)
-    3408:3424:public static org.mozilla.javascript.ScriptableObject getGlobal(org.mozilla.javascript.Context)
-    3448:3448:public static java.lang.Object doTopCall(org.mozilla.javascript.Callable,org.mozilla.javascript.Context,org.mozilla.javascript.Scriptable,org.mozilla.javascript.Scriptable,java.lang.Object[])
-    3509:3515:public static void addInstructionCount(org.mozilla.javascript.Context,int)
-    3565:3565:public static org.mozilla.javascript.Scriptable createFunctionActivation(org.mozilla.javascript.NativeFunction,org.mozilla.javascript.Scriptable,java.lang.Object[])
-    3733:3797:public static org.mozilla.javascript.Scriptable wrapException(java.lang.Throwable,org.mozilla.javascript.Scriptable,org.mozilla.javascript.Context)
-    3967:3967:public static org.mozilla.javascript.Scriptable newObjectLiteral(java.lang.Object[],java.lang.Object[],org.mozilla.javascript.Context,org.mozilla.javascript.Scriptable)
-    4004:4004:public static boolean isArrayObject(java.lang.Object)
-    4141:4146:public static org.mozilla.javascript.EcmaError constructError(java.lang.String,java.lang.String,int)
-    4393:4396:public static void storeUint32Result(org.mozilla.javascript.Context,long)
-    4400:4403:public static long lastUint32Result(org.mozilla.javascript.Context)
-    4434:4435:static boolean isGeneratedScript(java.lang.String)
-    4461:4465:public static org.mozilla.javascript.JavaScriptException throwError(org.mozilla.javascript.Context,org.mozilla.javascript.Scriptable,java.lang.String)
+    740:753:public static java.lang.Object[] padArguments(java.lang.Object[],int)
+    1067:1072:public static org.mozilla.javascript.Scriptable toObjectOrNull(org.mozilla.javascript.Context,java.lang.Object)
+    1096:1099:public static org.mozilla.javascript.Scriptable toObject(org.mozilla.javascript.Scriptable,java.lang.Object,java.lang.Class)
+    1154:1154:public static org.mozilla.javascript.Scriptable toObject(org.mozilla.javascript.Context,org.mozilla.javascript.Scriptable,java.lang.Object,java.lang.Class)
+    1164:1172:public static java.lang.Object call(org.mozilla.javascript.Context,java.lang.Object,java.lang.Object,java.lang.Object[],org.mozilla.javascript.Scriptable)
+    1188:1191:public static org.mozilla.javascript.Scriptable newBuiltinObject(org.mozilla.javascript.Context,org.mozilla.javascript.Scriptable,org.mozilla.javascript.TopLevel$Builtins,java.lang.Object[])
+    1303:1323:public static java.lang.Object searchDefaultNamespace(org.mozilla.javascript.Context)
+    1327:1328:public static java.lang.Object getTopLevelProp(org.mozilla.javascript.Scriptable,java.lang.String)
+    1413:1438:public static long testUint32String(java.lang.String)
+    1506:1506:public static java.lang.Object getObjectElem(java.lang.Object,java.lang.Object,org.mozilla.javascript.Context)
+    1557:1557:public static java.lang.Object getObjectProp(java.lang.Object,java.lang.String,org.mozilla.javascript.Context)
+    1598:1598:public static java.lang.Object getObjectPropNoWarn(java.lang.Object,java.lang.String,org.mozilla.javascript.Context)
+    1625:1625:public static java.lang.Object getObjectIndex(java.lang.Object,double,org.mozilla.javascript.Context)
+    1669:1669:public static java.lang.Object setObjectElem(java.lang.Object,java.lang.Object,java.lang.Object,org.mozilla.javascript.Context)
+    1714:1714:public static java.lang.Object setObjectProp(java.lang.Object,java.lang.String,java.lang.Object,org.mozilla.javascript.Context)
+    1748:1748:public static java.lang.Object setObjectIndex(java.lang.Object,double,java.lang.Object,org.mozilla.javascript.Context)
+    1831:1831:public static java.lang.Object refSet(org.mozilla.javascript.Ref,java.lang.Object,org.mozilla.javascript.Context)
+    1857:1857:public static org.mozilla.javascript.Ref specialRef(java.lang.Object,java.lang.String,org.mozilla.javascript.Context)
+    1872:1872:public static java.lang.Object delete(java.lang.Object,java.lang.Object,org.mozilla.javascript.Context)
+    1891:1891:public static java.lang.Object delete(java.lang.Object,java.lang.Object,org.mozilla.javascript.Context,boolean)
+    2212:2212:public static java.lang.Object enumInit(java.lang.Object,org.mozilla.javascript.Context,boolean)
+    2230:2230:public static java.lang.Object enumInit(java.lang.Object,org.mozilla.javascript.Context,int)
+    2480:2480:public static org.mozilla.javascript.Callable getElemFunctionAndThis(java.lang.Object,java.lang.Object,org.mozilla.javascript.Context)
+    2542:2542:public static org.mozilla.javascript.Callable getPropFunctionAndThis(java.lang.Object,java.lang.String,org.mozilla.javascript.Context)
+    2915:2915:public static java.lang.CharSequence add(java.lang.CharSequence,java.lang.Object)
+    2919:2919:public static java.lang.CharSequence add(java.lang.Object,java.lang.CharSequence)
+    2931:2931:public static java.lang.Object nameIncrDecr(org.mozilla.javascript.Scriptable,java.lang.String,int)
+    2971:2971:public static java.lang.Object propIncrDecr(java.lang.Object,java.lang.String,org.mozilla.javascript.Context,int)
+    3038:3038:public static java.lang.Object elemIncrDecr(java.lang.Object,java.lang.Object,org.mozilla.javascript.Context,int)
+    3077:3077:public static java.lang.Object refIncrDecr(org.mozilla.javascript.Ref,org.mozilla.javascript.Context,int)
+    3450:3466:public static org.mozilla.javascript.ScriptableObject getGlobal(org.mozilla.javascript.Context)
+    3490:3490:public static java.lang.Object doTopCall(org.mozilla.javascript.Callable,org.mozilla.javascript.Context,org.mozilla.javascript.Scriptable,org.mozilla.javascript.Scriptable,java.lang.Object[])
+    3551:3557:public static void addInstructionCount(org.mozilla.javascript.Context,int)
+    3607:3607:public static org.mozilla.javascript.Scriptable createFunctionActivation(org.mozilla.javascript.NativeFunction,org.mozilla.javascript.Scriptable,java.lang.Object[])
+    3775:3839:public static org.mozilla.javascript.Scriptable wrapException(java.lang.Throwable,org.mozilla.javascript.Scriptable,org.mozilla.javascript.Context)
+    4009:4009:public static org.mozilla.javascript.Scriptable newObjectLiteral(java.lang.Object[],java.lang.Object[],org.mozilla.javascript.Context,org.mozilla.javascript.Scriptable)
+    4046:4046:public static boolean isArrayObject(java.lang.Object)
+    4183:4188:public static org.mozilla.javascript.EcmaError constructError(java.lang.String,java.lang.String,int)
+    4435:4438:public static void storeUint32Result(org.mozilla.javascript.Context,long)
+    4442:4445:public static long lastUint32Result(org.mozilla.javascript.Context)
+    4476:4477:static boolean isGeneratedScript(java.lang.String)
+    4503:4507:public static org.mozilla.javascript.JavaScriptException throwError(org.mozilla.javascript.Context,org.mozilla.javascript.Scriptable,java.lang.String)
 org.mozilla.javascript.ScriptRuntime$1:
     static final long serialVersionUID
 org.mozilla.javascript.ScriptRuntime$IdEnumeration:
