@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="com.sonyericsson.home.permission.RECEIVE_BADGE"/>
 
     <application
         android:name=".MultiTool"
@@ -138,6 +139,24 @@
         <receiver android:name=".badge.BadgeBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BADGE_COUNT_UPDATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.adw.launcher.counter.SEND" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.anddoes.launcher.COUNTER_CHANGED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.htc.launcher.action.UPDATE_SHORTCUT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.htc.launcher.action.SET_NOTIFICATION" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.sonyericsson.home.action.UPDATE_BADGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="launcher.action.CHANGE_APPLICATION_NOTIFICATION_NUM" />
             </intent-filter>
         </receiver>
 
