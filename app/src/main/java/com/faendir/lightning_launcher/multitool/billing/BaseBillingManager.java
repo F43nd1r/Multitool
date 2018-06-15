@@ -93,7 +93,7 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
 
     @Override
     public void onBillingInitialized() {
-        if(!error) {
+        if(!error && billingProcessor != null) {
             billingProcessor.loadOwnedPurchasesFromGoogle();
             synchronized (this) {
                 notifyAll();
