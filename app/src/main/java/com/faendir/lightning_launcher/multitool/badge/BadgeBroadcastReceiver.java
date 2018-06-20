@@ -11,6 +11,7 @@ import android.util.Log;
 import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -90,8 +91,9 @@ public class BadgeBroadcastReceiver extends BroadcastReceiver {
         if (MultiTool.DEBUG) Log.d(MultiTool.LOG_TAG, "Notification count for " + packageName + " updated to " + count + " by Intent " + action);
         BadgeDataSource.setBadgeCount(context, packageName, count);
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-        Set<String> set = sharedPref.getStringSet(context.getString(R.string.key_badgeIntentPackages), new HashSet<>());
+        Set<String> set = sharedPref.getStringSet(context.getString(R.string.key_badgeIntentPackages), Collections.emptySet());
         if (!set.contains(packageName)) {
+            set = new HashSet<>(set);
             set.add(packageName);
             sharedPref.edit().putStringSet(context.getString(R.string.key_badgeIntentPackages), set).apply();
         }
