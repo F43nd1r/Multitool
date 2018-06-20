@@ -23,8 +23,8 @@ import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.List;
 
-import java8.util.Optional;
-import java8.util.stream.StreamSupport;
+import java9.util.Optional;
+import java9.util.stream.StreamSupport;
 
 import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 

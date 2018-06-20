@@ -63,8 +63,8 @@
     <string name="title_rename">Rename %s</string>
     <string name="text_folder">Folder</string>
     <string name="text_script">Script</string>
-    <string name="text_backupSuccessful">" scripts successfully backed up"</string>
-    <string name="text_backupFailed">"Failed to backup "</string>
+    <string name="text_backupSuccessful">"Script successfully backed up"</string>
+    <string name="text_backupFailed">"Failed to backup script"</string>
     <string name="text_scripts">" scripts"</string>
     <string name="title_delete">Delete</string>
     <string name="message_deletePart1">"Do you want to delete "</string>

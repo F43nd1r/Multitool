@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,18 +23,16 @@ import android.widget.TextView;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
 import com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory;
-import com.faendir.lightning_launcher.multitool.util.FileManager;
-import com.faendir.lightning_launcher.multitool.util.FileManagerFactory;
-import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.adapters.ModelAdapter;
 import com.mikepenz.fastadapter_extensions.swipe.SimpleSwipeCallback;
-import com.nononsenseapps.filepicker.FilePickerActivity;
 
-import java.io.FileNotFoundException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
-import java8.util.stream.Collectors;
-import java8.util.stream.StreamSupport;
+import java9.util.stream.Collectors;
+import java9.util.stream.StreamSupport;
 
 import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 
@@ -48,19 +47,16 @@ public class GestureFragment extends Fragment {
     private static final int IMPORT = 4;
     private static final String INDEX = "index";
 
-    private FileManager<GestureInfo, FileNotFoundException> fileManager;
     private ModelAdapter<GestureInfo, ExpandableItem<GestureInfo>> adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        fileManager = FileManagerFactory.createGestureFileManager(getActivity());
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         LinearLayout layout = new LinearLayout(getActivity());
         RecyclerView recyclerView = new RecyclerView(getActivity());
         adapter = new ModelAdapter<>(ItemFactory.<GestureInfo>forLauncherIconSize(getActivity())::wrap);
@@ -72,8 +68,8 @@ public class GestureFragment extends Fragment {
             startActivityForResult(intent, EDIT);
             return true;
         });
-        exceptionToOptional(fileManager::read).get().ifPresent(list -> adapter.set(StreamSupport.stream(list)
-                .filter(gestureInfo -> !gestureInfo.isInvalid()).collect(Collectors.toList())));
+        exceptionToOptional(() -> GestureUtils.readFromFile(getActivity())).get()
+                .ifPresent(list -> adapter.set(StreamSupport.stream(list).filter(gestureInfo -> !gestureInfo.isInvalid()).collect(Collectors.toList())));
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(fastAdapter);
         new ItemTouchHelper(new SimpleSwipeCallback((position, direction) -> {
@@ -84,9 +80,7 @@ public class GestureFragment extends Fragment {
                 if (position1 != RecyclerView.NO_POSITION) {
                     adapter.remove(position1);
                 }
-                GestureUtils.delete(getActivity(), item.getModel(),
-                        adapter.getModels(), fileManager);
-
+                GestureUtils.delete(getActivity(), item.getModel(), adapter.getModels());
             };
             recyclerView.postDelayed(removeRunnable, 5000);
 
@@ -122,25 +116,22 @@ public class GestureFragment extends Fragment {
                 startActivityForResult(new Intent(getActivity(), GestureActivity.class), ADD);
                 break;
             case R.id.action_help:
-                new AlertDialog.Builder(getActivity())
-                        .setTitle(R.string.title_help)
-                        .setMessage(R.string.message_helpGesture)
-                        .setPositiveButton(R.string.button_ok, null)
+                new AlertDialog.Builder(getActivity()).setTitle(R.string.title_help).setMessage(R.string.message_helpGesture).setPositiveButton(R.string.button_ok, null)
                         .show();
                 break;
             case R.id.action_export: {
-                Intent intent = new Intent(getActivity(), FilePickerActivity.class);
-                intent.putExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false);
-                intent.putExtra(FilePickerActivity.EXTRA_ALLOW_CREATE_DIR, true);
-                intent.putExtra(FilePickerActivity.EXTRA_MODE, FilePickerActivity.MODE_DIR);
+                Intent intent;
+                intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("application/zip");
+                intent.putExtra(Intent.EXTRA_TITLE, "Multitool_Gestures_" + new SimpleDateFormat("yyyy-MM-dd", Locale.US).format(new Date()) + ".zip");
                 startActivityForResult(intent, EXPORT);
                 break;
             }
             case R.id.action_import: {
-                Intent intent = new Intent(getActivity(), FilePickerActivity.class);
-                intent.putExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false);
-                intent.putExtra(FilePickerActivity.EXTRA_ALLOW_CREATE_DIR, false);
-                intent.putExtra(FilePickerActivity.EXTRA_MODE, FilePickerActivity.MODE_FILE);
+                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("application/zip");
                 startActivityForResult(intent, IMPORT);
                 break;
             }
@@ -157,7 +148,7 @@ public class GestureFragment extends Fragment {
                 case ADD: {
                     GestureInfo gestureInfo = data.getParcelableExtra(GestureActivity.GESTURE);
                     adapter.add(gestureInfo);
-                    GestureUtils.updateSavedGestures(adapter.getModels(), fileManager);
+                    GestureUtils.writeToFile(getActivity(), adapter.getModels());
                     break;
                 }
                 case EDIT: {
@@ -165,16 +156,22 @@ public class GestureFragment extends Fragment {
                     int position = data.getIntExtra(INDEX, -1);
                     if (position >= 0) {
                         adapter.set(position, gestureInfo);
-                        GestureUtils.updateSavedGestures(adapter.getModels(), fileManager);
+                        GestureUtils.writeToFile(getActivity(), adapter.getModels());
                     }
                 }
                 case EXPORT:
-                    StreamSupport.stream(Utils.getFilePickerActivityResult(data)).findAny()
-                            .ifPresent(uri -> GestureUtils.exportGestures(getActivity(), uri));
+                    if (data != null) {
+                        final Uri uri = data.getData();
+                        if (uri != null) {
+                            GestureUtils.exportGestures(getActivity(), uri);
+                        }
+                    }
                     break;
                 case IMPORT:
-                    StreamSupport.stream(Utils.getFilePickerActivityResult(data)).findAny()
-                            .ifPresent(uri -> GestureUtils.importGestures(getActivity(), uri, adapter.getModels(), fileManager));
+                    final Uri uri = data.getData();
+                    if (uri != null) {
+                        GestureUtils.importGestures(getActivity(), uri, adapter.getModels());
+                    }
                     break;
                 default:
                     super.onActivityResult(requestCode, resultCode, data);

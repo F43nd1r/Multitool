@@ -1,38 +1,31 @@
 package com.faendir.lightning_launcher.multitool.gesture;
 
-import android.Manifest;
 import android.content.Context;
 import android.gesture.GestureStore;
 import android.net.Uri;
-import android.util.Pair;
 import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.faendir.lightning_launcher.multitool.util.provider.DataProvider;
-import com.faendir.lightning_launcher.multitool.util.FileManager;
-import com.faendir.lightning_launcher.scriptlib.PermissionActivity;
-
-import org.acra.ACRA;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.File;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-
-import java8.util.stream.StreamSupport;
-
-import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.ignoreExceptions;
 
 /**
  * Created on 28.01.2016.
@@ -43,18 +36,10 @@ final class GestureUtils {
     private GestureUtils() {
     }
 
-    static void delete(Context context, GestureInfo selected, List<GestureInfo> list, FileManager<GestureInfo, FileNotFoundException> fileManager) {
+    static void delete(Context context, GestureInfo selected, List<GestureInfo> list) {
         selected.removeGesture(context);
         list.remove(selected);
-        updateSavedGestures(list, fileManager);
-    }
-
-    static void updateSavedGestures(List<GestureInfo> list, FileManager<GestureInfo, FileNotFoundException> fileManager) {
-        try {
-            fileManager.write(list);
-        } catch (IOException e) {
-            ACRA.getErrorReporter().handleSilentException(e);
-        }
+        writeToFile(context, list);
     }
 
     private static final String METADATA = "metadata";
@@ -64,35 +49,22 @@ final class GestureUtils {
         try {
             final InputStream metadata = DataProvider.openFileForRead(context, GestureMetaDataSource.class);
             final InputStream gestures = DataProvider.openFileForRead(context, GestureLibraryDataSource.class);
-            final File dir = new File(path.getPath());
-            final File file = new File(dir, "Multitool_Gestures_" + new SimpleDateFormat("yyyy-MM-dd", Locale.US).format(new Date()) + ".zip");
-            if ((!dir.mkdirs() && !dir.isDirectory()) || !dir.canWrite() || !file.canWrite()) {
-                PermissionActivity.checkForPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE, isGranted -> {
-                    if (isGranted && (dir.mkdirs() || dir.isDirectory()) && dir.canWrite()) {
-                        exportAndClose(context, file, metadata, gestures);
-                    } else {
-                        Toast.makeText(context, R.string.toast_failedDirWrite, Toast.LENGTH_SHORT).show();
-                        ignoreExceptions(metadata::close).run();
-                        ignoreExceptions(gestures::close).run();
-                    }
-                });
+            final OutputStream outputStream = context.getContentResolver().openOutputStream(path);
+            if (outputStream != null) {
+                try (ZipOutputStream out = new ZipOutputStream(new BufferedOutputStream(outputStream))) {
+                    out.putNextEntry(new ZipEntry(METADATA));
+                    writeAndClose(metadata, out);
+                    out.putNextEntry(new ZipEntry(GESTURES));
+                    writeAndClose(gestures, out);
+                    Toast.makeText(context, context.getString(R.string.toast_exportedTo, path.toString()), Toast.LENGTH_SHORT).show();
+                } catch (IOException e) {
+                    Toast.makeText(context, context.getString(R.string.toast_failedExportTo, path.toString()), Toast.LENGTH_SHORT).show();
+                }
             } else {
-                exportAndClose(context, file, metadata, gestures);
+                Toast.makeText(context, "Unable to write to file", Toast.LENGTH_SHORT).show();
             }
         } catch (FileNotFoundException e) {
             Toast.makeText(context, R.string.toast_noGestures, Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private static void exportAndClose(Context context, File file, InputStream metadata, InputStream gestures) {
-        try (ZipOutputStream out = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(file)))) {
-            out.putNextEntry(new ZipEntry(METADATA));
-            writeAndClose(metadata, out);
-            out.putNextEntry(new ZipEntry(GESTURES));
-            writeAndClose(gestures, out);
-            Toast.makeText(context, context.getString(R.string.toast_exportedTo, file.getPath()), Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            Toast.makeText(context, context.getString(R.string.toast_failedExportTo, file.getPath()), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -106,42 +78,67 @@ final class GestureUtils {
         }
     }
 
-    static void importGestures(Context context, Uri path, List<GestureInfo> list, FileManager<GestureInfo, FileNotFoundException> fileManager) {
-        File file = new File(path.getPath());
-        if (file.exists() && file.canRead()) {
-            try (ZipFile in = new ZipFile(file)) {
-                ZipEntry metaEntry = in.getEntry(METADATA);
-                ZipEntry gestureEntry = in.getEntry(GESTURES);
-                if (metaEntry != null && gestureEntry != null) {
-                    if (copyGestures(context, list, fileManager, in.getInputStream(gestureEntry), in.getInputStream(metaEntry))) {
-                        Toast.makeText(context, R.string.toast_imported, Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                }
-            } catch (IOException ignored) {
+    static void importGestures(Context context, Uri path, List<GestureInfo> list) {
+        try {
+            InputStream inputStream = context.getContentResolver().openInputStream(path);
+            if (inputStream == null) {
+                throw new FileNotFoundException();
             }
+            ZipInputStream in = new ZipInputStream(inputStream);
+            ZipEntry entry;
+            GestureStore library = null;
+            List<GestureInfo> gestureInfos = null;
+            while ((entry = in.getNextEntry()) != null) {
+                switch (entry.getName()) {
+                    case METADATA:
+                        gestureInfos = Arrays.asList(Utils.GSON.fromJson(new InputStreamReader(in), GestureInfo[].class));
+                        break;
+                    case GESTURES:
+                        library = new GestureStore();
+                        library.load(in, false);
+                        break;
+                    default:
+                        throw new IOException();
+                }
+                in.closeEntry();
+            }
+            in.close();
+            if (library == null || gestureInfos == null) {
+                throw new IOException();
+            }
+            if (!gestureInfos.isEmpty()) {
+                for (GestureInfo info : gestureInfos) {
+                    info.setGesture(context, library.getGestures(info.getUuid().toString()).get(0));
+                    list.add(info);
+                }
+                writeToFile(context, list);
+                Toast.makeText(context, R.string.toast_imported, Toast.LENGTH_SHORT).show();
+
+            }
+
+        } catch (IOException e) {
+            Toast.makeText(context, R.string.toast_importFailed, Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(context, R.string.toast_importFailed, Toast.LENGTH_SHORT).show();
     }
 
-    private static boolean copyGestures(Context context, List<GestureInfo> list, FileManager<GestureInfo, FileNotFoundException> fileManager, InputStream gestures, InputStream metadata) {
-        FileManager<GestureInfo, FileNotFoundException> tempFM = new FileManager<>(() -> metadata, () -> {
-            throw new UnsupportedOperationException();
-        }, GestureInfo[].class);
-        try {
-            List<GestureInfo> gestureInfos = tempFM.read();
-            if (!gestureInfos.isEmpty()) {
-                GestureStore library = new GestureStore();
-                library.load(gestures, true);
-                StreamSupport.stream(gestureInfos).map(info -> new Pair<>(info, library.getGestures(info.getUuid().toString()))).filter(pair -> !pair.second.isEmpty()).forEach(pair -> {
-                    pair.first.setGesture(context, pair.second.get(0));
-                    list.add(pair.first);
-                });
-                updateSavedGestures(list, fileManager);
-                return true;
+    static List<GestureInfo> readFromFile(Context context) {
+        try (InputStreamReader reader = new InputStreamReader(DataProvider.openFileForRead(context, GestureMetaDataSource.class))) {
+            GestureInfo[] array = Utils.GSON.fromJson(reader, GestureInfo[].class);
+            if (array != null) {
+                return new ArrayList<>(Arrays.asList(array));
             }
-        } catch (IOException ignored) {
+        } catch (Throwable e) {
+            e.printStackTrace();
         }
-        return false;
+        return Collections.emptyList();
+    }
+
+    static void writeToFile(Context context, List<GestureInfo> infos) {
+        try (Writer writer = new BufferedWriter(new OutputStreamWriter(DataProvider.openFileForWrite(context, GestureMetaDataSource.class)))) {
+            Utils.GSON.toJson(infos.toArray(), GestureInfo[].class, writer);
+            writer.flush();
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,11 +1,9 @@
 package com.faendir.lightning_launcher.multitool.scriptmanager;
 
-import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,18 +11,18 @@ import android.widget.Toast;
 import com.faendir.lightning_launcher.multitool.Loader;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.Model;
-import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
-import com.faendir.lightning_launcher.multitool.util.FileManager;
 import com.faendir.lightning_launcher.multitool.util.Utils;
-import com.faendir.lightning_launcher.scriptlib.PermissionActivity;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import org.acra.util.StreamReader;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -46,12 +44,8 @@ final class ScriptUtils {
 
     public static void searchDialog(final Context context, final ListManager listManager) {
         final EditText editText = new EditText(context);
-        new AlertDialog.Builder(context)
-                .setTitle(R.string.title_search)
-                .setView(editText)
-                .setNegativeButton(R.string.button_cancel, null)
-                .setPositiveButton(R.string.button_ok, (dialog, ignore) -> search(context, listManager.getItems(), editText.getText().toString()))
-                .show();
+        new AlertDialog.Builder(context).setTitle(R.string.title_search).setView(editText).setNegativeButton(R.string.button_cancel, null)
+                .setPositiveButton(R.string.button_ok, (dialog, ignore) -> search(context, listManager.getItems(), editText.getText().toString())).show();
     }
 
     private static void search(Context context, List<Model> items, String regex) {
@@ -76,22 +70,16 @@ final class ScriptUtils {
                 if (!isFirst) builder.append("\n");
             }
         }
-        new AlertDialog.Builder(context)
-                .setMessage(builder.toString().trim())
-                .setTitle(R.string.title_matches)
-                .setNeutralButton(R.string.button_ok, null)
-                .show();
+        new AlertDialog.Builder(context).setMessage(builder.toString().trim()).setTitle(R.string.title_matches).setNeutralButton(R.string.button_ok, null).show();
     }
 
     public static void renameDialog(final ScriptManager scriptManager, final Context context, final ListManager listManager, final Model item) {
         final EditText text = new EditText(context);
         text.setText(item.getName());
-        new AlertDialog.Builder(context)
-                .setTitle(context.getString(R.string.title_rename, (item instanceof Folder ? context.getString(R.string.text_folder) : context.getString(R.string.text_script))))
-                .setView(text)
-                .setPositiveButton(R.string.button_ok, (dialog, ignore) -> renameItem(scriptManager, listManager, item, text.getText().toString()))
-                .setNegativeButton(R.string.button_cancel, null)
-                .show();
+        new AlertDialog.Builder(context).setTitle(
+                context.getString(R.string.title_rename, (item instanceof Folder ? context.getString(R.string.text_folder) : context.getString(R.string.text_script))))
+                .setView(text).setPositiveButton(R.string.button_ok, (dialog, ignore) -> renameItem(scriptManager, listManager, item, text.getText().toString()))
+                .setNegativeButton(R.string.button_cancel, null).show();
     }
 
     private static void renameItem(final ScriptManager scriptManager, final ListManager listManager, Model item, String name) {
@@ -100,8 +88,7 @@ final class ScriptUtils {
             final Transfer transfer = new Transfer(Transfer.RENAME);
             transfer.script = (Script) item;
             scriptManager.getAsyncExecutorService()
-                    .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager))
-                    .start();
+                    .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
         } else if (item instanceof Folder) {
 //TODO
         }
@@ -120,54 +107,25 @@ final class ScriptUtils {
         listManager.deselectAll();
     }
 
-    public static void backup(final Context context, final ListManager listManager, List<Model> selectedItems) {
-        final List<Model> selectedItemsFinal = new ArrayList<>(selectedItems);
-        final File dir = new File(PreferenceManager.getDefaultSharedPreferences(context).getString(context.getString(R.string.pref_directory), PrefsFragment.DEFAULT_BACKUP_PATH));
-        if ((!dir.mkdirs() && !dir.isDirectory()) || !dir.canWrite()) {
-            PermissionActivity.checkForPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE, isGranted -> {
-                if (isGranted && (dir.mkdirs() || dir.isDirectory()) && dir.canWrite()) {
-                    backup0(context, listManager, dir, selectedItemsFinal);
-                } else {
-                    Toast.makeText(context, R.string.toast_failedDirWrite, Toast.LENGTH_SHORT).show();
-                }
-            });
-        } else {
-            backup0(context, listManager, dir, selectedItemsFinal);
-        }
-    }
-
-    private static void backup0(Context context, ListManager listManager, File dir, List<Model> selectedItems) {
-        String text = "";
-        int success = 0;
-        for (Model item : selectedItems) {
-            if (item instanceof Script) {
-                Script script = (Script) item;
-                File file = new File(dir, script.getId() + "_" + script.getName().replace("[,\\./\\:*?\"<>\\|]", "_"));
-                String prefix = FLAGS;
-                if ((script.getFlags() >> 1 & 1) == 1) prefix += APP;
-                if ((script.getFlags() >> 2 & 1) == 1) prefix += ITEM;
-                if ((script.getFlags() >> 3 & 1) == 1) prefix += CUSTOM;
-                prefix += " " + NAME + script.getName() + "\n";
-                try (FileWriter writer = new FileWriter(file)) {
-                    writer.write(prefix + script.getCode());
-                    writer.flush();
-                    success++;
-                } catch (IOException e) {
-                    throw new FileManager.FatalFileException(e);
-                }
+    public static void backup(final Context context, final ListManager listManager, Script script, Uri uri) {
+        String prefix = FLAGS;
+        if ((script.getFlags() >> 1 & 1) == 1) prefix += APP;
+        if ((script.getFlags() >> 2 & 1) == 1) prefix += ITEM;
+        if ((script.getFlags() >> 3 & 1) == 1) prefix += CUSTOM;
+        prefix += " " + NAME + script.getName() + "\n";
+        try {
+            OutputStream outputStream = context.getContentResolver().openOutputStream(uri);
+            if (outputStream == null) throw new FileNotFoundException();
+            try (Writer writer = new OutputStreamWriter(outputStream)) {
+                writer.write(prefix + script.getCode());
+                writer.flush();
+                Toast.makeText(context, R.string.text_backupSuccessful, Toast.LENGTH_SHORT).show();
             }
+        } catch (IOException e) {
+            Toast.makeText(context, R.string.text_backupFailed, Toast.LENGTH_SHORT).show();
+        } finally {
+            listManager.deselectAll();
         }
-        if (success > 0) {
-            text += success + context.getString(R.string.text_backupSuccessful);
-            if (success < selectedItems.size()) {
-                text += "\n";
-            }
-        }
-        if (success < selectedItems.size()) {
-            text += context.getString(R.string.text_backupFailed) + (selectedItems.size() - success) + context.getString(R.string.text_scripts);
-        }
-        Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
-        listManager.deselectAll();
     }
 
     public static void editScript(Context context, ListManager listManager, Script script) {
@@ -182,24 +140,19 @@ final class ScriptUtils {
         final Transfer transfer = new Transfer(Transfer.DELETE);
         transfer.script = delete;
         scriptManager.getAsyncExecutorService()
-                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager))
-                .start();
+                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
     }
 
     public static void restoreFromFile(ScriptManager scriptManager, Context context, ListManager listManager, Uri uri) {
-        File file = new File(uri.getPath());
-        if (file.exists() && file.canRead()) {
-            try (FileReader reader = new FileReader(file)) {
-                char[] buffer = new char[(int) file.length()];
-                //noinspection ResultOfMethodCallIgnored
-                reader.read(buffer);
-                restoreDialog(scriptManager, context, listManager, new String(buffer), file.getName());
-            } catch (IOException e) {
-                throw new FileManager.FatalFileException(e);
+        try {
+            InputStream in = context.getContentResolver().openInputStream(uri);
+            if (in != null) {
+                restoreDialog(scriptManager, context, listManager, new StreamReader(in).read(), uri.getLastPathSegment());
+                return;
             }
-        } else {
-            Toast.makeText(context, context.getString(R.string.toast_failedLoad) + uri.getPath(), Toast.LENGTH_SHORT).show();
+        } catch (IOException ignored) {
         }
+        Toast.makeText(context, context.getString(R.string.toast_failedLoad) + uri.getPath(), Toast.LENGTH_SHORT).show();
     }
 
     private static void restoreDialog(final ScriptManager scriptManager, final Context context, final ListManager listManager, String s, String filename) {
@@ -228,21 +181,16 @@ final class ScriptUtils {
         editText.setText(nameFromFile);
         final String finalS = s;
         final int finalFlags = flags;
-        new AlertDialog.Builder(context)
-                .setView(editText)
-                .setTitle(R.string.title_chooseName)
-                .setPositiveButton(R.string.button_ok, (dialog, ignore) -> prepareRestore(scriptManager, context, listManager, finalS, editText.getText().toString(), finalFlags))
-                .setNegativeButton(R.string.button_cancel, null)
-                .show();
+        new AlertDialog.Builder(context).setView(editText).setTitle(R.string.title_chooseName).setPositiveButton(R.string.button_ok,
+                (dialog, ignore) -> prepareRestore(scriptManager, context, listManager, finalS, editText.getText().toString(), finalFlags))
+                .setNegativeButton(R.string.button_cancel, null).show();
     }
 
     private static void prepareRestore(final ScriptManager scriptManager, final Context context, final ListManager listManager, String code, String name, int flags) {
         final Script script = new Script(name, 0, code, flags, "/");
         if (listManager.exists(script)) {
-            new AlertDialog.Builder(context)
-                    .setMessage(R.string.message_overwrite)
-                    .setPositiveButton(R.string.button_ok, (dialog, ignore) -> restore(scriptManager, listManager, script))
-                    .setNegativeButton(R.string.button_cancel, null)
+            new AlertDialog.Builder(context).setMessage(R.string.message_overwrite)
+                    .setPositiveButton(R.string.button_ok, (dialog, ignore) -> restore(scriptManager, listManager, script)).setNegativeButton(R.string.button_cancel, null)
                     .show();
         } else {
             restore(scriptManager, listManager, script);
@@ -254,16 +202,14 @@ final class ScriptUtils {
         final Transfer transfer = new Transfer(Transfer.RESTORE);
         transfer.script = script;
         scriptManager.getAsyncExecutorService()
-                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager))
-                .start();
+                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
     }
 
     public static void toggleDisable(final ScriptManager scriptManager, final ListManager listManager, Script item) {
         final Transfer transfer = new Transfer(Transfer.TOGGLE_DISABLE);
         transfer.script = item;
         scriptManager.getAsyncExecutorService()
-                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager))
-                .start();
+                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
         item.setFlags(item.getFlags() ^ Loader.FLAG_DISABLED);
         listManager.changed(item);
         listManager.deselectAll();

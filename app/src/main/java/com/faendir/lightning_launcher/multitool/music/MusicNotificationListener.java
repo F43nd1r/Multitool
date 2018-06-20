@@ -38,9 +38,9 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 
-import java8.util.Optional;
-import java8.util.stream.RefStreams;
-import java8.util.stream.StreamSupport;
+import java9.util.Optional;
+import java9.util.stream.Stream;
+import java9.util.stream.StreamSupport;
 
 import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 
@@ -236,7 +236,7 @@ public class MusicNotificationListener implements NotificationListener {
 
         @Nullable
         private Bitmap loadBitmapForKeys(@NonNull String... keys) {
-            return RefStreams.of(keys).map(exceptionToOptional(key -> {
+            return Stream.of(keys).map(exceptionToOptional(key -> {
                 if (key.endsWith("URI")) {
                     String uri = metadata.getString(key);
                     if (uri != null) {

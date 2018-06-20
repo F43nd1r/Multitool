@@ -21,8 +21,8 @@ import com.faendir.lightning_launcher.multitool.fastadapter.DeletableModel;
 import java.util.List;
 import java.util.UUID;
 
-import java8.util.Optional;
-import java8.util.stream.StreamSupport;
+import java9.util.Optional;
+import java9.util.stream.StreamSupport;
 
 /**
  * Created on 26.01.2016.

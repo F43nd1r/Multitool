@@ -10,8 +10,6 @@ import com.faendir.lightning_launcher.multitool.gesture.LightningGestureView;
 import com.faendir.lightning_launcher.multitool.music.MusicListener;
 import com.faendir.lightning_launcher.multitool.music.TitleInfo;
 
-import java8.util.function.Consumer;
-
 /**
  * @author F43nd1r
  * @since 07.11.2017
@@ -20,12 +18,12 @@ import java8.util.function.Consumer;
 @Keep
 public class LightningObjectFactory {
 
-    public MusicListener constructMusicListener(Handler handler, Context context, Consumer<TitleInfo> onChangeConsumer) {
-        return new MusicListener(handler, context, onChangeConsumer);
+    public MusicListener constructMusicListener(Handler handler, Context context, LightningConsumer<TitleInfo> onChangeConsumer) {
+        return new MusicListener(handler, context, onChangeConsumer::accept);
     }
 
-    public BadgeListener constructBadgeListener(Handler handler, Context context, String packageName, Consumer<Integer> onChange) {
-        return new BadgeListener(handler, context, packageName, onChange);
+    public BadgeListener constructBadgeListener(Handler handler, Context context, String packageName, LightningConsumer<Integer> onChange) {
+        return new BadgeListener(handler, context, packageName, onChange::accept);
     }
 
     public BackupCreator constructBackupCreator(Context context) {
@@ -34,5 +32,10 @@ public class LightningObjectFactory {
 
     public LightningGestureView constructLightningGestureView(Context context) {
         return new LightningGestureView(context);
+    }
+
+    @FunctionalInterface
+    public interface LightningConsumer<T> {
+        void accept(T t);
     }
 }

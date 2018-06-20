@@ -23,11 +23,11 @@ import com.faendir.lightning_launcher.scriptlib.DialogActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-import java8.util.stream.StreamSupport;
+import java9.util.stream.StreamSupport;
 
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
 public class NotificationDistributorService extends NotificationListenerService {
-    private List<NotificationListener> listeners;
+    private final List<NotificationListener> listeners;
 
     public NotificationDistributorService() {
         listeners = new ArrayList<>();
@@ -36,15 +36,19 @@ public class NotificationDistributorService extends NotificationListenerService 
     @Override
     public void onCreate() {
         super.onCreate();
-        final BadgeNotificationListener badgeNotificationListener = new BadgeNotificationListener();
-        badgeNotificationListener.onCreate(this);
-        listeners.add(badgeNotificationListener);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        synchronized (listeners) {
+            final BadgeNotificationListener badgeNotificationListener = new BadgeNotificationListener();
+            badgeNotificationListener.onCreate(this);
+            listeners.add(badgeNotificationListener);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             new Thread(() -> {
-                if(new BaseBillingManager(this).isBoughtOrTrial(R.string.title_musicWidget)){
-                    final MusicNotificationListener musicNotificationListener = new MusicNotificationListener();
-                    musicNotificationListener.onCreate(this);
-                    listeners.add(musicNotificationListener);
+                if (new BaseBillingManager(this).isBoughtOrTrial(R.string.title_musicWidget)) {
+                    synchronized (listeners) {
+                        final MusicNotificationListener musicNotificationListener = new MusicNotificationListener();
+                        musicNotificationListener.onCreate(this);
+                        listeners.add(musicNotificationListener);
+                    }
                 }
             }).start();
         }
@@ -52,7 +56,9 @@ public class NotificationDistributorService extends NotificationListenerService 
 
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
-        StreamSupport.stream(listeners).forEach(l -> l.onNotificationPosted(this, sbn));
+        synchronized (listeners) {
+            StreamSupport.stream(listeners).forEach(l -> l.onNotificationPosted(this, sbn));
+        }
     }
 
     @Override
@@ -62,7 +68,9 @@ public class NotificationDistributorService extends NotificationListenerService 
 
     @Override
     public void onNotificationRemoved(StatusBarNotification sbn) {
-        StreamSupport.stream(listeners).forEach(l -> l.onNotificationRemoved(this, sbn));
+        synchronized (listeners) {
+            StreamSupport.stream(listeners).forEach(l -> l.onNotificationRemoved(this, sbn));
+        }
     }
 
     @Override
@@ -77,9 +85,7 @@ public class NotificationDistributorService extends NotificationListenerService 
     }
 
     public static void askForEnable(@NonNull Context context) {
-        new DialogActivity.Builder(context, R.style.AppTheme_Dialog_Alert)
-                .setTitle(R.string.title_listener)
-                .setMessage(R.string.text_listener)
+        new DialogActivity.Builder(context, R.style.AppTheme_Dialog_Alert).setTitle(R.string.title_listener).setMessage(R.string.text_listener)
                 .setButtons(android.R.string.yes, android.R.string.no, new ResultReceiver(new Handler()) {
                     @Override
                     protected void onReceiveResult(int resultCode, Bundle resultData) {
@@ -90,7 +96,6 @@ public class NotificationDistributorService extends NotificationListenerService 
                             context.startActivity(intent);
                         }
                     }
-                })
-                .show();
+                }).show();
     }
 }

@@ -9,7 +9,7 @@ import android.view.KeyEvent;
 import com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener;
 import com.faendir.lightning_launcher.multitool.util.provider.DataProvider;
 
-import java8.util.function.Consumer;
+import java9.util.function.Consumer;
 
 
 /**

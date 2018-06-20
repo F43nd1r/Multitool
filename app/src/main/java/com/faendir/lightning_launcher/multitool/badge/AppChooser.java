@@ -17,8 +17,8 @@ import com.faendir.lightning_launcher.multitool.util.notification.NotificationDi
 import java.util.Collections;
 import java.util.Set;
 
-import java8.util.stream.Collectors;
-import java8.util.stream.StreamSupport;
+import java9.util.stream.Collectors;
+import java9.util.stream.StreamSupport;
 
 /**
  * @author F43nd1r

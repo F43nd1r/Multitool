@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 
 import com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener;
 
-import java8.util.function.Consumer;
+import java9.util.function.Consumer;
 
 
 /**

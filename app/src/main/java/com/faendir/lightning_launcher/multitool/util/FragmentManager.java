@@ -90,7 +90,7 @@ public class FragmentManager {
                         drawer.openDrawer();
                 }
                 if (currentFragment != null && !context.isFinishing()) {
-                    manager.beginTransaction().replace(R.id.content_frame, currentFragment).commit();
+                    manager.beginTransaction().replace(R.id.content_frame, currentFragment).commitAllowingStateLoss();
                     sharedPref.edit().putString(context.getString(R.string.pref_lastFragment), finalName).apply();
                     lastId = request.getId();
                     ActionBar toolbar = context.getSupportActionBar();

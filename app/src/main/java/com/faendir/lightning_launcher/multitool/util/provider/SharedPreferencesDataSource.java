@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 
-import java8.util.function.BiConsumer;
+import java9.util.function.BiConsumer;
 
 /**
  * @author F43nd1r

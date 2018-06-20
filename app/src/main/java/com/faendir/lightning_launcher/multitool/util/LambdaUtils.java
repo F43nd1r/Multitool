@@ -2,13 +2,15 @@ package com.faendir.lightning_launcher.multitool.util;
 
 import android.support.annotation.NonNull;
 
-import java8.lang.FunctionalInterface;
-import java8.util.Optional;
-import java8.util.function.BiConsumer;
-import java8.util.function.BiFunction;
-import java8.util.function.Consumer;
-import java8.util.function.Function;
-import java8.util.function.Supplier;
+import java9.lang.FunctionalInterface;
+import java9.util.Optional;
+import java9.util.function.BiConsumer;
+import java9.util.function.BiFunction;
+import java9.util.function.Consumer;
+import java9.util.function.Function;
+import java9.util.function.Supplier;
+import java9.util.function.BiConsumer;
+import java9.util.function.Consumer;
 
 /**
  * @author F43nd1r

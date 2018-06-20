@@ -16,10 +16,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import java8.lang.Iterables;
-import java8.util.stream.Collectors;
-import java8.util.stream.RefStreams;
-import java8.util.stream.StreamSupport;
+import java9.lang.Iterables;
+import java9.util.stream.Collectors;
+import java9.util.stream.Stream;
+import java9.util.stream.StreamSupport;
 
 /**
  * @author F43nd1r
@@ -49,7 +49,7 @@ public class BadgeNotificationListener implements NotificationListener {
             } catch (RuntimeException ignored) {
             }
             if (array != null) {
-                List<StatusBarNotification> notifications = RefStreams.of(array).filter(n -> packageName.equals(n.getPackageName())).collect(Collectors.toList());
+                List<StatusBarNotification> notifications = Stream.of(array).filter(n -> packageName.equals(n.getPackageName())).collect(Collectors.toList());
                 int reduceBy = 0;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     Map<String, Integer> groupSizes = StreamSupport.stream(notifications)
@@ -57,7 +57,7 @@ public class BadgeNotificationListener implements NotificationListener {
                     Iterables.removeIf(groupSizes.entrySet(), e -> e.getValue() == 1);
                     reduceBy = groupSizes.size();
                 }
-                number = (int) (RefStreams.of(array).filter(n -> packageName.equals(n.getPackageName())).count() - reduceBy);
+                number = (int) (Stream.of(array).filter(n -> packageName.equals(n.getPackageName())).count() - reduceBy);
             }
             if (number == 0) {
                 number = 1;

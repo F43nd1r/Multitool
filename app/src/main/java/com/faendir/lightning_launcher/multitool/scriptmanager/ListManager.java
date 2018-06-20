@@ -5,16 +5,12 @@ import android.graphics.Color;
 import android.os.Handler;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
-import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.ViewGroup;
 
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.event.UpdateActionModeRequest;
 import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
 import com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory;
 import com.faendir.lightning_launcher.multitool.fastadapter.Model;
@@ -24,43 +20,39 @@ import com.mikepenz.fastadapter.adapters.ModelAdapter;
 import com.mikepenz.fastadapter.expandable.ExpandableExtension;
 import com.mikepenz.fastadapter_extensions.swipe.SimpleSwipeCallback;
 
-import org.acra.ACRA;
-import org.greenrobot.eventbus.EventBus;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-import java8.lang.Iterables;
-import java8.util.Optional;
-import java8.util.stream.Collectors;
-import java8.util.stream.IntStream;
-import java8.util.stream.IntStreams;
-import java8.util.stream.StreamSupport;
+import java9.lang.Iterables;
+import java9.util.Optional;
+import java9.util.function.Consumer;
+import java9.util.stream.Collectors;
+import java9.util.stream.IntStream;
+import java9.util.stream.StreamSupport;
 
 /**
  * Created on 01.04.2016.
  *
  * @author F43nd1r
  */
-class ListManager implements ActionMode.Callback {
+class ListManager {
 
-    @NonNull
-    private final ScriptManager scriptManager;
     private final Context context;
     private final RecyclerView recyclerView;
     private final ModelAdapter<Model, ExpandableItem<Model>> adapter;
     private final FastAdapter<ExpandableItem<Model>> fastAdapter;
     private final ItemFactory<Model> factory;
+    private final Consumer<Boolean> actionModeEnabler;
     private final ExpandableExtension<ExpandableItem<Model>> expandable;
 
-    ListManager(@NonNull ScriptManager scriptManager, @NonNull Context context) {
-        this.scriptManager = scriptManager;
+    ListManager(@NonNull ScriptManager scriptManager, @NonNull Context context, Consumer<Boolean> actionModeEnabler) {
         this.context = context;
         recyclerView = new RecyclerView(context);
         factory = new ItemFactory<>((int) (24 * context.getResources().getDisplayMetrics().density));
+        this.actionModeEnabler = actionModeEnabler;
         recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         adapter = new ModelAdapter<>(factory::wrap);
         fastAdapter = FastAdapter.with(adapter);
@@ -100,7 +92,7 @@ class ListManager implements ActionMode.Callback {
 
 
     private void fireUpdateActionMode() {
-        EventBus.getDefault().post(new UpdateActionModeRequest(this, !fastAdapter.getSelections().isEmpty()));
+        actionModeEnabler.accept(!fastAdapter.getSelections().isEmpty());
     }
 
     void deselectAll() {
@@ -162,7 +154,7 @@ class ListManager implements ActionMode.Callback {
             }
         }
         int[] expanded = expandable.getExpandedItems();
-        IntStream.Builder builder = IntStreams.builder();
+        IntStream.Builder builder = IntStream.builder();
         int start = 0;
         for (int e : expanded) {
             for (int i = start; i < e; i++) {
@@ -210,76 +202,19 @@ class ListManager implements ActionMode.Callback {
         return StreamSupport.stream(searchIn).filter(item -> script.getName().equals(item.getName())).findAny().isPresent();
     }
 
-    @Override
-    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-        mode.getMenuInflater().inflate(R.menu.menu_context_scriptmanager, menu);
-        onPrepareActionMode(mode, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-        int selectionMode = getSelectionMode();
-        if (selectionMode == ListManager.NONE) mode.finish();
-        final boolean isOneScript = selectionMode == ListManager.ONE_SCRIPT;
-        final boolean onlyScripts = isOneScript || selectionMode == ListManager.ONLY_SCRIPTS;
-        menu.findItem(R.id.action_rename).setVisible(selectionMode == ListManager.ONE_GROUP || isOneScript);
-        menu.findItem(R.id.action_edit).setVisible(isOneScript);
-        menu.findItem(R.id.action_backup).setVisible(onlyScripts);
-        menu.findItem(R.id.action_format).setVisible(onlyScripts);
-        MenuItem disable = menu.findItem(R.id.action_disable).setVisible(isOneScript);
-        if (isOneScript) {
-            disable.setTitle(((Script) StreamSupport.stream(getSelectedItems()).findAny().get()).isDisabled() ? R.string.menu_enable : R.string.menu_disable);
-        }
-        return true;
-    }
-
-    @Override
-    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-        List<Model> selectedItems = new ArrayList<>(getSelectedItems());
-        if (selectedItems.isEmpty()) {
-            ACRA.getErrorReporter().putCustomData("listManager", toString());
-            ACRA.getErrorReporter().handleSilentException(new IllegalStateException("No selected items"));
-            return false;
-        }
-        switch (item.getItemId()) {
-            case R.id.action_rename:
-                ScriptUtils.renameDialog(scriptManager, context, this, selectedItems.get(0));
-                break;
-            case R.id.action_edit:
-                ScriptUtils.editScript(context, this, (Script) selectedItems.get(0));
-                break;
-            case R.id.action_backup:
-                ScriptUtils.backup(context, this, selectedItems);
-                break;
-            case R.id.action_format:
-                ScriptUtils.format(scriptManager, context, this, selectedItems);
-                break;
-            case R.id.action_disable:
-                ScriptUtils.toggleDisable(scriptManager, this, (Script) selectedItems.get(0));
-                break;
-        }
-        return true;
-    }
-
-    @Override
-    public void onDestroyActionMode(ActionMode mode) {
-        deselectAll();
-    }
-
     @IntDef({NONE, ONE_SCRIPT, ONE_GROUP, ONLY_GROUPS, ONLY_SCRIPTS, BOTH})
     @interface SelectionMode {
     }
 
-    private static final int NONE = -1;
-    private static final int ONE_SCRIPT = 0;
-    private static final int ONE_GROUP = 1;
-    private static final int ONLY_SCRIPTS = 2;
+    static final int NONE = -1;
+    static final int ONE_SCRIPT = 0;
+    static final int ONE_GROUP = 1;
+    static final int ONLY_SCRIPTS = 2;
     private static final int ONLY_GROUPS = 3;
     private static final int BOTH = 4;
 
     @SelectionMode
-    private int getSelectionMode() {
+    int getSelectionMode() {
         Map<Boolean, List<Model>> m = StreamSupport.stream(fastAdapter.getSelectedItems()).map(ExpandableItem::getModel).collect(Collectors.partitioningBy(Folder.class::isInstance));
         List<Model> selectedScriptGroups = m.get(true);
         List<Model> selectedScripts = m.get(false);
@@ -290,7 +225,7 @@ class ListManager implements ActionMode.Callback {
                 : noScripts ? ONLY_GROUPS : BOTH;
     }
 
-    private List<Model> getSelectedItems() {
+    List<Model> getSelectedItems() {
         return StreamSupport.stream(fastAdapter.getSelectedItems()).map(ExpandableItem::getModel).collect(Collectors.toList());
     }
 }

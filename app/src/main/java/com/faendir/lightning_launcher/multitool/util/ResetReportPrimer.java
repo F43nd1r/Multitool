@@ -32,19 +32,4 @@ public class ResetReportPrimer implements ReportingAdministrator {
         sharedPref.edit().putString(context.getString(R.string.pref_lastFragment), null).apply();
         return true;
     }
-
-    @Override
-    public boolean shouldSendReport(@NonNull Context context, @NonNull CoreConfiguration config, @NonNull CrashReportData crashReportData) {
-        return true;
-    }
-
-    @Override
-    public void notifyReportDropped(@NonNull Context context, @NonNull CoreConfiguration config) {
-
-    }
-
-    @Override
-    public boolean enabled(@NonNull CoreConfiguration config) {
-        return true;
-    }
 }

@@ -20,8 +20,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import java8.util.stream.Collectors;
-import java8.util.stream.StreamSupport;
+import java9.util.stream.Collectors;
+import java9.util.stream.StreamSupport;
 
 public class BackupTimePreference extends DialogPreference implements View.OnClickListener, SummaryPreference {
     private BackupTime backupTime = BackupUtils.getBackupTime(null);

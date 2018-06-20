@@ -1,18 +1,14 @@
 package com.faendir.lightning_launcher.multitool.util;
 
-import android.content.ClipData;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
 
 import com.google.gson.Gson;
-import com.nononsenseapps.filepicker.FilePickerActivity;
+import com.google.gson.GsonBuilder;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import java8.util.stream.Collectors;
-import java8.util.stream.StreamSupport;
+import java.io.IOException;
 
 /**
  * @author F43nd1r
@@ -20,35 +16,39 @@ import java8.util.stream.StreamSupport;
  */
 
 public final class Utils {
-    public static final Gson GSON = new Gson();
+    public static final Gson GSON = new GsonBuilder()
+            .registerTypeAdapter(Intent.class, new IntentTypeAdapter())
+            .create();;
 
     private Utils() {
     }
 
-    @SuppressWarnings("unused")
-    public static List<Uri> getFilePickerActivityResult(Intent data) {
-        List<Uri> result = new ArrayList<>();
-        if (data.getBooleanExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false)) {
-            ClipData clip;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && (clip = data.getClipData()) != null) {
-                for (int i = 0; i < clip.getItemCount(); i++) {
-                    Uri uri = clip.getItemAt(i).getUri();
-                    if (uri != null) {
-                        result.add(uri);
-                    }
-                }
+    public static class IntentTypeAdapter extends TypeAdapter<Intent> {
+        private static final String URI = "uri";
+
+        @Override
+        public void write(JsonWriter out, Intent value) throws IOException {
+            out.beginObject();
+            out.name(URI);
+            if (value == null) {
+                out.nullValue();
             } else {
-                List<String> paths = data.getStringArrayListExtra(FilePickerActivity.EXTRA_PATHS);
-                if (paths != null) {
-                    result.addAll(StreamSupport.stream(paths).filter(path -> path != null).map(Uri::parse).collect(Collectors.toList()));
+                out.value(value.toUri(0));
+            }
+            out.endObject();
+        }
+
+        @Override
+        public Intent read(JsonReader in) throws IOException {
+            Intent intent = null;
+            in.beginObject();
+            while (in.hasNext()) {
+                if (URI.equals(in.nextName())) {
+                    intent = LambdaUtils.exceptionToOptional(Intent::parseUri).apply(in.nextString(), 0).orElse(intent);
                 }
             }
-        } else {
-            Uri uri = data.getData();
-            if (uri != null) {
-                result.add(uri);
-            }
+            in.endObject();
+            return intent;
         }
-        return result;
     }
 }

@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:custom="http://schemas.android.com/apk/res/com.faendir.lightning_launcher.multitool">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <SwitchPreference
         android:defaultValue="true"
         android:key="@string/pref_enableAcra"
         android:title="@string/title_enableAcra" />
-    <PreferenceCategory android:title="@string/title_scriptManager">
-        <Preference
-            android:key="@string/pref_directory"
-            android:title="@string/title_backupDir" />
-    </PreferenceCategory>
     <PreferenceCategory android:title="@string/title_musicWidget">
         <com.faendir.lightning_launcher.multitool.settings.TrialPreference android:title="@string/title_musicWidget" />
         <com.faendir.lightning_launcher.multitool.settings.PlayersPreference

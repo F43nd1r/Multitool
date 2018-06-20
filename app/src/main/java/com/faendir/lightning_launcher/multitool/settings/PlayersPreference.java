@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import java8.util.stream.Collectors;
-import java8.util.stream.StreamSupport;
+import java9.util.stream.Collectors;
+import java9.util.stream.StreamSupport;
 
 /**
  * @author F43nd1r

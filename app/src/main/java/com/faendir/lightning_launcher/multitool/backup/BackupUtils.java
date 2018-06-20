@@ -19,8 +19,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-import java8.util.stream.Collectors;
-import java8.util.stream.StreamSupport;
+import java9.util.stream.Collectors;
+import java9.util.stream.StreamSupport;
 
 import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 import static com.faendir.lightning_launcher.multitool.util.Utils.GSON;
@@ -68,7 +68,7 @@ public class BackupUtils {
             Calendar calendar = Calendar.getInstance();
             calendar.set(Calendar.MINUTE, time.getMinute());
             calendar.set(Calendar.HOUR_OF_DAY, time.getHour());
-            if (calendar.before(Calendar.getInstance())) {
+            if (!Calendar.getInstance().before(calendar)) {
                 calendar.add(Calendar.DATE, 1);
             }
             while (!time.getDays().contains(calendar.get(Calendar.DAY_OF_WEEK))) {
