@@ -18,6 +18,7 @@ import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.adapters.ModelAdapter;
 import com.mikepenz.fastadapter.expandable.ExpandableExtension;
+import com.mikepenz.fastadapter.select.SelectExtension;
 import com.mikepenz.fastadapter_extensions.swipe.SimpleSwipeCallback;
 
 import java.util.ArrayDeque;
@@ -43,25 +44,22 @@ class ListManager {
     private final Context context;
     private final RecyclerView recyclerView;
     private final ModelAdapter<Model, ExpandableItem<Model>> adapter;
-    private final FastAdapter<ExpandableItem<Model>> fastAdapter;
     private final ItemFactory<Model> factory;
-    private final Consumer<Boolean> actionModeEnabler;
     private final ExpandableExtension<ExpandableItem<Model>> expandable;
+    private final SelectExtension<ExpandableItem<Model>> selectable;
 
     ListManager(@NonNull ScriptManager scriptManager, @NonNull Context context, Consumer<Boolean> actionModeEnabler) {
         this.context = context;
         recyclerView = new RecyclerView(context);
         factory = new ItemFactory<>((int) (24 * context.getResources().getDisplayMetrics().density));
-        this.actionModeEnabler = actionModeEnabler;
         recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         adapter = new ModelAdapter<>(factory::wrap);
-        fastAdapter = FastAdapter.with(adapter);
         expandable = new ExpandableExtension<>();
-        fastAdapter.addExtension(expandable);
-        fastAdapter.withSelectable(true)
-                .withMultiSelect(true)
-                .withSelectWithItemUpdate(true)
-                .withSelectionListener((item, selected) -> fireUpdateActionMode());
+        selectable = new SelectExtension<>();
+        selectable.withSelectable(true).withMultiSelect(true).withSelectWithItemUpdate(true)
+                .withSelectionListener(((item, selected) -> actionModeEnabler.accept(!selectable.getSelections().isEmpty())));
+        FastAdapter fastAdapter = FastAdapter.with(adapter);
+        fastAdapter.addExtension(selectable).addExtension(expandable);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(fastAdapter);
         new ItemTouchHelper(new SimpleSwipeCallback((position, direction) -> {
@@ -90,16 +88,8 @@ class ListManager {
                 .attachToRecyclerView(recyclerView);
     }
 
-
-    private void fireUpdateActionMode() {
-        actionModeEnabler.accept(!fastAdapter.getSelections().isEmpty());
-    }
-
     void deselectAll() {
-        fastAdapter.deselect();
-    }
-
-    void changed(Model s) {
+        selectable.deselect();
     }
 
     void updateFrom(@NonNull List<Script> scripts) {
@@ -114,9 +104,8 @@ class ListManager {
                     if ("".equals(folder)) {
                         continue;
                     }
-                    Optional<ExpandableItem<Model>> optional = StreamSupport.stream(parentItems)
-                            .filter(item -> item.getModel() instanceof Folder).filter(item -> item.getModel().getName().equals(folder))
-                            .findAny();
+                    Optional<ExpandableItem<Model>> optional = StreamSupport.stream(parentItems).filter(item -> item.getModel() instanceof Folder)
+                            .filter(item -> item.getModel().getName().equals(folder)).findAny();
                     if (optional.isPresent()) {
                         parent = optional.get();
                     } else {
@@ -195,11 +184,7 @@ class ListManager {
     }
 
     boolean exists(Script script) {
-        return exists(script, getItems());
-    }
-
-    private boolean exists(Script script, List<Model> searchIn) {
-        return StreamSupport.stream(searchIn).filter(item -> script.getName().equals(item.getName())).findAny().isPresent();
+        return StreamSupport.stream(getItems()).filter(item -> script.getName().equals(item.getName())).findAny().isPresent();
     }
 
     @IntDef({NONE, ONE_SCRIPT, ONE_GROUP, ONLY_GROUPS, ONLY_SCRIPTS, BOTH})
@@ -215,17 +200,16 @@ class ListManager {
 
     @SelectionMode
     int getSelectionMode() {
-        Map<Boolean, List<Model>> m = StreamSupport.stream(fastAdapter.getSelectedItems()).map(ExpandableItem::getModel).collect(Collectors.partitioningBy(Folder.class::isInstance));
+        Map<Boolean, List<Model>> m = StreamSupport.stream(selectable.getSelectedItems()).map(ExpandableItem::getModel)
+                .collect(Collectors.partitioningBy(Folder.class::isInstance));
         List<Model> selectedScriptGroups = m.get(true);
         List<Model> selectedScripts = m.get(false);
         boolean noScripts = selectedScripts.isEmpty();
-        return selectedScriptGroups.isEmpty() ? noScripts ? NONE
-                : selectedScripts.size() == 1 ? ONE_SCRIPT : ONLY_SCRIPTS
-                : selectedScriptGroups.size() == 1 ? noScripts ? ONE_GROUP : BOTH
-                : noScripts ? ONLY_GROUPS : BOTH;
+        return selectedScriptGroups.isEmpty() ? noScripts ? NONE : selectedScripts.size() == 1 ? ONE_SCRIPT : ONLY_SCRIPTS : selectedScriptGroups
+                .size() == 1 ? noScripts ? ONE_GROUP : BOTH : noScripts ? ONLY_GROUPS : BOTH;
     }
 
     List<Model> getSelectedItems() {
-        return StreamSupport.stream(fastAdapter.getSelectedItems()).map(ExpandableItem::getModel).collect(Collectors.toList());
+        return StreamSupport.stream(selectable.getSelectedItems()).map(ExpandableItem::getModel).collect(Collectors.toList());
     }
 }

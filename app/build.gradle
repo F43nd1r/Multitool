@@ -2,14 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 93
-        versionName "2.13.3"
+        versionCode 94
+        versionName "2.13.4"
     }
     buildTypes {
         release {
@@ -49,11 +48,12 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'org.apache.commons:commons-collections4:4.1'
     implementation 'com.anjlab.android.iab.v3:library:1.0.44'
-    implementation 'com.mikepenz:materialdrawer:6.0.6'
+    implementation 'com.mikepenz:materialdrawer:6.0.8'
     implementation "com.mikepenz:fastadapter-extensions:3.2.7"
     implementation 'net.sourceforge.streamsupport:android-retrostreams:1.6.3'
     implementation 'org.mozilla:rhino:1.7.9'
     implementation 'com.evernote:android-job:1.2.6'
     compileOnly "com.google.auto.service:auto-service:1.0-rc4"
     annotationProcessor "com.google.auto.service:auto-service:1.0-rc4"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 }

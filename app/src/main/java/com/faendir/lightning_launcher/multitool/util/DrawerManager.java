@@ -37,12 +37,9 @@ public class DrawerManager implements Drawer.OnDrawerItemClickListener {
         }
     }
 
-    public boolean openDrawer() {
+    public void openDrawer() {
         if (!drawer.isDrawerOpen()) {
             drawer.openDrawer();
-            return true;
-        } else {
-            return false;
         }
     }
 

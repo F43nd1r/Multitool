@@ -43,21 +43,18 @@ final class SingleStoreGestureLibrary {
         if (DEBUG) Log.d(LOG_TAG, "Created Gesture Library");
     }
 
-    boolean save() {
-        return save(context);
+    void save() {
+        save(context);
     }
 
-    private static synchronized boolean save(Context context) {
-        if (!gestureStore.hasChanged()) return true;
-        boolean result = false;
+    private static synchronized void save(Context context) {
+        if (!gestureStore.hasChanged()) return;
         try {
             gestureStore.save(DataProvider.openFileForWrite(context, GestureLibraryDataSource.class), true);
-            result = true;
         } catch (IOException e) {
             if (DEBUG) Log.d(LOG_TAG, "Could not save the gesture library", e);
             ACRA.getErrorReporter().handleSilentException(e);
         }
-        return result;
     }
 
     private static void load(Context context) {

@@ -18,7 +18,7 @@ import com.faendir.lightning_launcher.multitool.fastadapter.DeletableModel;
 @Keep
 public class Script implements Comparable<Script>, DeletableModel {
     @SuppressWarnings("unused")
-    private int id;
+    private final int id;
     private String name;
     private String code;
     private int flags;
@@ -96,7 +96,7 @@ public class Script implements Comparable<Script>, DeletableModel {
     }
 
     @Override
-    public int getTintColor(@NonNull Context context) {
+    public int getTintColor() {
         return isDisabled() ? Color.RED : Color.WHITE;
     }
 

@@ -9,8 +9,6 @@ import java9.util.function.BiFunction;
 import java9.util.function.Consumer;
 import java9.util.function.Function;
 import java9.util.function.Supplier;
-import java9.util.function.BiConsumer;
-import java9.util.function.Consumer;
 
 /**
  * @author F43nd1r

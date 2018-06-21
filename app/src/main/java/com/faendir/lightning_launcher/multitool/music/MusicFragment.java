@@ -23,6 +23,7 @@ import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.multitool.util.LambdaUtils.ExceptionalFunction;
+import com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
 
@@ -51,6 +52,9 @@ public class MusicFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        if (NotificationDistributorService.isDisabled(getActivity())) {
+            NotificationDistributorService.askForEnable(getActivity());
+        }
         pm = getActivity().getPackageManager();
         musicListener = new MusicListener(new Handler(), getActivity(), info -> {
             synchronized (MusicFragment.this) {

@@ -212,22 +212,21 @@ public class FormatTask3 extends AsyncTask<Model, FormatTask3.Progress, Void> {
 
     @Override
     protected Void doInBackground(Model... params) {
-        for (Model item : params) {
-            if (item instanceof Script) {
-                Script script = (Script) item;
-                publishProgress(new Progress(script.getCode().length(), 0, script.getName()));
+        for (int i = 0; i < params.length; i++) {
+            if (params[i] instanceof Script) {
+                Script script = (Script) params[i];
+                publishProgress(new Progress(params.length, i, script.getName()));
                 String code = beautify(script.getCode());
                 if (code == null) return null;
                 script.setCode(code); //set the text to the script
                 Transfer transfer = new Transfer(Transfer.SET_CODE);
                 transfer.script = script;
-                scriptManager.getAsyncExecutorService().add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)),
-                        result -> {
-                            if (result != null) {
-                                List<Script> scripts = Arrays.asList(Utils.GSON.fromJson(result, Script[].class));
-                                listManager.updateFrom(scripts);
-                            }
-                        }).start();
+                scriptManager.getAsyncExecutorService().add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> {
+                    if (result != null) {
+                        List<Script> scripts = Arrays.asList(Utils.GSON.fromJson(result, Script[].class));
+                        listManager.updateFrom(scripts);
+                    }
+                }).start();
             }
         }
         return null;

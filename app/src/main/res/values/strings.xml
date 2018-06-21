@@ -196,6 +196,12 @@
     <string name="title_showZero">Show Zero</string>
     <string name="pref_jobIds">backup.job_ids</string>
     <string name="action_change_sorting">Sorting</string>
+    <string name="toast_clipboard">Copied to clipboard</string>
+    <string name="title_id">Your ID</string>
+    <string name="summary_id">Do not share this ID unless you have a problem with paid content and have been asked for it.</string>
+    <string name="title_idDialog">Your ID</string>
+    <string name="button_copyToClipboard">Copy to Clipboard</string>
+    <string name="button_close">Close</string>
     <string-array name="sortings">
         <item>Relevance</item>
         <item>Alphabetical</item>

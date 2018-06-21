@@ -84,10 +84,23 @@ public class IntentChooserFragment extends Fragment implements SearchView.OnQuer
         View root = inflater.inflate(R.layout.intent_chooser_page, container, false);
         Bundle args = getArguments();
         if (args != null) {
+            //noinspection ConstantConditions
             adapter = new ModelAdapter<>(new ComparableItemListImpl<>((o1, o2) -> o1.getModel().compareTo(o2.getModel())),
                     ItemFactory.<IntentInfo>forLauncherIconSize(getActivity())::wrap);
             fastAdapter = FastAdapter.with(adapter);
-            fastAdapter.withOnClickListener((v, adapter1, item, position) -> handleSelection(item.getModel()));
+            fastAdapter.withOnClickListener((v, adapter1, item, position) -> {
+                IntentInfo info = item.getModel();
+                if (info.isIndirect()) {
+                    startActivityForResult(info.getIntent(), 0);
+                } else if (info.getIntent() != null) {
+                    setResult(info.getIntent(), info.getName());
+                } else {
+                    nullIntent();
+                    ACRA.getErrorReporter().handleSilentException(new NullPointerException(info.getName() + " intent was null"));
+                }
+                return true;
+            });
+            //noinspection ConstantConditions
             adapter.getItemFilter().withFilterPredicate(((item, constraint) -> !item.getModel().getName().toLowerCase().contains(constraint.toString().toLowerCase())));
             Intent intent = args.getParcelable(KEY_INTENT);
             boolean indirect = args.getBoolean(KEY_INDIRECT);
@@ -117,18 +130,7 @@ public class IntentChooserFragment extends Fragment implements SearchView.OnQuer
         ((ComparableItemListImpl<ExpandableItem<IntentInfo>>) adapter.getItemList()).withComparator((o1, o2) -> comparator.compare(o1.getModel(), o2.getModel()));
     }
 
-    private boolean handleSelection(IntentInfo info) {
-        if (info.isIndirect()) {
-            startActivityForResult(info.getIntent(), 0);
-        } else if (info.getIntent() != null) {
-            setResult(info.getIntent(), info.getName());
-        } else {
-            nullIntent();
-            ACRA.getErrorReporter().handleSilentException(new NullPointerException(info.getName() + " intent was null"));
-        }
-        return true;
-    }
-
+    @SuppressWarnings("ConstantConditions")
     private void setResult(Intent intent, String label) {
         Intent result = new Intent();
         result.putExtra(Intent.EXTRA_INTENT, intent);

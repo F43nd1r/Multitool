@@ -33,6 +33,7 @@ class IntentHandlerListTask extends AsyncTask<Void, Void, List<IntentInfo>> {
         this.isIndirect = isIndirect;
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     protected final List<IntentInfo> doInBackground(Void... params) {
         List<ResolveInfo> resolveInfos = pm.queryIntentActivities(intent, 0);

@@ -92,7 +92,6 @@ final class ScriptUtils {
         } else if (item instanceof Folder) {
 //TODO
         }
-        listManager.changed(item);
         listManager.deselectAll();
     }
 
@@ -211,7 +210,6 @@ final class ScriptUtils {
         scriptManager.getAsyncExecutorService()
                 .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
         item.setFlags(item.getFlags() ^ Loader.FLAG_DISABLED);
-        listManager.changed(item);
         listManager.deselectAll();
     }
 

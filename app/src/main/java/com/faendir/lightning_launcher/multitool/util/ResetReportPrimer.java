@@ -12,7 +12,6 @@ import com.google.auto.service.AutoService;
 import org.acra.builder.ReportBuilder;
 import org.acra.config.CoreConfiguration;
 import org.acra.config.ReportingAdministrator;
-import org.acra.data.CrashReportData;
 
 /**
  * Created on 25.07.2016.

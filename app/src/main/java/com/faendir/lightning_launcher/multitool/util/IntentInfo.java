@@ -60,7 +60,7 @@ public class IntentInfo implements Model, Comparable<IntentInfo>{
     }
 
     @Override
-    public int getTintColor(@NonNull Context context) {
+    public int getTintColor() {
         return Color.WHITE;
     }
 }

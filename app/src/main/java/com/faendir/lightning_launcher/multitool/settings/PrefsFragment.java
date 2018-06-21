@@ -23,8 +23,8 @@ public class PrefsFragment extends PreferenceFragment {
         sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         listener = new PreferenceListener(getPreferenceScreen());
         Runnable backupChanged = () -> BackupUtils.scheduleNext(getActivity());
-        listener.addPreferenceForSummary(getString(R.string.pref_backupTime), backupChanged, false);
-        listener.addPreference(getString(R.string.pref_enableBackup), backupChanged, false);
+        listener.addPreferenceForSummary(getString(R.string.pref_backupTime), backupChanged);
+        listener.addPreference(getString(R.string.pref_enableBackup), backupChanged);
         listener.addPreferenceForSummary(getString(R.string.pref_coverMode));
         listener.addPreferenceForSummary(getString(R.string.pref_activePlayers));
         listener.addPreferenceForSummary(getString(R.string.pref_musicDefault));

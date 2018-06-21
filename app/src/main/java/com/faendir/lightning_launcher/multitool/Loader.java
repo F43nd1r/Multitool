@@ -46,6 +46,7 @@ public class Loader extends Activity {
 
     private BillingManager billingManager;
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

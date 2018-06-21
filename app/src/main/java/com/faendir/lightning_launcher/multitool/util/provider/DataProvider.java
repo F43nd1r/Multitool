@@ -34,6 +34,7 @@ import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptio
  * @author F43nd1r
  * @since 15.08.2015
  */
+@SuppressWarnings("ConstantConditions")
 public class DataProvider extends ContentProvider {
 
     private enum Mode {

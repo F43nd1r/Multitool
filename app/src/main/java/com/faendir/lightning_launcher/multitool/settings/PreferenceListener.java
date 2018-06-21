@@ -49,79 +49,41 @@ class PreferenceListener implements SharedPreferences.OnSharedPreferenceChangeLi
     /**
      * add a preference to keep its summary set to its value
      *
-     * @param preference the preference
-     */
-    void addPreferenceForSummary(@NonNull Preference preference) {
-        addPreferenceForSummary(preference.getKey());
-    }
-
-    /**
-     * add a preference to keep its summary set to its value
-     *
      * @param key the preference identifier
      */
     void addPreferenceForSummary(String key) {
-        addPreference(key, true, null, false);
+        addPreference(key, true, null);
     }
 
     /**
      * add an action to execute when the preference changes
-     *
-     * @param preference the preference
-     * @param action     the action
-     * @param runOnAdd   if the action should be run once instantly
-     */
-    void addPreference(@NonNull Preference preference, Runnable action, boolean runOnAdd) {
-        addPreference(preference.getKey(), action, runOnAdd);
-    }
-
-    /**
-     * add an action to execute when the preference changes
-     *
-     * @param key      the preference identifier
+     *  @param key      the preference identifier
      * @param action   the action
-     * @param runOnAdd if the action should be run once instantly
      */
-    void addPreference(String key, Runnable action, boolean runOnAdd) {
-        addPreference(key, false, action, runOnAdd);
+    void addPreference(String key, Runnable action) {
+        addPreference(key, false, action);
     }
 
     /**
      * add an action to execute when the preference changes and keep its summary set to its value
-     *
-     * @param preference the preference
-     * @param action     the action
-     * @param runOnAdd   if the action should be run once instantly
-     */
-    void addPreferenceForSummary(@NonNull Preference preference, Runnable action, boolean runOnAdd) {
-        addPreference(preference.getKey(), true, action, runOnAdd);
-    }
-
-    /**
-     * add an action to execute when the preference changes and keep its summary set to its value
-     *
-     * @param key      the preference identifier
+     *  @param key      the preference identifier
      * @param action   the action
-     * @param runOnAdd if the action should be run once instantly
      */
-    void addPreferenceForSummary(String key, Runnable action, boolean runOnAdd) {
-        addPreference(key, true, action, runOnAdd);
+    void addPreferenceForSummary(String key, Runnable action) {
+        addPreference(key, true, action);
     }
 
     /**
      * add an action to execute when the preference changes and optionally keep its summary set to its value
-     *
-     * @param key               the preference identifier
+     *  @param key               the preference identifier
      * @param setSummaryToValue if the summary should be kept set to the value
      * @param action            the action
-     * @param runOnAdd          if the action should be run once instantly
      */
-    private void addPreference(String key, boolean setSummaryToValue, Runnable action, boolean runOnAdd) {
+    private void addPreference(String key, boolean setSummaryToValue, Runnable action) {
         map.put(key, new Wrapper(action, setSummaryToValue));
         if (setSummaryToValue) {
             setSummary(key);
         }
-        if (runOnAdd && action != null) action.run();
     }
 
     private static class Wrapper {

@@ -7,10 +7,8 @@
           android:gravity="center_vertical"
           android:textColor="@android:color/black"
           android:textSize="20sp"
-          android:paddingLeft="30dp"
           android:paddingStart="30dp"
           android:paddingTop="10dp"
-          android:paddingRight="10dp"
           android:paddingEnd="10dp"
           android:paddingBottom="10dp"
     tools:keep="@layout/list_item" />

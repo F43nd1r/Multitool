@@ -115,7 +115,7 @@ public class GestureInfo implements Parcelable, DeletableModel {
     }
 
     @Override
-    public int getTintColor(@NonNull Context context) {
+    public int getTintColor() {
         return Color.WHITE;
     }
 
@@ -130,6 +130,7 @@ public class GestureInfo implements Parcelable, DeletableModel {
     @Override
     public Drawable getIcon(@NonNull Context context) {
         if (drawable == null) {
+            //noinspection ConstantConditions
             int iconSize = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getLauncherLargeIconSize();
             int color = context.getResources().getColor(R.color.accent);
             Gesture gesture = getGesture(context);

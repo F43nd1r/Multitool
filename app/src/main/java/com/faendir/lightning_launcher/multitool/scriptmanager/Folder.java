@@ -41,7 +41,7 @@ public class Folder implements Comparable<Folder>, Model {
     }
 
     @Override
-    public int getTintColor(@NonNull Context context) {
+    public int getTintColor() {
         return Color.WHITE;
     }
 

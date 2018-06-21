@@ -40,7 +40,6 @@
         android:id="@+id/image_player"
         android:layout_width="wrap_content"
         android:layout_height="75dp"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@id/textView6"
         android:foregroundGravity="center"
@@ -86,7 +85,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text_artist"
-        android:layout_toLeftOf="@+id/button_play"
         android:layout_toStartOf="@+id/button_play"
         android:contentDescription="@string/text_previous"
         android:onClick="onButtonClick"
@@ -98,7 +96,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/text_artist"
         android:layout_toEndOf="@+id/button_play"
-        android:layout_toRightOf="@+id/button_play"
         android:contentDescription="@string/text_next"
         android:onClick="onButtonClick"
         app:srcCompat="@drawable/ic_next" />

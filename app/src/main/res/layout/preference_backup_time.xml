@@ -1,82 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.percent.PercentRelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/buttonMonday"
-        android:background="@drawable/round_button"
-        android:text="@string/button_monday"
-        app:layout_aspectRatio="100%"
-        app:layout_marginPercent="2.14%"
-        app:layout_widthPercent="10%"/>
-
-    <Button
-        android:id="@+id/buttonTuesday"
-        android:layout_toEndOf="@id/buttonMonday"
-        android:layout_toRightOf="@id/buttonMonday"
-        android:background="@drawable/round_button"
-        android:text="@string/button_tuesday"
-        app:layout_aspectRatio="100%"
-        app:layout_marginPercent="2.14%"
-        app:layout_widthPercent="10%"/>
-
-    <Button
-        android:id="@+id/buttonWednesday"
-        android:layout_toEndOf="@id/buttonTuesday"
-        android:layout_toRightOf="@id/buttonTuesday"
-        android:background="@drawable/round_button"
-        android:text="@string/button_wednesday"
-        app:layout_aspectRatio="100%"
-        app:layout_marginPercent="2.14%"
-        app:layout_widthPercent="10%"/>
-
-    <Button
-        android:id="@+id/buttonThursday"
-        android:layout_toEndOf="@id/buttonWednesday"
-        android:layout_toRightOf="@id/buttonWednesday"
-        android:background="@drawable/round_button"
-        android:text="@string/button_thursday"
-        app:layout_aspectRatio="100%"
-        app:layout_marginPercent="2.14%"
-        app:layout_widthPercent="10%"/>
-
-    <Button
-        android:id="@+id/buttonFriday"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@id/buttonThursday"
-        android:layout_toRightOf="@id/buttonThursday"
-        android:background="@drawable/round_button"
-        android:text="@string/button_friday"
-        app:layout_aspectRatio="100%"
-        app:layout_marginPercent="2.14%"
-        app:layout_widthPercent="10%"/>
-
-    <Button
-        android:id="@+id/buttonSaturday"
-        android:layout_toEndOf="@id/buttonFriday"
-        android:layout_toRightOf="@id/buttonFriday"
-        android:background="@drawable/round_button"
-        android:text="@string/button_saturday"
-        app:layout_aspectRatio="100%"
-        app:layout_marginPercent="2.14%"
-        app:layout_widthPercent="10%"/>
-
-    <Button
-        android:id="@+id/buttonSunday"
-        android:layout_toEndOf="@id/buttonSaturday"
-        android:layout_toRightOf="@id/buttonSaturday"
-        android:background="@drawable/round_button"
-        android:text="@string/button_sunday"
-        app:layout_aspectRatio="100%"
-        app:layout_marginPercent="2.14%"
-        app:layout_widthPercent="10%"/>
-
-    <TimePicker
-        android:id="@+id/timePicker"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/buttonMonday"/>
-</android.support.percent.PercentRelativeLayout>
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/buttonMonday"
+            android:background="@drawable/round_button"
+            android:text="@string/button_monday"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/buttonTuesday"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="10"
+            app:layout_constraintStart_toStartOf="@id/timePicker"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonTuesday"
+            android:background="@drawable/round_button"
+            android:text="@string/button_tuesday"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/buttonWednesday"
+            app:layout_constraintHorizontal_weight="10"
+            app:layout_constraintStart_toEndOf="@id/buttonMonday"
+            app:layout_constraintTop_toTopOf="@id/buttonMonday" />
+
+        <Button
+            android:id="@+id/buttonWednesday"
+            android:background="@drawable/round_button"
+            android:text="@string/button_wednesday"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/buttonThursday"
+            app:layout_constraintHorizontal_weight="10"
+            app:layout_constraintStart_toEndOf="@id/buttonTuesday"
+            app:layout_constraintTop_toTopOf="@id/buttonMonday" />
+
+        <Button
+            android:id="@+id/buttonThursday"
+            android:background="@drawable/round_button"
+            android:text="@string/button_thursday"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/buttonFriday"
+            app:layout_constraintHorizontal_weight="10"
+            app:layout_constraintStart_toEndOf="@id/buttonWednesday"
+            app:layout_constraintTop_toTopOf="@id/buttonMonday" />
+
+        <Button
+            android:id="@+id/buttonFriday"
+            android:background="@drawable/round_button"
+            android:text="@string/button_friday"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/buttonSaturday"
+            app:layout_constraintHorizontal_weight="10"
+            app:layout_constraintStart_toEndOf="@id/buttonThursday"
+            app:layout_constraintTop_toTopOf="@id/buttonMonday" />
+
+        <Button
+            android:id="@+id/buttonSaturday"
+            android:background="@drawable/round_button"
+            android:text="@string/button_saturday"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/buttonSunday"
+            app:layout_constraintHorizontal_weight="10"
+            app:layout_constraintStart_toEndOf="@id/buttonFriday"
+            app:layout_constraintTop_toTopOf="@id/buttonMonday" />
+
+        <Button
+            android:id="@+id/buttonSunday"
+            android:background="@drawable/round_button"
+            android:text="@string/button_sunday"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_width="0dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@id/timePicker"
+            app:layout_constraintHorizontal_weight="10"
+            app:layout_constraintStart_toEndOf="@id/buttonSaturday"
+            app:layout_constraintTop_toTopOf="@id/buttonMonday" />
+
+        <TimePicker
+            android:id="@+id/timePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonMonday" />
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

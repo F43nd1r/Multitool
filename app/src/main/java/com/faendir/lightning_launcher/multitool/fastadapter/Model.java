@@ -13,5 +13,5 @@ import android.support.annotation.NonNull;
 public interface Model {
     String getName();
     Drawable getIcon(@NonNull Context context);
-    @ColorInt int getTintColor(@NonNull Context context);
+    @ColorInt int getTintColor();
 }

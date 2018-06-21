@@ -78,10 +78,10 @@ public class NotificationDistributorService extends NotificationListenerService 
         onNotificationRemoved(sbn);
     }
 
-    public static boolean isEnabled(@NonNull Context context) {
+    public static boolean isDisabled(@NonNull Context context) {
         ComponentName notificationListener = new ComponentName(context, NotificationDistributorService.class);
         String flat = Settings.Secure.getString(context.getContentResolver(), "enabled_notification_listeners");
-        return flat != null && flat.contains(notificationListener.flattenToString());
+        return flat == null || !flat.contains(notificationListener.flattenToString());
     }
 
     public static void askForEnable(@NonNull Context context) {
