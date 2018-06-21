@@ -40,7 +40,6 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$supportVersion"
     implementation "com.android.support:recyclerview-v7:$supportVersion"
     implementation "com.android.support:design:$supportVersion"
-    implementation "com.android.support:percent:$supportVersion"
     implementation 'com.google.code.gson:gson:2.8.4'
     implementation "ch.acra:acra-http:$acraVersion"
     implementation "ch.acra:acra-limiter:$acraVersion"
