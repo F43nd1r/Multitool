@@ -47,5 +47,11 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/title_info">
         <com.faendir.lightning_launcher.multitool.settings.VersionPreference android:title="@string/title_version" />
+        <com.faendir.lightning_launcher.multitool.settings.IdPreference
+            android:title="@string/title_id"
+            android:summary="@string/summary_id"
+            android:dialogTitle="@string/title_idDialog"
+            android:positiveButtonText="@string/button_copyToClipboard"
+            android:negativeButtonText="@string/button_close"/>
     </PreferenceCategory>
 </PreferenceScreen>
