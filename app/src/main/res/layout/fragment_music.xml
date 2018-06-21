@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -16,88 +15,102 @@
         android:gravity="center"
         android:onClick="onButtonClick"
         android:text="@string/button_updateMusic"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@id/button_updateMusic"
+        android:gravity="center"
+        android:layout_height="0dp"
         android:text="@string/currently_playing"
         android:textAlignment="center"
         android:textStyle="normal|bold"
-        tools:textSize="18sp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_updateMusic" />
 
     <ImageView
         android:id="@+id/image_album"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/textView6"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
         android:foregroundGravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView6"
+        app:layout_constraintBottom_toTopOf="@id/text_title"
         tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/image_player"
-        android:layout_width="wrap_content"
-        android:layout_height="75dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/textView6"
+        android:layout_width="75dp"
+        android:layout_height="0dp"
         android:foregroundGravity="center"
         android:padding="10dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView6"
         tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/text_title"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@id/image_album"
+        android:layout_height="0dp"
         android:textAlignment="center"
-        android:textIsSelectable="true" />
+        android:textIsSelectable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/text_album" />
 
     <TextView
         android:id="@+id/text_album"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@id/text_title"
+        android:layout_height="0dp"
         android:textAlignment="center"
-        android:textIsSelectable="true" />
+        android:textIsSelectable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/text_artist"  />
 
     <TextView
         android:id="@+id/text_artist"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@id/text_album"
+        android:layout_height="0dp"
         android:textAlignment="center"
-        android:textIsSelectable="true" />
-
-    <ImageButton
-        android:id="@+id/button_play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text_artist"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/text_play"
-        android:onClick="onButtonClick"
-        app:srcCompat="@drawable/ic_play" />
+        android:textIsSelectable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_play" />
 
     <ImageButton
         android:id="@+id/button_prev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_artist"
-        android:layout_toStartOf="@+id/button_play"
         android:contentDescription="@string/text_previous"
         android:onClick="onButtonClick"
+        app:layout_constraintEnd_toStartOf="@id/button_play"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@drawable/ic_previous" />
+
+    <ImageButton
+        android:id="@+id/button_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/text_play"
+        android:onClick="onButtonClick"
+        app:layout_constraintLeft_toRightOf="@id/button_prev"
+        app:layout_constraintRight_toLeftOf="@id/button_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_play" />
 
     <ImageButton
         android:id="@+id/button_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_artist"
-        android:layout_toEndOf="@+id/button_play"
         android:contentDescription="@string/text_next"
         android:onClick="onButtonClick"
+        app:layout_constraintStart_toEndOf="@+id/button_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@drawable/ic_next" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
