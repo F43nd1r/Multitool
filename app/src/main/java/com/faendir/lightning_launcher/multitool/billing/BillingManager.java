@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.anjlab.android.iab.v3.TransactionDetails;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
-
+import java9.util.function.IntConsumer;
 import org.greenrobot.eventbus.EventBus;
 
 import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
@@ -75,26 +75,18 @@ public class BillingManager extends BaseBillingManager {
     }
 
     public void showTrialDialog(@StringRes final int which, @Nullable final Runnable onClose) {
-        if (!context.isFinishing()) {
-            new AlertDialog.Builder(context)
-                    .setTitle(R.string.title_trial)
-                    .setMessage(context.getString(R.string.message_trial, context.getString(which)))
-                    .setPositiveButton(R.string.button_ok, (dialog, ignore) -> new Thread(() -> {
-                        startTrial(which);
-                        runIfNotNull(onClose);
-                    }).start())
-                    .setNegativeButton(R.string.button_cancel, (dialogInterface, i) -> runIfNotNull(onClose))
-                    .setOnCancelListener(dialogInterface -> runIfNotNull(onClose))
-                    .setCancelable(false)
-                    .show();
-        }
+        showDialog(R.string.title_trial, R.string.message_trial, which, this::startTrial, onClose);
     }
 
     public void showBuyDialog(@StringRes final int which, @Nullable final Runnable onClose) {
+        showDialog(R.string.title_buy, R.string.message_buy, which, this::buy, onClose);
+    }
+
+    private void showDialog(@StringRes int title, @StringRes int message, @StringRes final int which, @NonNull IntConsumer onPositive, @Nullable final Runnable onClose) {
         if (!context.isFinishing()) {
             new AlertDialog.Builder(context)
-                    .setTitle(R.string.title_buy)
-                    .setMessage(context.getString(R.string.message_buy, context.getString(which)))
+                    .setTitle(title)
+                    .setMessage(context.getString(message, context.getString(which)))
                     .setPositiveButton(R.string.button_ok, (dialog, ignore) -> new Thread(() -> {
                         buy(which);
                         runIfNotNull(onClose);

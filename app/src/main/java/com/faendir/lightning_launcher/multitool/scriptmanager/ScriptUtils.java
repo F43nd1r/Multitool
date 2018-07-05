@@ -136,10 +136,7 @@ final class ScriptUtils {
     }
 
     public static void deleteScript(final ScriptManager scriptManager, final ListManager listManager, Script delete) {
-        final Transfer transfer = new Transfer(Transfer.DELETE);
-        transfer.script = delete;
-        scriptManager.getAsyncExecutorService()
-                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
+        simpleCommand(scriptManager, listManager, Transfer.DELETE, delete);
     }
 
     public static void restoreFromFile(ScriptManager scriptManager, Context context, ListManager listManager, Uri uri) {
@@ -198,8 +195,11 @@ final class ScriptUtils {
     }
 
     private static void restore(final ScriptManager scriptManager, final ListManager listManager, Script script) {
-        final Transfer transfer = new Transfer(Transfer.RESTORE);
-        transfer.script = script;
+        simpleCommand(scriptManager, listManager, Transfer.RESTORE, script);
+    }
+
+    private static void simpleCommand(final ScriptManager scriptManager, final ListManager listManager, String command, Script script) {
+        final Transfer transfer = new Transfer(command, script);
         scriptManager.getAsyncExecutorService()
                 .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
     }

@@ -19,4 +19,9 @@ class Transfer {
     public Transfer(String request){
         this.request = request;
     }
+
+    public Transfer(String request, Script script) {
+        this.script = script;
+        this.request = request;
+    }
 }
