@@ -9,23 +9,30 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.Utils;
+import java9.util.function.BiConsumer;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 
-import java9.util.function.BiConsumer;
-
 /**
  * @author F43nd1r
  * @since 06.11.2017
  */
-
 public class SharedPreferencesDataSource implements QueryUpdateDataSource {
     private boolean init = false;
+
+    @Nullable
+    public static String getString(@NonNull Context context, @NonNull String key) {
+        try (Cursor cursor = context.getContentResolver().query(DataProvider.getContentUri(SharedPreferencesDataSource.class), null, null, new String[]{key}, null)) {
+            if(cursor != null && cursor.moveToFirst()){
+                return cursor.getString(1);
+            }
+        }
+        return null;
+    }
 
     @Override
     public String getPath() {
@@ -51,7 +58,7 @@ public class SharedPreferencesDataSource implements QueryUpdateDataSource {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPref.edit();
         for (Map.Entry<String, Object> entry : values.valueSet()) {
-            if(entry.getValue() == null){
+            if (entry.getValue() == null) {
                 editor.remove(entry.getKey());
                 continue;
             }
@@ -70,7 +77,7 @@ public class SharedPreferencesDataSource implements QueryUpdateDataSource {
         return values.size();
     }
 
-    protected void init(@NonNull Context context) {
+    private void init(@NonNull Context context) {
         if (!init) {
             PreferenceManager.setDefaultValues(context, R.xml.prefs, true);
             PreferenceManager.setDefaultValues(context, R.xml.drawer, true);

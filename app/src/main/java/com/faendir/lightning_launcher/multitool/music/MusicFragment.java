@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
@@ -18,7 +17,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
@@ -26,7 +24,6 @@ import com.faendir.lightning_launcher.multitool.util.LambdaUtils.ExceptionalFunc
 import com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
@@ -56,7 +53,7 @@ public class MusicFragment extends Fragment {
             NotificationDistributorService.askForEnable(getActivity());
         }
         pm = getActivity().getPackageManager();
-        musicListener = new MusicListener(new Handler(), getActivity(), info -> {
+        musicListener = new MusicListener(getActivity(), info -> {
             synchronized (MusicFragment.this) {
                 if (info.getAlbumArt() == null) {
                     bitmap = null;

@@ -23,7 +23,7 @@ import com.faendir.lightning_launcher.multitool.proxy.Event;
 import com.faendir.lightning_launcher.multitool.proxy.Image;
 import com.faendir.lightning_launcher.multitool.proxy.ImageBitmap;
 import com.faendir.lightning_launcher.multitool.proxy.Item;
-import com.faendir.lightning_launcher.multitool.proxy.Lightning;
+import com.faendir.lightning_launcher.multitool.proxy.LL;
 import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
 import com.faendir.lightning_launcher.multitool.proxy.Shortcut;
 import com.mikepenz.fastadapter.FastAdapter;
@@ -58,14 +58,14 @@ import java.util.Set;
  */
 public class MultiToolScript {
     private final Context context;
-    private final Lightning lightning;
+    private final LL ll;
     private final Context packageContext;
     private final Event event;
 
-    public MultiToolScript(Context context, Lightning lightning) {
+    public MultiToolScript(Context context, LL ll) {
         this.context = context;
-        this.lightning = lightning;
-        event = lightning.getEvent();
+        this.ll = ll;
+        event = ll.getEvent();
         try {
             this.packageContext = context.createPackageContext(BuildConfig.APPLICATION_ID, Context.CONTEXT_INCLUDE_CODE | Context.CONTEXT_IGNORE_SECURITY);
         } catch (PackageManager.NameNotFoundException e) {
@@ -95,9 +95,10 @@ public class MultiToolScript {
                 new Action("Resize all detached items", () -> showResizeDetached(dialog)),
                 new Action("Delete all items", () -> showDelete(dialog))).map(factory::wrap).collect(Collectors.toList()));
         ExpandableItem<Model> other = factory.wrap(new ActionGroup("Other"));
-        other.withSubItems(Stream.of(new Action("Reset Tag", () -> showResetTag(dialog)), new Action("Reset Tool", () -> showResetTool(dialog)), new Action("Save changes", () -> save(dialog)), new Action("Delete recent app history", () -> deleteHistory(dialog)))
-                .map(factory::wrap)
-                .collect(Collectors.toList()));
+        other.withSubItems(Stream.of(new Action("Reset Tag", () -> showResetTag(dialog)),
+                new Action("Reset Tool", () -> showResetTool(dialog)),
+                new Action("Save changes", () -> save(dialog)),
+                new Action("Delete recent app history", () -> deleteHistory(dialog))).map(factory::wrap).collect(Collectors.toList()));
         FastAdapter fastAdapter = FastAdapter.with(new ModelAdapter<>(new DefaultItemListImpl<>(new ArrayList<>(Arrays.asList(information, itemUtils, other))), factory::wrap))
                 .addExtension(new ExpandableExtension<>());
         recyclerView.setAdapter(fastAdapter);
@@ -113,7 +114,7 @@ public class MultiToolScript {
 
     private void save(AlertDialog dialog) {
         dialog.dismiss();
-        lightning.save();
+        ll.save();
         Toast.makeText(context, "Saved Layout", Toast.LENGTH_SHORT).show();
     }
 
@@ -132,7 +133,7 @@ public class MultiToolScript {
         new AlertDialog.Builder(context).setMultiChoiceItems(listItems, null, (dialog1, which, isChecked) -> bools[which] = isChecked)
                 .setTitle("Reset")
                 .setCancelable(true)
-                .setPositiveButton("Confirm", (dialog1, which) -> {
+                .setPositiveButton(packageContext.getString(R.string.button_confirm), (dialog1, which) -> {
                     for (Item item : items) {
                         if (bools[0]) item.setCell(0, 0, 1, 1);
                         if (bools[1]) item.setPosition(0, 0);
@@ -167,18 +168,22 @@ public class MultiToolScript {
                 deleter.accept(tag);
             }
             Toast.makeText(context, "Deleting tag(s) done!", Toast.LENGTH_SHORT).show();
-            lightning.save();
-        }).setNegativeButton("Cancel", null).show();
+            ll.save();
+        }).setNegativeButton(packageContext.getString(R.string.button_cancel), null).show();
     }
 
     private void showDelete(AlertDialog dialog) {
         dialog.dismiss();
-        new AlertDialog.Builder(context).setTitle("Delete all items").setMessage("Are you sure?").setPositiveButton("Confirm delete", (dialog1, which) -> {
-            Container container = event.getContainer();
-            for (Item item : container.getAllItems()) {
-                container.removeItem(item);
-            }
-        }).setNegativeButton("Cancel", null).show();
+        new AlertDialog.Builder(context).setTitle("Delete all items")
+                .setMessage("Are you sure?")
+                .setPositiveButton(packageContext.getString(R.string.button_confirm), (dialog1, which) -> {
+                    Container container = event.getContainer();
+                    for (Item item : container.getAllItems()) {
+                        container.removeItem(item);
+                    }
+                })
+                .setNegativeButton(packageContext.getString(R.string.button_cancel), null)
+                .show();
     }
 
     private void showResizeDetached(AlertDialog dialog) {
@@ -202,14 +207,19 @@ public class MultiToolScript {
         heightPicker.setMaxValue(9999);
         heightPicker.setValue((int) c.getCellHeight());
         linearLayout.addView(heightPicker);
-        new AlertDialog.Builder(context).setView(linearLayout).setCancelable(true).setTitle("To which size?").setPositiveButton("Confirm", (dialog1, which) -> {
-            int width = widthPicker.getValue();
-            int height = heightPicker.getValue();
-            Item[] items = c.getAllItems();
-            for (Item item : items) {
-                item.setSize(width, height);
-            }
-        }).setNegativeButton("Cancel", null).show();
+        new AlertDialog.Builder(context).setView(linearLayout)
+                .setCancelable(true)
+                .setTitle("To which size?")
+                .setPositiveButton(packageContext.getString(R.string.button_confirm), (dialog1, which) -> {
+                    int width = widthPicker.getValue();
+                    int height = heightPicker.getValue();
+                    Item[] items = c.getAllItems();
+                    for (Item item : items) {
+                        item.setSize(width, height);
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
     }
 
     private void showAttachDetach(AlertDialog dialog) {
@@ -219,7 +229,7 @@ public class MultiToolScript {
                 .setCancelable(true)
                 .setPositiveButton("Attach", (dialog1, which) -> attachDetach(true))
                 .setNegativeButton("Detach", (dialog1, which) -> attachDetach(false))
-                .setNeutralButton("Cancel", null)
+                .setNeutralButton(packageContext.getString(R.string.button_cancel), null)
                 .show();
     }
 

@@ -52,4 +52,6 @@ public interface Item extends Proxy {
     void setSkew(float skewX, float skewY);
 
     void setVisibility(boolean visible);
+
+    void setBoxBackground(Image image, String state, boolean persistent);
 }

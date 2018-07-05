@@ -1,6 +1,7 @@
 package com.faendir.lightning_launcher.multitool.proxy;
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 
 /**
  * @author lukas
@@ -9,4 +10,6 @@ import android.graphics.Bitmap;
 public interface ImageBitmap extends Image {
 
     Bitmap getBitmap();
+
+    Canvas draw();
 }

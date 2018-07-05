@@ -8,8 +8,8 @@ import com.faendir.lightning_launcher.multitool.badge.BadgeListener;
 import com.faendir.lightning_launcher.multitool.gesture.LightningGestureView;
 import com.faendir.lightning_launcher.multitool.launcherscript.MultiToolScript;
 import com.faendir.lightning_launcher.multitool.music.MusicListener;
-import com.faendir.lightning_launcher.multitool.music.TitleInfo;
-import com.faendir.lightning_launcher.multitool.proxy.Lightning;
+import com.faendir.lightning_launcher.multitool.proxy.Container;
+import com.faendir.lightning_launcher.multitool.proxy.LL;
 import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
 
 /**
@@ -19,8 +19,8 @@ import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
 @SuppressWarnings("unused")
 @Keep
 public class LightningObjectFactory {
-    public MusicListener constructMusicListener(Handler handler, Context context, LightningConsumer<TitleInfo> onChangeConsumer) {
-        return new MusicListener(handler, context, onChangeConsumer::accept);
+    public MusicListener constructMusicListener(Context context, Object panel, Object ll) {
+        return new MusicListener.LightningMusicListener(context, ProxyFactory.lightningProxy(panel, Container.class), ProxyFactory.lightningProxy(ll, LL.class));
     }
 
     public BadgeListener constructBadgeListener(Handler handler, Context context, String packageName, LightningConsumer<Integer> onChange) {
@@ -36,7 +36,7 @@ public class LightningObjectFactory {
     }
 
     public MultiToolScript constructMultiToolScript(Context context, Object lighting){
-        return new MultiToolScript(context, ProxyFactory.lightningProxy(lighting, Lightning.class));
+        return new MultiToolScript(context, ProxyFactory.lightningProxy(lighting, LL.class));
     }
 
     @FunctionalInterface

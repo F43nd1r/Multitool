@@ -34,4 +34,6 @@ public interface Container extends Proxy {
     void removeItem(Item item);
 
     void setTag(String id, String value);
+
+    Item getItemByName(String name);
 }
