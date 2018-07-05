@@ -14,15 +14,13 @@ import android.os.Parcelable;
 import android.support.annotation.Keep;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.DeletableModel;
+import java9.util.Optional;
+import java9.util.stream.StreamSupport;
 
 import java.util.List;
 import java.util.UUID;
-
-import java9.util.Optional;
-import java9.util.stream.StreamSupport;
 
 /**
  * Created on 26.01.2016.

@@ -12,7 +12,7 @@ var listener = function(count){
         item.setLabel(count + "");
         item.setVisibility(true);
     }
-}
+};
 item.my.badgeListener = getObjectFactory().constructBadgeListener(new Handler(), getActiveScreen().getContext(), item.getTag("package"), listener);
 item.my.badgeListener.onChange(false);
 item.my.badgeListener.register();

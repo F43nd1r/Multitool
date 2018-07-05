@@ -2,11 +2,9 @@ package com.faendir.lightning_launcher.multitool;
 
 import android.app.Application;
 import android.content.Context;
-
 import com.evernote.android.job.JobManager;
 import com.evernote.android.job.JobRequest;
 import com.faendir.lightning_launcher.multitool.util.ReflectionJobCreator;
-
 import org.acra.ACRA;
 import org.acra.annotation.AcraCore;
 import org.acra.annotation.AcraHttpSender;

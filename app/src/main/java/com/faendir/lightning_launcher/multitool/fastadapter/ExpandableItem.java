@@ -1,6 +1,5 @@
 package com.faendir.lightning_launcher.multitool.fastadapter;
 
-
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -9,11 +8,10 @@ import android.graphics.drawable.InsetDrawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.View;
-
+import android.widget.TextView;
 import com.faendir.lightning_launcher.multitool.R;
 import com.mikepenz.fastadapter.IItem;
 import com.mikepenz.fastadapter.expandable.items.ModelAbstractExpandableItem;
@@ -26,14 +24,20 @@ import java.util.List;
  * An item in the ExpandableListView
  */
 public class ExpandableItem<T extends Model> extends ModelAbstractExpandableItem<T, ExpandableItem<T>, ExpandableItem.ViewHolder, ExpandableItem<T>> implements ISwipeable<ExpandableItem<T>, IItem> {
+    private final int size;
     private boolean swipeable;
     private Runnable swipedAction;
-    private final int size;
 
     public ExpandableItem(T item, int size) {
         super(item);
         swipeable = item instanceof DeletableModel;
         this.size = size;
+        if (item instanceof ClickAwareModel) {
+            withOnItemClickListener((v, adapter, item1, position) -> {
+                ((ClickAwareModel) item).onClick();
+                return true;
+            });
+        }
     }
 
     @NonNull
@@ -69,8 +73,8 @@ public class ExpandableItem<T extends Model> extends ModelAbstractExpandableItem
             text = ((DeletableModel) getModel()).getUndoText(context);
             icon = context.getResources().getDrawable(R.drawable.ic_delete_white);
             Drawable ref = getModel().getIcon(context);
-            float diffX = ((float)ref.getIntrinsicWidth() - icon.getIntrinsicWidth()) / 2;
-            float diffY = ((float)ref.getIntrinsicHeight() - icon.getIntrinsicHeight()) / 2;
+            float diffX = ((float) ref.getIntrinsicWidth() - icon.getIntrinsicWidth()) / 2;
+            float diffY = ((float) ref.getIntrinsicHeight() - icon.getIntrinsicHeight()) / 2;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 icon = new InsetDrawable(icon, diffX, diffY, diffX, diffY);
             } else {
@@ -122,8 +126,8 @@ public class ExpandableItem<T extends Model> extends ModelAbstractExpandableItem
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
+        public final TextView text;
         private final int basePadding;
-        public final AppCompatTextView text;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -137,5 +141,4 @@ public class ExpandableItem<T extends Model> extends ModelAbstractExpandableItem
             itemView.setPadding(basePadding + inset, itemView.getPaddingTop(), itemView.getPaddingRight(), itemView.getPaddingBottom());
         }
     }
-
 }

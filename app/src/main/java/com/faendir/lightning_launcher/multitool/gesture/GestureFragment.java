@@ -19,20 +19,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
 import com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.adapters.ModelAdapter;
 import com.mikepenz.fastadapter_extensions.swipe.SimpleSwipeCallback;
+import java9.util.stream.Collectors;
+import java9.util.stream.StreamSupport;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
-import java9.util.stream.Collectors;
-import java9.util.stream.StreamSupport;
 
 import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 

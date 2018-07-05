@@ -3,12 +3,14 @@ package com.faendir.lightning_launcher.multitool.util;
 import android.content.Context;
 import android.os.Handler;
 import android.support.annotation.Keep;
-
 import com.faendir.lightning_launcher.multitool.backup.BackupCreator;
 import com.faendir.lightning_launcher.multitool.badge.BadgeListener;
 import com.faendir.lightning_launcher.multitool.gesture.LightningGestureView;
+import com.faendir.lightning_launcher.multitool.launcherscript.MultiToolScript;
 import com.faendir.lightning_launcher.multitool.music.MusicListener;
 import com.faendir.lightning_launcher.multitool.music.TitleInfo;
+import com.faendir.lightning_launcher.multitool.proxy.Lightning;
+import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
 
 /**
  * @author F43nd1r
@@ -17,7 +19,6 @@ import com.faendir.lightning_launcher.multitool.music.TitleInfo;
 @SuppressWarnings("unused")
 @Keep
 public class LightningObjectFactory {
-
     public MusicListener constructMusicListener(Handler handler, Context context, LightningConsumer<TitleInfo> onChangeConsumer) {
         return new MusicListener(handler, context, onChangeConsumer::accept);
     }
@@ -32,6 +33,10 @@ public class LightningObjectFactory {
 
     public LightningGestureView constructLightningGestureView(Context context) {
         return new LightningGestureView(context);
+    }
+
+    public MultiToolScript constructMultiToolScript(Context context, Object lighting){
+        return new MultiToolScript(context, ProxyFactory.lightningProxy(lighting, Lightning.class));
     }
 
     @FunctionalInterface

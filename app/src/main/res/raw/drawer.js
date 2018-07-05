@@ -54,7 +54,7 @@ function Matrix() {
             m[x] = [];
         }
         m[x][y] = true;
-    }
+    };
     this.get = function(x, y) {
         return m[x] != null && m[x][y];
     }
