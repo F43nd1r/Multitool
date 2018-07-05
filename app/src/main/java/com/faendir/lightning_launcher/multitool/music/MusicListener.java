@@ -10,9 +10,10 @@ import android.view.KeyEvent;
 import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.proxy.Container;
+import com.faendir.lightning_launcher.multitool.proxy.Image;
 import com.faendir.lightning_launcher.multitool.proxy.ImageBitmap;
 import com.faendir.lightning_launcher.multitool.proxy.Item;
-import com.faendir.lightning_launcher.multitool.proxy.LL;
+import com.faendir.lightning_launcher.multitool.proxy.Lightning;
 import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener;
 import com.faendir.lightning_launcher.multitool.util.provider.DataProvider;
@@ -59,13 +60,13 @@ public class MusicListener extends BaseContentListener {
     }
 
     public static class LightningMusicListener extends MusicListener {
-        public LightningMusicListener(Context context, Container panel, LL ll) {
+        public LightningMusicListener(Context context, Container panel, Lightning lightning, Image.Class imageClass) {
             super(context, titleInfo -> {
                 try {
                     Context packageContext = context.createPackageContext(BuildConfig.APPLICATION_ID, 0);
                     Bitmap albumArt = titleInfo.getAlbumArt();
                     Item item = panel.getItemByName("albumart");
-                    ImageBitmap image = ll.createImage(item.getWidth(), item.getHeight());
+                    ImageBitmap image = imageClass.createImage(item.getWidth(), item.getHeight());
                     if (albumArt != null) {
                         Rect src = new Rect(0, 0, albumArt.getWidth(), albumArt.getHeight());
                         Rect dest = new Rect(0, 0, image.getWidth(), image.getHeight());
@@ -83,7 +84,7 @@ public class MusicListener extends BaseContentListener {
                         image.draw().drawBitmap(albumArt, src, dest, null);
                     }
                     item.setBoxBackground(image, "nsf", false);
-                    ll.getVariables()
+                    lightning.getVariables()
                             .edit()
                             .setString("title", titleInfo.getTitle())
                             .setString("album", titleInfo.getAlbum())

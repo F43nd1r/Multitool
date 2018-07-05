@@ -25,9 +25,14 @@ public final class ProxyFactory {
 
     private static class LightningProxyInvocationHandler implements InvocationHandler {
         private final Object lightningObject;
+        private final Class<?> clazz;
+        private final Object invokeOn;
 
         LightningProxyInvocationHandler(Object lightningObject) {
             this.lightningObject = lightningObject;
+            boolean isClass = lightningObject instanceof Class;
+            clazz = isClass ? (Class<?>) lightningObject : lightningObject.getClass();
+            invokeOn = isClass ? null : lightningObject;
         }
 
         @Override
@@ -37,21 +42,21 @@ public final class ProxyFactory {
             }
             Object result;
             if (args == null) {
-                result = lightningObject.getClass().getMethod(method.getName()).invoke(lightningObject);
+                result = clazz.getMethod(method.getName()).invoke(invokeOn);
             } else {
                 Class<?>[] parameterTypes = method.getParameterTypes();
                 for (int i = 0; i < parameterTypes.length; i++) {
                     Class<?> type = parameterTypes[i];
                     if (Proxy.class.isAssignableFrom(type)) {
-                        args[i] = ((Proxy)args[i]).getReal();
+                        args[i] = ((Proxy) args[i]).getReal();
                         Class<?> t = args[i].getClass();
-                        while (!t.getSimpleName().equals(type.getSimpleName())){
+                        while (!t.getSimpleName().equals(type.getSimpleName())) {
                             t = t.getSuperclass();
                         }
                         parameterTypes[i] = t;
                     }
                 }
-                result = lightningObject.getClass().getMethod(method.getName(), parameterTypes).invoke(lightningObject, args);
+                result = clazz.getMethod(method.getName(), parameterTypes).invoke(invokeOn, args);
             }
             if (result != null) {
                 if (Proxy.class.isAssignableFrom(method.getReturnType())) {

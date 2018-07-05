@@ -10,4 +10,8 @@ public interface Image extends Proxy {
     int getHeight();
 
     String getType();
+
+    interface Class extends Proxy {
+        ImageBitmap createImage(int width, int height);
+    }
 }

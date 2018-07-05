@@ -23,7 +23,7 @@ import com.faendir.lightning_launcher.multitool.proxy.Event;
 import com.faendir.lightning_launcher.multitool.proxy.Image;
 import com.faendir.lightning_launcher.multitool.proxy.ImageBitmap;
 import com.faendir.lightning_launcher.multitool.proxy.Item;
-import com.faendir.lightning_launcher.multitool.proxy.LL;
+import com.faendir.lightning_launcher.multitool.proxy.Lightning;
 import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
 import com.faendir.lightning_launcher.multitool.proxy.Shortcut;
 import com.mikepenz.fastadapter.FastAdapter;
@@ -58,14 +58,14 @@ import java.util.Set;
  */
 public class MultiToolScript {
     private final Context context;
-    private final LL ll;
+    private final Lightning lightning;
     private final Context packageContext;
     private final Event event;
 
-    public MultiToolScript(Context context, LL ll) {
+    public MultiToolScript(Context context, Lightning lightning) {
         this.context = context;
-        this.ll = ll;
-        event = ll.getEvent();
+        this.lightning = lightning;
+        event = lightning.getEvent();
         try {
             this.packageContext = context.createPackageContext(BuildConfig.APPLICATION_ID, Context.CONTEXT_INCLUDE_CODE | Context.CONTEXT_IGNORE_SECURITY);
         } catch (PackageManager.NameNotFoundException e) {
@@ -114,7 +114,7 @@ public class MultiToolScript {
 
     private void save(AlertDialog dialog) {
         dialog.dismiss();
-        ll.save();
+        lightning.save();
         Toast.makeText(context, "Saved Layout", Toast.LENGTH_SHORT).show();
     }
 
@@ -168,7 +168,7 @@ public class MultiToolScript {
                 deleter.accept(tag);
             }
             Toast.makeText(context, "Deleting tag(s) done!", Toast.LENGTH_SHORT).show();
-            ll.save();
+            lightning.save();
         }).setNegativeButton(packageContext.getString(R.string.button_cancel), null).show();
     }
 
