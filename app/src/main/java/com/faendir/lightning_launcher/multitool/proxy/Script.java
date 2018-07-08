@@ -8,4 +8,6 @@ public interface Script extends Proxy {
     void setText(String text);
 
     int getId();
+
+    String getPath();
 }

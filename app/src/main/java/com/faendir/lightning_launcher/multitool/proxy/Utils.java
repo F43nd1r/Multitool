@@ -59,6 +59,10 @@ public class Utils {
         return getEvent().getContainer();
     }
 
+    public Screen getScreen() {
+        return lightning.getActiveScreen();
+    }
+
     public Image.Class getImageClass() {
         return Image.Class.get(lightningContext);
     }

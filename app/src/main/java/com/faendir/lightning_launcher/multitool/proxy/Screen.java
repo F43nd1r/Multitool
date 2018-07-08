@@ -14,4 +14,6 @@ public interface Screen extends Proxy {
     float getLastTouchY();
 
     Context getContext();
+
+    Container getContainerById(int id);
 }

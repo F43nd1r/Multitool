@@ -19,4 +19,6 @@ public interface Lightning extends Proxy {
     Script createScript(String path, String name, String text, int flags);
 
     Screen getActiveScreen();
+
+    Script 	getCurrentScript();
 }

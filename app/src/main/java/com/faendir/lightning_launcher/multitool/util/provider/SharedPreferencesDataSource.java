@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.Utils;
 import java9.util.function.BiConsumer;
@@ -181,7 +180,6 @@ public class SharedPreferencesDataSource implements QueryUpdateDataSource {
         private <T> T get(String key, T defValue, Class<T> type) {
             try (Cursor cursor = context.getContentResolver().query(uri, null, null, new String[]{key}, null)) {
                 if (cursor != null && cursor.moveToFirst()) {
-                    Log.d(key, cursor.getString(cursor.getColumnIndex(COLUMN_VALUE)));
                     return Utils.GSON.fromJson(cursor.getString(cursor.getColumnIndex(COLUMN_VALUE)), type);
                 }
             }

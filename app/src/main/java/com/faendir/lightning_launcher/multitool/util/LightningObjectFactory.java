@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.Keep;
 import com.faendir.lightning_launcher.multitool.backup.BackupCreator;
 import com.faendir.lightning_launcher.multitool.badge.BadgeListener;
+import com.faendir.lightning_launcher.multitool.badge.BadgeSetup;
 import com.faendir.lightning_launcher.multitool.gesture.LightningGestureView;
 import com.faendir.lightning_launcher.multitool.launcherscript.MultiToolScript;
 import com.faendir.lightning_launcher.multitool.music.MusicListener;
@@ -40,6 +41,10 @@ public class LightningObjectFactory {
 
     public MusicSetup constructMusicSetup(LightningBiFunction<String, Object[], Object> eval) {
         return new MusicSetup(ProxyFactory.evalProxy(eval, Lightning.class));
+    }
+
+    public BadgeSetup constructBadgeSetup(LightningBiFunction<String, Object[], Object> eval) {
+        return new BadgeSetup(ProxyFactory.evalProxy(eval, Lightning.class));
     }
 
     @FunctionalInterface
