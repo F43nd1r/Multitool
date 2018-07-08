@@ -6,4 +6,6 @@ package com.faendir.lightning_launcher.multitool.proxy;
  */
 public interface PropertySet extends Proxy {
     PropertyEditor edit();
+
+    boolean getBoolean(String name);
 }

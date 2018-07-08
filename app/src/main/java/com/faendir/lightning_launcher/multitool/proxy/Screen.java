@@ -9,6 +9,8 @@ import android.content.Context;
 public interface Screen extends Proxy {
     void runAction(int action, String data);
 
+    void runScript(String path, String name, String data);
+
     float getLastTouchX();
 
     float getLastTouchY();

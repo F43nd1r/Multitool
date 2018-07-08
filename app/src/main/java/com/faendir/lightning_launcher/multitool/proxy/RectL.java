@@ -5,4 +5,11 @@ package com.faendir.lightning_launcher.multitool.proxy;
  * @since 04.07.18
  */
 public interface RectL extends Proxy {
+    int getLeft();
+
+    int getRight();
+
+    int getTop();
+
+    int getBottom();
 }

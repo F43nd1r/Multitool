@@ -7,7 +7,7 @@ import android.content.res.Resources;
 import android.support.annotation.RawRes;
 import android.support.annotation.StringRes;
 import com.faendir.lightning_launcher.multitool.BuildConfig;
-import com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSource;
+import com.faendir.lightning_launcher.multitool.util.provider.RemoteSharedPreferences;
 import org.acra.util.StreamReader;
 
 import java.io.IOException;
@@ -68,7 +68,7 @@ public class Utils {
     }
 
     public SharedPreferences getSharedPref() {
-        return new SharedPreferencesDataSource.Remote(lightningContext);
+        return new RemoteSharedPreferences(lightningContext);
     }
 
     public Script installScript(String pathSuffix, @RawRes int res, String name) {

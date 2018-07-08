@@ -1,7 +1,6 @@
 package com.faendir.lightning_launcher.multitool.proxy;
 
-import com.faendir.lightning_launcher.multitool.util.LightningObjectFactory;
-import com.faendir.lightning_launcher.multitool.util.LightningObjectFactory.LightningBiFunction;
+import com.faendir.lightning_launcher.multitool.util.LightningObjectFactory.EvalFunction;
 import java9.util.stream.Stream;
 
 import java.lang.reflect.Array;
@@ -21,7 +20,8 @@ public final class ProxyFactory {
         //noinspection unchecked
         return (T) java.lang.reflect.Proxy.newProxyInstance(ProxyFactory.class.getClassLoader(), new Class[]{interfaceClass}, new JavaProxyInvocationHandler(lightningObject));
     }
-    public static <T extends Proxy> T evalProxy(LightningObjectFactory.LightningBiFunction<String, Object[], Object> eval, Class<T> interfaceClass) {
+
+    public static <T extends Proxy> T evalProxy(EvalFunction eval, Class<T> interfaceClass) {
         //noinspection unchecked
         return (T) java.lang.reflect.Proxy.newProxyInstance(ProxyFactory.class.getClassLoader(), new Class[]{interfaceClass}, new EvalProxyInvocationHandler(eval));
     }
@@ -48,18 +48,19 @@ public final class ProxyFactory {
     }
 
     private static class EvalProxyInvocationHandler extends BaseProxyInvocationHandler {
-        private final LightningBiFunction<String, Object[], Object> eval;
+        private final EvalFunction eval;
 
-        private EvalProxyInvocationHandler(LightningBiFunction<String, Object[], Object> eval) {
+        private EvalProxyInvocationHandler(EvalFunction eval) {
             super(eval);
             this.eval = eval;
         }
 
         @Override
-        protected Object doInvoke(String methodName, Class<?>[] parameterTypes, Object[] parameters) throws Exception {
-            return eval.apply(methodName, parameters);
+        protected Object doInvoke(String methodName, Class<?>[] parameterTypes, Object[] parameters) {
+            return eval.eval(null, methodName, parameters);
         }
     }
+
     public abstract static class BaseProxyInvocationHandler implements InvocationHandler {
         private final Object object;
 
@@ -82,11 +83,15 @@ public final class ProxyFactory {
                     Class<?> type = parameterTypes[i];
                     if (Proxy.class.isAssignableFrom(type)) {
                         args[i] = ((Proxy) args[i]).getReal();
-                        Class<?> t = args[i].getClass();
-                        while (!t.getSimpleName().equals(type.getSimpleName())) {
-                            t = t.getSuperclass();
+                        if (Proxy.class.isAssignableFrom(type)) {
+                            Class<?> t = args[i].getClass();
+                            while (!t.getSimpleName().equals(type.getSimpleName())) {
+                                t = t.getSuperclass();
+                            }
+                            parameterTypes[i] = t;
                         }
-                        parameterTypes[i] = t;
+                    } else if (type.getName().startsWith("org.mozilla.javascript")) {
+                        parameterTypes[i] = object.getClass().getClassLoader().loadClass(type.getName());
                     }
                 }
                 result = doInvoke(method.getName(), parameterTypes, args);
@@ -100,9 +105,7 @@ public final class ProxyFactory {
                 } else if (method.getReturnType().isArray() && Proxy.class.isAssignableFrom(method.getReturnType().getComponentType())) {
                     //noinspection unchecked
                     Class<? extends Proxy> componentType = (Class<? extends Proxy>) method.getReturnType().getComponentType();
-                    result = Stream.of((Object[]) result)
-                            .map(object -> lightningProxy(object, componentType))
-                            .toArray(i -> (Object[]) Array.newInstance(componentType, i));
+                    result = Stream.of((Object[]) result).map(object -> lightningProxy(object, componentType)).toArray(i -> (Object[]) Array.newInstance(componentType, i));
                 }
             }
             return result;

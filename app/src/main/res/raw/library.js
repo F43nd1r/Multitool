@@ -1,4 +1,4 @@
-function getMultiToolPackage(){
+function getMultiToolPackage() {
     return "com.faendir.lightning_launcher.multitool";
 }
 
@@ -20,7 +20,9 @@ function loadMultiToolClass(relativeClassName) {
 }
 
 function getObjectFactory() {
-    return loadMultiToolClass("util.LightningObjectFactory").newInstance();
+    var factory = loadMultiToolClass("util.LightningObjectFactory").newInstance();
+    factory.init(javaEval);
+    return factory;
 }
 
 function bindPrefs(keys) {
@@ -69,10 +71,20 @@ function centerOnTouch(item) {
     item.setPosition(x, y);
 }
 
-function javaEval(s, params) {
-    var args =[];
-    for(var i= 0; i < params.length; i++){
-        args.push(params[i]);
+function javaEval(target, name, params) {
+    bindClass("java.lang.Runnable");
+    var args = [];
+    for (var i = 0; i < params.length; i++) {
+        if (params[i] instanceof Runnable) {
+            args.push(function (arg) {
+                return function () {
+                    arg.run();
+                }
+            }(params[i]))
+        } else {
+            args.push(params[i]);
+        }
     }
-    return eval(s).apply(self, args);
+    var func = target == null ? eval(name) : target[name];
+    return func.apply(target || self, args);
 }

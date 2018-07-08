@@ -1,10 +1,12 @@
 package com.faendir.lightning_launcher.multitool.util;
 
-import android.content.Context;
 import android.support.annotation.Keep;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import com.faendir.lightning_launcher.multitool.backup.BackupCreator;
 import com.faendir.lightning_launcher.multitool.badge.BadgeListener;
 import com.faendir.lightning_launcher.multitool.badge.BadgeSetup;
+import com.faendir.lightning_launcher.multitool.drawer.Drawer;
 import com.faendir.lightning_launcher.multitool.gesture.LightningGestureView;
 import com.faendir.lightning_launcher.multitool.launcherscript.MultiToolScript;
 import com.faendir.lightning_launcher.multitool.music.MusicListener;
@@ -19,32 +21,44 @@ import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
 @SuppressWarnings("unused")
 @Keep
 public class LightningObjectFactory {
-    public MusicListener constructMusicListener(LightningBiFunction<String, Object[], Object> eval) {
-        return MusicListener.create(ProxyFactory.evalProxy(eval, Lightning.class));
+    private Lightning lightning;
+    private EvalFunction eval;
+
+    public void init(EvalFunction eval) {
+        this.eval = eval;
+        this.lightning = ProxyFactory.evalProxy(eval, Lightning.class);
     }
 
-    public BadgeListener constructBadgeListener(LightningBiFunction<String, Object[], Object> eval) {
-        return new BadgeListener(ProxyFactory.evalProxy(eval, Lightning.class));
+    public MusicListener constructMusicListener() {
+        return MusicListener.create(lightning);
     }
 
-    public BackupCreator constructBackupCreator(Context context) {
-        return new BackupCreator(context);
+    public BadgeListener constructBadgeListener() {
+        return new BadgeListener(lightning);
     }
 
-    public LightningGestureView constructLightningGestureView(Context context) {
-        return new LightningGestureView(context);
+    public BackupCreator constructBackupCreator() {
+        return new BackupCreator(lightning.getActiveScreen().getContext());
     }
 
-    public MultiToolScript constructMultiToolScript(LightningBiFunction<String, Object[], Object> eval) {
-        return new MultiToolScript(ProxyFactory.evalProxy(eval, Lightning.class));
+    public LightningGestureView constructLightningGestureView() {
+        return new LightningGestureView(lightning.getActiveScreen().getContext());
     }
 
-    public MusicSetup constructMusicSetup(LightningBiFunction<String, Object[], Object> eval) {
-        return new MusicSetup(ProxyFactory.evalProxy(eval, Lightning.class));
+    public MultiToolScript constructMultiToolScript() {
+        return new MultiToolScript(lightning);
     }
 
-    public BadgeSetup constructBadgeSetup(LightningBiFunction<String, Object[], Object> eval) {
-        return new BadgeSetup(ProxyFactory.evalProxy(eval, Lightning.class));
+    public MusicSetup constructMusicSetup() {
+        return new MusicSetup(lightning);
+    }
+
+    public BadgeSetup constructBadgeSetup() {
+        return new BadgeSetup(lightning);
+    }
+
+    public Drawer constructDrawer() {
+        return new Drawer(lightning, eval);
     }
 
     @FunctionalInterface
@@ -53,7 +67,7 @@ public class LightningObjectFactory {
     }
 
     @FunctionalInterface
-    public interface LightningBiFunction<T, U, R> {
-        R apply(T t, U u);
+    public interface EvalFunction {
+        Object eval(@Nullable Object target, @NonNull String methodName, Object... parameters);
     }
 }

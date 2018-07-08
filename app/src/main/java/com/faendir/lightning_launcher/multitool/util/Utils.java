@@ -17,6 +17,7 @@ import java.io.IOException;
 
 public final class Utils {
     public static final Gson GSON = new GsonBuilder()
+            .serializeNulls()
             .registerTypeAdapter(Intent.class, new IntentTypeAdapter())
             .create();
 

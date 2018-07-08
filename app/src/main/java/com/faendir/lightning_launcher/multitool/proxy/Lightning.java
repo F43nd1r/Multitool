@@ -20,5 +20,5 @@ public interface Lightning extends Proxy {
 
     Screen getActiveScreen();
 
-    Script 	getCurrentScript();
+    Script getCurrentScript();
 }
