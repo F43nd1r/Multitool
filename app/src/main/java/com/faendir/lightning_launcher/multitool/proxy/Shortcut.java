@@ -9,6 +9,8 @@ import android.content.Intent;
 public interface Shortcut extends Item {
     String getLabel();
 
+    void setLabel(String label);
+
     Intent getIntent();
 
     Image getDefaultIcon();

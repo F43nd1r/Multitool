@@ -1,7 +1,6 @@
 package com.faendir.lightning_launcher.multitool.util;
 
 import android.content.Context;
-import android.os.Handler;
 import android.support.annotation.Keep;
 import com.faendir.lightning_launcher.multitool.backup.BackupCreator;
 import com.faendir.lightning_launcher.multitool.badge.BadgeListener;
@@ -23,8 +22,8 @@ public class LightningObjectFactory {
         return MusicListener.create(ProxyFactory.evalProxy(eval, Lightning.class));
     }
 
-    public BadgeListener constructBadgeListener(Handler handler, Context context, String packageName, LightningConsumer<Integer> onChange) {
-        return new BadgeListener(handler, context, packageName, onChange::accept);
+    public BadgeListener constructBadgeListener(LightningBiFunction<String, Object[], Object> eval) {
+        return new BadgeListener(ProxyFactory.evalProxy(eval, Lightning.class));
     }
 
     public BackupCreator constructBackupCreator(Context context) {

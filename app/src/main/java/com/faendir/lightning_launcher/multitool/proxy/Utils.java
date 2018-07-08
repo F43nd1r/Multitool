@@ -1,10 +1,13 @@
 package com.faendir.lightning_launcher.multitool.proxy;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.support.annotation.RawRes;
+import android.support.annotation.StringRes;
 import com.faendir.lightning_launcher.multitool.BuildConfig;
+import com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSource;
 import org.acra.util.StreamReader;
 
 import java.io.IOException;
@@ -40,6 +43,10 @@ public class Utils {
         return multitoolContext.getResources();
     }
 
+    public String getString(@StringRes int res) {
+        return multitoolContext.getString(res);
+    }
+
     public Lightning getLightning() {
         return lightning;
     }
@@ -54,6 +61,10 @@ public class Utils {
 
     public Image.Class getImageClass() {
         return Image.Class.get(lightningContext);
+    }
+
+    public SharedPreferences getSharedPref() {
+        return new SharedPreferencesDataSource.Remote(lightningContext);
     }
 
     public Script installScript(String pathSuffix, @RawRes int res, String name) {

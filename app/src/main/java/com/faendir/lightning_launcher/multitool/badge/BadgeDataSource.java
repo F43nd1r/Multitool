@@ -32,8 +32,7 @@ public class BadgeDataSource extends SharedPreferencesDataSource {
     public static int getBadgeCount(@NonNull Context context, String packageName) {
         try (Cursor cursor = context.getContentResolver().query(getContentUri(packageName),
                 null, null, null, null)) {
-            if (cursor != null) {
-                cursor.moveToFirst();
+            if (cursor != null && cursor.moveToFirst()) {
                 Integer i = Utils.GSON.fromJson(cursor.getString(1), Integer.class);
                 if (i != null) {
                     return i;

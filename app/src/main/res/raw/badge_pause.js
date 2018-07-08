@@ -1,9 +1,7 @@
-var event = getEvent();
-var item = event.getItem();
-if(item == null || item.my.badgeListener == null) return;
-var badgeListener = item.my.badgeListener;
-if (badgeListener != null) {
+var item = getEvent().getItem();
+if (item != null && item.my.badgeListener != null) {
     try {
-        badgeListener.unregister();
-    } catch (e) {}
+        item.my.badgeListener.unregister();
+    } catch (e) {
+    }
 }

@@ -8,17 +8,13 @@ import android.os.Handler;
 import android.support.annotation.Keep;
 import android.support.annotation.NonNull;
 import android.view.KeyEvent;
-import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.proxy.Container;
-import com.faendir.lightning_launcher.multitool.proxy.Image;
 import com.faendir.lightning_launcher.multitool.proxy.ImageBitmap;
 import com.faendir.lightning_launcher.multitool.proxy.Item;
 import com.faendir.lightning_launcher.multitool.proxy.Lightning;
-import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener;
 import com.faendir.lightning_launcher.multitool.util.provider.DataProvider;
-import com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSource;
 import java9.util.function.Consumer;
 
 /**
@@ -81,26 +77,25 @@ public abstract class MusicListener extends BaseContentListener {
     }
 
     private static class LightningMusicListener extends MusicListener {
-        private final Lightning lightning;
+        private final com.faendir.lightning_launcher.multitool.proxy.Utils utils;
         private final Container panel;
 
         LightningMusicListener(@NonNull Lightning lightning) {
             super(lightning.getActiveScreen().getContext());
-            this.lightning = lightning;
+            this.utils = new com.faendir.lightning_launcher.multitool.proxy.Utils(lightning);
             panel = lightning.getEvent().getContainer();
         }
 
         @Override
         protected void onChange(TitleInfo titleInfo) {
             try {
-                Context packageContext = getContext().createPackageContext(BuildConfig.APPLICATION_ID, 0);
                 Bitmap albumArt = titleInfo.getAlbumArt();
                 Item item = panel.getItemByName("albumart");
-                ImageBitmap image = Image.Class.get(getContext()).createImage(item.getWidth(), item.getHeight());
+                ImageBitmap image = utils.getImageClass().createImage(item.getWidth(), item.getHeight());
                 if (albumArt != null) {
                     Rect src = new Rect(0, 0, albumArt.getWidth(), albumArt.getHeight());
                     Rect dest = new Rect(0, 0, image.getWidth(), image.getHeight());
-                    switch (Utils.GSON.fromJson(SharedPreferencesDataSource.getString(getContext(), packageContext.getString(R.string.pref_coverMode)), int.class)) {
+                    switch (utils.getSharedPref().getInt(utils.getString(R.string.pref_coverMode), 0)) {
                         case 0:  //over scale
                             cutToFit(src, dest);
                             break;
@@ -114,7 +109,8 @@ public abstract class MusicListener extends BaseContentListener {
                     image.draw().drawBitmap(albumArt, src, dest, null);
                 }
                 item.setBoxBackground(image, "nsf", false);
-                lightning.getVariables()
+                utils.getLightning()
+                        .getVariables()
                         .edit()
                         .setString("title", titleInfo.getTitle())
                         .setString("album", titleInfo.getAlbum())

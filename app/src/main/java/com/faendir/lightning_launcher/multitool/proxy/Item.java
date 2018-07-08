@@ -11,6 +11,8 @@ public interface Item extends Proxy {
 
     String getTag();
 
+    String getTag(String id);
+
     String getType();
 
     int getWidth();
