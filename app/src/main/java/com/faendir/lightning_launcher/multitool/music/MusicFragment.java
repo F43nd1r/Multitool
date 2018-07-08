@@ -53,7 +53,7 @@ public class MusicFragment extends Fragment {
             NotificationDistributorService.askForEnable(getActivity());
         }
         pm = getActivity().getPackageManager();
-        musicListener = new MusicListener(getActivity(), info -> {
+        musicListener = MusicListener.create(getActivity(), info -> {
             synchronized (MusicFragment.this) {
                 if (info.getAlbumArt() == null) {
                     bitmap = null;

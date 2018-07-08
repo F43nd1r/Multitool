@@ -62,10 +62,10 @@ public class MultiToolScript {
     private final Context packageContext;
     private final Event event;
 
-    public MultiToolScript(Context context, Lightning lightning) {
-        this.context = context;
+    public MultiToolScript(Lightning lightning) {
         this.lightning = lightning;
-        event = lightning.getEvent();
+        this.context = lightning.getActiveScreen().getContext();
+        this.event = lightning.getEvent();
         try {
             this.packageContext = context.createPackageContext(BuildConfig.APPLICATION_ID, Context.CONTEXT_INCLUDE_CODE | Context.CONTEXT_IGNORE_SECURITY);
         } catch (PackageManager.NameNotFoundException e) {

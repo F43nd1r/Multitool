@@ -14,4 +14,6 @@ public interface Shortcut extends Item {
     Image getDefaultIcon();
 
     Image getCustomIcon();
+
+    void setDefaultIcon(Image image);
 }

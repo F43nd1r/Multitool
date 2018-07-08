@@ -12,23 +12,19 @@ import android.support.annotation.Nullable;
  * @since 06.11.2017
  */
 
-public class BaseContentListener extends ContentObserver {
+public abstract class BaseContentListener extends ContentObserver {
     private final Context context;
     @NonNull
     private final Uri uri;
-    private final Runnable onChange;
 
-    public BaseContentListener(@Nullable Handler handler, @NonNull Context context, @NonNull Uri uri, Runnable onChange) {
+    public BaseContentListener(@Nullable Handler handler, @NonNull Context context, @NonNull Uri uri) {
         super(handler);
         this.context = context;
         this.uri = uri;
-        this.onChange = onChange;
     }
 
     @Override
-    public void onChange(boolean selfChange) {
-        onChange.run();
-    }
+    public abstract void onChange(boolean selfChange);
 
     public void register() {
         context.getContentResolver().registerContentObserver(uri, false, this);

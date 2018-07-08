@@ -15,12 +15,8 @@ function installScript(pathSuffix, id, name) {
 }
 
 function loadMultiToolClass(relativeClassName) {
-    bindClass("java.lang.Class");
-    bindClass("dalvik.system.PathClassLoader");
-    var packageContext = getActiveScreen().getContext().createPackageContext(getMultiToolPackage(), 2);
-    var apk = packageContext.getPackageManager().getApplicationInfo(getMultiToolPackage(), 0).sourceDir;
-    var clsLoader = new PathClassLoader(apk, PathClassLoader.getSystemClassLoader());
-    return Class.forName(getMultiToolPackage() + "." + relativeClassName, true, clsLoader);
+    var packageContext = getActiveScreen().getContext().createPackageContext(getMultiToolPackage(), 3);
+    return packageContext.getClassLoader().loadClass(getMultiToolPackage() + "." + relativeClassName);
 }
 
 function getObjectFactory() {
@@ -71,4 +67,12 @@ function centerOnTouch(item) {
         y -= height / 2;
     }
     item.setPosition(x, y);
+}
+
+function javaEval(s, params) {
+    var args =[];
+    for(var i= 0; i < params.length; i++){
+        args.push(params[i]);
+    }
+    return eval(s).apply(self, args);
 }

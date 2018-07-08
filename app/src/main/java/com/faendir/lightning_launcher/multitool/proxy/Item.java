@@ -43,6 +43,8 @@ public interface Item extends Proxy {
 
     void setCell(int left, int top, int right, int bottom);
 
+    void setCell(int left, int top, int right, int bottom, boolean portrait);
+
     void setPosition(float x, float y);
 
     void setRotation(float angle);
@@ -54,4 +56,8 @@ public interface Item extends Proxy {
     void setVisibility(boolean visible);
 
     void setBoxBackground(Image image, String state, boolean persistent);
+
+    void setName(String name);
+
+    void setBinding(String target, String formula, boolean enabled);
 }

@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.support.annotation.Keep;
+import android.support.annotation.NonNull;
 import android.view.KeyEvent;
 import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
@@ -25,13 +26,33 @@ import java9.util.function.Consumer;
  * @since 06.11.2017
  */
 @Keep
-public class MusicListener extends BaseContentListener {
+public abstract class MusicListener extends BaseContentListener {
     public static final String EXTRA_COMMAND_CODE = "command_code";
     public static final String INTENT_ACTION = "com.faendir.lightning_launcher.multitool.music.ACTION";
 
-    public MusicListener(Context context, Consumer<TitleInfo> onChangeConsumer) {
-        super(new Handler(), context, DataProvider.getContentUri(MusicDataSource.class), () -> onChangeConsumer.accept(MusicDataSource.queryInfo(context)));
+    protected MusicListener(Context context) {
+        super(new Handler(), context, DataProvider.getContentUri(MusicDataSource.class));
     }
+
+    public static MusicListener create(Context context, Consumer<TitleInfo> consumer) {
+        return new MusicListener(context) {
+            @Override
+            protected void onChange(TitleInfo titleInfo) {
+                consumer.accept(titleInfo);
+            }
+        };
+    }
+
+    public static MusicListener create(Lightning lightning) {
+        return new LightningMusicListener(lightning);
+    }
+
+    @Override
+    public void onChange(boolean selfChange) {
+        onChange(MusicDataSource.queryInfo(getContext()));
+    }
+
+    protected abstract void onChange(TitleInfo titleInfo);
 
     @Override
     public void register() {
@@ -59,45 +80,53 @@ public class MusicListener extends BaseContentListener {
         getContext().sendBroadcast(intent);
     }
 
-    public static class LightningMusicListener extends MusicListener {
-        public LightningMusicListener(Context context, Container panel, Lightning lightning, Image.Class imageClass) {
-            super(context, titleInfo -> {
-                try {
-                    Context packageContext = context.createPackageContext(BuildConfig.APPLICATION_ID, 0);
-                    Bitmap albumArt = titleInfo.getAlbumArt();
-                    Item item = panel.getItemByName("albumart");
-                    ImageBitmap image = imageClass.createImage(item.getWidth(), item.getHeight());
-                    if (albumArt != null) {
-                        Rect src = new Rect(0, 0, albumArt.getWidth(), albumArt.getHeight());
-                        Rect dest = new Rect(0, 0, image.getWidth(), image.getHeight());
-                        switch (Utils.GSON.fromJson(SharedPreferencesDataSource.getString(context, packageContext.getString(R.string.pref_coverMode)), int.class)) {
-                            case 0:  //over scale
-                                cutToFit(src, dest);
-                                break;
-                            case 1: //under scale
-                                cutToFit(dest, src);
-                                break;
-                            case 2: //stretch
-                                //no-op
-                                break;
-                        }
-                        image.draw().drawBitmap(albumArt, src, dest, null);
-                    }
-                    item.setBoxBackground(image, "nsf", false);
-                    lightning.getVariables()
-                            .edit()
-                            .setString("title", titleInfo.getTitle())
-                            .setString("album", titleInfo.getAlbum())
-                            .setString("artist", titleInfo.getArtist())
-                            .setString("player", titleInfo.getPackageName())
-                            .commit();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });
+    private static class LightningMusicListener extends MusicListener {
+        private final Lightning lightning;
+        private final Container panel;
+
+        LightningMusicListener(@NonNull Lightning lightning) {
+            super(lightning.getActiveScreen().getContext());
+            this.lightning = lightning;
+            panel = lightning.getEvent().getContainer();
         }
 
-        private static void cutToFit(Rect cut, Rect fit) {
+        @Override
+        protected void onChange(TitleInfo titleInfo) {
+            try {
+                Context packageContext = getContext().createPackageContext(BuildConfig.APPLICATION_ID, 0);
+                Bitmap albumArt = titleInfo.getAlbumArt();
+                Item item = panel.getItemByName("albumart");
+                ImageBitmap image = Image.Class.get(getContext()).createImage(item.getWidth(), item.getHeight());
+                if (albumArt != null) {
+                    Rect src = new Rect(0, 0, albumArt.getWidth(), albumArt.getHeight());
+                    Rect dest = new Rect(0, 0, image.getWidth(), image.getHeight());
+                    switch (Utils.GSON.fromJson(SharedPreferencesDataSource.getString(getContext(), packageContext.getString(R.string.pref_coverMode)), int.class)) {
+                        case 0:  //over scale
+                            cutToFit(src, dest);
+                            break;
+                        case 1: //under scale
+                            cutToFit(dest, src);
+                            break;
+                        case 2: //stretch
+                            //no-op
+                            break;
+                    }
+                    image.draw().drawBitmap(albumArt, src, dest, null);
+                }
+                item.setBoxBackground(image, "nsf", false);
+                lightning.getVariables()
+                        .edit()
+                        .setString("title", titleInfo.getTitle())
+                        .setString("album", titleInfo.getAlbum())
+                        .setString("artist", titleInfo.getArtist())
+                        .setString("player", titleInfo.getPackageName())
+                        .commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        private void cutToFit(Rect cut, Rect fit) {
             int width = cut.width();
             int height = cut.height();
             double factor = (double) width / height * (double) fit.height() / fit.width();

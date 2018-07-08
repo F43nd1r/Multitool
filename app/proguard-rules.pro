@@ -17,6 +17,8 @@
 #}
 -keepattributes Signature, LineNumberTable, SourceFile, *Annotation*, EnclosingMethod
 
+-keep class * extends com.faendir.lightning_launcher.multitool.proxy.Proxy {*;}
+
 -keep class * extends android.app.Fragment
 -keep class * extends android.app.Service {*;}
 

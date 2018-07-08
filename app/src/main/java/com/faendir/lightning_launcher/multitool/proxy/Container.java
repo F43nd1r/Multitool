@@ -1,5 +1,7 @@
 package com.faendir.lightning_launcher.multitool.proxy;
 
+import android.content.Intent;
+
 /**
  * @author lukas
  * @since 04.07.18
@@ -36,4 +38,10 @@ public interface Container extends Proxy {
     void setTag(String id, String value);
 
     Item getItemByName(String name);
+
+    Panel addPanel(float x, float y, float width, float height);
+
+    PropertySet getProperties();
+
+    Shortcut addShortcut(String label, Intent intent, float x, float y);
 }

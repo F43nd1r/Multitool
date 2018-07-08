@@ -8,8 +8,7 @@ import com.faendir.lightning_launcher.multitool.badge.BadgeListener;
 import com.faendir.lightning_launcher.multitool.gesture.LightningGestureView;
 import com.faendir.lightning_launcher.multitool.launcherscript.MultiToolScript;
 import com.faendir.lightning_launcher.multitool.music.MusicListener;
-import com.faendir.lightning_launcher.multitool.proxy.Container;
-import com.faendir.lightning_launcher.multitool.proxy.Image;
+import com.faendir.lightning_launcher.multitool.music.MusicSetup;
 import com.faendir.lightning_launcher.multitool.proxy.Lightning;
 import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
 
@@ -20,11 +19,8 @@ import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
 @SuppressWarnings("unused")
 @Keep
 public class LightningObjectFactory {
-    public MusicListener constructMusicListener(Context context, Object panel, Object lightning, Object imageClass) {
-        return new MusicListener.LightningMusicListener(context,
-                ProxyFactory.lightningProxy(panel, Container.class),
-                ProxyFactory.lightningProxy(lightning, Lightning.class),
-                ProxyFactory.lightningProxy(imageClass, Image.Class.class));
+    public MusicListener constructMusicListener(LightningBiFunction<String, Object[], Object> eval) {
+        return MusicListener.create(ProxyFactory.evalProxy(eval, Lightning.class));
     }
 
     public BadgeListener constructBadgeListener(Handler handler, Context context, String packageName, LightningConsumer<Integer> onChange) {
@@ -39,12 +35,21 @@ public class LightningObjectFactory {
         return new LightningGestureView(context);
     }
 
-    public MultiToolScript constructMultiToolScript(Context context, Object lighting) {
-        return new MultiToolScript(context, ProxyFactory.lightningProxy(lighting, Lightning.class));
+    public MultiToolScript constructMultiToolScript(LightningBiFunction<String, Object[], Object> eval) {
+        return new MultiToolScript(ProxyFactory.evalProxy(eval, Lightning.class));
+    }
+
+    public MusicSetup constructMusicSetup(LightningBiFunction<String, Object[], Object> eval) {
+        return new MusicSetup(ProxyFactory.evalProxy(eval, Lightning.class));
     }
 
     @FunctionalInterface
     public interface LightningConsumer<T> {
         void accept(T t);
+    }
+
+    @FunctionalInterface
+    public interface LightningBiFunction<T, U, R> {
+        R apply(T t, U u);
     }
 }
