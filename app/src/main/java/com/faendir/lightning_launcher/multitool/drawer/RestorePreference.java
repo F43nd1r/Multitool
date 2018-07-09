@@ -6,12 +6,11 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.preference.MultiSelectListPreference;
 import android.util.AttributeSet;
+import java9.util.stream.StreamSupport;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
-
-import java9.util.stream.StreamSupport;
 
 import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 
@@ -46,7 +45,7 @@ public class RestorePreference extends MultiSelectListPreference {
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
         Set<String> values = getSharedPreferences().getStringSet(getKey(), Collections.emptySet());
-        setEntryValues(values.toArray(new String[values.size()]));
+        setEntryValues(values.toArray(new String[0]));
         setEntries(StreamSupport.stream(values).map(this::getLabelForComponent).toArray(String[]::new));
         setValues(Collections.emptySet());
         super.onPrepareDialogBuilder(builder);

@@ -21,7 +21,7 @@ import java.util.Set;
  */
 public class RemoteSharedPreferences implements SharedPreferences {
     private final Context context;
-    private Uri uri;
+    private final Uri uri;
 
     public RemoteSharedPreferences(@NonNull Context context) {
         this.context = context;

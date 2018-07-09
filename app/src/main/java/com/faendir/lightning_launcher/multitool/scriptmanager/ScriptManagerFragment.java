@@ -16,14 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.Toast;
-
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.multitool.fastadapter.Model;
 import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
-import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
-
+import java9.util.stream.StreamSupport;
 import org.acra.ACRA;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -31,8 +29,6 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import java9.util.stream.StreamSupport;
 
 import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
 
@@ -43,7 +39,6 @@ import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
 public class ScriptManagerFragment extends Fragment implements ActionMode.Callback {
     private static final int IMPORT = 1;
     private static final int EXPORT = 2;
-
     private SharedPreferences sharedPref;
     private boolean enableMenu;
     private FrameLayout layout;
@@ -127,8 +122,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     }
 
     private void loadFromLauncher() {
-        scriptManager.getAsyncExecutorService().setKeepAliveAfterwards(true)
-                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", null), this::handleScriptResult).start();
+        scriptManager.getAsyncExecutorService().setKeepAliveAfterwards(true).add(ScriptUtils.getScriptManagerExecutor(null), this::handleScriptResult).start();
         layout.removeAllViews();
         LayoutInflater.from(getActivity()).inflate(R.layout.fragment_loading, layout);
     }

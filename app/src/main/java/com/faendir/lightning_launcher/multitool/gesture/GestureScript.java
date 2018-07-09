@@ -2,14 +2,20 @@ package com.faendir.lightning_launcher.multitool.gesture;
 
 import android.content.Intent;
 import android.support.annotation.Keep;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import com.faendir.lightning_launcher.multitool.MainActivity;
+import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.proxy.Box;
 import com.faendir.lightning_launcher.multitool.proxy.CustomView;
 import com.faendir.lightning_launcher.multitool.proxy.EventHandler;
 import com.faendir.lightning_launcher.multitool.proxy.Item;
+import com.faendir.lightning_launcher.multitool.proxy.JavaScript;
 import com.faendir.lightning_launcher.multitool.proxy.Menu;
 import com.faendir.lightning_launcher.multitool.proxy.PropertyEditor;
-import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
+import com.faendir.lightning_launcher.multitool.proxy.PropertySet;
 import com.faendir.lightning_launcher.multitool.proxy.Screen;
 import com.faendir.lightning_launcher.multitool.proxy.Script;
 import com.faendir.lightning_launcher.multitool.proxy.Utils;
@@ -20,7 +26,7 @@ import com.faendir.lightning_launcher.multitool.util.FragmentManager;
  * @since 09.07.18
  */
 @Keep
-public class GestureScript implements ProxyFactory.MenuScript {
+public class GestureScript implements JavaScript.CreateMenu, JavaScript.Setup, JavaScript.CreateCustomView {
     private final Utils utils;
 
     public GestureScript(Utils utils) {
@@ -40,19 +46,35 @@ public class GestureScript implements ProxyFactory.MenuScript {
         }
     }
 
+    @Override
     public void setup() {
         Screen screen = utils.getActiveScreen();
         CustomView view = utils.getContainer().addCustomView(screen.getLastTouchX(), screen.getLastTouchY());
         view.setHorizontalGrab(true);
         view.setVerticalGrab(true);
-        Script script = utils.installScript("gesture", R.raw.gesture, "Gesture Launcher");
-        Script menu = utils.installScript("gesture", R.raw.gesture_menu, "Menu");
+        Script script = utils.installCreateViewScript();
+        Script menu = utils.installMenuScript();
         PropertyEditor editor = view.getProperties()
                 .edit()
-                .setString("v.onCreate", "" + script.getId())
-                .setString("i.selectionEffect", "PLAIN")
-                .setEventHandler("i.menu", EventHandler.RUN_SCRIPT, String.valueOf(menu.getId()));
-        editor.getBox("i.box").setColor("c", "nsf", 0x42FfFfFf);
+                .setString(PropertySet.VIEW_ON_CREATE, script.getId() + "/" + getClass().getName())
+                .setString(PropertySet.ITEM_SELECTION_EFFECT, PropertySet.ITEM_SELECTION_EFFECT_PLAIN)
+                .setEventHandler(PropertySet.ITEM_MENU, EventHandler.RUN_SCRIPT, menu.getId() + "/" + getClass().getName());
+        editor.getBox(PropertySet.ITEM_BOX).setColor(Box.CONTENT, Box.MODE_ALL, 0x42FfFfFf);
         editor.commit();
+    }
+
+    @Override
+    public View onCreate(CustomView item) {
+        item.setHorizontalGrab(true);
+        item.setVerticalGrab(true);
+
+        try{
+            return new LightningGestureView(utils.getLightningContext());
+        } catch (Exception e) {
+            Log.w(MultiTool.LOG_TAG, "Failed to load gesture widget");
+            TextView t = new TextView(utils.getLightningContext());
+            t.setText("Unable to load gesture widget.\nPlease restart Lightning Launcher.");
+            return t;
+        }
     }
 }

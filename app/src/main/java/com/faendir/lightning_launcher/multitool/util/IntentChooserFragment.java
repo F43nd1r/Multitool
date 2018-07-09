@@ -19,14 +19,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
 import android.widget.Toast;
-
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
 import com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.adapters.ModelAdapter;
+import com.mikepenz.fastadapter.items.ModelAbstractItem;
 import com.mikepenz.fastadapter.utils.ComparableItemListImpl;
-
+import java9.util.Comparators;
 import org.acra.ACRA;
 
 import java.util.Comparator;
@@ -85,7 +85,7 @@ public class IntentChooserFragment extends Fragment implements SearchView.OnQuer
         Bundle args = getArguments();
         if (args != null) {
             //noinspection ConstantConditions
-            adapter = new ModelAdapter<>(new ComparableItemListImpl<>((o1, o2) -> o1.getModel().compareTo(o2.getModel())),
+            adapter = new ModelAdapter<>(new ComparableItemListImpl<>(Comparators.comparing(ModelAbstractItem::getModel)),
                     ItemFactory.<IntentInfo>forLauncherIconSize(getActivity())::wrap);
             fastAdapter = FastAdapter.with(adapter);
             fastAdapter.withOnClickListener((v, adapter1, item, position) -> {

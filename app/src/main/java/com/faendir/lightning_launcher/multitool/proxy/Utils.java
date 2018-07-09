@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.support.annotation.RawRes;
 import android.support.annotation.StringRes;
 import com.faendir.lightning_launcher.multitool.BuildConfig;
+import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.LightningObjectFactory;
 import com.faendir.lightning_launcher.multitool.util.provider.RemoteSharedPreferences;
 import org.acra.util.StreamReader;
@@ -74,8 +75,36 @@ public class Utils {
         return new RemoteSharedPreferences(lightningContext);
     }
 
+    public Script installNormalScript() {
+        return installScript(null, R.raw.normal, "run");
+    }
+
+    public Script installMenuScript() {
+        return installScript(null, R.raw.menu, "menu");
+    }
+
+    public Script installActivityResultScript() {
+        return installScript(null, R.raw.activity_result, "activity_result");
+    }
+
+    public Script installCreateViewScript() {
+        return installScript(null, R.raw.create_view, "create_view");
+    }
+
+    public Script installRegisterScript() {
+        return installScript(null, R.raw.register, "register");
+    }
+
+    public Script installUnregisterScript() {
+        return installScript(null, R.raw.unregister, "unregister");
+    }
+
+    public Script installCommandScript() {
+        return installScript(null, R.raw.command, "command");
+    }
+
     public Script installScript(String pathSuffix, @RawRes int res, String name) {
-        String path = '/' + BuildConfig.APPLICATION_ID.replace('.', '/') + '/' + pathSuffix;
+        String path = getScriptPath(pathSuffix);
         Script script = lightning.getScriptByPathAndName(path, name);
         try {
             String script_text = new StreamReader(getMultitoolResources().openRawResource(res)).read();
@@ -88,6 +117,14 @@ public class Utils {
             e.printStackTrace();
         }
         return script;
+    }
+
+    public String getScriptPath(String pathSuffix) {
+        String result = '/' + BuildConfig.APPLICATION_ID.replace('.', '/');
+        if (pathSuffix != null) {
+            result += '/' + pathSuffix;
+        }
+        return result;
     }
 
     public void centerOnTouch(Item item) {
@@ -111,5 +148,12 @@ public class Utils {
 
     public void addMenuMainItem(Menu menu, String name, Runnable action) {
         eval.eval(menu.getReal(), "addMainItem", name, action);
+    }
+
+    public void addEventHandler(PropertySet properties, @PropertySet.EventProperty String key, int action, String data) {
+        EventHandler eventHandler = EventHandler.newInstance(lightningContext, action, data);
+        EventHandler old = properties.getEventHandler(key);
+        eventHandler.setNext(old);
+        properties.edit().setEventHandler(key, eventHandler).commit();
     }
 }

@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.faendir.lightning_launcher.multitool.Loader;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.Model;
+import com.faendir.lightning_launcher.multitool.proxy.JavaScript;
 import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
@@ -88,7 +89,7 @@ final class ScriptUtils {
             final Transfer transfer = new Transfer(Transfer.RENAME);
             transfer.script = (Script) item;
             scriptManager.getAsyncExecutorService()
-                    .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
+                    .add(getScriptManagerExecutor(Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
         } else if (item instanceof Folder) {
 //TODO
         }
@@ -102,7 +103,7 @@ final class ScriptUtils {
     }
 
     public static void format(ScriptManager scriptManager, Context context, ListManager listManager, final List<Model> selectedItems) {
-        new FormatTask3(scriptManager, context, listManager).execute(selectedItems.toArray(new Model[selectedItems.size()]));
+        new FormatTask3(scriptManager, context, listManager).execute(selectedItems.toArray(new Model[0]));
         listManager.deselectAll();
     }
 
@@ -201,17 +202,20 @@ final class ScriptUtils {
     private static void simpleCommand(final ScriptManager scriptManager, final ListManager listManager, String command, Script script) {
         final Transfer transfer = new Transfer(command, script);
         scriptManager.getAsyncExecutorService()
-                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
+                .add(getScriptManagerExecutor(Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
     }
 
     public static void toggleDisable(final ScriptManager scriptManager, final ListManager listManager, Script item) {
         final Transfer transfer = new Transfer(Transfer.TOGGLE_DISABLE);
         transfer.script = item;
         scriptManager.getAsyncExecutorService()
-                .add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
+                .add(getScriptManagerExecutor(Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
         item.setFlags(item.getFlags() ^ Loader.FLAG_DISABLED);
         listManager.deselectAll();
     }
 
-
+    public static DirectScriptExecutor getScriptManagerExecutor(@Nullable String data) {
+        return new DirectScriptExecutor(R.raw.direct).putVariable(JavaScript.Direct.PARAM_CLASS,
+                com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManager.class.getName()).putVariable(JavaScript.Direct.PARAM_DATA, data);
+    }
 }

@@ -1,5 +1,4 @@
 eval(loadRawResource("com.faendir.lightning_launcher.multitool","library"));
 
-getObjectFactory().constructBackupCreator().execute();
 // noinspection JSAnnotator
-return "";
+return getObjectFactory().get(multitool$classname).execute(multitool$data);

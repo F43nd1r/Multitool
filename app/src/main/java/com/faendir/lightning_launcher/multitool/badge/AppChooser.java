@@ -7,17 +7,17 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.BaseActivity;
 import com.faendir.lightning_launcher.multitool.util.IntentChooserFragment;
+import com.faendir.lightning_launcher.multitool.util.IntentInfo;
 import com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService;
+import java9.util.Comparators;
+import java9.util.stream.Collectors;
+import java9.util.stream.StreamSupport;
 
 import java.util.Collections;
 import java.util.Set;
-
-import java9.util.stream.Collectors;
-import java9.util.stream.StreamSupport;
 
 /**
  * @author F43nd1r
@@ -66,7 +66,7 @@ public class AppChooser extends BaseActivity {
                 return compare != 0 ? compare : o1.compareTo(o2);
             });
         } else {
-            fragment.setComparator(((o1, o2) -> o1.getName().compareTo(o2.getName())));
+            fragment.setComparator((Comparators.comparing(IntentInfo::getName)));
         }
     }
 

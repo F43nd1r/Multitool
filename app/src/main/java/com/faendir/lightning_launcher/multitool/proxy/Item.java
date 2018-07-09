@@ -1,11 +1,23 @@
 package com.faendir.lightning_launcher.multitool.proxy;
 
+import android.support.annotation.StringDef;
+import android.view.View;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * @author lukas
  * @since 04.07.18
  */
 public interface Item extends Proxy {
+    String TYPE_SHORTCUT = "Shortcut";
+    String TYPE_FOLDER = "Folder";
+    String TYPE_PANEL = "Panel";
+
     String getName();
+
+    void setName(String name);
 
     int getId();
 
@@ -13,6 +25,7 @@ public interface Item extends Proxy {
 
     String getTag(String id);
 
+    @Type
     String getType();
 
     int getWidth();
@@ -29,11 +42,13 @@ public interface Item extends Proxy {
 
     float getRotation();
 
+    void setRotation(float angle);
+
     RectL getCell();
 
     boolean isVisible();
 
-    Image getBoxBackground(String state);
+    Image getBoxBackground(@Box.Mode String state);
 
     PropertySet getProperties();
 
@@ -49,17 +64,20 @@ public interface Item extends Proxy {
 
     void setPosition(float x, float y);
 
-    void setRotation(float angle);
-
     void setScale(float scaleX, float scaleY);
 
     void setSkew(float skewX, float skewY);
 
     void setVisibility(boolean visible);
 
-    void setBoxBackground(Image image, String state, boolean persistent);
+    void setBoxBackground(Image image, @Box.Mode String state, boolean persistent);
 
-    void setName(String name);
+    void setBinding(@PropertySet.BindingProperty String target, String formula, boolean enabled);
 
-    void setBinding(String target, String formula, boolean enabled);
+    View getRootView();
+
+    @Retention(RetentionPolicy.SOURCE)
+    @StringDef({TYPE_SHORTCUT, TYPE_FOLDER, TYPE_PANEL})
+    @interface Type {
+    }
 }

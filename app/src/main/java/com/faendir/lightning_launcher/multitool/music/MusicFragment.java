@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
+import com.faendir.lightning_launcher.multitool.proxy.JavaScript;
 import com.faendir.lightning_launcher.multitool.util.LambdaUtils.ExceptionalFunction;
 import com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
@@ -127,7 +128,7 @@ public class MusicFragment extends Fragment {
                 ScriptManager manager = new ScriptManager(getActivity());
                 if (MultiTool.DEBUG) manager.enableDebug();
                 manager.getAsyncExecutorService()
-                        .add(new DirectScriptExecutor(R.raw.music_update))
+                        .add(new DirectScriptExecutor(R.raw.direct).putVariable(JavaScript.Direct.PARAM_CLASS, MusicSetup.class.getName()))
                         .start();
                 break;
             case R.id.button_play:

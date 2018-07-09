@@ -1,2 +1,3 @@
 eval(loadRawResource("com.faendir.lightning_launcher.multitool", "library"));
-getObjectFactory().constructMultiToolScript().show();
+
+getObjectFactory().get("com.faendir.lightning_launcher.multitool.launcherscript.MultiToolScript").run();

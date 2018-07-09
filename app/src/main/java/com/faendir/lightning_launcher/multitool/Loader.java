@@ -5,13 +5,20 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.annotation.RawRes;
 import android.support.annotation.StringRes;
 import android.util.Log;
 import android.widget.Toast;
-
+import com.faendir.lightning_launcher.multitool.animation.AnimationScript;
+import com.faendir.lightning_launcher.multitool.badge.BadgeSetup;
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
+import com.faendir.lightning_launcher.multitool.drawer.Drawer;
+import com.faendir.lightning_launcher.multitool.gesture.GestureScript;
+import com.faendir.lightning_launcher.multitool.immersive.ImmersiveScript;
+import com.faendir.lightning_launcher.multitool.music.MusicSetup;
+import com.faendir.lightning_launcher.multitool.proxy.JavaScript;
 import com.faendir.lightning_launcher.multitool.util.LambdaUtils;
 
 import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
@@ -24,7 +31,7 @@ import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptio
  */
 
 public class Loader extends Activity {
-    private static final String PKG = "com.faendir.lightning_launcher.multitool";
+    private static final String PKG = BuildConfig.APPLICATION_ID;
     private static final String LAUNCHER_SCRIPT = PKG + ".LoadLauncherScript";
     private static final String GESTURE_LAUNCHER = PKG + ".LoadGestureLauncher";
     private static final String MUSIC_WIDGET = PKG + ".LoadMusicWidget";
@@ -57,28 +64,29 @@ public class Loader extends Activity {
                 check(R.string.title_launcherScript, R.raw.multitool, false, FLAG_APP_MENU + FLAG_ITEM_MENU, getString(R.string.script_name), true);
                 break;
             case GESTURE_LAUNCHER:
-                setupCheck(R.string.title_gestureLauncher, R.raw.gesture_setup);
+                setupCheck(R.string.title_gestureLauncher, GestureScript.class);
                 break;
             case MUSIC_WIDGET:
-                setupCheck(R.string.title_musicWidget, R.raw.music_setup);
+                setupCheck(R.string.title_musicWidget, MusicSetup.class);
                 break;
             case DRAWER:
-                setupCheck(R.string.title_drawer, R.raw.drawer_setup);
+                setupCheck(R.string.title_drawer, Drawer.class);
                 break;
             case IMMERSIVE:
-                setupCheck(R.string.title_immersive, R.raw.immersive_setup);
+                setupCheck(R.string.title_immersive, ImmersiveScript.class);
                 break;
             case ANIMATION:
-                setupCheck(R.string.title_animation, R.raw.animation_setup);
+                setupCheck(R.string.title_animation, AnimationScript.class);
                 break;
             case BADGE:
-                setupCheck(R.string.title_badge, R.raw.badge_setup);
+                setupCheck(R.string.title_badge, BadgeSetup.class);
                 break;
         }
     }
 
-    private void setupCheck(@StringRes final int id, @RawRes final int script) {
-        check(id, script, true, 0, null, true);
+    private void setupCheck(@StringRes final int id, Class<? extends JavaScript.Setup> clazz) {
+        PreferenceManager.getDefaultSharedPreferences(this).edit().putString(getString(R.string.pref_setupClass), clazz.getName()).apply();
+        check(id, R.raw.setup, true, 0, null, true);
     }
 
     private void check(@StringRes final int id, @RawRes final int script, final boolean runAndDelete, final int flags, final String name, final boolean showDialog) {

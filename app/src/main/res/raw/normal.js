@@ -1,3 +1,3 @@
 eval(loadRawResource("com.faendir.lightning_launcher.multitool","library"));
 
-getObjectFactory().constructMusicSetup().create();
+getObjectFactory().get(getEvent().getData()).run();

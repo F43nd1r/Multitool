@@ -5,13 +5,10 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
-
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.Model;
 import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
-import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
-
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.mozilla.javascript.CompilerEnvirons;
 import org.mozilla.javascript.Node;
@@ -221,7 +218,7 @@ public class FormatTask3 extends AsyncTask<Model, FormatTask3.Progress, Void> {
                 script.setCode(code); //set the text to the script
                 Transfer transfer = new Transfer(Transfer.SET_CODE);
                 transfer.script = script;
-                scriptManager.getAsyncExecutorService().add(new DirectScriptExecutor(R.raw.scriptmanager).putVariable("data", Utils.GSON.toJson(transfer)), result -> {
+                scriptManager.getAsyncExecutorService().add(ScriptUtils.getScriptManagerExecutor(Utils.GSON.toJson(transfer)), result -> {
                     if (result != null) {
                         List<Script> scripts = Arrays.asList(Utils.GSON.fromJson(result, Script[].class));
                         listManager.updateFrom(scripts);

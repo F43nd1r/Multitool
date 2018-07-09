@@ -9,9 +9,11 @@ import android.support.annotation.Keep;
 import android.support.annotation.NonNull;
 import android.view.KeyEvent;
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.proxy.Box;
 import com.faendir.lightning_launcher.multitool.proxy.Container;
 import com.faendir.lightning_launcher.multitool.proxy.ImageBitmap;
 import com.faendir.lightning_launcher.multitool.proxy.Item;
+import com.faendir.lightning_launcher.multitool.proxy.JavaScript;
 import com.faendir.lightning_launcher.multitool.proxy.Utils;
 import com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener;
 import com.faendir.lightning_launcher.multitool.util.provider.DataProvider;
@@ -76,11 +78,11 @@ public abstract class MusicListener extends BaseContentListener {
         getContext().sendBroadcast(intent);
     }
 
-    private static class LightningMusicListener extends MusicListener {
+    public static class LightningMusicListener extends MusicListener implements JavaScript.Listener, JavaScript.Normal {
         private final Utils utils;
         private final Container panel;
 
-        LightningMusicListener(@NonNull Utils utils) {
+        public LightningMusicListener(@NonNull Utils utils) {
             super(utils.getLightningContext());
             this.utils = utils;
             panel = utils.getContainer();
@@ -90,7 +92,7 @@ public abstract class MusicListener extends BaseContentListener {
         protected void onChange(TitleInfo titleInfo) {
             try {
                 Bitmap albumArt = titleInfo.getAlbumArt();
-                Item item = panel.getItemByName("albumart");
+                Item item = panel.getItemByName(MusicSetup.ITEM_ABUM_ART);
                 ImageBitmap image = utils.getImageClass().createImage(item.getWidth(), item.getHeight());
                 if (albumArt != null) {
                     Rect src = new Rect(0, 0, albumArt.getWidth(), albumArt.getHeight());
@@ -108,17 +110,32 @@ public abstract class MusicListener extends BaseContentListener {
                     }
                     image.draw().drawBitmap(albumArt, src, dest, null);
                 }
-                item.setBoxBackground(image, "nsf", false);
+                item.setBoxBackground(image, Box.MODE_ALL, false);
                 utils.getLightning()
                         .getVariables()
                         .edit()
-                        .setString("title", titleInfo.getTitle())
-                        .setString("album", titleInfo.getAlbum())
-                        .setString("artist", titleInfo.getArtist())
-                        .setString("player", titleInfo.getPackageName())
+                        .setString(MusicSetup.VARIABLE_TITLE, titleInfo.getTitle())
+                        .setString(MusicSetup.VARIABLE_ALBUM, titleInfo.getAlbum())
+                        .setString(MusicSetup.VARIABLE_ARTIST, titleInfo.getArtist())
+                        .setString(MusicSetup.VARIABLE_PLAYER, titleInfo.getPackageName())
                         .commit();
             } catch (Exception e) {
                 e.printStackTrace();
+            }
+        }
+
+        @Override
+        public void handleCommand(String command) {
+            switch (Integer.parseInt(command)) {
+                case MusicSetup.PLAY:
+                    sendPlayPause();
+                    break;
+                case MusicSetup.NEXT:
+                    sendNext();
+                    break;
+                case MusicSetup.PREVIOUS:
+                    sendPrevious();
+                    break;
             }
         }
 
@@ -134,6 +151,19 @@ public abstract class MusicListener extends BaseContentListener {
                 int x = (int) ((width - width / factor) / 2);
                 cut.left += x;
                 cut.right -= x;
+            }
+        }
+
+        @Override
+        public void run() {
+            String player = utils.getLightning().getVariables().getString("player");
+            try {
+                if (player == null) {
+                    player = utils.getSharedPref().getString(utils.getString(R.string.pref_musicDefault), "");
+                }
+                Intent intent = utils.getLightningContext().getPackageManager().getLaunchIntentForPackage(player);
+                utils.getLightningContext().startActivity(intent);
+            } catch (Exception ignored) {
             }
         }
     }

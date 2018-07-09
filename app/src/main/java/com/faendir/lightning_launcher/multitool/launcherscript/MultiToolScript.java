@@ -15,12 +15,15 @@ import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
 import com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory;
 import com.faendir.lightning_launcher.multitool.fastadapter.Model;
+import com.faendir.lightning_launcher.multitool.proxy.Box;
 import com.faendir.lightning_launcher.multitool.proxy.Container;
 import com.faendir.lightning_launcher.multitool.proxy.Desktop;
 import com.faendir.lightning_launcher.multitool.proxy.Event;
 import com.faendir.lightning_launcher.multitool.proxy.Image;
 import com.faendir.lightning_launcher.multitool.proxy.ImageBitmap;
 import com.faendir.lightning_launcher.multitool.proxy.Item;
+import com.faendir.lightning_launcher.multitool.proxy.JavaScript;
+import com.faendir.lightning_launcher.multitool.proxy.PropertySet;
 import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
 import com.faendir.lightning_launcher.multitool.proxy.Shortcut;
 import com.faendir.lightning_launcher.multitool.proxy.Utils;
@@ -55,7 +58,7 @@ import java.util.Set;
  * @since 04.07.18
  */
 @Keep
-public class MultiToolScript {
+public class MultiToolScript implements JavaScript.Normal {
     private final Utils utils;
     private final Event event;
 
@@ -64,7 +67,8 @@ public class MultiToolScript {
         this.event = utils.getEvent();
     }
 
-    public void show() {
+    @Override
+    public void run() {
         RecyclerView recyclerView = new RecyclerView(utils.getMultitoolContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(utils.getMultitoolContext()));
         AlertDialog dialog = new AlertDialog.Builder(utils.getLightningContext()).setView(recyclerView)
@@ -209,7 +213,7 @@ public class MultiToolScript {
                         item.setSize(width, height);
                     }
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(utils.getString(R.string.button_cancel), null)
                 .show();
     }
 
@@ -227,7 +231,7 @@ public class MultiToolScript {
     private void attachDetach(boolean attach) {
         Item[] items = event.getContainer().getAllItems();
         for (Item i : items) {
-            i.getProperties().edit().setBoolean("i.onGrid", attach).commit();
+            i.getProperties().edit().setBoolean(PropertySet.ITEM_ON_GRID, attach).commit();
         }
         Toast.makeText(utils.getLightningContext(), "Done!", Toast.LENGTH_SHORT).show();
     }
@@ -240,10 +244,10 @@ public class MultiToolScript {
         root.setOrientation(LinearLayout.VERTICAL);
 
         //check for all kinds of images in this item and add them to the view if there are any
-        addImageIfNotNull(root, it.getBoxBackground("n"), "Normal Box Background");
-        addImageIfNotNull(root, it.getBoxBackground("s"), "Selected Box Background");
-        addImageIfNotNull(root, it.getBoxBackground("f"), "Focused Box Background");
-        if ("Shortcut".equals(it.getType())) {
+        addImageIfNotNull(root, it.getBoxBackground(Box.MODE_NORMAL), "Normal Box Background");
+        addImageIfNotNull(root, it.getBoxBackground(Box.MODE_SELECTED), "Selected Box Background");
+        addImageIfNotNull(root, it.getBoxBackground(Box.MODE_FOCUSED), "Focused Box Background");
+        if (Item.TYPE_SHORTCUT.equals(it.getType())) {
             Shortcut shortcut = ProxyFactory.cast(it, Shortcut.class);
             addImageIfNotNull(root, shortcut.getDefaultIcon(), "Default Icon");
             addImageIfNotNull(root, shortcut.getCustomIcon(), "Custom Icon");
@@ -267,7 +271,7 @@ public class MultiToolScript {
             TextView textView = new TextView(utils.getLightningContext());
             textView.setText(String.format(Locale.US, "%s (%dx%d)", txt, image.getWidth(), image.getHeight()));
             root.addView(textView);
-            if ("BITMAP".equals(image.getType())) {
+            if (Image.TYPE_BITMAP.equals(image.getType())) {
                 ImageView imageView = new ImageView(utils.getLightningContext());
                 imageView.setImageBitmap(ProxyFactory.cast(image, ImageBitmap.class).getBitmap());
                 root.addView(imageView);
@@ -278,7 +282,7 @@ public class MultiToolScript {
     private void showIntentInfo(AlertDialog dialog) {
         dialog.dismiss();
         Item it = event.getItem();
-        if (it == null || !"Shortcut".equals(it.getType())) {
+        if (it == null || !Item.TYPE_SHORTCUT.equals(it.getType())) {
             Toast.makeText(utils.getLightningContext(), "No Intent found", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -298,8 +302,8 @@ public class MultiToolScript {
         String tags = StreamSupport.stream(getTags(i).entrySet()).map(entry -> entry.getKey() + ": " + entry.getValue()).collect(Collectors.joining("\n"));
         String label;
         switch (i.getType()) {
-            case "Shortcut":
-            case "Folder":
+            case Item.TYPE_SHORTCUT:
+            case Item.TYPE_FOLDER:
                 label = ProxyFactory.cast(i, Shortcut.class).getLabel();
                 break;
             default:
@@ -362,26 +366,13 @@ public class MultiToolScript {
         String t = c.getType(); //Differentiate between Desktop and other containers
 
         //read Tags from launcher file
-        StringBuilder tags = new StringBuilder("Default: " + c.getTag());
-        try {
-            String s = new StreamReader(utils.getLightningContext().getFilesDir().getPath() + "/pages/" + c.getId() + "/conf").read();
-            JSONObject data = new JSONObject(s);
-            if (data.has("tags")) {
-                JSONObject jsonTags = data.getJSONObject("tags");
-                for (Iterator<String> iterator = jsonTags.keys(); iterator.hasNext(); ) {
-                    String property = iterator.next();
-                    tags.append("\n").append(property).append(": ").append(jsonTags.get(property));
-                }
-            }
-        } catch (IOException | JSONException e) {
-            e.printStackTrace();
-        }
+        String tags = StreamSupport.stream(getTags(c).entrySet()).map(entry -> entry.getKey() + ": " + entry.getValue()).collect(Collectors.joining("\n"));
         String name;
         switch (t) {
-            case "Desktop":
+            case Container.TYPE_DESKTOP:
                 name = ProxyFactory.cast(c, Desktop.class).getName();
                 break;
-            case "Folder":
+            case Container.TYPE_FOLDER:
                 name = ProxyFactory.cast(c.getOpener(), Shortcut.class).getLabel();
                 break;
             default:

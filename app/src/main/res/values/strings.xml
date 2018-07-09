@@ -202,6 +202,7 @@
     <string name="title_idDialog">Your ID</string>
     <string name="button_copyToClipboard">Copy to Clipboard</string>
     <string name="button_close">Close</string>
+    <string name="pref_setupClass">setupClass</string>
     <string-array name="sortings">
         <item>Relevance</item>
         <item>Alphabetical</item>

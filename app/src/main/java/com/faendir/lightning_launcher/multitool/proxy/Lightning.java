@@ -21,4 +21,10 @@ public interface Lightning extends Proxy {
     Screen getActiveScreen();
 
     Script getCurrentScript();
+
+    Script getScriptById(String id);
+
+    void deleteScript(Script script);
+
+    Script[] getAllScriptMatching(int flags);
 }

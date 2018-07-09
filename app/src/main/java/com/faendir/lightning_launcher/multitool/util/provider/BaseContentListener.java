@@ -28,6 +28,7 @@ public abstract class BaseContentListener extends ContentObserver {
     public abstract void onChange(boolean selfChange);
 
     public void register() {
+        onChange(false);
         context.getContentResolver().registerContentObserver(uri, false, this);
     }
 

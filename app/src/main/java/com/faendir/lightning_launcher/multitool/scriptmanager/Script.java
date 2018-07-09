@@ -16,42 +16,16 @@ import com.faendir.lightning_launcher.multitool.fastadapter.DeletableModel;
  * Represents a script
  */
 @Keep
-public class Script implements Comparable<Script>, DeletableModel {
-    @SuppressWarnings("unused")
+public class Script extends com.trianguloy.llscript.repository.aidl.Script implements Comparable<Script>, DeletableModel {
     private final int id;
-    private String name;
-    private String code;
-    private int flags;
-    private String path;
 
     public Script(String name, int id, String code, int flags, String path) {
-        this.name = name;
+        super(code, name, flags, path);
         this.id = id;
-        this.code = code;
-        this.flags = flags;
-        this.path = path;
     }
 
     public int getId() {
         return id;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public void setFlags(int flags) {
-        this.flags = flags;
     }
 
     @Override
@@ -74,22 +48,6 @@ public class Script implements Comparable<Script>, DeletableModel {
         return getName().toLowerCase().compareTo(another.getName().toLowerCase());
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public int getFlags() {
-        return flags;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
     @Override
     public String getUndoText(@NonNull Context context) {
         return context.getString(R.string.text_scriptDeleted);
@@ -101,7 +59,7 @@ public class Script implements Comparable<Script>, DeletableModel {
     }
 
     public boolean isDisabled() {
-        return (flags & Loader.FLAG_DISABLED) != 0;
+        return (getFlags() & Loader.FLAG_DISABLED) != 0;
     }
 
     @Override
@@ -113,7 +71,7 @@ public class Script implements Comparable<Script>, DeletableModel {
     public String toString() {
         return "Script{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + getName() + '\'' +
                 '}';
     }
 }

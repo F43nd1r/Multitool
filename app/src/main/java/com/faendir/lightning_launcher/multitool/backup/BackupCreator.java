@@ -13,7 +13,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.faendir.lightning_launcher.multitool.MultiTool;
-
+import com.faendir.lightning_launcher.multitool.proxy.JavaScript;
+import com.faendir.lightning_launcher.multitool.proxy.Utils;
 import org.acra.ACRAConstants;
 
 import java.io.BufferedInputStream;
@@ -34,12 +35,14 @@ import java.util.zip.ZipOutputStream;
  * @since 20.12.2017
  */
 @Keep
-public class BackupCreator extends AsyncTask<Object, Void, Boolean> {
-
+public class BackupCreator extends AsyncTask<Object, Void, Boolean> implements JavaScript.Direct {
+    private static final String CORE = "core";
+    private static final String FONTS = "fonts";
+    private static final String WALLPAPER = "wallpaper";
     private final WeakReference<Context> contextRef;
 
-    public BackupCreator(Context context) {
-        this.contextRef = new WeakReference<>(context);
+    public BackupCreator(Utils utils) {
+        this.contextRef = new WeakReference<>(utils.getLightningContext());
     }
 
     @Override
@@ -64,23 +67,23 @@ public class BackupCreator extends AsyncTask<Object, Void, Boolean> {
             startEntry(stream, "version");
             copy(new ByteArrayInputStream("1".getBytes()), stream);
             stream.closeEntry();
-            addDirectoryEntry(stream, "core");
+            addDirectoryEntry(stream, CORE);
             File lightning = context.getFilesDir();
-            copyDirectory(stream, new File(lightning, "pages"), "core");
-            copyDirectory(stream, new File(lightning, "scripts"), "core");
-            copyDirectory(stream, new File(lightning, "themes"), "core");
-            copyFile(stream, new File(lightning, "config"), "core");
-            copyFile(stream, new File(lightning, "state"), "core");
-            copyFile(stream, new File(lightning, "statistics"), "core");
-            copyFile(stream, new File(lightning, "system"), "core");
-            copyFile(stream, new File(lightning, "variables"), "core");
-            addDirectoryEntry(stream, "wallpaper");
+            copyDirectory(stream, new File(lightning, "pages"), CORE);
+            copyDirectory(stream, new File(lightning, "scripts"), CORE);
+            copyDirectory(stream, new File(lightning, "themes"), CORE);
+            copyFile(stream, new File(lightning, "config"), CORE);
+            copyFile(stream, new File(lightning, "state"), CORE);
+            copyFile(stream, new File(lightning, "statistics"), CORE);
+            copyFile(stream, new File(lightning, "system"), CORE);
+            copyFile(stream, new File(lightning, "variables"), CORE);
+            addDirectoryEntry(stream, WALLPAPER);
             Bitmap wallpaper = drawableToBitmap(WallpaperManager.getInstance(context).getDrawable());
-            startEntry(stream, "wallpaper/bitmap.png");
+            startEntry(stream, WALLPAPER + File.separator + "bitmap.png");
             wallpaper.compress(Bitmap.CompressFormat.PNG, 100, stream);
             stream.closeEntry();
-            addDirectoryEntry(stream, "fonts");
-            copyDirectory(stream, new File(lightning, "fonts"), "");
+            addDirectoryEntry(stream, FONTS);
+            copyDirectory(stream, new File(lightning, FONTS), "");
             addDirectoryEntry(stream, "widgets_data");
             return true;
         } catch (IOException e) {
@@ -156,5 +159,8 @@ public class BackupCreator extends AsyncTask<Object, Void, Boolean> {
         return bitmap;
     }
 
-
+    @Override
+    public String execute(String data) {
+        return String.valueOf(super.execute());
+    }
 }

@@ -1,12 +1,20 @@
 package com.faendir.lightning_launcher.multitool.proxy;
 
 import android.content.Intent;
+import android.support.annotation.StringDef;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
 /**
  * @author lukas
  * @since 04.07.18
  */
 public interface Container extends Proxy {
+    String TYPE_DESKTOP = "Desktop";
+    String TYPE_FOLDER = "Folder";
+
+    @Type
     String getType();
 
     int getId();
@@ -46,4 +54,11 @@ public interface Container extends Proxy {
     Shortcut addShortcut(String label, Intent intent, float x, float y);
 
     CustomView addCustomView(float x, float y);
+
+    String getTag(String id);
+
+    @Retention(RetentionPolicy.SOURCE)
+    @StringDef({TYPE_DESKTOP, TYPE_FOLDER})
+    @interface Type {
+    }
 }

@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.os.Handler;
 import android.support.annotation.Keep;
 import android.view.View;
-import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.proxy.Desktop;
 import com.faendir.lightning_launcher.multitool.proxy.EventHandler;
+import com.faendir.lightning_launcher.multitool.proxy.JavaScript;
 import com.faendir.lightning_launcher.multitool.proxy.PropertySet;
 import com.faendir.lightning_launcher.multitool.proxy.Script;
 import com.faendir.lightning_launcher.multitool.proxy.Utils;
@@ -16,27 +16,29 @@ import com.faendir.lightning_launcher.multitool.proxy.Utils;
  * @since 09.07.18
  */
 @Keep
-public class ImmersiveScript {
+public class ImmersiveScript implements JavaScript.Normal, JavaScript.Setup {
     private final Utils utils;
 
     public ImmersiveScript(Utils utils) {
         this.utils = utils;
     }
 
+    @Override
     public void setup() {
-        Script script = utils.installScript("immersive", R.raw.immersive, "Toggle immersive mode");
+        Script script = utils.installNormalScript();
         Desktop desktop = utils.getActiveScreen().getCurrentDesktop();
         PropertySet properties = desktop.getProperties();
-        EventHandler eventHandler = properties.getEventHandler("resumed");
-        if (eventHandler.getAction() == EventHandler.RUN_SCRIPT && String.valueOf(script.getId()).equals(eventHandler.getData())) {
-            properties.edit().setEventHandler("resumed", EventHandler.UNSET, null).commit();
+        EventHandler eventHandler = properties.getEventHandler(PropertySet.RESUMED);
+        if (eventHandler.getAction() == EventHandler.RUN_SCRIPT && eventHandler.getData() != null && eventHandler.getData().startsWith(String.valueOf(script.getId()))) {
+            properties.edit().setEventHandler(PropertySet.RESUMED, EventHandler.UNSET, null).commit();
             ((Activity) utils.getLightningContext()).getWindow().getDecorView().setSystemUiVisibility(0);
         } else {
-            properties.edit().setEventHandler("resumed", EventHandler.RUN_SCRIPT, String.valueOf(script.getId())).commit();
+            properties.edit().setEventHandler(PropertySet.RESUMED, EventHandler.RUN_SCRIPT, script.getId() + "/" + getClass().getName()).commit();
             script.run(utils.getActiveScreen(), null);
         }
     }
 
+    @Override
     public void run() {
         new Handler(utils.getLightningContext().getMainLooper()).post(() -> ((Activity) utils.getLightningContext()).getWindow()
                 .getDecorView()

@@ -6,4 +6,6 @@ package com.faendir.lightning_launcher.multitool.proxy;
  */
 public interface VariableSet extends Proxy {
     VariableEditor edit();
+
+    String getString(String name);
 }

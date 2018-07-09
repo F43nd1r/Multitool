@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.support.annotation.Keep;
 import android.support.annotation.NonNull;
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.proxy.JavaScript;
 import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
 import com.faendir.lightning_launcher.multitool.proxy.Shortcut;
 import com.faendir.lightning_launcher.multitool.proxy.Utils;
@@ -14,16 +15,16 @@ import com.faendir.lightning_launcher.multitool.util.provider.BaseContentListene
  * @since 06.11.2017
  */
 @Keep
-public class BadgeListener extends BaseContentListener {
+public class BadgeListener extends BaseContentListener implements JavaScript.Listener {
     private final String packageName;
     private final Utils utils;
     private final Shortcut item;
 
     public BadgeListener(@NonNull Utils utils) {
-        super(new Handler(), utils.getLightningContext(), BadgeDataSource.getContentUri(utils.getEvent().getItem().getTag("package")));
+        super(new Handler(), utils.getLightningContext(), BadgeDataSource.getContentUri(utils.getEvent().getItem().getTag(BadgeSetup.TAG_PACKAGE)));
         this.utils = utils;
         item = ProxyFactory.cast(utils.getEvent().getItem(), Shortcut.class);
-        this.packageName = item.getTag("package");
+        this.packageName = item.getTag(BadgeSetup.TAG_PACKAGE);
     }
 
     @Override
