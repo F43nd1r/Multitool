@@ -7,6 +7,7 @@ import com.faendir.lightning_launcher.multitool.backup.BackupCreator;
 import com.faendir.lightning_launcher.multitool.badge.BadgeListener;
 import com.faendir.lightning_launcher.multitool.badge.BadgeSetup;
 import com.faendir.lightning_launcher.multitool.drawer.Drawer;
+import com.faendir.lightning_launcher.multitool.gesture.GestureScript;
 import com.faendir.lightning_launcher.multitool.gesture.LightningGestureView;
 import com.faendir.lightning_launcher.multitool.launcherscript.MultiToolScript;
 import com.faendir.lightning_launcher.multitool.music.MusicListener;
@@ -58,9 +59,8 @@ public class LightningObjectFactory {
         return new Drawer(utils);
     }
 
-    @FunctionalInterface
-    public interface LightningConsumer<T> {
-        void accept(T t);
+    public GestureScript constructGestureScript() {
+        return new GestureScript(utils);
     }
 
     @FunctionalInterface

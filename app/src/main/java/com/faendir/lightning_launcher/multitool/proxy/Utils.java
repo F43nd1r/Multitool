@@ -110,6 +110,6 @@ public class Utils {
     }
 
     public void addMenuMainItem(Menu menu, String name, Runnable action) {
-        eval.eval(menu, "addMainItem", name, action);
+        eval.eval(menu.getReal(), "addMainItem", name, action);
     }
 }

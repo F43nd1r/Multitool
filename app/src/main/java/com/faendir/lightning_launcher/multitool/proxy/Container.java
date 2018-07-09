@@ -44,4 +44,6 @@ public interface Container extends Proxy {
     PropertySet getProperties();
 
     Shortcut addShortcut(String label, Intent intent, float x, float y);
+
+    CustomView addCustomView(float x, float y);
 }

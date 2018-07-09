@@ -1,6 +1,7 @@
 package com.faendir.lightning_launcher.multitool.music;
 
 import android.content.Intent;
+import android.support.annotation.Keep;
 import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.proxy.Container;
@@ -15,6 +16,7 @@ import com.faendir.lightning_launcher.multitool.proxy.Utils;
  * @author lukas
  * @since 05.07.18
  */
+@Keep
 public class MusicSetup {
     private final Utils utils;
 

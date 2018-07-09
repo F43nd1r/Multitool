@@ -2,6 +2,7 @@ package com.faendir.lightning_launcher.multitool.badge;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.annotation.Keep;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.proxy.ActivityScreen;
 import com.faendir.lightning_launcher.multitool.proxy.Container;
@@ -15,6 +16,7 @@ import com.faendir.lightning_launcher.multitool.proxy.Utils;
  * @author lukas
  * @since 08.07.18
  */
+@Keep
 public class BadgeSetup {
     private final Utils utils;
 

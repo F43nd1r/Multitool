@@ -1,4 +1,4 @@
-eval(loadRawResource("com.faendir.lightning_launcher.multitool","library"));
+eval(loadRawResource("com.faendir.lightning_launcher.multitool", "library"));
 
 item.setHorizontalGrab(true);
 item.setVerticalGrab(true);
@@ -6,7 +6,7 @@ item.setVerticalGrab(true);
 try{
     // noinspection JSAnnotator
     return getObjectFactory().constructLightningGestureView();
-}catch(e){
+} catch (e) {
     bindClass("android.util.Log");
     bindClass("android.widget.TextView");
     Log.w("[MULTITOOL]", "Failed to load gesture widget");

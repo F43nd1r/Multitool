@@ -11,6 +11,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.support.annotation.Keep;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.proxy.Container;
 import com.faendir.lightning_launcher.multitool.proxy.Folder;
@@ -38,7 +39,8 @@ import java.util.Set;
  * @author lukas
  * @since 08.07.18
  */
-public class Drawer {
+@Keep
+public class Drawer implements ProxyFactory.MenuScript {
     private final Utils utils;
     private final PackageManager pm;
 
@@ -47,9 +49,8 @@ public class Drawer {
         pm = utils.getLightningContext().getPackageManager();
     }
 
-    public void showMenu(Object jsMenu, Object jsItem) {
-        Menu menu = ProxyFactory.lightningProxy(jsMenu, Menu.class);
-        Item item = ProxyFactory.lightningProxy(jsItem, Item.class);
+    @Override
+    public void showMenu(Menu menu, Item item) {
         int mode = menu.getMode();
         if (mode == Menu.MODE_ITEM_NO_EM || mode == Menu.MODE_ITEM_EM) {
             utils.addMenuMainItem(menu, "Hide", () -> this.hide(menu, item));
@@ -57,6 +58,7 @@ public class Drawer {
     }
 
     private void hide(Menu menu, Item item) {
+        menu.close();
         String name = item.getTag("intent");
         if (name != null) {
             Set<String> hidden = utils.getSharedPref().getStringSet(utils.getString(R.string.pref_hiddenApps), new HashSet<>());
@@ -67,7 +69,6 @@ public class Drawer {
                 utils.getActiveScreen().runScript("com/faendir/lightning_launcher/multitool/drawer", "AppDrawer", null);
             }
         }
-        menu.close();
     }
 
     public void update() {

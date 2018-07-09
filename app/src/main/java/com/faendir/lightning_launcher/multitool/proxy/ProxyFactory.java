@@ -1,5 +1,6 @@
 package com.faendir.lightning_launcher.multitool.proxy;
 
+import android.support.annotation.Keep;
 import com.faendir.lightning_launcher.multitool.util.LightningObjectFactory.EvalFunction;
 import java9.util.stream.Stream;
 
@@ -16,17 +17,26 @@ public final class ProxyFactory {
     private ProxyFactory() {
     }
 
-    public static <T extends Proxy> T lightningProxy(Object lightningObject, Class<T> interfaceClass) {
+    static <T extends Proxy> T lightningProxy(Object lightningObject, Class<T> interfaceClass) {
         //noinspection unchecked
         return (T) java.lang.reflect.Proxy.newProxyInstance(ProxyFactory.class.getClassLoader(), new Class[]{interfaceClass}, new JavaProxyInvocationHandler(lightningObject));
     }
 
-    public static Lightning evalProxy(EvalFunction eval) {
+    static Lightning evalProxy(EvalFunction eval) {
         return (Lightning) java.lang.reflect.Proxy.newProxyInstance(ProxyFactory.class.getClassLoader(), new Class[]{Lightning.class}, new EvalProxyInvocationHandler(eval));
     }
 
     public static <T extends Proxy> T cast(Proxy proxy, Class<T> interfaceClass) {
         return lightningProxy(proxy.getReal(), interfaceClass);
+    }
+
+    @Keep
+    public interface MenuScript {
+        default void showMenu(Object jsMenu, Object jsItem) {
+            showMenu(lightningProxy(jsMenu, Menu.class), lightningProxy(jsItem, Item.class));
+        }
+
+        void showMenu(Menu menu, Item item);
     }
 
     private static class JavaProxyInvocationHandler extends BaseProxyInvocationHandler {
@@ -60,7 +70,7 @@ public final class ProxyFactory {
         }
     }
 
-    public abstract static class BaseProxyInvocationHandler implements InvocationHandler {
+    private abstract static class BaseProxyInvocationHandler implements InvocationHandler {
         private final Object object;
 
         protected BaseProxyInvocationHandler(Object object) {

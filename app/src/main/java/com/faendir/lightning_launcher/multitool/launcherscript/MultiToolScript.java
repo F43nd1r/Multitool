@@ -2,6 +2,7 @@ package com.faendir.lightning_launcher.multitool.launcherscript;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.support.annotation.Keep;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
@@ -53,6 +54,7 @@ import java.util.Set;
  * @author lukas
  * @since 04.07.18
  */
+@Keep
 public class MultiToolScript {
     private final Utils utils;
     private final Event event;

@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.support.annotation.Keep;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -32,7 +33,7 @@ import java.util.zip.ZipOutputStream;
  * @author F43nd1r
  * @since 20.12.2017
  */
-
+@Keep
 public class BackupCreator extends AsyncTask<Object, Void, Boolean> {
 
     private final WeakReference<Context> contextRef;

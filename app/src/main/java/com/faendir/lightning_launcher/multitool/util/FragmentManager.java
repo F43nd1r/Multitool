@@ -28,6 +28,7 @@ import org.greenrobot.eventbus.ThreadMode;
  * @author F43nd1r
  */
 public class FragmentManager {
+    public static final String EXTRA_MODE = "mode";
     private final MainActivity context;
     private final android.app.FragmentManager manager;
     private final SharedPreferences sharedPref;
