@@ -11,8 +11,7 @@ import com.faendir.lightning_launcher.multitool.gesture.LightningGestureView;
 import com.faendir.lightning_launcher.multitool.launcherscript.MultiToolScript;
 import com.faendir.lightning_launcher.multitool.music.MusicListener;
 import com.faendir.lightning_launcher.multitool.music.MusicSetup;
-import com.faendir.lightning_launcher.multitool.proxy.Lightning;
-import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
+import com.faendir.lightning_launcher.multitool.proxy.Utils;
 
 /**
  * @author F43nd1r
@@ -21,44 +20,42 @@ import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
 @SuppressWarnings("unused")
 @Keep
 public class LightningObjectFactory {
-    private Lightning lightning;
-    private EvalFunction eval;
+    private Utils utils;
 
     public void init(EvalFunction eval) {
-        this.eval = eval;
-        this.lightning = ProxyFactory.evalProxy(eval, Lightning.class);
+        this.utils = new Utils(eval);
     }
 
     public MusicListener constructMusicListener() {
-        return MusicListener.create(lightning);
+        return MusicListener.create(utils);
     }
 
     public BadgeListener constructBadgeListener() {
-        return new BadgeListener(lightning);
+        return new BadgeListener(utils);
     }
 
     public BackupCreator constructBackupCreator() {
-        return new BackupCreator(lightning.getActiveScreen().getContext());
+        return new BackupCreator(utils.getLightningContext());
     }
 
     public LightningGestureView constructLightningGestureView() {
-        return new LightningGestureView(lightning.getActiveScreen().getContext());
+        return new LightningGestureView(utils.getLightningContext());
     }
 
     public MultiToolScript constructMultiToolScript() {
-        return new MultiToolScript(lightning);
+        return new MultiToolScript(utils);
     }
 
     public MusicSetup constructMusicSetup() {
-        return new MusicSetup(lightning);
+        return new MusicSetup(utils);
     }
 
     public BadgeSetup constructBadgeSetup() {
-        return new BadgeSetup(lightning);
+        return new BadgeSetup(utils);
     }
 
     public Drawer constructDrawer() {
-        return new Drawer(lightning, eval);
+        return new Drawer(utils);
     }
 
     @FunctionalInterface

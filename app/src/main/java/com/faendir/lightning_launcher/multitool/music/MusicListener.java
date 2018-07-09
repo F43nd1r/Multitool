@@ -12,7 +12,6 @@ import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.proxy.Container;
 import com.faendir.lightning_launcher.multitool.proxy.ImageBitmap;
 import com.faendir.lightning_launcher.multitool.proxy.Item;
-import com.faendir.lightning_launcher.multitool.proxy.Lightning;
 import com.faendir.lightning_launcher.multitool.proxy.Utils;
 import com.faendir.lightning_launcher.multitool.util.provider.BaseContentListener;
 import com.faendir.lightning_launcher.multitool.util.provider.DataProvider;
@@ -40,8 +39,8 @@ public abstract class MusicListener extends BaseContentListener {
         };
     }
 
-    public static MusicListener create(Lightning lightning) {
-        return new LightningMusicListener(lightning);
+    public static MusicListener create(Utils utils) {
+        return new LightningMusicListener(utils);
     }
 
     @Override
@@ -81,10 +80,10 @@ public abstract class MusicListener extends BaseContentListener {
         private final Utils utils;
         private final Container panel;
 
-        LightningMusicListener(@NonNull Lightning lightning) {
-            super(lightning.getActiveScreen().getContext());
-            this.utils = new Utils(lightning);
-            panel = lightning.getEvent().getContainer();
+        LightningMusicListener(@NonNull Utils utils) {
+            super(utils.getLightningContext());
+            this.utils = utils;
+            panel = utils.getContainer();
         }
 
         @Override

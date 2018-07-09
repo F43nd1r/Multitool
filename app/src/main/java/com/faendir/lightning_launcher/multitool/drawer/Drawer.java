@@ -16,14 +16,12 @@ import com.faendir.lightning_launcher.multitool.proxy.Container;
 import com.faendir.lightning_launcher.multitool.proxy.Folder;
 import com.faendir.lightning_launcher.multitool.proxy.ImageBitmap;
 import com.faendir.lightning_launcher.multitool.proxy.Item;
-import com.faendir.lightning_launcher.multitool.proxy.Lightning;
 import com.faendir.lightning_launcher.multitool.proxy.Menu;
 import com.faendir.lightning_launcher.multitool.proxy.Panel;
 import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
 import com.faendir.lightning_launcher.multitool.proxy.RectL;
 import com.faendir.lightning_launcher.multitool.proxy.Shortcut;
 import com.faendir.lightning_launcher.multitool.proxy.Utils;
-import com.faendir.lightning_launcher.multitool.util.LightningObjectFactory;
 import java9.util.Comparators;
 import java9.util.Lists;
 import java9.util.stream.Collectors;
@@ -42,12 +40,10 @@ import java.util.Set;
  */
 public class Drawer {
     private final Utils utils;
-    private final LightningObjectFactory.EvalFunction eval;
     private final PackageManager pm;
 
-    public Drawer(Lightning lightning, LightningObjectFactory.EvalFunction eval) {
-        utils = new Utils(lightning);
-        this.eval = eval;
+    public Drawer(Utils utils) {
+        this.utils = utils;
         pm = utils.getLightningContext().getPackageManager();
     }
 
@@ -56,19 +52,19 @@ public class Drawer {
         Item item = ProxyFactory.lightningProxy(jsItem, Item.class);
         int mode = menu.getMode();
         if (mode == Menu.MODE_ITEM_NO_EM || mode == Menu.MODE_ITEM_EM) {
-            eval.eval(menu, "addMainItem", "Hide", (Runnable) () -> this.hide(menu, item));
+            utils.addMenuMainItem(menu, "Hide", () -> this.hide(menu, item));
         }
     }
 
     private void hide(Menu menu, Item item) {
         String name = item.getTag("intent");
-        if(name != null){
+        if (name != null) {
             Set<String> hidden = utils.getSharedPref().getStringSet(utils.getString(R.string.pref_hiddenApps), new HashSet<>());
-            if(!hidden.contains(name)) {
+            if (!hidden.contains(name)) {
                 hidden.add(name);
                 utils.getSharedPref().edit().putStringSet(utils.getString(R.string.pref_hiddenApps), hidden).apply();
                 item.getParent().removeItem(item);
-                utils.getScreen().runScript("com/faendir/lightning_launcher/multitool/drawer","AppDrawer",null);
+                utils.getActiveScreen().runScript("com/faendir/lightning_launcher/multitool/drawer", "AppDrawer", null);
             }
         }
         menu.close();

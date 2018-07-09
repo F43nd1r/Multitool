@@ -21,9 +21,8 @@ public final class ProxyFactory {
         return (T) java.lang.reflect.Proxy.newProxyInstance(ProxyFactory.class.getClassLoader(), new Class[]{interfaceClass}, new JavaProxyInvocationHandler(lightningObject));
     }
 
-    public static <T extends Proxy> T evalProxy(EvalFunction eval, Class<T> interfaceClass) {
-        //noinspection unchecked
-        return (T) java.lang.reflect.Proxy.newProxyInstance(ProxyFactory.class.getClassLoader(), new Class[]{interfaceClass}, new EvalProxyInvocationHandler(eval));
+    public static Lightning evalProxy(EvalFunction eval) {
+        return (Lightning) java.lang.reflect.Proxy.newProxyInstance(ProxyFactory.class.getClassLoader(), new Class[]{Lightning.class}, new EvalProxyInvocationHandler(eval));
     }
 
     public static <T extends Proxy> T cast(Proxy proxy, Class<T> interfaceClass) {

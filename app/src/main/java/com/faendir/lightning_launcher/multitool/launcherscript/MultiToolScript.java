@@ -1,9 +1,7 @@
 package com.faendir.lightning_launcher.multitool.launcherscript;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
@@ -12,7 +10,6 @@ import android.widget.NumberPicker;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
 import com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory;
@@ -23,9 +20,9 @@ import com.faendir.lightning_launcher.multitool.proxy.Event;
 import com.faendir.lightning_launcher.multitool.proxy.Image;
 import com.faendir.lightning_launcher.multitool.proxy.ImageBitmap;
 import com.faendir.lightning_launcher.multitool.proxy.Item;
-import com.faendir.lightning_launcher.multitool.proxy.Lightning;
 import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
 import com.faendir.lightning_launcher.multitool.proxy.Shortcut;
+import com.faendir.lightning_launcher.multitool.proxy.Utils;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.adapters.ModelAdapter;
 import com.mikepenz.fastadapter.expandable.ExpandableExtension;
@@ -57,31 +54,23 @@ import java.util.Set;
  * @since 04.07.18
  */
 public class MultiToolScript {
-    private final Context context;
-    private final Lightning lightning;
-    private final Context packageContext;
+    private final Utils utils;
     private final Event event;
 
-    public MultiToolScript(Lightning lightning) {
-        this.lightning = lightning;
-        this.context = lightning.getActiveScreen().getContext();
-        this.event = lightning.getEvent();
-        try {
-            this.packageContext = context.createPackageContext(BuildConfig.APPLICATION_ID, Context.CONTEXT_INCLUDE_CODE | Context.CONTEXT_IGNORE_SECURITY);
-        } catch (PackageManager.NameNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+    public MultiToolScript(Utils utils) {
+        this.utils = utils;
+        this.event = utils.getEvent();
     }
 
     public void show() {
-        RecyclerView recyclerView = new RecyclerView(packageContext);
-        recyclerView.setLayoutManager(new LinearLayoutManager(packageContext));
-        AlertDialog dialog = new AlertDialog.Builder(context).setView(recyclerView)
+        RecyclerView recyclerView = new RecyclerView(utils.getMultitoolContext());
+        recyclerView.setLayoutManager(new LinearLayoutManager(utils.getMultitoolContext()));
+        AlertDialog dialog = new AlertDialog.Builder(utils.getLightningContext()).setView(recyclerView)
                 .setCancelable(true)
                 .setTitle("What do you want to do?")
-                .setNegativeButton(packageContext.getString(R.string.button_cancel), (d, which) -> d.cancel())
+                .setNegativeButton(utils.getString(R.string.button_cancel), (d, which) -> d.cancel())
                 .create();
-        ItemFactory<Model> factory = ItemFactory.forLauncherIconSize(context);
+        ItemFactory<Model> factory = ItemFactory.forLauncherIconSize(utils.getLightningContext());
         boolean hasItem = event.getItem() != null;
         ExpandableItem<Model> information = factory.wrap(new ActionGroup("Information"));
         Stream<Action> informations = Stream.of(new Action("Event", () -> showEventInfo(dialog)), new Action("Container", () -> showContainerInfo(dialog)));
@@ -108,14 +97,14 @@ public class MultiToolScript {
     private void deleteHistory(AlertDialog dialog) {
         dialog.dismiss();
         //noinspection ResultOfMethodCallIgnored
-        new File(context.getFilesDir().getPath() + "/statistics").delete();
-        Toast.makeText(context, "Recents deleted", Toast.LENGTH_SHORT).show();
+        new File(utils.getLightningContext().getFilesDir().getPath() + "/statistics").delete();
+        Toast.makeText(utils.getLightningContext(), "Recents deleted", Toast.LENGTH_SHORT).show();
     }
 
     private void save(AlertDialog dialog) {
         dialog.dismiss();
-        lightning.save();
-        Toast.makeText(context, "Saved Layout", Toast.LENGTH_SHORT).show();
+        utils.getLightning().save();
+        Toast.makeText(utils.getLightningContext(), "Saved Layout", Toast.LENGTH_SHORT).show();
     }
 
     private void showResetTool(AlertDialog dialog) {
@@ -130,10 +119,10 @@ public class MultiToolScript {
                                                       "Size (only free items) [cell size]",
                                                       "Visibility [true]"};
         boolean[] bools = new boolean[listItems.length];
-        new AlertDialog.Builder(context).setMultiChoiceItems(listItems, null, (dialog1, which, isChecked) -> bools[which] = isChecked)
+        new AlertDialog.Builder(utils.getLightningContext()).setMultiChoiceItems(listItems, null, (dialog1, which, isChecked) -> bools[which] = isChecked)
                 .setTitle("Reset")
                 .setCancelable(true)
-                .setPositiveButton(packageContext.getString(R.string.button_confirm), (dialog1, which) -> {
+                .setPositiveButton(utils.getString(R.string.button_confirm), (dialog1, which) -> {
                     for (Item item : items) {
                         if (bools[0]) item.setCell(0, 0, 1, 1);
                         if (bools[1]) item.setPosition(0, 0);
@@ -162,55 +151,55 @@ public class MultiToolScript {
         }
         List<String> options = new ArrayList<>(tags);
         options.add(0, "All tags");
-        new AlertDialog.Builder(context).setTitle("Which tag do you want to reset?").setCancelable(true).setItems(options.toArray(new CharSequence[0]), (dialog1, which) -> {
+        new AlertDialog.Builder(utils.getLightningContext()).setTitle("Which tag do you want to reset?").setCancelable(true).setItems(options.toArray(new CharSequence[0]), (dialog1, which) -> {
             List<String> delete = which == 0 ? new ArrayList<>(tags) : Collections.singletonList(options.get(which));
             for (String tag : delete) {
                 deleter.accept(tag);
             }
-            Toast.makeText(context, "Deleting tag(s) done!", Toast.LENGTH_SHORT).show();
-            lightning.save();
-        }).setNegativeButton(packageContext.getString(R.string.button_cancel), null).show();
+            Toast.makeText(utils.getLightningContext(), "Deleting tag(s) done!", Toast.LENGTH_SHORT).show();
+            utils.getLightning().save();
+        }).setNegativeButton(utils.getString(R.string.button_cancel), null).show();
     }
 
     private void showDelete(AlertDialog dialog) {
         dialog.dismiss();
-        new AlertDialog.Builder(context).setTitle("Delete all items")
+        new AlertDialog.Builder(utils.getLightningContext()).setTitle("Delete all items")
                 .setMessage("Are you sure?")
-                .setPositiveButton(packageContext.getString(R.string.button_confirm), (dialog1, which) -> {
+                .setPositiveButton(utils.getString(R.string.button_confirm), (dialog1, which) -> {
                     Container container = event.getContainer();
                     for (Item item : container.getAllItems()) {
                         container.removeItem(item);
                     }
                 })
-                .setNegativeButton(packageContext.getString(R.string.button_cancel), null)
+                .setNegativeButton(utils.getString(R.string.button_cancel), null)
                 .show();
     }
 
     private void showResizeDetached(AlertDialog dialog) {
         dialog.dismiss();
-        LinearLayout linearLayout = new LinearLayout(context);
+        LinearLayout linearLayout = new LinearLayout(utils.getLightningContext());
         Container c = event.getContainer();
         linearLayout.setOrientation(LinearLayout.VERTICAL);
-        TextView widthText = new TextView(context);
+        TextView widthText = new TextView(utils.getLightningContext());
         widthText.setText("Width: ");
         linearLayout.addView(widthText);
-        NumberPicker widthPicker = new NumberPicker(context);
+        NumberPicker widthPicker = new NumberPicker(utils.getLightningContext());
         widthPicker.setMinValue(1);
         widthPicker.setMaxValue(9999);
         widthPicker.setValue((int) c.getCellWidth());
         linearLayout.addView(widthPicker);
-        TextView heightText = new TextView(context);
+        TextView heightText = new TextView(utils.getLightningContext());
         heightText.setText("Height: ");
         linearLayout.addView(heightText);
-        NumberPicker heightPicker = new NumberPicker(context);
+        NumberPicker heightPicker = new NumberPicker(utils.getLightningContext());
         heightPicker.setMinValue(1);
         heightPicker.setMaxValue(9999);
         heightPicker.setValue((int) c.getCellHeight());
         linearLayout.addView(heightPicker);
-        new AlertDialog.Builder(context).setView(linearLayout)
+        new AlertDialog.Builder(utils.getLightningContext()).setView(linearLayout)
                 .setCancelable(true)
                 .setTitle("To which size?")
-                .setPositiveButton(packageContext.getString(R.string.button_confirm), (dialog1, which) -> {
+                .setPositiveButton(utils.getString(R.string.button_confirm), (dialog1, which) -> {
                     int width = widthPicker.getValue();
                     int height = heightPicker.getValue();
                     Item[] items = c.getAllItems();
@@ -224,12 +213,12 @@ public class MultiToolScript {
 
     private void showAttachDetach(AlertDialog dialog) {
         dialog.dismiss();
-        new AlertDialog.Builder(context).setTitle("MultiTool")
+        new AlertDialog.Builder(utils.getLightningContext()).setTitle("MultiTool")
                 .setMessage("Do you want to attach or detach all items?")
                 .setCancelable(true)
                 .setPositiveButton("Attach", (dialog1, which) -> attachDetach(true))
                 .setNegativeButton("Detach", (dialog1, which) -> attachDetach(false))
-                .setNeutralButton(packageContext.getString(R.string.button_cancel), null)
+                .setNeutralButton(utils.getString(R.string.button_cancel), null)
                 .show();
     }
 
@@ -238,14 +227,14 @@ public class MultiToolScript {
         for (Item i : items) {
             i.getProperties().edit().setBoolean("i.onGrid", attach).commit();
         }
-        Toast.makeText(context, "Done!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(utils.getLightningContext(), "Done!", Toast.LENGTH_SHORT).show();
     }
 
     private void showIconInfo(AlertDialog dialog) {
         dialog.dismiss();
         Item it = event.getItem();
         //create view structure
-        LinearLayout root = new LinearLayout(context);
+        LinearLayout root = new LinearLayout(utils.getLightningContext());
         root.setOrientation(LinearLayout.VERTICAL);
 
         //check for all kinds of images in this item and add them to the view if there are any
@@ -258,26 +247,26 @@ public class MultiToolScript {
             addImageIfNotNull(root, shortcut.getCustomIcon(), "Custom Icon");
         }
         if (root.getChildCount() <= 0) {
-            Toast.makeText(context, "No Image Data available", Toast.LENGTH_SHORT).show(); //no image found
+            Toast.makeText(utils.getLightningContext(), "No Image Data available", Toast.LENGTH_SHORT).show(); //no image found
             return;
         }
         //at least one image found
-        ScrollView scroll = new ScrollView(context);
+        ScrollView scroll = new ScrollView(utils.getLightningContext());
         scroll.addView(root);
-        new AlertDialog.Builder(context).setView(scroll)
+        new AlertDialog.Builder(utils.getLightningContext()).setView(scroll)
                 .setCancelable(true)
                 .setTitle("Icon")
-                .setNeutralButton(packageContext.getString(R.string.button_close), (d, which) -> d.dismiss())
+                .setNeutralButton(utils.getString(R.string.button_close), (d, which) -> d.dismiss())
                 .show();
     }
 
     private void addImageIfNotNull(LinearLayout root, Image image, String txt) {
         if (image != null) {
-            TextView textView = new TextView(context);
+            TextView textView = new TextView(utils.getLightningContext());
             textView.setText(String.format(Locale.US, "%s (%dx%d)", txt, image.getWidth(), image.getHeight()));
             root.addView(textView);
             if ("BITMAP".equals(image.getType())) {
-                ImageView imageView = new ImageView(context);
+                ImageView imageView = new ImageView(utils.getLightningContext());
                 imageView.setImageBitmap(ProxyFactory.cast(image, ImageBitmap.class).getBitmap());
                 root.addView(imageView);
             }
@@ -288,7 +277,7 @@ public class MultiToolScript {
         dialog.dismiss();
         Item it = event.getItem();
         if (it == null || !"Shortcut".equals(it.getType())) {
-            Toast.makeText(context, "No Intent found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(utils.getLightningContext(), "No Intent found", Toast.LENGTH_SHORT).show();
             return;
         }
         Intent intent = ProxyFactory.cast(it, Shortcut.class).getIntent();
@@ -300,7 +289,7 @@ public class MultiToolScript {
         dialog.dismiss();
         Item i = event.getItem();
         if (i == null) {
-            Toast.makeText(context, "no item found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(utils.getLightningContext(), "no item found", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -323,7 +312,7 @@ public class MultiToolScript {
     private Map<String, String> getTags(Item item) {
         Map<String, String> result = new LinkedHashMap<>();
         try {
-            String s = new StreamReader(context.getFilesDir().getPath() + "/pages/" + item.getParent().getId() + "/items").read();
+            String s = new StreamReader(utils.getLightningContext().getFilesDir().getPath() + "/pages/" + item.getParent().getId() + "/items").read();
             JSONArray all = new JSONObject(s).getJSONArray("i");
             int x;
             JSONObject jsonItem = new JSONObject();
@@ -338,7 +327,7 @@ public class MultiToolScript {
                     result.put(property, jsonTags.getString(property));
                 }
             } else {
-                Toast.makeText(context, "Can't find Tags", Toast.LENGTH_SHORT).show();
+                Toast.makeText(utils.getLightningContext(), "Can't find Tags", Toast.LENGTH_SHORT).show();
             }
         } catch (JSONException | IOException e) {
             e.printStackTrace();
@@ -350,7 +339,7 @@ public class MultiToolScript {
         Map<String, String> result = new LinkedHashMap<>();
         result.put("_", container.getTag());
         try {
-            String s = new StreamReader(context.getFilesDir().getPath() + "/pages/" + container.getId() + "/conf").read();
+            String s = new StreamReader(utils.getLightningContext().getFilesDir().getPath() + "/pages/" + container.getId() + "/conf").read();
             JSONObject data = new JSONObject(s);
             if (data.has("tags")) {
                 JSONObject jsonTags = data.getJSONObject("tags");
@@ -373,7 +362,7 @@ public class MultiToolScript {
         //read Tags from launcher file
         StringBuilder tags = new StringBuilder("Default: " + c.getTag());
         try {
-            String s = new StreamReader(context.getFilesDir().getPath() + "/pages/" + c.getId() + "/conf").read();
+            String s = new StreamReader(utils.getLightningContext().getFilesDir().getPath() + "/pages/" + c.getId() + "/conf").read();
             JSONObject data = new JSONObject(s);
             if (data.has("tags")) {
                 JSONObject jsonTags = data.getJSONObject("tags");
@@ -421,10 +410,10 @@ public class MultiToolScript {
     }
 
     private void showText(String text, String title) {
-        new AlertDialog.Builder(context).setTitle(title)
+        new AlertDialog.Builder(utils.getLightningContext()).setTitle(title)
                 .setMessage(text)
                 .setCancelable(true)
-                .setNeutralButton(packageContext.getString(R.string.button_close), (dialog, which) -> dialog.dismiss())
+                .setNeutralButton(utils.getString(R.string.button_close), (dialog, which) -> dialog.dismiss())
                 .show();
     }
 

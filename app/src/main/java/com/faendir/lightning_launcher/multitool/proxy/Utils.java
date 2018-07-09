@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.support.annotation.RawRes;
 import android.support.annotation.StringRes;
 import com.faendir.lightning_launcher.multitool.BuildConfig;
+import com.faendir.lightning_launcher.multitool.util.LightningObjectFactory;
 import com.faendir.lightning_launcher.multitool.util.provider.RemoteSharedPreferences;
 import org.acra.util.StreamReader;
 
@@ -20,9 +21,11 @@ public class Utils {
     private final Context lightningContext;
     private final Context multitoolContext;
     private final Lightning lightning;
+    private final LightningObjectFactory.EvalFunction eval;
 
-    public Utils(Lightning lightning) {
-        this.lightning = lightning;
+    public Utils(LightningObjectFactory.EvalFunction eval) {
+        this.eval = eval;
+        this.lightning = ProxyFactory.evalProxy(eval);
         this.lightningContext = lightning.getActiveScreen().getContext();
         try {
             this.multitoolContext = lightningContext.createPackageContext(BuildConfig.APPLICATION_ID, Context.CONTEXT_INCLUDE_CODE | Context.CONTEXT_IGNORE_SECURITY);
@@ -59,7 +62,7 @@ public class Utils {
         return getEvent().getContainer();
     }
 
-    public Screen getScreen() {
+    public Screen getActiveScreen() {
         return lightning.getActiveScreen();
     }
 
@@ -104,5 +107,9 @@ public class Utils {
             y -= height / 2;
         }
         item.setPosition(x, y);
+    }
+
+    public void addMenuMainItem(Menu menu, String name, Runnable action) {
+        eval.eval(menu, "addMainItem", name, action);
     }
 }

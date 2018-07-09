@@ -5,7 +5,6 @@ import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.proxy.Container;
 import com.faendir.lightning_launcher.multitool.proxy.EventHandler;
-import com.faendir.lightning_launcher.multitool.proxy.Lightning;
 import com.faendir.lightning_launcher.multitool.proxy.Panel;
 import com.faendir.lightning_launcher.multitool.proxy.PropertyEditor;
 import com.faendir.lightning_launcher.multitool.proxy.Script;
@@ -19,8 +18,8 @@ import com.faendir.lightning_launcher.multitool.proxy.Utils;
 public class MusicSetup {
     private final Utils utils;
 
-    public MusicSetup(Lightning lightning) {
-        utils = new Utils(lightning);
+    public MusicSetup(Utils utils) {
+        this.utils = utils;
     }
 
     public void create() {

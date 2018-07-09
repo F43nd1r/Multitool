@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.support.annotation.Keep;
 import android.support.annotation.NonNull;
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.proxy.Lightning;
 import com.faendir.lightning_launcher.multitool.proxy.ProxyFactory;
 import com.faendir.lightning_launcher.multitool.proxy.Shortcut;
 import com.faendir.lightning_launcher.multitool.proxy.Utils;
@@ -20,10 +19,10 @@ public class BadgeListener extends BaseContentListener {
     private final Utils utils;
     private final Shortcut item;
 
-    public BadgeListener(@NonNull Lightning lightning) {
-        super(new Handler(), lightning.getActiveScreen().getContext(), BadgeDataSource.getContentUri(lightning.getEvent().getItem().getTag("package")));
-        item = ProxyFactory.cast(lightning.getEvent().getItem(), Shortcut.class);
-        utils = new Utils(lightning);
+    public BadgeListener(@NonNull Utils utils) {
+        super(new Handler(), utils.getLightningContext(), BadgeDataSource.getContentUri(utils.getEvent().getItem().getTag("package")));
+        this.utils = utils;
+        item = ProxyFactory.cast(utils.getEvent().getItem(), Shortcut.class);
         this.packageName = item.getTag("package");
     }
 
