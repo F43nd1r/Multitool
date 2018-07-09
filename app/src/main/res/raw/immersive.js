@@ -1,1 +1,3 @@
-setTimeout(function(){getActiveScreen().getContext().getWindow().getDecorView().setSystemUiVisibility(4096+4+2);},100);
+eval(loadRawResource("com.faendir.lightning_launcher.multitool","library"));
+
+getObjectFactory().constructImmersiveScript().run();

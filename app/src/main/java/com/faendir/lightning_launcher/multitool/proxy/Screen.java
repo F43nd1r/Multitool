@@ -18,4 +18,6 @@ public interface Screen extends Proxy {
     Context getContext();
 
     Container getContainerById(int id);
+
+    Desktop getCurrentDesktop();
 }

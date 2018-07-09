@@ -9,6 +9,7 @@ import com.faendir.lightning_launcher.multitool.badge.BadgeSetup;
 import com.faendir.lightning_launcher.multitool.drawer.Drawer;
 import com.faendir.lightning_launcher.multitool.gesture.GestureScript;
 import com.faendir.lightning_launcher.multitool.gesture.LightningGestureView;
+import com.faendir.lightning_launcher.multitool.immersive.ImmersiveScript;
 import com.faendir.lightning_launcher.multitool.launcherscript.MultiToolScript;
 import com.faendir.lightning_launcher.multitool.music.MusicListener;
 import com.faendir.lightning_launcher.multitool.music.MusicSetup;
@@ -61,6 +62,10 @@ public class LightningObjectFactory {
 
     public GestureScript constructGestureScript() {
         return new GestureScript(utils);
+    }
+
+    public ImmersiveScript constructImmersiveScript() {
+        return new ImmersiveScript(utils);
     }
 
     @FunctionalInterface

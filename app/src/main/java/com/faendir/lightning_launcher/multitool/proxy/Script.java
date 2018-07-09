@@ -10,4 +10,6 @@ public interface Script extends Proxy {
     int getId();
 
     String getPath();
+
+    void run(Screen screen, String data);
 }
