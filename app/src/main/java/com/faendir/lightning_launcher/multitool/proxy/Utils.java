@@ -76,35 +76,35 @@ public class Utils {
     }
 
     public Script installNormalScript() {
-        return installScript(null, R.raw.normal, "run");
+        return installScript(R.raw.normal, "run");
     }
 
     public Script installMenuScript() {
-        return installScript(null, R.raw.menu, "menu");
+        return installScript(R.raw.menu, "menu");
     }
 
     public Script installActivityResultScript() {
-        return installScript(null, R.raw.activity_result, "activity_result");
+        return installScript(R.raw.activity_result, "activity_result");
     }
 
     public Script installCreateViewScript() {
-        return installScript(null, R.raw.create_view, "create_view");
+        return installScript(R.raw.create_view, "create_view");
     }
 
     public Script installRegisterScript() {
-        return installScript(null, R.raw.register, "register");
+        return installScript(R.raw.register, "register");
     }
 
     public Script installUnregisterScript() {
-        return installScript(null, R.raw.unregister, "unregister");
+        return installScript(R.raw.unregister, "unregister");
     }
 
     public Script installCommandScript() {
-        return installScript(null, R.raw.command, "command");
+        return installScript(R.raw.command, "command");
     }
 
-    public Script installScript(String pathSuffix, @RawRes int res, String name) {
-        String path = getScriptPath(pathSuffix);
+    private Script installScript(@RawRes int res, String name) {
+        String path = '/' + BuildConfig.APPLICATION_ID.replace('.', '/');
         Script script = lightning.getScriptByPathAndName(path, name);
         try {
             String script_text = new StreamReader(getMultitoolResources().openRawResource(res)).read();
@@ -117,14 +117,6 @@ public class Utils {
             e.printStackTrace();
         }
         return script;
-    }
-
-    public String getScriptPath(String pathSuffix) {
-        String result = '/' + BuildConfig.APPLICATION_ID.replace('.', '/');
-        if (pathSuffix != null) {
-            result += '/' + pathSuffix;
-        }
-        return result;
     }
 
     public void centerOnTouch(Item item) {

@@ -98,8 +98,7 @@ public class Drawer implements JavaScript.Setup, JavaScript.CreateMenu, JavaScri
                 hidden.add(name);
                 utils.getSharedPref().edit().putStringSet(utils.getString(R.string.pref_hiddenApps), hidden).apply();
                 item.getParent().removeItem(item);
-                utils.getActiveScreen().runScript(utils.getScriptPath(null
-                ), "run", getClass().getName());
+                utils.installNormalScript().run(utils.getActiveScreen(), getClass().getName());
             }
         }
     }

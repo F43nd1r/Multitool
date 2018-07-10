@@ -2,6 +2,7 @@ package com.faendir.lightning_launcher.multitool.animation;
 
 import android.app.AlertDialog;
 import android.graphics.Point;
+import android.graphics.PointF;
 import android.view.ViewPropertyAnimator;
 import com.faendir.lightning_launcher.multitool.proxy.Container;
 import com.faendir.lightning_launcher.multitool.proxy.EventHandler;
@@ -51,130 +52,124 @@ public class AnimationScript implements JavaScript.Setup, JavaScript.Normal {
         if (tag == null) return;
         Config config = GSON.fromJson(tag, Config.class);
         if (config == null || config.animation < 0) return;
-        int cWidth = container.getWidth();
-        int cHeight = container.getHeight();
-        float posX = container.getPositionX();
-        float posY = container.getPositionY();
-        int cPageX = (int) Math.floor(posX / cWidth);
-        int cPageY = (int) Math.floor(posY / cHeight);
-        float percentX = (posX - cPageX * cWidth) / cWidth;
-        float percentY = (posY - cPageY * cHeight) / cHeight;
+        Size containerSize = new Size(container.getWidth(), container.getHeight());
+        PointF position = new PointF(container.getPositionX(), container.getPositionY());
+        Point activePage = pageOf(position, containerSize);
+        PointF percent = new PointF(position.x / containerSize.width - activePage.x, position.y / containerSize.height - activePage.y);
         Animation animation;
         switch (config.animation) {
             case 0:
-                animation = new Bulldoze(percentX, percentY, cWidth, cHeight);
+                animation = new Bulldoze(percent, containerSize);
                 break;
             case 1:
-                animation = new Card(percentX, percentY, cWidth, cHeight);
+                animation = new Card(percent, containerSize);
                 break;
             case 2:
-                animation = new Flip(percentX, percentY, cWidth, cHeight);
+                animation = new Flip(percent, containerSize);
                 break;
             case 3:
-                animation = new Shrink(percentX, percentY, cWidth, cHeight);
+                animation = new Shrink(percent, containerSize);
                 break;
             default:
                 throw new RuntimeException("Invalid animation id");
         }
         for (Item item : container.getAllItems()) {
-            Point cent = center(item);
-            int pageX = (int) Math.floor((float) cent.x / cWidth);
-            int pageY = (int) Math.floor((float) cent.y / cHeight);
-            boolean onPageX = pageX == cPageX;
-            boolean onPageY = pageY == cPageY;
-            if ((onPageX || pageX == cPageX + 1) && (onPageY || pageY == cPageY + 1)) {
-                Transformation transformation = animation.getTransformation(cent, onPageX, onPageY);
-                String pinMode = item.getProperties().getString(PropertySet.ITEM_PIN_MODE);
-                boolean transformX = !pinMode.contains("X");
-                boolean transformY = !pinMode.contains("Y");
-                if (((transformX || transformY) && transformation.partial) || (transformX && transformY)) {
-                    ViewPropertyAnimator a = item.getRootView().animate().setDuration(0).alpha(transformation.alpha);
-                    if (transformX) a.scaleX(transformation.scaleX).translationX(transformation.translateX);
-                    if (transformY) a.scaleY(transformation.scaleY).translationY(transformation.translateY);
-                    a.start();
-                }
+            PointF center = center(item);
+            Point page = pageOf(center, containerSize);
+            PointB onPage = new PointB(page.x == activePage.x, page.y == activePage.y);
+            if ((onPage.x || page.x == activePage.x + 1) && (onPage.y || page.y == activePage.y + 1)) {
+                animation.getTransformation(makePageRelative(center, containerSize), onPage).transform(item);
             }
         }
     }
 
-    private Point center(Item item) {
-        double r = item.getRotation();
-        r = r * Math.PI / 180;
-        double sin = Math.abs(Math.sin(r));
-        double cos = Math.abs(Math.cos(r));
-        double w = item.getWidth() * item.getScaleX();
-        double h = item.getHeight() * item.getScaleY();
-        return new Point((int) (item.getPositionX() + (w * cos + h * sin) * 0.5), (int) (item.getPositionY() + (h * cos + w * sin) * 0.5));
+    private Point pageOf(PointF position, Size containerSize) {
+        return new Point((int) Math.floor(position.x / containerSize.width), (int) Math.floor(position.y / containerSize.height));
+    }
+
+    private PointF makePageRelative(PointF point, Size containerSize) {
+        return new PointF(positiveModulo(point.x, containerSize.width), positiveModulo(point.y, containerSize.height));
+    }
+
+    private float positiveModulo(float i, int modulo) {
+        float result = i % modulo;
+        if (result < 0) result += modulo;
+        return result;
+    }
+
+    private PointF center(Item item) {
+        double radius = item.getRotation() * Math.PI / 180;
+        double sine = Math.abs(Math.sin(radius));
+        double cosine = Math.abs(Math.cos(radius));
+        double width = item.getWidth() * item.getScaleX();
+        double height = item.getHeight() * item.getScaleY();
+        return new PointF((float) (item.getPositionX() + (width * cosine + height * sine) / 2), (float) (item.getPositionY() + (height * cosine + width * sine) / 2));
     }
 
     private static abstract class Animation {
-        final float percentX;
-        final float percentY;
-        final int cWidth;
-        final int cHeight;
+        final PointF percent;
+        final Size containerSize;
 
-        Animation(float percentX, float percentY, int cWidth, int cHeight) {
-            this.percentX = percentX;
-            this.percentY = percentY;
-            this.cWidth = cWidth;
-            this.cHeight = cHeight;
+        Animation(PointF percent, Size containerSize) {
+            this.percent = percent;
+            this.containerSize = containerSize;
         }
 
-        public abstract Transformation getTransformation(Point center, boolean isLeft, boolean isTop);
+        public abstract Transformation getTransformation(PointF center, PointB isStart);
     }
 
     private static class Bulldoze extends Animation {
-        Bulldoze(float percentX, float percentY, int cWidth, int cHeight) {
-            super(percentX, percentY, cWidth, cHeight);
+        Bulldoze(PointF percent, Size containerSize) {
+            super(percent, containerSize);
         }
 
         @Override
-        public Transformation getTransformation(Point cent, boolean isLeft, boolean isTop) {
+        public Transformation getTransformation(PointF center, PointB isStart) {
             Transformation result = new Transformation();
-            result.scaleX = isLeft ? 1 - percentX : percentX;
-            result.scaleY = isTop ? 1 - percentY : percentY;
-            result.translateX = (isLeft ? (cWidth - cent.x) * percentX : cent.x * (percentX - 1));
-            result.translateY = (isTop ? (cHeight - cent.y) * percentY : cent.y * (percentY - 1));
+            result.scale.x = isStart.x ? 1 - percent.x : percent.x;
+            result.scale.y = isStart.y ? 1 - percent.y : percent.y;
+            result.translate.x = isStart.x ? (containerSize.width - center.x) * percent.x : center.x * (percent.x - 1);
+            result.translate.y = isStart.y ? (containerSize.height - center.y) * percent.y : center.y * (percent.y - 1);
             return result;
         }
     }
 
     private static class Card extends Animation {
-        Card(float percentX, float percentY, int cWidth, int cHeight) {
-            super(percentX, percentY, cWidth, cHeight);
+        Card(PointF percent, Size containerSize) {
+            super(percent, containerSize);
         }
 
         @Override
-        public Transformation getTransformation(Point center, boolean isLeft, boolean isTop) {
+        public Transformation getTransformation(PointF center, PointB isStart) {
             Transformation result = new Transformation();
-            if (!isLeft && isTop) {
-                result.translateX = cWidth * (percentX - 1);
-                result.alpha = percentX;
-            } else if (isLeft && !isTop) {
-                result.translateY = cHeight * (percentY - 1);
-                result.alpha = percentY;
+            if (!isStart.x && isStart.y) {
+                result.translate.x = containerSize.width * (percent.x - 1);
+                result.alpha = percent.x;
+            } else if (isStart.x && !isStart.y) {
+                result.translate.y = containerSize.height * (percent.y - 1);
+                result.alpha = percent.y;
             }
             return result;
         }
     }
 
     private static class Flip extends Animation {
-        Flip(float percentX, float percentY, int cWidth, int cHeight) {
-            super(percentX, percentY, cWidth, cHeight);
+        Flip(PointF percent, Size containerSize) {
+            super(percent, containerSize);
         }
 
         @Override
-        public Transformation getTransformation(Point cent, boolean isLeft, boolean isTop) {
+        public Transformation getTransformation(PointF cent, PointB isStart) {
             Transformation result = new Transformation();
-            if (isLeft != percentX >= 0.5) {
-                result.scaleX = isLeft ? 1 - percentX * 2 : percentX * 2 - 1;
-                result.translateX = isLeft ? 2 * percentX * (cWidth - cent.x) : 2 * cent.x * (percentX - 1);
+            if (isStart.x != percent.x >= 0.5) {
+                result.scale.x = isStart.x ? 1 - percent.x * 2 : percent.x * 2 - 1;
+                result.translate.x = isStart.x ? 2 * percent.x * (containerSize.width - cent.x) : 2 * (percent.x - 1) * cent.x;
             } else {
                 result.alpha = 0;
             }
-            if (isTop != percentY >= 0.5) {
-                result.scaleY = isTop ? 1 - percentY * 2 : percentY * 2 - 1;
-                result.translateY = isTop ? 2 * percentY * (cHeight - cent.y) : 2 * cent.y * (percentY - 1);
+            if (isStart.y != percent.y >= 0.5) {
+                result.scale.y = isStart.y ? 1 - percent.y * 2 : percent.y * 2 - 1;
+                result.translate.y = isStart.y ? 2 * percent.y * (containerSize.height - cent.y) : 2 * cent.y * (percent.y - 1);
             } else {
                 result.alpha = 0;
             }
@@ -183,41 +178,80 @@ public class AnimationScript implements JavaScript.Setup, JavaScript.Normal {
     }
 
     private static class Shrink extends Animation {
-        Shrink(float percentX, float percentY, int cWidth, int cHeight) {
-            super(percentX, percentY, cWidth, cHeight);
+        Shrink(PointF percent, Size containerSize) {
+            super(percent, containerSize);
         }
 
         @Override
-        public Transformation getTransformation(Point cent, boolean isLeft, boolean isTop) {
-            Transformation result = new Transformation();
-            result.partial = false;
-            if (Math.abs(percentX - 0.5) <= Math.abs(percentY - 0.5)) {
-                result.scaleX = result.scaleY = isLeft ? 1 - percentX * 0.75f : 0.25f + percentX * 0.75f;
-                result.translateX = isLeft ? (cWidth - cent.x) * percentX * 0.75f : (cWidth - cent.x) * (0.75f - percentX * 0.75f);
-                result.translateY = isLeft ? (cHeight / 2 - cent.y) * percentX * 0.75f : (cHeight / 2 - cent.y) * (0.75f - percentX * 0.75f);
+        public Transformation getTransformation(PointF cent, PointB isStart) {
+            Transformation result = new Transformation().onlyUnpinnedItems();
+            if (Math.abs(percent.x - 0.5) <= Math.abs(percent.y - 0.5)) {
+                float x = (isStart.x ? percent.x : 1 - percent.x) * 0.75f;
+                result.scale.x = result.scale.y = 1 - x;
+                result.translate.x = (containerSize.width - cent.x) * x;
+                result.translate.y = (containerSize.height / 2 - cent.y) * x;
             } else {
-                result.scaleX = result.scaleY = isTop ? 1 - percentY * 0.75f : 0.25f + percentY * 0.75f;
-                result.translateX = isTop ? (cWidth / 2 - cent.x) * percentY * 0.75f : (cWidth / 2 - cent.x) * (0.75f - percentY * 0.75f);
-                result.translateY = isTop ? (cHeight - cent.y) * percentY * 0.75f : (cHeight - cent.y) * (0.75f - percentY * 0.75f);
+                float y = (isStart.y ? percent.y : 1 - percent.y) * 0.75f;
+                result.scale.x = result.scale.y = 1 - y;
+                result.translate.x = (containerSize.width / 2 - cent.x) * y;
+                result.translate.y = (containerSize.height - cent.y) * y;
             }
             return result;
         }
     }
 
     private static class Transformation {
-        float scaleX = 1;
-        float scaleY = 1;
-        float translateX = 0;
-        float translateY = 0;
+        PointF scale = new PointF(1, 1);
+        PointF translate = new PointF(0, 0);
         float alpha = 1;
         boolean partial = true;
+
+        private void transform(Item item) {
+            String pinMode = item.getProperties().getString(PropertySet.ITEM_PIN_MODE);
+            PointB transform = new PointB(!pinMode.contains("X"), !pinMode.contains("Y"));
+            if (partial ? transform.any() : transform.both()) {
+                ViewPropertyAnimator a = item.getRootView().animate().setDuration(0).alpha(alpha);
+                if (transform.x) a.scaleX(scale.x).translationX(translate.x);
+                if (transform.y) a.scaleY(scale.y).translationY(translate.y);
+                a.start();
+            }
+        }
+
+        Transformation onlyUnpinnedItems() {
+            partial = false;
+            return this;
+        }
     }
 
     private static class Config {
-        int animation;
+        int animation = -1;
+    }
 
-        Config() {
-            animation = -1;
+    private static class Size {
+        int width;
+        int height;
+
+        Size(int width, int height) {
+            this.width = width;
+            this.height = height;
+        }
+    }
+
+    private static class PointB {
+        boolean x;
+        boolean y;
+
+        PointB(boolean x, boolean y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        boolean any() {
+            return x || y;
+        }
+
+        boolean both() {
+            return x && y;
         }
     }
 }
