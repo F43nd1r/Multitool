@@ -34,7 +34,7 @@ public class AnimationScript implements JavaScript.Setup, JavaScript.Normal {
         String tag = container.getTag(TAG_ANIMATION);
         Config config = tag != null ? GSON.fromJson(tag, Config.class) : new Config();
         new AlertDialog.Builder(utils.getLightningContext()).setTitle("Choose an animation style")
-                .setItems(new CharSequence[]{"Bulldoze", "Card Style", "Flip", "Shrink"}, (dialog, which) -> {
+                .setItems(new CharSequence[]{"Bulldoze", "Card Stack", "Flip", "Flip 3D", "Shrink", "Turn"}, (dialog, which) -> {
                     config.animation = which;
                     container.setTag(TAG_ANIMATION, GSON.toJson(config));
                 })
@@ -68,7 +68,13 @@ public class AnimationScript implements JavaScript.Setup, JavaScript.Normal {
                 animation = new Flip(percent, containerSize);
                 break;
             case 3:
+                animation = new Flip3D(percent, containerSize);
+                break;
+            case 4:
                 animation = new Shrink(percent, containerSize);
+                break;
+            case 5:
+                animation = new Turn(percent, containerSize);
                 break;
             default:
                 throw new RuntimeException("Invalid animation id");
@@ -79,6 +85,8 @@ public class AnimationScript implements JavaScript.Setup, JavaScript.Normal {
             PointB onPage = new PointB(page.x == activePage.x, page.y == activePage.y);
             if ((onPage.x || page.x == activePage.x + 1) && (onPage.y || page.y == activePage.y + 1)) {
                 animation.getTransformation(makePageRelative(center, containerSize), onPage).transform(item);
+            } else {
+                new Transformation().transform(item);
             }
         }
     }
@@ -104,6 +112,64 @@ public class AnimationScript implements JavaScript.Setup, JavaScript.Normal {
         double width = item.getWidth() * item.getScaleX();
         double height = item.getHeight() * item.getScaleY();
         return new PointF((float) (item.getPositionX() + (width * cosine + height * sine) / 2), (float) (item.getPositionY() + (height * cosine + width * sine) / 2));
+    }
+
+    private static class Flip3D extends Animation {
+        Flip3D(PointF percent, Size containerSize) {
+            super(percent, containerSize);
+        }
+
+        @Override
+        public Transformation getTransformation(PointF center, PointB isStart) {
+            Transformation result = new Transformation();
+            if (Math.abs(percent.x - 0.5) <= Math.abs(percent.y - 0.5)) {
+                if (isStart.x != percent.x >= 0.5) {
+                    float x = isStart.x ? percent.x : percent.x - 1;
+                    result.rotation.y = -x / 2;
+                    result.translate.x = x * containerSize.width;
+                    result.pivot.x = -center.x + containerSize.width / 2;
+                } else {
+                    result.alpha = 0;
+                }
+            } else {
+                if (isStart.y != percent.y >= 0.5) {
+                    float y = isStart.y ? percent.y : percent.y - 1;
+                    result.rotation.x = y / 2;
+                    result.translate.y = y * containerSize.height;
+                    result.pivot.y = -center.y + containerSize.height / 2;
+                } else {
+                    result.alpha = 0;
+                }
+            }
+            return result;
+        }
+    }
+
+    private static class Turn extends Animation {
+        Turn(PointF percent, Size containerSize) {
+            super(percent, containerSize);
+        }
+
+        @Override
+        public Transformation getTransformation(PointF center, PointB isStart) {
+            Transformation result = new Transformation().onlyUnpinnedItems();
+            if (Math.abs(percent.x - 0.5) <= Math.abs(percent.y - 0.5)) {
+                if (isStart.y) {
+                    float x = isStart.x ? percent.x : percent.x - 1;
+                    result.turn = x / 4;
+                    result.translate.x = x * containerSize.width;
+                }
+            } else {
+                if (isStart.x) {
+                    float y = isStart.y ? percent.y : percent.y - 1;
+                    result.turn = -y / 4;
+                    result.translate.y = y * containerSize.height;
+                }
+            }
+            result.pivot.x = -center.x;
+            result.pivot.y = -center.y;
+            return result;
+        }
     }
 
     private static abstract class Animation {
@@ -203,6 +269,9 @@ public class AnimationScript implements JavaScript.Setup, JavaScript.Normal {
     private static class Transformation {
         PointF scale = new PointF(1, 1);
         PointF translate = new PointF(0, 0);
+        PointF pivot = new PointF(0, 0);
+        float turn = 0;
+        PointF rotation = new PointF(0, 0);
         float alpha = 1;
         boolean partial = true;
 
@@ -210,10 +279,12 @@ public class AnimationScript implements JavaScript.Setup, JavaScript.Normal {
             String pinMode = item.getProperties().getString(PropertySet.ITEM_PIN_MODE);
             PointB transform = new PointB(!pinMode.contains("X"), !pinMode.contains("Y"));
             if (partial ? transform.any() : transform.both()) {
-                ViewPropertyAnimator a = item.getRootView().animate().setDuration(0).alpha(alpha);
-                if (transform.x) a.scaleX(scale.x).translationX(translate.x);
-                if (transform.y) a.scaleY(scale.y).translationY(translate.y);
-                a.start();
+                item.getRootView().setPivotX(item.getWidth() / 2 + pivot.x);
+                item.getRootView().setPivotY(item.getHeight() / 2 + pivot.y);
+                ViewPropertyAnimator animator = item.getRootView().animate().setDuration(0).alpha(alpha).rotation(turn * 360);
+                if (transform.x) animator.scaleX(scale.x).translationX(translate.x).rotationX(rotation.x * 360);
+                if (transform.y) animator.scaleY(scale.y).translationY(translate.y).rotationY(rotation.y * 360);
+                animator.start();
             }
         }
 
