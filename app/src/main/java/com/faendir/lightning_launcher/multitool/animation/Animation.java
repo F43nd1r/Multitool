@@ -116,6 +116,30 @@ enum Animation {
             result.pivot.y = -center.y;
             return result;
         }
+    },
+    CUBE("Cube") {
+        @Override
+        public Transformation getTransformation(PointF percent, Size containerSize, PointF center, PointB isStart) {
+            Transformation result = new Transformation().onlyUnpinnedItems();
+            if (Math.abs(percent.x - 0.5) <= Math.abs(percent.y - 0.5)) {
+                float x = isStart.x ? percent.x : percent.x - 1;
+                result.rotation.y = -x / 4;
+                result.pivot.y = -center.y + containerSize.height / 2;
+                result.pivot.x = -center.x;
+                if (isStart.x) {
+                    result.pivot.x += containerSize.width;
+                }
+            } else {
+                float y = isStart.y ? percent.y : percent.y - 1;
+                result.rotation.x = y / 4;
+                result.pivot.x = -center.x + containerSize.width / 2;
+                result.pivot.y = -center.y;
+                if (isStart.y) {
+                    result.pivot.y += containerSize.height;
+                }
+            }
+            return result;
+        }
     };
     private final String label;
 
