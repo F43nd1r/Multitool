@@ -2,6 +2,7 @@ package com.faendir.lightning_launcher.multitool.backup;
 
 import org.apache.commons.collections4.list.UnmodifiableList;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ public class BackupTime {
     public BackupTime(int hour, int minute, List<Integer> days) {
         this.hour = hour;
         this.minute = minute;
-        this.days = new UnmodifiableList<>(days);
+        this.days = days;
     }
 
     public int getHour() {
@@ -29,6 +30,6 @@ public class BackupTime {
     }
 
     public List<Integer> getDays() {
-        return days;
+        return days != null ? new UnmodifiableList<>(days) : Collections.emptyList();
     }
 }

@@ -268,15 +268,44 @@
     <string name="title_icon">Icon</string>
     <string name="text_imageInfo">%s (%dx%d)</string>
     <string name="toast_noIntent">No Intent found</string>
-    <string name="text_intentInfo">Intent: %s Extras: %s</string>
+    <string name="text_intentInfo">Intent: %s
+        Extras: %s</string>
     <string name="title_intentInfo">Intent Information</string>
     <string name="toast_noItem">No item found</string>
-    <string name="text_itemInfo">Label: %s Name: %s Type: %s ID: %d Size: %d,%d Position: %s,%s Scale: %s,%s Angle: %s Center: %s Cell: %s is visible: %s Tags: %s</string>
+    <string name="text_itemInfo">Label: %s
+        Name: %s
+        Type: %s
+        ID: %d
+        Size: %d,%d
+        Position:
+        %s,%s
+        Scale: %s,%s
+        Angle: %s
+        Center: %s
+        Cell: %s
+        is visible: %s
+        Tags: %s</string>
     <string name="title_itemInfo">Item Information</string>
     <string name="toast_noTags">Can\'t find Tags</string>
-    <string name="text_containerInfo">Type: %s Name/Label: %s ID: %d Size: %d,%d Boundingbox: %s Cell Size: %s,%s Current Position: %s,%s Current Scale: %s Tags: %s Items: %s</string>
+    <string name="text_containerInfo">Type: %s
+        Name/Label: %s
+        ID: %d
+        Size: %d,%d
+        Boundingbox: %s
+        Cell Size: %s,%s
+        Current Position: %s,%s
+        Current Scale: %s
+        Tags: %s
+        Items: %s</string>
     <string name="title_containerInfo">Container Information</string>
-    <string name="text_eventInfo">Source: %s Date: %s Container: %s Screen: %s Item: %s Data: %s Touch: %s,%s Touch (Screen): %s,%s</string>
+    <string name="text_eventInfo">Source: %s
+        Date: %s
+        Container: %s
+        Screen: %s
+        Item: %s
+        Data: %s
+        Touch: %s,%s
+        Touch (Screen): %s,%s</string>
     <string name="title_eventInfo">Event Information</string>
     <string-array name="sortings">
         <item>Relevance</item>

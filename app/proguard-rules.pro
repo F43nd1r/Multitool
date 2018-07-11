@@ -19,6 +19,7 @@
 
 -keep class * extends com.faendir.lightning_launcher.multitool.proxy.Proxy {*;}
 -keep class * extends com.faendir.lightning_launcher.multitool.proxy.JavaScript {*;}
+-keep class com.evernote.android.job.JobRequest$NetworkType {*;}
 
 -keep class * extends android.app.Fragment
 -keep class * extends android.app.Service {*;}
