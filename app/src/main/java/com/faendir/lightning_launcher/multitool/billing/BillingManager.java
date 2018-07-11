@@ -114,11 +114,11 @@ public class BillingManager extends BaseBillingManager {
         String productId = mapping.get(id);
         TrialState state = isTrial(productId);
         if (state == TrialState.EXPIRED) {
-            context.runOnUiThread(() -> Toast.makeText(context, "You've already used your Trial period.", Toast.LENGTH_LONG).show());
+            context.runOnUiThread(() -> Toast.makeText(context, R.string.toast_trialUsed, Toast.LENGTH_LONG).show());
         } else {
             int result = networkRequest(productId, 1);
             if (result != 0) {
-                context.runOnUiThread(() -> Toast.makeText(context, "Sorry, something went wrong.", Toast.LENGTH_LONG).show());
+                context.runOnUiThread(() -> Toast.makeText(context, R.string.toast_error, Toast.LENGTH_LONG).show());
             } else {
                 expiration.put(productId, System.currentTimeMillis() / 1000 + SEVEN_DAYS_IN_SECONDS);
                 EventBus.getDefault().post(new SwitchFragmentRequest(mapping.getKey(productId)));

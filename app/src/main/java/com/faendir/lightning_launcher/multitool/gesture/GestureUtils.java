@@ -61,7 +61,7 @@ final class GestureUtils {
                     Toast.makeText(context, context.getString(R.string.toast_failedExportTo, path.toString()), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(context, "Unable to write to file", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, R.string.toast_fileNotWritable, Toast.LENGTH_SHORT).show();
             }
         } catch (FileNotFoundException e) {
             Toast.makeText(context, R.string.toast_noGestures, Toast.LENGTH_SHORT).show();

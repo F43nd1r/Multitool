@@ -10,21 +10,20 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
+import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.badge.BadgeDataSource;
 import com.faendir.lightning_launcher.multitool.gesture.GestureLibraryDataSource;
 import com.faendir.lightning_launcher.multitool.gesture.GestureMetaDataSource;
 import com.faendir.lightning_launcher.multitool.music.MusicDataSource;
 import com.faendir.lightning_launcher.multitool.util.LambdaUtils;
+import java9.util.Optional;
+import java9.util.stream.StreamSupport;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.List;
-
-import java9.util.Optional;
-import java9.util.stream.StreamSupport;
 
 import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 
@@ -52,7 +51,7 @@ public class DataProvider extends ContentProvider {
         }
     }
 
-    private static final String AUTHORITY = "com.faendir.lightning_launcher.multitool.provider";
+    private static final String AUTHORITY = BuildConfig.APPLICATION_ID + ".provider";
     private static final List<DataSource> DATA_SOURCES = Arrays.asList(
             new SharedPreferencesDataSource(),
             new GestureLibraryDataSource(),

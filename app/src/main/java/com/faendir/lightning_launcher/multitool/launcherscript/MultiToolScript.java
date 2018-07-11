@@ -12,6 +12,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.animation.AnimationScript;
 import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
 import com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory;
 import com.faendir.lightning_launcher.multitool.fastadapter.Model;
@@ -49,7 +50,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -73,27 +73,30 @@ public class MultiToolScript implements JavaScript.Normal {
         recyclerView.setLayoutManager(new LinearLayoutManager(utils.getMultitoolContext()));
         AlertDialog dialog = new AlertDialog.Builder(utils.getLightningContext()).setView(recyclerView)
                 .setCancelable(true)
-                .setTitle("What do you want to do?")
+                .setTitle(utils.getString(R.string.title_multitoolScript))
                 .setNegativeButton(utils.getString(R.string.button_cancel), (d, which) -> d.cancel())
                 .create();
         ItemFactory<Model> factory = ItemFactory.forLauncherIconSize(utils.getLightningContext());
         boolean hasItem = event.getItem() != null;
-        ExpandableItem<Model> information = factory.wrap(new ActionGroup("Information"));
-        Stream<Action> informations = Stream.of(new Action("Event", () -> showEventInfo(dialog)), new Action("Container", () -> showContainerInfo(dialog)));
+        ExpandableItem<Model> information = factory.wrap(new ActionGroup(utils.getString(R.string.group_information)));
+        Stream<Action> informations = Stream.of(new Action(utils.getString(R.string.action_event), () -> showEventInfo(dialog)),
+                new Action(utils.getString(R.string.action_container), () -> showContainerInfo(dialog)));
         if (hasItem) {
             informations = Stream.concat(informations,
-                    Stream.of(new Action("Item", () -> showItemInfo(dialog)), new Action("Intent", () -> showIntentInfo(dialog)), new Action("Icon", () -> showIconInfo(dialog))));
+                    Stream.of(new Action(utils.getString(R.string.action_item), () -> showItemInfo(dialog)),
+                            new Action(utils.getString(R.string.action_intent), () -> showIntentInfo(dialog)),
+                            new Action(utils.getString(R.string.action_icon), () -> showIconInfo(dialog))));
         }
         information.withSubItems(informations.map(factory::wrap).collect(Collectors.toList()));
-        ExpandableItem<Model> itemUtils = factory.wrap(new ActionGroup("Item Utilities"));
-        itemUtils.withSubItems(Stream.of(new Action("Attach/Detach all items", () -> showAttachDetach(dialog)),
-                new Action("Resize all detached items", () -> showResizeDetached(dialog)),
-                new Action("Delete all items", () -> showDelete(dialog))).map(factory::wrap).collect(Collectors.toList()));
-        ExpandableItem<Model> other = factory.wrap(new ActionGroup("Other"));
-        other.withSubItems(Stream.of(new Action("Reset Tag", () -> showResetTag(dialog)),
-                new Action("Reset Tool", () -> showResetTool(dialog)),
-                new Action("Save changes", () -> save(dialog)),
-                new Action("Delete recent app history", () -> deleteHistory(dialog))).map(factory::wrap).collect(Collectors.toList()));
+        ExpandableItem<Model> itemUtils = factory.wrap(new ActionGroup(utils.getString(R.string.group_utils)));
+        itemUtils.withSubItems(Stream.of(new Action(utils.getString(R.string.action_attach), () -> showAttachDetach(dialog)),
+                new Action(utils.getString(R.string.action_resize), () -> showResizeDetached(dialog)),
+                new Action(utils.getString(R.string.action_delete), () -> showDelete(dialog))).map(factory::wrap).collect(Collectors.toList()));
+        ExpandableItem<Model> other = factory.wrap(new ActionGroup(utils.getString(R.string.group_other)));
+        other.withSubItems(Stream.of(new Action(utils.getString(R.string.action_resetTag), () -> showResetTag(dialog)),
+                new Action(utils.getString(R.string.action_resetTool), () -> showResetTool(dialog)),
+                new Action(utils.getString(R.string.action_save), () -> save(dialog)),
+                new Action(utils.getString(R.string.action_deleteRecents), () -> deleteHistory(dialog))).map(factory::wrap).collect(Collectors.toList()));
         FastAdapter fastAdapter = FastAdapter.with(new ModelAdapter<>(new DefaultItemListImpl<>(new ArrayList<>(Arrays.asList(information, itemUtils, other))), factory::wrap))
                 .addExtension(new ExpandableExtension<>());
         recyclerView.setAdapter(fastAdapter);
@@ -104,29 +107,29 @@ public class MultiToolScript implements JavaScript.Normal {
         dialog.dismiss();
         //noinspection ResultOfMethodCallIgnored
         new File(utils.getLightningContext().getFilesDir().getPath() + "/statistics").delete();
-        Toast.makeText(utils.getLightningContext(), "Recents deleted", Toast.LENGTH_SHORT).show();
+        Toast.makeText(utils.getLightningContext(), utils.getString(R.string.toast_recentsDeleted), Toast.LENGTH_SHORT).show();
     }
 
     private void save(AlertDialog dialog) {
         dialog.dismiss();
         utils.getLightning().save();
-        Toast.makeText(utils.getLightningContext(), "Saved Layout", Toast.LENGTH_SHORT).show();
+        Toast.makeText(utils.getLightningContext(), utils.getString(R.string.toast_savedLayout), Toast.LENGTH_SHORT).show();
     }
 
     private void showResetTool(AlertDialog dialog) {
         dialog.dismiss();
         Container cont = event.getContainer();
         Item[] items = cont.getAllItems();
-        CharSequence[] listItems = new CharSequence[]{"Cell (only grid items) [0,0]",
-                                                      "Position (only free items) [0,0]",
-                                                      "Rotation (only free items) [0]",
-                                                      "Scale (only free items) [1,1]",
-                                                      "Skew (only free items) [0,0]",
-                                                      "Size (only free items) [cell size]",
-                                                      "Visibility [true]"};
+        CharSequence[] listItems = new CharSequence[]{utils.getString(R.string.tool_cell),
+                                                      utils.getString(R.string.tool_position),
+                                                      utils.getString(R.string.tool_rotation),
+                                                      utils.getString(R.string.tool_scale),
+                                                      utils.getString(R.string.tool_skew),
+                                                      utils.getString(R.string.tool_size),
+                                                      utils.getString(R.string.tool_visibility)};
         boolean[] bools = new boolean[listItems.length];
         new AlertDialog.Builder(utils.getLightningContext()).setMultiChoiceItems(listItems, null, (dialog1, which, isChecked) -> bools[which] = isChecked)
-                .setTitle("Reset")
+                .setTitle(utils.getString(R.string.title_reset))
                 .setCancelable(true)
                 .setPositiveButton(utils.getString(R.string.button_confirm), (dialog1, which) -> {
                     for (Item item : items) {
@@ -156,21 +159,25 @@ public class MultiToolScript implements JavaScript.Normal {
             deleter = tag -> container.setTag(tag, null);
         }
         List<String> options = new ArrayList<>(tags);
-        options.add(0, "All tags");
-        new AlertDialog.Builder(utils.getLightningContext()).setTitle("Which tag do you want to reset?").setCancelable(true).setItems(options.toArray(new CharSequence[0]), (dialog1, which) -> {
-            List<String> delete = which == 0 ? new ArrayList<>(tags) : Collections.singletonList(options.get(which));
-            for (String tag : delete) {
-                deleter.accept(tag);
-            }
-            Toast.makeText(utils.getLightningContext(), "Deleting tag(s) done!", Toast.LENGTH_SHORT).show();
-            utils.getLightning().save();
-        }).setNegativeButton(utils.getString(R.string.button_cancel), null).show();
+        options.add(0, utils.getString(R.string.text_allTags));
+        new AlertDialog.Builder(utils.getLightningContext()).setTitle(utils.getString(R.string.title_tagChooser))
+                .setCancelable(true)
+                .setItems(options.toArray(new CharSequence[0]), (dialog1, which) -> {
+                    List<String> delete = which == 0 ? new ArrayList<>(tags) : Collections.singletonList(options.get(which));
+                    for (String tag : delete) {
+                        deleter.accept(tag);
+                    }
+                    Toast.makeText(utils.getLightningContext(), utils.getString(R.string.toast_tagsDeleted), Toast.LENGTH_SHORT).show();
+                    utils.getLightning().save();
+                })
+                .setNegativeButton(utils.getString(R.string.button_cancel), null)
+                .show();
     }
 
     private void showDelete(AlertDialog dialog) {
         dialog.dismiss();
-        new AlertDialog.Builder(utils.getLightningContext()).setTitle("Delete all items")
-                .setMessage("Are you sure?")
+        new AlertDialog.Builder(utils.getLightningContext()).setTitle(utils.getString(R.string.title_deleteAll))
+                .setMessage(utils.getString(R.string.text_areYouSure))
                 .setPositiveButton(utils.getString(R.string.button_confirm), (dialog1, which) -> {
                     Container container = event.getContainer();
                     for (Item item : container.getAllItems()) {
@@ -187,7 +194,7 @@ public class MultiToolScript implements JavaScript.Normal {
         Container c = event.getContainer();
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         TextView widthText = new TextView(utils.getLightningContext());
-        widthText.setText("Width: ");
+        widthText.setText(utils.getString(R.string.text_width));
         linearLayout.addView(widthText);
         NumberPicker widthPicker = new NumberPicker(utils.getLightningContext());
         widthPicker.setMinValue(1);
@@ -195,7 +202,7 @@ public class MultiToolScript implements JavaScript.Normal {
         widthPicker.setValue((int) c.getCellWidth());
         linearLayout.addView(widthPicker);
         TextView heightText = new TextView(utils.getLightningContext());
-        heightText.setText("Height: ");
+        heightText.setText(utils.getString(R.string.text_height));
         linearLayout.addView(heightText);
         NumberPicker heightPicker = new NumberPicker(utils.getLightningContext());
         heightPicker.setMinValue(1);
@@ -204,7 +211,7 @@ public class MultiToolScript implements JavaScript.Normal {
         linearLayout.addView(heightPicker);
         new AlertDialog.Builder(utils.getLightningContext()).setView(linearLayout)
                 .setCancelable(true)
-                .setTitle("To which size?")
+                .setTitle(utils.getString(R.string.title_size))
                 .setPositiveButton(utils.getString(R.string.button_confirm), (dialog1, which) -> {
                     int width = widthPicker.getValue();
                     int height = heightPicker.getValue();
@@ -219,11 +226,11 @@ public class MultiToolScript implements JavaScript.Normal {
 
     private void showAttachDetach(AlertDialog dialog) {
         dialog.dismiss();
-        new AlertDialog.Builder(utils.getLightningContext()).setTitle("MultiTool")
-                .setMessage("Do you want to attach or detach all items?")
+        new AlertDialog.Builder(utils.getLightningContext()).setTitle(utils.getString(R.string.script_name))
+                .setMessage(utils.getString(R.string.text_attach))
                 .setCancelable(true)
-                .setPositiveButton("Attach", (dialog1, which) -> attachDetach(true))
-                .setNegativeButton("Detach", (dialog1, which) -> attachDetach(false))
+                .setPositiveButton(utils.getString(R.string.button_attach), (dialog1, which) -> attachDetach(true))
+                .setNegativeButton(utils.getString(R.string.button_detach), (dialog1, which) -> attachDetach(false))
                 .setNeutralButton(utils.getString(R.string.button_cancel), null)
                 .show();
     }
@@ -233,7 +240,7 @@ public class MultiToolScript implements JavaScript.Normal {
         for (Item i : items) {
             i.getProperties().edit().setBoolean(PropertySet.ITEM_ON_GRID, attach).commit();
         }
-        Toast.makeText(utils.getLightningContext(), "Done!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(utils.getLightningContext(), utils.getString(R.string.toast_done), Toast.LENGTH_SHORT).show();
     }
 
     private void showIconInfo(AlertDialog dialog) {
@@ -244,16 +251,16 @@ public class MultiToolScript implements JavaScript.Normal {
         root.setOrientation(LinearLayout.VERTICAL);
 
         //check for all kinds of images in this item and add them to the view if there are any
-        addImageIfNotNull(root, it.getBoxBackground(Box.MODE_NORMAL), "Normal Box Background");
-        addImageIfNotNull(root, it.getBoxBackground(Box.MODE_SELECTED), "Selected Box Background");
-        addImageIfNotNull(root, it.getBoxBackground(Box.MODE_FOCUSED), "Focused Box Background");
+        addImageIfNotNull(root, it.getBoxBackground(Box.MODE_NORMAL), utils.getString(R.string.text_normalBox));
+        addImageIfNotNull(root, it.getBoxBackground(Box.MODE_SELECTED), utils.getString(R.string.text_selectedBox));
+        addImageIfNotNull(root, it.getBoxBackground(Box.MODE_FOCUSED), utils.getString(R.string.text_focusedBox));
         if (Item.TYPE_SHORTCUT.equals(it.getType())) {
             Shortcut shortcut = ProxyFactory.cast(it, Shortcut.class);
-            addImageIfNotNull(root, shortcut.getDefaultIcon(), "Default Icon");
-            addImageIfNotNull(root, shortcut.getCustomIcon(), "Custom Icon");
+            addImageIfNotNull(root, shortcut.getDefaultIcon(), utils.getString(R.string.text_defaultIcon));
+            addImageIfNotNull(root, shortcut.getCustomIcon(), utils.getString(R.string.text_customIcon));
         }
         if (root.getChildCount() <= 0) {
-            Toast.makeText(utils.getLightningContext(), "No Image Data available", Toast.LENGTH_SHORT).show(); //no image found
+            Toast.makeText(utils.getLightningContext(), utils.getString(R.string.toast_noImages), Toast.LENGTH_SHORT).show(); //no image found
             return;
         }
         //at least one image found
@@ -261,7 +268,7 @@ public class MultiToolScript implements JavaScript.Normal {
         scroll.addView(root);
         new AlertDialog.Builder(utils.getLightningContext()).setView(scroll)
                 .setCancelable(true)
-                .setTitle("Icon")
+                .setTitle(utils.getString(R.string.title_icon))
                 .setNeutralButton(utils.getString(R.string.button_close), (d, which) -> d.dismiss())
                 .show();
     }
@@ -269,7 +276,7 @@ public class MultiToolScript implements JavaScript.Normal {
     private void addImageIfNotNull(LinearLayout root, Image image, String txt) {
         if (image != null) {
             TextView textView = new TextView(utils.getLightningContext());
-            textView.setText(String.format(Locale.US, "%s (%dx%d)", txt, image.getWidth(), image.getHeight()));
+            textView.setText(utils.getString(R.string.text_imageInfo, txt, image.getWidth(), image.getHeight()));
             root.addView(textView);
             if (Image.TYPE_BITMAP.equals(image.getType())) {
                 ImageView imageView = new ImageView(utils.getLightningContext());
@@ -283,19 +290,19 @@ public class MultiToolScript implements JavaScript.Normal {
         dialog.dismiss();
         Item it = event.getItem();
         if (it == null || !Item.TYPE_SHORTCUT.equals(it.getType())) {
-            Toast.makeText(utils.getLightningContext(), "No Intent found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(utils.getLightningContext(), utils.getString(R.string.toast_noIntent), Toast.LENGTH_SHORT).show();
             return;
         }
         Intent intent = ProxyFactory.cast(it, Shortcut.class).getIntent();
         intent.getStringExtra("somenamenoonewouldeveruse");
-        showText("Intent: " + intent + "\nExtras: " + intent.getExtras(), "Intent Information");
+        showText(utils.getString(R.string.text_intentInfo, intent, intent.getExtras()), utils.getString(R.string.title_intentInfo));
     }
 
     private void showItemInfo(AlertDialog dialog) {
         dialog.dismiss();
         Item i = event.getItem();
         if (i == null) {
-            Toast.makeText(utils.getLightningContext(), "no item found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(utils.getLightningContext(), utils.getString(R.string.toast_noItem), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -310,9 +317,22 @@ public class MultiToolScript implements JavaScript.Normal {
                 label = "";
                 break;
         }
-        showText("Label: " + label + "\nName: " + i.getName() + "\nType: " + i.getType() + "\nID: " + i.getId() + "\nSize: " + i.getWidth() + "," + i.getHeight() + "\nPosition: "
-                 + i.getPositionX() + "," + i.getPositionY() + "\nScale: " + i.getScaleX() + "," + i.getScaleY() + "\nAngle: " + i.getRotation() + "\nCenter: " + center(i)
-                 + "\nCell: " + i.getCell() + "\nis visible: " + i.isVisible() + "\nTags: " + tags, "Item Information");
+        showText(utils.getString(R.string.text_itemInfo,
+                label,
+                i.getName(),
+                i.getType(),
+                i.getId(),
+                i.getWidth(),
+                i.getHeight(),
+                i.getPositionX(),
+                i.getPositionY(),
+                i.getScaleX(),
+                i.getScaleY(),
+                i.getRotation(),
+                AnimationScript.center(i, true),
+                i.getCell(),
+                i.isVisible(),
+                tags), utils.getString(R.string.title_itemInfo));
     }
 
     private Map<String, String> getTags(Item item) {
@@ -333,7 +353,7 @@ public class MultiToolScript implements JavaScript.Normal {
                     result.put(property, jsonTags.getString(property));
                 }
             } else {
-                Toast.makeText(utils.getLightningContext(), "Can't find Tags", Toast.LENGTH_SHORT).show();
+                Toast.makeText(utils.getLightningContext(), utils.getString(R.string.toast_noTags), Toast.LENGTH_SHORT).show();
             }
         } catch (JSONException | IOException e) {
             e.printStackTrace();
@@ -379,27 +399,48 @@ public class MultiToolScript implements JavaScript.Normal {
                 name = c.getOpener().getName();
                 break;
         }
-        showText("Type: " + t + "\nName/Label: " + name + "\nID: " + c.getId() + "\nSize: " + c.getWidth() + "," + c.getHeight() + "\nBoundingbox: " + c.getBoundingBox()
-                 + "\nCell Size: " + c.getCellWidth() + "," + c.getCellHeight() + "\nCurrent Position: " + c.getPositionX() + "," + c.getPositionY() + "\nCurrent Scale: "
-                 + c.getPositionScale() + "\nTags: " + tags + "\nItems: " + Arrays.toString(c.getAllItems()), "Container Information");
+        showText(utils.getString(R.string.text_containerInfo,
+                t,
+                name,
+                c.getId(),
+                c.getWidth(),
+                c.getHeight(),
+                c.getBoundingBox(),
+                c.getCellWidth(),
+                c.getCellHeight(),
+                c.getPositionX(),
+                c.getPositionY(),
+                c.getPositionScale(),
+                tags,
+                Arrays.toString(c.getAllItems())), utils.getString(R.string.title_containerInfo));
     }
 
     private void showEventInfo(AlertDialog dialog) {
         dialog.dismiss();
         Event event = this.event;
-        boolean ok;
-        try { //test if event contains touch data
-            event.getTouchScreenX();
-            ok = true;
-        } catch (Exception e) {
-            ok = false;
+        float touchX = 0;
+        float touchY = 0;
+        float touchScreenX = 0;
+        float touchScreenY = 0;
+        try {
+            //test if event contains touch data
+            touchX = event.getTouchX();
+            touchY = event.getTouchY();
+            touchScreenX = event.getTouchScreenX();
+            touchScreenY = event.getTouchScreenY();
+        } catch (Exception ignored) {
         }
-        showText("Source: " + event.getSource() + "\nDate: " + DateFormat.getInstance().format(event.getDate()) + "\nContainer: " + event.getContainer() + "\nScreen: "
-                 + event.getScreen() + "\nItem: " + event.getItem() + "\nData: " + event.getData() + (ok ?
-                                                                                                              ("\nTouch: " + event.getTouchX() + "," + event.getTouchY()
-                                                                                                               + "\nTouch (Screen): " + event.getTouchScreenX() + ","
-                                                                                                               + event.getTouchScreenY()) :
-                                                                                                              ""), "Event Information");
+        showText(utils.getString(R.string.text_eventInfo,
+                event.getSource(),
+                DateFormat.getInstance().format(event.getDate()),
+                event.getContainer(),
+                event.getScreen(),
+                event.getItem(),
+                event.getData(),
+                touchX,
+                touchY,
+                touchScreenX,
+                touchScreenY), utils.getString(R.string.title_eventInfo));
     }
 
     private void showText(String text, String title) {
@@ -408,14 +449,5 @@ public class MultiToolScript implements JavaScript.Normal {
                 .setCancelable(true)
                 .setNeutralButton(utils.getString(R.string.button_close), (dialog, which) -> dialog.dismiss())
                 .show();
-    }
-
-    private String center(Item item) {
-        double r = item.getRotation() * Math.PI / 180;
-        double sin = Math.abs(Math.sin(r));
-        double cos = Math.abs(Math.cos(r));
-        double w = item.getWidth() * item.getScaleX();
-        double h = item.getHeight() * item.getScaleY();
-        return (item.getPositionX() + (w * cos + h * sin) * 0.5) + "," + (item.getPositionY() + (h * cos + w * sin) * 0.5);
     }
 }

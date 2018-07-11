@@ -250,9 +250,6 @@ public class FormatTask3 extends AsyncTask<Model, FormatTask3.Progress, Void> {
     }
 
     private static String toSource(AstNode node, Comment comment, Position position, int depth) {
-        if (comment.getValue().startsWith("//onClickFunction has to have two arguments. first is group position, second is child position")) {
-            comment.getValue();
-        }
         String source = node.toSource(depth);
         switch (position) {
             case BEFORE:

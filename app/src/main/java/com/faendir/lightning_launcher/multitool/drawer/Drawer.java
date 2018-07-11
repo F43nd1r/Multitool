@@ -48,7 +48,6 @@ import java.util.Set;
 @Keep
 public class Drawer implements JavaScript.Setup, JavaScript.CreateMenu, JavaScript.Normal {
     private static final String TAG_INTENT = "intent";
-    private static final String PATH_SUFFIX = "drawer";
     private final Utils utils;
     private final PackageManager pm;
 
@@ -85,7 +84,7 @@ public class Drawer implements JavaScript.Setup, JavaScript.CreateMenu, JavaScri
     public void showMenu(Menu menu, Item item) {
         int mode = menu.getMode();
         if (mode == Menu.MODE_ITEM_NO_EM || mode == Menu.MODE_ITEM_EM) {
-            utils.addMenuMainItem(menu, "Hide", () -> this.hide(menu, item));
+            utils.addMenuMainItem(menu, utils.getString(R.string.menu_hide), () -> this.hide(menu, item));
         }
     }
 

@@ -41,10 +41,6 @@ public abstract class MusicListener extends BaseContentListener {
         };
     }
 
-    public static MusicListener create(Utils utils) {
-        return new LightningMusicListener(utils);
-    }
-
     @Override
     public void onChange(boolean selfChange) {
         onChange(MusicDataSource.queryInfo(getContext()));
@@ -156,7 +152,7 @@ public abstract class MusicListener extends BaseContentListener {
 
         @Override
         public void run() {
-            String player = utils.getLightning().getVariables().getString("player");
+            String player = utils.getLightning().getVariables().getString(MusicSetup.VARIABLE_PLAYER);
             try {
                 if (player == null) {
                     player = utils.getSharedPref().getString(utils.getString(R.string.pref_musicDefault), "");

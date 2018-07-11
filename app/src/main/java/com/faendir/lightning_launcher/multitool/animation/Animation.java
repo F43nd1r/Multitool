@@ -1,13 +1,15 @@
 package com.faendir.lightning_launcher.multitool.animation;
 
 import android.graphics.PointF;
+import android.support.annotation.StringRes;
+import com.faendir.lightning_launcher.multitool.R;
 
 /**
  * @author lukas
  * @since 10.07.18
  */
 enum Animation {
-    BULLDOZE("Bulldoze") {
+    BULLDOZE(R.string.title_bulldoze) {
         @Override
         public Transformation getTransformation(PointF percent, Size containerSize, PointF center, PointB isStart) {
             Transformation result = new Transformation();
@@ -18,7 +20,7 @@ enum Animation {
             return result;
         }
     },
-    CARD("Card Stack") {
+    CARD(R.string.title_card) {
         @Override
         public Transformation getTransformation(PointF percent, Size containerSize, PointF center, PointB isStart) {
             Transformation result = new Transformation();
@@ -32,7 +34,7 @@ enum Animation {
             return result;
         }
     },
-    FLIP("Flip") {
+    FLIP(R.string.title_flip) {
         @Override
         public Transformation getTransformation(PointF percent, Size containerSize, PointF center, PointB isStart) {
             Transformation result = new Transformation();
@@ -51,7 +53,7 @@ enum Animation {
             return result;
         }
     },
-    FLIP_3D("Flip 3D") {
+    FLIP_3D(R.string.title_flip3d) {
         @Override
         public Transformation getTransformation(PointF percent, Size containerSize, PointF center, PointB isStart) {
             Transformation result = new Transformation();
@@ -77,7 +79,7 @@ enum Animation {
             return result;
         }
     },
-    SHRINK("Shrink") {
+    SHRINK(R.string.title_shrink) {
         @Override
         public Transformation getTransformation(PointF percent, Size containerSize, PointF center, PointB isStart) {
             Transformation result = new Transformation().onlyUnpinnedItems();
@@ -95,7 +97,7 @@ enum Animation {
             return result;
         }
     },
-    TURN("Turn") {
+    TURN(R.string.title_turn) {
         @Override
         public Transformation getTransformation(PointF percent, Size containerSize, PointF center, PointB isStart) {
             Transformation result = new Transformation().onlyUnpinnedItems();
@@ -117,7 +119,7 @@ enum Animation {
             return result;
         }
     },
-    CUBE("Cube") {
+    CUBE(R.string.title_cube) {
         @Override
         public Transformation getTransformation(PointF percent, Size containerSize, PointF center, PointB isStart) {
             Transformation result = new Transformation().onlyUnpinnedItems();
@@ -141,13 +143,15 @@ enum Animation {
             return result;
         }
     };
-    private final String label;
+    @StringRes
+    private final int label;
 
-    Animation(String label) {
+    Animation(@StringRes int label) {
         this.label = label;
     }
 
-    public String getLabel() {
+    @StringRes
+    public int getLabel() {
         return label;
     }
 

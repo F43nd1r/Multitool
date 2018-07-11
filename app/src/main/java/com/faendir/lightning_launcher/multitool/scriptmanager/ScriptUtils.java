@@ -199,7 +199,7 @@ final class ScriptUtils {
         simpleCommand(scriptManager, listManager, Transfer.RESTORE, script);
     }
 
-    private static void simpleCommand(final ScriptManager scriptManager, final ListManager listManager, String command, Script script) {
+    private static void simpleCommand(final ScriptManager scriptManager, final ListManager listManager, @Transfer.Action String command, Script script) {
         final Transfer transfer = new Transfer(command, script);
         scriptManager.getAsyncExecutorService()
                 .add(getScriptManagerExecutor(Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();

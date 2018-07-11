@@ -3,6 +3,7 @@ package com.faendir.lightning_launcher.multitool.animation;
 import android.app.AlertDialog;
 import android.graphics.Point;
 import android.graphics.PointF;
+import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.proxy.Container;
 import com.faendir.lightning_launcher.multitool.proxy.EventHandler;
 import com.faendir.lightning_launcher.multitool.proxy.Item;
@@ -26,7 +27,7 @@ public class AnimationScript implements JavaScript.Setup, JavaScript.Normal {
         this.utils = utils;
     }
 
-    static PointF center(Item item, boolean absolute) {
+    public static PointF center(Item item, boolean absolute) {
         double radius = item.getRotation() * Math.PI / 180;
         double sine = Math.abs(Math.sin(radius));
         double cosine = Math.abs(Math.cos(radius));
@@ -47,12 +48,12 @@ public class AnimationScript implements JavaScript.Setup, JavaScript.Normal {
         utils.addEventHandler(container.getProperties(), PropertySet.POSITION_CHANGED, EventHandler.RUN_SCRIPT, script.getId() + "/" + getClass().getName());
         String tag = container.getTag(TAG_ANIMATION);
         Config config = tag != null ? GSON.fromJson(tag, Config.class) : new Config();
-        new AlertDialog.Builder(utils.getLightningContext()).setTitle("Choose an animation style")
-                .setItems(Stream.of(Animation.values()).map(Animation::getLabel).toArray(CharSequence[]::new), (dialog, which) -> {
+        new AlertDialog.Builder(utils.getLightningContext()).setTitle(utils.getString(R.string.title_animationChooser))
+                .setItems(Stream.of(Animation.values()).map(Animation::getLabel).map(utils::getString).toArray(CharSequence[]::new), (dialog, which) -> {
                     config.animation = Animation.values()[which];
                     container.setTag(TAG_ANIMATION, GSON.toJson(config));
                 })
-                .setNegativeButton("Disable", (dialog, which) -> {
+                .setNegativeButton(utils.getString(R.string.button_disable), (dialog, which) -> {
                     config.animation = null;
                     container.setTag(TAG_ANIMATION, GSON.toJson(config));
                 })

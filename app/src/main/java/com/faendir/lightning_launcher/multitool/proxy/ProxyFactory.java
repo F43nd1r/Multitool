@@ -82,15 +82,11 @@ public final class ProxyFactory {
                     Class<?> type = parameterTypes[i];
                     if (Proxy.class.isAssignableFrom(type)) {
                         args[i] = ((Proxy) args[i]).getReal();
-                        if (Proxy.class.isAssignableFrom(type)) {
-                            Class<?> t = args[i].getClass();
-                            while (!t.getSimpleName().equals(type.getSimpleName())) {
-                                t = t.getSuperclass();
-                            }
-                            parameterTypes[i] = t;
+                        Class<?> t = args[i].getClass();
+                        while (!t.getSimpleName().equals(type.getSimpleName())) {
+                            t = t.getSuperclass();
                         }
-                    } else if (type.getName().startsWith("org.mozilla.javascript")) {
-                        parameterTypes[i] = object.getClass().getClassLoader().loadClass(type.getName());
+                        parameterTypes[i] = t;
                     }
                 }
                 result = doInvoke(method.getName(), parameterTypes, args);

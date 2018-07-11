@@ -117,7 +117,7 @@ public class MusicSetup implements JavaScript.Setup, JavaScript.Direct {
         utils.installCommandScript();
         utils.installNormalScript();
         utils.getActiveScreen().runAction(EventHandler.RESTART, null);
-        Toast.makeText(utils.getLightningContext(),"Done",Toast.LENGTH_SHORT).show();
+        Toast.makeText(utils.getLightningContext(),utils.getString(R.string.toast_done),Toast.LENGTH_SHORT).show();
         return null;
     }
 }

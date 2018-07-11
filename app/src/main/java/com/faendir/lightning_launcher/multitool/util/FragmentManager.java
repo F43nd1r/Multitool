@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
-
 import com.faendir.lightning_launcher.multitool.MainActivity;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
@@ -17,7 +16,6 @@ import com.faendir.lightning_launcher.multitool.music.MusicFragment;
 import com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment;
 import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
 import com.mikepenz.materialdrawer.Drawer;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -105,13 +103,9 @@ public class FragmentManager {
     }
 
     public boolean loadLastFragment() {
-        String fragment = context.getIntent().getStringExtra("mode");
-        if (fragment != null) {
-            switch (fragment) {
-                case "gesture":
-                    EventBus.getDefault().post(new SwitchFragmentRequest(R.string.title_gestureLauncher));
-                    return true;
-            }
+        int fragment = context.getIntent().getIntExtra(EXTRA_MODE, 0);
+        if (fragment != 0) {
+            EventBus.getDefault().post(new SwitchFragmentRequest(fragment));
         }
         if (sharedPref.contains(context.getString(R.string.pref_lastFragment))) {
             int load = context.getResources().getIdentifier(sharedPref.getString(context.getString(R.string.pref_lastFragment), ""), "id", context.getPackageName());

@@ -37,7 +37,7 @@ public class GestureScript implements JavaScript.CreateMenu, JavaScript.Setup, J
     public void showMenu(Menu menu, Item item) {
         int mode = menu.getMode();
         if (mode == Menu.MODE_ITEM_NO_EM || mode == Menu.MODE_ITEM_EM) {
-            utils.addMenuMainItem(menu, "Edit Gestures", () -> {
+            utils.addMenuMainItem(menu, utils.getString(R.string.menu_editGestures), () -> {
                 Intent intent = new Intent(utils.getMultitoolContext(), MainActivity.class);
                 intent.putExtra(FragmentManager.EXTRA_MODE, R.string.title_gestureLauncher);
                 utils.getLightningContext().startActivity(intent);
@@ -73,7 +73,7 @@ public class GestureScript implements JavaScript.CreateMenu, JavaScript.Setup, J
         } catch (Exception e) {
             Log.w(MultiTool.LOG_TAG, "Failed to load gesture widget");
             TextView t = new TextView(utils.getLightningContext());
-            t.setText("Unable to load gesture widget.\nPlease restart Lightning Launcher.");
+            t.setText(utils.getString(R.string.text_gestureViewFailed));
             return t;
         }
     }

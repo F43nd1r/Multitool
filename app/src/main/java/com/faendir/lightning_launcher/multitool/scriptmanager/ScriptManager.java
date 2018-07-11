@@ -26,15 +26,15 @@ public class ScriptManager implements JavaScript.Direct {
             Transfer transfer = GSON.fromJson(data, Transfer.class);
             Script script;
             switch (transfer.request) {
-                case "RENAME":
+                case Transfer.RENAME:
                     script = utils.getLightning().getScriptById(String.valueOf(transfer.script.getId()));
                     if (script != null) script.setName(transfer.script.getName());
                     break;
-                case "DELETE":
+                case Transfer.DELETE:
                     script = utils.getLightning().getScriptById(String.valueOf(transfer.script.getId()));
                     if (script != null) utils.getLightning().deleteScript(script);
                     break;
-                case "RESTORE":
+                case Transfer.RESTORE:
                     String path = transfer.script.getPath() != null ? transfer.script.getPath() : "/";
                     script = utils.getLightning().getScriptByPathAndName(path, transfer.script.getName());
                     if (script != null) {
@@ -42,11 +42,11 @@ public class ScriptManager implements JavaScript.Direct {
                     }
                     utils.getLightning().createScript(path, transfer.script.getName(), transfer.script.getCode(), transfer.script.getFlags());
                     break;
-                case "SET_CODE":
+                case Transfer.SET_CODE:
                     script = utils.getLightning().getScriptById(String.valueOf(transfer.script.getId()));
                     if (script != null) script.setText(transfer.script.getCode());
                     break;
-                case "TOGGLE_DISABLE":
+                case Transfer.TOGGLE_DISABLE:
                     script = utils.getLightning().getScriptById(String.valueOf(transfer.script.getId()));
                     if (script != null) script.setFlag(Script.FLAG_DISABLED, !script.hasFlag(Script.FLAG_DISABLED));
                     break;

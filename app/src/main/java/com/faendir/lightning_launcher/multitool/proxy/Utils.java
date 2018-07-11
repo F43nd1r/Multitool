@@ -51,6 +51,10 @@ public class Utils {
         return multitoolContext.getString(res);
     }
 
+    public String getString(@StringRes int res, Object... formatArgs) {
+        return multitoolContext.getString(res, formatArgs);
+    }
+
     public Lightning getLightning() {
         return lightning;
     }

@@ -38,13 +38,12 @@ import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptio
  * A simple {@link Fragment} subclass.
  */
 public class GestureFragment extends Fragment {
-
     private static final int ADD = 1;
     private static final int EDIT = 2;
     private static final int EXPORT = 3;
     private static final int IMPORT = 4;
     private static final String INDEX = "index";
-
+    public static final String APPLICATION_ZIP = "application/zip";
     private ModelAdapter<GestureInfo, ExpandableItem<GestureInfo>> adapter;
 
     @Override
@@ -121,7 +120,7 @@ public class GestureFragment extends Fragment {
                 Intent intent;
                 intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
-                intent.setType("application/zip");
+                intent.setType(APPLICATION_ZIP);
                 intent.putExtra(Intent.EXTRA_TITLE, "Multitool_Gestures_" + new SimpleDateFormat("yyyy-MM-dd", Locale.US).format(new Date()) + ".zip");
                 startActivityForResult(intent, EXPORT);
                 break;
@@ -129,7 +128,7 @@ public class GestureFragment extends Fragment {
             case R.id.action_import: {
                 Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
-                intent.setType("application/zip");
+                intent.setType(APPLICATION_ZIP);
                 startActivityForResult(intent, IMPORT);
                 break;
             }

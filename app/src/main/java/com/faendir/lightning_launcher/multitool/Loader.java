@@ -31,14 +31,13 @@ import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptio
  */
 
 public class Loader extends Activity {
-    private static final String PKG = BuildConfig.APPLICATION_ID;
-    private static final String LAUNCHER_SCRIPT = PKG + ".LoadLauncherScript";
-    private static final String GESTURE_LAUNCHER = PKG + ".LoadGestureLauncher";
-    private static final String MUSIC_WIDGET = PKG + ".LoadMusicWidget";
-    private static final String DRAWER = PKG + ".LoadDrawer";
-    private static final String IMMERSIVE = PKG + ".toggleImmersive";
-    private static final String ANIMATION = PKG + ".LoadAnimation";
-    private static final String BADGE = PKG + ".LoadBadge";
+    private static final String LAUNCHER_SCRIPT = BuildConfig.APPLICATION_ID + ".LoadLauncherScript";
+    private static final String GESTURE_LAUNCHER = BuildConfig.APPLICATION_ID + ".LoadGestureLauncher";
+    private static final String MUSIC_WIDGET = BuildConfig.APPLICATION_ID + ".LoadMusicWidget";
+    private static final String DRAWER = BuildConfig.APPLICATION_ID + ".LoadDrawer";
+    private static final String IMMERSIVE = BuildConfig.APPLICATION_ID + ".toggleImmersive";
+    private static final String ANIMATION = BuildConfig.APPLICATION_ID + ".LoadAnimation";
+    private static final String BADGE = BuildConfig.APPLICATION_ID + ".LoadBadge";
 
     public static final int FLAG_DISABLED = 1;
     public static final int FLAG_APP_MENU = 2;
@@ -102,7 +101,7 @@ public class Loader extends Activity {
                 }
             }).start();
         } else {
-            Toast.makeText(this, "Lightning Launcher is outdated, please update!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.toast_launcherOutdated, Toast.LENGTH_LONG).show();
             setResult(RESULT_CANCELED);
             finish();
         }
@@ -112,7 +111,7 @@ public class Loader extends Activity {
         Intent intent = new Intent();
         intent.putExtra(INTENT_EXTRA_SCRIPT_ID, script);
         intent.putExtra(INTENT_EXTRA_SCRIPT_NAME, name);
-        intent.putExtra(INTENT_EXTRA_SCRIPT_PACKAGE, PKG.replace('.', '/'));
+        intent.putExtra(INTENT_EXTRA_SCRIPT_PACKAGE, BuildConfig.APPLICATION_ID.replace('.', '/'));
         intent.putExtra(INTENT_EXTRA_SCRIPT_FLAGS, flags);
         intent.putExtra(INTENT_EXTRA_EXECUTE_ON_LOAD, runAndDelete);
         intent.putExtra(INTENT_EXTRA_DELETE_AFTER_EXECUTION, runAndDelete);
