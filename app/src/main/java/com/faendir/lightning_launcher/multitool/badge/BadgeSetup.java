@@ -32,7 +32,7 @@ public class BadgeSetup implements JavaScript.Setup, JavaScript.ActivityResult {
         ActivityScreen screen = ProxyFactory.cast(utils.getActiveScreen(), ActivityScreen.class);
         Container d = utils.getContainer();
         Intent intent = new Intent(utils.getMultitoolContext(), AppChooser.class);
-        screen.startActivityForResult(intent, create, d.getId() + "/" + getClass().getName());
+        screen.startActivityForResult(intent, create, getClass().getName() + "/" + d.getId());
     }
 
     @Override
