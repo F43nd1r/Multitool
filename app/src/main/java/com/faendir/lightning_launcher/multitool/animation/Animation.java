@@ -57,7 +57,6 @@ enum Animation {
         @Override
         public Transformation getTransformation(PointF percent, Size containerSize, PointF center, PointB isStart) {
             Transformation result = new Transformation();
-            if (Math.abs(percent.x - 0.5) <= Math.abs(percent.y - 0.5)) {
                 if (isStart.x != percent.x >= 0.5) {
                     float x = isStart.x ? percent.x : percent.x - 1;
                     result.rotation.y = -x / 2;
@@ -66,7 +65,6 @@ enum Animation {
                 } else {
                     result.alpha = 0;
                 }
-            } else {
                 if (isStart.y != percent.y >= 0.5) {
                     float y = isStart.y ? percent.y : percent.y - 1;
                     result.rotation.x = y / 2;
@@ -75,7 +73,6 @@ enum Animation {
                 } else {
                     result.alpha = 0;
                 }
-            }
             return result;
         }
     },
