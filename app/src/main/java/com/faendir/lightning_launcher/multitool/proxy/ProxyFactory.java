@@ -56,7 +56,7 @@ public final class ProxyFactory {
 
         @Override
         protected Object doInvoke(String methodName, Class<?>[] parameterTypes, Object[] parameters) {
-            return eval.eval(null, methodName, parameters);
+            return eval.eval(methodName, parameters);
         }
     }
 
@@ -82,11 +82,7 @@ public final class ProxyFactory {
                     Class<?> type = parameterTypes[i];
                     if (Proxy.class.isAssignableFrom(type)) {
                         args[i] = ((Proxy) args[i]).getReal();
-                        Class<?> t = args[i].getClass();
-                        while (!t.getSimpleName().equals(type.getSimpleName())) {
-                            t = t.getSuperclass();
-                        }
-                        parameterTypes[i] = t;
+                        parameterTypes[i] = findClassWithSimpleNameInHierarchy(type.getSimpleName(), args[i].getClass());
                     }
                 }
                 result = doInvoke(method.getName(), parameterTypes, args);
@@ -107,5 +103,21 @@ public final class ProxyFactory {
         }
 
         protected abstract Object doInvoke(String methodName, Class<?>[] parameterTypes, Object[] parameters) throws Exception;
+
+        private Class<?> findClassWithSimpleNameInHierarchy(String name, Class<?> check) {
+            if (check == null) {
+                return null;
+            }
+            if (check.getSimpleName().equals(name)) {
+                return check;
+            }
+            for (Class<?> i : check.getInterfaces()) {
+                Class<?> result = findClassWithSimpleNameInHierarchy(name, i);
+                if (result != null) {
+                    return result;
+                }
+            }
+            return findClassWithSimpleNameInHierarchy(name, check.getSuperclass());
+        }
     }
 }

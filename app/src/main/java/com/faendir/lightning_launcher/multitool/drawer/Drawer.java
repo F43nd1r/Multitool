@@ -69,7 +69,8 @@ public class Drawer implements JavaScript.Setup, JavaScript.CreateMenu, JavaScri
         panelEditor.commit();
         panel.setSize(size, size);
         Container p = panel.getContainer();
-        p.getProperties().edit()
+        p.getProperties()
+                .edit()
                 .setEventHandler(PropertySet.RESUMED, EventHandler.RUN_SCRIPT, script.getId() + "/" + getClass().getName())
                 .setEventHandler(PropertySet.ITEM_MENU, EventHandler.RUN_SCRIPT, menu.getId() + "/" + getClass().getName())
                 .setInteger(PropertySet.GRID_PORTRAIT_COLUMN_NUM, 3)
@@ -84,7 +85,7 @@ public class Drawer implements JavaScript.Setup, JavaScript.CreateMenu, JavaScri
     public void showMenu(Menu menu, Item item) {
         int mode = menu.getMode();
         if (mode == Menu.MODE_ITEM_NO_EM || mode == Menu.MODE_ITEM_EM) {
-            utils.addMenuMainItem(menu, utils.getString(R.string.menu_hide), () -> this.hide(menu, item));
+            menu.addMainItem(utils.getString(R.string.menu_hide), utils.asFunction(() -> this.hide(menu, item)));
         }
     }
 

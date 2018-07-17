@@ -10,6 +10,7 @@ import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.LightningObjectFactory;
 import com.faendir.lightning_launcher.multitool.util.provider.RemoteSharedPreferences;
+import java9.util.function.Consumer;
 import org.acra.util.StreamReader;
 
 import java.io.IOException;
@@ -22,11 +23,11 @@ public class Utils {
     private final Context lightningContext;
     private final Context multitoolContext;
     private final Lightning lightning;
-    private final LightningObjectFactory.EvalFunction eval;
+    private final LightningObjectFactory.FunctionFactory functionFactory;
 
-    public Utils(LightningObjectFactory.EvalFunction eval) {
-        this.eval = eval;
+    public Utils(LightningObjectFactory.EvalFunction eval, LightningObjectFactory.FunctionFactory functionFactory) {
         this.lightning = ProxyFactory.evalProxy(eval);
+        this.functionFactory = functionFactory;
         this.lightningContext = lightning.getActiveScreen().getContext();
         try {
             this.multitoolContext = lightningContext.createPackageContext(BuildConfig.APPLICATION_ID, Context.CONTEXT_INCLUDE_CODE | Context.CONTEXT_IGNORE_SECURITY);
@@ -142,8 +143,12 @@ public class Utils {
         item.setPosition(x, y);
     }
 
-    public void addMenuMainItem(Menu menu, String name, Runnable action) {
-        eval.eval(menu.getReal(), "addMainItem", name, action);
+    public Function asFunction(Runnable runnable) {
+        return ProxyFactory.lightningProxy(functionFactory.asFunction(runnable), Function.class);
+    }
+
+    public Function asFunction(Consumer<?> consumer) {
+        return ProxyFactory.lightningProxy(functionFactory.asFunction(consumer), Function.class);
     }
 
     public void addEventHandler(PropertySet properties, @PropertySet.EventProperty String key, int action, String data) {

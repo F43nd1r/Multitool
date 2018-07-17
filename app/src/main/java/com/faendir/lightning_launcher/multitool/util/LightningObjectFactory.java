@@ -2,7 +2,6 @@ package com.faendir.lightning_launcher.multitool.util;
 
 import android.support.annotation.Keep;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import com.faendir.lightning_launcher.multitool.proxy.JavaScript;
 import com.faendir.lightning_launcher.multitool.proxy.Utils;
 
@@ -25,8 +24,8 @@ public class LightningObjectFactory {
         this.utils = utils;
     }
 
-    public void init(EvalFunction eval) {
-        this.utils = new Utils(eval);
+    public void init(EvalFunction eval, FunctionFactory asFunction) {
+        this.utils = new Utils(eval, asFunction);
     }
 
     public JavaScript get(String className) {
@@ -41,6 +40,11 @@ public class LightningObjectFactory {
 
     @FunctionalInterface
     public interface EvalFunction {
-        Object eval(@Nullable Object target, @NonNull String methodName, Object... parameters);
+        Object eval(@NonNull String methodName, Object... parameters);
+    }
+
+    @FunctionalInterface
+    public interface FunctionFactory {
+        Object asFunction(@NonNull Object target);
     }
 }

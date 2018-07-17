@@ -37,12 +37,12 @@ public class GestureScript implements JavaScript.CreateMenu, JavaScript.Setup, J
     public void showMenu(Menu menu, Item item) {
         int mode = menu.getMode();
         if (mode == Menu.MODE_ITEM_NO_EM || mode == Menu.MODE_ITEM_EM) {
-            utils.addMenuMainItem(menu, utils.getString(R.string.menu_editGestures), () -> {
+            menu.addMainItem(utils.getString(R.string.menu_editGestures), utils.asFunction(() -> {
                 Intent intent = new Intent(utils.getMultitoolContext(), MainActivity.class);
                 intent.putExtra(FragmentManager.EXTRA_MODE, R.string.title_gestureLauncher);
                 utils.getLightningContext().startActivity(intent);
                 menu.close();
-            });
+            }));
         }
     }
 

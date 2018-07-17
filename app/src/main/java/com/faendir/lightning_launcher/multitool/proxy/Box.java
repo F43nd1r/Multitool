@@ -30,6 +30,12 @@ public interface Box extends Proxy {
     String MODE_FOCUSED = "f";
     String MODE_SELECTED = "s";
     String MODE_ALL = MODE_NORMAL + MODE_FOCUSED + MODE_SELECTED;
+    String ALIGNMENT_LEFT = "LEFT";
+    String ALIGNMENT_CENTER = "CENTER";
+    String ALIGNMENT_RIGHT = "RIGHT";
+    String ALIGNMENT_TOP = "TOP";
+    String ALIGNMENT_MIDDLE = "MIDDLE";
+    String ALIGNMENT_BOTTOM = "BOTTOM";
 
     static String asString(@Area String... areas) {
         return Stream.of(areas).collect(Collectors.joining(","));
@@ -39,7 +45,23 @@ public interface Box extends Proxy {
         return asString(BORDER_LEFT, BORDER_TOP, BORDER_RIGHT, BORDER_BOTTOM);
     }
 
-    void setColor(String areas, @Mode String modes, @ColorLong long color);
+    @HorizontalAlignment
+    String getAlignmentH();
+
+    @VerticalAlignment
+    String getAlignmentV();
+
+    Object getBox();
+
+    int getColor(@Area String area, @Mode String mode);
+
+    int getSize(@Area String area);
+
+    void setAlignment(@HorizontalAlignment String h, @VerticalAlignment String v);
+
+    void setColor(String areas, String modes, @ColorLong long color);
+
+    void setSize(String areas, int size);
 
     @Retention(RetentionPolicy.SOURCE)
     @StringDef({MARGIN_LEFT,
@@ -59,8 +81,17 @@ public interface Box extends Proxy {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @StringDef({MODE_NORMAL, MODE_FOCUSED, MODE_SELECTED, MODE_ALL})
+    @StringDef({MODE_NORMAL, MODE_FOCUSED, MODE_SELECTED})
     @interface Mode {
+    }
 
+    @Retention(RetentionPolicy.SOURCE)
+    @StringDef({ALIGNMENT_LEFT, ALIGNMENT_CENTER, ALIGNMENT_RIGHT})
+    @interface HorizontalAlignment {
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    @StringDef({ALIGNMENT_TOP, ALIGNMENT_MIDDLE, ALIGNMENT_BOTTOM})
+    @interface VerticalAlignment {
     }
 }

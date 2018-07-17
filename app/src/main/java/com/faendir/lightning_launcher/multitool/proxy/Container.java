@@ -61,4 +61,6 @@ public interface Container extends Proxy {
     @StringDef({TYPE_DESKTOP, TYPE_FOLDER})
     @interface Type {
     }
+
+    Scriptable getMy();
 }

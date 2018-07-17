@@ -1,24 +1,24 @@
 function getObjectFactory() {
     var packageContext = getActiveScreen().getContext().createPackageContext("com.faendir.lightning_launcher.multitool", 3);
     var factory = packageContext.getClassLoader().loadClass("com.faendir.lightning_launcher.multitool.util.LightningObjectFactory").newInstance();
-    factory.init(javaEval);
+    factory.init(javaEval, asFunc);
     return factory;
 }
 
-function javaEval(target, name, params) {
-    bindClass("java.lang.Runnable");
+function javaEval(name, params) {
     var args = [];
     for (var i = 0; i < params.length; i++) {
-        if (params[i] instanceof Runnable) {
-            args.push(function (arg) {
-                return function () {
-                    arg.run();
-                }
-            }(params[i]))
+        args.push(params[i]);
+    }
+    return eval(name).apply(self, args);
+}
+
+function asFunc(target) {
+    return function (a) {
+        if (target["accept"] != null) {
+            target.accept(a);
         } else {
-            args.push(params[i]);
+            target.run();
         }
     }
-    var func = target == null ? eval(name) : target[name];
-    return func.apply(target || self, args);
 }
