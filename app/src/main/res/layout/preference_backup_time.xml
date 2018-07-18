@@ -103,7 +103,7 @@
             app:layout_constraintStart_toEndOf="@id/buttonSaturday"
             app:layout_constraintTop_toTopOf="@id/buttonMonday" />
 
-        <TimePicker
+        <com.faendir.lightning_launcher.multitool.util.view.CanDisableTimePicker
             android:id="@+id/timePicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

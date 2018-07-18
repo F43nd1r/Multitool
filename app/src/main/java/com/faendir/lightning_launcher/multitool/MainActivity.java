@@ -3,7 +3,6 @@ package com.faendir.lightning_launcher.multitool;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.multitool.util.BaseActivity;
@@ -14,11 +13,9 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
-
 import org.greenrobot.eventbus.EventBus;
 
 public class MainActivity extends BaseActivity {
-
     private FragmentManager fragmentManager;
     private DrawerManager drawerManager;
     private BillingManager billingManager;
@@ -41,12 +38,16 @@ public class MainActivity extends BaseActivity {
                         new PrimaryDrawerItem().withName(R.string.title_scriptManager).withIdentifier(R.string.title_scriptManager),
                         new PrimaryDrawerItem().withName(R.string.title_gestureLauncher).withIdentifier(R.string.title_gestureLauncher),
                         new PrimaryDrawerItem().withName(R.string.title_musicWidget).withIdentifier(R.string.title_musicWidget),
-                        new PrimaryDrawerItem().withName(R.string.title_drawer).withIdentifier(R.string.title_drawer), new DividerDrawerItem(),
+                        new PrimaryDrawerItem().withName(R.string.title_drawer).withIdentifier(R.string.title_drawer),
+                        new PrimaryDrawerItem().withName(R.string.title_backup).withIdentifier(R.string.title_backup),
+                        new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName(R.string.play_store).withIdentifier(R.string.play_store).withSelectable(false),
                         new SecondaryDrawerItem().withName(R.string.google_community).withIdentifier(R.string.google_community).withSelectable(false),
                         new SecondaryDrawerItem().withName(R.string.email).withIdentifier(R.string.email).withSelectable(false))
-                .addStickyDrawerItems(new PrimaryDrawerItem().withName(R.string.title_settings).withIdentifier(R.string.title_settings)).withSelectedItem(-1)
-                .withCloseOnClick(true).build();
+                .addStickyDrawerItems(new PrimaryDrawerItem().withName(R.string.title_settings).withIdentifier(R.string.title_settings))
+                .withSelectedItem(-1)
+                .withCloseOnClick(true)
+                .build();
         drawerManager = new DrawerManager(this, drawer);
         fragmentManager = new FragmentManager(this, billingManager, drawer);
     }

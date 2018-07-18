@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import com.faendir.lightning_launcher.multitool.MainActivity;
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.backup.BackupFragment;
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
 import com.faendir.lightning_launcher.multitool.drawer.DrawerFragment;
 import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
@@ -80,6 +81,9 @@ public class FragmentManager {
                         break;
                     case R.string.title_drawer:
                         currentFragment = new DrawerFragment();
+                        break;
+                    case R.string.title_backup:
+                        currentFragment = new BackupFragment();
                         break;
                     default:
                         if (currentFragment != null) {

@@ -13,13 +13,13 @@ import java.util.Map;
  * Created by Lukas on 14.12.2015.
  * Manages Preference change events
  */
-class PreferenceListener implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class PreferenceListener implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     @NonNull
     private final Map<String, Wrapper> map;
     private final PreferenceScreen screen;
 
-    PreferenceListener(PreferenceScreen screen) {
+    public PreferenceListener(PreferenceScreen screen) {
         this.screen = screen;
         map = new HashMap<>();
     }
@@ -60,7 +60,7 @@ class PreferenceListener implements SharedPreferences.OnSharedPreferenceChangeLi
      *  @param key      the preference identifier
      * @param action   the action
      */
-    void addPreference(String key, Runnable action) {
+    public void addPreference(String key, Runnable action) {
         addPreference(key, false, action);
     }
 
@@ -69,7 +69,7 @@ class PreferenceListener implements SharedPreferences.OnSharedPreferenceChangeLi
      *  @param key      the preference identifier
      * @param action   the action
      */
-    void addPreferenceForSummary(String key, Runnable action) {
+    public void addPreferenceForSummary(String key, Runnable action) {
         addPreference(key, true, action);
     }
 

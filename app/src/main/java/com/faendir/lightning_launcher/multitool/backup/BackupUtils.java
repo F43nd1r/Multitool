@@ -5,22 +5,20 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
 import com.evernote.android.job.JobManager;
 import com.evernote.android.job.JobRequest;
 import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.LambdaUtils.ExceptionalBiFunction;
 import com.google.gson.JsonSyntaxException;
+import java9.util.stream.Collectors;
+import java9.util.stream.StreamSupport;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-
-import java9.util.stream.Collectors;
-import java9.util.stream.StreamSupport;
 
 import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 import static com.faendir.lightning_launcher.multitool.util.Utils.GSON;
@@ -62,9 +60,9 @@ public class BackupUtils {
 
     public static void scheduleNext(Context context) {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean shouldEnable = sharedPref.getBoolean(context.getString(R.string.pref_enableBackup), false);
+        boolean enabled = sharedPref.getBoolean(context.getString(R.string.pref_enableBackup), false);
         BackupTime time = BackupUtils.getBackupTime(sharedPref.getString(context.getString(R.string.pref_backupTime), null));
-        if (shouldEnable) {
+        if (enabled && !time.getDays().isEmpty()) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(Calendar.MINUTE, time.getMinute());
             calendar.set(Calendar.HOUR_OF_DAY, time.getHour());
