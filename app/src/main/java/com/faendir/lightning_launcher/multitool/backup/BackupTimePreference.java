@@ -23,7 +23,7 @@ import java.util.Map;
  */
 public class BackupTimePreference extends Preference implements View.OnClickListener {
     private BackupTime backupTime;
-    private Map<Button, Integer> map;
+    private Map<Button, Integer> buttons;
     private TimePicker picker;
     private boolean userOriginated = true;
 
@@ -36,15 +36,15 @@ public class BackupTimePreference extends Preference implements View.OnClickList
     @Override
     protected void onBindView(View view) {
         super.onBindView(view);
-        map = new HashMap<>();
-        map.put(view.findViewById(R.id.buttonMonday), Calendar.MONDAY);
-        map.put(view.findViewById(R.id.buttonTuesday), Calendar.TUESDAY);
-        map.put(view.findViewById(R.id.buttonWednesday), Calendar.WEDNESDAY);
-        map.put(view.findViewById(R.id.buttonThursday), Calendar.THURSDAY);
-        map.put(view.findViewById(R.id.buttonFriday), Calendar.FRIDAY);
-        map.put(view.findViewById(R.id.buttonSaturday), Calendar.SATURDAY);
-        map.put(view.findViewById(R.id.buttonSunday), Calendar.SUNDAY);
-        StreamSupport.stream(map.keySet()).forEach(button -> button.setOnClickListener(this));
+        buttons = new HashMap<>();
+        buttons.put(view.findViewById(R.id.buttonMonday), Calendar.MONDAY);
+        buttons.put(view.findViewById(R.id.buttonTuesday), Calendar.TUESDAY);
+        buttons.put(view.findViewById(R.id.buttonWednesday), Calendar.WEDNESDAY);
+        buttons.put(view.findViewById(R.id.buttonThursday), Calendar.THURSDAY);
+        buttons.put(view.findViewById(R.id.buttonFriday), Calendar.FRIDAY);
+        buttons.put(view.findViewById(R.id.buttonSaturday), Calendar.SATURDAY);
+        buttons.put(view.findViewById(R.id.buttonSunday), Calendar.SUNDAY);
+        StreamSupport.stream(buttons.keySet()).forEach(button -> button.setOnClickListener(this));
         picker = view.findViewById(R.id.timePicker);
         picker.setIs24HourView(DateFormat.is24HourFormat(getContext()));
         picker.setOnTimeChangedListener((v, h, m) -> persist());
@@ -53,7 +53,7 @@ public class BackupTimePreference extends Preference implements View.OnClickList
 
     private void showValue() {
         userOriginated = false;
-        for (Map.Entry<Button, Integer> entry : map.entrySet()) {
+        for (Map.Entry<Button, Integer> entry : buttons.entrySet()) {
             entry.getKey().setSelected(backupTime.getDays().contains(entry.getValue()));
         }
         picker.setCurrentHour(backupTime.getHour());
@@ -69,7 +69,7 @@ public class BackupTimePreference extends Preference implements View.OnClickList
 
     private void persist() {
         if(userOriginated) {
-            List<Integer> days = StreamSupport.stream(map.entrySet()).filter(entry -> entry.getKey().isSelected()).map(Map.Entry::getValue).collect(Collectors.toList());
+            List<Integer> days = StreamSupport.stream(buttons.entrySet()).filter(entry -> entry.getKey().isSelected()).map(Map.Entry::getValue).collect(Collectors.toList());
             backupTime = new BackupTime(picker.getCurrentHour(), picker.getCurrentMinute(), days);
             String time = BackupUtils.toString(backupTime);
             if (callChangeListener(time)) {
