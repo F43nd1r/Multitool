@@ -307,6 +307,7 @@
         Touch: %s,%s
         Touch (Screen): %s,%s</string>
     <string name="title_eventInfo">Event Information</string>
+    <string name="message_backupHelp">If enabled, this will automatically create a Lightning backup at the set time.\nIt will only work if you\'ve created a backup through Lightning at least once.</string>
     <string-array name="sortings">
         <item>Relevance</item>
         <item>Alphabetical</item>
