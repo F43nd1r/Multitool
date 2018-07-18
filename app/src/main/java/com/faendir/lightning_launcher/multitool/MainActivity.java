@@ -1,23 +1,23 @@
 package com.faendir.lightning_launcher.multitool;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.multitool.util.BaseActivity;
-import com.faendir.lightning_launcher.multitool.util.DrawerManager;
 import com.faendir.lightning_launcher.multitool.util.FragmentManager;
+import com.faendir.lightning_launcher.multitool.util.Fragments;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
-import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import org.greenrobot.eventbus.EventBus;
 
 public class MainActivity extends BaseActivity {
     private FragmentManager fragmentManager;
-    private DrawerManager drawerManager;
+    private Drawer drawer;
     private BillingManager billingManager;
 
     public MainActivity() {
@@ -33,22 +33,37 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initDrawer() {
-        Drawer drawer = new DrawerBuilder(this).withToolbar(getToolbar())
-                .addDrawerItems(new PrimaryDrawerItem().withName(R.string.title_launcherScript).withIdentifier(R.string.title_launcherScript),
-                        new PrimaryDrawerItem().withName(R.string.title_scriptManager).withIdentifier(R.string.title_scriptManager),
-                        new PrimaryDrawerItem().withName(R.string.title_gestureLauncher).withIdentifier(R.string.title_gestureLauncher),
-                        new PrimaryDrawerItem().withName(R.string.title_musicWidget).withIdentifier(R.string.title_musicWidget),
-                        new PrimaryDrawerItem().withName(R.string.title_drawer).withIdentifier(R.string.title_drawer),
-                        new PrimaryDrawerItem().withName(R.string.title_backup).withIdentifier(R.string.title_backup),
-                        new DividerDrawerItem(),
-                        new SecondaryDrawerItem().withName(R.string.play_store).withIdentifier(R.string.play_store).withSelectable(false),
-                        new SecondaryDrawerItem().withName(R.string.google_community).withIdentifier(R.string.google_community).withSelectable(false),
-                        new SecondaryDrawerItem().withName(R.string.email).withIdentifier(R.string.email).withSelectable(false))
-                .addStickyDrawerItems(new PrimaryDrawerItem().withName(R.string.title_settings).withIdentifier(R.string.title_settings))
-                .withSelectedItem(-1)
-                .withCloseOnClick(true)
-                .build();
-        drawerManager = new DrawerManager(this, drawer);
+        DrawerBuilder builder = new DrawerBuilder(this).withToolbar(getToolbar());
+        Fragments.stream().forEach(f -> f.addTo(builder));
+        drawer = builder.addDrawerItems(new DividerDrawerItem(),
+                new SecondaryDrawerItem().withName(R.string.play_store)
+                        .withIdentifier(R.string.play_store)
+                        .withSelectable(false)
+                        .withOnDrawerItemClickListener((view, position, drawerItem) -> {
+                            try {
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
+                            } catch (android.content.ActivityNotFoundException e) {
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName())));
+                            }
+                            return true;
+                        }),
+                new SecondaryDrawerItem().withName(R.string.google_community)
+                        .withIdentifier(R.string.google_community)
+                        .withSelectable(false)
+                        .withOnDrawerItemClickListener((view, position, drawerItem) -> {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.link_googlePlus))));
+                            return true;
+                        }),
+                new SecondaryDrawerItem().withName(R.string.email)
+                        .withIdentifier(R.string.email)
+                        .withSelectable(false)
+                        .withOnDrawerItemClickListener((view, position, drawerItem) -> {
+                            Intent emailIntent = new Intent(Intent.ACTION_SENDTO,
+                                    Uri.fromParts(getString(R.string.link_email_scheme), getString(R.string.link_email_adress), null));
+                            emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.link_email_subject));
+                            startActivity(Intent.createChooser(emailIntent, getString(R.string.link_email_chooser)));
+                            return true;
+                        })).withSelectedItem(-1).withCloseOnClick(true).build();
         fragmentManager = new FragmentManager(this, billingManager, drawer);
     }
 
@@ -56,8 +71,8 @@ public class MainActivity extends BaseActivity {
     protected void onStart() {
         super.onStart();
         EventBus.getDefault().register(fragmentManager);
-        if (!fragmentManager.loadLastFragment()) {
-            drawerManager.openDrawer();
+        if (!fragmentManager.loadLastFragment() && !drawer.isDrawerOpen()) {
+            drawer.openDrawer();
         }
     }
 
@@ -77,7 +92,9 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        if (!drawerManager.closeDrawer()) {
+        if (drawer.isDrawerOpen()) {
+            drawer.closeDrawer();
+        }else {
             super.onBackPressed();
         }
     }

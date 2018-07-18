@@ -7,15 +7,8 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import com.faendir.lightning_launcher.multitool.MainActivity;
 import com.faendir.lightning_launcher.multitool.R;
-import com.faendir.lightning_launcher.multitool.backup.BackupFragment;
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
-import com.faendir.lightning_launcher.multitool.drawer.DrawerFragment;
 import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
-import com.faendir.lightning_launcher.multitool.gesture.GestureFragment;
-import com.faendir.lightning_launcher.multitool.launcherscript.LauncherScriptFragment;
-import com.faendir.lightning_launcher.multitool.music.MusicFragment;
-import com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManagerFragment;
-import com.faendir.lightning_launcher.multitool.settings.PrefsFragment;
 import com.mikepenz.materialdrawer.Drawer;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -63,36 +56,8 @@ public class FragmentManager {
         } else {
             final String finalName = name;
             context.runOnUiThread(() -> {
-                switch (request.getId()) {
-                    case R.string.title_scriptManager:
-                        currentFragment = new ScriptManagerFragment();
-                        break;
-                    case R.string.title_launcherScript:
-                        currentFragment = new LauncherScriptFragment();
-                        break;
-                    case R.string.title_gestureLauncher:
-                        currentFragment = new GestureFragment();
-                        break;
-                    case R.string.title_musicWidget:
-                        currentFragment = new MusicFragment();
-                        break;
-                    case R.string.title_settings:
-                        currentFragment = new PrefsFragment();
-                        break;
-                    case R.string.title_drawer:
-                        currentFragment = new DrawerFragment();
-                        break;
-                    case R.string.title_backup:
-                        currentFragment = new BackupFragment();
-                        break;
-                    default:
-                        if (currentFragment != null) {
-                            manager.beginTransaction().remove(currentFragment).commit();
-                            currentFragment = null;
-                        }
-                        drawer.openDrawer();
-                }
-                if (currentFragment != null && !context.isFinishing()) {
+                currentFragment = request.getFragment().newInstance();
+                if (!context.isFinishing()) {
                     manager.beginTransaction().replace(R.id.content_frame, currentFragment).commitAllowingStateLoss();
                     sharedPref.edit().putString(context.getString(R.string.pref_lastFragment), finalName).apply();
                     lastId = request.getId();
@@ -110,8 +75,7 @@ public class FragmentManager {
         int fragment = context.getIntent().getIntExtra(EXTRA_MODE, 0);
         if (fragment != 0) {
             EventBus.getDefault().post(new SwitchFragmentRequest(fragment));
-        }
-        if (sharedPref.contains(context.getString(R.string.pref_lastFragment))) {
+        } else if (sharedPref.contains(context.getString(R.string.pref_lastFragment))) {
             int load = context.getResources().getIdentifier(sharedPref.getString(context.getString(R.string.pref_lastFragment), ""), "id", context.getPackageName());
             EventBus.getDefault().post(new SwitchFragmentRequest(load));
             return true;
