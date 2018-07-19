@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.animation.AnimationFragment;
 import com.faendir.lightning_launcher.multitool.backup.BackupFragment;
 import com.faendir.lightning_launcher.multitool.drawer.DrawerFragment;
 import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
@@ -28,6 +29,7 @@ public enum Fragments {
     MUSIC(R.string.title_musicWidget, MusicFragment.class),
     DRAWER(R.string.title_drawer, DrawerFragment.class),
     BACKUP(R.string.title_backup, BackupFragment.class),
+    ANIMATION(R.string.title_animation, AnimationFragment.class),
     SETTINGS(R.string.title_settings, PrefsFragment.class) {
         @Override
         public void addTo(@NonNull DrawerBuilder drawerBuilder) {

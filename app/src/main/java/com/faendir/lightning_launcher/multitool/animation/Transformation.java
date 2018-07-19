@@ -1,6 +1,7 @@
 package com.faendir.lightning_launcher.multitool.animation;
 
 import android.graphics.PointF;
+import android.view.View;
 import android.view.ViewPropertyAnimator;
 import com.faendir.lightning_launcher.multitool.proxy.Item;
 import com.faendir.lightning_launcher.multitool.proxy.PropertySet;
@@ -23,13 +24,17 @@ class Transformation {
         PointB transform = new PointB(!pinMode.contains("X"), !pinMode.contains("Y"));
         if (partial ? transform.any() : transform.both()) {
             PointF center = AnimationScript.center(item, false);
-            item.getRootView().setPivotX(center.x + pivot.x);
-            item.getRootView().setPivotY(center.y + pivot.y);
-            ViewPropertyAnimator animator = item.getRootView().animate().setDuration(0).alpha(alpha).rotation(turn * 360);
-            if (transform.x) animator.scaleX(scale.x).translationX(translate.x).rotationX(rotation.x * 360);
-            if (transform.y) animator.scaleY(scale.y).translationY(translate.y).rotationY(rotation.y * 360);
-            animator.start();
+            transform(item.getRootView(), transform, center);
         }
+    }
+
+    void transform(View view, PointB transform, PointF center) {
+        view.setPivotX(center.x + pivot.x);
+        view.setPivotY(center.y + pivot.y);
+        ViewPropertyAnimator animator = view.animate().setDuration(0).alpha(alpha).rotation(turn * 360);
+        if (transform.x) animator.scaleX(scale.x).translationX(translate.x).rotationX(rotation.x * 360);
+        if (transform.y) animator.scaleY(scale.y).translationY(translate.y).rotationY(rotation.y * 360);
+        animator.start();
     }
 
     Transformation onlyUnpinnedItems() {
