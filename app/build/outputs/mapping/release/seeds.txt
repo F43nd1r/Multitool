@@ -9274,6 +9274,7 @@ com.faendir.lightning_launcher.multitool.R$color: int switch_thumb_material_dark
 com.faendir.lightning_launcher.multitool.R$color: int switch_thumb_material_light
 com.faendir.lightning_launcher.multitool.R$color: int switch_thumb_normal_material_dark
 com.faendir.lightning_launcher.multitool.R$color: int switch_thumb_normal_material_light
+com.faendir.lightning_launcher.multitool.R$color: int timepicker_text_color
 com.faendir.lightning_launcher.multitool.R$color: int tooltip_background_dark
 com.faendir.lightning_launcher.multitool.R$color: int tooltip_background_light
 com.faendir.lightning_launcher.multitool.R$dimen: int abc_action_bar_content_inset_material
@@ -9595,6 +9596,8 @@ com.faendir.lightning_launcher.multitool.R$drawable: int abc_textfield_search_ac
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_textfield_search_default_mtrl_alpha
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_textfield_search_material
 com.faendir.lightning_launcher.multitool.R$drawable: int abc_vector_test
+com.faendir.lightning_launcher.multitool.R$drawable: int animation_demo
+com.faendir.lightning_launcher.multitool.R$drawable: int animation_demo_flipped
 com.faendir.lightning_launcher.multitool.R$drawable: int avd_hide_password
 com.faendir.lightning_launcher.multitool.R$drawable: int avd_show_password
 com.faendir.lightning_launcher.multitool.R$drawable: int design_bottom_navigation_item_background
@@ -9680,6 +9683,7 @@ com.faendir.lightning_launcher.multitool.R$id: int add
 com.faendir.lightning_launcher.multitool.R$id: int alertTitle
 com.faendir.lightning_launcher.multitool.R$id: int all
 com.faendir.lightning_launcher.multitool.R$id: int always
+com.faendir.lightning_launcher.multitool.R$id: int animationDemo
 com.faendir.lightning_launcher.multitool.R$id: int async
 com.faendir.lightning_launcher.multitool.R$id: int auto
 com.faendir.lightning_launcher.multitool.R$id: int avatar
@@ -9854,6 +9858,7 @@ com.faendir.lightning_launcher.multitool.R$id: int progress_circular
 com.faendir.lightning_launcher.multitool.R$id: int progress_horizontal
 com.faendir.lightning_launcher.multitool.R$id: int progress_item_id
 com.faendir.lightning_launcher.multitool.R$id: int radio
+com.faendir.lightning_launcher.multitool.R$id: int radioAnimations
 com.faendir.lightning_launcher.multitool.R$id: int right
 com.faendir.lightning_launcher.multitool.R$id: int right_icon
 com.faendir.lightning_launcher.multitool.R$id: int right_side
@@ -9879,6 +9884,7 @@ com.faendir.lightning_launcher.multitool.R$id: int search_src_text
 com.faendir.lightning_launcher.multitool.R$id: int search_voice_btn
 com.faendir.lightning_launcher.multitool.R$id: int select_dialog_listview
 com.faendir.lightning_launcher.multitool.R$id: int shortcut
+com.faendir.lightning_launcher.multitool.R$id: int shouldAnimate
 com.faendir.lightning_launcher.multitool.R$id: int showCustom
 com.faendir.lightning_launcher.multitool.R$id: int showHome
 com.faendir.lightning_launcher.multitool.R$id: int showTitle
@@ -10006,6 +10012,7 @@ com.faendir.lightning_launcher.multitool.R$layout: int design_navigation_item_su
 com.faendir.lightning_launcher.multitool.R$layout: int design_navigation_menu
 com.faendir.lightning_launcher.multitool.R$layout: int design_navigation_menu_item
 com.faendir.lightning_launcher.multitool.R$layout: int design_text_input_password_icon
+com.faendir.lightning_launcher.multitool.R$layout: int fragment_animation
 com.faendir.lightning_launcher.multitool.R$layout: int fragment_launcher_script
 com.faendir.lightning_launcher.multitool.R$layout: int fragment_loading
 com.faendir.lightning_launcher.multitool.R$layout: int fragment_music
@@ -10059,6 +10066,9 @@ com.faendir.lightning_launcher.multitool.R$layout: int support_simple_spinner_dr
 com.faendir.lightning_launcher.multitool.R$layout: int textview_empty_gestures_list
 com.faendir.lightning_launcher.multitool.R$layout: int three_line_item
 com.faendir.lightning_launcher.multitool.R$layout: int two_line_item
+com.faendir.lightning_launcher.multitool.R$menu: int animation
+com.faendir.lightning_launcher.multitool.R$menu: int backup
+com.faendir.lightning_launcher.multitool.R$menu: int badge
 com.faendir.lightning_launcher.multitool.R$menu: int menu_badge_app_chooser
 com.faendir.lightning_launcher.multitool.R$menu: int menu_context_scriptmanager
 com.faendir.lightning_launcher.multitool.R$menu: int menu_gesture
@@ -10153,6 +10163,7 @@ com.faendir.lightning_launcher.multitool.R$string: int button_tuesday
 com.faendir.lightning_launcher.multitool.R$string: int button_updateMusic
 com.faendir.lightning_launcher.multitool.R$string: int button_wednesday
 com.faendir.lightning_launcher.multitool.R$string: int character_counter_pattern
+com.faendir.lightning_launcher.multitool.R$string: int check_animate
 com.faendir.lightning_launcher.multitool.R$string: int currently_playing
 com.faendir.lightning_launcher.multitool.R$string: int default_coverMode
 com.faendir.lightning_launcher.multitool.R$string: int define_AndroidIconics
@@ -10234,11 +10245,14 @@ com.faendir.lightning_launcher.multitool.R$string: int menu_hide
 com.faendir.lightning_launcher.multitool.R$string: int menu_rename
 com.faendir.lightning_launcher.multitool.R$string: int menu_restore
 com.faendir.lightning_launcher.multitool.R$string: int menu_search
+com.faendir.lightning_launcher.multitool.R$string: int message_animationHelp
+com.faendir.lightning_launcher.multitool.R$string: int message_backupHelp
 com.faendir.lightning_launcher.multitool.R$string: int message_buy
 com.faendir.lightning_launcher.multitool.R$string: int message_confirmUpdate
 com.faendir.lightning_launcher.multitool.R$string: int message_deletePart1
 com.faendir.lightning_launcher.multitool.R$string: int message_deletePart2
 com.faendir.lightning_launcher.multitool.R$string: int message_done
+com.faendir.lightning_launcher.multitool.R$string: int message_helpBadge
 com.faendir.lightning_launcher.multitool.R$string: int message_helpGesture
 com.faendir.lightning_launcher.multitool.R$string: int message_helpMusic
 com.faendir.lightning_launcher.multitool.R$string: int message_missing
@@ -11570,11 +11584,17 @@ com.faendir.lightning_launcher.multitool.R$styleable: int[] ViewStubCompat
 com.faendir.lightning_launcher.multitool.R$styleable: int ViewStubCompat_android_id
 com.faendir.lightning_launcher.multitool.R$styleable: int ViewStubCompat_android_layout
 com.faendir.lightning_launcher.multitool.R$styleable: int ViewStubCompat_android_inflatedId
+com.faendir.lightning_launcher.multitool.R$xml: int backup
 com.faendir.lightning_launcher.multitool.R$xml: int backup_descriptor
+com.faendir.lightning_launcher.multitool.R$xml: int badge
 com.faendir.lightning_launcher.multitool.R$xml: int drawer
 com.faendir.lightning_launcher.multitool.R$xml: int prefs
 com.faendir.lightning_launcher.multitool.animation.Animation: com.faendir.lightning_launcher.multitool.animation.Animation[] values()
 com.faendir.lightning_launcher.multitool.animation.Animation: com.faendir.lightning_launcher.multitool.animation.Animation valueOf(java.lang.String)
+com.faendir.lightning_launcher.multitool.animation.AnimationDemo
+com.faendir.lightning_launcher.multitool.animation.AnimationDemo: AnimationDemo(android.content.Context,android.util.AttributeSet)
+com.faendir.lightning_launcher.multitool.animation.AnimationDemo: void setAnimation(com.faendir.lightning_launcher.multitool.animation.Animation)
+com.faendir.lightning_launcher.multitool.animation.AnimationFragment
 com.faendir.lightning_launcher.multitool.animation.AnimationScript
 com.faendir.lightning_launcher.multitool.animation.AnimationScript: java.lang.String TAG_ANIMATION
 com.faendir.lightning_launcher.multitool.animation.AnimationScript: com.faendir.lightning_launcher.multitool.proxy.Utils utils
@@ -11603,15 +11623,20 @@ com.faendir.lightning_launcher.multitool.backup.BackupCreator: void addDirectory
 com.faendir.lightning_launcher.multitool.backup.BackupCreator: void startEntry(java.util.zip.ZipOutputStream,java.lang.String)
 com.faendir.lightning_launcher.multitool.backup.BackupCreator: void copy(java.io.InputStream,java.io.OutputStream)
 com.faendir.lightning_launcher.multitool.backup.BackupCreator: java.lang.String execute(java.lang.String)
+com.faendir.lightning_launcher.multitool.backup.BackupFragment
 com.faendir.lightning_launcher.multitool.backup.BackupJob
 com.faendir.lightning_launcher.multitool.backup.BackupJob: BackupJob()
 com.faendir.lightning_launcher.multitool.backup.BackupJob: com.evernote.android.job.Job$Result onRunJob(com.evernote.android.job.Job$Params)
 com.faendir.lightning_launcher.multitool.backup.BackupJob: void lambda$onRunJob$0$BackupJob(java.lang.String)
+com.faendir.lightning_launcher.multitool.backup.BackupTimePreference
+com.faendir.lightning_launcher.multitool.backup.BackupTimePreference: BackupTimePreference(android.content.Context,android.util.AttributeSet)
+com.faendir.lightning_launcher.multitool.backup.BackupTimePreference: void onClick(android.view.View)
 com.faendir.lightning_launcher.multitool.badge.AppChooser
 com.faendir.lightning_launcher.multitool.badge.AppChooser: AppChooser()
 com.faendir.lightning_launcher.multitool.badge.AppChooser$$Lambda$4: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver
 com.faendir.lightning_launcher.multitool.badge.BadgeBroadcastReceiver: BadgeBroadcastReceiver()
+com.faendir.lightning_launcher.multitool.badge.BadgeFragment
 com.faendir.lightning_launcher.multitool.badge.BadgeListener
 com.faendir.lightning_launcher.multitool.badge.BadgeListener: java.lang.String packageName
 com.faendir.lightning_launcher.multitool.badge.BadgeListener: com.faendir.lightning_launcher.multitool.proxy.Utils utils
@@ -11808,6 +11833,12 @@ com.faendir.lightning_launcher.multitool.music.MusicSetup: MusicSetup(com.faendi
 com.faendir.lightning_launcher.multitool.music.MusicSetup: void setup()
 com.faendir.lightning_launcher.multitool.music.MusicSetup: java.lang.String execute(java.lang.String)
 com.faendir.lightning_launcher.multitool.proxy.ActivityScreen
+com.faendir.lightning_launcher.multitool.proxy.ActivityScreen: com.faendir.lightning_launcher.multitool.proxy.ImageBitmap cropImage(com.faendir.lightning_launcher.multitool.proxy.ImageBitmap,boolean)
+com.faendir.lightning_launcher.multitool.proxy.ActivityScreen: void hideActionBar()
+com.faendir.lightning_launcher.multitool.proxy.ActivityScreen: int pickColor(java.lang.String,int,boolean)
+com.faendir.lightning_launcher.multitool.proxy.ActivityScreen: com.faendir.lightning_launcher.multitool.proxy.Image pickImage(int)
+com.faendir.lightning_launcher.multitool.proxy.ActivityScreen: float pickNumericValue(java.lang.String,float,java.lang.String,float,float,float,java.lang.String)
+com.faendir.lightning_launcher.multitool.proxy.ActivityScreen: void showActionBar(com.faendir.lightning_launcher.multitool.proxy.Function,com.faendir.lightning_launcher.multitool.proxy.Function)
 com.faendir.lightning_launcher.multitool.proxy.ActivityScreen: boolean startActivityForResult(android.content.Intent,com.faendir.lightning_launcher.multitool.proxy.Script,java.lang.String)
 com.faendir.lightning_launcher.multitool.proxy.Box
 com.faendir.lightning_launcher.multitool.proxy.Box: java.lang.String MARGIN_LEFT
@@ -11827,7 +11858,20 @@ com.faendir.lightning_launcher.multitool.proxy.Box: java.lang.String MODE_NORMAL
 com.faendir.lightning_launcher.multitool.proxy.Box: java.lang.String MODE_FOCUSED
 com.faendir.lightning_launcher.multitool.proxy.Box: java.lang.String MODE_SELECTED
 com.faendir.lightning_launcher.multitool.proxy.Box: java.lang.String MODE_ALL
+com.faendir.lightning_launcher.multitool.proxy.Box: java.lang.String ALIGNMENT_LEFT
+com.faendir.lightning_launcher.multitool.proxy.Box: java.lang.String ALIGNMENT_CENTER
+com.faendir.lightning_launcher.multitool.proxy.Box: java.lang.String ALIGNMENT_RIGHT
+com.faendir.lightning_launcher.multitool.proxy.Box: java.lang.String ALIGNMENT_TOP
+com.faendir.lightning_launcher.multitool.proxy.Box: java.lang.String ALIGNMENT_MIDDLE
+com.faendir.lightning_launcher.multitool.proxy.Box: java.lang.String ALIGNMENT_BOTTOM
+com.faendir.lightning_launcher.multitool.proxy.Box: java.lang.String getAlignmentH()
+com.faendir.lightning_launcher.multitool.proxy.Box: java.lang.String getAlignmentV()
+com.faendir.lightning_launcher.multitool.proxy.Box: java.lang.Object getBox()
+com.faendir.lightning_launcher.multitool.proxy.Box: int getColor(java.lang.String,java.lang.String)
+com.faendir.lightning_launcher.multitool.proxy.Box: int getSize(java.lang.String)
+com.faendir.lightning_launcher.multitool.proxy.Box: void setAlignment(java.lang.String,java.lang.String)
 com.faendir.lightning_launcher.multitool.proxy.Box: void setColor(java.lang.String,java.lang.String,long)
+com.faendir.lightning_launcher.multitool.proxy.Box: void setSize(java.lang.String,int)
 com.faendir.lightning_launcher.multitool.proxy.Container
 com.faendir.lightning_launcher.multitool.proxy.Container: java.lang.String TYPE_DESKTOP
 com.faendir.lightning_launcher.multitool.proxy.Container: java.lang.String TYPE_FOLDER
@@ -11852,6 +11896,7 @@ com.faendir.lightning_launcher.multitool.proxy.Container: com.faendir.lightning_
 com.faendir.lightning_launcher.multitool.proxy.Container: com.faendir.lightning_launcher.multitool.proxy.Shortcut addShortcut(java.lang.String,android.content.Intent,float,float)
 com.faendir.lightning_launcher.multitool.proxy.Container: com.faendir.lightning_launcher.multitool.proxy.CustomView addCustomView(float,float)
 com.faendir.lightning_launcher.multitool.proxy.Container: java.lang.String getTag(java.lang.String)
+com.faendir.lightning_launcher.multitool.proxy.Container: com.faendir.lightning_launcher.multitool.proxy.Scriptable getMy()
 com.faendir.lightning_launcher.multitool.proxy.CustomView
 com.faendir.lightning_launcher.multitool.proxy.CustomView: void setHorizontalGrab(boolean)
 com.faendir.lightning_launcher.multitool.proxy.CustomView: void setVerticalGrab(boolean)
@@ -11877,6 +11922,7 @@ com.faendir.lightning_launcher.multitool.proxy.EventHandler: java.lang.String ge
 com.faendir.lightning_launcher.multitool.proxy.EventHandler: void setNext(com.faendir.lightning_launcher.multitool.proxy.EventHandler)
 com.faendir.lightning_launcher.multitool.proxy.Folder
 com.faendir.lightning_launcher.multitool.proxy.Folder: com.faendir.lightning_launcher.multitool.proxy.Container getContainer()
+com.faendir.lightning_launcher.multitool.proxy.Function
 com.faendir.lightning_launcher.multitool.proxy.Image
 com.faendir.lightning_launcher.multitool.proxy.Image: java.lang.String TYPE_BITMAP
 com.faendir.lightning_launcher.multitool.proxy.Image: int getWidth()
@@ -11958,6 +12004,7 @@ com.faendir.lightning_launcher.multitool.proxy.Menu: int MODE_ITEM_NO_EM
 com.faendir.lightning_launcher.multitool.proxy.Menu: int MODE_ITEM_EM
 com.faendir.lightning_launcher.multitool.proxy.Menu: int getMode()
 com.faendir.lightning_launcher.multitool.proxy.Menu: void close()
+com.faendir.lightning_launcher.multitool.proxy.Menu: android.view.View addMainItem(java.lang.String,com.faendir.lightning_launcher.multitool.proxy.Function)
 com.faendir.lightning_launcher.multitool.proxy.Panel
 com.faendir.lightning_launcher.multitool.proxy.Panel: com.faendir.lightning_launcher.multitool.proxy.Container getContainer()
 com.faendir.lightning_launcher.multitool.proxy.PropertyEditor
@@ -12024,6 +12071,9 @@ com.faendir.lightning_launcher.multitool.proxy.Script: void setFlag(int,boolean)
 com.faendir.lightning_launcher.multitool.proxy.Script: boolean hasFlag(int)
 com.faendir.lightning_launcher.multitool.proxy.Script: java.lang.String getName()
 com.faendir.lightning_launcher.multitool.proxy.Script: java.lang.String getText()
+com.faendir.lightning_launcher.multitool.proxy.Scriptable
+com.faendir.lightning_launcher.multitool.proxy.Scriptable: java.lang.Object get(java.lang.String,com.faendir.lightning_launcher.multitool.proxy.Scriptable)
+com.faendir.lightning_launcher.multitool.proxy.Scriptable: void put(java.lang.String,com.faendir.lightning_launcher.multitool.proxy.Scriptable,java.lang.Object)
 com.faendir.lightning_launcher.multitool.proxy.Shortcut
 com.faendir.lightning_launcher.multitool.proxy.Shortcut: java.lang.String getLabel()
 com.faendir.lightning_launcher.multitool.proxy.Shortcut: void setLabel(java.lang.String)
@@ -12063,9 +12113,6 @@ com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$0: vo
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$1: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$3: void onClick(android.content.DialogInterface,int)
 com.faendir.lightning_launcher.multitool.scriptmanager.ScriptUtils$$Lambda$4: void onClick(android.content.DialogInterface,int)
-com.faendir.lightning_launcher.multitool.settings.BackupTimePreference
-com.faendir.lightning_launcher.multitool.settings.BackupTimePreference: BackupTimePreference(android.content.Context,android.util.AttributeSet)
-com.faendir.lightning_launcher.multitool.settings.BackupTimePreference: void onClick(android.view.View)
 com.faendir.lightning_launcher.multitool.settings.DefaultPlayerPreference
 com.faendir.lightning_launcher.multitool.settings.DefaultPlayerPreference: DefaultPlayerPreference(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.settings.IdPreference
@@ -12081,6 +12128,8 @@ com.faendir.lightning_launcher.multitool.settings.VersionPreference
 com.faendir.lightning_launcher.multitool.settings.VersionPreference: VersionPreference(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.util.BaseActivity: BaseActivity(int)
 com.faendir.lightning_launcher.multitool.util.FragmentManager: void onSwitchFragmentRequest(com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest)
+com.faendir.lightning_launcher.multitool.util.Fragments: com.faendir.lightning_launcher.multitool.util.Fragments[] values()
+com.faendir.lightning_launcher.multitool.util.Fragments: com.faendir.lightning_launcher.multitool.util.Fragments valueOf(java.lang.String)
 com.faendir.lightning_launcher.multitool.util.IntentChooserFragment
 com.faendir.lightning_launcher.multitool.util.IntentChooserFragment: IntentChooserFragment()
 com.faendir.lightning_launcher.multitool.util.IntentChooserFragment$$Lambda$2: boolean onClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.fastadapter.IItem,int)
@@ -12088,7 +12137,7 @@ com.faendir.lightning_launcher.multitool.util.LightningObjectFactory
 com.faendir.lightning_launcher.multitool.util.LightningObjectFactory: com.faendir.lightning_launcher.multitool.proxy.Utils utils
 com.faendir.lightning_launcher.multitool.util.LightningObjectFactory: LightningObjectFactory()
 com.faendir.lightning_launcher.multitool.util.LightningObjectFactory: LightningObjectFactory(com.faendir.lightning_launcher.multitool.proxy.Utils)
-com.faendir.lightning_launcher.multitool.util.LightningObjectFactory: void init(com.faendir.lightning_launcher.multitool.util.LightningObjectFactory$EvalFunction)
+com.faendir.lightning_launcher.multitool.util.LightningObjectFactory: void init(com.faendir.lightning_launcher.multitool.util.LightningObjectFactory$EvalFunction,com.faendir.lightning_launcher.multitool.util.LightningObjectFactory$FunctionFactory)
 com.faendir.lightning_launcher.multitool.util.LightningObjectFactory: com.faendir.lightning_launcher.multitool.proxy.JavaScript get(java.lang.String)
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer: ResetReportPrimer()
@@ -12127,6 +12176,9 @@ com.faendir.lightning_launcher.multitool.util.provider.DataProvider
 com.faendir.lightning_launcher.multitool.util.provider.DataProvider: DataProvider()
 com.faendir.lightning_launcher.multitool.util.provider.DataProvider$Mode: com.faendir.lightning_launcher.multitool.util.provider.DataProvider$Mode[] values()
 com.faendir.lightning_launcher.multitool.util.provider.DataProvider$Mode: com.faendir.lightning_launcher.multitool.util.provider.DataProvider$Mode valueOf(java.lang.String)
+com.faendir.lightning_launcher.multitool.util.view.CanDisableTimePicker
+com.faendir.lightning_launcher.multitool.util.view.CanDisableTimePicker: CanDisableTimePicker(android.content.Context,android.util.AttributeSet)
+com.faendir.lightning_launcher.multitool.util.view.CanDisableTimePicker: void setEnabled(boolean)
 com.faendir.lightning_launcher.scriptlib.DialogActivity
 com.faendir.lightning_launcher.scriptlib.DialogActivity: DialogActivity()
 com.faendir.lightning_launcher.scriptlib.DialogActivity: void onClick(android.view.View)

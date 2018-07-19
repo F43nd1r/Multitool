@@ -21156,23 +21156,44 @@ com.faendir.lightning_launcher.multitool.Loader$$Lambda$6 -> com.faendir.lightni
     void run() -> run
 com.faendir.lightning_launcher.multitool.MainActivity -> com.faendir.lightning_launcher.multitool.MainActivity:
     com.faendir.lightning_launcher.multitool.util.FragmentManager fragmentManager -> n
-    com.faendir.lightning_launcher.multitool.util.DrawerManager drawerManager -> o
+    com.mikepenz.materialdrawer.Drawer drawer -> o
     com.faendir.lightning_launcher.multitool.billing.BillingManager billingManager -> p
-    27:28:void <init>() -> <init>
-    32:36:void onCreate(android.os.Bundle) -> onCreate
-    39:52:void initDrawer() -> k
-    56:61:void onStart() -> onStart
-    65:67:void onStop() -> onStop
-    71:75:void onDestroy() -> onDestroy
-    79:82:void onBackPressed() -> onBackPressed
-    86:89:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    93:95:void onNewIntent(android.content.Intent) -> onNewIntent
-    98:99:void onButtonClick(android.view.View) -> onButtonClick
+    24:25:void <init>() -> <init>
+    29:33:void onCreate(android.os.Bundle) -> onCreate
+    36:68:void initDrawer() -> k
+    72:77:void onStart() -> onStart
+    81:83:void onStop() -> onStop
+    87:91:void onDestroy() -> onDestroy
+    95:100:void onBackPressed() -> onBackPressed
+    104:107:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    111:113:void onNewIntent(android.content.Intent) -> onNewIntent
+    116:117:void onButtonClick(android.view.View) -> onButtonClick
+    61:65:boolean lambda$initDrawer$3$MainActivity(android.view.View,int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem) -> a
+    54:55:boolean lambda$initDrawer$2$MainActivity(android.view.View,int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem) -> b
+    44:48:boolean lambda$initDrawer$1$MainActivity(android.view.View,int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem) -> c
+    37:37:void lambda$initDrawer$0$MainActivity(com.mikepenz.materialdrawer.DrawerBuilder,com.faendir.lightning_launcher.multitool.util.Fragments) -> a
+com.faendir.lightning_launcher.multitool.MainActivity$$Lambda$0 -> com.faendir.lightning_launcher.multitool.i:
+    com.mikepenz.materialdrawer.DrawerBuilder arg$1 -> a
+    void <init>(com.mikepenz.materialdrawer.DrawerBuilder) -> <init>
+    void accept(java.lang.Object) -> a
+    java9.util.function.Consumer andThen(java9.util.function.Consumer) -> a
+com.faendir.lightning_launcher.multitool.MainActivity$$Lambda$1 -> com.faendir.lightning_launcher.multitool.j:
+    com.faendir.lightning_launcher.multitool.MainActivity arg$1 -> a
+    void <init>(com.faendir.lightning_launcher.multitool.MainActivity) -> <init>
+    boolean onItemClick(android.view.View,int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem) -> a
+com.faendir.lightning_launcher.multitool.MainActivity$$Lambda$2 -> com.faendir.lightning_launcher.multitool.k:
+    com.faendir.lightning_launcher.multitool.MainActivity arg$1 -> a
+    void <init>(com.faendir.lightning_launcher.multitool.MainActivity) -> <init>
+    boolean onItemClick(android.view.View,int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem) -> a
+com.faendir.lightning_launcher.multitool.MainActivity$$Lambda$3 -> com.faendir.lightning_launcher.multitool.l:
+    com.faendir.lightning_launcher.multitool.MainActivity arg$1 -> a
+    void <init>(com.faendir.lightning_launcher.multitool.MainActivity) -> <init>
+    boolean onItemClick(android.view.View,int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem) -> a
 com.faendir.lightning_launcher.multitool.MultiTool -> com.faendir.lightning_launcher.multitool.MultiTool:
     29:29:void <init>() -> <init>
     35:41:void attachBaseContext(android.content.Context) -> attachBaseContext
-com.faendir.lightning_launcher.multitool.R -> com.faendir.lightning_launcher.multitool.i:
-com.faendir.lightning_launcher.multitool.R$styleable -> com.faendir.lightning_launcher.multitool.i$a:
+com.faendir.lightning_launcher.multitool.R -> com.faendir.lightning_launcher.multitool.m:
+com.faendir.lightning_launcher.multitool.R$styleable -> com.faendir.lightning_launcher.multitool.m$a:
     int[] ActionBar -> ActionBar
     int ActionBar_background -> ActionBar_background
     int ActionBar_backgroundSplit -> ActionBar_backgroundSplit
@@ -21891,7 +21912,7 @@ com.faendir.lightning_launcher.multitool.R$styleable -> com.faendir.lightning_la
     int ViewStubCompat_android_id -> ViewStubCompat_android_id
     int ViewStubCompat_android_layout -> ViewStubCompat_android_layout
     int ViewStubCompat_android_inflatedId -> ViewStubCompat_android_inflatedId
-    5641:16454:void <clinit>() -> <clinit>
+    5655:16468:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.animation.Animation -> com.faendir.lightning_launcher.multitool.animation.a:
     com.faendir.lightning_launcher.multitool.animation.Animation BULLDOZE -> a
     com.faendir.lightning_launcher.multitool.animation.Animation CARD -> b
@@ -21904,11 +21925,11 @@ com.faendir.lightning_launcher.multitool.animation.Animation -> com.faendir.ligh
     com.faendir.lightning_launcher.multitool.animation.Animation[] $VALUES -> i
     11:11:com.faendir.lightning_launcher.multitool.animation.Animation[] values() -> values
     11:11:com.faendir.lightning_launcher.multitool.animation.Animation valueOf(java.lang.String) -> valueOf
-    149:151:void <init>(java.lang.String,int,int) -> <init>
-    155:155:int getLabel() -> a
+    146:148:void <init>(java.lang.String,int,int) -> <init>
+    152:152:int getLabel() -> a
     com.faendir.lightning_launcher.multitool.animation.Transformation getTransformation(android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.Size,android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.PointB) -> a
     11:11:void <init>(java.lang.String,int,int,com.faendir.lightning_launcher.multitool.animation.Animation$1) -> <init>
-    11:122:void <clinit>() -> <clinit>
+    11:119:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.animation.Animation$1 -> com.faendir.lightning_launcher.multitool.animation.a$1:
     12:12:void <init>(java.lang.String,int,int) -> <init>
     15:20:com.faendir.lightning_launcher.multitool.animation.Transformation getTransformation(android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.Size,android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.PointB) -> a
@@ -21920,16 +21941,66 @@ com.faendir.lightning_launcher.multitool.animation.Animation$3 -> com.faendir.li
     40:53:com.faendir.lightning_launcher.multitool.animation.Transformation getTransformation(android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.Size,android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.PointB) -> a
 com.faendir.lightning_launcher.multitool.animation.Animation$4 -> com.faendir.lightning_launcher.multitool.animation.a$4:
     56:56:void <init>(java.lang.String,int,int) -> <init>
-    59:79:com.faendir.lightning_launcher.multitool.animation.Transformation getTransformation(android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.Size,android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.PointB) -> a
+    59:76:com.faendir.lightning_launcher.multitool.animation.Transformation getTransformation(android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.Size,android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.PointB) -> a
 com.faendir.lightning_launcher.multitool.animation.Animation$5 -> com.faendir.lightning_launcher.multitool.animation.a$5:
-    82:82:void <init>(java.lang.String,int,int) -> <init>
-    85:97:com.faendir.lightning_launcher.multitool.animation.Transformation getTransformation(android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.Size,android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.PointB) -> a
+    79:79:void <init>(java.lang.String,int,int) -> <init>
+    82:94:com.faendir.lightning_launcher.multitool.animation.Transformation getTransformation(android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.Size,android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.PointB) -> a
 com.faendir.lightning_launcher.multitool.animation.Animation$6 -> com.faendir.lightning_launcher.multitool.animation.a$6:
-    100:100:void <init>(java.lang.String,int,int) -> <init>
-    103:119:com.faendir.lightning_launcher.multitool.animation.Transformation getTransformation(android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.Size,android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.PointB) -> a
+    97:97:void <init>(java.lang.String,int,int) -> <init>
+    100:116:com.faendir.lightning_launcher.multitool.animation.Transformation getTransformation(android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.Size,android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.PointB) -> a
 com.faendir.lightning_launcher.multitool.animation.Animation$7 -> com.faendir.lightning_launcher.multitool.animation.a$7:
-    122:122:void <init>(java.lang.String,int,int) -> <init>
-    125:143:com.faendir.lightning_launcher.multitool.animation.Transformation getTransformation(android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.Size,android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.PointB) -> a
+    119:119:void <init>(java.lang.String,int,int) -> <init>
+    122:140:com.faendir.lightning_launcher.multitool.animation.Transformation getTransformation(android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.Size,android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.PointB) -> a
+com.faendir.lightning_launcher.multitool.animation.AnimationDemo -> com.faendir.lightning_launcher.multitool.animation.AnimationDemo:
+    com.faendir.lightning_launcher.multitool.animation.PointB LEFT_PAGE -> a
+    com.faendir.lightning_launcher.multitool.animation.PointB RIGHT_PAGE -> b
+    com.faendir.lightning_launcher.multitool.animation.PointB TRANSFORM_ALL -> c
+    android.widget.ImageView view1 -> d
+    android.widget.ImageView view2 -> e
+    android.graphics.PointF center -> f
+    com.faendir.lightning_launcher.multitool.animation.Size size -> g
+    android.graphics.PointF percent -> h
+    com.faendir.lightning_launcher.multitool.animation.Animation animation -> i
+    31:64:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    68:76:void onScrollChanged(int,int,int,int) -> onScrollChanged
+    79:80:void setAnimation(com.faendir.lightning_launcher.multitool.animation.Animation) -> setAnimation
+    52:63:void lambda$new$0$AnimationDemo(android.widget.LinearLayout) -> a
+    20:22:void <clinit>() -> <clinit>
+com.faendir.lightning_launcher.multitool.animation.AnimationDemo$$Lambda$0 -> com.faendir.lightning_launcher.multitool.animation.b:
+    com.faendir.lightning_launcher.multitool.animation.AnimationDemo arg$1 -> a
+    android.widget.LinearLayout arg$2 -> b
+    void <init>(com.faendir.lightning_launcher.multitool.animation.AnimationDemo,android.widget.LinearLayout) -> <init>
+    void run() -> run
+com.faendir.lightning_launcher.multitool.animation.AnimationFragment -> com.faendir.lightning_launcher.multitool.animation.AnimationFragment:
+    boolean isReverse -> a
+    26:27:void <init>() -> <init>
+    31:33:void onCreate(android.os.Bundle) -> onCreate
+    38:71:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    76:77:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
+    81:86:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    65:70:void lambda$onCreateView$2$AnimationFragment(android.animation.ValueAnimator,android.widget.CompoundButton,boolean) -> a
+    53:54:void lambda$onCreateView$1$AnimationFragment(com.faendir.lightning_launcher.multitool.animation.AnimationDemo,android.animation.ValueAnimator) -> a
+    47:47:void lambda$onCreateView$0$AnimationFragment(com.faendir.lightning_launcher.multitool.animation.AnimationDemo,android.widget.RadioGroup,int) -> a
+    26:26:boolean access$002(com.faendir.lightning_launcher.multitool.animation.AnimationFragment,boolean) -> a
+    26:26:boolean access$000(com.faendir.lightning_launcher.multitool.animation.AnimationFragment) -> a
+com.faendir.lightning_launcher.multitool.animation.AnimationFragment$$Lambda$0 -> com.faendir.lightning_launcher.multitool.animation.c:
+    com.faendir.lightning_launcher.multitool.animation.AnimationDemo arg$1 -> a
+    void <init>(com.faendir.lightning_launcher.multitool.animation.AnimationDemo) -> <init>
+    void onCheckedChanged(android.widget.RadioGroup,int) -> onCheckedChanged
+com.faendir.lightning_launcher.multitool.animation.AnimationFragment$$Lambda$1 -> com.faendir.lightning_launcher.multitool.animation.d:
+    com.faendir.lightning_launcher.multitool.animation.AnimationFragment arg$1 -> a
+    com.faendir.lightning_launcher.multitool.animation.AnimationDemo arg$2 -> b
+    void <init>(com.faendir.lightning_launcher.multitool.animation.AnimationFragment,com.faendir.lightning_launcher.multitool.animation.AnimationDemo) -> <init>
+    void onAnimationUpdate(android.animation.ValueAnimator) -> onAnimationUpdate
+com.faendir.lightning_launcher.multitool.animation.AnimationFragment$$Lambda$2 -> com.faendir.lightning_launcher.multitool.animation.e:
+    android.animation.ValueAnimator arg$1 -> a
+    void <init>(android.animation.ValueAnimator) -> <init>
+    void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
+com.faendir.lightning_launcher.multitool.animation.AnimationFragment$1 -> com.faendir.lightning_launcher.multitool.animation.AnimationFragment$1:
+    android.animation.ValueAnimator val$animator -> a
+    com.faendir.lightning_launcher.multitool.animation.AnimationFragment this$0 -> b
+    55:55:void <init>(com.faendir.lightning_launcher.multitool.animation.AnimationFragment,android.animation.ValueAnimator) -> <init>
+    58:61:void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
 com.faendir.lightning_launcher.multitool.animation.AnimationScript -> com.faendir.lightning_launcher.multitool.animation.AnimationScript:
     java.lang.String TAG_ANIMATION -> TAG_ANIMATION
     com.faendir.lightning_launcher.multitool.proxy.Utils utils -> utils
@@ -21943,27 +22014,27 @@ com.faendir.lightning_launcher.multitool.animation.AnimationScript -> com.faendi
     57:59:void lambda$setup$2$AnimationScript(com.faendir.lightning_launcher.multitool.animation.AnimationScript$Config,com.faendir.lightning_launcher.multitool.proxy.Container,android.content.DialogInterface,int) -> lambda$setup$2$AnimationScript
     53:55:void lambda$setup$1$AnimationScript(com.faendir.lightning_launcher.multitool.animation.AnimationScript$Config,com.faendir.lightning_launcher.multitool.proxy.Container,android.content.DialogInterface,int) -> lambda$setup$1$AnimationScript
     52:52:java.lang.CharSequence[] lambda$setup$0$AnimationScript(int) -> lambda$setup$0$AnimationScript
-com.faendir.lightning_launcher.multitool.animation.AnimationScript$$Lambda$0 -> com.faendir.lightning_launcher.multitool.animation.b:
+com.faendir.lightning_launcher.multitool.animation.AnimationScript$$Lambda$0 -> com.faendir.lightning_launcher.multitool.animation.f:
     java9.util.function.Function $instance -> a
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object) -> a
     void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.multitool.animation.AnimationScript$$Lambda$1 -> com.faendir.lightning_launcher.multitool.animation.c:
+com.faendir.lightning_launcher.multitool.animation.AnimationScript$$Lambda$1 -> com.faendir.lightning_launcher.multitool.animation.g:
     com.faendir.lightning_launcher.multitool.proxy.Utils arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.proxy.Utils) -> <init>
     java9.util.function.Function get$Lambda(com.faendir.lightning_launcher.multitool.proxy.Utils) -> a
     java.lang.Object apply(java.lang.Object) -> a
-com.faendir.lightning_launcher.multitool.animation.AnimationScript$$Lambda$2 -> com.faendir.lightning_launcher.multitool.animation.d:
+com.faendir.lightning_launcher.multitool.animation.AnimationScript$$Lambda$2 -> com.faendir.lightning_launcher.multitool.animation.h:
     java9.util.function.IntFunction $instance -> a
     void <init>() -> <init>
     java.lang.Object apply(int) -> a
     void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.multitool.animation.AnimationScript$$Lambda$3 -> com.faendir.lightning_launcher.multitool.animation.e:
+com.faendir.lightning_launcher.multitool.animation.AnimationScript$$Lambda$3 -> com.faendir.lightning_launcher.multitool.animation.i:
     com.faendir.lightning_launcher.multitool.animation.AnimationScript$Config arg$1 -> a
     com.faendir.lightning_launcher.multitool.proxy.Container arg$2 -> b
     void <init>(com.faendir.lightning_launcher.multitool.animation.AnimationScript$Config,com.faendir.lightning_launcher.multitool.proxy.Container) -> <init>
     void onClick(android.content.DialogInterface,int) -> onClick
-com.faendir.lightning_launcher.multitool.animation.AnimationScript$$Lambda$4 -> com.faendir.lightning_launcher.multitool.animation.f:
+com.faendir.lightning_launcher.multitool.animation.AnimationScript$$Lambda$4 -> com.faendir.lightning_launcher.multitool.animation.j:
     com.faendir.lightning_launcher.multitool.animation.AnimationScript$Config arg$1 -> a
     com.faendir.lightning_launcher.multitool.proxy.Container arg$2 -> b
     void <init>(com.faendir.lightning_launcher.multitool.animation.AnimationScript$Config,com.faendir.lightning_launcher.multitool.proxy.Container) -> <init>
@@ -21973,17 +22044,17 @@ com.faendir.lightning_launcher.multitool.animation.AnimationScript$Config -> com
     com.faendir.lightning_launcher.multitool.animation.Animation animation -> a
     100:101:void <init>() -> <init>
     100:100:void <init>(com.faendir.lightning_launcher.multitool.animation.AnimationScript$1) -> <init>
-com.faendir.lightning_launcher.multitool.animation.PointB -> com.faendir.lightning_launcher.multitool.animation.g:
+com.faendir.lightning_launcher.multitool.animation.PointB -> com.faendir.lightning_launcher.multitool.animation.k:
     boolean x -> a
     boolean y -> b
     11:14:void <init>(boolean,boolean) -> <init>
     17:17:boolean any() -> a
     21:21:boolean both() -> b
-com.faendir.lightning_launcher.multitool.animation.Size -> com.faendir.lightning_launcher.multitool.animation.h:
+com.faendir.lightning_launcher.multitool.animation.Size -> com.faendir.lightning_launcher.multitool.animation.l:
     int width -> a
     int height -> b
     11:14:void <init>(int,int) -> <init>
-com.faendir.lightning_launcher.multitool.animation.Transformation -> com.faendir.lightning_launcher.multitool.animation.i:
+com.faendir.lightning_launcher.multitool.animation.Transformation -> com.faendir.lightning_launcher.multitool.animation.m:
     android.graphics.PointF scale -> a
     android.graphics.PointF translate -> b
     android.graphics.PointF pivot -> c
@@ -21991,9 +22062,10 @@ com.faendir.lightning_launcher.multitool.animation.Transformation -> com.faendir
     android.graphics.PointF rotation -> e
     float alpha -> f
     boolean partial -> g
-    12:19:void <init>() -> <init>
-    22:33:void transform(com.faendir.lightning_launcher.multitool.proxy.Item) -> a
-    36:37:com.faendir.lightning_launcher.multitool.animation.Transformation onlyUnpinnedItems() -> a
+    13:20:void <init>() -> <init>
+    23:29:void transform(com.faendir.lightning_launcher.multitool.proxy.Item) -> a
+    32:38:void transform(android.view.View,com.faendir.lightning_launcher.multitool.animation.PointB,android.graphics.PointF) -> a
+    41:42:com.faendir.lightning_launcher.multitool.animation.Transformation onlyUnpinnedItems() -> a
 com.faendir.lightning_launcher.multitool.backup.BackupCreator -> com.faendir.lightning_launcher.multitool.backup.BackupCreator:
     java.lang.String CORE -> CORE
     java.lang.String FONTS -> FONTS
@@ -22007,15 +22079,27 @@ com.faendir.lightning_launcher.multitool.backup.BackupCreator -> com.faendir.lig
     91:92:void startEntry(java.util.zip.ZipOutputStream,java.lang.String) -> startEntry
     95:101:void copy(java.io.InputStream,java.io.OutputStream) -> copy
     105:144:java.lang.String execute(java.lang.String) -> execute
+com.faendir.lightning_launcher.multitool.backup.BackupFragment -> com.faendir.lightning_launcher.multitool.backup.BackupFragment:
+    com.faendir.lightning_launcher.multitool.settings.PreferenceListener listener -> a
+    16:16:void <init>() -> <init>
+    21:29:void onCreate(android.os.Bundle) -> onCreate
+    33:34:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
+    38:43:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    48:50:void onDestroy() -> onDestroy
+    25:25:void lambda$onCreate$0$BackupFragment() -> a
+com.faendir.lightning_launcher.multitool.backup.BackupFragment$$Lambda$0 -> com.faendir.lightning_launcher.multitool.backup.a:
+    com.faendir.lightning_launcher.multitool.backup.BackupFragment arg$1 -> a
+    void <init>(com.faendir.lightning_launcher.multitool.backup.BackupFragment) -> <init>
+    void run() -> run
 com.faendir.lightning_launcher.multitool.backup.BackupJob -> com.faendir.lightning_launcher.multitool.backup.BackupJob:
     18:18:void <init>() -> <init>
     22:38:com.evernote.android.job.Job$Result onRunJob(com.evernote.android.job.Job$Params) -> onRunJob
     26:29:void lambda$onRunJob$0$BackupJob(java.lang.String) -> lambda$onRunJob$0$BackupJob
-com.faendir.lightning_launcher.multitool.backup.BackupJob$$Lambda$0 -> com.faendir.lightning_launcher.multitool.backup.a:
+com.faendir.lightning_launcher.multitool.backup.BackupJob$$Lambda$0 -> com.faendir.lightning_launcher.multitool.backup.b:
     com.faendir.lightning_launcher.multitool.backup.BackupJob arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.backup.BackupJob) -> <init>
     void onResult(java.lang.Object) -> a
-com.faendir.lightning_launcher.multitool.backup.BackupTime -> com.faendir.lightning_launcher.multitool.backup.b:
+com.faendir.lightning_launcher.multitool.backup.BackupTime -> com.faendir.lightning_launcher.multitool.backup.c:
     int hour -> a
     int minute -> b
     java.util.List days -> c
@@ -22023,24 +22107,52 @@ com.faendir.lightning_launcher.multitool.backup.BackupTime -> com.faendir.lightn
     25:25:int getHour() -> a
     29:29:int getMinute() -> b
     33:33:java.util.List getDays() -> c
-com.faendir.lightning_launcher.multitool.backup.BackupUtils -> com.faendir.lightning_launcher.multitool.backup.c:
-    com.faendir.lightning_launcher.multitool.backup.BackupTime DEFAULT -> a
-    40:40:com.faendir.lightning_launcher.multitool.backup.BackupTime getBackupTime(java.lang.String) -> a
-    45:45:java.lang.String toString(com.faendir.lightning_launcher.multitool.backup.BackupTime) -> a
-    50:60:java.lang.String toHumanReadableString(android.content.Context,com.faendir.lightning_launcher.multitool.backup.BackupTime) -> a
-    64:86:void scheduleNext(android.content.Context) -> a
-    57:59:java.lang.String lambda$toHumanReadableString$0$BackupUtils(java.lang.Integer) -> a
-    36:36:void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.multitool.backup.BackupUtils$$Lambda$0 -> com.faendir.lightning_launcher.multitool.backup.d:
-    com.google.gson.Gson arg$1 -> a
-    void <init>(com.google.gson.Gson) -> <init>
-    com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiFunction get$Lambda(com.google.gson.Gson) -> a
-    java.lang.Object apply(java.lang.Object,java.lang.Object) -> a
-com.faendir.lightning_launcher.multitool.backup.BackupUtils$$Lambda$1 -> com.faendir.lightning_launcher.multitool.backup.e:
+com.faendir.lightning_launcher.multitool.backup.BackupTimePreference -> com.faendir.lightning_launcher.multitool.backup.BackupTimePreference:
+    com.faendir.lightning_launcher.multitool.backup.BackupTime backupTime -> a
+    java.util.Map buttons -> b
+    android.widget.TimePicker picker -> c
+    boolean userOriginated -> d
+    28:34:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    38:52:void onBindView(android.view.View) -> onBindView
+    55:62:void showValue() -> a
+    66:68:void setEnabled(boolean) -> setEnabled
+    71:79:void persist() -> b
+    83:83:java.lang.Object onGetDefaultValue(android.content.res.TypedArray,int) -> onGetDefaultValue
+    88:94:void onSetInitialValue(boolean,java.lang.Object) -> onSetInitialValue
+    98:100:void onClick(android.view.View) -> onClick
+    72:72:boolean lambda$persist$2$BackupTimePreference(java.util.Map$Entry) -> a
+    50:50:void lambda$onBindView$1$BackupTimePreference(android.widget.TimePicker,int,int) -> a
+    47:47:void lambda$onBindView$0$BackupTimePreference(android.widget.Button) -> a
+com.faendir.lightning_launcher.multitool.backup.BackupTimePreference$$Lambda$0 -> com.faendir.lightning_launcher.multitool.backup.d:
+    com.faendir.lightning_launcher.multitool.backup.BackupTimePreference arg$1 -> a
+    void <init>(com.faendir.lightning_launcher.multitool.backup.BackupTimePreference) -> <init>
+    void accept(java.lang.Object) -> a
+    java9.util.function.Consumer andThen(java9.util.function.Consumer) -> a
+com.faendir.lightning_launcher.multitool.backup.BackupTimePreference$$Lambda$1 -> com.faendir.lightning_launcher.multitool.backup.e:
+    com.faendir.lightning_launcher.multitool.backup.BackupTimePreference arg$1 -> a
+    void <init>(com.faendir.lightning_launcher.multitool.backup.BackupTimePreference) -> <init>
+    void onTimeChanged(android.widget.TimePicker,int,int) -> onTimeChanged
+com.faendir.lightning_launcher.multitool.backup.BackupTimePreference$$Lambda$2 -> com.faendir.lightning_launcher.multitool.backup.f:
+    java9.util.function.Predicate $instance -> a
+    void <init>() -> <init>
+    boolean test(java.lang.Object) -> a
+    void <clinit>() -> <clinit>
+com.faendir.lightning_launcher.multitool.backup.BackupTimePreference$$Lambda$3 -> com.faendir.lightning_launcher.multitool.backup.g:
     java9.util.function.Function $instance -> a
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object) -> a
     void <clinit>() -> <clinit>
+com.faendir.lightning_launcher.multitool.backup.BackupUtils -> com.faendir.lightning_launcher.multitool.backup.h:
+    com.faendir.lightning_launcher.multitool.backup.BackupTime DEFAULT -> a
+    38:38:com.faendir.lightning_launcher.multitool.backup.BackupTime getBackupTime(java.lang.String) -> a
+    43:43:java.lang.String toString(com.faendir.lightning_launcher.multitool.backup.BackupTime) -> a
+    62:84:void scheduleNext(android.content.Context) -> a
+    34:34:void <clinit>() -> <clinit>
+com.faendir.lightning_launcher.multitool.backup.BackupUtils$$Lambda$0 -> com.faendir.lightning_launcher.multitool.backup.i:
+    com.google.gson.Gson arg$1 -> a
+    void <init>(com.google.gson.Gson) -> <init>
+    com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiFunction get$Lambda(com.google.gson.Gson) -> a
+    java.lang.Object apply(java.lang.Object,java.lang.Object) -> a
 com.faendir.lightning_launcher.multitool.badge.AppChooser -> com.faendir.lightning_launcher.multitool.badge.AppChooser:
     boolean byRelevance -> n
     31:32:void <init>() -> <init>
@@ -22085,6 +22197,11 @@ com.faendir.lightning_launcher.multitool.badge.BadgeDataSource -> com.faendir.li
     33:42:int getBadgeCount(android.content.Context,java.lang.String) -> a
     46:49:void setBadgeCount(android.content.Context,java.lang.String,int) -> a
     52:53:android.net.Uri getContentUri(java.lang.String) -> a
+com.faendir.lightning_launcher.multitool.badge.BadgeFragment -> com.faendir.lightning_launcher.multitool.badge.BadgeFragment:
+    15:15:void <init>() -> <init>
+    18:21:void onCreate(android.os.Bundle) -> onCreate
+    25:26:void onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater) -> onCreateOptionsMenu
+    30:35:boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
 com.faendir.lightning_launcher.multitool.badge.BadgeListener -> com.faendir.lightning_launcher.multitool.badge.BadgeListener:
     java.lang.String packageName -> packageName
     com.faendir.lightning_launcher.multitool.proxy.Utils utils -> utils
@@ -22273,20 +22390,20 @@ com.faendir.lightning_launcher.multitool.drawer.Drawer -> com.faendir.lightning_
     com.faendir.lightning_launcher.multitool.proxy.Utils utils -> utils
     android.content.pm.PackageManager pm -> pm
     54:57:void <init>(com.faendir.lightning_launcher.multitool.proxy.Utils) -> <init>
-    61:81:void setup() -> setup
-    85:89:void showMenu(com.faendir.lightning_launcher.multitool.proxy.Menu,com.faendir.lightning_launcher.multitool.proxy.Item) -> showMenu
-    92:103:void hide(com.faendir.lightning_launcher.multitool.proxy.Menu,com.faendir.lightning_launcher.multitool.proxy.Item) -> hide
-    107:143:void run() -> run
-    146:149:java.util.List getPresentActivities() -> getPresentActivities
-    153:155:java.util.List getCurrentActivities() -> getCurrentActivities
-    159:159:java9.util.stream.Stream getItemsDeep(com.faendir.lightning_launcher.multitool.proxy.Container) -> getItemsDeep
-    177:184:android.graphics.Bitmap toBitmap(android.graphics.drawable.Drawable) -> toBitmap
-    188:228:void deepSort(com.faendir.lightning_launcher.multitool.proxy.Container) -> deepSort
-    160:172:java9.util.stream.Stream lambda$getItemsDeep$4$Drawer(com.faendir.lightning_launcher.multitool.proxy.Item) -> lambda$getItemsDeep$4$Drawer
-    146:146:java.lang.String lambda$getPresentActivities$3$Drawer(com.faendir.lightning_launcher.multitool.proxy.Shortcut) -> lambda$getPresentActivities$3$Drawer
-    141:141:void lambda$run$2$Drawer() -> lambda$run$2$Drawer
-    134:138:void lambda$run$1$Drawer(java.lang.String,com.faendir.lightning_launcher.multitool.proxy.Shortcut) -> lambda$run$1$Drawer
-    87:87:void lambda$showMenu$0$Drawer(com.faendir.lightning_launcher.multitool.proxy.Menu,com.faendir.lightning_launcher.multitool.proxy.Item) -> lambda$showMenu$0$Drawer
+    61:82:void setup() -> setup
+    86:90:void showMenu(com.faendir.lightning_launcher.multitool.proxy.Menu,com.faendir.lightning_launcher.multitool.proxy.Item) -> showMenu
+    93:104:void hide(com.faendir.lightning_launcher.multitool.proxy.Menu,com.faendir.lightning_launcher.multitool.proxy.Item) -> hide
+    108:144:void run() -> run
+    147:150:java.util.List getPresentActivities() -> getPresentActivities
+    154:156:java.util.List getCurrentActivities() -> getCurrentActivities
+    160:160:java9.util.stream.Stream getItemsDeep(com.faendir.lightning_launcher.multitool.proxy.Container) -> getItemsDeep
+    178:185:android.graphics.Bitmap toBitmap(android.graphics.drawable.Drawable) -> toBitmap
+    189:229:void deepSort(com.faendir.lightning_launcher.multitool.proxy.Container) -> deepSort
+    161:173:java9.util.stream.Stream lambda$getItemsDeep$4$Drawer(com.faendir.lightning_launcher.multitool.proxy.Item) -> lambda$getItemsDeep$4$Drawer
+    147:147:java.lang.String lambda$getPresentActivities$3$Drawer(com.faendir.lightning_launcher.multitool.proxy.Shortcut) -> lambda$getPresentActivities$3$Drawer
+    142:142:void lambda$run$2$Drawer() -> lambda$run$2$Drawer
+    135:139:void lambda$run$1$Drawer(java.lang.String,com.faendir.lightning_launcher.multitool.proxy.Shortcut) -> lambda$run$1$Drawer
+    88:88:void lambda$showMenu$0$Drawer(com.faendir.lightning_launcher.multitool.proxy.Menu,com.faendir.lightning_launcher.multitool.proxy.Item) -> lambda$showMenu$0$Drawer
     void showMenu(java.lang.Object,java.lang.Object) -> showMenu
 com.faendir.lightning_launcher.multitool.drawer.Drawer$$Lambda$0 -> com.faendir.lightning_launcher.multitool.drawer.a:
     com.faendir.lightning_launcher.multitool.drawer.Drawer arg$1 -> a
@@ -22330,10 +22447,10 @@ com.faendir.lightning_launcher.multitool.drawer.Drawer$$Lambda$7 -> com.faendir.
 com.faendir.lightning_launcher.multitool.drawer.Drawer$1 -> com.faendir.lightning_launcher.multitool.drawer.Drawer$1:
 com.faendir.lightning_launcher.multitool.drawer.Drawer$Matrix -> com.faendir.lightning_launcher.multitool.drawer.Drawer$a:
     java.util.List list -> a
-    233:235:void <init>() -> <init>
-    238:246:void mark(int,int) -> a
-    249:255:boolean get(int,int) -> b
-    230:230:void <init>(com.faendir.lightning_launcher.multitool.drawer.Drawer$1) -> <init>
+    234:236:void <init>() -> <init>
+    239:247:void mark(int,int) -> a
+    250:256:boolean get(int,int) -> b
+    231:231:void <init>(com.faendir.lightning_launcher.multitool.drawer.Drawer$1) -> <init>
 com.faendir.lightning_launcher.multitool.drawer.DrawerFragment -> com.faendir.lightning_launcher.multitool.drawer.DrawerFragment:
     13:13:void <init>() -> <init>
     16:18:void onCreate(android.os.Bundle) -> onCreate
@@ -22369,9 +22486,16 @@ com.faendir.lightning_launcher.multitool.event.ClickEvent -> com.faendir.lightni
     14:16:void <init>(int) -> <init>
     20:20:int getId() -> a
 com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest -> com.faendir.lightning_launcher.multitool.b.b:
-    int id -> a
-    14:16:void <init>(int) -> <init>
-    20:20:int getId() -> a
+    com.faendir.lightning_launcher.multitool.util.Fragments fragment -> a
+    15:16:void <init>(int) -> <init>
+    18:20:void <init>(com.faendir.lightning_launcher.multitool.util.Fragments) -> <init>
+    23:23:com.faendir.lightning_launcher.multitool.util.Fragments getFragment() -> a
+    28:28:int getId() -> b
+    15:15:boolean lambda$new$0$SwitchFragmentRequest(int,com.faendir.lightning_launcher.multitool.util.Fragments) -> a
+com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest$$Lambda$0 -> com.faendir.lightning_launcher.multitool.b.c:
+    int arg$1 -> a
+    void <init>(int) -> <init>
+    boolean test(java.lang.Object) -> a
 com.faendir.lightning_launcher.multitool.fastadapter.ClickAwareModel -> com.faendir.lightning_launcher.multitool.c.a:
     void onClick() -> onClick
 com.faendir.lightning_launcher.multitool.fastadapter.DeletableModel -> com.faendir.lightning_launcher.multitool.c.b:
@@ -23017,6 +23141,12 @@ com.faendir.lightning_launcher.multitool.music.TitleInfo -> com.faendir.lightnin
     38:38:java.lang.String getPackageName() -> d
     42:42:android.graphics.Bitmap getAlbumArt() -> e
 com.faendir.lightning_launcher.multitool.proxy.ActivityScreen -> com.faendir.lightning_launcher.multitool.proxy.ActivityScreen:
+    com.faendir.lightning_launcher.multitool.proxy.ImageBitmap cropImage(com.faendir.lightning_launcher.multitool.proxy.ImageBitmap,boolean) -> cropImage
+    void hideActionBar() -> hideActionBar
+    int pickColor(java.lang.String,int,boolean) -> pickColor
+    com.faendir.lightning_launcher.multitool.proxy.Image pickImage(int) -> pickImage
+    float pickNumericValue(java.lang.String,float,java.lang.String,float,float,float,java.lang.String) -> pickNumericValue
+    void showActionBar(com.faendir.lightning_launcher.multitool.proxy.Function,com.faendir.lightning_launcher.multitool.proxy.Function) -> showActionBar
     boolean startActivityForResult(android.content.Intent,com.faendir.lightning_launcher.multitool.proxy.Script,java.lang.String) -> startActivityForResult
 com.faendir.lightning_launcher.multitool.proxy.Box -> com.faendir.lightning_launcher.multitool.proxy.Box:
     java.lang.String MARGIN_LEFT -> MARGIN_LEFT
@@ -23036,10 +23166,23 @@ com.faendir.lightning_launcher.multitool.proxy.Box -> com.faendir.lightning_laun
     java.lang.String MODE_FOCUSED -> MODE_FOCUSED
     java.lang.String MODE_SELECTED -> MODE_SELECTED
     java.lang.String MODE_ALL -> MODE_ALL
+    java.lang.String ALIGNMENT_LEFT -> ALIGNMENT_LEFT
+    java.lang.String ALIGNMENT_CENTER -> ALIGNMENT_CENTER
+    java.lang.String ALIGNMENT_RIGHT -> ALIGNMENT_RIGHT
+    java.lang.String ALIGNMENT_TOP -> ALIGNMENT_TOP
+    java.lang.String ALIGNMENT_MIDDLE -> ALIGNMENT_MIDDLE
+    java.lang.String ALIGNMENT_BOTTOM -> ALIGNMENT_BOTTOM
+    java.lang.String getAlignmentH() -> getAlignmentH
+    java.lang.String getAlignmentV() -> getAlignmentV
+    java.lang.Object getBox() -> getBox
+    int getColor(java.lang.String,java.lang.String) -> getColor
+    int getSize(java.lang.String) -> getSize
+    void setAlignment(java.lang.String,java.lang.String) -> setAlignment
     void setColor(java.lang.String,java.lang.String,long) -> setColor
+    void setSize(java.lang.String,int) -> setSize
 com.faendir.lightning_launcher.multitool.proxy.Box$$CC -> com.faendir.lightning_launcher.multitool.proxy.a:
-    35:35:java.lang.String asString$$STATIC$$(java.lang.String[]) -> a
-    39:39:java.lang.String border$$STATIC$$() -> a
+    41:41:java.lang.String asString$$STATIC$$(java.lang.String[]) -> a
+    45:45:java.lang.String border$$STATIC$$() -> a
 com.faendir.lightning_launcher.multitool.proxy.Container -> com.faendir.lightning_launcher.multitool.proxy.Container:
     java.lang.String TYPE_DESKTOP -> TYPE_DESKTOP
     java.lang.String TYPE_FOLDER -> TYPE_FOLDER
@@ -23064,6 +23207,7 @@ com.faendir.lightning_launcher.multitool.proxy.Container -> com.faendir.lightnin
     com.faendir.lightning_launcher.multitool.proxy.Shortcut addShortcut(java.lang.String,android.content.Intent,float,float) -> addShortcut
     com.faendir.lightning_launcher.multitool.proxy.CustomView addCustomView(float,float) -> addCustomView
     java.lang.String getTag(java.lang.String) -> getTag
+    com.faendir.lightning_launcher.multitool.proxy.Scriptable getMy() -> getMy
 com.faendir.lightning_launcher.multitool.proxy.CustomView -> com.faendir.lightning_launcher.multitool.proxy.CustomView:
     void setHorizontalGrab(boolean) -> setHorizontalGrab
     void setVerticalGrab(boolean) -> setVerticalGrab
@@ -23091,6 +23235,7 @@ com.faendir.lightning_launcher.multitool.proxy.EventHandler$$CC -> com.faendir.l
     17:22:com.faendir.lightning_launcher.multitool.proxy.EventHandler newInstance$$STATIC$$(android.content.Context,int,java.lang.String) -> a
 com.faendir.lightning_launcher.multitool.proxy.Folder -> com.faendir.lightning_launcher.multitool.proxy.Folder:
     com.faendir.lightning_launcher.multitool.proxy.Container getContainer() -> getContainer
+com.faendir.lightning_launcher.multitool.proxy.Function -> com.faendir.lightning_launcher.multitool.proxy.Function:
 com.faendir.lightning_launcher.multitool.proxy.Image -> com.faendir.lightning_launcher.multitool.proxy.Image:
     java.lang.String TYPE_BITMAP -> TYPE_BITMAP
     int getWidth() -> getWidth
@@ -23181,6 +23326,7 @@ com.faendir.lightning_launcher.multitool.proxy.Menu -> com.faendir.lightning_lau
     int MODE_ITEM_EM -> MODE_ITEM_EM
     int getMode() -> getMode
     void close() -> close
+    android.view.View addMainItem(java.lang.String,com.faendir.lightning_launcher.multitool.proxy.Function) -> addMainItem
 com.faendir.lightning_launcher.multitool.proxy.Panel -> com.faendir.lightning_launcher.multitool.proxy.Panel:
     com.faendir.lightning_launcher.multitool.proxy.Container getContainer() -> getContainer
 com.faendir.lightning_launcher.multitool.proxy.PropertyEditor -> com.faendir.lightning_launcher.multitool.proxy.PropertyEditor:
@@ -23230,10 +23376,11 @@ com.faendir.lightning_launcher.multitool.proxy.ProxyFactory$1 -> com.faendir.lig
 com.faendir.lightning_launcher.multitool.proxy.ProxyFactory$BaseProxyInvocationHandler -> com.faendir.lightning_launcher.multitool.proxy.h$a:
     java.lang.Object object -> a
     66:68:void <init>(java.lang.Object) -> <init>
-    72:106:java.lang.Object invoke(java.lang.Object,java.lang.reflect.Method,java.lang.Object[]) -> invoke
+    72:102:java.lang.Object invoke(java.lang.Object,java.lang.reflect.Method,java.lang.Object[]) -> invoke
     java.lang.Object doInvoke(java.lang.String,java.lang.Class[],java.lang.Object[]) -> a
-    103:103:java.lang.Object[] lambda$invoke$1$ProxyFactory$BaseProxyInvocationHandler(java.lang.Class,int) -> a
-    103:103:com.faendir.lightning_launcher.multitool.proxy.Proxy lambda$invoke$0$ProxyFactory$BaseProxyInvocationHandler(java.lang.Class,java.lang.Object) -> a
+    108:120:java.lang.Class findClassWithSimpleNameInHierarchy(java.lang.String,java.lang.Class) -> a
+    99:99:java.lang.Object[] lambda$invoke$1$ProxyFactory$BaseProxyInvocationHandler(java.lang.Class,int) -> a
+    99:99:com.faendir.lightning_launcher.multitool.proxy.Proxy lambda$invoke$0$ProxyFactory$BaseProxyInvocationHandler(java.lang.Class,java.lang.Object) -> a
 com.faendir.lightning_launcher.multitool.proxy.ProxyFactory$BaseProxyInvocationHandler$$Lambda$0 -> com.faendir.lightning_launcher.multitool.proxy.i:
     java.lang.Class arg$1 -> a
     void <init>(java.lang.Class) -> <init>
@@ -23280,6 +23427,9 @@ com.faendir.lightning_launcher.multitool.proxy.Script -> com.faendir.lightning_l
     boolean hasFlag(int) -> hasFlag
     java.lang.String getName() -> getName
     java.lang.String getText() -> getText
+com.faendir.lightning_launcher.multitool.proxy.Scriptable -> com.faendir.lightning_launcher.multitool.proxy.Scriptable:
+    java.lang.Object get(java.lang.String,com.faendir.lightning_launcher.multitool.proxy.Scriptable) -> get
+    void put(java.lang.String,com.faendir.lightning_launcher.multitool.proxy.Scriptable,java.lang.Object) -> put
 com.faendir.lightning_launcher.multitool.proxy.Shortcut -> com.faendir.lightning_launcher.multitool.proxy.Shortcut:
     java.lang.String getLabel() -> getLabel
     void setLabel(java.lang.String) -> setLabel
@@ -23291,30 +23441,30 @@ com.faendir.lightning_launcher.multitool.proxy.Utils -> com.faendir.lightning_la
     android.content.Context lightningContext -> a
     android.content.Context multitoolContext -> b
     com.faendir.lightning_launcher.multitool.proxy.Lightning lightning -> c
-    com.faendir.lightning_launcher.multitool.util.LightningObjectFactory$EvalFunction eval -> d
-    27:36:void <init>(com.faendir.lightning_launcher.multitool.util.LightningObjectFactory$EvalFunction) -> <init>
-    39:39:android.content.Context getLightningContext() -> a
-    43:43:android.content.Context getMultitoolContext() -> b
-    47:47:android.content.res.Resources getMultitoolResources() -> c
-    51:51:java.lang.String getString(int) -> a
-    55:55:java.lang.String getString(int,java.lang.Object[]) -> a
-    59:59:com.faendir.lightning_launcher.multitool.proxy.Lightning getLightning() -> d
-    63:63:com.faendir.lightning_launcher.multitool.proxy.Event getEvent() -> e
-    67:67:com.faendir.lightning_launcher.multitool.proxy.Container getContainer() -> f
-    71:71:com.faendir.lightning_launcher.multitool.proxy.Screen getActiveScreen() -> g
-    75:75:com.faendir.lightning_launcher.multitool.proxy.Image$Class getImageClass() -> h
-    79:79:android.content.SharedPreferences getSharedPref() -> i
-    83:83:com.faendir.lightning_launcher.multitool.proxy.Script installNormalScript() -> j
-    87:87:com.faendir.lightning_launcher.multitool.proxy.Script installMenuScript() -> k
-    91:91:com.faendir.lightning_launcher.multitool.proxy.Script installActivityResultScript() -> l
-    95:95:com.faendir.lightning_launcher.multitool.proxy.Script installCreateViewScript() -> m
-    99:99:com.faendir.lightning_launcher.multitool.proxy.Script installRegisterScript() -> n
-    103:103:com.faendir.lightning_launcher.multitool.proxy.Script installUnregisterScript() -> o
-    107:107:com.faendir.lightning_launcher.multitool.proxy.Script installCommandScript() -> p
-    111:123:com.faendir.lightning_launcher.multitool.proxy.Script installScript(int,java.lang.String) -> a
-    127:143:void centerOnTouch(com.faendir.lightning_launcher.multitool.proxy.Item) -> a
-    146:147:void addMenuMainItem(com.faendir.lightning_launcher.multitool.proxy.Menu,java.lang.String,java.lang.Runnable) -> a
-    150:154:void addEventHandler(com.faendir.lightning_launcher.multitool.proxy.PropertySet,java.lang.String,int,java.lang.String) -> a
+    com.faendir.lightning_launcher.multitool.util.LightningObjectFactory$FunctionFactory functionFactory -> d
+    28:37:void <init>(com.faendir.lightning_launcher.multitool.util.LightningObjectFactory$EvalFunction,com.faendir.lightning_launcher.multitool.util.LightningObjectFactory$FunctionFactory) -> <init>
+    40:40:android.content.Context getLightningContext() -> a
+    44:44:android.content.Context getMultitoolContext() -> b
+    48:48:android.content.res.Resources getMultitoolResources() -> c
+    52:52:java.lang.String getString(int) -> a
+    56:56:java.lang.String getString(int,java.lang.Object[]) -> a
+    60:60:com.faendir.lightning_launcher.multitool.proxy.Lightning getLightning() -> d
+    64:64:com.faendir.lightning_launcher.multitool.proxy.Event getEvent() -> e
+    68:68:com.faendir.lightning_launcher.multitool.proxy.Container getContainer() -> f
+    72:72:com.faendir.lightning_launcher.multitool.proxy.Screen getActiveScreen() -> g
+    76:76:com.faendir.lightning_launcher.multitool.proxy.Image$Class getImageClass() -> h
+    80:80:android.content.SharedPreferences getSharedPref() -> i
+    84:84:com.faendir.lightning_launcher.multitool.proxy.Script installNormalScript() -> j
+    88:88:com.faendir.lightning_launcher.multitool.proxy.Script installMenuScript() -> k
+    92:92:com.faendir.lightning_launcher.multitool.proxy.Script installActivityResultScript() -> l
+    96:96:com.faendir.lightning_launcher.multitool.proxy.Script installCreateViewScript() -> m
+    100:100:com.faendir.lightning_launcher.multitool.proxy.Script installRegisterScript() -> n
+    104:104:com.faendir.lightning_launcher.multitool.proxy.Script installUnregisterScript() -> o
+    108:108:com.faendir.lightning_launcher.multitool.proxy.Script installCommandScript() -> p
+    112:124:com.faendir.lightning_launcher.multitool.proxy.Script installScript(int,java.lang.String) -> a
+    128:144:void centerOnTouch(com.faendir.lightning_launcher.multitool.proxy.Item) -> a
+    147:147:com.faendir.lightning_launcher.multitool.proxy.Function asFunction(java.lang.Runnable) -> a
+    155:159:void addEventHandler(com.faendir.lightning_launcher.multitool.proxy.PropertySet,java.lang.String,int,java.lang.String) -> a
 com.faendir.lightning_launcher.multitool.proxy.VariableEditor -> com.faendir.lightning_launcher.multitool.proxy.VariableEditor:
     com.faendir.lightning_launcher.multitool.proxy.VariableEditor setString(java.lang.String,java.lang.String) -> setString
     void commit() -> commit
@@ -23663,63 +23813,34 @@ com.faendir.lightning_launcher.multitool.scriptmanager.Transfer -> com.faendir.l
     com.faendir.lightning_launcher.multitool.scriptmanager.Script script -> b
     22:24:void <init>(java.lang.String) -> <init>
     26:29:void <init>(java.lang.String,com.faendir.lightning_launcher.multitool.scriptmanager.Script) -> <init>
-com.faendir.lightning_launcher.multitool.settings.BackupTimePreference -> com.faendir.lightning_launcher.multitool.settings.BackupTimePreference:
-    com.faendir.lightning_launcher.multitool.backup.BackupTime backupTime -> a
-    java.util.Map map -> b
-    android.widget.TimePicker picker -> c
-    27:36:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    40:52:android.view.View onCreateDialogView() -> onCreateDialogView
-    57:64:void onBindDialogView(android.view.View) -> onBindDialogView
-    68:78:void onDialogClosed(boolean) -> onDialogClosed
-    82:82:java.lang.Object onGetDefaultValue(android.content.res.TypedArray,int) -> onGetDefaultValue
-    87:97:void onSetInitialValue(boolean,java.lang.Object) -> onSetInitialValue
-    101:102:void onClick(android.view.View) -> onClick
-    106:106:java.lang.CharSequence getSummaryText() -> a
-    71:71:boolean lambda$onDialogClosed$1$BackupTimePreference(java.util.Map$Entry) -> a
-    49:49:void lambda$onCreateDialogView$0$BackupTimePreference(android.widget.Button) -> a
-com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$0 -> com.faendir.lightning_launcher.multitool.settings.a:
-    com.faendir.lightning_launcher.multitool.settings.BackupTimePreference arg$1 -> a
-    void <init>(com.faendir.lightning_launcher.multitool.settings.BackupTimePreference) -> <init>
-    void accept(java.lang.Object) -> a
-    java9.util.function.Consumer andThen(java9.util.function.Consumer) -> a
-com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$1 -> com.faendir.lightning_launcher.multitool.settings.b:
-    java9.util.function.Predicate $instance -> a
-    void <init>() -> <init>
-    boolean test(java.lang.Object) -> a
-    void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$2 -> com.faendir.lightning_launcher.multitool.settings.c:
-    java9.util.function.Function $instance -> a
-    void <init>() -> <init>
-    java.lang.Object apply(java.lang.Object) -> a
-    void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.settings.DefaultPlayerPreference -> com.faendir.lightning_launcher.multitool.settings.DefaultPlayerPreference:
     15:17:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     21:21:java.lang.CharSequence getSummaryText() -> a
     void discoverPlayers(android.content.pm.PackageManager) -> a
-com.faendir.lightning_launcher.multitool.settings.HasPlayerEntries -> com.faendir.lightning_launcher.multitool.settings.d:
+com.faendir.lightning_launcher.multitool.settings.HasPlayerEntries -> com.faendir.lightning_launcher.multitool.settings.a:
     void setEntries(java.lang.CharSequence[]) -> setEntries
     void setEntryValues(java.lang.CharSequence[]) -> setEntryValues
-com.faendir.lightning_launcher.multitool.settings.HasPlayerEntries$$CC -> com.faendir.lightning_launcher.multitool.settings.e:
+com.faendir.lightning_launcher.multitool.settings.HasPlayerEntries$$CC -> com.faendir.lightning_launcher.multitool.settings.b:
     21:24:void discoverPlayers(com.faendir.lightning_launcher.multitool.settings.HasPlayerEntries,android.content.pm.PackageManager) -> a
     23:23:java.lang.String[] lambda$discoverPlayers$3$HasPlayerEntries$$CC(int) -> a
     23:23:java.lang.String lambda$discoverPlayers$2$HasPlayerEntries$$CC(android.content.pm.ResolveInfo) -> a
     22:22:java.lang.String[] lambda$discoverPlayers$1$HasPlayerEntries$$CC(int) -> b
     22:22:java.lang.String lambda$discoverPlayers$0$HasPlayerEntries$$CC(android.content.pm.PackageManager,android.content.pm.ResolveInfo) -> a
-com.faendir.lightning_launcher.multitool.settings.HasPlayerEntries$$Lambda$0 -> com.faendir.lightning_launcher.multitool.settings.f:
+com.faendir.lightning_launcher.multitool.settings.HasPlayerEntries$$Lambda$0 -> com.faendir.lightning_launcher.multitool.settings.c:
     android.content.pm.PackageManager arg$1 -> a
     void <init>(android.content.pm.PackageManager) -> <init>
     java.lang.Object apply(java.lang.Object) -> a
-com.faendir.lightning_launcher.multitool.settings.HasPlayerEntries$$Lambda$1 -> com.faendir.lightning_launcher.multitool.settings.g:
+com.faendir.lightning_launcher.multitool.settings.HasPlayerEntries$$Lambda$1 -> com.faendir.lightning_launcher.multitool.settings.d:
     java9.util.function.IntFunction $instance -> a
     void <init>() -> <init>
     java.lang.Object apply(int) -> a
     void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.multitool.settings.HasPlayerEntries$$Lambda$2 -> com.faendir.lightning_launcher.multitool.settings.h:
+com.faendir.lightning_launcher.multitool.settings.HasPlayerEntries$$Lambda$2 -> com.faendir.lightning_launcher.multitool.settings.e:
     java9.util.function.Function $instance -> a
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object) -> a
     void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.multitool.settings.HasPlayerEntries$$Lambda$3 -> com.faendir.lightning_launcher.multitool.settings.i:
+com.faendir.lightning_launcher.multitool.settings.HasPlayerEntries$$Lambda$3 -> com.faendir.lightning_launcher.multitool.settings.f:
     java9.util.function.IntFunction $instance -> a
     void <init>() -> <init>
     java.lang.Object apply(int) -> a
@@ -23735,27 +23856,27 @@ com.faendir.lightning_launcher.multitool.settings.PlayersPreference -> com.faend
     43:43:java.lang.String lambda$onGetDefaultValue$1$PlayersPreference(android.content.pm.ResolveInfo) -> a
     30:30:boolean lambda$getSelectedEntries$0$PlayersPreference(java.lang.Integer) -> a
     void discoverPlayers(android.content.pm.PackageManager) -> a
-com.faendir.lightning_launcher.multitool.settings.PlayersPreference$$Lambda$0 -> com.faendir.lightning_launcher.multitool.settings.j:
+com.faendir.lightning_launcher.multitool.settings.PlayersPreference$$Lambda$0 -> com.faendir.lightning_launcher.multitool.settings.g:
     java.util.List arg$1 -> a
     void <init>(java.util.List) -> <init>
     java9.util.function.Function get$Lambda(java.util.List) -> a
     java.lang.Object apply(java.lang.Object) -> a
-com.faendir.lightning_launcher.multitool.settings.PlayersPreference$$Lambda$1 -> com.faendir.lightning_launcher.multitool.settings.k:
+com.faendir.lightning_launcher.multitool.settings.PlayersPreference$$Lambda$1 -> com.faendir.lightning_launcher.multitool.settings.h:
     java9.util.function.Predicate $instance -> a
     void <init>() -> <init>
     boolean test(java.lang.Object) -> a
     void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.multitool.settings.PlayersPreference$$Lambda$2 -> com.faendir.lightning_launcher.multitool.settings.l:
+com.faendir.lightning_launcher.multitool.settings.PlayersPreference$$Lambda$2 -> com.faendir.lightning_launcher.multitool.settings.i:
     java.util.List arg$1 -> a
     void <init>(java.util.List) -> <init>
     java9.util.function.Function get$Lambda(java.util.List) -> a
     java.lang.Object apply(java.lang.Object) -> a
-com.faendir.lightning_launcher.multitool.settings.PlayersPreference$$Lambda$3 -> com.faendir.lightning_launcher.multitool.settings.m:
+com.faendir.lightning_launcher.multitool.settings.PlayersPreference$$Lambda$3 -> com.faendir.lightning_launcher.multitool.settings.j:
     java9.util.function.Function $instance -> a
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object) -> a
     void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.multitool.settings.PreferenceListener -> com.faendir.lightning_launcher.multitool.settings.n:
+com.faendir.lightning_launcher.multitool.settings.PreferenceListener -> com.faendir.lightning_launcher.multitool.settings.k:
     java.util.Map map -> a
     android.preference.PreferenceScreen screen -> b
     22:25:void <init>(android.preference.PreferenceScreen) -> <init>
@@ -23763,10 +23884,9 @@ com.faendir.lightning_launcher.multitool.settings.PreferenceListener -> com.faen
     39:47:void setSummary(java.lang.String) -> b
     55:56:void addPreferenceForSummary(java.lang.String) -> a
     64:65:void addPreference(java.lang.String,java.lang.Runnable) -> a
-    73:74:void addPreferenceForSummary(java.lang.String,java.lang.Runnable) -> b
     83:87:void addPreference(java.lang.String,boolean,java.lang.Runnable) -> a
-com.faendir.lightning_launcher.multitool.settings.PreferenceListener$1 -> com.faendir.lightning_launcher.multitool.settings.n$1:
-com.faendir.lightning_launcher.multitool.settings.PreferenceListener$Wrapper -> com.faendir.lightning_launcher.multitool.settings.n$a:
+com.faendir.lightning_launcher.multitool.settings.PreferenceListener$1 -> com.faendir.lightning_launcher.multitool.settings.k$1:
+com.faendir.lightning_launcher.multitool.settings.PreferenceListener$Wrapper -> com.faendir.lightning_launcher.multitool.settings.k$a:
     boolean setSummaryToValue -> a
     java.lang.Runnable action -> b
     93:96:void <init>(java.lang.Runnable,boolean) -> <init>
@@ -23774,15 +23894,10 @@ com.faendir.lightning_launcher.multitool.settings.PreferenceListener$Wrapper -> 
 com.faendir.lightning_launcher.multitool.settings.PrefsFragment -> com.faendir.lightning_launcher.multitool.settings.PrefsFragment:
     android.content.SharedPreferences sharedPref -> a
     com.faendir.lightning_launcher.multitool.settings.PreferenceListener listener -> b
-    15:15:void <init>() -> <init>
-    21:32:void onCreate(android.os.Bundle) -> onCreate
-    36:38:void onDestroy() -> onDestroy
-    25:25:void lambda$onCreate$0$PrefsFragment() -> a
-com.faendir.lightning_launcher.multitool.settings.PrefsFragment$$Lambda$0 -> com.faendir.lightning_launcher.multitool.settings.o:
-    com.faendir.lightning_launcher.multitool.settings.PrefsFragment arg$1 -> a
-    void <init>(com.faendir.lightning_launcher.multitool.settings.PrefsFragment) -> <init>
-    void run() -> run
-com.faendir.lightning_launcher.multitool.settings.SummaryPreference -> com.faendir.lightning_launcher.multitool.settings.p:
+    13:13:void <init>() -> <init>
+    19:27:void onCreate(android.os.Bundle) -> onCreate
+    31:33:void onDestroy() -> onDestroy
+com.faendir.lightning_launcher.multitool.settings.SummaryPreference -> com.faendir.lightning_launcher.multitool.settings.l:
     java.lang.CharSequence getSummaryText() -> a
 com.faendir.lightning_launcher.multitool.settings.TrialPreference -> com.faendir.lightning_launcher.multitool.settings.TrialPreference:
     com.faendir.lightning_launcher.multitool.billing.BillingManager billingManager -> a
@@ -23795,19 +23910,19 @@ com.faendir.lightning_launcher.multitool.settings.TrialPreference -> com.faendir
     38:59:void lambda$update$1$TrialPreference() -> a
     58:58:void lambda$null$0$TrialPreference(java.lang.String) -> a
     void bridge$lambda$0$TrialPreference() -> b
-com.faendir.lightning_launcher.multitool.settings.TrialPreference$$Lambda$0 -> com.faendir.lightning_launcher.multitool.settings.q:
+com.faendir.lightning_launcher.multitool.settings.TrialPreference$$Lambda$0 -> com.faendir.lightning_launcher.multitool.settings.m:
     com.faendir.lightning_launcher.multitool.settings.TrialPreference arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.settings.TrialPreference) -> <init>
     void run() -> run
-com.faendir.lightning_launcher.multitool.settings.TrialPreference$$Lambda$1 -> com.faendir.lightning_launcher.multitool.settings.r:
+com.faendir.lightning_launcher.multitool.settings.TrialPreference$$Lambda$1 -> com.faendir.lightning_launcher.multitool.settings.n:
     com.faendir.lightning_launcher.multitool.settings.TrialPreference arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.settings.TrialPreference) -> <init>
     void run() -> run
-com.faendir.lightning_launcher.multitool.settings.TrialPreference$$Lambda$2 -> com.faendir.lightning_launcher.multitool.settings.s:
+com.faendir.lightning_launcher.multitool.settings.TrialPreference$$Lambda$2 -> com.faendir.lightning_launcher.multitool.settings.o:
     com.faendir.lightning_launcher.multitool.settings.TrialPreference arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.settings.TrialPreference) -> <init>
     void run() -> run
-com.faendir.lightning_launcher.multitool.settings.TrialPreference$$Lambda$3 -> com.faendir.lightning_launcher.multitool.settings.t:
+com.faendir.lightning_launcher.multitool.settings.TrialPreference$$Lambda$3 -> com.faendir.lightning_launcher.multitool.settings.p:
     com.faendir.lightning_launcher.multitool.settings.TrialPreference arg$1 -> a
     java.lang.String arg$2 -> b
     void <init>(com.faendir.lightning_launcher.multitool.settings.TrialPreference,java.lang.String) -> <init>
@@ -23827,14 +23942,7 @@ com.faendir.lightning_launcher.multitool.util.BaseActivity -> com.faendir.lightn
     52:52:android.support.v7.widget.Toolbar getToolbar() -> j
 com.faendir.lightning_launcher.multitool.util.DrawableProvider -> com.faendir.lightning_launcher.multitool.util.b:
     android.graphics.drawable.Drawable getDrawable() -> a
-com.faendir.lightning_launcher.multitool.util.DrawerManager -> com.faendir.lightning_launcher.multitool.util.c:
-    android.content.Context context -> a
-    com.mikepenz.materialdrawer.Drawer drawer -> b
-    25:29:void <init>(android.content.Context,com.mikepenz.materialdrawer.Drawer) -> <init>
-    32:36:boolean closeDrawer() -> a
-    41:44:void openDrawer() -> b
-    48:79:boolean onItemClick(android.view.View,int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem) -> a
-com.faendir.lightning_launcher.multitool.util.FragmentManager -> com.faendir.lightning_launcher.multitool.util.d:
+com.faendir.lightning_launcher.multitool.util.FragmentManager -> com.faendir.lightning_launcher.multitool.util.c:
     com.faendir.lightning_launcher.multitool.MainActivity context -> a
     android.app.FragmentManager manager -> b
     android.content.SharedPreferences sharedPref -> c
@@ -23842,22 +23950,53 @@ com.faendir.lightning_launcher.multitool.util.FragmentManager -> com.faendir.lig
     com.mikepenz.materialdrawer.Drawer drawer -> e
     android.app.Fragment currentFragment -> f
     int lastId -> g
-    38:44:void <init>(com.faendir.lightning_launcher.multitool.MainActivity,com.faendir.lightning_launcher.multitool.billing.BillingManager,com.mikepenz.materialdrawer.Drawer) -> <init>
-    50:103:void onSwitchFragmentRequest(com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest) -> onSwitchFragmentRequest
-    106:115:boolean loadLastFragment() -> a
-    65:101:void lambda$onSwitchFragmentRequest$1$FragmentManager(com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest,java.lang.String) -> a
-    59:61:void lambda$onSwitchFragmentRequest$0$FragmentManager(com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest) -> a
-com.faendir.lightning_launcher.multitool.util.FragmentManager$$Lambda$0 -> com.faendir.lightning_launcher.multitool.util.e:
+    32:38:void <init>(com.faendir.lightning_launcher.multitool.MainActivity,com.faendir.lightning_launcher.multitool.billing.BillingManager,com.mikepenz.materialdrawer.Drawer) -> <init>
+    44:72:void onSwitchFragmentRequest(com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest) -> onSwitchFragmentRequest
+    75:83:boolean loadLastFragment() -> a
+    59:70:void lambda$onSwitchFragmentRequest$1$FragmentManager(com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest,java.lang.String) -> a
+    53:55:void lambda$onSwitchFragmentRequest$0$FragmentManager(com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest) -> a
+com.faendir.lightning_launcher.multitool.util.FragmentManager$$Lambda$0 -> com.faendir.lightning_launcher.multitool.util.d:
     com.faendir.lightning_launcher.multitool.util.FragmentManager arg$1 -> a
     com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest arg$2 -> b
     void <init>(com.faendir.lightning_launcher.multitool.util.FragmentManager,com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest) -> <init>
     void run() -> run
-com.faendir.lightning_launcher.multitool.util.FragmentManager$$Lambda$1 -> com.faendir.lightning_launcher.multitool.util.f:
+com.faendir.lightning_launcher.multitool.util.FragmentManager$$Lambda$1 -> com.faendir.lightning_launcher.multitool.util.e:
     com.faendir.lightning_launcher.multitool.util.FragmentManager arg$1 -> a
     com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest arg$2 -> b
     java.lang.String arg$3 -> c
     void <init>(com.faendir.lightning_launcher.multitool.util.FragmentManager,com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest,java.lang.String) -> <init>
     void run() -> run
+com.faendir.lightning_launcher.multitool.util.Fragments -> com.faendir.lightning_launcher.multitool.util.f:
+    com.faendir.lightning_launcher.multitool.util.Fragments ANIMATION -> a
+    com.faendir.lightning_launcher.multitool.util.Fragments DRAWER -> b
+    com.faendir.lightning_launcher.multitool.util.Fragments BACKUP -> c
+    com.faendir.lightning_launcher.multitool.util.Fragments BADGE -> d
+    com.faendir.lightning_launcher.multitool.util.Fragments GESTURE -> e
+    com.faendir.lightning_launcher.multitool.util.Fragments LAUNCHER -> f
+    com.faendir.lightning_launcher.multitool.util.Fragments MUSIC -> g
+    com.faendir.lightning_launcher.multitool.util.Fragments MANAGER -> h
+    com.faendir.lightning_launcher.multitool.util.Fragments SETTINGS -> i
+    int res -> j
+    java.lang.Class type -> k
+    com.faendir.lightning_launcher.multitool.util.Fragments[] $VALUES -> l
+    26:26:com.faendir.lightning_launcher.multitool.util.Fragments[] values() -> values
+    26:26:com.faendir.lightning_launcher.multitool.util.Fragments valueOf(java.lang.String) -> valueOf
+    44:47:void <init>(java.lang.String,int,int,java.lang.Class) -> <init>
+    51:51:java9.util.stream.Stream stream() -> a
+    56:56:int getRes() -> b
+    60:61:void addTo(com.mikepenz.materialdrawer.DrawerBuilder) -> a
+    66:68:android.app.Fragment newInstance() -> c
+    74:74:com.mikepenz.materialdrawer.model.PrimaryDrawerItem createDrawerItem() -> d
+    75:76:boolean lambda$createDrawerItem$0$Fragments(android.view.View,int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem) -> a
+    26:26:void <init>(java.lang.String,int,int,java.lang.Class,com.faendir.lightning_launcher.multitool.util.Fragments$1) -> <init>
+    26:35:void <clinit>() -> <clinit>
+com.faendir.lightning_launcher.multitool.util.Fragments$$Lambda$0 -> com.faendir.lightning_launcher.multitool.util.g:
+    com.faendir.lightning_launcher.multitool.util.Fragments arg$1 -> a
+    void <init>(com.faendir.lightning_launcher.multitool.util.Fragments) -> <init>
+    boolean onItemClick(android.view.View,int,com.mikepenz.materialdrawer.model.interfaces.IDrawerItem) -> a
+com.faendir.lightning_launcher.multitool.util.Fragments$1 -> com.faendir.lightning_launcher.multitool.util.f$1:
+    35:35:void <init>(java.lang.String,int,int,java.lang.Class) -> <init>
+    38:39:void addTo(com.mikepenz.materialdrawer.DrawerBuilder) -> a
 com.faendir.lightning_launcher.multitool.util.IntentChooserFragment -> com.faendir.lightning_launcher.multitool.util.IntentChooserFragment:
     com.mikepenz.fastadapter.adapters.ModelAdapter adapter -> a
     com.mikepenz.fastadapter.FastAdapter fastAdapter -> b
@@ -23879,36 +24018,36 @@ com.faendir.lightning_launcher.multitool.util.IntentChooserFragment -> com.faend
     108:118:void lambda$onCreateView$2$IntentChooserFragment(android.view.View,java.util.List) -> a
     104:104:boolean lambda$onCreateView$1$IntentChooserFragment(com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem,java.lang.CharSequence) -> a
     92:101:boolean lambda$onCreateView$0$IntentChooserFragment(android.view.View,com.mikepenz.fastadapter.IAdapter,com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem,int) -> a
-com.faendir.lightning_launcher.multitool.util.IntentChooserFragment$$Lambda$0 -> com.faendir.lightning_launcher.multitool.util.g:
+com.faendir.lightning_launcher.multitool.util.IntentChooserFragment$$Lambda$0 -> com.faendir.lightning_launcher.multitool.util.h:
     java9.util.function.Function $instance -> a
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object) -> a
     void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.multitool.util.IntentChooserFragment$$Lambda$1 -> com.faendir.lightning_launcher.multitool.util.h:
+com.faendir.lightning_launcher.multitool.util.IntentChooserFragment$$Lambda$1 -> com.faendir.lightning_launcher.multitool.util.i:
     com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory arg$1 -> b
     void <init>(com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory) -> <init>
     com.mikepenz.fastadapter.IInterceptor get$Lambda(com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory) -> a
     java.lang.Object intercept(java.lang.Object) -> a
-com.faendir.lightning_launcher.multitool.util.IntentChooserFragment$$Lambda$2 -> com.faendir.lightning_launcher.multitool.util.i:
+com.faendir.lightning_launcher.multitool.util.IntentChooserFragment$$Lambda$2 -> com.faendir.lightning_launcher.multitool.util.j:
     com.faendir.lightning_launcher.multitool.util.IntentChooserFragment arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.util.IntentChooserFragment) -> <init>
     boolean onClick(android.view.View,com.mikepenz.fastadapter.IAdapter,com.mikepenz.fastadapter.IItem,int) -> onClick
-com.faendir.lightning_launcher.multitool.util.IntentChooserFragment$$Lambda$3 -> com.faendir.lightning_launcher.multitool.util.j:
+com.faendir.lightning_launcher.multitool.util.IntentChooserFragment$$Lambda$3 -> com.faendir.lightning_launcher.multitool.util.k:
     com.mikepenz.fastadapter.IItemAdapter$Predicate $instance -> a
     void <init>() -> <init>
     boolean filter(com.mikepenz.fastadapter.IItem,java.lang.CharSequence) -> a
     void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.multitool.util.IntentChooserFragment$$Lambda$4 -> com.faendir.lightning_launcher.multitool.util.k:
+com.faendir.lightning_launcher.multitool.util.IntentChooserFragment$$Lambda$4 -> com.faendir.lightning_launcher.multitool.util.l:
     com.faendir.lightning_launcher.multitool.util.IntentChooserFragment arg$1 -> a
     android.view.View arg$2 -> b
     void <init>(com.faendir.lightning_launcher.multitool.util.IntentChooserFragment,android.view.View) -> <init>
     void accept(java.lang.Object) -> a
     java9.util.function.Consumer andThen(java9.util.function.Consumer) -> a
-com.faendir.lightning_launcher.multitool.util.IntentChooserFragment$$Lambda$5 -> com.faendir.lightning_launcher.multitool.util.l:
+com.faendir.lightning_launcher.multitool.util.IntentChooserFragment$$Lambda$5 -> com.faendir.lightning_launcher.multitool.util.m:
     java.util.Comparator arg$1 -> a
     void <init>(java.util.Comparator) -> <init>
     int compare(java.lang.Object,java.lang.Object) -> compare
-com.faendir.lightning_launcher.multitool.util.IntentHandlerListTask -> com.faendir.lightning_launcher.multitool.util.m:
+com.faendir.lightning_launcher.multitool.util.IntentHandlerListTask -> com.faendir.lightning_launcher.multitool.util.n:
     android.content.pm.PackageManager pm -> a
     android.content.Intent intent -> b
     boolean isIndirect -> c
@@ -23918,7 +24057,7 @@ com.faendir.lightning_launcher.multitool.util.IntentHandlerListTask -> com.faend
     65:66:void onPostExecute(java.util.List) -> a
     22:22:void onPostExecute(java.lang.Object) -> onPostExecute
     22:22:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
-com.faendir.lightning_launcher.multitool.util.IntentInfo -> com.faendir.lightning_launcher.multitool.util.n:
+com.faendir.lightning_launcher.multitool.util.IntentInfo -> com.faendir.lightning_launcher.multitool.util.o:
     java.lang.ref.SoftReference icon -> a
     com.faendir.lightning_launcher.multitool.util.DrawableProvider provider -> b
     android.content.Intent intent -> c
@@ -23932,7 +24071,7 @@ com.faendir.lightning_launcher.multitool.util.IntentInfo -> com.faendir.lightnin
     59:59:int compareTo(com.faendir.lightning_launcher.multitool.util.IntentInfo) -> a
     64:64:int getTintColor() -> getTintColor
     18:18:int compareTo(java.lang.Object) -> compareTo
-com.faendir.lightning_launcher.multitool.util.LambdaUtils -> com.faendir.lightning_launcher.multitool.util.o:
+com.faendir.lightning_launcher.multitool.util.LambdaUtils -> com.faendir.lightning_launcher.multitool.util.p:
     24:24:java.lang.Runnable ignoreExceptions(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalRunnable) -> a
     54:54:java9.util.function.Supplier exceptionToOptional(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalSupplier) -> a
     65:65:java9.util.function.Function exceptionToOptional(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalFunction) -> a
@@ -23941,39 +24080,41 @@ com.faendir.lightning_launcher.multitool.util.LambdaUtils -> com.faendir.lightni
     67:69:java9.util.Optional lambda$exceptionToOptional$4$LambdaUtils(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalFunction,java.lang.Object) -> a
     56:58:java9.util.Optional lambda$exceptionToOptional$3$LambdaUtils(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalSupplier) -> b
     26:29:void lambda$ignoreExceptions$0$LambdaUtils(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalRunnable) -> b
-com.faendir.lightning_launcher.multitool.util.LambdaUtils$$Lambda$0 -> com.faendir.lightning_launcher.multitool.util.p:
+com.faendir.lightning_launcher.multitool.util.LambdaUtils$$Lambda$0 -> com.faendir.lightning_launcher.multitool.util.q:
     com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalRunnable arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalRunnable) -> <init>
     void run() -> run
-com.faendir.lightning_launcher.multitool.util.LambdaUtils$$Lambda$3 -> com.faendir.lightning_launcher.multitool.util.q:
+com.faendir.lightning_launcher.multitool.util.LambdaUtils$$Lambda$3 -> com.faendir.lightning_launcher.multitool.util.r:
     com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalSupplier arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalSupplier) -> <init>
     java.lang.Object get() -> a
-com.faendir.lightning_launcher.multitool.util.LambdaUtils$$Lambda$4 -> com.faendir.lightning_launcher.multitool.util.r:
+com.faendir.lightning_launcher.multitool.util.LambdaUtils$$Lambda$4 -> com.faendir.lightning_launcher.multitool.util.s:
     com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalFunction arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalFunction) -> <init>
     java.lang.Object apply(java.lang.Object) -> a
-com.faendir.lightning_launcher.multitool.util.LambdaUtils$$Lambda$5 -> com.faendir.lightning_launcher.multitool.util.s:
+com.faendir.lightning_launcher.multitool.util.LambdaUtils$$Lambda$5 -> com.faendir.lightning_launcher.multitool.util.t:
     com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiFunction arg$1 -> a
     void <init>(com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiFunction) -> <init>
     java.lang.Object apply(java.lang.Object,java.lang.Object) -> a
-com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiFunction -> com.faendir.lightning_launcher.multitool.util.o$a:
+com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiFunction -> com.faendir.lightning_launcher.multitool.util.p$a:
     java.lang.Object apply(java.lang.Object,java.lang.Object) -> a
-com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalFunction -> com.faendir.lightning_launcher.multitool.util.o$b:
+com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalFunction -> com.faendir.lightning_launcher.multitool.util.p$b:
     java.lang.Object apply(java.lang.Object) -> a
-com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalRunnable -> com.faendir.lightning_launcher.multitool.util.o$c:
+com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalRunnable -> com.faendir.lightning_launcher.multitool.util.p$c:
     void run() -> a
-com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalSupplier -> com.faendir.lightning_launcher.multitool.util.o$d:
+com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalSupplier -> com.faendir.lightning_launcher.multitool.util.p$d:
     java.lang.Object get() -> a
 com.faendir.lightning_launcher.multitool.util.LightningObjectFactory -> com.faendir.lightning_launcher.multitool.util.LightningObjectFactory:
     com.faendir.lightning_launcher.multitool.proxy.Utils utils -> utils
-    21:22:void <init>() -> <init>
-    24:26:void <init>(com.faendir.lightning_launcher.multitool.proxy.Utils) -> <init>
-    29:30:void init(com.faendir.lightning_launcher.multitool.util.LightningObjectFactory$EvalFunction) -> init
-    35:38:com.faendir.lightning_launcher.multitool.proxy.JavaScript get(java.lang.String) -> get
+    20:21:void <init>() -> <init>
+    23:25:void <init>(com.faendir.lightning_launcher.multitool.proxy.Utils) -> <init>
+    28:29:void init(com.faendir.lightning_launcher.multitool.util.LightningObjectFactory$EvalFunction,com.faendir.lightning_launcher.multitool.util.LightningObjectFactory$FunctionFactory) -> init
+    34:37:com.faendir.lightning_launcher.multitool.proxy.JavaScript get(java.lang.String) -> get
 com.faendir.lightning_launcher.multitool.util.LightningObjectFactory$EvalFunction -> com.faendir.lightning_launcher.multitool.util.LightningObjectFactory$a:
-    java.lang.Object eval(java.lang.Object,java.lang.String,java.lang.Object[]) -> a
-com.faendir.lightning_launcher.multitool.util.ReflectionJobCreator -> com.faendir.lightning_launcher.multitool.util.t:
+    java.lang.Object eval(java.lang.String,java.lang.Object[]) -> a
+com.faendir.lightning_launcher.multitool.util.LightningObjectFactory$FunctionFactory -> com.faendir.lightning_launcher.multitool.util.LightningObjectFactory$b:
+    java.lang.Object asFunction(java.lang.Object) -> a
+com.faendir.lightning_launcher.multitool.util.ReflectionJobCreator -> com.faendir.lightning_launcher.multitool.util.u:
     14:14:void <init>() -> <init>
     19:25:com.evernote.android.job.Job create(java.lang.String) -> a
 com.faendir.lightning_launcher.multitool.util.ResetReportPrimer -> com.faendir.lightning_launcher.multitool.util.ResetReportPrimer:
@@ -23984,7 +24125,7 @@ com.faendir.lightning_launcher.multitool.util.ResetReportPrimer -> com.faendir.l
     boolean shouldFinishActivity(android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.LastActivityManager) -> shouldFinishActivity
     boolean shouldKillApplication(android.content.Context,org.acra.config.CoreConfiguration,org.acra.builder.ReportBuilder,org.acra.data.CrashReportData) -> shouldKillApplication
     boolean enabled(org.acra.config.CoreConfiguration) -> enabled
-com.faendir.lightning_launcher.multitool.util.ResolveInfoDrawableProvider -> com.faendir.lightning_launcher.multitool.util.u:
+com.faendir.lightning_launcher.multitool.util.ResolveInfoDrawableProvider -> com.faendir.lightning_launcher.multitool.util.v:
     android.content.pm.PackageManager packageManager -> a
     android.content.pm.ResolveInfo info -> b
     17:20:void <init>(android.content.pm.PackageManager,android.content.pm.ResolveInfo) -> <init>
@@ -23993,16 +24134,16 @@ com.faendir.lightning_launcher.multitool.util.SetupDistributor -> com.faendir.li
     com.faendir.lightning_launcher.multitool.proxy.Utils utils -> utils
     14:16:void <init>(com.faendir.lightning_launcher.multitool.proxy.Utils) -> <init>
     20:25:void setup() -> setup
-com.faendir.lightning_launcher.multitool.util.Utils -> com.faendir.lightning_launcher.multitool.util.v:
+com.faendir.lightning_launcher.multitool.util.Utils -> com.faendir.lightning_launcher.multitool.util.w:
     com.google.gson.Gson GSON -> a
     19:22:void <clinit>() -> <clinit>
-com.faendir.lightning_launcher.multitool.util.Utils$IntentTypeAdapter -> com.faendir.lightning_launcher.multitool.util.v$a:
+com.faendir.lightning_launcher.multitool.util.Utils$IntentTypeAdapter -> com.faendir.lightning_launcher.multitool.util.w$a:
     27:27:void <init>() -> <init>
     32:40:void write(com.google.gson.stream.JsonWriter,android.content.Intent) -> a
     44:52:android.content.Intent read(com.google.gson.stream.JsonReader) -> a
     27:27:java.lang.Object read(com.google.gson.stream.JsonReader) -> b
     27:27:void write(com.google.gson.stream.JsonWriter,java.lang.Object) -> a
-com.faendir.lightning_launcher.multitool.util.Utils$IntentTypeAdapter$$Lambda$0 -> com.faendir.lightning_launcher.multitool.util.w:
+com.faendir.lightning_launcher.multitool.util.Utils$IntentTypeAdapter$$Lambda$0 -> com.faendir.lightning_launcher.multitool.util.x:
     com.faendir.lightning_launcher.multitool.util.LambdaUtils$ExceptionalBiFunction $instance -> a
     void <init>() -> <init>
     java.lang.Object apply(java.lang.Object,java.lang.Object) -> a
@@ -24199,6 +24340,10 @@ com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSour
     void <init>(android.content.SharedPreferences$Editor) -> <init>
     java9.util.function.BiConsumer get$Lambda(android.content.SharedPreferences$Editor) -> a
     void accept(java.lang.Object,java.lang.Object) -> a
+com.faendir.lightning_launcher.multitool.util.view.CanDisableTimePicker -> com.faendir.lightning_launcher.multitool.util.view.CanDisableTimePicker:
+    21:22:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    26:43:void setEnabled(boolean) -> setEnabled
+    46:46:int getSystemId(java.lang.String) -> a
 com.faendir.lightning_launcher.scriptlib.AsyncExecutorService -> com.faendir.lightning_launcher.scriptlib.a:
     android.content.Context context -> a
     com.faendir.lightning_launcher.scriptlib.ServiceManager2 serviceManager -> b
@@ -29325,6 +29470,7 @@ com.mikepenz.materialdrawer.model.AbstractDrawerItem -> com.mikepenz.materialdra
     136:136:boolean isSelectable() -> j
     157:157:boolean isSelectedBackgroundAnimated() -> c
     163:163:com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener getOnDrawerItemClickListener() -> l
+    175:176:java.lang.Object withOnDrawerItemClickListener(com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener) -> a
     203:206:void onPostBindView(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem,android.view.View) -> a
     216:216:com.mikepenz.materialdrawer.model.interfaces.IDrawerItem getParent() -> m
     227:228:com.mikepenz.materialdrawer.model.interfaces.IDrawerItem withParent(com.mikepenz.materialdrawer.model.interfaces.IDrawerItem) -> a

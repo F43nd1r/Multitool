@@ -8,7 +8,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 97
-        versionName "2.14.2-SNAPSHOT"
+        versionName "2.15"
     }
     buildTypes {
         release {

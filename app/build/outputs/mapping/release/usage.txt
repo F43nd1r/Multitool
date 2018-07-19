@@ -5637,7 +5637,7 @@ com.faendir.lightning_launcher.multitool.R$raw
 com.faendir.lightning_launcher.multitool.R$string
 com.faendir.lightning_launcher.multitool.R$style
 com.faendir.lightning_launcher.multitool.R$styleable:
-    5573:5573:public R$styleable()
+    5587:5587:public R$styleable()
 com.faendir.lightning_launcher.multitool.R$xml
 com.faendir.lightning_launcher.multitool.animation.AnimationScript$$Lambda$0:
     public java9.util.function.Function compose(java9.util.function.Function)
@@ -5645,12 +5645,19 @@ com.faendir.lightning_launcher.multitool.animation.AnimationScript$$Lambda$0:
 com.faendir.lightning_launcher.multitool.animation.AnimationScript$$Lambda$1:
     public java9.util.function.Function compose(java9.util.function.Function)
     public java9.util.function.Function andThen(java9.util.function.Function)
-com.faendir.lightning_launcher.multitool.backup.BackupUtils:
-    private static final int HOUR_IN_MS
-    34:34:public BackupUtils()
-com.faendir.lightning_launcher.multitool.backup.BackupUtils$$Lambda$1:
+com.faendir.lightning_launcher.multitool.backup.BackupTimePreference$$Lambda$2:
+    public java9.util.function.Predicate and(java9.util.function.Predicate)
+    public java9.util.function.Predicate negate()
+    public java9.util.function.Predicate or(java9.util.function.Predicate)
+com.faendir.lightning_launcher.multitool.backup.BackupTimePreference$$Lambda$3:
     public java9.util.function.Function compose(java9.util.function.Function)
     public java9.util.function.Function andThen(java9.util.function.Function)
+com.faendir.lightning_launcher.multitool.backup.BackupUtils:
+    private static final int HOUR_IN_MS
+    32:32:public BackupUtils()
+    48:58:public static java.lang.String toHumanReadableString(android.content.Context,com.faendir.lightning_launcher.multitool.backup.BackupTime)
+    55:57:static final synthetic java.lang.String lambda$toHumanReadableString$0$BackupUtils(java.lang.Integer)
+com.faendir.lightning_launcher.multitool.backup.BackupUtils$$Lambda$1
 com.faendir.lightning_launcher.multitool.badge.AppChooser$$Lambda$0:
     public java9.util.function.Predicate and(java9.util.function.Predicate)
     public java9.util.function.Predicate negate()
@@ -5734,6 +5741,10 @@ com.faendir.lightning_launcher.multitool.drawer.RestorePreference$$Lambda$1:
 com.faendir.lightning_launcher.multitool.drawer.RestorePreference$$Lambda$2:
     public java9.util.function.Function compose(java9.util.function.Function)
     public java9.util.function.Function andThen(java9.util.function.Function)
+com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest$$Lambda$0:
+    public java9.util.function.Predicate and(java9.util.function.Predicate)
+    public java9.util.function.Predicate negate()
+    public java9.util.function.Predicate or(java9.util.function.Predicate)
 com.faendir.lightning_launcher.multitool.fastadapter.DeletableModel:
     public abstract void setName(java.lang.String)
 com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem:
@@ -5788,7 +5799,9 @@ com.faendir.lightning_launcher.multitool.music.MusicNotificationListener$Callbac
     public java9.util.function.Function compose(java9.util.function.Function)
     public java9.util.function.Function andThen(java9.util.function.Function)
 com.faendir.lightning_launcher.multitool.proxy.Box$Area
+com.faendir.lightning_launcher.multitool.proxy.Box$HorizontalAlignment
 com.faendir.lightning_launcher.multitool.proxy.Box$Mode
+com.faendir.lightning_launcher.multitool.proxy.Box$VerticalAlignment
 com.faendir.lightning_launcher.multitool.proxy.Container$Type
 com.faendir.lightning_launcher.multitool.proxy.Image$Type
 com.faendir.lightning_launcher.multitool.proxy.Item$Type
@@ -5801,6 +5814,8 @@ com.faendir.lightning_launcher.multitool.proxy.PropertySet$StringProperty
 com.faendir.lightning_launcher.multitool.proxy.ProxyFactory$BaseProxyInvocationHandler$$Lambda$0:
     public java9.util.function.Function compose(java9.util.function.Function)
     public java9.util.function.Function andThen(java9.util.function.Function)
+com.faendir.lightning_launcher.multitool.proxy.Utils:
+    151:151:public com.faendir.lightning_launcher.multitool.proxy.Function asFunction(java9.util.function.Consumer)
 com.faendir.lightning_launcher.multitool.scriptmanager.ListManager:
     static final int NONE
     static final int ONE_SCRIPT
@@ -5855,13 +5870,6 @@ com.faendir.lightning_launcher.multitool.scriptmanager.Transfer:
     public static final java.lang.String SET_CODE
     public static final java.lang.String TOGGLE_DISABLE
 com.faendir.lightning_launcher.multitool.scriptmanager.Transfer$Action
-com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$1:
-    public java9.util.function.Predicate and(java9.util.function.Predicate)
-    public java9.util.function.Predicate negate()
-    public java9.util.function.Predicate or(java9.util.function.Predicate)
-com.faendir.lightning_launcher.multitool.settings.BackupTimePreference$$Lambda$2:
-    public java9.util.function.Function compose(java9.util.function.Function)
-    public java9.util.function.Function andThen(java9.util.function.Function)
 com.faendir.lightning_launcher.multitool.settings.HasPlayerEntries:
     public abstract void discoverPlayers(android.content.pm.PackageManager)
 com.faendir.lightning_launcher.multitool.settings.HasPlayerEntries$$Lambda$0:
@@ -5883,6 +5891,8 @@ com.faendir.lightning_launcher.multitool.settings.PlayersPreference$$Lambda$2:
 com.faendir.lightning_launcher.multitool.settings.PlayersPreference$$Lambda$3:
     public java9.util.function.Function compose(java9.util.function.Function)
     public java9.util.function.Function andThen(java9.util.function.Function)
+com.faendir.lightning_launcher.multitool.settings.PreferenceListener:
+    73:74:public void addPreferenceForSummary(java.lang.String,java.lang.Runnable)
 com.faendir.lightning_launcher.multitool.util.FragmentManager:
     public static final java.lang.String EXTRA_MODE
 com.faendir.lightning_launcher.multitool.util.IntentChooserFragment:
@@ -7134,7 +7144,6 @@ com.mikepenz.materialdrawer.model.AbstractDrawerItem:
     68:68:public java.lang.Object getTag()
     81:82:public java.lang.Object withEnabled(boolean)
     149:150:public java.lang.Object withSelectedBackgroundAnimated(boolean)
-    175:176:public java.lang.Object withOnDrawerItemClickListener(com.mikepenz.materialdrawer.Drawer$OnDrawerItemClickListener)
     182:182:public com.mikepenz.materialdrawer.model.interfaces.OnPostBindViewListener getOnPostBindViewListener()
     192:193:public java.lang.Object withPostOnBindViewListener(com.mikepenz.materialdrawer.model.interfaces.OnPostBindViewListener)
     242:246:public java.lang.Object withSubItems(java.util.List)
