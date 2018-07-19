@@ -310,6 +310,7 @@
     <string name="message_backupHelp">If enabled, this will automatically create a Lightning backup at the set time.\nIt will only work if you\'ve created a backup through Lightning at least once.</string>
     <string name="check_animate">Animate</string>
     <string name="message_animationHelp">In here you can preview animations.\nTo enable one in a Lightning container, press Menu → + → Plugins → Animation → Select which animation you want</string>
+    <string name="message_helpBadge">You can add a Badge inside Lightning: Menu → + → Plugins → Badge → Select App</string>
     <string-array name="sortings">
         <item>Relevance</item>
         <item>Alphabetical</item>
