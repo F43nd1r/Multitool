@@ -3,10 +3,14 @@ package com.faendir.lightning_launcher.multitool.animation;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -21,6 +25,12 @@ import com.faendir.lightning_launcher.multitool.R;
  */
 public class AnimationFragment extends Fragment {
     private boolean isReverse = false;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Nullable
     @Override
@@ -45,20 +55,34 @@ public class AnimationFragment extends Fragment {
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                ValueAnimator a = animator.clone();
-                a.setStartDelay(1000);
+                animator.setStartDelay(1000);
                 isReverse = !isReverse;
-                a.start();
+                animator.start();
             }
         });
         animator.start();
         shouldAnimate.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (!isChecked && animator.isRunning()) {
-                animator.cancel();
-            } else if (!animator.isRunning()) {
-                animator.start();
+                animator.pause();
+            } else if (animator.isPaused()) {
+                animator.resume();
             }
         });
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.animation, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_help:
+                new AlertDialog.Builder(getActivity()).setTitle(R.string.title_help).setMessage(R.string.message_animationHelp).setPositiveButton(R.string.button_ok, null).show();
+                break;
+        }
+        return true;
     }
 }

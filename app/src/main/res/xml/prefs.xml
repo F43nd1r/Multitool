@@ -28,6 +28,9 @@
     <PreferenceCategory android:title="@string/title_drawer">
         <com.faendir.lightning_launcher.multitool.settings.TrialPreference android:title="@string/title_drawer" />
     </PreferenceCategory>
+    <PreferenceCategory android:title="@string/title_animation">
+    <com.faendir.lightning_launcher.multitool.settings.TrialPreference android:title="@string/title_animation" />
+    </PreferenceCategory>
     <PreferenceCategory android:title="Badges">
         <CheckBoxPreference
             android:defaultValue="true"

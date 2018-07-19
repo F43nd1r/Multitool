@@ -61,7 +61,7 @@ public class MainActivity extends BaseActivity {
                             Intent emailIntent = new Intent(Intent.ACTION_SENDTO,
                                     Uri.fromParts(getString(R.string.link_email_scheme), getString(R.string.link_email_adress), null));
                             emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.link_email_subject));
-                            startActivity(Intent.createChooser(emailIntent, getString(R.string.link_email_chooser)));
+                            startActivity(emailIntent);
                             return true;
                         })).withSelectedItem(-1).withCloseOnClick(true).build();
         fragmentManager = new FragmentManager(this, billingManager, drawer);

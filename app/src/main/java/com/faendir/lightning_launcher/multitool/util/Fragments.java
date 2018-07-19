@@ -23,13 +23,13 @@ import org.greenrobot.eventbus.EventBus;
  * @since 18.07.18
  */
 public enum Fragments {
-    LAUNCHER(R.string.title_launcherScript, LauncherScriptFragment.class),
-    MANAGER(R.string.title_scriptManager, ScriptManagerFragment.class),
-    GESTURE(R.string.title_gestureLauncher, GestureFragment.class),
-    MUSIC(R.string.title_musicWidget, MusicFragment.class),
+    ANIMATION(R.string.title_animation, AnimationFragment.class),
     DRAWER(R.string.title_drawer, DrawerFragment.class),
     BACKUP(R.string.title_backup, BackupFragment.class),
-    ANIMATION(R.string.title_animation, AnimationFragment.class),
+    GESTURE(R.string.title_gestureLauncher, GestureFragment.class),
+    LAUNCHER(R.string.title_launcherScript, LauncherScriptFragment.class),
+    MUSIC(R.string.title_musicWidget, MusicFragment.class),
+    MANAGER(R.string.title_scriptManager, ScriptManagerFragment.class),
     SETTINGS(R.string.title_settings, PrefsFragment.class) {
         @Override
         public void addTo(@NonNull DrawerBuilder drawerBuilder) {
