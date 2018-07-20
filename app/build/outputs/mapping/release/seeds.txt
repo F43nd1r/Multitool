@@ -11589,8 +11589,23 @@ com.faendir.lightning_launcher.multitool.R$xml: int backup_descriptor
 com.faendir.lightning_launcher.multitool.R$xml: int badge
 com.faendir.lightning_launcher.multitool.R$xml: int drawer
 com.faendir.lightning_launcher.multitool.R$xml: int prefs
+com.faendir.lightning_launcher.multitool.animation.Animation
+com.faendir.lightning_launcher.multitool.animation.Animation: com.faendir.lightning_launcher.multitool.animation.Animation BULLDOZE
+com.faendir.lightning_launcher.multitool.animation.Animation: com.faendir.lightning_launcher.multitool.animation.Animation CARD
+com.faendir.lightning_launcher.multitool.animation.Animation: com.faendir.lightning_launcher.multitool.animation.Animation FLIP
+com.faendir.lightning_launcher.multitool.animation.Animation: com.faendir.lightning_launcher.multitool.animation.Animation FLIP_3D
+com.faendir.lightning_launcher.multitool.animation.Animation: com.faendir.lightning_launcher.multitool.animation.Animation SHRINK
+com.faendir.lightning_launcher.multitool.animation.Animation: com.faendir.lightning_launcher.multitool.animation.Animation TURN
+com.faendir.lightning_launcher.multitool.animation.Animation: com.faendir.lightning_launcher.multitool.animation.Animation CUBE
+com.faendir.lightning_launcher.multitool.animation.Animation: int label
+com.faendir.lightning_launcher.multitool.animation.Animation: com.faendir.lightning_launcher.multitool.animation.Animation[] $VALUES
 com.faendir.lightning_launcher.multitool.animation.Animation: com.faendir.lightning_launcher.multitool.animation.Animation[] values()
 com.faendir.lightning_launcher.multitool.animation.Animation: com.faendir.lightning_launcher.multitool.animation.Animation valueOf(java.lang.String)
+com.faendir.lightning_launcher.multitool.animation.Animation: Animation(java.lang.String,int,int)
+com.faendir.lightning_launcher.multitool.animation.Animation: int getLabel()
+com.faendir.lightning_launcher.multitool.animation.Animation: com.faendir.lightning_launcher.multitool.animation.Transformation getTransformation(android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.Size,android.graphics.PointF,com.faendir.lightning_launcher.multitool.animation.PointB)
+com.faendir.lightning_launcher.multitool.animation.Animation: Animation(java.lang.String,int,int,com.faendir.lightning_launcher.multitool.animation.Animation$1)
+com.faendir.lightning_launcher.multitool.animation.Animation: void <clinit>()
 com.faendir.lightning_launcher.multitool.animation.AnimationDemo
 com.faendir.lightning_launcher.multitool.animation.AnimationDemo: AnimationDemo(android.content.Context,android.util.AttributeSet)
 com.faendir.lightning_launcher.multitool.animation.AnimationDemo: void setAnimation(com.faendir.lightning_launcher.multitool.animation.Animation)
@@ -12043,6 +12058,8 @@ com.faendir.lightning_launcher.multitool.proxy.PropertySet: com.faendir.lightnin
 com.faendir.lightning_launcher.multitool.proxy.PropertySet: boolean getBoolean(java.lang.String)
 com.faendir.lightning_launcher.multitool.proxy.PropertySet: com.faendir.lightning_launcher.multitool.proxy.EventHandler getEventHandler(java.lang.String)
 com.faendir.lightning_launcher.multitool.proxy.PropertySet: java.lang.String getString(java.lang.String)
+com.faendir.lightning_launcher.multitool.proxy.Proxy
+com.faendir.lightning_launcher.multitool.proxy.Proxy: java.lang.Object getReal()
 com.faendir.lightning_launcher.multitool.proxy.RectL
 com.faendir.lightning_launcher.multitool.proxy.RectL: int getLeft()
 com.faendir.lightning_launcher.multitool.proxy.RectL: int getRight()

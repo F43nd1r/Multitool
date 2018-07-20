@@ -1,6 +1,7 @@
 package com.faendir.lightning_launcher.multitool.animation;
 
 import android.graphics.PointF;
+import android.support.annotation.Keep;
 import android.support.annotation.StringRes;
 import com.faendir.lightning_launcher.multitool.R;
 
@@ -8,6 +9,7 @@ import com.faendir.lightning_launcher.multitool.R;
  * @author lukas
  * @since 10.07.18
  */
+@Keep
 enum Animation {
     BULLDOZE(R.string.title_bulldoze) {
         @Override

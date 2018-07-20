@@ -65,7 +65,12 @@ public class AnimationScript implements JavaScript.Setup, JavaScript.Normal {
         Container container = utils.getContainer();
         String tag = container.getTag(TAG_ANIMATION);
         if (tag == null) return;
-        Config config = GSON.fromJson(tag, Config.class);
+        Config config = null;
+        try {
+            config = GSON.fromJson(tag, Config.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if (config == null || config.animation == null) return;
         Size containerSize = new Size(container.getWidth(), container.getHeight());
         PointF position = new PointF(container.getPositionX(), container.getPositionY());
