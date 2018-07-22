@@ -141,6 +141,6 @@ public class BackupCreator implements JavaScript.Direct {
             Log.i(MultiTool.LOG_TAG, "Skipped backup because directory is not available");
         }
         Toast.makeText(utils.getMultitoolContext(), result ? utils.getString(R.string.toast_backupSuccess) : utils.getString(R.string.toast_backupFail), Toast.LENGTH_LONG).show();
-        return null;
+        return "";
     }
 }
