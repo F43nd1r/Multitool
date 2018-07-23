@@ -34,9 +34,7 @@ android {
 dependencies {
     def supportVersion = '27.1.1'
     def acraVersion = '5.2.0-rc2'
-    implementation('com.faendir.lightninglauncher:scriptlib:3.0-SNAPSHOT') {
-        changing = true
-    }
+    implementation 'com.faendir.lightninglauncher:scriptlib:3.0'
     implementation "com.android.support:appcompat-v7:$supportVersion"
     implementation "com.android.support:recyclerview-v7:$supportVersion"
     implementation "com.android.support:design:$supportVersion"

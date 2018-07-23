@@ -17,10 +17,5 @@ allprojects {
     repositories {
         jcenter()
         google()
-        maven { url "https://oss.jfrog.org/libs-snapshot/" }
     }
-}
-configurations.all {
-    resolutionStrategy.cacheDynamicVersionsFor 0, 'SECONDS'
-    resolutionStrategy.cacheChangingModulesFor 0, 'SECONDS'
 }
