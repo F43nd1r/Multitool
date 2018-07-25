@@ -1,15 +1,13 @@
 package com.faendir.lightning_launcher.multitool.drawer;
 
-import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.preference.MultiSelectListPreference;
 import android.util.AttributeSet;
+import androidx.preference.MultiSelectListPreference;
 import java9.util.stream.StreamSupport;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Set;
 
 import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
@@ -33,7 +31,7 @@ public class RestorePreference extends MultiSelectListPreference {
     }
 
     @Override
-    protected boolean callChangeListener(Object newValue) {
+    public boolean callChangeListener(Object newValue) {
         Set<String> values = getValues();
         //noinspection SuspiciousMethodCalls
         values.removeAll((Collection<?>) newValue);
@@ -43,12 +41,11 @@ public class RestorePreference extends MultiSelectListPreference {
     }
 
     @Override
-    protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
-        Set<String> values = getSharedPreferences().getStringSet(getKey(), Collections.emptySet());
+    protected void onSetInitialValue(Object defaultValue) {
+        //noinspection unchecked
+        Set<String> values = getPersistedStringSet((Set<String>) defaultValue);
         setEntryValues(values.toArray(new String[0]));
         setEntries(StreamSupport.stream(values).map(this::getLabelForComponent).toArray(String[]::new));
-        setValues(Collections.emptySet());
-        super.onPrepareDialogBuilder(builder);
         setValues(values);
     }
 }

@@ -1,6 +1,6 @@
 package com.faendir.lightning_launcher.multitool.event;
 
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 import com.faendir.lightning_launcher.multitool.util.Fragments;
 
 /**

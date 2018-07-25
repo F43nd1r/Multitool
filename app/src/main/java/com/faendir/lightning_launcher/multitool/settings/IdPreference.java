@@ -4,12 +4,13 @@ import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.preference.DialogPreference;
+import android.os.Bundle;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.widget.Toast;
-
+import androidx.annotation.NonNull;
+import androidx.preference.DialogPreference;
+import androidx.preference.PreferenceDialogFragmentCompat;
 import com.faendir.lightning_launcher.multitool.R;
 
 /**
@@ -23,16 +24,43 @@ public class IdPreference extends DialogPreference {
         setDialogMessage(Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID));
     }
 
-    @Override
-    public void onClick(DialogInterface dialog, int which) {
-        super.onClick(dialog, which);
-        if (which == DialogInterface.BUTTON_POSITIVE) {
-            ClipboardManager clipboardManager = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-            if (clipboardManager != null) {
-                clipboardManager.setPrimaryClip(ClipData.newPlainText(null, getDialogMessage()));
-            }
-            Toast.makeText(getContext(), R.string.toast_clipboard, Toast.LENGTH_SHORT).show();
+    public static class Dialog extends PreferenceDialogFragmentCompat {
+        private static final String KEY_MESSAGE = "IdPreference.message";
+        private CharSequence message;
+
+        public static Dialog newInstance(String key) {
+            final Dialog fragment = new Dialog();
+            final Bundle b = new Bundle(1);
+            b.putString(ARG_KEY, key);
+            fragment.setArguments(b);
+            return fragment;
         }
-        dialog.dismiss();
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            if (savedInstanceState == null) {
+                message = getPreference().getDialogMessage();
+            } else {
+                message = savedInstanceState.getCharSequence(KEY_MESSAGE);
+            }
+        }
+
+        @Override
+        public void onSaveInstanceState(@NonNull Bundle outState) {
+            super.onSaveInstanceState(outState);
+            outState.putCharSequence(KEY_MESSAGE, message);
+        }
+
+        @Override
+        public void onDialogClosed(boolean positiveResult) {
+            if (positiveResult) {
+                ClipboardManager clipboardManager = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                if (clipboardManager != null) {
+                    clipboardManager.setPrimaryClip(ClipData.newPlainText(null, message));
+                }
+                Toast.makeText(getContext(), R.string.toast_clipboard, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

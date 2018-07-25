@@ -6,11 +6,12 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
-import android.support.annotation.RawRes;
-import android.support.annotation.StringRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
+import androidx.annotation.StringRes;
 import android.util.Log;
 import android.widget.Toast;
+import androidx.core.content.pm.PackageInfoCompat;
 import com.faendir.lightning_launcher.multitool.animation.AnimationScript;
 import com.faendir.lightning_launcher.multitool.badge.BadgeSetup;
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
@@ -131,6 +132,6 @@ public class Loader extends Activity {
         PackageManager pm = getPackageManager();
         return exceptionToOptional((LambdaUtils.ExceptionalBiFunction<String, Integer, PackageInfo, PackageManager.NameNotFoundException>)pm::getPackageInfo).apply("net.pierrox.lightning_launcher_extreme", 0)
                 .or(() -> exceptionToOptional((LambdaUtils.ExceptionalBiFunction<String, Integer, PackageInfo, PackageManager.NameNotFoundException>)pm::getPackageInfo).apply("net.pierrox.lightning_launcher", 0))
-                .map(info -> info.versionCode % 1000 >= 307).orElse(false);
+                .map(info -> PackageInfoCompat.getLongVersionCode(info) % 1000 >= 307).orElse(false);
     }
 }

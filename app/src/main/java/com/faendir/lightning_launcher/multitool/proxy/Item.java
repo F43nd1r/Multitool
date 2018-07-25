@@ -1,6 +1,6 @@
 package com.faendir.lightning_launcher.multitool.proxy;
 
-import android.support.annotation.StringDef;
+import androidx.annotation.StringDef;
 import android.view.View;
 
 import java.lang.annotation.Retention;

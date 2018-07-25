@@ -3,13 +3,13 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Handler;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.ViewGroup;
-
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
 import com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory;
@@ -20,19 +20,18 @@ import com.mikepenz.fastadapter.adapters.ModelAdapter;
 import com.mikepenz.fastadapter.expandable.ExpandableExtension;
 import com.mikepenz.fastadapter.select.SelectExtension;
 import com.mikepenz.fastadapter_extensions.swipe.SimpleSwipeCallback;
-
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-
 import java9.lang.Iterables;
 import java9.util.Optional;
 import java9.util.function.Consumer;
 import java9.util.stream.Collectors;
 import java9.util.stream.IntStream;
 import java9.util.stream.StreamSupport;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 
 /**
  * Created on 01.04.2016.
@@ -84,7 +83,7 @@ class ListManager {
             });
 
             fastAdapter.notifyAdapterItemChanged(position);
-        }, null, ItemTouchHelper.RIGHT).withLeaveBehindSwipeRight(context.getResources().getDrawable(R.drawable.ic_delete_white)).withBackgroundSwipeRight(Color.RED))
+        }, null, ItemTouchHelper.RIGHT).withLeaveBehindSwipeRight(ContextCompat.getDrawable(context, R.drawable.ic_delete_white)).withBackgroundSwipeRight(Color.RED))
                 .attachToRecyclerView(recyclerView);
     }
 

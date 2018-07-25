@@ -4,7 +4,8 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import com.faendir.lightning_launcher.multitool.fastadapter.ClickAwareModel;
 
 /**
@@ -27,7 +28,7 @@ public class Action implements ClickAwareModel {
 
     @Override
     public Drawable getIcon(@NonNull Context context) {
-        return new ColorDrawable(context.getResources().getColor(android.R.color.transparent));
+        return new ColorDrawable(ContextCompat.getColor(context, android.R.color.transparent));
     }
 
     @Override

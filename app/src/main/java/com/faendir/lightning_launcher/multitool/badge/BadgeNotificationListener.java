@@ -6,20 +6,18 @@ import android.os.Build;
 import android.preference.PreferenceManager;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
-import android.support.annotation.RequiresApi;
-
+import androidx.annotation.RequiresApi;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.notification.NotificationListener;
+import java9.lang.Iterables;
+import java9.util.stream.Collectors;
+import java9.util.stream.Stream;
+import java9.util.stream.StreamSupport;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import java9.lang.Iterables;
-import java9.util.stream.Collectors;
-import java9.util.stream.Stream;
-import java9.util.stream.StreamSupport;
 
 /**
  * @author F43nd1r

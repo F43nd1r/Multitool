@@ -1,7 +1,7 @@
 package com.faendir.lightning_launcher.multitool.settings;
 
 import android.content.Context;
-import android.preference.ListPreference;
+import androidx.preference.ListPreference;
 import android.util.AttributeSet;
 
 /**

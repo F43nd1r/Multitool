@@ -2,11 +2,13 @@ package com.faendir.lightning_launcher.multitool.settings;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.ContextWrapper;
+import android.content.res.TypedArray;
 import android.os.Handler;
-import android.preference.Preference;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
-
+import androidx.core.content.res.TypedArrayUtils;
+import androidx.preference.Preference;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.billing.BaseBillingManager;
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
@@ -15,15 +17,21 @@ import com.faendir.lightning_launcher.multitool.billing.BillingManager;
  * @author F43nd1r
  * @since 12.11.2016
  */
-
 public class TrialPreference extends Preference {
     private final BillingManager billingManager;
     private boolean isBought = false;
     private BaseBillingManager.TrialState trialState = BaseBillingManager.TrialState.NOT_STARTED;
+    private final int res;
 
     public TrialPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setPersistent(false);
+        final TypedArray a = context.obtainStyledAttributes(attrs, androidx.preference.R.styleable.Preference, androidx.preference.R.attr.preferenceStyle, 0);
+        res = TypedArrayUtils.getResourceId(a, androidx.preference.R.styleable.Preference_title, androidx.preference.R.styleable.Preference_android_title, 0);
+        a.recycle();
+        if (context instanceof ContextWrapper) {
+            context = ((ContextWrapper) context).getBaseContext();
+        }
         if (context instanceof Activity) {
             billingManager = new BillingManager((Activity) context);
             update();
@@ -35,7 +43,6 @@ public class TrialPreference extends Preference {
     private void update() {
         new Thread(() -> {
             final String summary;
-            int res = getTitleRes();
             isBought = billingManager.isBought(res);
             if (isBought) {
                 summary = getContext().getString(R.string.summary_unlocked);
@@ -64,14 +71,13 @@ public class TrialPreference extends Preference {
         if (!isBought) {
             switch (trialState) {
                 case NOT_STARTED:
-                    billingManager.showTrialDialog(getTitleRes(), this::update);
+                    billingManager.showTrialDialog(res, this::update);
                     break;
                 case ONGOING:
                 case EXPIRED:
-                    billingManager.showBuyDialog(getTitleRes(), this::update);
+                    billingManager.showBuyDialog(res, this::update);
                     break;
             }
-
         }
     }
 

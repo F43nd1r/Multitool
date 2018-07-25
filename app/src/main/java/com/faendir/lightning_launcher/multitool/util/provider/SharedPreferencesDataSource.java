@@ -6,9 +6,12 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
-import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.os.Handler;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.preference.PreferenceManager;
+import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.Utils;
 import java9.util.function.BiConsumer;
@@ -25,7 +28,7 @@ public class SharedPreferencesDataSource implements QueryUpdateDataSource {
     static final String COLUMN_KEY = "key";
     static final String COLUMN_VALUE = "value";
     static final String COLUMN_TYPE = "type";
-    private boolean init = false;
+    private volatile Status init = Status.NOT_LOADED;
 
     @Override
     public String getPath() {
@@ -77,10 +80,30 @@ public class SharedPreferencesDataSource implements QueryUpdateDataSource {
     }
 
     private void init(@NonNull Context context) {
-        if (!init) {
-            PreferenceManager.setDefaultValues(context, R.xml.prefs, true);
-            PreferenceManager.setDefaultValues(context, R.xml.drawer, true);
-            init = true;
+        if (init != Status.LOADED) {
+            if (init != Status.LOADING) {
+                init = Status.LOADING;
+                new Handler(context.getMainLooper()).post(() -> {
+                    PreferenceManager.setDefaultValues(context, R.xml.prefs, true);
+                    PreferenceManager.setDefaultValues(context, R.xml.drawer, true);
+                    PreferenceManager.setDefaultValues(context, R.xml.backup, true);
+                    PreferenceManager.setDefaultValues(context, R.xml.badge, true);
+                    synchronized (SharedPreferencesDataSource.this) {
+                        init = Status.LOADED;
+                        SharedPreferencesDataSource.this.notifyAll();
+                    }
+                    if (MultiTool.DEBUG) Log.d(MultiTool.LOG_TAG, "Loaded default pref values");
+                });
+            }
+            while (init != Status.LOADED) {
+                try {
+                    synchronized (this) {
+                        wait();
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
@@ -91,5 +114,11 @@ public class SharedPreferencesDataSource implements QueryUpdateDataSource {
             return true;
         }
         return false;
+    }
+
+    private enum Status {
+        NOT_LOADED,
+        LOADING,
+        LOADED
     }
 }

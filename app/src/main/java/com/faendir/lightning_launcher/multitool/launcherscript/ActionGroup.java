@@ -3,7 +3,8 @@ package com.faendir.lightning_launcher.multitool.launcherscript;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.Model;
 
@@ -25,7 +26,7 @@ public class ActionGroup implements Model {
 
     @Override
     public Drawable getIcon(@NonNull Context context) {
-        return context.getResources().getDrawable(R.drawable.ic_arrow_drop_down_white);
+        return ContextCompat.getDrawable(context, R.drawable.ic_arrow_drop_down_white);
     }
 
     @Override

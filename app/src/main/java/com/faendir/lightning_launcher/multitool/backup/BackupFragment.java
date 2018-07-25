@@ -2,10 +2,10 @@ package com.faendir.lightning_launcher.multitool.backup;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import androidx.preference.PreferenceFragmentCompat;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.settings.PreferenceListener;
 
@@ -13,14 +13,13 @@ import com.faendir.lightning_launcher.multitool.settings.PreferenceListener;
  * @author lukas
  * @since 18.07.18
  */
-public class BackupFragment extends PreferenceFragment {
+public class BackupFragment extends PreferenceFragmentCompat {
     private PreferenceListener listener;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setHasOptionsMenu(true);
-        addPreferencesFromResource(R.xml.backup);
+        setPreferencesFromResource(R.xml.backup, rootKey);
         listener = new PreferenceListener(getPreferenceScreen());
         Runnable backupChanged = () -> BackupUtils.scheduleNext(getActivity());
         listener.addPreference(getString(R.string.pref_backupTime), backupChanged);

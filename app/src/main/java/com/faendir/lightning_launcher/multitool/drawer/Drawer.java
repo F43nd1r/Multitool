@@ -11,7 +11,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
-import android.support.annotation.Keep;
+import androidx.annotation.Keep;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.proxy.Box;
 import com.faendir.lightning_launcher.multitool.proxy.Container;

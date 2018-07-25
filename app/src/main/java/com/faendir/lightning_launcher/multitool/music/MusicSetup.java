@@ -1,7 +1,7 @@
 package com.faendir.lightning_launcher.multitool.music;
 
 import android.content.Intent;
-import android.support.annotation.Keep;
+import androidx.annotation.Keep;
 import android.widget.Toast;
 import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
@@ -118,6 +118,6 @@ public class MusicSetup implements JavaScript.Setup, JavaScript.Direct {
         utils.installNormalScript();
         utils.getActiveScreen().runAction(EventHandler.RESTART, null);
         Toast.makeText(utils.getLightningContext(),utils.getString(R.string.toast_done),Toast.LENGTH_SHORT).show();
-        return null;
+        return "";
     }
 }

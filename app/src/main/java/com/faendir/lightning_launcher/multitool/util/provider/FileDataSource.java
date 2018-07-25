@@ -1,7 +1,7 @@
 package com.faendir.lightning_launcher.multitool.util.provider;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.io.File;
 

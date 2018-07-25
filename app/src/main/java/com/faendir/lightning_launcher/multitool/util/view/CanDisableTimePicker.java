@@ -3,11 +3,11 @@ package com.faendir.lightning_launcher.multitool.util.view;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import androidx.core.content.ContextCompat;
 import com.faendir.lightning_launcher.multitool.R;
 
 import java.lang.reflect.InvocationTargetException;

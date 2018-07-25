@@ -3,7 +3,7 @@ package com.faendir.lightning_launcher.multitool.settings;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import java9.util.stream.StreamSupport;
 
 import java.util.List;

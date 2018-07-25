@@ -12,18 +12,16 @@ import android.os.ResultReceiver;
 import android.provider.Settings;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
-import android.support.annotation.NonNull;
-
+import androidx.annotation.NonNull;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.badge.BadgeNotificationListener;
 import com.faendir.lightning_launcher.multitool.billing.BaseBillingManager;
 import com.faendir.lightning_launcher.multitool.music.MusicNotificationListener;
 import com.faendir.lightning_launcher.scriptlib.DialogActivity;
+import java9.util.stream.StreamSupport;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import java9.util.stream.StreamSupport;
 
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
 public class NotificationDistributorService extends NotificationListenerService {

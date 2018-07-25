@@ -1,6 +1,6 @@
 package com.faendir.lightning_launcher.multitool.util;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java9.lang.FunctionalInterface;
 import java9.util.Optional;

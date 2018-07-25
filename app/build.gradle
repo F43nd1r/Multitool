@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 19
-        targetSdkVersion 27
-        versionCode 98
-        versionName "2.15.1"
+        targetSdkVersion 28
+        versionCode 99
+        versionName "2.15.2"
     }
     buildTypes {
         release {
@@ -32,12 +32,13 @@ android {
 }
 
 dependencies {
-    def supportVersion = '27.1.1'
+    def supportVersion = '1.0.0-beta01'
     def acraVersion = '5.2.0-rc2'
     implementation 'com.faendir.lightninglauncher:scriptlib:3.0'
-    implementation "com.android.support:appcompat-v7:$supportVersion"
-    implementation "com.android.support:recyclerview-v7:$supportVersion"
-    implementation "com.android.support:design:$supportVersion"
+    implementation "androidx.appcompat:appcompat:$supportVersion"
+    implementation "androidx.recyclerview:recyclerview:$supportVersion"
+    implementation "androidx.preference:preference:$supportVersion"
+    implementation "com.google.android.material:material:$supportVersion"
     implementation 'com.google.code.gson:gson:2.8.4'
     implementation "ch.acra:acra-http:$acraVersion"
     implementation "ch.acra:acra-limiter:$acraVersion"
@@ -45,12 +46,12 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'org.apache.commons:commons-collections4:4.1'
     implementation 'com.anjlab.android.iab.v3:library:1.0.44'
-    implementation 'com.mikepenz:materialdrawer:6.0.8'
-    implementation "com.mikepenz:fastadapter-extensions:3.2.7"
+    implementation 'com.mikepenz:materialdrawer:6.0.9'
+    implementation "com.mikepenz:fastadapter-extensions:3.2.8"
     implementation 'net.sourceforge.streamsupport:android-retrostreams:1.6.3'
     implementation 'org.mozilla:rhino:1.7.9'
     implementation 'com.evernote:android-job:1.2.6'
     compileOnly "com.google.auto.service:auto-service:1.0-rc4"
     annotationProcessor "com.google.auto.service:auto-service:1.0-rc4"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
 }

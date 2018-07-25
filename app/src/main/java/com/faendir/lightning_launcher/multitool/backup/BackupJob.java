@@ -1,7 +1,7 @@
 package com.faendir.lightning_launcher.multitool.backup;
 
-import android.support.annotation.Keep;
-import android.support.annotation.NonNull;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 
 import com.evernote.android.job.Job;
 import com.faendir.lightning_launcher.multitool.MultiTool;

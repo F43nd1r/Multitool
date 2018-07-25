@@ -2,8 +2,8 @@ package com.faendir.lightning_launcher.multitool.fastadapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 
 /**
  * @author F43nd1r

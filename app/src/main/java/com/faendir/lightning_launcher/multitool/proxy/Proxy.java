@@ -1,6 +1,6 @@
 package com.faendir.lightning_launcher.multitool.proxy;
 
-import android.support.annotation.Keep;
+import androidx.annotation.Keep;
 
 /**
  * @author lukas

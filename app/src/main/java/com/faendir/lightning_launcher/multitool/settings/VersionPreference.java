@@ -1,8 +1,8 @@
 package com.faendir.lightning_launcher.multitool.settings;
 
 import android.content.Context;
-import android.preference.Preference;
-import android.support.annotation.NonNull;
+import androidx.preference.Preference;
+import androidx.annotation.NonNull;
 import android.util.AttributeSet;
 
 import com.faendir.lightning_launcher.multitool.BuildConfig;

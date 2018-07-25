@@ -3,10 +3,10 @@ package com.faendir.lightning_launcher.multitool.billing;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.annotation.UiThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.annotation.UiThread;
 import android.util.Log;
 import android.widget.Toast;
 

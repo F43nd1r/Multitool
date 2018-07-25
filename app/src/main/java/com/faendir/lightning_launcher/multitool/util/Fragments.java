@@ -1,8 +1,8 @@
 package com.faendir.lightning_launcher.multitool.util;
 
-import android.app.Fragment;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
+import androidx.fragment.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.animation.AnimationFragment;
 import com.faendir.lightning_launcher.multitool.backup.BackupFragment;

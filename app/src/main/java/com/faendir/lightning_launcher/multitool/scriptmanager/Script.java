@@ -3,9 +3,9 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Keep;
-import android.support.annotation.NonNull;
-
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import com.faendir.lightning_launcher.multitool.Loader;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.DeletableModel;
@@ -64,7 +64,7 @@ public class Script extends com.trianguloy.llscript.repository.aidl.Script imple
 
     @Override
     public Drawable getIcon(@NonNull Context context) {
-        return context.getResources().getDrawable(R.drawable.ic_file_white);
+        return ContextCompat.getDrawable(context, R.drawable.ic_file_white);
     }
 
     @Override

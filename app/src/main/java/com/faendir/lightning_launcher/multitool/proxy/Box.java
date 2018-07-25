@@ -1,7 +1,7 @@
 package com.faendir.lightning_launcher.multitool.proxy;
 
-import android.support.annotation.ColorLong;
-import android.support.annotation.StringDef;
+import androidx.annotation.ColorLong;
+import androidx.annotation.StringDef;
 import java9.util.stream.Collectors;
 import java9.util.stream.Stream;
 

@@ -1,8 +1,7 @@
 package com.faendir.lightning_launcher.multitool.drawer;
 
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
-
+import androidx.preference.PreferenceFragmentCompat;
 import com.faendir.lightning_launcher.multitool.R;
 
 /**
@@ -10,10 +9,9 @@ import com.faendir.lightning_launcher.multitool.R;
  * @since 01.11.2016
  */
 
-public class DrawerFragment extends PreferenceFragment {
+public class DrawerFragment extends PreferenceFragmentCompat {
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.drawer);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        setPreferencesFromResource(R.xml.drawer, rootKey);
     }
 }

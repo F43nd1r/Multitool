@@ -1,8 +1,9 @@
 package com.faendir.lightning_launcher.multitool.proxy;
 
 import android.content.Intent;
-import android.support.annotation.Keep;
 import android.view.View;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 
 /**
  * @author lukas
@@ -46,6 +47,8 @@ public interface JavaScript {
     interface Direct extends JavaScript {
         String PARAM_CLASS = "multitool$classname";
         String PARAM_DATA = "multitool$data";
+
+        @NonNull
         String execute(String data);
     }
 

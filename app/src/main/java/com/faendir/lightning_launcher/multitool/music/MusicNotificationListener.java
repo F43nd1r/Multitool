@@ -1,5 +1,6 @@
 package com.faendir.lightning_launcher.multitool.music;
 
+import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -16,14 +17,14 @@ import android.net.Uri;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.service.notification.NotificationListenerService;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.view.KeyEvent;
-
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.notification.NotificationListener;
-
+import java9.util.Optional;
+import java9.util.stream.Stream;
+import java9.util.stream.StreamSupport;
 import org.acra.ACRA;
 import org.apache.commons.collections4.BidiMap;
 import org.apache.commons.collections4.bidimap.DualHashBidiMap;
@@ -38,10 +39,6 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 
-import java9.util.Optional;
-import java9.util.stream.Stream;
-import java9.util.stream.StreamSupport;
-
 import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 
 /**
@@ -49,7 +46,7 @@ import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptio
  *
  * @author F43nd1r
  */
-@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class MusicNotificationListener implements NotificationListener {
     private static final List<Integer> PLAYING_STATES = Arrays.asList(
             PlaybackState.STATE_PLAYING, PlaybackState.STATE_FAST_FORWARDING, PlaybackState.STATE_SKIPPING_TO_NEXT,

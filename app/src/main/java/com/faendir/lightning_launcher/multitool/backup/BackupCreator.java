@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Environment;
-import android.support.annotation.Keep;
+import androidx.annotation.Keep;
 import android.util.Log;
 import android.widget.Toast;
 import com.faendir.lightning_launcher.multitool.MultiTool;

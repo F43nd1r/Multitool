@@ -1,7 +1,7 @@
 package com.faendir.lightning_launcher.multitool.gesture;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.faendir.lightning_launcher.multitool.util.provider.FileDataSource;
 

@@ -1,8 +1,8 @@
 package com.faendir.lightning_launcher.multitool.animation;
 
 import android.graphics.PointF;
-import android.support.annotation.Keep;
-import android.support.annotation.StringRes;
+import androidx.annotation.Keep;
+import androidx.annotation.StringRes;
 import com.faendir.lightning_launcher.multitool.R;
 
 /**

@@ -1,10 +1,10 @@
 package com.faendir.lightning_launcher.multitool.settings;
 
 import android.content.SharedPreferences;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceScreen;
-import android.support.annotation.NonNull;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import androidx.annotation.NonNull;
 
 import java.util.HashMap;
 import java.util.Map;

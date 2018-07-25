@@ -6,19 +6,19 @@ import android.content.pm.PackageManager;
 import android.gesture.Gesture;
 import android.gesture.GestureOverlayView;
 import android.gesture.Prediction;
-import android.support.annotation.Keep;
 import android.util.Log;
 import android.widget.Toast;
-
+import androidx.annotation.Keep;
+import androidx.core.content.ContextCompat;
 import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.proxy.Utils;
+import java9.util.Optional;
+import java9.util.stream.StreamSupport;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
-import java9.util.Optional;
-import java9.util.stream.StreamSupport;
 
 import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
 import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
@@ -30,19 +30,22 @@ import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
  */
 @Keep
 public class LightningGestureView extends GestureOverlayView implements GestureOverlayView.OnGesturePerformedListener {
-
-    public LightningGestureView(Context context) {
-        super(context);
+    private LightningGestureView(Context lightningContext, Context packageContext) {
+        super(lightningContext);
         addOnGesturePerformedListener(this);
-        try {
-            int color = context.createPackageContext(BuildConfig.APPLICATION_ID, Context.CONTEXT_IGNORE_SECURITY).getResources().getColor(R.color.accent);
-            setGestureColor(color);
-            setUncertainGestureColor(color);
-        } catch (PackageManager.NameNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        int color = ContextCompat.getColor(packageContext, R.color.accent);
+        setGestureColor(color);
+        setUncertainGestureColor(color);
         setEventsInterceptionEnabled(true);
         if (DEBUG) Log.d(LOG_TAG, "Created gesture view");
+    }
+
+    public LightningGestureView(Context context) throws PackageManager.NameNotFoundException {
+        this(context, context.createPackageContext(BuildConfig.APPLICATION_ID, Context.CONTEXT_IGNORE_SECURITY));
+    }
+
+    public LightningGestureView(Utils utils) {
+        this(utils.getLightningContext(), utils.getMultitoolContext());
     }
 
     @Override

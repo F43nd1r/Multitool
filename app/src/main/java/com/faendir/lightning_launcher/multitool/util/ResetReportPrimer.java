@@ -3,8 +3,8 @@ package com.faendir.lightning_launcher.multitool.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.annotation.Keep;
-import android.support.annotation.NonNull;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 
 import com.faendir.lightning_launcher.multitool.R;
 import com.google.auto.service.AutoService;

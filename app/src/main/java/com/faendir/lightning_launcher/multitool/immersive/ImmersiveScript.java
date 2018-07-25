@@ -2,7 +2,7 @@ package com.faendir.lightning_launcher.multitool.immersive;
 
 import android.app.Activity;
 import android.os.Handler;
-import android.support.annotation.Keep;
+import androidx.annotation.Keep;
 import android.view.View;
 import com.faendir.lightning_launcher.multitool.proxy.Desktop;
 import com.faendir.lightning_launcher.multitool.proxy.EventHandler;

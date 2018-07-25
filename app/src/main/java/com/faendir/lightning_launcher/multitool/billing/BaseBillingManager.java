@@ -3,10 +3,10 @@ package com.faendir.lightning_launcher.multitool.billing;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.provider.Settings;
-import android.support.annotation.CheckResult;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.CheckResult;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import androidx.annotation.WorkerThread;
 import android.util.Log;
 
 import com.anjlab.android.iab.v3.BillingProcessor;

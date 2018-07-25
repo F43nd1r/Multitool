@@ -1,10 +1,10 @@
 package com.faendir.lightning_launcher.multitool.util;
 
-import android.app.Fragment;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBar;
+import androidx.appcompat.app.ActionBar;
+import androidx.fragment.app.Fragment;
 import com.faendir.lightning_launcher.multitool.MainActivity;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
@@ -22,7 +22,7 @@ import org.greenrobot.eventbus.ThreadMode;
 public class FragmentManager {
     public static final String EXTRA_MODE = "mode";
     private final MainActivity context;
-    private final android.app.FragmentManager manager;
+    private final androidx.fragment.app.FragmentManager manager;
     private final SharedPreferences sharedPref;
     private final BillingManager billingManager;
     private final Drawer drawer;
@@ -31,7 +31,7 @@ public class FragmentManager {
 
     public FragmentManager(MainActivity context, BillingManager billingManager, Drawer drawer) {
         this.context = context;
-        this.manager = context.getFragmentManager();
+        this.manager = context.getSupportFragmentManager();
         sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
         this.billingManager = billingManager;
         this.drawer = drawer;

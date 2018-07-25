@@ -1,7 +1,7 @@
 package com.faendir.lightning_launcher.multitool.gesture;
 
 import android.content.Intent;
-import android.support.annotation.Keep;
+import androidx.annotation.Keep;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -69,7 +69,7 @@ public class GestureScript implements JavaScript.CreateMenu, JavaScript.Setup, J
         item.setVerticalGrab(true);
 
         try{
-            return new LightningGestureView(utils.getLightningContext());
+            return new LightningGestureView(utils);
         } catch (Exception e) {
             Log.w(MultiTool.LOG_TAG, "Failed to load gesture widget");
             TextView t = new TextView(utils.getLightningContext());

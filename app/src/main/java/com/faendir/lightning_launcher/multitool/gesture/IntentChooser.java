@@ -2,15 +2,14 @@ package com.faendir.lightning_launcher.multitool.gesture;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
-
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.BaseActivity;
 import com.faendir.lightning_launcher.multitool.util.IntentChooserFragment;
+import com.google.android.material.tabs.TabLayout;
 
 public class IntentChooser extends BaseActivity {
 

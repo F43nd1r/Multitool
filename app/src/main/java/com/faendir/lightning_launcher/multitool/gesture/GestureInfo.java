@@ -11,9 +11,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.ParcelUuid;
 import android.os.Parcelable;
-import android.support.annotation.Keep;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.DeletableModel;
 import java9.util.Optional;
@@ -130,7 +131,7 @@ public class GestureInfo implements Parcelable, DeletableModel {
         if (drawable == null) {
             //noinspection ConstantConditions
             int iconSize = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getLauncherLargeIconSize();
-            int color = context.getResources().getColor(R.color.accent);
+            int color = ContextCompat.getColor(context, R.color.accent);
             Gesture gesture = getGesture(context);
             if (gesture != null) {
                 Bitmap bitmap = gesture.toBitmap(iconSize, iconSize, iconSize / 20, color);

@@ -2,15 +2,15 @@ package com.faendir.lightning_launcher.multitool.launcherscript;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.support.annotation.Keep;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.annotation.Keep;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.animation.AnimationScript;
 import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;

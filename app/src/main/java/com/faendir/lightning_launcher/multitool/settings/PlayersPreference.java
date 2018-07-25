@@ -3,7 +3,7 @@ package com.faendir.lightning_launcher.multitool.settings;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
-import android.preference.MultiSelectListPreference;
+import androidx.preference.MultiSelectListPreference;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import java9.util.stream.Collectors;

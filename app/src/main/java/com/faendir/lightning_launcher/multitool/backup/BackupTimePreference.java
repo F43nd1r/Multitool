@@ -2,12 +2,13 @@ package com.faendir.lightning_launcher.multitool.backup;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.preference.Preference;
+import androidx.preference.Preference;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TimePicker;
+import androidx.preference.PreferenceViewHolder;
 import com.faendir.lightning_launcher.multitool.R;
 import java9.util.stream.Collectors;
 import java9.util.stream.StreamSupport;
@@ -34,18 +35,18 @@ public class BackupTimePreference extends Preference implements View.OnClickList
     }
 
     @Override
-    protected void onBindView(View view) {
-        super.onBindView(view);
+    public void onBindViewHolder(PreferenceViewHolder holder) {
+        super.onBindViewHolder(holder);
         buttons = new HashMap<>();
-        buttons.put(view.findViewById(R.id.buttonMonday), Calendar.MONDAY);
-        buttons.put(view.findViewById(R.id.buttonTuesday), Calendar.TUESDAY);
-        buttons.put(view.findViewById(R.id.buttonWednesday), Calendar.WEDNESDAY);
-        buttons.put(view.findViewById(R.id.buttonThursday), Calendar.THURSDAY);
-        buttons.put(view.findViewById(R.id.buttonFriday), Calendar.FRIDAY);
-        buttons.put(view.findViewById(R.id.buttonSaturday), Calendar.SATURDAY);
-        buttons.put(view.findViewById(R.id.buttonSunday), Calendar.SUNDAY);
+        buttons.put((Button) holder.findViewById(R.id.buttonMonday), Calendar.MONDAY);
+        buttons.put((Button) holder.findViewById(R.id.buttonTuesday), Calendar.TUESDAY);
+        buttons.put((Button) holder.findViewById(R.id.buttonWednesday), Calendar.WEDNESDAY);
+        buttons.put((Button) holder.findViewById(R.id.buttonThursday), Calendar.THURSDAY);
+        buttons.put((Button) holder.findViewById(R.id.buttonFriday), Calendar.FRIDAY);
+        buttons.put((Button) holder.findViewById(R.id.buttonSaturday), Calendar.SATURDAY);
+        buttons.put((Button) holder.findViewById(R.id.buttonSunday), Calendar.SUNDAY);
         StreamSupport.stream(buttons.keySet()).forEach(button -> button.setOnClickListener(this));
-        picker = view.findViewById(R.id.timePicker);
+        picker = (TimePicker) holder.findViewById(R.id.timePicker);
         picker.setIs24HourView(DateFormat.is24HourFormat(getContext()));
         picker.setOnTimeChangedListener((v, h, m) -> persist());
         showValue();
@@ -84,13 +85,8 @@ public class BackupTimePreference extends Preference implements View.OnClickList
     }
 
     @Override
-    protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-        String time = null;
-
-        if (restoreValue) {
-            time = getPersistedString(null);
-        }
-        backupTime = BackupUtils.getBackupTime(time);
+    protected void onSetInitialValue(Object defaultValue) {
+        backupTime = BackupUtils.getBackupTime(getPersistedString(null));
     }
 
     @Override

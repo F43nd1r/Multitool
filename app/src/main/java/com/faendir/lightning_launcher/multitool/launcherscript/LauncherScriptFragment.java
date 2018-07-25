@@ -1,6 +1,5 @@
 package com.faendir.lightning_launcher.multitool.launcherscript;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,14 +8,14 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
@@ -25,7 +24,6 @@ import com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler;
 import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader;
 import com.trianguloy.llscript.repository.aidl.Script;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
