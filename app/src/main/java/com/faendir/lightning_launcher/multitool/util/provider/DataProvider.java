@@ -85,6 +85,7 @@ public class DataProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
+        StreamSupport.stream(DATA_SOURCES).forEach(dataSource -> dataSource.init(getContext()));
         return true;
 
     }

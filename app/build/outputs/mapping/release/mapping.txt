@@ -21418,17 +21418,18 @@ com.faendir.lightning_launcher.multitool.util.provider.DataProvider -> com.faend
     73:73:java.io.InputStream openFileForRead(android.content.Context,java.lang.Class) -> a
     77:77:java.io.OutputStream openFileForWrite(android.content.Context,java.lang.Class) -> b
     81:83:android.net.Uri getContentUri(java.lang.Class) -> a
-    88:88:boolean onCreate() -> onCreate
-    94:99:java9.util.Optional uriToSource(android.net.Uri,java.lang.Class) -> a
-    105:105:android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String) -> query
-    111:111:java.lang.String getType(android.net.Uri) -> getType
-    117:117:android.net.Uri insert(android.net.Uri,android.content.ContentValues) -> insert
-    122:122:int delete(android.net.Uri,java.lang.String,java.lang.String[]) -> delete
-    128:131:int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) -> update
-    137:142:android.os.ParcelFileDescriptor openFile(android.net.Uri,java.lang.String) -> openFile
-    128:128:java.lang.Integer lambda$update$2(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[],com.faendir.lightning_launcher.multitool.util.provider.QueryUpdateDataSource) -> a
-    105:105:android.database.Cursor lambda$query$1(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,com.faendir.lightning_launcher.multitool.util.provider.QueryUpdateDataSource) -> a
-    82:82:android.net.Uri lambda$getContentUri$0(com.faendir.lightning_launcher.multitool.util.provider.DataSource) -> a
+    88:89:boolean onCreate() -> onCreate
+    95:100:java9.util.Optional uriToSource(android.net.Uri,java.lang.Class) -> a
+    106:106:android.database.Cursor query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String) -> query
+    112:112:java.lang.String getType(android.net.Uri) -> getType
+    118:118:android.net.Uri insert(android.net.Uri,android.content.ContentValues) -> insert
+    123:123:int delete(android.net.Uri,java.lang.String,java.lang.String[]) -> delete
+    129:132:int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) -> update
+    138:143:android.os.ParcelFileDescriptor openFile(android.net.Uri,java.lang.String) -> openFile
+    129:129:java.lang.Integer lambda$update$3(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[],com.faendir.lightning_launcher.multitool.util.provider.QueryUpdateDataSource) -> a
+    106:106:android.database.Cursor lambda$query$2(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,com.faendir.lightning_launcher.multitool.util.provider.QueryUpdateDataSource) -> a
+    88:88:void lambda$onCreate$1(com.faendir.lightning_launcher.multitool.util.provider.DataSource) -> a
+    82:82:android.net.Uri lambda$getContentUri$0(com.faendir.lightning_launcher.multitool.util.provider.DataSource) -> b
     55:55:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.util.provider.DataProvider$Mode -> com.faendir.lightning_launcher.multitool.util.provider.DataProvider$a:
     com.faendir.lightning_launcher.multitool.util.provider.DataProvider$Mode r -> a
@@ -21442,6 +21443,7 @@ com.faendir.lightning_launcher.multitool.util.provider.DataProvider$Mode -> com.
     39:41:void <clinit>() -> <clinit>
 com.faendir.lightning_launcher.multitool.util.provider.DataSource -> com.faendir.lightning_launcher.multitool.util.provider.a:
     java.lang.String getPath() -> a
+    14:14:void init(android.content.Context) -> c
 com.faendir.lightning_launcher.multitool.util.provider.FileDataSource -> com.faendir.lightning_launcher.multitool.util.provider.b:
     java.io.File getFile(android.content.Context) -> a
 com.faendir.lightning_launcher.multitool.util.provider.QueryUpdateDataSource -> com.faendir.lightning_launcher.multitool.util.provider.c:
@@ -21483,23 +21485,12 @@ com.faendir.lightning_launcher.multitool.util.provider.RemoteSharedPreferences$E
     181:182:void apply() -> apply
     112:112:void <init>(com.faendir.lightning_launcher.multitool.util.provider.RemoteSharedPreferences,com.faendir.lightning_launcher.multitool.util.provider.RemoteSharedPreferences$1) -> <init>
 com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSource -> com.faendir.lightning_launcher.multitool.util.provider.e:
-    com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSource$Status init -> a
-    27:31:void <init>() -> <init>
-    35:35:java.lang.String getPath() -> a
-    41:54:android.database.Cursor query(android.content.Context,android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String) -> a
-    59:79:int update(android.content.Context,android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) -> a
-    83:108:void init(android.content.Context) -> a
-    111:116:boolean setIfTypeMatch(java.util.Map$Entry,java.lang.Class,java9.util.function.BiConsumer) -> a
-    87:96:void lambda$init$0(android.content.Context) -> b
-com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSource$Status -> com.faendir.lightning_launcher.multitool.util.provider.e$a:
-    com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSource$Status NOT_LOADED -> a
-    com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSource$Status LOADING -> b
-    com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSource$Status LOADED -> c
-    com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSource$Status[] $VALUES -> d
-    119:119:com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSource$Status[] values() -> values
-    119:119:com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesDataSource$Status valueOf(java.lang.String) -> valueOf
-    119:119:void <init>(java.lang.String,int) -> <init>
-    119:122:void <clinit>() -> <clinit>
+    26:26:void <init>() -> <init>
+    33:33:java.lang.String getPath() -> a
+    39:52:android.database.Cursor query(android.content.Context,android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String) -> a
+    57:77:int update(android.content.Context,android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[]) -> a
+    81:86:void init(android.content.Context) -> c
+    89:94:boolean setIfTypeMatch(java.util.Map$Entry,java.lang.Class,java9.util.function.BiConsumer) -> a
 com.faendir.lightning_launcher.multitool.util.view.CanDisableTimePicker -> com.faendir.lightning_launcher.multitool.util.view.CanDisableTimePicker:
     21:22:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
     26:43:void setEnabled(boolean) -> setEnabled
