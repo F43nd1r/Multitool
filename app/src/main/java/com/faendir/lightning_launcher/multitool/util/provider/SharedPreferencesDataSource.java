@@ -36,7 +36,6 @@ public class SharedPreferencesDataSource implements QueryUpdateDataSource {
     @Nullable
     @Override
     public Cursor query(@NonNull Context context, @NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        init(context);
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
         MatrixCursor cursor = new MatrixCursor(new String[]{COLUMN_KEY, COLUMN_VALUE, COLUMN_VALUE});
         Map<String, ?> values = sharedPref.getAll();
@@ -54,7 +53,6 @@ public class SharedPreferencesDataSource implements QueryUpdateDataSource {
 
     @Override
     public int update(@NonNull Context context, @NonNull Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-        init(context);
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPref.edit();
         for (Map.Entry<String, Object> entry : values.valueSet()) {
