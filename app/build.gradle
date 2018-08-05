@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.github.triplet.play'
 
 android {
     compileSdkVersion 28
@@ -7,12 +8,21 @@ android {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 100
-        versionName "2.15.3"
+        versionCode 101
+        versionName version
+    }
+    signingConfigs {
+        release {
+            storeFile file(androidKeyStoreFile)
+            storePassword androidKeyStorePassword
+            keyAlias androidKeyAlias
+            keyPassword androidKeyPassword
+        }
     }
     buildTypes {
         release {
             minifyEnabled true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
@@ -28,7 +38,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+}
 
+play {
+    jsonFile = file(playKeyFile)
+    track = version.contains('b') ? 'beta' : 'production'
 }
 
 dependencies {
