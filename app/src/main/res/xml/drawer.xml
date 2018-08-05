@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <CheckBoxPreference
         android:defaultValue="true"
@@ -8,4 +8,4 @@
     <com.faendir.lightning_launcher.multitool.drawer.RestorePreference
         android:key="@string/pref_hiddenApps"
         android:title="@string/title_hiddenApps" />
-</PreferenceScreen>
+</androidx.preference.PreferenceScreen>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <SwitchPreference
             android:defaultValue="false"
             android:key="@string/pref_enableBackup"
@@ -8,4 +8,4 @@
             android:dependency="@string/pref_enableBackup"
             android:key="@string/pref_backupTime"
             android:title="@string/title_backupTime"/>
-</PreferenceScreen>
+</androidx.preference.PreferenceScreen>

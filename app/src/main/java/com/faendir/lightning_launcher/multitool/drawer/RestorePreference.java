@@ -24,6 +24,8 @@ public class RestorePreference extends MultiSelectListPreference {
         super(context, attrs);
         setPersistent(true);
         pm = getContext().getPackageManager();
+        setEntries(new CharSequence[0]);
+        setEntryValues(new CharSequence[0]);
     }
 
     private String getLabelForComponent(String flatComponent) {
