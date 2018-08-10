@@ -13,3 +13,6 @@ app/libs/
 app/src/androidTest/
 app/src/main/res/values-v14/
 projectFilesBackup/
+/app/src/main/play/
+/app/release/
+/captures/

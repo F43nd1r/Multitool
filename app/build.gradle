@@ -1,6 +1,8 @@
-apply plugin: 'com.android.application'
-apply plugin: 'com.github.triplet.play'
-apply plugin: 'com.faendir.gradlekeepass'
+plugins {
+    id 'com.android.application'
+    id 'com.github.triplet.play'
+    id 'com.faendir.gradlekeepass' version '0.1'
+}
 
 android {
     compileSdkVersion 28
@@ -9,7 +11,7 @@ android {
         applicationId "com.faendir.lightning_launcher.multitool"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 101
+        versionCode Integer.parseInt(rootProject.versionCode)
         versionName version
     }
     signingConfigs {
@@ -70,4 +72,22 @@ dependencies {
     compileOnly "com.google.auto.service:auto-service:1.0-rc4"
     annotationProcessor "com.google.auto.service:auto-service:1.0-rc4"
     implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+}
+
+task increaseVersionNumber {
+    doLast {
+        rootProject.versionCode = (Integer.parseInt(rootProject.versionCode) + 1)
+        android.defaultConfig.setVersionCode(rootProject.versionCode)
+        ant.propertyfile(file: "../gradle.properties") {
+            entry(key: "versionCode", value: rootProject.versionCode)
+        }
+    }
+}
+
+
+afterEvaluate {
+    increaseVersionNumber.mustRunAfter(rootProject.confirmReleaseVersion)
+    rootProject.beforeReleaseBuild.dependsOn(clean)
+    rootProject.build.dependsOn(build)
+    rootProject.afterReleaseBuild.dependsOn(publishApkRelease)
 }
