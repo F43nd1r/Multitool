@@ -4,6 +4,7 @@
     package="com.faendir.lightning_launcher.multitool">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
     <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="com.sonyericsson.home.permission.RECEIVE_BADGE"/>
 
@@ -112,6 +113,15 @@
             android:exported="true"
             android:label="@string/title_badge"
             android:targetActivity=".Loader">
+            <intent-filter>
+                <action android:name="net.pierrox.lightning_launcher.script.PLUGIN" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+                android:name=".LoadCalendar"
+                android:exported="true"
+                android:label="@string/title_calendar"
+                android:targetActivity=".Loader">
             <intent-filter>
                 <action android:name="net.pierrox.lightning_launcher.script.PLUGIN" />
             </intent-filter>

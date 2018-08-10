@@ -23,6 +23,7 @@
 
 -keep class * extends androidx.fragment.app.Fragment
 -keep class * extends android.app.Service {*;}
+-keep class androidx.preference.**
 
 -keep class sun.misc.Unsafe { *; }
 -keep class android.support.design.widget.** { *; }

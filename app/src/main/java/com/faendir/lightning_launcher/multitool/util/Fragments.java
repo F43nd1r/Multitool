@@ -7,6 +7,7 @@ import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.animation.AnimationFragment;
 import com.faendir.lightning_launcher.multitool.backup.BackupFragment;
 import com.faendir.lightning_launcher.multitool.badge.BadgeFragment;
+import com.faendir.lightning_launcher.multitool.calendar.CalendarFragment;
 import com.faendir.lightning_launcher.multitool.drawer.DrawerFragment;
 import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
 import com.faendir.lightning_launcher.multitool.gesture.GestureFragment;
@@ -28,6 +29,7 @@ public enum Fragments {
     DRAWER(R.string.title_drawer, DrawerFragment.class),
     BACKUP(R.string.title_backup, BackupFragment.class),
     BADGE(R.string.title_badge, BadgeFragment.class),
+    CALENDAR(R.string.title_calendar, CalendarFragment.class),
     GESTURE(R.string.title_gestureLauncher, GestureFragment.class),
     LAUNCHER(R.string.title_launcherScript, LauncherScriptFragment.class),
     MUSIC(R.string.title_musicWidget, MusicFragment.class),

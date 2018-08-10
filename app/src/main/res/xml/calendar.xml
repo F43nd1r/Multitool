@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                                      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.faendir.lightning_launcher.multitool.calendar.CalendarPreference
+            android:key="@string/pref_calendars"
+            android:title="@string/title_calendars"
+            app:iconSpaceReserved="false"/>
+    <CheckBoxPreference
+            android:key="@string/pref_showEnd"
+            android:title="@string/title_showEnd"
+            android:defaultValue="true"
+            app:iconSpaceReserved="false"/>
+    <androidx.preference.SeekBarPreference
+            android:key="@string/pref_showCount"
+            android:title="@string/title_showCount"
+            android:defaultValue="3"
+            app:min="1"
+            android:max="10"
+            app:iconSpaceReserved="false"/>
+    <ListPreference
+            android:key="@string/pref_dateFormat"
+            android:title="@string/title_dateFormat"
+            android:entries="@array/list_dateFormat"
+            android:entryValues="@array/list_dateFormatKeys"
+            android:defaultValue="0"
+            app:iconSpaceReserved="false"/>
+</androidx.preference.PreferenceScreen>

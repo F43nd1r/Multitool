@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.faendir.lightning_launcher.multitool.BuildConfig;
 import com.faendir.lightning_launcher.multitool.badge.BadgeDataSource;
+import com.faendir.lightning_launcher.multitool.calendar.CalendarDataSource;
 import com.faendir.lightning_launcher.multitool.gesture.GestureLibraryDataSource;
 import com.faendir.lightning_launcher.multitool.gesture.GestureMetaDataSource;
 import com.faendir.lightning_launcher.multitool.music.MusicDataSource;
@@ -57,7 +58,8 @@ public class DataProvider extends ContentProvider {
             new GestureLibraryDataSource(),
             new GestureMetaDataSource(),
             new MusicDataSource(),
-            new BadgeDataSource());
+            new BadgeDataSource(),
+            new CalendarDataSource());
 
     private final UriMatcher uriMatcher;
 
@@ -103,7 +105,7 @@ public class DataProvider extends ContentProvider {
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        return uriToSource(uri, QueryUpdateDataSource.class).map(s -> s.query(getContext(), uri, projection, selection, selectionArgs, sortOrder)).orElse(null);
+        return uriToSource(uri, QueryDataSource.class).map(s -> s.query(getContext(), uri, projection, selection, selectionArgs, sortOrder)).orElse(null);
     }
 
     @Nullable
@@ -126,7 +128,7 @@ public class DataProvider extends ContentProvider {
     @Override
     public int update(@NonNull Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         try {
-            return uriToSource(uri, QueryUpdateDataSource.class).map(s -> s.update(getContext(), uri, values, selection, selectionArgs)).orElse(0);
+            return uriToSource(uri, UpdateDataSource.class).map(s -> s.update(getContext(), uri, values, selection, selectionArgs)).orElse(0);
         } finally {
             getContext().getContentResolver().notifyChange(uri, null);
         }

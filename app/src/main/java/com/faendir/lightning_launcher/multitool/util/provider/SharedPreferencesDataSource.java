@@ -23,7 +23,7 @@ import java.util.Map;
  * @author F43nd1r
  * @since 06.11.2017
  */
-public class SharedPreferencesDataSource implements QueryUpdateDataSource {
+public class SharedPreferencesDataSource implements QueryDataSource, UpdateDataSource {
     static final String COLUMN_KEY = "key";
     static final String COLUMN_VALUE = "value";
     static final String COLUMN_TYPE = "type";
@@ -80,6 +80,7 @@ public class SharedPreferencesDataSource implements QueryUpdateDataSource {
         PreferenceManager.setDefaultValues(context, R.xml.drawer, true);
         PreferenceManager.setDefaultValues(context, R.xml.backup, true);
         PreferenceManager.setDefaultValues(context, R.xml.badge, true);
+        PreferenceManager.setDefaultValues(context, R.xml.calendar, true);
         if (MultiTool.DEBUG) Log.d(MultiTool.LOG_TAG, "Loaded default pref values");
     }
 

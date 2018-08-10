@@ -1,6 +1,5 @@
 package com.faendir.lightning_launcher.multitool.util.provider;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
@@ -8,13 +7,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 /**
- * @author F43nd1r
- * @since 06.11.2017
+ * @author lukas
+ * @since 10.08.18
  */
-
-public interface QueryUpdateDataSource extends DataSource {
+public interface QueryDataSource extends DataSource {
     @Nullable
     Cursor query(@NonNull Context context, @NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder);
-
-    int update(@NonNull Context context, @NonNull Uri uri, ContentValues values, String selection, String[] selectionArgs);
 }

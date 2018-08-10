@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                                      xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <CheckBoxPreference
         android:defaultValue="true"
         android:key="@string/pref_keepSorted"
-        android:title="@string/title_keepSorted" />
+        android:title="@string/title_keepSorted"
+        app:iconSpaceReserved="false" />
     <com.faendir.lightning_launcher.multitool.drawer.RestorePreference
         android:key="@string/pref_hiddenApps"
-        android:title="@string/title_hiddenApps" />
+        android:title="@string/title_hiddenApps"
+        app:iconSpaceReserved="false" />
 </androidx.preference.PreferenceScreen>

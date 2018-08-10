@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.github.triplet.play'
+apply plugin: 'com.faendir.gradlekeepass'
 
 android {
     compileSdkVersion 28
@@ -14,9 +15,10 @@ android {
     signingConfigs {
         release {
             storeFile file(androidKeyStoreFile)
-            storePassword androidKeyStorePassword
-            keyAlias androidKeyAlias
-            keyPassword androidKeyPassword
+            def login = keepass.getLogin('intellij.android.key')
+            storePassword login.Password
+            keyAlias login.Login
+            keyPassword login.Password
         }
     }
     buildTypes {
@@ -46,7 +48,7 @@ play {
 }
 
 dependencies {
-    def supportVersion = '1.0.0-beta01'
+    def supportVersion = '1.0.0-rc01'
     def acraVersion = '5.2.0-rc2'
     implementation 'com.faendir.lightninglauncher:scriptlib:3.0'
     implementation "androidx.appcompat:appcompat:$supportVersion"

@@ -1,44 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                                      xmlns:app="http://schemas.android.com/apk/res-auto">
     <SwitchPreference
             android:defaultValue="true"
             android:key="@string/pref_enableAcra"
-            android:title="@string/title_enableAcra"/>
-    <PreferenceCategory android:title="@string/title_musicWidget">
-        <com.faendir.lightning_launcher.multitool.settings.TrialPreference android:title="@string/title_musicWidget"/>
+            android:title="@string/title_enableAcra"
+            app:iconSpaceReserved="false"/>
+    <androidx.preference.PreferenceCategory
+            android:title="@string/title_musicWidget"
+            app:iconSpaceReserved="false">
+        <com.faendir.lightning_launcher.multitool.settings.TrialPreference
+                android:title="@string/title_musicWidget"
+                app:iconSpaceReserved="false"/>
         <com.faendir.lightning_launcher.multitool.settings.PlayersPreference
                 android:key="@string/pref_activePlayers"
                 android:title="@string/title_activePlayers"
-                android:defaultValue="true"/>
+                android:defaultValue="true"
+                app:iconSpaceReserved="false"/>
         <com.faendir.lightning_launcher.multitool.settings.DefaultPlayerPreference
                 android:key="@string/pref_musicDefault"
-                android:title="@string/title_defaultPlayer"/>
+                android:title="@string/title_defaultPlayer"
+                app:iconSpaceReserved="false"/>
         <ListPreference
                 android:defaultValue="@string/default_coverMode"
                 android:entries="@array/list_coverMode"
                 android:entryValues="@array/listCoverModeKeys"
                 android:key="@string/pref_coverMode"
-                android:title="@string/title_coverMode"/>
+                android:title="@string/title_coverMode"
+                app:iconSpaceReserved="false"/>
         <com.faendir.lightning_launcher.multitool.settings.PlayersPreference
                 android:key="@string/pref_altControl"
                 android:summary="If a player does not react to buttons, this might help"
                 android:title="@string/title_altControl"
-                android:defaultValue="false"/>
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/title_drawer">
-        <com.faendir.lightning_launcher.multitool.settings.TrialPreference android:title="@string/title_drawer"/>
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/title_animation">
-        <com.faendir.lightning_launcher.multitool.settings.TrialPreference android:title="@string/title_animation"/>
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/title_info">
-        <com.faendir.lightning_launcher.multitool.settings.VersionPreference android:title="@string/title_version"/>
+                android:defaultValue="false"
+                app:iconSpaceReserved="false"/>
+    </androidx.preference.PreferenceCategory>
+    <androidx.preference.PreferenceCategory
+            android:title="@string/title_drawer"
+            app:iconSpaceReserved="false">
+        <com.faendir.lightning_launcher.multitool.settings.TrialPreference
+                android:title="@string/title_drawer"
+                app:iconSpaceReserved="false"/>
+    </androidx.preference.PreferenceCategory>
+    <androidx.preference.PreferenceCategory
+            android:title="@string/title_animation"
+            app:iconSpaceReserved="false">
+        <com.faendir.lightning_launcher.multitool.settings.TrialPreference
+                android:title="@string/title_animation"
+                app:iconSpaceReserved="false"/>
+    </androidx.preference.PreferenceCategory>
+    <androidx.preference.PreferenceCategory
+            android:title="@string/title_info"
+            app:iconSpaceReserved="false">
+        <com.faendir.lightning_launcher.multitool.settings.VersionPreference
+                android:title="@string/title_version"
+                app:iconSpaceReserved="false"/>
         <com.faendir.lightning_launcher.multitool.settings.IdPreference
                 android:key="@string/pref_androidId"
                 android:title="@string/title_id"
                 android:summary="@string/summary_id"
                 android:dialogTitle="@string/title_idDialog"
                 android:positiveButtonText="@string/button_copyToClipboard"
-                android:negativeButtonText="@string/button_close"/>
-    </PreferenceCategory>
+                android:negativeButtonText="@string/button_close"
+                app:iconSpaceReserved="false"/>
+    </androidx.preference.PreferenceCategory>
 </androidx.preference.PreferenceScreen>

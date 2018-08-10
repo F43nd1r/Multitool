@@ -15,6 +15,7 @@ import androidx.core.content.pm.PackageInfoCompat;
 import com.faendir.lightning_launcher.multitool.animation.AnimationScript;
 import com.faendir.lightning_launcher.multitool.badge.BadgeSetup;
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
+import com.faendir.lightning_launcher.multitool.calendar.CalendarScript;
 import com.faendir.lightning_launcher.multitool.drawer.Drawer;
 import com.faendir.lightning_launcher.multitool.gesture.GestureScript;
 import com.faendir.lightning_launcher.multitool.immersive.ImmersiveScript;
@@ -39,6 +40,7 @@ public class Loader extends Activity {
     private static final String IMMERSIVE = BuildConfig.APPLICATION_ID + ".toggleImmersive";
     private static final String ANIMATION = BuildConfig.APPLICATION_ID + ".LoadAnimation";
     private static final String BADGE = BuildConfig.APPLICATION_ID + ".LoadBadge";
+    private static final String CALENDAR = BuildConfig.APPLICATION_ID + ".LoadCalendar";
 
     public static final int FLAG_DISABLED = 1;
     public static final int FLAG_APP_MENU = 2;
@@ -80,6 +82,9 @@ public class Loader extends Activity {
                 break;
             case BADGE:
                 setupCheck(R.string.title_badge, BadgeSetup.class);
+                break;
+            case CALENDAR:
+                setupCheck(R.string.title_calendar, CalendarScript.class);
                 break;
         }
     }

@@ -19,6 +19,7 @@ public interface PropertySet extends Proxy {
     String POSITION_CHANGED = "posChanged";
     String SHORTCUT_LABEL_VISIBILITY = "s.labelVisibility";
     String SHORTCUT_ICON_VISIBILITY = "s.iconVisibility";
+    String SHORTCUT_LABEL_MAX_LINES = "s.labelMaxLines";
     String ITEM_ENABLED = "i.enabled";
     String ITEM_ON_GRID = "i.onGrid";
     String ITEM_SELECTION_EFFECT = "i.selectionEffect";
@@ -42,6 +43,8 @@ public interface PropertySet extends Proxy {
 
     String getString(@StringProperty String name);
 
+    int getInteger(@IntProperty String name);
+
     @Retention(RetentionPolicy.SOURCE)
     @StringDef({PAUSED, RESUMED, ITEM_PAUSED, ITEM_RESUMED, ITEM_MENU, ITEM_TAP, POSITION_CHANGED})
     @interface EventProperty {
@@ -58,7 +61,7 @@ public interface PropertySet extends Proxy {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @StringDef({GRID_LANDSCAPE_COLUMN_NUM, GRID_LANDSCAPE_ROW_NUM, GRID_PORTRAIT_COLUMN_NUM, GRID_PORTRAIT_ROW_NUM})
+    @StringDef({GRID_LANDSCAPE_COLUMN_NUM, GRID_LANDSCAPE_ROW_NUM, GRID_PORTRAIT_COLUMN_NUM, GRID_PORTRAIT_ROW_NUM, SHORTCUT_LABEL_MAX_LINES})
     @interface IntProperty {
     }
 
