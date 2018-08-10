@@ -76,17 +76,26 @@ dependencies {
 
 task increaseVersionNumber {
     doLast {
+        println "before " + rootProject.versionCode + ", " + android.defaultConfig.getVersionCode()
         rootProject.versionCode = (Integer.parseInt(rootProject.versionCode) + 1)
+        println "between " + rootProject.versionCode + ", " + android.defaultConfig.getVersionCode()
         android.defaultConfig.setVersionCode(rootProject.versionCode)
+        println "after " + rootProject.versionCode + ", " + android.defaultConfig.getVersionCode()
         ant.propertyfile(file: "../gradle.properties") {
             entry(key: "versionCode", value: rootProject.versionCode)
         }
     }
 }
 
+release {
+    failOnCommitNeeded  = false
+    failOnPublishNeeded = false
+    failOnUnversionedFiles = false
+}
+
 
 afterEvaluate {
-    increaseVersionNumber.mustRunAfter(rootProject.confirmReleaseVersion)
+    rootProject.confirmReleaseVersion.dependsOn(increaseVersionNumber)
     rootProject.beforeReleaseBuild.dependsOn(clean)
     rootProject.build.dependsOn(build)
     rootProject.afterReleaseBuild.dependsOn(publishApkRelease)
