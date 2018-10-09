@@ -2,6 +2,7 @@ package com.faendir.lightning_launcher.multitool.gesture;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -53,21 +55,22 @@ public class GestureFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        LinearLayout layout = new LinearLayout(getActivity());
-        RecyclerView recyclerView = new RecyclerView(getActivity());
-        adapter = new ModelAdapter<>(ItemFactory.<GestureInfo>forLauncherIconSize(getActivity())::wrap);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Context context = requireActivity();
+        LinearLayout layout = new LinearLayout(context);
+        RecyclerView recyclerView = new RecyclerView(context);
+        adapter = new ModelAdapter<>(ItemFactory.<GestureInfo>forLauncherIconSize(context)::wrap);
         FastAdapter<ExpandableItem<GestureInfo>> fastAdapter = FastAdapter.with(adapter);
         fastAdapter.withOnLongClickListener((v, adapter, item, position) -> {
-            Intent intent = new Intent(getActivity(), GestureActivity.class);
+            Intent intent = new Intent(context, GestureActivity.class);
             intent.putExtra(GestureActivity.GESTURE, item.getModel());
             intent.putExtra(INDEX, adapter.getAdapterPosition(item));
             startActivityForResult(intent, EDIT);
             return true;
         });
-        exceptionToOptional(() -> GestureUtils.readFromFile(getActivity())).get()
+        exceptionToOptional(() -> GestureUtils.readFromFile(context)).get()
                 .ifPresent(list -> adapter.set(StreamSupport.stream(list).filter(gestureInfo -> !gestureInfo.isInvalid()).collect(Collectors.toList())));
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(fastAdapter);
         new ItemTouchHelper(new SimpleSwipeCallback((position, direction) -> {
             final ExpandableItem<GestureInfo> item = adapter.getAdapterItem(position);
@@ -77,7 +80,7 @@ public class GestureFragment extends Fragment {
                 if (position1 != RecyclerView.NO_POSITION) {
                     adapter.remove(position1);
                 }
-                GestureUtils.delete(getActivity(), item.getModel(), adapter.getModels());
+                GestureUtils.delete(context, item.getModel(), adapter.getModels());
             };
             recyclerView.postDelayed(removeRunnable, 5000);
 
@@ -91,7 +94,7 @@ public class GestureFragment extends Fragment {
             });
 
             fastAdapter.notifyAdapterItemChanged(position);
-        }, null, ItemTouchHelper.RIGHT).withLeaveBehindSwipeRight(ContextCompat.getDrawable(getActivity(), R.drawable.ic_delete_white)).withBackgroundSwipeRight(Color.RED))
+        }, null, ItemTouchHelper.RIGHT).withLeaveBehindSwipeRight(ContextCompat.getDrawable(context, R.drawable.ic_delete_white)).withBackgroundSwipeRight(Color.RED))
                 .attachToRecyclerView(recyclerView);
         recyclerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         TextView empty = (TextView) inflater.inflate(R.layout.textview_empty_gestures_list, recyclerView, false);

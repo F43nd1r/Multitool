@@ -71,15 +71,15 @@ public class DataProvider extends ContentProvider {
         }
     }
 
-    public static InputStream openFileForRead(Context context, Class<? extends FileDataSource> dataSourceClass) throws FileNotFoundException {
+    public static InputStream openFileForRead(@NonNull Context context, @NonNull Class<? extends FileDataSource> dataSourceClass) throws FileNotFoundException {
         return context.getContentResolver().openInputStream(getContentUri(dataSourceClass));
     }
 
-    public static OutputStream openFileForWrite(Context context, Class<? extends FileDataSource> dataSourceClass) throws FileNotFoundException {
+    public static OutputStream openFileForWrite(@NonNull Context context, @NonNull Class<? extends FileDataSource> dataSourceClass) throws FileNotFoundException {
         return context.getContentResolver().openOutputStream(getContentUri(dataSourceClass), Mode.rwt.name());
     }
 
-    public static Uri getContentUri(Class<? extends DataSource> dataSourceClass) {
+    public static Uri getContentUri(@NonNull Class<? extends DataSource> dataSourceClass) {
         return StreamSupport.stream(DATA_SOURCES).filter(dataSourceClass::isInstance).map(dataSourceClass::cast).findAny()
                 .map(dataSource -> new Uri.Builder().scheme(ContentResolver.SCHEME_CONTENT).authority(AUTHORITY).path(dataSource.getPath()).build())
                 .orElseThrow(IllegalArgumentException::new);

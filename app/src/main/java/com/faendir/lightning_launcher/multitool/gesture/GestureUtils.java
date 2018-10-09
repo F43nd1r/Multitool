@@ -5,6 +5,7 @@ import android.gesture.GestureStore;
 import android.net.Uri;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.Utils;
 import com.faendir.lightning_launcher.multitool.util.provider.DataProvider;
@@ -36,7 +37,7 @@ final class GestureUtils {
     private GestureUtils() {
     }
 
-    static void delete(Context context, GestureInfo selected, List<GestureInfo> list) {
+    static void delete(@NonNull Context context, GestureInfo selected, List<GestureInfo> list) {
         selected.removeGesture(context);
         list.remove(selected);
         writeToFile(context, list);

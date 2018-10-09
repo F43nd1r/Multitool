@@ -66,7 +66,7 @@ public class GestureInfo implements Parcelable, DeletableModel {
     @Nullable
     Gesture getGesture(Context context) {
         if (gesture == null) {
-            Optional.ofNullable(SingleStoreGestureLibrary.getInstance(context).getGestures(uuid.toString()))
+            Optional.ofNullable(SingleStoreGestureLibrary.getInstance(context).getGestures(String.valueOf(uuid)))
                     .ifPresent(list -> gesture = StreamSupport.stream(list).findFirst().get());
         }
         return gesture;
@@ -84,7 +84,7 @@ public class GestureInfo implements Parcelable, DeletableModel {
         }
     }
 
-    void removeGesture(Context context) {
+    void removeGesture(@NonNull Context context) {
         SingleStoreGestureLibrary library = SingleStoreGestureLibrary.getInstance(context);
         library.removeGesture(uuid.toString(), getGesture(context));
         library.save();

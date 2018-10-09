@@ -45,33 +45,33 @@ android {
 }
 
 play {
-    jsonFile = file(playKeyFile)
+    serviceAccountCredentials = file(playKeyFile)
     track = version.contains('b') ? 'beta' : 'production'
 }
 
 dependencies {
-    def supportVersion = '1.0.0-rc01'
-    def acraVersion = '5.2.0-rc2'
+    def supportVersion = '1.0.0'
+    def acraVersion = '5.2.0'
     implementation 'com.faendir.lightninglauncher:scriptlib:3.0'
     implementation "androidx.appcompat:appcompat:$supportVersion"
     implementation "androidx.recyclerview:recyclerview:$supportVersion"
     implementation "androidx.preference:preference:$supportVersion"
     implementation "com.google.android.material:material:$supportVersion"
-    implementation 'com.google.code.gson:gson:2.8.4'
+    implementation 'com.google.code.gson:gson:2.8.5'
     implementation "ch.acra:acra-http:$acraVersion"
     implementation "ch.acra:acra-limiter:$acraVersion"
-    implementation "ch.acra:acra-advanced-scheduler:$acraVersion"
+    implementation "ch.acra:acra-advanced-scheduler:5.2.0-rc2"
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'org.apache.commons:commons-collections4:4.1'
     implementation 'com.anjlab.android.iab.v3:library:1.0.44'
     implementation 'com.mikepenz:materialdrawer:6.0.9'
     implementation "com.mikepenz:fastadapter-extensions:3.2.8"
     implementation 'net.sourceforge.streamsupport:android-retrostreams:1.6.3'
-    implementation 'org.mozilla:rhino:1.7.9'
+    implementation 'org.mozilla:rhino:1.7.10'
     implementation 'com.evernote:android-job:1.2.6'
     compileOnly "com.google.auto.service:auto-service:1.0-rc4"
     annotationProcessor "com.google.auto.service:auto-service:1.0-rc4"
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }
 
 task increaseVersionNumber {

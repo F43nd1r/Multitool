@@ -1,8 +1,10 @@
 package com.faendir.lightning_launcher.multitool.util.view;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
@@ -21,6 +23,19 @@ public class CanDisableTimePicker extends TimePicker {
         super(context, attrs);
     }
 
+    public CanDisableTimePicker(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public CanDisableTimePicker(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+    }
+
+    public CanDisableTimePicker(Context context) {
+        super(context);
+    }
+
     @Override
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
@@ -34,9 +49,9 @@ public class CanDisableTimePicker extends TimePicker {
         }
         int[] textViews = new int[]{getSystemId("hours"), getSystemId("minutes"), getSystemId("separator"), getSystemId("am_label"), getSystemId("pm_label")};
         ColorStateList colors = ContextCompat.getColorStateList(getContext(), R.color.timepicker_text_color);
-        for(int id : textViews) {
+        for (int id : textViews) {
             TextView view = findViewById(id);
-            if(view != null) {
+            if (view != null) {
                 view.setTextColor(colors);
             }
         }
