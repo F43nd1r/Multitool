@@ -49,12 +49,10 @@ public class BadgeNotificationListener implements NotificationListener {
             if (array != null) {
                 List<StatusBarNotification> notifications = Stream.of(array).filter(n -> packageName.equals(n.getPackageName())).collect(Collectors.toList());
                 int reduceBy = 0;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    Map<String, Integer> groupSizes = StreamSupport.stream(notifications)
-                            .collect(Collectors.toMap(StatusBarNotification::getGroupKey, n -> 1, (i1, i2) -> i1 + i2));
-                    Iterables.removeIf(groupSizes.entrySet(), e -> e.getValue() == 1);
-                    reduceBy = groupSizes.size();
-                }
+                Map<String, Integer> groupSizes = StreamSupport.stream(notifications)
+                        .collect(Collectors.toMap(StatusBarNotification::getGroupKey, n -> 1, (i1, i2) -> i1 + i2));
+                Iterables.removeIf(groupSizes.entrySet(), e -> e.getValue() == 1);
+                reduceBy = groupSizes.size();
                 number = (int) (Stream.of(array).filter(n -> packageName.equals(n.getPackageName())).count() - reduceBy);
             }
             if (number == 0) {

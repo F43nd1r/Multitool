@@ -56,13 +56,11 @@ public class MusicNotificationListener implements NotificationListener {
     private Context context;
     private SharedPreferences sharedPref;
     private volatile WeakReference<MediaController> currentController;
-    private final MediaSessionManager.OnActiveSessionsChangedListener sessionsChangedListener;
     private boolean enabled = false;
 
     public MusicNotificationListener() {
         controllers = HashBiMap.create();
         currentController = new WeakReference<>(null);
-        sessionsChangedListener = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? this::onActiveSessionsChanged : null;
     }
 
     private void onIntentReceived(Context context, Intent intent) {
@@ -70,8 +68,8 @@ public class MusicNotificationListener implements NotificationListener {
             MediaSessionManager mediaSessionManager = (MediaSessionManager) context.getSystemService(Context.MEDIA_SESSION_SERVICE);
             if (mediaSessionManager != null) {
                 ComponentName notificationListener = new ComponentName(context, context.getClass());
-                sessionsChangedListener.onActiveSessionsChanged(mediaSessionManager.getActiveSessions(notificationListener));
-                mediaSessionManager.addOnActiveSessionsChangedListener(sessionsChangedListener, notificationListener);
+                onActiveSessionsChanged(mediaSessionManager.getActiveSessions(notificationListener));
+                mediaSessionManager.addOnActiveSessionsChangedListener(this::onActiveSessionsChanged, notificationListener);
                 this.enabled = true;
             }
         }

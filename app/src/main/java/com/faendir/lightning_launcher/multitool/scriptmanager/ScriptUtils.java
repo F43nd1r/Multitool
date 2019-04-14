@@ -83,7 +83,7 @@ final class ScriptUtils {
     }
 
     public static void format(Context context, ListManager listManager, final List<Model> selectedItems) {
-        new FormatTask3(context, listManager).execute(selectedItems.toArray(new Model[0]));
+        new FormatTask3(context).execute(selectedItems.toArray(new Model[0]));
         listManager.deselectAll();
     }
 

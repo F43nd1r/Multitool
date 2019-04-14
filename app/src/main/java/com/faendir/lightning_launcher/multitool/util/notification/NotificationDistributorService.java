@@ -39,17 +39,15 @@ public class NotificationDistributorService extends NotificationListenerService 
             badgeNotificationListener.onCreate(this);
             listeners.add(badgeNotificationListener);
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            new Thread(() -> {
-                if (new BaseBillingManager(this).isBoughtOrTrial(R.string.title_musicWidget)) {
-                    synchronized (listeners) {
-                        final MusicNotificationListener musicNotificationListener = new MusicNotificationListener();
-                        musicNotificationListener.onCreate(this);
-                        listeners.add(musicNotificationListener);
-                    }
+        new Thread(() -> {
+            if (new BaseBillingManager(this).isBoughtOrTrial(R.string.title_musicWidget)) {
+                synchronized (listeners) {
+                    final MusicNotificationListener musicNotificationListener = new MusicNotificationListener();
+                    musicNotificationListener.onCreate(this);
+                    listeners.add(musicNotificationListener);
                 }
-            }).start();
-        }
+            }
+        }).start();
     }
 
     @Override

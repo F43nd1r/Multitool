@@ -1,11 +1,6 @@
 package com.faendir.lightning_launcher.multitool.launcherscript;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -19,13 +14,10 @@ import androidx.fragment.app.Fragment;
 import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
-import com.faendir.lightning_launcher.multitool.util.LambdaUtils;
 import com.faendir.lightning_launcher.multitool.util.Utils;
 import net.pierrox.lightning_launcher.api.Script;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-
-import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 
 
 public class LauncherScriptFragment extends Fragment {
@@ -39,31 +31,12 @@ public class LauncherScriptFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        //populate
-        layout = new FrameLayout(getActivity());
-        inflater.inflate(R.layout.fragment_launcher_script, layout);
-
-        checkLauncher();
-
-        //prepare variables
+        View v = inflater.inflate(R.layout.fragment_launcher_script, container);
         nameTextView = layout.findViewById(R.id.main_scriptName);
         importButton = layout.findViewById(R.id.button_import);
         shareprefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-
-        //set name text
         nameTextView.setText(shareprefs.getString(getString(R.string.preference_scriptName), getString(R.string.script_name)));
-        return layout;
-    }
-
-    //checks if lightning launcher is installed and shows the alert view
-    private void checkLauncher() {
-        if (!isPackageInstalled("net.pierrox.lightning_launcher_extreme", getActivity())
-                &&
-                !isPackageInstalled("net.pierrox.lightning_launcher", getActivity())
-        ) {
-            layout.findViewById(R.id.view_noLauncher).setVisibility(View.VISIBLE);
-            layout.findViewById(R.id.view_yesLauncher).setVisibility(View.GONE);
-        }
+        return v;
     }
 
     @Override
@@ -80,41 +53,17 @@ public class LauncherScriptFragment extends Fragment {
 
     @Subscribe
     public void onButtonClick(ClickEvent event) {
-        switch (event.getId()) {
-            case R.id.button_noLauncher: {
-                final String appPackageName = "net.pierrox.lightning_launcher";
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-                } catch (android.content.ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+        if (event.getId() == R.id.button_import) {
+            saveName();
+            importButton.setText(getString(R.string.button_repositoryImporter_importing));
+            MultiTool.get().doInLL(scriptService -> {
+                scriptService.updateScript(new Script(Utils.readRawResource(getActivity(), R.raw.multitool), nameTextView.getText().toString(), getActivity().getPackageName(), Script.FLAG_APP_MENU | Script.FLAG_ITEM_MENU));
+                if (isAdded()) {
+                    getActivity().runOnUiThread(() -> importButton.setText(getString(R.string.button_repositoryImporter_importOk)));
                 }
-                break;
-            }
-            case R.id.button_import: {
-                saveName();
-                changeText(getString(R.string.button_repositoryImporter_importing));
-                MultiTool.get().doInLL(scriptService -> {
-                    scriptService.updateScript(new Script(Utils.readRawResource(getActivity(), R.raw.multitool), nameTextView.getText().toString(), getActivity().getPackageName(), Script.FLAG_APP_MENU | Script.FLAG_ITEM_MENU));
-                    if (isAdded()) {
-                        getActivity().runOnUiThread(() -> changeText(getString(R.string.button_repositoryImporter_importOk)));
-                    }
-                });
-                break;
-            }
-
+            });
         }
 
-    }
-
-
-    private boolean isPackageInstalled(String packageName, Context context) {
-        PackageManager pm = context.getPackageManager();
-        return exceptionToOptional((LambdaUtils.ExceptionalBiFunction<String, Integer, PackageInfo, PackageManager.NameNotFoundException>) pm::getPackageInfo)
-                .apply(packageName, PackageManager.GET_ACTIVITIES).isPresent();
-    }
-
-    private void changeText(String newText) {
-        importButton.setText(newText);
     }
 
     @Override

@@ -7,7 +7,6 @@ import android.content.res.TypedArray;
 import android.os.Handler;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
-import androidx.core.content.res.TypedArrayUtils;
 import androidx.preference.Preference;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.billing.BaseBillingManager;
@@ -27,7 +26,8 @@ public class TrialPreference extends Preference {
         super(context, attrs);
         setPersistent(false);
         final TypedArray a = context.obtainStyledAttributes(attrs, androidx.preference.R.styleable.Preference, androidx.preference.R.attr.preferenceStyle, 0);
-        res = TypedArrayUtils.getResourceId(a, androidx.preference.R.styleable.Preference_title, androidx.preference.R.styleable.Preference_android_title, 0);
+        int val = a.getResourceId(androidx.preference.R.styleable.Preference_android_title, 0);
+        res = a.getResourceId(androidx.preference.R.styleable.Preference_title, val);
         a.recycle();
         if (context instanceof ContextWrapper) {
             context = ((ContextWrapper) context).getBaseContext();

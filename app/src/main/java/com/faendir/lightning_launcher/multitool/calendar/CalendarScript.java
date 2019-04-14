@@ -24,6 +24,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 /**
@@ -135,8 +136,8 @@ public class CalendarScript implements JavaScript.Setup, JavaScript.Normal {
         private final SimpleDateFormat time;
 
         DateFormat(String date, String time) {
-            this.date = new SimpleDateFormat(date);
-            this.time = new SimpleDateFormat(time);
+            this.date = new SimpleDateFormat(date, Locale.US);
+            this.time = new SimpleDateFormat(time, Locale.US);
         }
 
         public String formatDate(Date format) {

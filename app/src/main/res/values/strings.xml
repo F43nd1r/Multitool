@@ -27,7 +27,6 @@
     <string name="button_repositoryImporter">Import</string>
     <string name="button_repositoryImporter_importing">Importing… (takes too long? click to try again)</string>
     <string name="button_repositoryImporter_importOk">Done. (Click to import again)</string>
-    <string name="button_repositoryImporter_importError">Error. Click to try again</string>
 
     <string name="text_nameOfScript">If you want to, you can choose a custom name here:</string>
     <string name="hint_nameOfScript">Name of the script</string>
@@ -59,7 +58,6 @@
     <string name="text_matches_lines">Matches (lines):\n</string>
     <string name="title_matches">Matches</string>
     <string name="title_rename">Rename %s</string>
-    <string name="text_folder">Folder</string>
     <string name="text_script">Script</string>
     <string name="text_backupSuccessful">"Script successfully backed up"</string>
     <string name="text_backupFailed">"Failed to backup script"</string>

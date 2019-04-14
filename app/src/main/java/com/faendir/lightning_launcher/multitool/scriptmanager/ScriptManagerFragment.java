@@ -106,7 +106,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
                     break;
                 case EXPORT:
                     if (data != null && data.getData() != null) {
-                        ScriptUtils.backup(getActivity(), listManager, (Script) listManager.getSelectedItems().get(0), data.getData());
+                        ScriptUtils.backup(getActivity(), listManager, listManager.getSelectedItems().get(0), data.getData());
                     }
             }
         }

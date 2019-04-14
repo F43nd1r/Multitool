@@ -35,13 +35,11 @@ import java.util.List;
 
 public class FormatTask3 extends AsyncTask<Model, FormatTask3.Progress, Void> {
     private final WeakReference<Context> context;
-    private final ListManager listManager;
     private ProgressDialog dialog;
 
-    FormatTask3(Context context, ListManager listManager) {
+    FormatTask3(Context context) {
         super();
         this.context = new WeakReference<>(context);
-        this.listManager = listManager;
     }
 
     private String beautify(String script) {
