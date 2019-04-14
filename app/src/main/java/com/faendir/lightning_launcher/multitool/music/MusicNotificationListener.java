@@ -22,12 +22,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.notification.NotificationListener;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import java9.util.Optional;
 import java9.util.stream.Stream;
 import java9.util.stream.StreamSupport;
 import org.acra.ACRA;
-import org.apache.commons.collections4.BidiMap;
-import org.apache.commons.collections4.bidimap.DualHashBidiMap;
 
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
@@ -52,7 +52,7 @@ public class MusicNotificationListener implements NotificationListener {
             PlaybackState.STATE_PLAYING, PlaybackState.STATE_FAST_FORWARDING, PlaybackState.STATE_SKIPPING_TO_NEXT,
             PlaybackState.STATE_SKIPPING_TO_PREVIOUS, PlaybackState.STATE_SKIPPING_TO_QUEUE_ITEM);
 
-    private final BidiMap<MediaController, Callback> controllers;
+    private final BiMap<MediaController, Callback> controllers;
     private Context context;
     private SharedPreferences sharedPref;
     private volatile WeakReference<MediaController> currentController;
@@ -60,7 +60,7 @@ public class MusicNotificationListener implements NotificationListener {
     private boolean enabled = false;
 
     public MusicNotificationListener() {
-        controllers = new DualHashBidiMap<>();
+        controllers = HashBiMap.create();
         currentController = new WeakReference<>(null);
         sessionsChangedListener = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? this::onActiveSessionsChanged : null;
     }
@@ -225,7 +225,7 @@ public class MusicNotificationListener implements NotificationListener {
                 }
                 if ((playbackState != null && PLAYING_STATES.contains(playbackState.getState()))
                         || currentController == null || currentController.get() == null
-                        || currentController.get().equals(controllers.getKey(this))) {
+                        || currentController.get().equals(controllers.inverse().get(this))) {
                     push();
                 }
             }
@@ -248,9 +248,9 @@ public class MusicNotificationListener implements NotificationListener {
 
         private void push() {
             if (metadata == null) {
-                updateCurrentInfo(controllers.getKey(this), bitmap, null, null, null);
+                updateCurrentInfo(controllers.inverse().get(this), bitmap, null, null, null);
             } else {
-                updateCurrentInfo(controllers.getKey(this), bitmap, metadata.getString(MediaMetadata.METADATA_KEY_TITLE),
+                updateCurrentInfo(controllers.inverse().get(this), bitmap, metadata.getString(MediaMetadata.METADATA_KEY_TITLE),
                         metadata.getString(MediaMetadata.METADATA_KEY_ALBUM),
                         metadata.getString(MediaMetadata.METADATA_KEY_ARTIST));
             }

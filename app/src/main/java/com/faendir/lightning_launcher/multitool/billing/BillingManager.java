@@ -39,7 +39,7 @@ public class BillingManager extends BaseBillingManager {
     @Override
     public void onProductPurchased(@NonNull String productId, TransactionDetails details) {
         super.onProductPurchased(productId, details);
-        EventBus.getDefault().post(new SwitchFragmentRequest(mapping.getKey(productId)));
+        EventBus.getDefault().post(new SwitchFragmentRequest(mapping.inverse().get(productId)));
     }
 
     @UiThread
@@ -121,7 +121,7 @@ public class BillingManager extends BaseBillingManager {
                 context.runOnUiThread(() -> Toast.makeText(context, R.string.toast_error, Toast.LENGTH_LONG).show());
             } else {
                 expiration.put(productId, System.currentTimeMillis() / 1000 + SEVEN_DAYS_IN_SECONDS);
-                EventBus.getDefault().post(new SwitchFragmentRequest(mapping.getKey(productId)));
+                EventBus.getDefault().post(new SwitchFragmentRequest(mapping.inverse().get(productId)));
             }
         }
     }

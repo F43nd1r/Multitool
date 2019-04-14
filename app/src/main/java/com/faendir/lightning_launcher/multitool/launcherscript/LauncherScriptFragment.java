@@ -20,10 +20,8 @@ import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.multitool.util.LambdaUtils;
-import com.faendir.lightning_launcher.scriptlib.BaseExceptionHandler;
-import com.faendir.lightning_launcher.scriptlib.ScriptManager;
-import com.faendir.lightning_launcher.scriptlib.executor.ScriptLoader;
-import com.trianguloy.llscript.repository.aidl.Script;
+import com.faendir.lightning_launcher.multitool.util.Utils;
+import net.pierrox.lightning_launcher.api.Script;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
@@ -46,7 +44,6 @@ public class LauncherScriptFragment extends Fragment {
         inflater.inflate(R.layout.fragment_launcher_script, layout);
 
         checkLauncher();
-        checkImporter();
 
         //prepare variables
         nameTextView = layout.findViewById(R.id.main_scriptName);
@@ -58,19 +55,12 @@ public class LauncherScriptFragment extends Fragment {
         return layout;
     }
 
-    //checks if the importer app is installed
-    private void checkImporter() {
-        if (isPackageInstalled("com.trianguloy.llscript.repository", getActivity())) {
-            layout.findViewById(R.id.view_repositoryImporter).setVisibility(View.VISIBLE);
-        }
-    }
-
     //checks if lightning launcher is installed and shows the alert view
     private void checkLauncher() {
         if (!isPackageInstalled("net.pierrox.lightning_launcher_extreme", getActivity())
                 &&
                 !isPackageInstalled("net.pierrox.lightning_launcher", getActivity())
-                ) {
+        ) {
             layout.findViewById(R.id.view_noLauncher).setVisibility(View.VISIBLE);
             layout.findViewById(R.id.view_yesLauncher).setVisibility(View.GONE);
         }
@@ -103,26 +93,12 @@ public class LauncherScriptFragment extends Fragment {
             case R.id.button_import: {
                 saveName();
                 changeText(getString(R.string.button_repositoryImporter_importing));
-                ScriptManager manager = new ScriptManager(getActivity());
-                if (MultiTool.DEBUG) manager.enableDebug();
-                manager.getAsyncExecutorService(new BaseExceptionHandler(getActivity()) {
-                    @Override
-                    protected void onUnhandledException(Exception e) {
-                        if (isAdded()) {
-                            getActivity().runOnUiThread(() -> changeText(getString(R.string.button_repositoryImporter_importError)));
-                        }
+                MultiTool.get().doInLL(scriptService -> {
+                    scriptService.updateScript(new Script(Utils.readRawResource(getActivity(), R.raw.multitool), nameTextView.getText().toString(), getActivity().getPackageName(), Script.FLAG_APP_MENU | Script.FLAG_ITEM_MENU));
+                    if (isAdded()) {
+                        getActivity().runOnUiThread(() -> changeText(getString(R.string.button_repositoryImporter_importOk)));
                     }
-                })
-                        .add(new ScriptLoader(new Script(getActivity(),
-                                R.raw.multitool,
-                                nameTextView.getText().toString(),
-                                Script.FLAG_APP_MENU + Script.FLAG_ITEM_MENU,
-                                getActivity().getPackageName().replace('.', '/'))), result -> {
-                            if (isAdded()) {
-                                getActivity().runOnUiThread(() -> changeText(getString(R.string.button_repositoryImporter_importOk)));
-                            }
-                        })
-                        .start();
+                });
                 break;
             }
 
@@ -133,7 +109,7 @@ public class LauncherScriptFragment extends Fragment {
 
     private boolean isPackageInstalled(String packageName, Context context) {
         PackageManager pm = context.getPackageManager();
-        return exceptionToOptional((LambdaUtils.ExceptionalBiFunction<String, Integer, PackageInfo, PackageManager.NameNotFoundException>)pm::getPackageInfo)
+        return exceptionToOptional((LambdaUtils.ExceptionalBiFunction<String, Integer, PackageInfo, PackageManager.NameNotFoundException>) pm::getPackageInfo)
                 .apply(packageName, PackageManager.GET_ACTIVITIES).isPresent();
     }
 

@@ -19,18 +19,12 @@ import androidx.fragment.app.Fragment;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
 import com.faendir.lightning_launcher.multitool.fastadapter.Model;
-import com.faendir.lightning_launcher.multitool.util.Utils;
-import com.faendir.lightning_launcher.scriptlib.ScriptManager;
-import java9.util.stream.StreamSupport;
 import org.acra.ACRA;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
 
 /**
  * Created by Lukas on 22.08.2015.
@@ -43,16 +37,13 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     private boolean enableMenu;
     private FrameLayout layout;
     private ListManager listManager;
-    private ScriptManager scriptManager;
     private ActionMode actionMode;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        scriptManager = new ScriptManager(getActivity());
-        if (DEBUG) scriptManager.enableDebug();
         sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        listManager = new ListManager(scriptManager, getActivity(), this::setActionModeEnabled);
+        listManager = new ListManager(getActivity(), this::setActionModeEnabled);
         setHasOptionsMenu(true);
         enableMenu = false;
     }
@@ -110,7 +101,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
             switch (requestCode) {
                 case IMPORT:
                     if (data != null && data.getData() != null) {
-                        ScriptUtils.restoreFromFile(scriptManager, getActivity(), listManager, data.getData());
+                        ScriptUtils.restoreFromFile(getActivity(), listManager, data.getData());
                     }
                     break;
                 case EXPORT:
@@ -122,18 +113,12 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
     }
 
     private void loadFromLauncher() {
-        scriptManager.getAsyncExecutorService().setKeepAliveAfterwards(true).add(ScriptUtils.getScriptManagerExecutor(null), this::handleScriptResult).start();
         layout.removeAllViews();
         LayoutInflater.from(getActivity()).inflate(R.layout.fragment_loading, layout);
-    }
-
-    private void handleScriptResult(@Nullable String result) {
-        if (result != null) {
-            List<Script> scripts = Arrays.asList(Utils.GSON.fromJson(result, Script[].class));
-            listManager.updateFrom(scripts);
+        listManager.update(() -> {
             listManager.setAsContentOf(layout);
             enableMenu = true;
-        }
+        });
     }
 
     @Subscribe
@@ -166,17 +151,18 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
 
     @Override
     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-        int selectionMode = listManager.getSelectionMode();
-        if (selectionMode == ListManager.NONE) mode.finish();
-        final boolean isOneScript = selectionMode == ListManager.ONE_SCRIPT;
-        final boolean onlyScripts = isOneScript || selectionMode == ListManager.ONLY_SCRIPTS;
-        menu.findItem(R.id.action_rename).setVisible(selectionMode == ListManager.ONE_GROUP || isOneScript);
+        int selectionCount = listManager.getSelectedItems().size();
+        if (selectionCount == 0) {
+            mode.finish();
+        }
+        final boolean isOneScript = selectionCount == 1;
+        menu.findItem(R.id.action_rename).setVisible(isOneScript);
         menu.findItem(R.id.action_edit).setVisible(isOneScript);
         menu.findItem(R.id.action_backup).setVisible(isOneScript);
-        menu.findItem(R.id.action_format).setVisible(onlyScripts);
+        menu.findItem(R.id.action_format).setVisible(true);
         MenuItem disable = menu.findItem(R.id.action_disable).setVisible(isOneScript);
         if (isOneScript) {
-            disable.setTitle(((Script) StreamSupport.stream(listManager.getSelectedItems()).findAny().get()).isDisabled() ? R.string.menu_enable : R.string.menu_disable);
+            disable.setTitle(listManager.getSelectedItems().get(0).isDisabled() ? R.string.menu_enable : R.string.menu_disable);
         }
         return true;
     }
@@ -191,7 +177,7 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
         }
         switch (item.getItemId()) {
             case R.id.action_rename:
-                ScriptUtils.renameDialog(scriptManager, getActivity(), listManager, selectedItems.get(0));
+                ScriptUtils.renameDialog(getActivity(), listManager, (Script) selectedItems.get(0));
                 break;
             case R.id.action_edit:
                 ScriptUtils.editScript(getActivity(), listManager, (Script) selectedItems.get(0));
@@ -205,10 +191,10 @@ public class ScriptManagerFragment extends Fragment implements ActionMode.Callba
                 startActivityForResult(intent, EXPORT);
                 break;
             case R.id.action_format:
-                ScriptUtils.format(scriptManager, getActivity(), listManager, selectedItems);
+                ScriptUtils.format(getActivity(), listManager, selectedItems);
                 break;
             case R.id.action_disable:
-                ScriptUtils.toggleDisable(scriptManager, listManager, (Script) selectedItems.get(0));
+                ScriptUtils.toggleDisable(listManager, (Script) selectedItems.get(0));
                 break;
         }
         return true;

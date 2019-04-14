@@ -4,17 +4,17 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Handler;
 import android.view.ViewGroup;
-import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.ExpandableItem;
 import com.faendir.lightning_launcher.multitool.fastadapter.ItemFactory;
 import com.faendir.lightning_launcher.multitool.fastadapter.Model;
-import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.adapters.ModelAdapter;
 import com.mikepenz.fastadapter.expandable.ExpandableExtension;
@@ -30,7 +30,6 @@ import java9.util.stream.StreamSupport;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Queue;
 
 /**
@@ -47,7 +46,7 @@ class ListManager {
     private final ExpandableExtension<ExpandableItem<Model>> expandable;
     private final SelectExtension<ExpandableItem<Model>> selectable;
 
-    ListManager(@NonNull ScriptManager scriptManager, @NonNull Context context, Consumer<Boolean> actionModeEnabler) {
+    ListManager(@NonNull Context context, Consumer<Boolean> actionModeEnabler) {
         this.context = context;
         recyclerView = new RecyclerView(context);
         factory = new ItemFactory<>((int) (24 * context.getResources().getDisplayMetrics().density));
@@ -69,7 +68,7 @@ class ListManager {
                 if (position1 != RecyclerView.NO_POSITION) {
                     adapter.remove(position1);
                 }
-                ScriptUtils.deleteScript(scriptManager, this, (Script) item.getModel());
+                ScriptUtils.deleteScript(this, (Script) item.getModel());
             };
             recyclerView.postDelayed(removeRunnable, 5000);
 
@@ -91,9 +90,22 @@ class ListManager {
         selectable.deselect();
     }
 
-    void updateFrom(@NonNull List<Script> scripts) {
+    void update() {
+        update(null);
+    }
+
+    void update(@Nullable Runnable onDone) {
+        MultiTool.get().doInLL(scriptService -> {
+            updateFrom(scriptService.getScriptsMatching(net.pierrox.lightning_launcher.api.Script.FLAG_ALL));
+            if(onDone != null) {
+                onDone.run();
+            }
+        });
+    }
+
+    private void updateFrom(@NonNull List<net.pierrox.lightning_launcher.api.Script> scripts) {
         List<ExpandableItem<Model>> items = new ArrayList<>();
-        for (Script script : scripts) {
+        for (net.pierrox.lightning_launcher.api.Script script : scripts) {
             String path = script.getPath();
             List<ExpandableItem<Model>> parentItems = items;
             ExpandableItem<Model> parent = null;
@@ -119,7 +131,7 @@ class ListManager {
                     parentItems = parent.getSubItems();
                 }
             }
-            ExpandableItem<Model> s = factory.wrap(script);
+            ExpandableItem<Model> s = factory.wrap(new Script(script));
             parentItems.add(s);
             if (parent != null) {
                 s.withParent(parent);
@@ -186,29 +198,7 @@ class ListManager {
         return StreamSupport.stream(getItems()).filter(item -> script.getName().equals(item.getName())).findAny().isPresent();
     }
 
-    @IntDef({NONE, ONE_SCRIPT, ONE_GROUP, ONLY_GROUPS, ONLY_SCRIPTS, BOTH})
-    @interface SelectionMode {
-    }
-
-    static final int NONE = -1;
-    static final int ONE_SCRIPT = 0;
-    static final int ONE_GROUP = 1;
-    static final int ONLY_SCRIPTS = 2;
-    private static final int ONLY_GROUPS = 3;
-    private static final int BOTH = 4;
-
-    @SelectionMode
-    int getSelectionMode() {
-        Map<Boolean, List<Model>> m = StreamSupport.stream(selectable.getSelectedItems()).map(ExpandableItem::getModel)
-                .collect(Collectors.partitioningBy(Folder.class::isInstance));
-        List<Model> selectedScriptGroups = m.get(true);
-        List<Model> selectedScripts = m.get(false);
-        boolean noScripts = selectedScripts.isEmpty();
-        return selectedScriptGroups.isEmpty() ? noScripts ? NONE : selectedScripts.size() == 1 ? ONE_SCRIPT : ONLY_SCRIPTS : selectedScriptGroups
-                .size() == 1 ? noScripts ? ONE_GROUP : BOTH : noScripts ? ONLY_GROUPS : BOTH;
-    }
-
-    List<Model> getSelectedItems() {
-        return StreamSupport.stream(selectable.getSelectedItems()).map(ExpandableItem::getModel).collect(Collectors.toList());
+    List<Script> getSelectedItems() {
+        return StreamSupport.stream(selectable.getSelectedItems()).map(ExpandableItem::getModel).map(Script.class::cast).collect(Collectors.toList());
     }
 }

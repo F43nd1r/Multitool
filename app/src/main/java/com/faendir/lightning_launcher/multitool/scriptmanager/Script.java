@@ -16,16 +16,14 @@ import com.faendir.lightning_launcher.multitool.fastadapter.DeletableModel;
  * Represents a script
  */
 @Keep
-public class Script extends com.trianguloy.llscript.repository.aidl.Script implements Comparable<Script>, DeletableModel {
-    private final int id;
+public class Script extends net.pierrox.lightning_launcher.api.Script implements Comparable<Script>, DeletableModel {
 
-    public Script(String name, int id, String code, int flags, String path) {
-        super(code, name, flags, path);
-        this.id = id;
+    public Script(net.pierrox.lightning_launcher.api.Script script) {
+        this(script.getName(), script.getId(), script.getText(), script.getFlags(), script.getPath());
     }
 
-    public int getId() {
-        return id;
+    public Script(String name, int id, String code, int flags, String path) {
+        super(id, code, name, path, flags);
     }
 
     @Override
@@ -65,13 +63,5 @@ public class Script extends com.trianguloy.llscript.repository.aidl.Script imple
     @Override
     public Drawable getIcon(@NonNull Context context) {
         return ContextCompat.getDrawable(context, R.drawable.ic_file_white);
-    }
-
-    @Override
-    public String toString() {
-        return "Script{" +
-                "id=" + id +
-                ", name='" + getName() + '\'' +
-                '}';
     }
 }

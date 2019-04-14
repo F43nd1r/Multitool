@@ -6,6 +6,8 @@ import androidx.preference.PreferenceFragmentCompat;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.settings.PreferenceListener;
 import com.faendir.lightning_launcher.scriptlib.PermissionActivity;
+import com.google.common.util.concurrent.FutureCallback;
+import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 
 /**
  * @author lukas
@@ -13,6 +15,7 @@ import com.faendir.lightning_launcher.scriptlib.PermissionActivity;
  */
 public class CalendarFragment extends PreferenceFragmentCompat {
     private PreferenceListener listener;
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.calendar, rootKey);
@@ -20,11 +23,19 @@ public class CalendarFragment extends PreferenceFragmentCompat {
         listener.addPreferenceForSummary(getString(R.string.pref_calendars));
         listener.addPreferenceForSummary(getString(R.string.pref_dateFormat));
         getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(listener);
-        PermissionActivity.checkForPermission(getActivity(), Manifest.permission.READ_CALENDAR, isGranted -> {
-            if(isGranted) {
-                ((CalendarPreference) getPreferenceScreen().findPreference(getString(R.string.pref_calendars))).refresh();
+        PermissionActivity.checkForPermission(getActivity(), Manifest.permission.READ_CALENDAR).addCallback(new FutureCallback<Boolean>() {
+            @Override
+            public void onSuccess(@NullableDecl Boolean result) {
+                if (result != null && result) {
+                    ((CalendarPreference) getPreferenceScreen().findPreference(getString(R.string.pref_calendars))).refresh();
+                }
             }
-        });
+
+            @Override
+            public void onFailure(Throwable t) {
+                t.printStackTrace();
+            }
+        }, Runnable::run);
     }
 
     @Override

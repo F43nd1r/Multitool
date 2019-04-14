@@ -20,11 +20,10 @@ import androidx.fragment.app.Fragment;
 import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.event.ClickEvent;
-import com.faendir.lightning_launcher.multitool.proxy.JavaScript;
 import com.faendir.lightning_launcher.multitool.util.LambdaUtils.ExceptionalFunction;
+import com.faendir.lightning_launcher.multitool.util.ScriptBuilder;
 import com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService;
-import com.faendir.lightning_launcher.scriptlib.ScriptManager;
-import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
+import net.pierrox.lightning_launcher.api.ScreenIdentity;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
@@ -94,16 +93,14 @@ public class MusicFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_help:
-                new AlertDialog.Builder(getActivity())
-                        .setTitle(R.string.title_help)
-                        .setMessage(R.string.message_helpMusic)
-                        .setPositiveButton(R.string.button_ok, null)
-                        .show();
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.action_help) {
+            new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.title_help)
+                    .setMessage(R.string.message_helpMusic)
+                    .setPositiveButton(R.string.button_ok, null)
+                    .show();
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -125,11 +122,7 @@ public class MusicFragment extends Fragment {
     public void onClick(ClickEvent event) {
         switch (event.getId()) {
             case R.id.button_updateMusic:
-                ScriptManager manager = new ScriptManager(getActivity());
-                if (MultiTool.DEBUG) manager.enableDebug();
-                manager.getAsyncExecutorService()
-                        .add(new DirectScriptExecutor(R.raw.direct).putVariable(JavaScript.Direct.PARAM_CLASS, MusicSetup.class.getName()))
-                        .start();
+                MultiTool.get().doInLL(scriptService -> scriptService.runCode(ScriptBuilder.scriptForClass(getActivity(), MusicSetup.class), ScreenIdentity.HOME));
                 break;
             case R.id.button_play:
                 musicListener.sendPlayPause();

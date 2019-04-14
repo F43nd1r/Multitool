@@ -4,18 +4,12 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import androidx.annotation.Nullable;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.faendir.lightning_launcher.multitool.Loader;
+import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.Model;
-import com.faendir.lightning_launcher.multitool.proxy.JavaScript;
-import com.faendir.lightning_launcher.multitool.util.Utils;
-import com.faendir.lightning_launcher.scriptlib.ScriptManager;
-import com.faendir.lightning_launcher.scriptlib.executor.DirectScriptExecutor;
-
 import org.acra.util.StreamReader;
 
 import java.io.FileNotFoundException;
@@ -24,7 +18,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -56,7 +49,7 @@ final class ScriptUtils {
             if (item instanceof Script) {
                 Script script = (Script) item;
                 boolean isFirst = true;
-                String[] lines = script.getCode().split("\n");
+                String[] lines = script.getText().split("\n");
                 for (int i = 0; i < lines.length; i++) {
                     if (pattern.matcher(lines[i]).find()) {
                         if (isFirst) {
@@ -68,56 +61,51 @@ final class ScriptUtils {
                         builder.append(i + 1);
                     }
                 }
-                if (!isFirst) builder.append("\n");
+                if (!isFirst) {
+                    builder.append("\n");
+                }
             }
         }
         new AlertDialog.Builder(context).setMessage(builder.toString().trim()).setTitle(R.string.title_matches).setNeutralButton(R.string.button_ok, null).show();
     }
 
-    public static void renameDialog(final ScriptManager scriptManager, final Context context, final ListManager listManager, final Model item) {
+    public static void renameDialog(final Context context, final ListManager listManager, final Script script) {
         final EditText text = new EditText(context);
-        text.setText(item.getName());
+        text.setText(script.getName());
         new AlertDialog.Builder(context).setTitle(
-                context.getString(R.string.title_rename, (item instanceof Folder ? context.getString(R.string.text_folder) : context.getString(R.string.text_script))))
-                .setView(text).setPositiveButton(R.string.button_ok, (dialog, ignore) -> renameItem(scriptManager, listManager, item, text.getText().toString()))
+                context.getString(R.string.title_rename, context.getString(R.string.text_script)))
+                .setView(text).setPositiveButton(R.string.button_ok, (dialog, ignore) -> {
+            script.setName(text.getText().toString());
+            MultiTool.get().doInLL(scriptService -> scriptService.updateScript(script));
+            listManager.deselectAll();
+        })
                 .setNegativeButton(R.string.button_cancel, null).show();
     }
 
-    private static void renameItem(final ScriptManager scriptManager, final ListManager listManager, Model item, String name) {
-        if (item instanceof Script) {
-            ((Script) item).setName(name);
-            final Transfer transfer = new Transfer(Transfer.RENAME);
-            transfer.script = (Script) item;
-            scriptManager.getAsyncExecutorService()
-                    .add(getScriptManagerExecutor(Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
-        } else if (item instanceof Folder) {
-//TODO
-        }
-        listManager.deselectAll();
-    }
-
-    private static void updateFrom(@Nullable String result, ListManager listManager) {
-        if (result != null) {
-            listManager.updateFrom(Arrays.asList(Utils.GSON.fromJson(result, Script[].class)));
-        }
-    }
-
-    public static void format(ScriptManager scriptManager, Context context, ListManager listManager, final List<Model> selectedItems) {
-        new FormatTask3(scriptManager, context, listManager).execute(selectedItems.toArray(new Model[0]));
+    public static void format(Context context, ListManager listManager, final List<Model> selectedItems) {
+        new FormatTask3(context, listManager).execute(selectedItems.toArray(new Model[0]));
         listManager.deselectAll();
     }
 
     public static void backup(final Context context, final ListManager listManager, Script script, Uri uri) {
         String prefix = FLAGS;
-        if ((script.getFlags() >> 1 & 1) == 1) prefix += APP;
-        if ((script.getFlags() >> 2 & 1) == 1) prefix += ITEM;
-        if ((script.getFlags() >> 3 & 1) == 1) prefix += CUSTOM;
+        if ((script.getFlags() >> 1 & 1) == 1) {
+            prefix += APP;
+        }
+        if ((script.getFlags() >> 2 & 1) == 1) {
+            prefix += ITEM;
+        }
+        if ((script.getFlags() >> 3 & 1) == 1) {
+            prefix += CUSTOM;
+        }
         prefix += " " + NAME + script.getName() + "\n";
         try {
             OutputStream outputStream = context.getContentResolver().openOutputStream(uri);
-            if (outputStream == null) throw new FileNotFoundException();
+            if (outputStream == null) {
+                throw new FileNotFoundException();
+            }
             try (Writer writer = new OutputStreamWriter(outputStream)) {
-                writer.write(prefix + script.getCode());
+                writer.write(prefix + script.getText());
                 writer.flush();
                 Toast.makeText(context, R.string.text_backupSuccessful, Toast.LENGTH_SHORT).show();
             }
@@ -136,15 +124,18 @@ final class ScriptUtils {
         listManager.deselectAll();
     }
 
-    public static void deleteScript(final ScriptManager scriptManager, final ListManager listManager, Script delete) {
-        simpleCommand(scriptManager, listManager, Transfer.DELETE, delete);
+    public static void deleteScript(final ListManager listManager, Script delete) {
+        MultiTool.get().doInLL(scriptService -> {
+            scriptService.deleteScript(new net.pierrox.lightning_launcher.api.Script(delete.getId()));
+            listManager.update();
+        });
     }
 
-    public static void restoreFromFile(ScriptManager scriptManager, Context context, ListManager listManager, Uri uri) {
+    public static void restoreFromFile(Context context, ListManager listManager, Uri uri) {
         try {
             InputStream in = context.getContentResolver().openInputStream(uri);
             if (in != null) {
-                restoreDialog(scriptManager, context, listManager, new StreamReader(in).read(), uri.getLastPathSegment());
+                restoreDialog(context, listManager, new StreamReader(in).read(), uri.getLastPathSegment());
                 return;
             }
         } catch (IOException ignored) {
@@ -152,15 +143,23 @@ final class ScriptUtils {
         Toast.makeText(context, context.getString(R.string.toast_failedLoad) + uri.getPath(), Toast.LENGTH_SHORT).show();
     }
 
-    private static void restoreDialog(final ScriptManager scriptManager, final Context context, final ListManager listManager, String s, String filename) {
+    private static void restoreDialog(final Context context, final ListManager listManager, String s, String filename) {
         int endOfFirstLine = s.indexOf('\n');
-        if (endOfFirstLine == -1) endOfFirstLine = s.length();
+        if (endOfFirstLine == -1) {
+            endOfFirstLine = s.length();
+        }
         String l = s.substring(0, endOfFirstLine);
         int flags = 0;
         if (l.contains(FLAGS)) { //check if file contains flag settings
-            if (l.contains(APP)) flags += Loader.FLAG_APP_MENU;
-            if (l.contains(ITEM)) flags += Loader.FLAG_ITEM_MENU;
-            if (l.contains(CUSTOM)) flags += Loader.FLAG_CUSTOM_MENU;
+            if (l.contains(APP)) {
+                flags += Loader.FLAG_APP_MENU;
+            }
+            if (l.contains(ITEM)) {
+                flags += Loader.FLAG_ITEM_MENU;
+            }
+            if (l.contains(CUSTOM)) {
+                flags += Loader.FLAG_CUSTOM_MENU;
+            }
             s = s.substring(endOfFirstLine + 1);
         }
         String nameFromFile = "";
@@ -171,7 +170,9 @@ final class ScriptUtils {
             //remove file extension
             nameFromFile = filename;
             int index = nameFromFile.lastIndexOf('.');
-            if (index != -1) nameFromFile = nameFromFile.substring(0, index);
+            if (index != -1) {
+                nameFromFile = nameFromFile.substring(0, index);
+            }
         }
         //ask for imported scripts name
         final EditText editText = new EditText(context);
@@ -179,43 +180,34 @@ final class ScriptUtils {
         final String finalS = s;
         final int finalFlags = flags;
         new AlertDialog.Builder(context).setView(editText).setTitle(R.string.title_chooseName).setPositiveButton(R.string.button_ok,
-                (dialog, ignore) -> prepareRestore(scriptManager, context, listManager, finalS, editText.getText().toString(), finalFlags))
+                (dialog, ignore) -> prepareRestore(context, listManager, finalS, editText.getText().toString(), finalFlags))
                 .setNegativeButton(R.string.button_cancel, null).show();
     }
 
-    private static void prepareRestore(final ScriptManager scriptManager, final Context context, final ListManager listManager, String code, String name, int flags) {
+    private static void prepareRestore(final Context context, final ListManager listManager, String code, String name, int flags) {
         final Script script = new Script(name, 0, code, flags, "/");
         if (listManager.exists(script)) {
             new AlertDialog.Builder(context).setMessage(R.string.message_overwrite)
-                    .setPositiveButton(R.string.button_ok, (dialog, ignore) -> restore(scriptManager, listManager, script)).setNegativeButton(R.string.button_cancel, null)
+                    .setPositiveButton(R.string.button_ok, (dialog, ignore) -> restore(listManager, script)).setNegativeButton(R.string.button_cancel, null)
                     .show();
         } else {
-            restore(scriptManager, listManager, script);
+            restore(listManager, script);
         }
 
     }
 
-    private static void restore(final ScriptManager scriptManager, final ListManager listManager, Script script) {
-        simpleCommand(scriptManager, listManager, Transfer.RESTORE, script);
+    private static void restore(final ListManager listManager, Script script) {
+        MultiTool.get().doInLL(scriptService -> {
+            scriptService.updateScript(new net.pierrox.lightning_launcher.api.Script(script.getText(), script.getName(), script.getPath(), script.getFlags()));
+            listManager.update();
+        });
     }
 
-    private static void simpleCommand(final ScriptManager scriptManager, final ListManager listManager, @Transfer.Action String command, Script script) {
-        final Transfer transfer = new Transfer(command, script);
-        scriptManager.getAsyncExecutorService()
-                .add(getScriptManagerExecutor(Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
-    }
-
-    public static void toggleDisable(final ScriptManager scriptManager, final ListManager listManager, Script item) {
-        final Transfer transfer = new Transfer(Transfer.TOGGLE_DISABLE);
-        transfer.script = item;
-        scriptManager.getAsyncExecutorService()
-                .add(getScriptManagerExecutor(Utils.GSON.toJson(transfer)), result -> updateFrom(result, listManager)).start();
-        item.setFlags(item.getFlags() ^ Loader.FLAG_DISABLED);
-        listManager.deselectAll();
-    }
-
-    public static DirectScriptExecutor getScriptManagerExecutor(@Nullable String data) {
-        return new DirectScriptExecutor(R.raw.direct).putVariable(JavaScript.Direct.PARAM_CLASS,
-                com.faendir.lightning_launcher.multitool.scriptmanager.ScriptManager.class.getName()).putVariable(JavaScript.Direct.PARAM_DATA, data);
+    public static void toggleDisable(final ListManager listManager, Script item) {
+        item.setFlag(net.pierrox.lightning_launcher.api.Script.FLAG_DISABLED, !item.hasFlag(net.pierrox.lightning_launcher.api.Script.FLAG_DISABLED));
+        MultiTool.get().doInLL(scriptService -> {
+            scriptService.updateScript(item);
+            listManager.deselectAll();
+        });
     }
 }

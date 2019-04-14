@@ -3,19 +3,17 @@ package com.faendir.lightning_launcher.multitool.billing;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.provider.Settings;
+import android.util.Log;
 import androidx.annotation.CheckResult;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.annotation.WorkerThread;
-import android.util.Log;
-
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.TransactionDetails;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.util.LambdaUtils.ExceptionalRunnable;
-
-import org.apache.commons.collections4.BidiMap;
-import org.apache.commons.collections4.bidimap.DualHashBidiMap;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -49,7 +47,7 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
     private final Context context;
     private final BillingProcessor billingProcessor;
     final Map<String, Long> expiration;
-    final BidiMap<Integer, String> mapping;
+    final BiMap<Integer, String> mapping;
     private boolean error = false;
 
     public BaseBillingManager(Context context) {
@@ -67,7 +65,7 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
         }
         this.context = context;
         expiration = new HashMap<>();
-        mapping = new DualHashBidiMap<>();
+        mapping = HashBiMap.create();
         mapping.put(R.string.title_musicWidget, MUSIC_WIDGET);
         mapping.put(R.string.title_drawer, DRAWER);
         mapping.put(R.string.title_animation, ANIMATION);

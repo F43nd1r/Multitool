@@ -3,12 +3,11 @@ package com.faendir.lightning_launcher.multitool.scriptmanager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import androidx.annotation.Nullable;
 import android.widget.Toast;
+import androidx.annotation.Nullable;
+import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.fastadapter.Model;
-import com.faendir.lightning_launcher.multitool.util.Utils;
-import com.faendir.lightning_launcher.scriptlib.ScriptManager;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.mozilla.javascript.CompilerEnvirons;
 import org.mozilla.javascript.Node;
@@ -27,7 +26,6 @@ import org.mozilla.javascript.ast.SwitchStatement;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -36,14 +34,12 @@ import java.util.List;
  */
 
 public class FormatTask3 extends AsyncTask<Model, FormatTask3.Progress, Void> {
-    private final ScriptManager scriptManager;
     private final WeakReference<Context> context;
     private final ListManager listManager;
     private ProgressDialog dialog;
 
-    FormatTask3(ScriptManager scriptManager, Context context, ListManager listManager) {
+    FormatTask3(Context context, ListManager listManager) {
         super();
-        this.scriptManager = scriptManager;
         this.context = new WeakReference<>(context);
         this.listManager = listManager;
     }
@@ -213,17 +209,10 @@ public class FormatTask3 extends AsyncTask<Model, FormatTask3.Progress, Void> {
             if (params[i] instanceof Script) {
                 Script script = (Script) params[i];
                 publishProgress(new Progress(params.length, i, script.getName()));
-                String code = beautify(script.getCode());
+                String code = beautify(script.getText());
                 if (code == null) return null;
-                script.setCode(code); //set the text to the script
-                Transfer transfer = new Transfer(Transfer.SET_CODE);
-                transfer.script = script;
-                scriptManager.getAsyncExecutorService().add(ScriptUtils.getScriptManagerExecutor(Utils.GSON.toJson(transfer)), result -> {
-                    if (result != null) {
-                        List<Script> scripts = Arrays.asList(Utils.GSON.fromJson(result, Script[].class));
-                        listManager.updateFrom(scripts);
-                    }
-                }).start();
+                script.setText(code);
+                MultiTool.get().doInLL(scriptService -> scriptService.updateScript(script));
             }
         }
         return null;

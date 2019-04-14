@@ -1,6 +1,6 @@
 package com.faendir.lightning_launcher.multitool.backup;
 
-import org.apache.commons.collections4.list.UnmodifiableList;
+import org.acra.collections.ImmutableList;
 
 import java.util.Collections;
 import java.util.List;
@@ -30,6 +30,6 @@ public class BackupTime {
     }
 
     public List<Integer> getDays() {
-        return days != null ? new UnmodifiableList<>(days) : Collections.emptyList();
+        return days != null ? new ImmutableList<>(days) : Collections.emptyList();
     }
 }

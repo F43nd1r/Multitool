@@ -1,12 +1,15 @@
 package com.faendir.lightning_launcher.multitool.util;
 
+import android.content.Context;
 import android.content.Intent;
-
+import androidx.annotation.NonNull;
+import androidx.annotation.RawRes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import org.acra.util.StreamReader;
 
 import java.io.IOException;
 
@@ -50,6 +53,14 @@ public final class Utils {
             }
             in.endObject();
             return intent;
+        }
+    }
+
+    public static String readRawResource(@NonNull Context context, @RawRes int res) {
+        try {
+            return new StreamReader(context.getResources().openRawResource(res)).read();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
