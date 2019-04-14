@@ -56,7 +56,7 @@ play {
 }
 
 dependencies {
-    implementation("com.faendir.lightninglauncher:scriptlib:4.1")
+    implementation("com.faendir.lightninglauncher:scriptlib:4.1.1")
     implementation("androidx.appcompat:appcompat:1.0.2")
     implementation("androidx.recyclerview:recyclerview:1.0.0")
     implementation("androidx.preference:preference:1.0.0")

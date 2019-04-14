@@ -36,3 +36,5 @@
 -dontwarn sun.misc.Unsafe
 -dontwarn org.mozilla.javascript.**
 -dontwarn build.*
+-dontwarn java.lang.ClassValue
+-dontwarn javax.lang.model.element.Modifier
