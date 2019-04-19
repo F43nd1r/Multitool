@@ -4,6 +4,8 @@ plugins {
     id("com.faendir.gradlekeepass") version "0.1"
     id("idea")
 }
+apply(plugin = "org.jetbrains.kotlin.android")
+apply(plugin = "org.jetbrains.kotlin.android.extensions")
 val versionCode: String by project
 var vCode = versionCode
 val version: String by project
@@ -14,7 +16,7 @@ android {
     compileSdkVersion(28)
 
     defaultConfig {
-        applicationId  = "com.faendir.lightning_launcher.multitool"
+        applicationId = "com.faendir.lightning_launcher.multitool"
         minSdkVersion(22)
         targetSdkVersion(28)
         versionCode = Integer.parseInt(vCode)
@@ -52,7 +54,7 @@ android {
 
 play {
     serviceAccountCredentials = file(playKeyFile)
-    track = if(version.contains("b")) "beta" else "production"
+    track = if (version.contains("b")) "beta" else "production"
 }
 
 dependencies {
@@ -97,4 +99,7 @@ afterEvaluate {
     rootProject.tasks.getByName("beforeReleaseBuild").dependsOn(tasks.getByName("clean"))
     rootProject.tasks.getByName("build").dependsOn(tasks.getByName("build"))
     rootProject.tasks.getByName("afterReleaseBuild").dependsOn(tasks.getByName("publishApkRelease"))
+}
+repositories {
+    mavenCentral()
 }
