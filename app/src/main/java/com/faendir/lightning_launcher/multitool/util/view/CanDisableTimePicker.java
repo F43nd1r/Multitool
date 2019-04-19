@@ -43,8 +43,7 @@ public class CanDisableTimePicker extends TimePicker {
         if (radial != null) {
             try {
                 radial.getClass().getMethod("setInputEnabled", boolean.class).invoke(radial, enabled);
-            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
+            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ignored) {
             }
         }
         int[] textViews = new int[]{getSystemId("hours"), getSystemId("minutes"), getSystemId("separator"), getSystemId("am_label"), getSystemId("pm_label")};

@@ -73,7 +73,6 @@
         </activity-alias>
         <activity-alias
             android:name=".LoadMusicWidget"
-            android:enabled="@bool/isLollipopOrHigher"
             android:exported="true"
             android:label="@string/title_musicWidget"
             android:targetActivity=".Loader">

@@ -3,6 +3,7 @@ package com.faendir.lightning_launcher.multitool;
 import android.app.Application;
 import android.content.Context;
 import androidx.annotation.NonNull;
+import com.evernote.android.job.JobManager;
 import com.faendir.lightning_launcher.scriptlib.LightningServiceManager;
 import com.google.common.util.concurrent.FutureCallback;
 import net.pierrox.lightning_launcher.plugin.IScriptService;
@@ -25,7 +26,7 @@ import static android.app.job.JobInfo.NETWORK_TYPE_UNMETERED;
  */
 @AcraCore(buildConfigClass = BuildConfig.class,
         reportFormat = StringFormat.JSON)
-@AcraHttpSender(uri = "https://faendir.com/acra/report",
+@AcraHttpSender(uri = "https://acra.faendir.com/report",
         httpMethod = HttpSender.Method.POST,
         basicAuthLogin = "tM7oBAo83wcAmaCK",
         basicAuthPassword = "56Rb0aGfj697yTMG")
@@ -56,6 +57,7 @@ public class MultiTool extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        JobManager.create(this);
         serviceManager = new LightningServiceManager(this);
     }
 

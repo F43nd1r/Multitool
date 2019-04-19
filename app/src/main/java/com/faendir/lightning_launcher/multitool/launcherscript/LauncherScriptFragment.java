@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -24,16 +23,15 @@ public class LauncherScriptFragment extends Fragment {
 
     private TextView nameTextView;
     private SharedPreferences shareprefs;
-    private FrameLayout layout;
 
     private Button importButton;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_launcher_script, container);
-        nameTextView = layout.findViewById(R.id.main_scriptName);
-        importButton = layout.findViewById(R.id.button_import);
+        View v = inflater.inflate(R.layout.fragment_launcher_script, container, false);
+        nameTextView = v.findViewById(R.id.main_scriptName);
+        importButton = v.findViewById(R.id.button_import);
         shareprefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         nameTextView.setText(shareprefs.getString(getString(R.string.preference_scriptName), getString(R.string.script_name)));
         return v;
