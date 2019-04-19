@@ -10,10 +10,10 @@ import androidx.annotation.StringRes;
 import androidx.annotation.WorkerThread;
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.TransactionDetails;
-import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.util.Fragments;
 import com.faendir.lightning_launcher.multitool.util.LambdaUtils.ExceptionalRunnable;
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
+import java9.util.Optional;
+import java9.util.stream.Stream;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,8 +22,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
 import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
@@ -40,14 +38,43 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
         EXPIRED
     }
 
-    private static final String MUSIC_WIDGET = "music_widget";
-    private static final String DRAWER = "drawer";
-    private static final String ANIMATION = "animation";
-    static final int SEVEN_DAYS_IN_SECONDS = 60 * 60 * 24 * 7;
+    public enum PaidFeature {
+        MUSIC_WIDGET("music_widget", Fragments.MUSIC),
+        DRAWER("drawer", Fragments.DRAWER),
+        ANIMATION("animation", Fragments.ANIMATION);
+        private final String id;
+        private final Fragments relatedFragment;
+        private Long expiration;
+
+        PaidFeature(String id, Fragments relatedFragment) {
+            this.id = id;
+            this.relatedFragment = relatedFragment;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public Fragments getRelatedFragment() {
+            return relatedFragment;
+        }
+
+        public static Optional<PaidFeature> fromTitle(@StringRes int titleRes) {
+            return Stream.of(PaidFeature.values()).filter(v -> v.relatedFragment.getRes() == titleRes).findAny();
+        }
+
+        public static Optional<PaidFeature> fromId(@NonNull String productId) {
+            return Stream.of(PaidFeature.values()).filter(v -> v.id.equals(productId)).findAny();
+        }
+
+        public static Optional<PaidFeature> fromFragment(@NonNull Fragments fragment) {
+            return Stream.of(PaidFeature.values()).filter(v -> v.relatedFragment == fragment).findAny();
+        }
+    }
+
+    private static final int SEVEN_DAYS_IN_SECONDS = 60 * 60 * 24 * 7;
     private final Context context;
     private final BillingProcessor billingProcessor;
-    final Map<String, Long> expiration;
-    final BiMap<Integer, String> mapping;
     private boolean error = false;
 
     public BaseBillingManager(Context context) {
@@ -64,11 +91,6 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
             error = true;
         }
         this.context = context;
-        expiration = new HashMap<>();
-        mapping = HashBiMap.create();
-        mapping.put(R.string.title_musicWidget, MUSIC_WIDGET);
-        mapping.put(R.string.title_drawer, DRAWER);
-        mapping.put(R.string.title_animation, ANIMATION);
     }
 
     @Override
@@ -108,62 +130,55 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
     }
 
     @WorkerThread
-    public boolean isBoughtOrTrial(@StringRes int id) {
-        final String name = mapping.get(id);
-        return name == null || init() && billingProcessor.isPurchased(name) || isTrial(name) == TrialState.ONGOING;
+    public boolean isBoughtOrTrial(@NonNull PaidFeature feature) {
+        return init() && billingProcessor.isPurchased(feature.id) || isTrial(feature) == TrialState.ONGOING;
     }
 
     @WorkerThread
-    public boolean isBought(@StringRes int id) {
-        String name = mapping.get(id);
-        if (name == null) {
-            return true;
-        }
+    public boolean isBought(@NonNull PaidFeature feature) {
         if (init()) {
-            boolean result = billingProcessor.isPurchased(name);
-            if (DEBUG) Log.d(LOG_TAG, name + " isBought " + result);
+            boolean result = billingProcessor.isPurchased(feature.id);
+            if (DEBUG) Log.d(LOG_TAG, feature + " isBought " + result);
             return result;
         }
         return false;
     }
 
     @WorkerThread
-    public TrialState isTrial(@StringRes int id) {
-        String name = mapping.get(id);
-        TrialState result = name == null ? TrialState.NOT_STARTED : isTrial(name);
-        if (DEBUG) Log.d(LOG_TAG, name + " isTrial " + result.name());
+    public TrialState isTrial(@NonNull PaidFeature feature) {
+        TrialState result = isTrialImpl(feature);
+        if (DEBUG) Log.d(LOG_TAG, feature + " isTrial " + result);
         return result;
     }
 
     @WorkerThread
-    public Calendar getExpiration(@StringRes int id) {
-        String name = mapping.get(id);
+    public Calendar getExpiration(@NonNull PaidFeature feature) {
         Calendar calendar = Calendar.getInstance();
         long expiration;
-        if (name != null && (expiration = getExpiration(name)) != -1) {
+        if ((expiration = getExpirationImpl(feature)) != -1) {
             calendar.setTimeInMillis(expiration * 1000);
         }
         return calendar;
     }
 
-    private long getExpiration(String productId) {
+    private long getExpirationImpl(@NonNull PaidFeature feature) {
         long expires;
-        if (expiration.containsKey(productId)) {
-            expires = expiration.get(productId);
+        if (feature.expiration != null) {
+            expires = feature.expiration;
         } else {
-            int time = networkRequest(productId, 0);
+            int time = networkRequest(feature.id, 0);
             if (time == -1) {
                 expires = -1;
             } else {
                 expires = System.currentTimeMillis() / 1000 + SEVEN_DAYS_IN_SECONDS - time;
             }
-            expiration.put(productId, expires);
+            feature.expiration = expires;
         }
         return expires;
     }
 
-    TrialState isTrial(String productId) {
-        long expires = getExpiration(productId);
+    TrialState isTrialImpl(@NonNull PaidFeature feature) {
+        long expires = getExpirationImpl(feature);
         TrialState result;
         if (expires == -1) {
             result = TrialState.NOT_STARTED;
@@ -172,7 +187,7 @@ public class BaseBillingManager implements BillingProcessor.IBillingHandler {
         } else {
             result = TrialState.EXPIRED;
         }
-        if (DEBUG) Log.d(LOG_TAG, productId + " TrialState " + result.name());
+        if (DEBUG) Log.d(LOG_TAG, feature + " TrialState " + result);
         return result;
     }
 

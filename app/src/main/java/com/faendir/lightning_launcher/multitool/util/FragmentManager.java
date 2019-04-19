@@ -7,9 +7,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import com.faendir.lightning_launcher.multitool.MainActivity;
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.billing.BaseBillingManager;
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
 import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest;
 import com.mikepenz.materialdrawer.Drawer;
+import java9.util.Optional;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -48,9 +50,10 @@ public class FragmentManager {
         if (currentFragment != null && sharedPref.getString(context.getString(R.string.pref_lastFragment), "").equals(name)) {
             return;
         }
-        if (!billingManager.isBoughtOrTrial(request.getId())) {
+        Optional<BaseBillingManager.PaidFeature> feature = BaseBillingManager.PaidFeature.fromFragment(request.getFragment());
+        if (feature.isPresent() && !billingManager.isBoughtOrTrial(feature.get())) {
             context.runOnUiThread(() -> {
-                billingManager.showTrialBuyDialog(request.getId());
+                billingManager.showTrialBuyDialog(feature.get());
                 drawer.setSelection(lastId);
             });
         } else {

@@ -6,14 +6,14 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import androidx.annotation.Nullable;
-import androidx.annotation.RawRes;
-import androidx.annotation.StringRes;
 import android.util.Log;
 import android.widget.Toast;
+import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
 import androidx.core.content.pm.PackageInfoCompat;
 import com.faendir.lightning_launcher.multitool.animation.AnimationScript;
 import com.faendir.lightning_launcher.multitool.badge.BadgeSetup;
+import com.faendir.lightning_launcher.multitool.billing.BaseBillingManager;
 import com.faendir.lightning_launcher.multitool.billing.BillingManager;
 import com.faendir.lightning_launcher.multitool.calendar.CalendarScript;
 import com.faendir.lightning_launcher.multitool.drawer.Drawer;
@@ -63,49 +63,51 @@ public class Loader extends Activity {
         if (DEBUG) Log.d(LOG_TAG, "Loader for class " + getIntent().getComponent().getClassName());
         switch (getIntent().getComponent().getClassName()) {
             case LAUNCHER_SCRIPT:
-                check(R.string.title_launcherScript, R.raw.multitool, false, FLAG_APP_MENU + FLAG_ITEM_MENU, getString(R.string.script_name), true);
+                check(null, R.raw.multitool, false, FLAG_APP_MENU + FLAG_ITEM_MENU, getString(R.string.script_name), true);
                 break;
             case GESTURE_LAUNCHER:
-                setupCheck(R.string.title_gestureLauncher, GestureScript.class);
+                setupCheck(null, GestureScript.class);
                 break;
             case MUSIC_WIDGET:
-                setupCheck(R.string.title_musicWidget, MusicSetup.class);
+                setupCheck(BaseBillingManager.PaidFeature.MUSIC_WIDGET, MusicSetup.class);
                 break;
             case DRAWER:
-                setupCheck(R.string.title_drawer, Drawer.class);
+                setupCheck(BaseBillingManager.PaidFeature.DRAWER, Drawer.class);
                 break;
             case IMMERSIVE:
-                setupCheck(R.string.title_immersive, ImmersiveScript.class);
+                setupCheck(null, ImmersiveScript.class);
                 break;
             case ANIMATION:
-                setupCheck(R.string.title_animation, AnimationScript.class);
+                setupCheck(BaseBillingManager.PaidFeature.ANIMATION, AnimationScript.class);
                 break;
             case BADGE:
-                setupCheck(R.string.title_badge, BadgeSetup.class);
+                setupCheck(null, BadgeSetup.class);
                 break;
             case CALENDAR:
-                setupCheck(R.string.title_calendar, CalendarScript.class);
+                setupCheck(null, CalendarScript.class);
                 break;
         }
     }
 
-    private void setupCheck(@StringRes final int id, Class<? extends JavaScript.Setup> clazz) {
+    private void setupCheck(@Nullable BaseBillingManager.PaidFeature feature, Class<? extends JavaScript.Setup> clazz) {
         PreferenceManager.getDefaultSharedPreferences(this).edit().putString(getString(R.string.pref_setupClass), clazz.getName()).apply();
-        check(id, R.raw.setup, true, 0, null, true);
+        check(feature, R.raw.setup, true, 0, null, true);
     }
 
-    private void check(@StringRes final int id, @RawRes final int script, final boolean runAndDelete, final int flags, final String name, final boolean showDialog) {
+    private void check(@Nullable BaseBillingManager.PaidFeature feature, @RawRes final int script, final boolean runAndDelete, final int flags, final String name, final boolean showDialog) {
         if (checkLightningVersion()) {
-            new Thread(() -> {
-                if (billingManager.isBoughtOrTrial(id)) {
-                    setResult(script, runAndDelete, flags, name);
-                } else if (showDialog) {
-                    runOnUiThread(() -> billingManager.showTrialBuyDialog(id, () -> check(id, script, runAndDelete, flags, name, false)));
-                } else {
-                    setResult(RESULT_CANCELED);
-                    finish();
-                }
-            }).start();
+            if(feature != null) {
+                new Thread(() -> {
+                    if (billingManager.isBoughtOrTrial(feature)) {
+                        setResult(script, runAndDelete, flags, name);
+                    } else if (showDialog) {
+                        runOnUiThread(() -> billingManager.showTrialBuyDialog(feature, () -> check(feature, script, runAndDelete, flags, name, false)));
+                    } else {
+                        setResult(RESULT_CANCELED);
+                        finish();
+                    }
+                }).start();
+            }
         } else {
             Toast.makeText(this, R.string.toast_launcherOutdated, Toast.LENGTH_LONG).show();
             setResult(RESULT_CANCELED);

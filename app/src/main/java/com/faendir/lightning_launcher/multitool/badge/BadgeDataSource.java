@@ -50,6 +50,7 @@ public class BadgeDataSource extends SharedPreferencesDataSource {
 
     public static Uri getContentUri(String packageName){
         Uri uri = DataProvider.getContentUri(BadgeDataSource.class);
+        //noinspection ConstantConditions
         return uri.buildUpon().path(uri.getPath().replace("*", packageName)).build();
     }
 }

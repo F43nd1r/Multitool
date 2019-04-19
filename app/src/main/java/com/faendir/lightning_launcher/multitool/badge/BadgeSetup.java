@@ -43,6 +43,7 @@ public class BadgeSetup implements JavaScript.Setup, JavaScript.ActivityResult {
             Script pause = utils.installUnregisterScript();
             Shortcut item = d.addShortcut("0", new Intent(), 0, 0);
             Intent intent = data.getParcelableExtra(Intent.EXTRA_INTENT);
+            //noinspection ConstantConditions
             item.setTag(TAG_PACKAGE, intent.getComponent().getPackageName());
             item.getProperties()
                     .edit()

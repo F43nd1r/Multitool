@@ -50,6 +50,7 @@ public class AppChooser extends BaseActivity {
 
     private void sort() {
         IntentChooserFragment fragment = (IntentChooserFragment) getSupportFragmentManager().findFragmentById(R.id.chooserFragment);
+        assert fragment != null;
         if (byRelevance) {
             SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
             Set<String> highPriority = sharedPref.getStringSet(getString(R.string.key_badgeIntentPackages), Collections.emptySet());

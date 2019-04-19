@@ -40,7 +40,7 @@ public class NotificationDistributorService extends NotificationListenerService 
             listeners.add(badgeNotificationListener);
         }
         new Thread(() -> {
-            if (new BaseBillingManager(this).isBoughtOrTrial(R.string.title_musicWidget)) {
+            if (new BaseBillingManager(this).isBoughtOrTrial(BaseBillingManager.PaidFeature.MUSIC_WIDGET)) {
                 synchronized (listeners) {
                     final MusicNotificationListener musicNotificationListener = new MusicNotificationListener();
                     musicNotificationListener.onCreate(this);

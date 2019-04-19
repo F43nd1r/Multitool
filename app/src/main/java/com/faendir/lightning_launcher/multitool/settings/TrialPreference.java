@@ -20,14 +20,15 @@ public class TrialPreference extends Preference {
     private final BillingManager billingManager;
     private boolean isBought = false;
     private BaseBillingManager.TrialState trialState = BaseBillingManager.TrialState.NOT_STARTED;
-    private final int res;
+    private final BaseBillingManager.PaidFeature feature;
 
     public TrialPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setPersistent(false);
         final TypedArray a = context.obtainStyledAttributes(attrs, androidx.preference.R.styleable.Preference, androidx.preference.R.attr.preferenceStyle, 0);
         int val = a.getResourceId(androidx.preference.R.styleable.Preference_android_title, 0);
-        res = a.getResourceId(androidx.preference.R.styleable.Preference_title, val);
+        int res = a.getResourceId(androidx.preference.R.styleable.Preference_title, val);
+        feature = BaseBillingManager.PaidFeature.fromTitle(res).orElseThrow();
         a.recycle();
         if (context instanceof ContextWrapper) {
             context = ((ContextWrapper) context).getBaseContext();
@@ -43,17 +44,17 @@ public class TrialPreference extends Preference {
     private void update() {
         new Thread(() -> {
             final String summary;
-            isBought = billingManager.isBought(res);
+            isBought = billingManager.isBought(feature);
             if (isBought) {
                 summary = getContext().getString(R.string.summary_unlocked);
             } else {
-                trialState = billingManager.isTrial(res);
+                trialState = billingManager.isTrial(feature);
                 switch (trialState) {
                     case NOT_STARTED:
                         summary = getContext().getString(R.string.summary_notStarted);
                         break;
                     case ONGOING:
-                        summary = getContext().getString(R.string.summary_ongoing, DateFormat.getDateFormat(getContext()).format(billingManager.getExpiration(res).getTime()));
+                        summary = getContext().getString(R.string.summary_ongoing, DateFormat.getDateFormat(getContext()).format(billingManager.getExpiration(feature).getTime()));
                         break;
                     case EXPIRED:
                         summary = getContext().getString(R.string.summary_used);
@@ -71,11 +72,11 @@ public class TrialPreference extends Preference {
         if (!isBought) {
             switch (trialState) {
                 case NOT_STARTED:
-                    billingManager.showTrialDialog(res, this::update);
+                    billingManager.showTrialDialog(feature, this::update);
                     break;
                 case ONGOING:
                 case EXPIRED:
-                    billingManager.showBuyDialog(res, this::update);
+                    billingManager.showBuyDialog(feature, this::update);
                     break;
             }
         }
