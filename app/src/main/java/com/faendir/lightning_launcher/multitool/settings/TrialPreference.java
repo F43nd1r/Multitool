@@ -59,6 +59,7 @@ public class TrialPreference extends Preference {
                     case EXPIRED:
                         summary = getContext().getString(R.string.summary_used);
                         break;
+                    case UNKNOWN:
                     default:
                         summary = getContext().getString(R.string.summary_unknown);
                 }

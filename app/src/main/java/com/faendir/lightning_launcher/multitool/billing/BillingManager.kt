@@ -102,15 +102,18 @@ class BillingManager(private val context: Activity) : BaseBillingManager(context
 
     private fun startTrial(feature: PaidFeature) {
         val state = isTrial(feature)
-        if (state === TrialState.EXPIRED) {
-            context.runOnUiThread { Toast.makeText(context, R.string.toast_trialUsed, Toast.LENGTH_LONG).show() }
-        } else {
-            val result = networkRequest(feature.id, 1)
-            if (result != 0) {
-                context.runOnUiThread { Toast.makeText(context, R.string.toast_error, Toast.LENGTH_LONG).show() }
-            } else {
-                EventBus.getDefault().post(SwitchFragmentRequest(feature.relatedFragment))
+        when {
+            state == TrialState.NOT_STARTED -> {
+                val result = networkRequest(feature.id, 1)
+                if (result != 0) {
+                    context.runOnUiThread { Toast.makeText(context, R.string.toast_error, Toast.LENGTH_LONG).show() }
+                } else {
+                    EventBus.getDefault().post(SwitchFragmentRequest(feature.relatedFragment))
+                }
             }
+            state === TrialState.EXPIRED -> context.runOnUiThread { Toast.makeText(context, R.string.toast_trialUsed, Toast.LENGTH_LONG).show() }
+            state == TrialState.ONGOING -> context.runOnUiThread { Toast.makeText(context, R.string.toast_trialOnGoing, Toast.LENGTH_LONG).show() }
+            state == TrialState.UNKNOWN -> context.runOnUiThread { Toast.makeText(context, R.string.toast_error, Toast.LENGTH_LONG).show() }
         }
     }
 }

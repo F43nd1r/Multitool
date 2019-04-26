@@ -15,12 +15,15 @@ import android.media.session.MediaSessionManager;
 import android.media.session.PlaybackState;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.service.notification.NotificationListenerService;
+import android.util.Log;
 import android.view.KeyEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.faendir.lightning_launcher.multitool.R;
+import com.faendir.lightning_launcher.multitool.billing.BaseBillingManager;
 import com.faendir.lightning_launcher.multitool.util.notification.NotificationListener;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
@@ -39,6 +42,8 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 
+import static com.faendir.lightning_launcher.multitool.MultiTool.DEBUG;
+import static com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG;
 import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
 
 /**
@@ -53,6 +58,7 @@ public class MusicNotificationListener implements NotificationListener {
             PlaybackState.STATE_SKIPPING_TO_PREVIOUS, PlaybackState.STATE_SKIPPING_TO_QUEUE_ITEM);
 
     private final BiMap<MediaController, Callback> controllers;
+    private final Handler handler;
     private Context context;
     private SharedPreferences sharedPref;
     private volatile WeakReference<MediaController> currentController;
@@ -61,46 +67,54 @@ public class MusicNotificationListener implements NotificationListener {
     public MusicNotificationListener() {
         controllers = HashBiMap.create();
         currentController = new WeakReference<>(null);
+        handler = new Handler();
     }
 
     private void onIntentReceived(Context context, Intent intent) {
-        if (!this.enabled) {
-            MediaSessionManager mediaSessionManager = (MediaSessionManager) context.getSystemService(Context.MEDIA_SESSION_SERVICE);
-            if (mediaSessionManager != null) {
-                ComponentName notificationListener = new ComponentName(context, context.getClass());
-                onActiveSessionsChanged(mediaSessionManager.getActiveSessions(notificationListener));
-                mediaSessionManager.addOnActiveSessionsChangedListener(this::onActiveSessionsChanged, notificationListener);
-                this.enabled = true;
-            }
-        }
-        if (intent.hasExtra(MusicListener.EXTRA_COMMAND_CODE)) {
-            int keyCode = intent.getIntExtra(MusicListener.EXTRA_COMMAND_CODE, 0);
-            MediaController controller = currentController.get();
-            if (controller != null) {
-                if (isAlternativeControl(controller)) {
-                    sendKeyCodeToPlayer(keyCode, controller.getPackageName());
-                } else {
-                    switch (keyCode) {
-                        case KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE:
-                            PlaybackState state = controller.getPlaybackState();
-                            if (state != null && PLAYING_STATES.contains(state.getState())) {
-                                controller.getTransportControls().pause();
-                            } else {
-                                controller.getTransportControls().play();
-                            }
-                            break;
-                        case KeyEvent.KEYCODE_MEDIA_NEXT:
-                            controller.getTransportControls().skipToNext();
-                            break;
-                        case KeyEvent.KEYCODE_MEDIA_PREVIOUS:
-                            controller.getTransportControls().skipToPrevious();
-                            break;
+        new Thread(() -> {
+            if (!this.enabled) {
+                if (new BaseBillingManager(context).isBoughtOrTrial(BaseBillingManager.PaidFeature.MUSIC_WIDGET)) {
+                    MediaSessionManager mediaSessionManager = (MediaSessionManager) context.getSystemService(Context.MEDIA_SESSION_SERVICE);
+                    if (mediaSessionManager != null) {
+                        ComponentName notificationListener = new ComponentName(context, context.getClass());
+                        onActiveSessionsChanged(mediaSessionManager.getActiveSessions(notificationListener));
+                        mediaSessionManager.addOnActiveSessionsChangedListener(this::onActiveSessionsChanged, notificationListener, handler);
+                        this.enabled = true;
+                        if (DEBUG) {
+                            Log.d(LOG_TAG, "Media session listener enabled");
+                        }
                     }
                 }
-            } else {
-                startDefaultPlayerWithKeyCode(keyCode);
             }
-        }
+            if (this.enabled && intent.hasExtra(MusicListener.EXTRA_COMMAND_CODE)) {
+                int keyCode = intent.getIntExtra(MusicListener.EXTRA_COMMAND_CODE, 0);
+                MediaController controller = currentController.get();
+                if (controller != null) {
+                    if (isAlternativeControl(controller)) {
+                        sendKeyCodeToPlayer(keyCode, controller.getPackageName());
+                    } else {
+                        switch (keyCode) {
+                            case KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE:
+                                PlaybackState state = controller.getPlaybackState();
+                                if (state != null && PLAYING_STATES.contains(state.getState())) {
+                                    controller.getTransportControls().pause();
+                                } else {
+                                    controller.getTransportControls().play();
+                                }
+                                break;
+                            case KeyEvent.KEYCODE_MEDIA_NEXT:
+                                controller.getTransportControls().skipToNext();
+                                break;
+                            case KeyEvent.KEYCODE_MEDIA_PREVIOUS:
+                                controller.getTransportControls().skipToPrevious();
+                                break;
+                        }
+                    }
+                } else {
+                    startDefaultPlayerWithKeyCode(keyCode);
+                }
+            }
+        }).start();
     }
 
     @Override

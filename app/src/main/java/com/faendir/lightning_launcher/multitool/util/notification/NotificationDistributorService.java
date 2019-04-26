@@ -15,7 +15,6 @@ import android.service.notification.StatusBarNotification;
 import androidx.annotation.NonNull;
 import com.faendir.lightning_launcher.multitool.R;
 import com.faendir.lightning_launcher.multitool.badge.BadgeNotificationListener;
-import com.faendir.lightning_launcher.multitool.billing.BaseBillingManager;
 import com.faendir.lightning_launcher.multitool.music.MusicNotificationListener;
 import com.faendir.lightning_launcher.scriptlib.DialogActivity;
 import java9.util.stream.StreamSupport;
@@ -38,16 +37,10 @@ public class NotificationDistributorService extends NotificationListenerService 
             final BadgeNotificationListener badgeNotificationListener = new BadgeNotificationListener();
             badgeNotificationListener.onCreate(this);
             listeners.add(badgeNotificationListener);
+            final MusicNotificationListener musicNotificationListener = new MusicNotificationListener();
+            musicNotificationListener.onCreate(this);
+            listeners.add(musicNotificationListener);
         }
-        new Thread(() -> {
-            if (new BaseBillingManager(this).isBoughtOrTrial(BaseBillingManager.PaidFeature.MUSIC_WIDGET)) {
-                synchronized (listeners) {
-                    final MusicNotificationListener musicNotificationListener = new MusicNotificationListener();
-                    musicNotificationListener.onCreate(this);
-                    listeners.add(musicNotificationListener);
-                }
-            }
-        }).start();
     }
 
     @Override

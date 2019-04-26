@@ -274,6 +274,7 @@
     <string name="title_calendar">Calendar Widget</string>
     <string name="text_noCalendars">No calendars</string>
     <string name="text_noAppointments">No appointments</string>
+    <string name="toast_trialOnGoing">You trial is already active.</string>
     <string-array name="sortings">
         <item>Relevance</item>
         <item>Alphabetical</item>

@@ -32,7 +32,8 @@ open class BaseBillingManager(private val context: Context) {
     enum class TrialState {
         NOT_STARTED,
         ONGOING,
-        EXPIRED
+        EXPIRED,
+        UNKNOWN
     }
 
     enum class PaidFeature(val id: String, val relatedFragment: Fragments) {
@@ -123,7 +124,7 @@ open class BaseBillingManager(private val context: Context) {
     fun getExpiration(feature: PaidFeature): Calendar {
         val calendar = Calendar.getInstance()
         val expiration = getExpirationImpl(feature)
-        if (expiration != -1L) {
+        if (expiration != null && expiration != -1L) {
             calendar.timeInMillis = expiration * 1000
         }
         return calendar
@@ -131,38 +132,37 @@ open class BaseBillingManager(private val context: Context) {
 
     private val SEVEN_DAYS_IN_SECONDS = 7 * 24 * 60 * 60
 
-    private fun getExpirationImpl(feature: PaidFeature): Long {
-        val expires: Long
+    private fun getExpirationImpl(feature: PaidFeature): Long? {
+        val expires: Long?
         if (feature.expiration != null) {
             expires = feature.expiration!!
         } else {
             val time = networkRequest(feature.id, 0)
-            if (time == -1) {
-                expires = -1
+            if (time != null) {
+                expires = if (time == -1) -1 else System.currentTimeMillis() / 1000 + SEVEN_DAYS_IN_SECONDS - time
+                feature.expiration = expires
             } else {
-                expires = System.currentTimeMillis() / 1000 + SEVEN_DAYS_IN_SECONDS - time
+                expires = null
             }
-            feature.expiration = expires
         }
         return expires
     }
 
-    internal fun isTrialImpl(feature: PaidFeature): TrialState {
+    private fun isTrialImpl(feature: PaidFeature): TrialState {
         val expires = getExpirationImpl(feature)
         val result: TrialState
-        if (expires == -1L) {
-            result = TrialState.NOT_STARTED
-        } else if (System.currentTimeMillis() / 1000 < expires) {
-            result = TrialState.ONGOING
-        } else {
-            result = TrialState.EXPIRED
+        result = when {
+            expires == null -> TrialState.UNKNOWN
+            expires == -1L -> TrialState.NOT_STARTED
+            System.currentTimeMillis() / 1000 < expires -> TrialState.ONGOING
+            else -> TrialState.EXPIRED
         }
         if (DEBUG) Log.d(LOG_TAG, "$feature TrialState $result")
         return result
     }
 
     @SuppressLint("HardwareIds")
-    internal fun networkRequest(productId: String, requestId: Int): Int {
+    internal fun networkRequest(productId: String, requestId: Int): Int? {
         try {
             val charset = "UTF-8"
             val connection = URL("https://faendir.com/android/index.php").openConnection() as HttpURLConnection
@@ -177,11 +177,12 @@ open class BaseBillingManager(private val context: Context) {
                     URLEncoder.encode(requestId.toString(), charset)).toByteArray())
             val reader = BufferedReader(InputStreamReader(connection.inputStream))
             val result = reader.readLine()
+            if (DEBUG) Log.d(LOG_TAG, "Query $requestId result: $result")
             return Integer.valueOf(result)
         } catch (e: IOException) {
-            return -1
+            return null
         } catch (e: NumberFormatException) {
-            return -1
+            return null
         }
 
     }
