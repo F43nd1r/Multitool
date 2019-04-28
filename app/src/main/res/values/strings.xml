@@ -23,7 +23,7 @@
     <string name="text_noLauncherFound">Warning: Lightning Launcher was not found on your device.</string>
     <string name="button_noLauncherFound">Open Play Store</string>
 
-    <string name="text_repositoryImporter">\nOptional:\nThe repository importer app has been detected on your device.\nYou can click here to import/update the script automatically.</string>
+    <string name="text_repositoryImporter">\nOptional:\nYou can click here to import/update the script automatically. (Requires permissions)</string>
     <string name="button_repositoryImporter">Import</string>
     <string name="button_repositoryImporter_importing">Importing… (takes too long? click to try again)</string>
     <string name="button_repositoryImporter_importOk">Done. (Click to import again)</string>

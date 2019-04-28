@@ -107,6 +107,8 @@ public class Loader extends Activity {
                         finish();
                     }
                 }).start();
+            } else {
+                setResult(script, runAndDelete, flags, name);
             }
         } else {
             Toast.makeText(this, R.string.toast_launcherOutdated, Toast.LENGTH_LONG).show();
