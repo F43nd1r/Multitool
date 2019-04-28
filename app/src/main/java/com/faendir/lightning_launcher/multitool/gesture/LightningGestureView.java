@@ -62,6 +62,7 @@ public class LightningGestureView extends GestureOverlayView implements GestureO
                 if (DEBUG) Log.d(LOG_TAG, "Gesture recognized");
                 try {
                     UUID uuid = UUID.fromString(list.get(0).name);
+                    if (DEBUG) Log.d(LOG_TAG, "Gesture UUID " + uuid);
                     Optional<GestureInfo> info = StreamSupport.stream(gestureInfos).filter(gestureInfo -> gestureInfo.hasUuid(uuid)).findAny();
                     if (info.isPresent()) {
                         recognized = true;
@@ -69,7 +70,7 @@ public class LightningGestureView extends GestureOverlayView implements GestureO
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         getContext().startActivity(intent);
                         if (DEBUG) Log.d(LOG_TAG, "Gesture launched");
-                    }
+                    } else if(DEBUG) Log.w(LOG_TAG, "Bad gesture UUID");
                 } catch (Exception e) {
                     e.printStackTrace();
                     Toast.makeText(getContext(), "Something went wrong while recognizing a gesture", Toast.LENGTH_SHORT).show();
@@ -77,6 +78,7 @@ public class LightningGestureView extends GestureOverlayView implements GestureO
             }
         }
         if (!recognized) {
+            if (DEBUG) Log.d(LOG_TAG, "Gesture not recognized");
             Toast.makeText(getContext(), "Gesture not recognized", Toast.LENGTH_SHORT).show();
         }
     }

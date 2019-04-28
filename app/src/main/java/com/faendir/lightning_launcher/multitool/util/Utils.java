@@ -2,6 +2,7 @@ package com.faendir.lightning_launcher.multitool.util;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.ParcelUuid;
 import androidx.annotation.NonNull;
 import androidx.annotation.RawRes;
 import com.google.gson.Gson;
@@ -22,6 +23,7 @@ public final class Utils {
     public static final Gson GSON = new GsonBuilder()
             .serializeNulls()
             .registerTypeAdapter(Intent.class, new IntentTypeAdapter())
+            .registerTypeAdapter(ParcelUuid.class, new ParcelUuidTypeAdapter())
             .create();
 
     private Utils() {
@@ -53,6 +55,18 @@ public final class Utils {
             }
             in.endObject();
             return intent;
+        }
+    }
+
+    public static class ParcelUuidTypeAdapter extends TypeAdapter<ParcelUuid> {
+        @Override
+        public void write(JsonWriter out, ParcelUuid value) throws IOException {
+            out.value(value.toString());
+        }
+
+        @Override
+        public ParcelUuid read(JsonReader in) throws IOException {
+            return ParcelUuid.fromString(in.nextString());
         }
     }
 
