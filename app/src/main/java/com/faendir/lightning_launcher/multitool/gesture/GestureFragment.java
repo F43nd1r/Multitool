@@ -34,8 +34,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import static com.faendir.lightning_launcher.multitool.util.LambdaUtils.exceptionToOptional;
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -68,8 +66,7 @@ public class GestureFragment extends Fragment {
             startActivityForResult(intent, EDIT);
             return true;
         });
-        exceptionToOptional(() -> GestureUtils.readFromFile(context)).get()
-                .ifPresent(list -> adapter.set(StreamSupport.stream(list).filter(gestureInfo -> !gestureInfo.isInvalid()).collect(Collectors.toList())));
+        adapter.set(StreamSupport.stream(GestureUtils.readFromFile(context)).filter(GestureInfo::isValid).collect(Collectors.toList()));
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(fastAdapter);
         new ItemTouchHelper(new SimpleSwipeCallback((position, direction) -> {

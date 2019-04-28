@@ -59,8 +59,8 @@ public class GestureInfo implements Parcelable, DeletableModel {
         }
     }
 
-    boolean isInvalid() {
-        return intent == null || uuid == null;
+    boolean isValid() {
+        return intent != null && uuid != null;
     }
 
     @Nullable
