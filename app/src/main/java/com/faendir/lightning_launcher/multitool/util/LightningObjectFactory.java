@@ -1,7 +1,9 @@
 package com.faendir.lightning_launcher.multitool.util;
 
+import android.util.Log;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
+import com.faendir.lightning_launcher.multitool.MultiTool;
 import com.faendir.lightning_launcher.multitool.proxy.JavaScript;
 import com.faendir.lightning_launcher.multitool.proxy.Utils;
 
@@ -30,6 +32,7 @@ public class LightningObjectFactory {
 
     public JavaScript get(String className) {
         try {
+            if (MultiTool.DEBUG) Log.d(MultiTool.LOG_TAG, "ObjectFactory loading " + className);
             //noinspection unchecked
             Class<? extends JavaScript> clazz = (Class<? extends JavaScript>) Class.forName(className);
             return clazz.getConstructor(Utils.class).newInstance(utils);
