@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 
 public interface Model {
     String getName();
+    @NonNull
     Drawable getIcon(@NonNull Context context);
     @ColorInt int getTintColor();
 }

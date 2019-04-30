@@ -126,7 +126,7 @@ public class ExpandableItem<T extends Model> extends ModelAbstractExpandableItem
         });
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView text;
         private final int basePadding;
 
