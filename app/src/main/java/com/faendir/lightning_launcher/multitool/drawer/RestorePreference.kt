@@ -12,11 +12,10 @@ import androidx.preference.MultiSelectListPreference
  */
 
 class RestorePreference(context: Context, attrs: AttributeSet) : MultiSelectListPreference(context, attrs) {
-    private val pm: PackageManager
+    private val pm: PackageManager = getContext().packageManager
 
     init {
         isPersistent = true
-        pm = getContext().packageManager
         entries = arrayOfNulls(0)
         entryValues = arrayOfNulls(0)
     }

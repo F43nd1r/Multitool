@@ -86,7 +86,7 @@ public class IntentChooserFragment extends Fragment implements SearchView.OnQuer
         if (args != null) {
             //noinspection ConstantConditions
             adapter = new ModelAdapter<>(new ComparableItemListImpl<>(Comparators.comparing(ModelAbstractItem::getModel)),
-                    ItemFactory.<IntentInfo>forLauncherIconSize(getActivity())::wrap);
+                    ItemFactory.Companion.<IntentInfo>forLauncherIconSize(getActivity())::wrap);
             fastAdapter = FastAdapter.with(adapter);
             fastAdapter.withOnClickListener((v, adapter1, item, position) -> {
                 IntentInfo info = item.getModel();

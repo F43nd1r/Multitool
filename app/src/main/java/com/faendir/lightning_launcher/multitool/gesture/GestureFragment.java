@@ -57,7 +57,7 @@ public class GestureFragment extends Fragment {
         Context context = requireActivity();
         LinearLayout layout = new LinearLayout(context);
         RecyclerView recyclerView = new RecyclerView(context);
-        adapter = new ModelAdapter<>(ItemFactory.<GestureInfo>forLauncherIconSize(context)::wrap);
+        adapter = new ModelAdapter<>(ItemFactory.Companion.<GestureInfo>forLauncherIconSize(context)::wrap);
         FastAdapter<ExpandableItem<GestureInfo>> fastAdapter = FastAdapter.with(adapter);
         fastAdapter.withOnLongClickListener((v, adapter, item, position) -> {
             Intent intent = new Intent(context, GestureActivity.class);

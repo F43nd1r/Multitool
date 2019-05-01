@@ -21,7 +21,7 @@ class ImmersiveScript(private val utils: Utils) : JavaScript.Normal, JavaScript.
         val desktop = utils.activeScreen.currentDesktop
         val properties = desktop.properties
         val eventHandler = properties.getEventHandler(PropertySet.RESUMED)
-        if (eventHandler?.action == EventHandler.RUN_SCRIPT && eventHandler?.data?.startsWith(script.id.toString()) == true) {
+        if (eventHandler?.action == EventHandler.RUN_SCRIPT && eventHandler.data?.startsWith(script.id.toString()) == true) {
             properties.edit().setEventHandler(PropertySet.RESUMED, EventHandler.UNSET, null).commit()
             (utils.lightningContext as? Activity)?.window?.decorView?.systemUiVisibility = 0
         } else {

@@ -28,7 +28,7 @@ class BillingManager(private val context: Activity) : BaseBillingManager(context
 
     override fun onProductPurchased(productId: String, details: TransactionDetails?) {
         super.onProductPurchased(productId, details)
-        EventBus.getDefault().post(SwitchFragmentRequest(PaidFeature.fromId(productId)?.relatedFragment))
+        EventBus.getDefault().post(SwitchFragmentRequest(PaidFeature.fromId(productId)!!.relatedFragment))
     }
 
     @UiThread

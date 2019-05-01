@@ -40,7 +40,7 @@ class BackupTimePreference(context: Context, attrs: AttributeSet) : Preference(c
         buttons.keys.forEach { it.setOnClickListener(this) }
         picker = holder.findViewById(R.id.timePicker) as TimePicker
         picker.setIs24HourView(DateFormat.is24HourFormat(context))
-        picker.setOnTimeChangedListener { v, h, m -> persist() }
+        picker.setOnTimeChangedListener { _, _, _ -> persist() }
         showValue()
     }
 
