@@ -21,12 +21,12 @@ class GestureScript(private val utils: Utils) : JavaScript.CreateMenu, JavaScrip
     override fun showMenu(menu: Menu, item: Item) {
         val mode = menu.mode
         if (mode == Menu.MODE_ITEM_NO_EM || mode == Menu.MODE_ITEM_EM) {
-            menu.addMainItem(utils.getString(R.string.menu_editGestures), utils.asFunction(Runnable {
+            menu.addMainItem(utils.getString(R.string.menu_editGestures), utils.asFunction {
                 val intent = Intent(utils.multitoolContext, MainActivity::class.java)
                 intent.putExtra(FragmentManager.EXTRA_MODE, R.string.title_gestureLauncher)
                 utils.lightningContext.startActivity(intent)
                 menu.close()
-            }))
+            })
         }
     }
 

@@ -44,9 +44,9 @@ class MultiToolScript(private val utils: Utils) : JavaScript.Normal {
         val factory = ItemFactory.forLauncherIconSize<Model>(utils.lightningContext)
         val information = factory.wrap(ActionGroup(utils.getString(R.string.group_information)))
         information.withSubItems(listOf(Action(utils.getString(R.string.action_event)) { showEventInfo(dialog) },
-                Action(utils.getString(R.string.action_container)) { showContainerInfo(dialog) }, *(if  (event.item != null) arrayOf(Action(utils.getString(R.string.action_item)) { showItemInfo(dialog) },
-                        Action(utils.getString(R.string.action_intent)) { showIntentInfo(dialog) },
-                        Action(utils.getString(R.string.action_icon)) { showIconInfo(dialog) }) else arrayOf())).map(factory::wrap).toMutableList())
+                Action(utils.getString(R.string.action_container)) { showContainerInfo(dialog) }, *(if (event.item != null) arrayOf(Action(utils.getString(R.string.action_item)) { showItemInfo(dialog) },
+                Action(utils.getString(R.string.action_intent)) { showIntentInfo(dialog) },
+                Action(utils.getString(R.string.action_icon)) { showIconInfo(dialog) }) else arrayOf())).map(factory::wrap).toMutableList())
         val itemUtils = factory.wrap(ActionGroup(utils.getString(R.string.group_utils)))
         itemUtils.withSubItems(listOf(Action(utils.getString(R.string.action_attach)) { showAttachDetach(dialog) },
                 Action(utils.getString(R.string.action_resize)) { showResizeDetached(dialog) },
@@ -100,7 +100,7 @@ class MultiToolScript(private val utils: Utils) : JavaScript.Normal {
         dialog.dismiss()
         val container = event.container
         val item = event.item
-        val (tags,  deleter) = when {
+        val (tags, deleter) = when {
             item != null -> Pair<Set<String>, (String) -> Unit>(getTags(item).keys, { tag -> item.setTag(tag, null) })
             else -> Pair(getTags(container).keys, { tag -> container.setTag(tag, null) })
         }
@@ -184,7 +184,7 @@ class MultiToolScript(private val utils: Utils) : JavaScript.Normal {
 
     private fun showIconInfo(dialog: AlertDialog) {
         dialog.dismiss()
-        val it = event.item
+        val it = event.item!!
         //create view structure
         val root = LinearLayout(utils.lightningContext)
         root.orientation = LinearLayout.VERTICAL
@@ -234,7 +234,7 @@ class MultiToolScript(private val utils: Utils) : JavaScript.Normal {
         }
         val intent = ProxyFactory.cast(it, Shortcut::class.java).intent
         intent.getStringExtra("somenamenoonewouldeveruse")
-        showText(utils.getString(R.string.text_intentInfo, intent, intent.extras), utils.getString(R.string.title_intentInfo))
+        showText(utils.getString(R.string.text_intentInfo, intent, intent.extras?: ""), utils.getString(R.string.title_intentInfo))
     }
 
     private fun showItemInfo(dialog: AlertDialog) {
@@ -371,7 +371,7 @@ class MultiToolScript(private val utils: Utils) : JavaScript.Normal {
                 DateFormat.getInstance().format(event.date),
                 event.container,
                 event.screen,
-                event.item,
+                event.item ?: "",
                 event.data,
                 touchX,
                 touchY,

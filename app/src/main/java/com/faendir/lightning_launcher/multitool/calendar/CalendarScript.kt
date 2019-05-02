@@ -32,7 +32,7 @@ class CalendarScript(private val utils: Utils) : JavaScript.Setup, JavaScript.No
 
     override fun run() {
         Log.d(MultiTool.LOG_TAG, utils.event.source)
-        updateEntries(ProxyFactory.cast(utils.event.item, Shortcut::class.java))
+        updateEntries(ProxyFactory.cast(utils.event.item!!, Shortcut::class.java))
     }
 
     private fun updateEntries(calendar: Shortcut) {

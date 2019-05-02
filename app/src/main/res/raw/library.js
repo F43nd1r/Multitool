@@ -15,10 +15,6 @@ function javaEval(name, params) {
 
 function asFunc(target) {
     return function (a) {
-        if (target["accept"] != null) {
-            target.accept(a);
-        } else {
-            target.run();
-        }
+            target.invoke(a);
     }
 }

@@ -21,7 +21,7 @@ class MusicDataSource : SharedPreferencesDataSource(), FileDataSource {
 
     override fun getPath(): String = "music"
 
-    override fun query(context: Context, uri: Uri, projection: Array<String>, selection: String, selectionArgs: Array<String>, sortOrder: String): Cursor? {
+    override fun query(context: Context, uri: Uri, projection: Array<String>?, selection: String?, selectionArgs: Array<String>?, sortOrder: String?): Cursor? {
         return super.query(context, uri, projection, selection, KEYS, sortOrder)
     }
 

@@ -41,7 +41,7 @@ class GestureInfo(intent: Intent, override var name: String, val uuid: ParcelUui
 
     internal fun getGesture(context: Context): Gesture? {
         if (gesture == null) {
-            SingleStoreGestureLibrary.getInstance(context).getGestures(uuid.toString())?.first()
+            gesture = SingleStoreGestureLibrary.getInstance(context).getGestures(uuid.toString())?.first()
         }
         return gesture
     }

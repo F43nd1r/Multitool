@@ -14,9 +14,9 @@ import com.faendir.lightning_launcher.multitool.util.provider.BaseContentListene
  * @since 06.11.2017
  */
 @Keep
-class BadgeListener(private val utils: Utils) : BaseContentListener(Handler(), utils.lightningContext, BadgeDataSource.getContentUri(utils.event.item.getTag(BadgeSetup.TAG_PACKAGE))), JavaScript.Listener {
-    private val item: Shortcut = ProxyFactory.cast(utils.event.item, Shortcut::class.java)
-    private val packageName: String = item.getTag(BadgeSetup.TAG_PACKAGE)
+class BadgeListener(private val utils: Utils) : BaseContentListener(Handler(), utils.lightningContext, BadgeDataSource.getContentUri(utils.event.item!!.getTag(BadgeSetup.TAG_PACKAGE)!!)), JavaScript.Listener {
+    private val item: Shortcut = ProxyFactory.cast(utils.event.item!!, Shortcut::class.java)
+    private val packageName: String = item.getTag(BadgeSetup.TAG_PACKAGE)!!
 
     override fun onChange(selfChange: Boolean) {
         val count = BadgeDataSource.getBadgeCount(context, packageName)

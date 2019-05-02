@@ -61,7 +61,7 @@ class Drawer(private val utils: Utils) : JavaScript.Setup, JavaScript.CreateMenu
     override fun showMenu(menu: Menu, item: Item) {
         val mode = menu.mode
         if (mode == Menu.MODE_ITEM_NO_EM || mode == Menu.MODE_ITEM_EM) {
-            menu.addMainItem(utils.getString(R.string.menu_hide), utils.asFunction(Runnable { this.hide(menu, item) }))
+            menu.addMainItem(utils.getString(R.string.menu_hide), utils.asFunction { this.hide(menu, item) })
         }
     }
 
