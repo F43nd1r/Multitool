@@ -10,5 +10,5 @@ import android.content.Context
 interface DeletableModel : Model {
     fun getUndoText(context: Context): String
 
-    fun setName(name: String)
+    override var name : String
 }

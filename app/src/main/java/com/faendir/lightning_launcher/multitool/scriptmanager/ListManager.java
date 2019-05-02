@@ -79,6 +79,7 @@ class ListManager {
                 if (position2 != RecyclerView.NO_POSITION) {
                     fastAdapter.notifyAdapterItemChanged(position2);
                 }
+                return null;
             });
 
             fastAdapter.notifyAdapterItemChanged(position);

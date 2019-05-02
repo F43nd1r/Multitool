@@ -162,7 +162,7 @@ public class MusicNotificationListener implements NotificationListener {
                 } else {
                     callback = new Callback();
                 }
-                controller.registerCallback(callback);
+                controller.registerCallback(callback, handler);
                 controllers.put(controller, callback);
                 PlaybackState state = controller.getPlaybackState();
                 if (state != null) {

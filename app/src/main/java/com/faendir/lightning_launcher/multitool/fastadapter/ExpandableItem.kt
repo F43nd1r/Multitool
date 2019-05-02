@@ -21,7 +21,7 @@ import com.mikepenz.fastadapter_extensions.swipe.ISwipeable
  */
 class ExpandableItem<T : Model>(item: T, private val size: Int) : ModelAbstractExpandableItem<T, ExpandableItem<T>, ExpandableItem.ViewHolder, ExpandableItem<T>>(item), ISwipeable<ExpandableItem<T>, IItem<*, *>> {
     private var swipeable: Boolean = item is DeletableModel
-    private var swipedAction: Runnable? = null
+    private var swipedAction: (()->Unit?)? = null
 
     private val level: Int
         get() {
@@ -90,9 +90,9 @@ class ExpandableItem<T : Model>(item: T, private val size: Int) : ModelAbstractE
         return this
     }
 
-    fun setSwipedAction(action: Runnable) {
+    fun setSwipedAction(action: (()->Unit?)?) {
         this.swipedAction = action
-        withOnItemPreClickListener { _, _, _, _ -> (this.swipedAction != null).also { if (it) swipedAction?.run() } }
+        withOnItemPreClickListener { _, _, _, _ -> (this.swipedAction != null).also { if (it) swipedAction?.invoke() } }
     }
 
     class ViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
