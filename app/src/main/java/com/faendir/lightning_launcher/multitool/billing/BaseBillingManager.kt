@@ -46,8 +46,8 @@ open class BaseBillingManager(private val context: Context) {
         companion object {
 
             @JvmStatic
-            fun fromTitle(@StringRes titleRes: Int): Optional<PaidFeature> {
-                return Stream.of(*values()).filter { v -> v.relatedFragment.res == titleRes }.findAny()
+            fun fromTitle(@StringRes titleRes: Int): PaidFeature? {
+                return values().find { v -> v.relatedFragment.res == titleRes }
             }
 
             @JvmStatic
