@@ -44,7 +44,7 @@ class LightningGestureView private constructor(lightningContext: Context, packag
         val gestureInfos = GestureUtils.readFromFile(context)
         if (DEBUG) Log.d(LOG_TAG, "GestureInfos loaded")
         var recognized = false
-        if (!gestureInfos.isEmpty()) {
+        if (gestureInfos.isNotEmpty()) {
             val library = SingleStoreGestureLibrary.getInstance(context)
             if (DEBUG) Log.d(LOG_TAG, "Gestures loaded")
             val list: List<Prediction>? = library.recognize(gesture)

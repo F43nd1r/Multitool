@@ -14,7 +14,7 @@ import org.acra.util.StreamReader
  * @author lukas
  * @since 05.07.18
  */
-class Utils(eval: (String, Array<Any?>)->Unit, val functionFactory: (Any) -> Any) {
+class Utils(eval: (String, Array<Any?>)->Unit, private val functionFactory: (Any) -> Any) {
     val lightning: Lightning = ProxyFactory.evalProxy(eval)
     val lightningContext: Context = lightning.activeScreen.context
     val multitoolContext: Context = lightningContext.createPackageContext(BuildConfig.APPLICATION_ID, Context.CONTEXT_INCLUDE_CODE or Context.CONTEXT_IGNORE_SECURITY)

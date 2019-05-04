@@ -128,8 +128,6 @@ open class BaseBillingManager(private val context: Context) {
         return calendar
     }
 
-    private val SEVEN_DAYS_IN_SECONDS = 7 * 24 * 60 * 60
-
     private fun getExpirationImpl(feature: PaidFeature): Long? {
         val expires: Long?
         if (feature.expiration != null) {
@@ -137,7 +135,7 @@ open class BaseBillingManager(private val context: Context) {
         } else {
             val time = networkRequest(feature.id, 0)
             if (time != null) {
-                expires = if (time == -1) -1 else System.currentTimeMillis() / 1000 + SEVEN_DAYS_IN_SECONDS - time
+                expires = if (time == -1) -1 else System.currentTimeMillis() / 1000 + Companion.SEVEN_DAYS_IN_SECONDS - time
                 feature.expiration = expires
             } else {
                 expires = null
@@ -183,5 +181,9 @@ open class BaseBillingManager(private val context: Context) {
             return null
         }
 
+    }
+
+    companion object {
+        private const val SEVEN_DAYS_IN_SECONDS = 7 * 24 * 60 * 60
     }
 }

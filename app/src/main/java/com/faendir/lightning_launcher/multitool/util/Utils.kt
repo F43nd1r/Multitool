@@ -53,7 +53,7 @@ object Utils {
         }
 
         companion object {
-            private val URI = "uri"
+            private const val URI = "uri"
         }
     }
 

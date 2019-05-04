@@ -2,6 +2,7 @@ package com.faendir.lightning_launcher.multitool.backup
 
 import android.content.Context
 import android.preference.PreferenceManager
+import android.text.format.DateFormat
 import com.evernote.android.job.JobManager
 import com.evernote.android.job.JobRequest
 import com.faendir.lightning_launcher.multitool.MultiTool
@@ -41,11 +42,11 @@ object BackupUtils {
         val calendar = Calendar.getInstance()
         calendar.set(Calendar.HOUR_OF_DAY, backupTime.hour)
         calendar.set(Calendar.MINUTE, backupTime.minute)
-        return days.map { day: Int ->
+        return days.joinToString(", ", "", " " + DateFormat.getTimeFormat(context).format(calendar.time)) { day: Int ->
             val c = Calendar.getInstance()
             c.set(Calendar.DAY_OF_WEEK, day)
             c.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US).substring(0, 2)
-        }.joinToString (", ", "", " " + android.text.format.DateFormat.getTimeFormat(context).format(calendar.time))
+        }
     }
 
     fun scheduleNext(context: Context) {

@@ -138,7 +138,7 @@ internal class ListManager(private val context: Context, actionModeEnabler: (Boo
         for (i in start until adapter.adapterItemCount) {
             builder.add(i)
         }
-        val collapsedItems = builder.map { adapter.getAdapterItem(it) }.map({ it.model }).toList()
+        val collapsedItems = builder.map { adapter.getAdapterItem(it).model }.toList()
         Handler(context.mainLooper).post {
             adapter.setInternal(items, false, null)
             Iterables.forEach(items) { item -> this@ListManager.recursiveExpand(item, collapsedItems) }

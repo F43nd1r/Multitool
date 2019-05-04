@@ -24,6 +24,7 @@ class DataProvider : ContentProvider() {
 
     private val uriMatcher: UriMatcher = UriMatcher(UriMatcher.NO_MATCH)
 
+    @Suppress("EnumEntryName")
     enum class Mode(val constant: Int) {
         r(ParcelFileDescriptor.MODE_READ_ONLY or ParcelFileDescriptor.MODE_CREATE),
         rwt(ParcelFileDescriptor.MODE_READ_WRITE or ParcelFileDescriptor.MODE_CREATE or ParcelFileDescriptor.MODE_TRUNCATE)

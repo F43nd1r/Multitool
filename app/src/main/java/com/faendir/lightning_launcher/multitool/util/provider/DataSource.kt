@@ -9,5 +9,5 @@ import android.content.Context
 interface DataSource {
     val path: String
 
-    open fun init(context: Context) {}
+    fun init(context: Context) {}
 }
