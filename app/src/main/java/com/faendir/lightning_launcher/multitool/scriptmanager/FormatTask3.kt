@@ -182,10 +182,10 @@ class FormatTask3 internal constructor(context: Context) : AsyncTask<Model, Form
         for (i in params.indices) {
             if (params[i] is Script) {
                 val script = params[i] as Script
-                publishProgress(Progress(params.size, i, script.getName()))
+                publishProgress(Progress(params.size, i, script.name))
                 val code = beautify(script.text) ?: return null
                 script.text = code
-                MultiTool.get().doInLL { scriptService -> scriptService.updateScript(script) }
+                MultiTool.get().doInLL { scriptService -> scriptService.updateScript(script.asLLScript()) }
             }
         }
         return null

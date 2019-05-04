@@ -7,7 +7,6 @@ import androidx.annotation.RawRes
 import androidx.annotation.StringRes
 import com.faendir.lightning_launcher.multitool.BuildConfig
 import com.faendir.lightning_launcher.multitool.R
-import com.faendir.lightning_launcher.multitool.util.LightningObjectFactory
 import com.faendir.lightning_launcher.multitool.util.provider.RemoteSharedPreferences
 import org.acra.util.StreamReader
 
@@ -15,7 +14,7 @@ import org.acra.util.StreamReader
  * @author lukas
  * @since 05.07.18
  */
-class Utils(eval: LightningObjectFactory.EvalFunction, private val functionFactory: LightningObjectFactory.FunctionFactory) {
+class Utils(eval: (String, Array<Any?>)->Unit, val functionFactory: (Any) -> Any) {
     val lightning: Lightning = ProxyFactory.evalProxy(eval)
     val lightningContext: Context = lightning.activeScreen.context
     val multitoolContext: Context = lightningContext.createPackageContext(BuildConfig.APPLICATION_ID, Context.CONTEXT_INCLUDE_CODE or Context.CONTEXT_IGNORE_SECURITY)
@@ -105,7 +104,7 @@ class Utils(eval: LightningObjectFactory.EvalFunction, private val functionFacto
         item.setPosition(x, y)
     }
 
-    fun asFunction(consumer: (Any) -> Unit): Function = ProxyFactory.lightningProxy(functionFactory.asFunction(consumer), Function::class.java)
+    fun asFunction(consumer: (Any) -> Unit): Function = ProxyFactory.lightningProxy(functionFactory.invoke(consumer), Function::class.java)
 
     fun addEventHandler(properties: PropertySet, @PropertySet.EventProperty key: String, action: Int, data: String) {
         val eventHandler = EventHandler.newInstance(lightningContext, action, data)

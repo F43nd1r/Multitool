@@ -1,6 +1,5 @@
 package com.faendir.lightning_launcher.multitool.proxy
 
-import com.faendir.lightning_launcher.multitool.util.LightningObjectFactory.EvalFunction
 import java.lang.reflect.InvocationHandler
 import java.lang.reflect.Method
 import java.util.*
@@ -16,7 +15,7 @@ object ProxyFactory {
         return java.lang.reflect.Proxy.newProxyInstance(ProxyFactory::class.java.classLoader, arrayOf<Class<*>>(interfaceClass), JavaProxyInvocationHandler(lightningObject)) as T
     }
 
-    internal fun evalProxy(eval: EvalFunction): Lightning {
+    internal fun evalProxy(eval: (String, Array<Any?>)->Unit): Lightning {
         return java.lang.reflect.Proxy.newProxyInstance(ProxyFactory::class.java.classLoader, arrayOf<Class<*>>(Lightning::class.java), EvalProxyInvocationHandler(eval)) as Lightning
     }
 
@@ -38,8 +37,8 @@ object ProxyFactory {
         override fun doInvoke(methodName: String, parameterTypes: Array<Class<*>>, parameters: Array<Any?>): Any? = clazz.getMethod(methodName, *parameterTypes).invoke(invokeOn, *parameters)
     }
 
-    private class EvalProxyInvocationHandler internal constructor(private val eval: EvalFunction) : BaseProxyInvocationHandler(eval) {
-        override fun doInvoke(methodName: String, parameterTypes: Array<Class<*>>, parameters: Array<Any?>): Any? = eval.eval(methodName, *parameters)
+    private class EvalProxyInvocationHandler internal constructor(private val eval: (String, Array<Any?>)->Unit) : BaseProxyInvocationHandler(eval) {
+        override fun doInvoke(methodName: String, parameterTypes: Array<Class<*>>, parameters: Array<Any?>): Any? = eval.invoke(methodName, parameters)
     }
 
     private abstract class BaseProxyInvocationHandler protected constructor(private val `object`: Any) : InvocationHandler {
@@ -72,11 +71,20 @@ object ProxyFactory {
                 } else if (method.returnType.isArray && Proxy::class.java.isAssignableFrom(method.returnType.componentType!!)) {
                     @Suppress("UNCHECKED_CAST")
                     val componentType = method.returnType.componentType as Class<out Proxy>
-                    @Suppress("UNCHECKED_CAST")
-                    result = (result as Array<Any>).map { `object` -> lightningProxy(`object`, componentType) }.toTypedArray()
+                    result = toProxyArrayOfType(result, componentType)
                 }
             }
             return result
+        }
+
+        @Suppress("UNCHECKED_CAST")
+        private fun <T : Proxy> toProxyArrayOfType(result : Any, type: Class<T>) : Array<T?> {
+            val input: Array<Any> = result as Array<Any>
+            val output:Array<T?> = java.lang.reflect.Array.newInstance(type, input.size) as Array<T?>
+            for(i in input.indices) {
+                output[i] = lightningProxy(input[i], type)
+            }
+            return output
         }
 
         @Throws(Exception::class)

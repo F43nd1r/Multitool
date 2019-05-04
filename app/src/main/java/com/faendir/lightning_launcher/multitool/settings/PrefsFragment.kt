@@ -15,7 +15,7 @@ class PrefsFragment : PreferenceFragmentCompat() {
     private lateinit var sharedPref: SharedPreferences
     private lateinit var listener: PreferenceListener
 
-    override fun onCreatePreferences(savedInstanceState: Bundle, rootKey: String) {
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs, rootKey)
         sharedPref = PreferenceManager.getDefaultSharedPreferences(activity)
         listener = PreferenceListener(preferenceScreen)

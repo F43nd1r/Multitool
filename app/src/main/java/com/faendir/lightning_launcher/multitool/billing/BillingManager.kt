@@ -8,8 +8,8 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.annotation.UiThread
 import com.anjlab.android.iab.v3.TransactionDetails
-import com.faendir.lightning_launcher.multitool.MultiTool.DEBUG
-import com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG
+import com.faendir.lightning_launcher.multitool.MultiTool.Companion.DEBUG
+import com.faendir.lightning_launcher.multitool.MultiTool.Companion.LOG_TAG
 import com.faendir.lightning_launcher.multitool.R
 import com.faendir.lightning_launcher.multitool.event.SwitchFragmentRequest
 import java9.util.function.Consumer
@@ -22,7 +22,7 @@ import org.greenrobot.eventbus.EventBus
 
 class BillingManager(private val context: Activity) : BaseBillingManager(context) {
 
-    fun handleActivityResult(requestCode: Int, resultCode: Int, data: Intent): Boolean {
+    fun handleActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
         return billingProcessor.get()?.handleActivityResult(requestCode, resultCode, data) ?: false
     }
 
@@ -33,28 +33,28 @@ class BillingManager(private val context: Activity) : BaseBillingManager(context
 
     @UiThread
     @JvmOverloads
-    fun showTrialBuyDialog(feature: PaidFeature, onClose: Runnable? = null) {
+    fun showTrialBuyDialog(feature: PaidFeature, onClose: (()->Unit)? = null) {
         if (!context.isFinishing) {
             AlertDialog.Builder(context)
                     .setMessage(context.getString(R.string.text_buyOrTrial, context.getString(feature.relatedFragment.res)))
                     .setPositiveButton(R.string.button_buy) { _, _ ->
                         if (DEBUG) Log.d(LOG_TAG, "Button buy")
                         buy(feature)
-                        onClose?.run()
+                        onClose?.invoke()
                     }
                     .setNeutralButton(R.string.button_trial) { _, _ ->
                         if (DEBUG) Log.d(LOG_TAG, "Button trial")
                         Thread {
                             startTrial(feature)
-                            onClose?.run()
+                            onClose?.invoke()
                         }.start()
                     }
                     .setNegativeButton(R.string.button_cancel) { _, _ ->
                         if (DEBUG) Log.d(LOG_TAG, "Button cancel")
-                        onClose?.run()
+                        onClose?.invoke()
                     }
                     .setOnCancelListener {
-                        onClose?.run()
+                        onClose?.invoke()
                     }
                     .setCancelable(false)
                     .show()

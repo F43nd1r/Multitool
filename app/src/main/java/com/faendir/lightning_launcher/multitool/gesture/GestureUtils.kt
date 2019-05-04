@@ -31,10 +31,10 @@ internal object GestureUtils {
 
     fun exportGestures(context: Context, path: Uri) {
         try {
-            val metadata = DataProvider.openFileForRead(context, GestureMetaDataSource::class.java)
-            val gestures = DataProvider.openFileForRead(context, GestureLibraryDataSource::class.java)
+            val metadata = DataProvider.openFileForRead<GestureMetaDataSource>(context)
+            val gestures = DataProvider.openFileForRead<GestureLibraryDataSource>(context)
             val outputStream = context.contentResolver.openOutputStream(path)
-            if (outputStream != null) {
+            if (metadata!= null && gestures != null && outputStream != null) {
                 try {
                     ZipOutputStream(BufferedOutputStream(outputStream)).use { out ->
                         out.putNextEntry(ZipEntry(METADATA))
@@ -99,7 +99,7 @@ internal object GestureUtils {
 
     fun readFromFile(context: Context): List<GestureInfo> {
         try {
-            InputStreamReader(DataProvider.openFileForRead(context, GestureMetaDataSource::class.java)).use { reader ->
+            InputStreamReader(DataProvider.openFileForRead<GestureMetaDataSource>(context)).use { reader ->
                 val array = Utils.GSON.fromJson(reader, Array<GestureInfo>::class.java)
                 if (array != null) {
                     return array.toList()
@@ -113,7 +113,7 @@ internal object GestureUtils {
 
     fun writeToFile(context: Context, infos: List<GestureInfo>) {
         try {
-            BufferedWriter(OutputStreamWriter(DataProvider.openFileForWrite(context, GestureMetaDataSource::class.java))).use { writer ->
+            BufferedWriter(OutputStreamWriter(DataProvider.openFileForWrite<GestureMetaDataSource>(context))).use { writer ->
                 Utils.GSON.toJson(infos.toTypedArray(), Array<GestureInfo>::class.java, writer)
                 writer.flush()
             }

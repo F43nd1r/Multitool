@@ -19,7 +19,7 @@ import java.io.File
 
 class MusicDataSource : SharedPreferencesDataSource(), FileDataSource {
 
-    override fun getPath(): String = "music"
+    override val path = "music"
 
     override fun query(context: Context, uri: Uri, projection: Array<String>?, selection: String?, selectionArgs: Array<String>?, sortOrder: String?): Cursor? {
         return super.query(context, uri, projection, selection, KEYS, sortOrder)
@@ -42,13 +42,13 @@ class MusicDataSource : SharedPreferencesDataSource(), FileDataSource {
             contentValues.put(KEY_PACKAGE, info.packageName)
             if (info.albumArt != null) {
                 try {
-                    DataProvider.openFileForWrite(context, MusicDataSource::class.java).use { outputStream -> info.albumArt.compress(Bitmap.CompressFormat.PNG, 100, outputStream) }
+                    DataProvider.openFileForWrite<MusicDataSource>(context).use { outputStream -> info.albumArt.compress(Bitmap.CompressFormat.PNG, 100, outputStream) }
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
 
             }
-            context.contentResolver.update(DataProvider.getContentUri(MusicDataSource::class.java), contentValues, null, null)
+            context.contentResolver.update(DataProvider.getContentUri<MusicDataSource>(), contentValues, null, null)
         }
 
         fun queryInfo(context: Context): TitleInfo {
@@ -56,7 +56,7 @@ class MusicDataSource : SharedPreferencesDataSource(), FileDataSource {
             lateinit var album: String
             lateinit var artist: String
             lateinit var packageName: String
-            context.contentResolver.query(DataProvider.getContentUri(MusicDataSource::class.java), null, null, null, null)
+            context.contentResolver.query(DataProvider.getContentUri<MusicDataSource>(), null, null, null, null)
                     ?.use { cursor ->
                         while (cursor.moveToNext()) {
                             when (cursor.getString(0)) {
@@ -69,7 +69,7 @@ class MusicDataSource : SharedPreferencesDataSource(), FileDataSource {
                     }
             var albumArt: Bitmap? = null
             try {
-                DataProvider.openFileForRead(context, MusicDataSource::class.java).use { inputStream -> albumArt = BitmapFactory.decodeStream(inputStream) }
+                DataProvider.openFileForRead<MusicDataSource>(context).use { inputStream -> albumArt = BitmapFactory.decodeStream(inputStream) }
             } catch (e: Exception) {
                 e.printStackTrace()
             }

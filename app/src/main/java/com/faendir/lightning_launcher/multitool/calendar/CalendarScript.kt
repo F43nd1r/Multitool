@@ -50,7 +50,7 @@ class CalendarScript(private val utils: Utils) : JavaScript.Setup, JavaScript.No
         }
         val projection = arrayOf(Instances._ID, Instances.BEGIN, Instances.END, Instances.TITLE, Instances.ALL_DAY)
         val selection = Instances.CALENDAR_ID + " IN ('" + TextUtils.join("','", calendars) + "')"
-        val uri = DataProvider.getContentUri(CalendarDataSource::class.java)
+        val uri = DataProvider.getContentUri<CalendarDataSource>()
         var searchDays = 32
         val cal = Calendar.getInstance()
         val entries = ArrayList<String>()

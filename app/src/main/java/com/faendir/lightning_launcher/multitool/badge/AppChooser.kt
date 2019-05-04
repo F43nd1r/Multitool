@@ -42,7 +42,7 @@ class AppChooser : BaseActivity(R.layout.content_app_chooser) {
             val highPriority: MutableSet<String> = sharedPref.getStringSet(getString(R.string.key_badgeIntentPackages), emptySet())!!
             val prefix = getString(R.string.unread_prefix)
             val midPriority = sharedPref.all.keys.filter { it.startsWith(prefix) }.map { it.substring(prefix.length) }.toSet()
-            fragment.setComparator { o1, o2 ->
+            fragment.setComparator (Comparator { o1, o2 ->
 
                 val pn1 = o1.intent.component?.packageName
 
@@ -51,7 +51,7 @@ class AppChooser : BaseActivity(R.layout.content_app_chooser) {
                 val p2 = if (highPriority.contains(pn2)) 2 else if (midPriority.contains(pn2)) 1 else 0
                 val compare = Integer.compare(p2, p1)
                 if (compare != 0) compare else o1.compareTo(o2)
-            }
+            })
         } else {
             fragment.setComparator(Comparators.comparing<IntentInfo, String> { it.name })
         }

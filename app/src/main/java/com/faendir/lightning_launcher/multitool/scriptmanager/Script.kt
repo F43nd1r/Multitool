@@ -30,8 +30,11 @@ class Script(name: String, id: Int, code: String, flags: Int, path: String) : Co
     val flags: Int
         get() = delegate.flags
 
-    val text: String
+    var text: String
         get() = delegate.text
+        set(value) {
+            delegate.text = value
+        }
 
     val path: String
         get() = delegate.path

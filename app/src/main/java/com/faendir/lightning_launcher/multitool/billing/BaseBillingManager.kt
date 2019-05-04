@@ -8,12 +8,10 @@ import androidx.annotation.StringRes
 import androidx.annotation.WorkerThread
 import com.anjlab.android.iab.v3.BillingProcessor
 import com.anjlab.android.iab.v3.TransactionDetails
-import com.faendir.lightning_launcher.multitool.MultiTool.DEBUG
-import com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG
+import com.faendir.lightning_launcher.multitool.MultiTool.Companion.DEBUG
+import com.faendir.lightning_launcher.multitool.MultiTool.Companion.LOG_TAG
 import com.faendir.lightning_launcher.multitool.util.Fragments
 import com.google.common.util.concurrent.SettableFuture
-import java9.util.Optional
-import java9.util.stream.Stream
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
@@ -56,8 +54,8 @@ open class BaseBillingManager(private val context: Context) {
             }
 
             @JvmStatic
-            fun fromFragment(fragment: Fragments): Optional<PaidFeature> {
-                return Stream.of(*values()).filter { v -> v.relatedFragment === fragment }.findAny()
+            fun fromFragment(fragment: Fragments): PaidFeature? {
+                return values().find { v -> v.relatedFragment === fragment }
             }
         }
     }

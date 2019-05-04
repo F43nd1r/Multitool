@@ -13,7 +13,7 @@ import java.io.File
 
 class GestureLibraryDataSource : FileDataSource {
 
-    override fun getPath(): String = "lib"
+    override val path = "lib"
 
     override fun getFile(context: Context): File = File(context.filesDir, "gestureLibrary")
 }

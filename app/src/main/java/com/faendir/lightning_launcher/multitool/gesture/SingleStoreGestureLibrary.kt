@@ -5,8 +5,8 @@ import android.gesture.Gesture
 import android.gesture.GestureStore
 import android.gesture.Prediction
 import android.util.Log
-import com.faendir.lightning_launcher.multitool.MultiTool.DEBUG
-import com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG
+import com.faendir.lightning_launcher.multitool.MultiTool.Companion.DEBUG
+import com.faendir.lightning_launcher.multitool.MultiTool.Companion.LOG_TAG
 import com.faendir.lightning_launcher.multitool.util.provider.DataProvider
 import org.acra.ACRA
 import java.io.IOException
@@ -72,7 +72,7 @@ internal class SingleStoreGestureLibrary private constructor(private val context
         private fun save(context: Context) {
             if (!gestureStore.hasChanged()) return
             try {
-                gestureStore.save(DataProvider.openFileForWrite(context, GestureLibraryDataSource::class.java), true)
+                gestureStore.save(DataProvider.openFileForWrite<GestureLibraryDataSource>(context), true)
             } catch (e: IOException) {
                 if (DEBUG) Log.d(LOG_TAG, "Could not save the gesture library", e)
                 ACRA.getErrorReporter().handleSilentException(e)
@@ -82,7 +82,7 @@ internal class SingleStoreGestureLibrary private constructor(private val context
 
         private fun load(context: Context) {
             try {
-                DataProvider.openFileForRead(context, GestureLibraryDataSource::class.java).use {
+                DataProvider.openFileForRead<GestureLibraryDataSource>(context)?.use {
                     if (it.available() > 0) {
                         gestureStore.load(it, false)
                     }

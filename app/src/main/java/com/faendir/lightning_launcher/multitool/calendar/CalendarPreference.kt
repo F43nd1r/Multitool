@@ -28,9 +28,8 @@ class CalendarPreference(context: Context, attrs: AttributeSet) : MultiSelectLis
         refresh()
     }
 
-    override fun getSummaryText(): CharSequence {
-        return TextUtils.join(", ", getSelectedEntries())
-    }
+    override val summaryText: CharSequence
+        get() = TextUtils.join(", ", getSelectedEntries())
 
     override fun onGetDefaultValue(a: TypedArray, index: Int): Any {
         val calendars = HashSet<String>()

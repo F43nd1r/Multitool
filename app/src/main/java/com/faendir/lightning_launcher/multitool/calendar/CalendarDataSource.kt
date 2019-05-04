@@ -25,5 +25,5 @@ class CalendarDataSource : QueryDataSource {
         return null
     }
 
-    override fun getPath(): String = "calendar/*/*"
+    override val path = "calendar/*/*"
 }

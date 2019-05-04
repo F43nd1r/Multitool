@@ -15,8 +15,8 @@ import android.preference.PreferenceManager
 import android.service.notification.NotificationListenerService
 import android.util.Log
 import android.view.KeyEvent
-import com.faendir.lightning_launcher.multitool.MultiTool.DEBUG
-import com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG
+import com.faendir.lightning_launcher.multitool.MultiTool.Companion.DEBUG
+import com.faendir.lightning_launcher.multitool.MultiTool.Companion.LOG_TAG
 import com.faendir.lightning_launcher.multitool.R
 import com.faendir.lightning_launcher.multitool.billing.BaseBillingManager
 import com.faendir.lightning_launcher.multitool.util.notification.NotificationListener

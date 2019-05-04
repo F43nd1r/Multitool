@@ -13,7 +13,7 @@ import java.io.File
 
 class GestureMetaDataSource : FileDataSource {
 
-    override fun getPath(): String = "infos"
+    override val path = "infos"
 
     override fun getFile(context: Context): File = File(context.filesDir, "gestures")
 }

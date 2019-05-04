@@ -19,7 +19,7 @@ import com.faendir.lightning_launcher.multitool.util.provider.DataProvider
  * @since 06.11.2017
  */
 @Keep
-abstract class MusicListener protected constructor(context: Context) : BaseContentListener(Handler(), context, DataProvider.getContentUri(MusicDataSource::class.java)) {
+abstract class MusicListener protected constructor(context: Context) : BaseContentListener(Handler(), context, DataProvider.getContentUri<MusicDataSource>()) {
 
     override fun onChange(selfChange: Boolean) = onChange(MusicDataSource.queryInfo(context))
 

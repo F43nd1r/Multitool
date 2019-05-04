@@ -11,8 +11,8 @@ import android.widget.Toast
 import androidx.annotation.Keep
 import androidx.core.content.ContextCompat
 import com.faendir.lightning_launcher.multitool.BuildConfig
-import com.faendir.lightning_launcher.multitool.MultiTool.DEBUG
-import com.faendir.lightning_launcher.multitool.MultiTool.LOG_TAG
+import com.faendir.lightning_launcher.multitool.MultiTool.Companion.DEBUG
+import com.faendir.lightning_launcher.multitool.MultiTool.Companion.LOG_TAG
 import com.faendir.lightning_launcher.multitool.R
 import com.faendir.lightning_launcher.multitool.proxy.Utils
 import java9.util.stream.StreamSupport

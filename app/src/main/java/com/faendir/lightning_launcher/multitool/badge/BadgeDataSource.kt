@@ -16,7 +16,7 @@ import com.faendir.lightning_launcher.multitool.util.provider.SharedPreferencesD
  */
 class BadgeDataSource : SharedPreferencesDataSource() {
 
-    override fun getPath(): String = "badge/*"
+    override val path = "badge/*"
 
     override fun query(context: Context, uri: Uri, projection: Array<String>?, selection: String?, selectionArgs: Array<String>?, sortOrder: String?): Cursor? {
         return super.query(context, uri, projection, selection, arrayOf(context.getString(R.string.unread_prefix) + uri.lastPathSegment!!), sortOrder)
@@ -43,7 +43,7 @@ class BadgeDataSource : SharedPreferencesDataSource() {
         }
 
         fun getContentUri(packageName: String): Uri {
-            val uri = DataProvider.getContentUri(BadgeDataSource::class.java)
+            val uri = DataProvider.getContentUri<BadgeDataSource>()
 
             return uri.buildUpon().path(uri.path!!.replace("*", packageName)).build()
         }
