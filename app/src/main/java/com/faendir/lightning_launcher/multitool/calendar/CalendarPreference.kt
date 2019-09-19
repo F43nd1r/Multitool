@@ -49,7 +49,10 @@ class CalendarPreference(context: Context, attrs: AttributeSet) : MultiSelectLis
             context.contentResolver
                     .query(Calendars.CONTENT_URI, arrayOf(Calendars._ID, Calendars.NAME), Calendars.VISIBLE + " = 1", null, Calendars._ID + " ASC")?.use {
                         while (it.moveToNext()) {
-                            calendars[it.getString(0)] = it.getString(1)
+                            val name: String? = it.getString(1)
+                            if(name != null)  {
+                                calendars[it.getString(0)] = name
+                            }
                         }
                     }
         }
