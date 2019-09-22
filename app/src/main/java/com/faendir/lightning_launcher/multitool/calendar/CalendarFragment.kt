@@ -24,7 +24,7 @@ class CalendarFragment : PreferenceFragmentCompat() {
         PermissionActivity.checkForPermission(activity!!, Manifest.permission.READ_CALENDAR).addCallback(object : FutureCallback<Boolean> {
             override fun onSuccess(result: Boolean?) {
                 if (result != null && result) {
-                    (preferenceScreen.findPreference(getString(R.string.pref_calendars)) as CalendarPreference).refresh()
+                    (preferenceScreen.findPreference<CalendarPreference>(getString(R.string.pref_calendars)) as CalendarPreference).refresh()
                 }
             }
 

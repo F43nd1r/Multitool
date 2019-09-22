@@ -2,6 +2,7 @@ package com.faendir.lightning_launcher.multitool.settings
 
 import android.content.SharedPreferences
 import androidx.preference.ListPreference
+import androidx.preference.Preference
 import androidx.preference.PreferenceScreen
 import java.util.*
 
@@ -23,10 +24,11 @@ class PreferenceListener(private val screen: PreferenceScreen) : SharedPreferenc
     }
 
     private fun setSummary(key: String) {
-        val preference = screen.findPreference(key)
-        preference.summary = when (preference) {
+        val preference: Preference? = screen.findPreference(key)
+        preference?.summary = when (preference) {
             is SummaryPreference -> (preference as SummaryPreference).summaryText
             is ListPreference -> preference.entry
+            null -> ""
             else -> preference.sharedPreferences.all[key].toString()
         }
     }

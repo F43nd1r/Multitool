@@ -27,7 +27,7 @@ class BackupFragment : PreferenceFragmentCompat() {
         preferenceScreen.sharedPreferences.registerOnSharedPreferenceChangeListener(listener)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.backup, menu)
     }
 

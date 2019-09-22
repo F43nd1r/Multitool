@@ -18,7 +18,7 @@ class BadgeFragment : PreferenceFragmentCompat() {
         setPreferencesFromResource(R.xml.badge, rootKey)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater) = inflater.inflate(R.menu.badge, menu)
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) = inflater.inflate(R.menu.badge, menu)
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_help) {

@@ -34,7 +34,7 @@ class PrefsFragment : PreferenceFragmentCompat() {
         if (preference is IdPreference) {
             val f = IdPreference.Dialog.newInstance(preference.getKey())
             f.setTargetFragment(this, 0)
-            f.show(fragmentManager, "ID_DIALOG")
+            f.show(fragmentManager!!, "ID_DIALOG")
         } else {
             super.onDisplayPreferenceDialog(preference)
         }

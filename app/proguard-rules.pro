@@ -32,6 +32,9 @@
     @org.greenrobot.eventbus.Subscribe <methods>;
 }
 -keep enum org.greenrobot.eventbus.ThreadMode { *; }
+
+-keep class kotlin.jvm.functions.** {*;}
+
 -dontwarn java.lang.invoke.*
 -dontwarn sun.misc.Unsafe
 -dontwarn org.mozilla.javascript.**

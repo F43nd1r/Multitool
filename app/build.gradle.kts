@@ -38,7 +38,7 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
         getByName("debug") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
@@ -59,9 +59,9 @@ play {
 
 dependencies {
     implementation("com.faendir.lightninglauncher:scriptlib:4.1.1")
-    implementation("androidx.appcompat:appcompat:1.0.2")
+    implementation("androidx.appcompat:appcompat:1.1.0")
     implementation("androidx.recyclerview:recyclerview:1.0.0")
-    implementation("androidx.preference:preference:1.0.0")
+    implementation("androidx.preference:preference:1.1.0")
     implementation("com.google.android.material:material:1.0.0")
     implementation("com.google.code.gson:gson:2.8.5")
     implementation("ch.acra:acra-http:5.3.0")
@@ -74,8 +74,8 @@ dependencies {
     implementation("net.sourceforge.streamsupport:android-retrostreams:1.6.3")
     implementation("org.mozilla:rhino:1.7.10")
     implementation("com.evernote:android-job:1.2.6")
-    compileOnly("com.google.auto.service:auto-service-annotations:1.0-rc5")
-    annotationProcessor("com.google.auto.service:auto-service:1.0-rc5")
+    compileOnly("com.google.auto.service:auto-service-annotations:1.0-rc6")
+    annotationProcessor("com.google.auto.service:auto-service:1.0-rc6")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     implementation("org.apache.commons:commons-lang3:3.8.1")
     implementation("com.google.guava:guava:27.1-android")

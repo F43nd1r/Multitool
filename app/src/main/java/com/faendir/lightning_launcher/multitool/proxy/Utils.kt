@@ -3,9 +3,11 @@ package com.faendir.lightning_launcher.multitool.proxy
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Resources
+import android.util.Log
 import androidx.annotation.RawRes
 import androidx.annotation.StringRes
 import com.faendir.lightning_launcher.multitool.BuildConfig
+import com.faendir.lightning_launcher.multitool.MultiTool
 import com.faendir.lightning_launcher.multitool.R
 import com.faendir.lightning_launcher.multitool.util.provider.RemoteSharedPreferences
 import org.acra.util.StreamReader
@@ -15,6 +17,10 @@ import org.acra.util.StreamReader
  * @since 05.07.18
  */
 class Utils(eval: (String, Array<Any?>)->Unit, private val functionFactory: (Any) -> Any) {
+
+    init {
+        Log.d(MultiTool.LOG_TAG, Utils::class.java.constructors[0].toString())
+    }
     val lightning: Lightning = ProxyFactory.evalProxy(eval)
     val lightningContext: Context = lightning.activeScreen.context
     val multitoolContext: Context = lightningContext.createPackageContext(BuildConfig.APPLICATION_ID, Context.CONTEXT_INCLUDE_CODE or Context.CONTEXT_IGNORE_SECURITY)

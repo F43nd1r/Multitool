@@ -80,7 +80,7 @@ class GestureFragment : Fragment() {
         return layout
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_gesture, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }

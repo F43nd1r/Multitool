@@ -73,7 +73,7 @@ class MusicFragment : Fragment() {
         return v
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_music_widget, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }

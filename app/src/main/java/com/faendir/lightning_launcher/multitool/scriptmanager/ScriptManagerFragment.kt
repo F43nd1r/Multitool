@@ -51,9 +51,9 @@ class ScriptManagerFragment : Fragment(), ActionMode.Callback {
         super.onStop()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater) = inflater.inflate(R.menu.menu_scriptmanager, menu)
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) = inflater.inflate(R.menu.menu_scriptmanager, menu)
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (!enableMenu) {
             Toast.makeText(activity, R.string.toast_menuDisabled, Toast.LENGTH_SHORT).show()
             return true
