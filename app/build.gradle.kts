@@ -38,7 +38,7 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
         getByName("debug") {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
@@ -60,13 +60,13 @@ play {
 dependencies {
     implementation("com.faendir.lightninglauncher:scriptlib:4.1.1")
     implementation("androidx.appcompat:appcompat:1.1.0")
-    implementation("androidx.recyclerview:recyclerview:1.0.0")
+    implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("androidx.preference:preference:1.1.0")
     implementation("com.google.android.material:material:1.0.0")
     implementation("com.google.code.gson:gson:2.8.5")
-    implementation("ch.acra:acra-http:5.3.0")
-    implementation("ch.acra:acra-limiter:5.3.0")
-    implementation("ch.acra:acra-advanced-scheduler:5.3.0")
+    implementation("ch.acra:acra-http:5.4.0")
+    implementation("ch.acra:acra-limiter:5.4.0")
+    implementation("ch.acra:acra-advanced-scheduler:5.4.0")
     implementation("org.greenrobot:eventbus:3.1.1")
     implementation("com.anjlab.android.iab.v3:library:1.0.44")
     implementation("com.mikepenz:materialdrawer:6.0.9")
@@ -99,7 +99,4 @@ afterEvaluate {
     rootProject.tasks.getByName("beforeReleaseBuild").dependsOn(tasks.getByName("clean"))
     rootProject.tasks.getByName("build").dependsOn(tasks.getByName("build"))
     rootProject.tasks.getByName("afterReleaseBuild").dependsOn(tasks.getByName("publishApkRelease"))
-}
-repositories {
-    mavenCentral()
 }
