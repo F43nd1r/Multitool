@@ -47,7 +47,7 @@ class NotificationDistributorService : NotificationListenerService() {
                     .setTitle(R.string.title_listener)
                     .setMessage(R.string.text_listener)
                     .setButtons(android.R.string.yes, android.R.string.no, object : ResultReceiver(Handler()) {
-                        override fun onReceiveResult(resultCode: Int, resultData: Bundle) {
+                        override fun onReceiveResult(resultCode: Int, resultData: Bundle?) {
                             super.onReceiveResult(resultCode, resultData)
                             if (resultCode == AlertDialog.BUTTON_POSITIVE) {
                                 val intent = Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS")

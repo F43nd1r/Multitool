@@ -52,10 +52,10 @@ class MusicDataSource : SharedPreferencesDataSource(), FileDataSource {
         }
 
         fun queryInfo(context: Context): TitleInfo {
-            lateinit var title: String
-            lateinit var album: String
-            lateinit var artist: String
-            lateinit var packageName: String
+            var title = ""
+            var album = ""
+            var artist = ""
+            var packageName = ""
             context.contentResolver.query(DataProvider.getContentUri<MusicDataSource>(), null, null, null, null)
                     ?.use { cursor ->
                         while (cursor.moveToNext()) {

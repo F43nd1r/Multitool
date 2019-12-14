@@ -209,7 +209,7 @@ class MusicNotificationListener : NotificationListener {
                 } else {
                     metadata!!.getBitmap(key)
                 }
-            }.first { it != null }
+            }.firstOrNull { it != null }
         }
 
         internal fun push() {
