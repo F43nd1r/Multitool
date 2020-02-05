@@ -213,12 +213,13 @@ class MusicNotificationListener : NotificationListener {
         }
 
         internal fun push() {
-            if (metadata == null) {
+            val m = metadata
+            if (m == null) {
                 updateCurrentInfo(controllers.inverse()[this], bitmap, "", "", "")
             } else {
-                updateCurrentInfo(controllers.inverse()[this], bitmap, metadata!!.getString(MediaMetadata.METADATA_KEY_TITLE),
-                        metadata!!.getString(MediaMetadata.METADATA_KEY_ALBUM),
-                        metadata!!.getString(MediaMetadata.METADATA_KEY_ARTIST))
+                updateCurrentInfo(controllers.inverse()[this], bitmap, m.getString(MediaMetadata.METADATA_KEY_TITLE) ?: "",
+                        m.getString(MediaMetadata.METADATA_KEY_ALBUM) ?: "",
+                        m.getString(MediaMetadata.METADATA_KEY_ARTIST) ?: "")
             }
         }
 
