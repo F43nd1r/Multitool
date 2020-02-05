@@ -5,7 +5,12 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
@@ -16,6 +21,7 @@ import com.faendir.lightning_launcher.multitool.event.ClickEvent
 import com.faendir.lightning_launcher.multitool.util.ScriptBuilder
 import com.faendir.lightning_launcher.multitool.util.notification.NotificationDistributorService
 import net.pierrox.lightning_launcher.api.ScreenIdentity
+import org.acra.ACRA
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 
@@ -58,7 +64,11 @@ class MusicFragment : Fragment() {
                 title.text = info.title
                 album.text = info.album
                 artist.text = info.artist
-                player.setImageDrawable(pm.getApplicationIcon(info.packageName))
+                try {
+                    player.setImageDrawable(pm.getApplicationIcon(info.packageName))
+                } catch (e: PackageManager.NameNotFoundException) {
+                    ACRA.getErrorReporter().handleSilentException(RuntimeException("Failed to get icon for package name " + info.packageName, e));
+                }
             }
         }
     }
